@@ -83,6 +83,16 @@ int main() {
         return EXIT_FAILURE;
     }
 
+    adapter.move_requested = false;
+    adapter.navigation_status_code = 83;
+    const auto terminal_nav_move = server.handle_post("/api/control/move", "linear=0.08&angular=0.0");
+    if (terminal_nav_move.status != 200 || !adapter.move_requested ||
+        adapter.stop_navigation_count != 2 ||
+        adapter.last_linear != 0.08 || adapter.last_angular != 0.0) {
+        std::cerr << "expected terminal navigation status to avoid redundant release loop\n";
+        return EXIT_FAILURE;
+    }
+
     const auto stop = server.handle_post("/api/control/stop", "");
     if (stop.status != 200 || adapter.stop_navigation_count != 3 ||
         adapter.last_linear != 0.0 || adapter.last_angular != 0.0) {
