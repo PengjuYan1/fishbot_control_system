@@ -17,6 +17,7 @@ add_library(fishbot_bootstrap
     backend/app/Logger.cpp
 )
 target_include_directories(fishbot_bootstrap PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+target_link_libraries(fishbot_bootstrap PUBLIC fishbot_adapter)
 
 add_library(fishbot_storage
     storage/Database.cpp
@@ -72,6 +73,14 @@ target_link_libraries(test_bootstrap PRIVATE fishbot_bootstrap)
 
 add_test(NAME BootstrapTest COMMAND test_bootstrap)
 set_tests_properties(BootstrapTest PROPERTIES WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+
+add_executable(test_app_context
+    tests/integration/test_app_context.cpp
+)
+target_link_libraries(test_app_context PRIVATE fishbot_bootstrap Threads::Threads)
+
+add_test(NAME AppContextTest COMMAND test_app_context)
+set_tests_properties(AppContextTest PROPERTIES WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
 
 add_executable(test_config
     tests/unit/app/test_config.cpp

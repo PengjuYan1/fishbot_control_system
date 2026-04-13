@@ -1,6 +1,6 @@
 #include "backend/bootstrap.h"
 
-#include "backend/app/Config.h"
+#include "backend/app/AppContext.h"
 
 #include <exception>
 
@@ -12,8 +12,9 @@ bool is_supported_adapter_mode(const std::string& adapter_mode) {
 
 bool start_app_with_config(const std::string& config_path) {
     try {
-        const auto config = load_config(config_path);
-        return is_supported_adapter_mode(config.adapter_mode);
+        const auto context = build_app_context(config_path);
+        return is_supported_adapter_mode(context.config.adapter_mode) &&
+            (context.config.adapter_mode == "fake" || context.adapter != nullptr);
     } catch (const std::exception&) {
         return false;
     }
