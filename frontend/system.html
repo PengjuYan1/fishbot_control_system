@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fishbot Diagnostics</title>
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Diagnostics</p>
+        <h1>系统状态与诊断</h1>
+      </div>
+    </header>
+    <main class="dashboard-grid">
+      <section class="panel map-stage">
+        <div class="panel-header">
+          <div>
+            <p class="panel-kicker">Connection</p>
+            <h2>适配器连接状态</h2>
+          </div>
+        </div>
+        <div class="metric-list">
+          <div class="metric-card"><span>健康状态</span><strong id="connection-health">--</strong></div>
+          <div class="metric-card"><span>适配器模式</span><strong id="connection-mode">--</strong></div>
+          <div class="metric-card"><span>最近错误</span><strong id="connection-error">--</strong></div>
+          <div class="metric-card"><span>重连次数</span><strong id="connection-retries">0</strong></div>
+        </div>
+      </section>
+      <aside class="side-column">
+        <section class="panel status-panel">
+          <div class="panel-header compact">
+            <div>
+              <p class="panel-kicker">Alerts</p>
+              <h2>告警与事件</h2>
+            </div>
+          </div>
+          <div id="alert-list"></div>
+        </section>
+      </aside>
+    </main>
+  </div>
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/system.js"></script>
+</body>
+</html>

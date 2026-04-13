@@ -1,8 +1,4 @@
 build/
-.superpowers/
-*.o
-*.a
-*.so
-*.swp
-.DS_Store
+build-*/
+dist/
 Testing/

@@ -10,6 +10,13 @@ struct TaskSummary {
     std::string current_target = "";
 };
 
+struct ConnectionDiagnostics {
+    bool healthy = true;
+    std::string last_error = "";
+    int reconnect_attempts = 0;
+    std::string adapter_mode = "";
+};
+
 struct SystemSnapshot {
     int battery = 0;
     Pose pose;
@@ -17,6 +24,7 @@ struct SystemSnapshot {
     bool connected = false;
     bool localized = false;
     TaskSummary task;
+    ConnectionDiagnostics connection;
 };
 
 inline std::string to_json(const SystemSnapshot& snapshot) {
@@ -28,7 +36,11 @@ inline std::string to_json(const SystemSnapshot& snapshot) {
         ",\"connected\":" + (snapshot.connected ? "true" : "false") +
         ",\"localized\":" + (snapshot.localized ? "true" : "false") +
         ",\"task\":{\"status\":\"" + snapshot.task.status +
-        "\",\"current_target\":\"" + snapshot.task.current_target + "\"}}";
+        "\",\"current_target\":\"" + snapshot.task.current_target + "\"" +
+        "},\"connection\":{\"healthy\":" + (snapshot.connection.healthy ? "true" : "false") +
+        ",\"last_error\":\"" + snapshot.connection.last_error +
+        "\",\"reconnect_attempts\":" + std::to_string(snapshot.connection.reconnect_attempts) +
+        ",\"adapter_mode\":\"" + snapshot.connection.adapter_mode + "\"}}";
 }
 
 #endif

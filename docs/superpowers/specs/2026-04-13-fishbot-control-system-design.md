@@ -2,6 +2,10 @@
 
 日期：2026-04-13
 
+Implementation notes:
+
+- 运行时流程文档：`docs/architecture/runtime-flows.md`
+
 ## 1. 目标
 
 构建一个新的独立工程，用于单台渔场机器人在单张地图上的自动导航投喂控制。系统需要支持：
@@ -587,4 +591,3 @@ fishbot_control_system/
 8. 定时调度闭环
 9. 自动回充与恢复策略闭环
 10. 系统日志与告警页
-

@@ -19,6 +19,7 @@ target_include_directories(fishbot_bootstrap PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
 add_library(fishbot_storage
     storage/Database.cpp
+    storage/repositories/EventLogRepository.cpp
     storage/repositories/PointRepository.cpp
     storage/repositories/ScheduleRepository.cpp
     storage/repositories/TaskRunRepository.cpp
@@ -42,6 +43,8 @@ add_library(fishbot_backend
     backend/api/MapController.cpp
     backend/services/PointService.cpp
     backend/api/PointController.cpp
+    backend/services/AlertService.cpp
+    backend/api/AlertController.cpp
     backend/services/TaskService.cpp
     backend/api/TaskController.cpp
     backend/services/ScheduleService.cpp
@@ -186,3 +189,27 @@ target_link_libraries(test_charge_recovery PRIVATE fishbot_backend fishbot_stora
 
 add_test(NAME ChargeRecoveryTest COMMAND test_charge_recovery)
 set_tests_properties(ChargeRecoveryTest PROPERTIES WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+
+add_executable(test_alerts_api
+    tests/integration/api/test_alerts_api.cpp
+)
+target_link_libraries(test_alerts_api PRIVATE fishbot_backend fishbot_storage)
+
+add_test(NAME AlertsApiTest COMMAND test_alerts_api)
+set_tests_properties(AlertsApiTest PROPERTIES WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+
+add_executable(test_connection_diagnostics
+    tests/integration/api/test_connection_diagnostics.cpp
+)
+target_link_libraries(test_connection_diagnostics PRIVATE fishbot_backend)
+
+add_test(NAME ConnectionDiagnosticsTest COMMAND test_connection_diagnostics)
+set_tests_properties(ConnectionDiagnosticsTest PROPERTIES WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+
+add_executable(test_end_to_end_fake_adapter
+    tests/integration/test_end_to_end_fake_adapter.cpp
+)
+target_link_libraries(test_end_to_end_fake_adapter PRIVATE fishbot_backend fishbot_storage fishbot_bootstrap)
+
+add_test(NAME EndToEndFakeAdapterTest COMMAND test_end_to_end_fake_adapter)
+set_tests_properties(EndToEndFakeAdapterTest PROPERTIES WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})

@@ -1,4 +1,4 @@
-adapter_mode: rosbridge
+adapter_mode: rosbridge  # supported: rosbridge, native, fake
 rosbridge_host: 10.7.5.88
 rosbridge_port: 9090
 battery_return_threshold: 25
