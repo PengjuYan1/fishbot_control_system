@@ -1,0 +1,117 @@
+package com.jlboat.phone.util;
+public class TopicNames {
+    public static String ADD_TARGET_GOALS;
+    public static String ADD_WAIT_TIME_TARGET_GOAL;
+    public static String AndroidStartgoal;
+    public static String BatteryMsg;
+    public static String Battry;
+    public static String CMD_VEL;
+    public static String CameraMsg;
+    public static String ChNgeMotionMode;
+    public static String ChageMsg;
+    public static String CleanArea;
+    public static String CurrentposeLocationmiss;
+    public static String DownMapStateMsg;
+    public static String EMEMsg;
+    public static String ErasePose;
+    public static String GlobalPlansTest;
+    public static String GoCharge;
+    public static String HeartMsg;
+    public static String ImuMsg;
+    public static String InitMsg;
+    public static String LeftMotorMsg;
+    public static String LidarMsg;
+    public static String LocationMsg;
+    public static String LocationStatus;
+    public static String MOROTMsg;
+    public static String MapBuildStatusMsg;
+    public static String MapStatus;
+    public static String MapStatusMsg;
+    public static String Motor1Msg;
+    public static String Motor2Msg;
+    public static String MoveTestMsg;
+    public static String NAVI_TARGET_GOAL_LIST;
+    public static String NaviNetworkMsg;
+    public static String NaviStop;
+    public static String NaviToPointName;
+    public static String NavigationMsg;
+    public static String NpathAddorDel;
+    public static String OUTOFCHARGE;
+    public static String OUTOFCHARGE_STATUS;
+    public static String OdomMsg;
+    public static String OutChargeMsg;
+    public static String REACHPOINT_STATUS;
+    public static String REVICE_OUTMACHINE_SIGNAL;
+    public static String RightMotorMsg;
+    public static String SET_TYPES_TARGET_GOAL;
+    public static String SonarMsg;
+    public static String Stm32Msg;
+    public static String TARGET_GOAL_WAIT_TIME;
+    public static String TestMsg;
+    public static String VirtualMsg;
+    public static String WARNLEDSTATUS;
+    public static String WallUpdateMsg;
+    public static String naviTargetgoal;
+
+    static TopicNames()
+    {
+        com.jlboat.phone.util.TopicNames.ErasePose = "erase_pose";
+        com.jlboat.phone.util.TopicNames.CMD_VEL = "cmd_vel";
+        com.jlboat.phone.util.TopicNames.CurrentposeLocationmiss = "/currentpose_locationmiss";
+        com.jlboat.phone.util.TopicNames.CleanArea = "/start_cleanarea";
+        com.jlboat.phone.util.TopicNames.NpathAddorDel = "/npath_addorDel";
+        com.jlboat.phone.util.TopicNames.OUTOFCHARGE = "outofcharge";
+        com.jlboat.phone.util.TopicNames.WARNLEDSTATUS = "warnLed_status";
+        com.jlboat.phone.util.TopicNames.REACHPOINT_STATUS = "reachPoint_status";
+        com.jlboat.phone.util.TopicNames.ADD_TARGET_GOALS = "add_target_goals";
+        com.jlboat.phone.util.TopicNames.ADD_WAIT_TIME_TARGET_GOAL = "/add_wait_time_target_goal";
+        com.jlboat.phone.util.TopicNames.SET_TYPES_TARGET_GOAL = "/set_types_target_goal";
+        com.jlboat.phone.util.TopicNames.AndroidStartgoal = "/android_startgoal";
+        com.jlboat.phone.util.TopicNames.NAVI_TARGET_GOAL_LIST = "/navi_target_goal_list";
+        com.jlboat.phone.util.TopicNames.TARGET_GOAL_WAIT_TIME = "/target_goal_wait_time";
+        com.jlboat.phone.util.TopicNames.LocationStatus = "/location_status";
+        com.jlboat.phone.util.TopicNames.MoveTestMsg = "/testodom";
+        com.jlboat.phone.util.TopicNames.TestMsg = "/navitest_result";
+        com.jlboat.phone.util.TopicNames.HeartMsg = "heart_beat";
+        com.jlboat.phone.util.TopicNames.InitMsg = "androidmsg_initstatus";
+        com.jlboat.phone.util.TopicNames.EMEMsg = "androidmsg_emergencystatus";
+        com.jlboat.phone.util.TopicNames.MOROTMsg = "androidmsg_motorenabledstatus";
+        com.jlboat.phone.util.TopicNames.ChageMsg = "androidmsg_chargestatus";
+        com.jlboat.phone.util.TopicNames.Battry = "power_report";
+        com.jlboat.phone.util.TopicNames.ChNgeMotionMode = "motion_mode";
+        com.jlboat.phone.util.TopicNames.OUTOFCHARGE_STATUS = "outofcharge_status";
+        com.jlboat.phone.util.TopicNames.REVICE_OUTMACHINE_SIGNAL = "reviceOutMachineSignal";
+        com.jlboat.phone.util.TopicNames.LocationMsg = "androidmsg_locationstatus";
+        com.jlboat.phone.util.TopicNames.WallUpdateMsg = "wall_update";
+        com.jlboat.phone.util.TopicNames.NavigationMsg = "androidmsg_navigationstatus";
+        com.jlboat.phone.util.TopicNames.NaviToPointName = "/set_targetgoal";
+        com.jlboat.phone.util.TopicNames.naviTargetgoal = "/navi_targetgoal";
+        com.jlboat.phone.util.TopicNames.NaviStop = "/navi_stop";
+        com.jlboat.phone.util.TopicNames.GlobalPlansTest = "/globalplans_update";
+        com.jlboat.phone.util.TopicNames.GoCharge = "autocharge";
+        com.jlboat.phone.util.TopicNames.VirtualMsg = "androidmsg_virtualmapstatus";
+        com.jlboat.phone.util.TopicNames.MapStatus = "map_status";
+        com.jlboat.phone.util.TopicNames.MapStatusMsg = "androidmsg_mapstatus";
+        com.jlboat.phone.util.TopicNames.MapBuildStatusMsg = "androidmsg_mapbuildstatus";
+        com.jlboat.phone.util.TopicNames.OutChargeMsg = "androidmsg_outofchargepoint";
+        com.jlboat.phone.util.TopicNames.LidarMsg = "androidmsg_lidarstatus";
+        com.jlboat.phone.util.TopicNames.Stm32Msg = "androidmsg_stm32status";
+        com.jlboat.phone.util.TopicNames.OdomMsg = "androidmsg_odomstatus";
+        com.jlboat.phone.util.TopicNames.NaviNetworkMsg = "androidmsg_navinetworkstatus";
+        com.jlboat.phone.util.TopicNames.ImuMsg = "androidmsg_imustatus";
+        com.jlboat.phone.util.TopicNames.SonarMsg = "androidmsg_sonarstatus";
+        com.jlboat.phone.util.TopicNames.Motor1Msg = "androidmsg_motor1status";
+        com.jlboat.phone.util.TopicNames.Motor2Msg = "androidmsg_motor2status";
+        com.jlboat.phone.util.TopicNames.LeftMotorMsg = "androidmsg_leftmotorstatus";
+        com.jlboat.phone.util.TopicNames.RightMotorMsg = "androidmsg_rightmotorstatus";
+        com.jlboat.phone.util.TopicNames.CameraMsg = "androidmsg_camerastatus";
+        com.jlboat.phone.util.TopicNames.BatteryMsg = "androidmsg_batterystatus";
+        com.jlboat.phone.util.TopicNames.DownMapStateMsg = "androidmsg_importfilesstatus";
+        return;
+    }
+
+    public TopicNames()
+    {
+        return;
+    }
+}
