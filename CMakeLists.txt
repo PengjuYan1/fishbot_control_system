@@ -21,6 +21,7 @@ add_library(fishbot_storage
     storage/Database.cpp
     storage/repositories/PointRepository.cpp
     storage/repositories/ScheduleRepository.cpp
+    storage/repositories/TaskRunRepository.cpp
 )
 target_include_directories(fishbot_storage PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 target_link_libraries(fishbot_storage PUBLIC SQLite::SQLite3)
@@ -45,6 +46,7 @@ add_library(fishbot_backend
     backend/api/TaskController.cpp
     backend/services/ScheduleService.cpp
     backend/api/ScheduleController.cpp
+    backend/scheduler/BatteryWatcher.cpp
     backend/scheduler/TaskScheduler.cpp
     backend/state_machine/TaskStateMachine.cpp
     backend/websocket/StatusHub.cpp
@@ -168,3 +170,19 @@ target_link_libraries(test_schedule_trigger PRIVATE fishbot_backend fishbot_stor
 
 add_test(NAME ScheduleTriggerTest COMMAND test_schedule_trigger)
 set_tests_properties(ScheduleTriggerTest PROPERTIES WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+
+add_executable(test_battery_watcher
+    tests/unit/scheduler/test_battery_watcher.cpp
+)
+target_link_libraries(test_battery_watcher PRIVATE fishbot_backend)
+
+add_test(NAME BatteryWatcherTest COMMAND test_battery_watcher)
+set_tests_properties(BatteryWatcherTest PROPERTIES WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+
+add_executable(test_charge_recovery
+    tests/integration/api/test_charge_recovery.cpp
+)
+target_link_libraries(test_charge_recovery PRIVATE fishbot_backend fishbot_storage)
+
+add_test(NAME ChargeRecoveryTest COMMAND test_charge_recovery)
+set_tests_properties(ChargeRecoveryTest PROPERTIES WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
