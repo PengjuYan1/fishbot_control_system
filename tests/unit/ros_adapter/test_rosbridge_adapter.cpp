@@ -237,6 +237,66 @@ int main() {
         return EXIT_FAILURE;
     }
 
+    if (!adapter.manual_move(0.18, 0.0)) {
+        std::cerr << "expected forward directional move to succeed\n";
+        return EXIT_FAILURE;
+    }
+
+    if (transport.last_service() != "/set_navi_cmd" ||
+        transport.last_payload().find("\"cmd\":\"1\"") == std::string::npos ||
+        transport.last_payload().find("\"distance\":80") == std::string::npos) {
+        std::cerr << "expected forward button move to use apk set_navi_cmd service\n";
+        return EXIT_FAILURE;
+    }
+
+    if (!adapter.manual_move(-0.12, 0.0)) {
+        std::cerr << "expected backward directional move to succeed\n";
+        return EXIT_FAILURE;
+    }
+
+    if (transport.last_service() != "/set_navi_cmd" ||
+        transport.last_payload().find("\"cmd\":\"2\"") == std::string::npos ||
+        transport.last_payload().find("\"distance\":50") == std::string::npos) {
+        std::cerr << "expected backward button move to use apk reverse command\n";
+        return EXIT_FAILURE;
+    }
+
+    if (!adapter.manual_move(0.0, 0.8)) {
+        std::cerr << "expected left turn directional move to succeed\n";
+        return EXIT_FAILURE;
+    }
+
+    if (transport.last_service() != "/set_navi_cmd" ||
+        transport.last_payload().find("\"cmd\":\"3\"") == std::string::npos ||
+        transport.last_payload().find("\"distance\":15") == std::string::npos) {
+        std::cerr << "expected left turn button move to use apk rotate command\n";
+        return EXIT_FAILURE;
+    }
+
+    if (!adapter.manual_move(0.0, -0.8)) {
+        std::cerr << "expected right turn directional move to succeed\n";
+        return EXIT_FAILURE;
+    }
+
+    if (transport.last_service() != "/set_navi_cmd" ||
+        transport.last_payload().find("\"cmd\":\"4\"") == std::string::npos ||
+        transport.last_payload().find("\"distance\":15") == std::string::npos) {
+        std::cerr << "expected right turn button move to use apk rotate command\n";
+        return EXIT_FAILURE;
+    }
+
+    if (!adapter.manual_move(0.0, 0.0)) {
+        std::cerr << "expected stop directional move to succeed\n";
+        return EXIT_FAILURE;
+    }
+
+    if (transport.last_service() != "/set_navi_cmd" ||
+        transport.last_payload().find("\"cmd\":\"5\"") == std::string::npos ||
+        transport.last_payload().find("\"distance\":0") == std::string::npos) {
+        std::cerr << "expected stop move to use apk stop command\n";
+        return EXIT_FAILURE;
+    }
+
     std::ostringstream huge_map;
     huge_map << "{\"info\":{\"width\":500,\"height\":500,\"resolution\":0.05,"
              << "\"origin\":{\"position\":{\"x\":-1.5,\"y\":-2.5}}},\"data\":[";
