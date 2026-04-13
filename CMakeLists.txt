@@ -30,10 +30,20 @@ add_library(fishbot_adapter
 )
 target_include_directories(fishbot_adapter PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
+add_library(fishbot_backend
+    backend/app/AppServer.cpp
+    backend/api/HealthController.cpp
+    backend/services/SystemService.cpp
+    backend/api/SystemController.cpp
+    backend/websocket/StatusHub.cpp
+)
+target_include_directories(fishbot_backend PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+target_link_libraries(fishbot_backend PUBLIC fishbot_bootstrap fishbot_adapter)
+
 add_executable(fishbot_app
     backend/main.cpp
 )
-target_link_libraries(fishbot_app PRIVATE fishbot_bootstrap)
+target_link_libraries(fishbot_app PRIVATE fishbot_bootstrap fishbot_backend)
 
 add_executable(test_bootstrap
     tests/integration/test_bootstrap.cpp
@@ -82,3 +92,27 @@ target_link_libraries(test_native_adapter PRIVATE fishbot_adapter)
 
 add_test(NAME NativeAdapterTest COMMAND test_native_adapter)
 set_tests_properties(NativeAdapterTest PROPERTIES WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+
+add_executable(test_health_endpoint
+    tests/integration/api/test_health_endpoint.cpp
+)
+target_link_libraries(test_health_endpoint PRIVATE fishbot_backend)
+
+add_test(NAME HealthEndpointTest COMMAND test_health_endpoint)
+set_tests_properties(HealthEndpointTest PROPERTIES WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+
+add_executable(test_system_status
+    tests/integration/api/test_system_status.cpp
+)
+target_link_libraries(test_system_status PRIVATE fishbot_backend)
+
+add_test(NAME SystemStatusTest COMMAND test_system_status)
+set_tests_properties(SystemStatusTest PROPERTIES WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+
+add_executable(test_status_websocket
+    tests/integration/api/test_status_websocket.cpp
+)
+target_link_libraries(test_status_websocket PRIVATE fishbot_backend)
+
+add_test(NAME StatusWebSocketTest COMMAND test_status_websocket)
+set_tests_properties(StatusWebSocketTest PROPERTIES WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
