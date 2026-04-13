@@ -27,6 +27,8 @@ class FakeRosbridgeTransport : public IRosbridgeTransport {
         last_type_ = type;
         last_payload_ = payload;
         published_count_ += 1;
+        published_topics_.push_back(topic);
+        published_payloads_.push_back(payload);
         return true;
     }
 
@@ -61,6 +63,8 @@ class FakeRosbridgeTransport : public IRosbridgeTransport {
     std::string last_payload() const { return last_payload_; }
     int published_count() const { return published_count_; }
     std::size_t subscription_count() const { return subscriptions_.size(); }
+    const std::vector<std::string>& published_topics() const { return published_topics_; }
+    const std::vector<std::string>& published_payloads() const { return published_payloads_; }
 
   private:
     bool connected_ = false;
@@ -69,6 +73,8 @@ class FakeRosbridgeTransport : public IRosbridgeTransport {
     std::string last_type_;
     std::string last_payload_;
     int published_count_ = 0;
+    std::vector<std::string> published_topics_;
+    std::vector<std::string> published_payloads_;
     std::unordered_map<std::string, MessageCallback> subscriptions_;
     std::unordered_map<std::string, std::string> subscription_types_;
 };
@@ -203,13 +209,25 @@ int main() {
         return EXIT_FAILURE;
     }
 
-    if (transport.last_topic() != "/navi_stop") {
-        std::cerr << "expected /navi_stop publish\n";
+    const auto& stop_topics = transport.published_topics();
+    const auto& stop_payloads = transport.published_payloads();
+    if (stop_topics.size() < 4) {
+        std::cerr << "expected repeated stop_navigation publishes\n";
         return EXIT_FAILURE;
     }
 
-    if (transport.last_payload().find("\"data\":5") == std::string::npos) {
-        std::cerr << "expected stop payload data=5\n";
+    if (stop_topics[stop_topics.size() - 4] != "/navi_stop" ||
+        stop_topics[stop_topics.size() - 3] != "/navi_stop" ||
+        stop_topics[stop_topics.size() - 2] != "/navi_stop" ||
+        stop_topics.back() != "cmd_vel") {
+        std::cerr << "expected stop_navigation to publish repeated /navi_stop then zero cmd_vel\n";
+        return EXIT_FAILURE;
+    }
+
+    if (stop_payloads[stop_payloads.size() - 4].find("\"data\":5") == std::string::npos ||
+        stop_payloads.back().find("\"x\":0") == std::string::npos ||
+        stop_payloads.back().find("\"z\":0") == std::string::npos) {
+        std::cerr << "expected repeated stop payload and zero velocity release\n";
         return EXIT_FAILURE;
     }
 

@@ -232,7 +232,7 @@ function bindControlButtons() {
     activeDriveRequiresStop = false;
     try {
       await window.fishbotApi.stopManualMove();
-      setActionFeedback('机器人已发送停止指令。', 'success');
+      setActionFeedback('已发送停止导航并释放控制权，同时下发停止速度。', 'success');
     } catch (error) {
       setActionFeedback(`停止失败：${formatError(error)}`, 'error');
       throw error;

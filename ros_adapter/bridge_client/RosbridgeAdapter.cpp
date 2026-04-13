@@ -235,7 +235,14 @@ bool RosbridgeAdapter::navigate_to_pose(const Pose& pose) {
 }
 
 bool RosbridgeAdapter::stop_navigation() {
-    return publish_topic("/navi_stop", "std_msgs/Int16", "{\"data\":5}");
+    bool ok = true;
+    for (int attempt = 0; attempt < 3; ++attempt) {
+        ok = publish_topic("/navi_stop", "std_msgs/Int16", "{\"data\":5}") && ok;
+    }
+
+    std::ostringstream payload;
+    payload << "{\"linear\":{\"x\":0,\"y\":0,\"z\":0},\"angular\":{\"x\":0,\"y\":0,\"z\":0}}";
+    return publish_topic("cmd_vel", "geometry_msgs/Twist", payload.str()) && ok;
 }
 
 bool RosbridgeAdapter::set_initial_pose(const Pose& pose) {

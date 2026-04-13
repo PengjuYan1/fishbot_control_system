@@ -12,7 +12,10 @@ class ManualControlService {
     bool stop();
 
   private:
+    bool release_navigation_control();
+
     IRobotAdapter& adapter_;
+    bool control_session_active_ = false;
 };
 
 #endif
