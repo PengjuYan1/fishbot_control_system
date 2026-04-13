@@ -1,6 +1,10 @@
 #include "backend/api/MapController.h"
 
 void register_map_routes(AppServer& server, const MapService& map_service) {
+    server.register_get("/api/map/snapshot", [&map_service]() {
+        return HttpResponse{200, to_json(map_service.get_snapshot()), "application/json"};
+    });
+
     server.register_post("/api/map/start-mapping", [&map_service](const std::string&) {
         return HttpResponse{map_service.start_mapping() ? 200 : 500, "{\"status\":\"started\"}", "application/json"};
     });

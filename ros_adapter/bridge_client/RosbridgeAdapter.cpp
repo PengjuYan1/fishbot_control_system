@@ -249,6 +249,8 @@ void RosbridgeAdapter::handle_map_message(const std::string& payload) {
     map_snapshot_.height = extract_int_value(payload, "height");
     map_snapshot_.resolution = extract_double_value(payload, "resolution");
     map_snapshot_.occupancy_data = extract_int_array(payload, "data");
+    map_snapshot_.origin_x = extract_double_value(payload, "x");
+    map_snapshot_.origin_y = extract_double_value(payload, "y");
 }
 
 void RosbridgeAdapter::handle_map_status_message(const std::string& payload) {

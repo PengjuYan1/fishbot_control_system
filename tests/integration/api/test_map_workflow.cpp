@@ -23,7 +23,7 @@ class FakeMapAdapter : public IRobotAdapter {
     Pose get_robot_pose() const override { return {}; }
     int get_battery() const override { return 80; }
     RobotStatus get_robot_status() const override { return RobotStatus{80, false, true, true}; }
-    MapSnapshot get_map_snapshot() const override { return {}; }
+    MapSnapshot get_map_snapshot() const override { return MapSnapshot{4, 3, 0.05, {0, 100, -1, 0}, -1.0, -2.0}; }
     bool is_charging() const override { return false; }
 
     bool started = false;
@@ -52,6 +52,19 @@ int main() {
     const auto save_response = server.handle_post("/api/map/save", "pond_a");
     if (save_response.status != 200 || adapter.saved_name != "pond_a") {
         std::cerr << "expected successful save-map response\n";
+        return EXIT_FAILURE;
+    }
+
+    const auto snapshot_response = server.handle_get("/api/map/snapshot");
+    if (snapshot_response.status != 200) {
+        std::cerr << "expected successful map-snapshot response\n";
+        return EXIT_FAILURE;
+    }
+
+    if (snapshot_response.body.find("\"width\":4") == std::string::npos ||
+        snapshot_response.body.find("\"origin_x\":-1.000000") == std::string::npos ||
+        snapshot_response.body.find("\"occupancy_data\":[0,100,-1,0]") == std::string::npos) {
+        std::cerr << "expected map snapshot payload from adapter\n";
         return EXIT_FAILURE;
     }
 

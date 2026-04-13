@@ -13,3 +13,7 @@ bool MapService::stop_mapping() const {
 bool MapService::save_map(const std::string& map_name) const {
     return adapter_.save_map(map_name);
 }
+
+MapSnapshot MapService::get_snapshot() const {
+    return adapter_.get_map_snapshot();
+}

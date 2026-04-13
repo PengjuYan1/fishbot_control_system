@@ -104,7 +104,7 @@ int main() {
     transport.emit("androidmsg_chargestatus", "{\"data\":45}");
     transport.emit("androidmsg_navigationstatus", "{\"data\":1}");
     transport.emit("tracked_pose", "{\"pose\":{\"position\":{\"x\":1.5,\"y\":2.5,\"z\":0.0},\"orientation\":{\"x\":0.0,\"y\":0.0,\"z\":0.247404,\"w\":0.968912}}}");
-    transport.emit("/map", "{\"info\":{\"width\":3,\"height\":2,\"resolution\":0.05},\"data\":[0,100,-1,0,0,100]}");
+    transport.emit("/map", "{\"info\":{\"width\":3,\"height\":2,\"resolution\":0.05,\"origin\":{\"position\":{\"x\":-1.5,\"y\":-2.5}}},\"data\":[0,100,-1,0,0,100]}");
 
     if (adapter.get_battery() != 67) {
         std::cerr << "expected battery cache to update from power_report\n";
@@ -118,6 +118,12 @@ int main() {
 
     if (adapter.get_map_snapshot().width != 3) {
         std::cerr << "expected map cache to update from /map\n";
+        return EXIT_FAILURE;
+    }
+
+    if (std::abs(adapter.get_map_snapshot().origin_x + 1.5) > 1e-6 ||
+        std::abs(adapter.get_map_snapshot().origin_y + 2.5) > 1e-6) {
+        std::cerr << "expected /map origin to be cached for frontend projection\n";
         return EXIT_FAILURE;
     }
 

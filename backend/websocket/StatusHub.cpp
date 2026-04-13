@@ -3,7 +3,11 @@
 #include <string>
 
 std::string StatusHub::connect_and_get_initial_message(const SystemSnapshot& snapshot) {
-    return publish_robot_pose(snapshot.pose);
+    return std::string("{\"type\":\"system_snapshot\",\"payload\":") + to_json(snapshot) + "}";
+}
+
+std::string StatusHub::publish_map_snapshot(const MapSnapshot& snapshot) const {
+    return std::string("{\"type\":\"map_snapshot\",\"payload\":") + to_json(snapshot) + "}";
 }
 
 std::string StatusHub::publish_robot_pose(const Pose& pose) const {

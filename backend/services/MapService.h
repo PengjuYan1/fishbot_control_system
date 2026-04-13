@@ -12,6 +12,7 @@ class MapService {
     bool start_mapping() const;
     bool stop_mapping() const;
     bool save_map(const std::string& map_name) const;
+    MapSnapshot get_snapshot() const;
 
   private:
     IRobotAdapter& adapter_;

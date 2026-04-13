@@ -3,6 +3,25 @@ const mockState = {
     { id: 1, name: 'C1', type: 'charge', x: 1.2, y: 2.8, theta: 0.0, floor_id: 1, map_id: 11, point_id: 101 },
     { id: 2, name: 'F1', type: 'feed', x: 6.5, y: 9.1, theta: 1.57, floor_id: 1, map_id: 11, point_id: 201 },
   ],
+  map: {
+    width: 12,
+    height: 10,
+    resolution: 0.5,
+    origin_x: 0,
+    origin_y: 0,
+    occupancy_data: [
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      0, 100, 100, 100, 0, 0, 0, 0, 50, 50, 0, 0,
+      0, 0, 0, 100, 0, 0, 0, 0, 50, 50, 0, 0,
+      0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    ],
+  },
 };
 
 async function requestJson(path, options) {
@@ -25,9 +44,19 @@ window.fishbotApi = {
       return {
         battery: 78,
         pose: { x: 1.0, y: 2.0, theta: 0.5 },
+        charging: false,
+        connected: true,
+        localized: true,
         task: { status: 'idle', current_target: '' },
         connection: { healthy: true, last_error: '', reconnect_attempts: 0, adapter_mode: 'rosbridge' },
       };
+    }
+  },
+  async getMapSnapshot() {
+    try {
+      return await requestJson('/api/map/snapshot');
+    } catch (error) {
+      return { ...mockState.map };
     }
   },
   async getPoints() {
