@@ -15,6 +15,17 @@ void print_usage() {
 std::string bool_json(bool value) {
     return value ? "true" : "false";
 }
+
+bool has_live_snapshot(const RosbridgeAdapter& adapter) {
+    const auto status = adapter.get_robot_status();
+    const auto pose = adapter.get_robot_pose();
+    const auto map = adapter.get_map_snapshot();
+    return adapter.get_battery() > 0 &&
+        status.localized &&
+        (pose.x != 0.0 || pose.y != 0.0 || pose.theta != 0.0) &&
+        map.width > 0 &&
+        map.height > 0;
+}
 }  // namespace
 
 int main(int argc, char** argv) {
@@ -38,7 +49,13 @@ int main(int argc, char** argv) {
         return EXIT_FAILURE;
     }
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(wait_ms));
+    const auto deadline = std::chrono::steady_clock::now() + std::chrono::milliseconds(wait_ms);
+    while (std::chrono::steady_clock::now() < deadline) {
+        if (has_live_snapshot(adapter)) {
+            break;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    }
 
     const auto status = adapter.get_robot_status();
     const auto pose = adapter.get_robot_pose();

@@ -88,7 +88,7 @@ int main() {
     std::this_thread::sleep_for(std::chrono::milliseconds(50));
 
     const auto exit_code =
-        std::system("./fishbot_rosbridge_probe 127.0.0.1 19091 800 > /tmp/fishbot_rosbridge_probe.out");
+        std::system("./fishbot_rosbridge_probe 127.0.0.1 19091 3000 > /tmp/fishbot_rosbridge_probe.out");
     server.stop();
 
     if (exit_code != 0) {
