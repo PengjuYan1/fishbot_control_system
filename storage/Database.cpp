@@ -22,6 +22,26 @@ void exec_sql(sqlite3* db, const std::string& sql) {
         throw std::runtime_error(message);
     }
 }
+
+bool column_exists(sqlite3* db, const std::string& table_name, const std::string& column_name) {
+    sqlite3_stmt* statement = nullptr;
+    const std::string sql = "PRAGMA table_info(" + table_name + ")";
+    if (sqlite3_prepare_v2(db, sql.c_str(), -1, &statement, nullptr) != SQLITE_OK) {
+        throw std::runtime_error(sqlite3_errmsg(db));
+    }
+
+    bool exists = false;
+    while (sqlite3_step(statement) == SQLITE_ROW) {
+        const auto* name = reinterpret_cast<const char*>(sqlite3_column_text(statement, 1));
+        if (name != nullptr && column_name == name) {
+            exists = true;
+            break;
+        }
+    }
+
+    sqlite3_finalize(statement);
+    return exists;
+}
 }  // namespace
 
 DatabaseHandle::DatabaseHandle(sqlite3* db) : connection(db) {}
@@ -62,6 +82,10 @@ DatabaseHandle open_test_database() {
 
 void run_migrations(const DatabaseHandle& db) {
     exec_sql(db.connection, read_file("storage/migrations/001_init.sql"));
+
+    if (!column_exists(db.connection, "points", "floor_id")) {
+        exec_sql(db.connection, read_file("storage/migrations/002_add_point_robot_ids.sql"));
+    }
 }
 
 bool table_exists(const DatabaseHandle& db, const std::string& table_name) {

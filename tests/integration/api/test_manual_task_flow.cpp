@@ -39,8 +39,8 @@ int main() {
     auto db = open_test_database();
     run_migrations(db);
     PointRepository point_repository(db);
-    point_repository.insert_point(PointRecord{0, "C1", "charge", 1.0, 2.0, 0.0});
-    point_repository.insert_point(PointRecord{0, "F1", "feed", 3.0, 4.0, 1.0});
+    point_repository.insert_point(PointRecord{0, "C1", "charge", 1.0, 2.0, 0.0, 1, 11, 21});
+    point_repository.insert_point(PointRecord{0, "F1", "feed", 3.0, 4.0, 1.0, 2, 12, 22});
 
     FakeTaskAdapter adapter;
     TaskService service(adapter, point_repository);
@@ -65,6 +65,11 @@ int main() {
 
     if (!adapter.navigation_requested || adapter.last_goal.x != 3.0 || adapter.last_goal.y != 4.0) {
         std::cerr << "expected navigation request to first feed point\n";
+        return EXIT_FAILURE;
+    }
+
+    if (adapter.last_goal.floor_id != 2 || adapter.last_goal.map_id != 12 || adapter.last_goal.point_id != 22) {
+        std::cerr << "expected task flow to forward robot-native point identifiers\n";
         return EXIT_FAILURE;
     }
 

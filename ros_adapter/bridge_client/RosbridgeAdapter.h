@@ -28,10 +28,29 @@ class RosbridgeAdapter : public IRobotAdapter {
     bool is_charging() const override;
 
   private:
-    bool call_simple(const std::string& method, const std::string& payload);
+    bool subscribe_status_topics();
+    bool publish_topic(const std::string& topic, const std::string& type, const std::string& payload);
+    bool call_service(const std::string& service, const std::string& type, const std::string& request,
+                      std::string* response = nullptr);
+    void handle_battery_message(const std::string& payload);
+    void handle_charge_message(const std::string& payload);
+    void handle_location_message(const std::string& payload);
+    void handle_navigation_message(const std::string& payload);
+    void handle_pose_message(const std::string& payload);
+    void handle_map_message(const std::string& payload);
+    void handle_map_status_message(const std::string& payload);
+    void handle_android_map_status_message(const std::string& payload);
 
     IRosbridgeTransport* transport_;
     bool connected_ = false;
+    int battery_ = 0;
+    bool charging_ = false;
+    bool localized_ = false;
+    int navigation_status_ = 0;
+    int map_status_ = 0;
+    int android_map_status_ = 0;
+    Pose pose_;
+    MapSnapshot map_snapshot_;
 };
 
 #endif

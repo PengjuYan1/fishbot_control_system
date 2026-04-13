@@ -121,7 +121,15 @@ std::vector<PointRecord> TaskService::list_feed_points() const {
 }
 
 void TaskService::navigate_to_point(const PointRecord& point) {
-    if (!adapter_.navigate_to_pose(Pose{point.x, point.y, point.theta})) {
+    Pose target_pose;
+    target_pose.x = point.x;
+    target_pose.y = point.y;
+    target_pose.theta = point.theta;
+    target_pose.floor_id = point.floor_id;
+    target_pose.map_id = point.map_id;
+    target_pose.point_id = point.point_id;
+
+    if (!adapter_.navigate_to_pose(target_pose)) {
         throw std::runtime_error("navigation_start_failed");
     }
 }

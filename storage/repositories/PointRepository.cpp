@@ -6,7 +6,8 @@ PointRepository::PointRepository(const DatabaseHandle& db) : db_(db.connection) 
 
 int PointRepository::insert_point(const PointRecord& point) {
     sqlite3_stmt* statement = nullptr;
-    const char* sql = "INSERT INTO points (name, type, x, y, theta) VALUES (?, ?, ?, ?, ?)";
+    const char* sql =
+        "INSERT INTO points (name, type, x, y, theta, floor_id, map_id, point_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     if (sqlite3_prepare_v2(db_, sql, -1, &statement, nullptr) != SQLITE_OK) {
         throw std::runtime_error(sqlite3_errmsg(db_));
     }
@@ -16,6 +17,9 @@ int PointRepository::insert_point(const PointRecord& point) {
     sqlite3_bind_double(statement, 3, point.x);
     sqlite3_bind_double(statement, 4, point.y);
     sqlite3_bind_double(statement, 5, point.theta);
+    sqlite3_bind_int64(statement, 6, point.floor_id);
+    sqlite3_bind_int64(statement, 7, point.map_id);
+    sqlite3_bind_int64(statement, 8, point.point_id);
 
     if (sqlite3_step(statement) != SQLITE_DONE) {
         const std::string message = sqlite3_errmsg(db_);
@@ -29,7 +33,7 @@ int PointRepository::insert_point(const PointRecord& point) {
 
 std::vector<PointRecord> PointRepository::list_points() const {
     sqlite3_stmt* statement = nullptr;
-    const char* sql = "SELECT id, name, type, x, y, theta FROM points ORDER BY id";
+    const char* sql = "SELECT id, name, type, x, y, theta, floor_id, map_id, point_id FROM points ORDER BY id";
     if (sqlite3_prepare_v2(db_, sql, -1, &statement, nullptr) != SQLITE_OK) {
         throw std::runtime_error(sqlite3_errmsg(db_));
     }
@@ -43,6 +47,9 @@ std::vector<PointRecord> PointRepository::list_points() const {
         point.x = sqlite3_column_double(statement, 3);
         point.y = sqlite3_column_double(statement, 4);
         point.theta = sqlite3_column_double(statement, 5);
+        point.floor_id = sqlite3_column_int64(statement, 6);
+        point.map_id = sqlite3_column_int64(statement, 7);
+        point.point_id = sqlite3_column_int64(statement, 8);
         points.push_back(point);
     }
 

@@ -3,6 +3,7 @@
 #include <sstream>
 #include <stdexcept>
 #include <unordered_map>
+#include <vector>
 
 namespace {
 std::unordered_map<std::string, std::string> parse_form_encoded(const std::string& body) {
@@ -17,6 +18,17 @@ std::unordered_map<std::string, std::string> parse_form_encoded(const std::strin
         values[pair.substr(0, separator)] = pair.substr(separator + 1);
     }
     return values;
+}
+
+long optional_long_value(const std::unordered_map<std::string, std::string>& values,
+                         const std::vector<std::string>& keys) {
+    for (const auto& key : keys) {
+        const auto it = values.find(key);
+        if (it != values.end() && !it->second.empty()) {
+            return std::stol(it->second);
+        }
+    }
+    return 0;
 }
 }  // namespace
 
@@ -42,5 +54,8 @@ PointRecord PointService::parse_point(const std::string& body, const std::string
     point.x = std::stod(values.at("x"));
     point.y = std::stod(values.at("y"));
     point.theta = std::stod(values.at("theta"));
+    point.floor_id = optional_long_value(values, {"floor_id", "floorId"});
+    point.map_id = optional_long_value(values, {"map_id", "mapId"});
+    point.point_id = optional_long_value(values, {"point_id", "pointId"});
     return point;
 }

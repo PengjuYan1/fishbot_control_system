@@ -9,7 +9,14 @@ std::string point_list_json(const std::vector<PointRecord>& points) {
         const auto& point = points[index];
         body += std::string("{\"id\":") + std::to_string(point.id) +
             ",\"name\":\"" + point.name +
-            "\",\"type\":\"" + point.type + "\"}";
+            "\",\"type\":\"" + point.type +
+            "\",\"x\":" + std::to_string(point.x) +
+            ",\"y\":" + std::to_string(point.y) +
+            ",\"theta\":" + std::to_string(point.theta) +
+            ",\"floor_id\":" + std::to_string(point.floor_id) +
+            ",\"map_id\":" + std::to_string(point.map_id) +
+            ",\"point_id\":" + std::to_string(point.point_id) +
+            "}";
         if (index + 1 < points.size()) {
             body += ",";
         }
