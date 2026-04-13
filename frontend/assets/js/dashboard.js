@@ -1,3 +1,74 @@
+function formatEmergencyStatus(control) {
+  const code = Number(control.emergency_status_code || 0);
+  if (code === 31) {
+    return '急停触发 / 安全回路未复位 (31)';
+  }
+  if (code === 32) {
+    return '急停已解除 (32)';
+  }
+  return control.emergency_stopped ? `急停中 (${code})` : `已解除 (${code})`;
+}
+
+function formatMotorStatus(control) {
+  const code = Number(control.motor_status_code || 0);
+  if (code === 33) {
+    return '电机未使能 / 可手推不可驱动 (33)';
+  }
+  if (code === 34) {
+    return '电机已使能 / 可受控驱动 (34)';
+  }
+  return control.motor_locked ? `未使能 (${code})` : `已使能 (${code})`;
+}
+
+function formatStm32Status(control) {
+  const code = Number(control.stm32_status_code || 0);
+  if (code === 17) {
+    return 'STM32 通讯异常 (17)';
+  }
+  if (code === 18) {
+    return 'STM32 通讯正常 (18)';
+  }
+  return String(code);
+}
+
+function formatOdomStatus(control) {
+  const code = Number(control.odom_status_code || 0);
+  if (code === 19) {
+    return '里程计 / 驱动反馈异常 (19)';
+  }
+  if (code === 20) {
+    return '里程计 / 驱动反馈正常 (20)';
+  }
+  return String(code);
+}
+
+function formatControlBlockers(system) {
+  const blockers = [];
+  const control = system.control || {};
+
+  if (Number(control.emergency_status_code || 0) === 31) {
+    blockers.push('急停未复位');
+  }
+  if (Number(control.charge_status_code || 0) === 47) {
+    blockers.push('仍在充电完成态');
+  }
+  if (Number(control.motor_status_code || 0) === 33) {
+    blockers.push('电机未使能');
+  }
+  if (Number(control.stm32_status_code || 0) === 17) {
+    blockers.push('STM32 通讯异常');
+  }
+  if (Number(control.odom_status_code || 0) === 19) {
+    blockers.push('里程计反馈异常');
+  }
+
+  if (blockers.length === 0) {
+    return '当前未发现明显的底盘联锁阻塞。';
+  }
+
+  return `当前不可控原因：${blockers.join(' / ')}。`;
+}
+
 function updateDashboardStatus() {
   if (!window.fishbotStore) {
     return;
@@ -14,7 +85,10 @@ function updateDashboardStatus() {
   const emergencyNode = document.getElementById('emergency-stop-value');
   const motorLockNode = document.getElementById('motor-lock-value');
   const chargeCodeNode = document.getElementById('charge-code-value');
+  const stm32Node = document.getElementById('stm32-status-value');
+  const odomNode = document.getElementById('odom-status-value');
   const outchargeResultNode = document.getElementById('outcharge-result-value');
+  const controlBlockerNode = document.getElementById('control-blocker-value');
 
   if (batteryNode) {
     batteryNode.textContent = `${state.system.battery}%`;
@@ -47,19 +121,23 @@ function updateDashboardStatus() {
   }
 
   if (emergencyNode) {
-    emergencyNode.textContent = state.system.control.emergency_stopped
-      ? `急停中 (${state.system.control.emergency_status_code})`
-      : `已解除 (${state.system.control.emergency_status_code})`;
+    emergencyNode.textContent = formatEmergencyStatus(state.system.control);
   }
 
   if (motorLockNode) {
-    motorLockNode.textContent = state.system.control.motor_locked
-      ? `已锁定 (${state.system.control.motor_status_code})`
-      : `已解除 (${state.system.control.motor_status_code})`;
+    motorLockNode.textContent = formatMotorStatus(state.system.control);
   }
 
   if (chargeCodeNode) {
     chargeCodeNode.textContent = String(state.system.control.charge_status_code || 0);
+  }
+
+  if (stm32Node) {
+    stm32Node.textContent = formatStm32Status(state.system.control);
+  }
+
+  if (odomNode) {
+    odomNode.textContent = formatOdomStatus(state.system.control);
   }
 
   if (outchargeResultNode) {
@@ -71,6 +149,10 @@ function updateDashboardStatus() {
     } else {
       outchargeResultNode.textContent = String(resultCode);
     }
+  }
+
+  if (controlBlockerNode) {
+    controlBlockerNode.textContent = formatControlBlockers(state.system);
   }
 }
 

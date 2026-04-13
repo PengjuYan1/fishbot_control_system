@@ -23,6 +23,8 @@ struct ControlDiagnostics {
     bool motor_locked = false;
     int motor_status_code = 0;
     int charge_status_code = 0;
+    int stm32_status_code = 0;
+    int odom_status_code = 0;
     int motion_mode_code = 0;
     int out_of_charge_status_code = 0;
     bool out_machine_signal = false;
@@ -59,6 +61,8 @@ inline std::string to_json(const SystemSnapshot& snapshot) {
         ",\"motor_locked\":" + (snapshot.control.motor_locked ? "true" : "false") +
         ",\"motor_status_code\":" + std::to_string(snapshot.control.motor_status_code) +
         ",\"charge_status_code\":" + std::to_string(snapshot.control.charge_status_code) +
+        ",\"stm32_status_code\":" + std::to_string(snapshot.control.stm32_status_code) +
+        ",\"odom_status_code\":" + std::to_string(snapshot.control.odom_status_code) +
         ",\"motion_mode_code\":" + std::to_string(snapshot.control.motion_mode_code) +
         ",\"out_of_charge_status_code\":" + std::to_string(snapshot.control.out_of_charge_status_code) +
         ",\"out_machine_signal\":" + (snapshot.control.out_machine_signal ? "true" : "false") +

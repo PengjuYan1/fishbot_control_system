@@ -267,6 +267,8 @@ RobotStatus RosbridgeAdapter::get_robot_status() const {
     status.motor_locked = motor_locked_;
     status.motor_status_code = motor_status_code_;
     status.charge_status_code = charge_status_code_;
+    status.stm32_status_code = stm32_status_code_;
+    status.odom_status_code = odom_status_code_;
     status.motion_mode_code = motion_mode_code_;
     status.out_of_charge_status_code = out_of_charge_status_code_;
     status.out_machine_signal = out_machine_signal_;
@@ -291,6 +293,10 @@ bool RosbridgeAdapter::subscribe_status_topics() {
                [this](const std::string& payload) { handle_motor_lock_message(payload); }) &&
         transport_->subscribe("androidmsg_chargestatus", "std_msgs/Int16",
                [this](const std::string& payload) { handle_charge_message(payload); }) &&
+        transport_->subscribe("androidmsg_stm32status", "std_msgs/Int16",
+               [this](const std::string& payload) { handle_stm32_message(payload); }) &&
+        transport_->subscribe("androidmsg_odomstatus", "std_msgs/Int16",
+               [this](const std::string& payload) { handle_odom_message(payload); }) &&
         transport_->subscribe("motion_mode", "std_msgs/Int16",
                [this](const std::string& payload) { handle_motion_mode_message(payload); }) &&
         transport_->subscribe("outofcharge_status", "std_msgs/Int16",
@@ -337,6 +343,14 @@ void RosbridgeAdapter::handle_charge_message(const std::string& payload) {
     charge_status_code_ = extract_int_value(payload, "data");
     charging_ = charge_status_code_ == 45 || charge_status_code_ == 46 ||
         charge_status_code_ == 47 || charge_status_code_ == 48;
+}
+
+void RosbridgeAdapter::handle_stm32_message(const std::string& payload) {
+    stm32_status_code_ = extract_int_value(payload, "data");
+}
+
+void RosbridgeAdapter::handle_odom_message(const std::string& payload) {
+    odom_status_code_ = extract_int_value(payload, "data");
 }
 
 void RosbridgeAdapter::handle_emergency_message(const std::string& payload) {

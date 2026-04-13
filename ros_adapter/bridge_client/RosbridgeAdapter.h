@@ -36,6 +36,8 @@ class RosbridgeAdapter : public IRobotAdapter {
                       std::string* response = nullptr);
     void handle_battery_message(const std::string& payload);
     void handle_charge_message(const std::string& payload);
+    void handle_stm32_message(const std::string& payload);
+    void handle_odom_message(const std::string& payload);
     void handle_emergency_message(const std::string& payload);
     void handle_motor_lock_message(const std::string& payload);
     void handle_motion_mode_message(const std::string& payload);
@@ -59,6 +61,8 @@ class RosbridgeAdapter : public IRobotAdapter {
     bool motor_locked_ = false;
     int motor_status_code_ = 0;
     int charge_status_code_ = 0;
+    int stm32_status_code_ = 0;
+    int odom_status_code_ = 0;
     int motion_mode_code_ = 0;
     int out_of_charge_status_code_ = 0;
     bool out_machine_signal_ = false;

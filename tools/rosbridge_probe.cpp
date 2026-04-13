@@ -74,6 +74,8 @@ int main(int argc, char** argv) {
               << "\"motor_locked\":" << bool_json(status.motor_locked) << ","
               << "\"motor_status_code\":" << status.motor_status_code << ","
               << "\"charge_status_code\":" << status.charge_status_code << ","
+              << "\"stm32_status_code\":" << status.stm32_status_code << ","
+              << "\"odom_status_code\":" << status.odom_status_code << ","
               << "\"motion_mode_code\":" << status.motion_mode_code << ","
               << "\"out_of_charge_status_code\":" << status.out_of_charge_status_code << ","
               << "\"out_machine_signal\":" << bool_json(status.out_machine_signal) << ","

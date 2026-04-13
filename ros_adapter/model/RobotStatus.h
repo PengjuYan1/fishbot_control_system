@@ -11,6 +11,8 @@ struct RobotStatus {
     bool motor_locked = false;
     int motor_status_code = 0;
     int charge_status_code = 0;
+    int stm32_status_code = 0;
+    int odom_status_code = 0;
     int motion_mode_code = 0;
     int out_of_charge_status_code = 0;
     bool out_machine_signal = false;

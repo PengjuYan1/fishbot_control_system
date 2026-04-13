@@ -87,6 +87,8 @@ int main() {
         "androidmsg_emergencystatus",
         "androidmsg_motorenabledstatus",
         "androidmsg_chargestatus",
+        "androidmsg_stm32status",
+        "androidmsg_odomstatus",
         "motion_mode",
         "outofcharge_status",
         "reviceOutMachineSignal",
@@ -111,6 +113,8 @@ int main() {
     transport.emit("androidmsg_motorenabledstatus", "{\"data\":33}");
     transport.emit("androidmsg_locationstatus", "{\"data\":10}");
     transport.emit("androidmsg_chargestatus", "{\"data\":45}");
+    transport.emit("androidmsg_stm32status", "{\"data\":17}");
+    transport.emit("androidmsg_odomstatus", "{\"data\":19}");
     transport.emit("motion_mode", "{\"data\":1}");
     transport.emit("outofcharge_status", "{\"data\":1}");
     transport.emit("reviceOutMachineSignal", "{\"data\":1}");
@@ -131,7 +135,8 @@ int main() {
 
     const auto status = adapter.get_robot_status();
     if (!status.emergency_stopped || !status.motor_locked ||
-        status.charge_status_code != 45 || status.motion_mode_code != 1 ||
+        status.charge_status_code != 45 || status.stm32_status_code != 17 ||
+        status.odom_status_code != 19 || status.motion_mode_code != 1 ||
         status.out_of_charge_status_code != 1 || !status.out_machine_signal ||
         status.out_of_charge_result_code != 49) {
         std::cerr << "expected control diagnostics to update from rosbridge status topics\n";

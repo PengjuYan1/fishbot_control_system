@@ -57,6 +57,8 @@ class FakeProbeRosbridgeServer {
                 write_message(ws, "{\"op\":\"publish\",\"topic\":\"androidmsg_emergencystatus\",\"msg\":{\"data\":32}}");
                 write_message(ws, "{\"op\":\"publish\",\"topic\":\"androidmsg_motorenabledstatus\",\"msg\":{\"data\":34}}");
                 write_message(ws, "{\"op\":\"publish\",\"topic\":\"androidmsg_chargestatus\",\"msg\":{\"data\":45}}");
+                write_message(ws, "{\"op\":\"publish\",\"topic\":\"androidmsg_stm32status\",\"msg\":{\"data\":18}}");
+                write_message(ws, "{\"op\":\"publish\",\"topic\":\"androidmsg_odomstatus\",\"msg\":{\"data\":20}}");
                 write_message(ws, "{\"op\":\"publish\",\"topic\":\"motion_mode\",\"msg\":{\"data\":1}}");
                 write_message(ws, "{\"op\":\"publish\",\"topic\":\"outofcharge_status\",\"msg\":{\"data\":1}}");
                 write_message(ws, "{\"op\":\"publish\",\"topic\":\"reviceOutMachineSignal\",\"msg\":{\"data\":1}}");
@@ -102,6 +104,8 @@ int main() {
         output.find("\"localized\":true") == std::string::npos ||
         output.find("\"charging\":true") == std::string::npos ||
         output.find("\"control\":{") == std::string::npos ||
+        output.find("\"stm32_status_code\":18") == std::string::npos ||
+        output.find("\"odom_status_code\":20") == std::string::npos ||
         output.find("\"out_of_charge_result_code\":50") == std::string::npos ||
         output.find("\"pose\":{") == std::string::npos ||
         output.find("\"map\":{") == std::string::npos) {

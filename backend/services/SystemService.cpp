@@ -23,6 +23,8 @@ SystemSnapshot SystemService::get_snapshot() const {
     snapshot.control.motor_locked = robot_status.motor_locked;
     snapshot.control.motor_status_code = robot_status.motor_status_code;
     snapshot.control.charge_status_code = robot_status.charge_status_code;
+    snapshot.control.stm32_status_code = robot_status.stm32_status_code;
+    snapshot.control.odom_status_code = robot_status.odom_status_code;
     snapshot.control.motion_mode_code = robot_status.motion_mode_code;
     snapshot.control.out_of_charge_status_code = robot_status.out_of_charge_status_code;
     snapshot.control.out_machine_signal = robot_status.out_machine_signal;
