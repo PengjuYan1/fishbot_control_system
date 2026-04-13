@@ -93,6 +93,8 @@
   background: #fffaf0;
   color: var(--ink);
   border: 1px solid rgba(16, 37, 66, 0.1);
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
 }
 
 .task-buttons .accent {
@@ -115,6 +117,8 @@
   background: #fffaf0;
   color: var(--ink);
   border: 1px solid rgba(16, 37, 66, 0.1);
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
 }
 
 .drive-pad {
@@ -135,6 +139,22 @@
   background: rgba(255, 255, 255, 0.76);
   color: var(--ink);
   font-size: 15px;
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
+}
+
+.panel-actions button:hover,
+.task-buttons button:hover,
+.control-actions button:hover,
+.drive-button:hover {
+  box-shadow: 0 10px 24px rgba(16, 37, 66, 0.12);
+}
+
+.panel-actions button:active,
+.task-buttons button:active,
+.control-actions button:active,
+.drive-button:active {
+  transform: translateY(1px) scale(0.98);
 }
 
 .drive-button.danger,
@@ -148,6 +168,22 @@
   color: var(--muted);
   font-size: 13px;
   line-height: 1.6;
+}
+
+.action-feedback {
+  margin: 12px 0 0;
+  min-height: 22px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.action-feedback.success {
+  color: var(--sea);
+}
+
+.action-feedback.error {
+  color: var(--accent);
 }
 
 .map-canvas {

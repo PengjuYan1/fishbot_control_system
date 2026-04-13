@@ -30,10 +30,11 @@ async function requestJson(path, options) {
   }
 
   const response = await window.fetch(path, options);
+  const body = await response.text();
   if (!response.ok) {
-    throw new Error(`http_${response.status}`);
+    throw new Error(body || `http_${response.status}`);
   }
-  return response.json();
+  return body ? JSON.parse(body) : {};
 }
 
 window.fishbotApi = {
@@ -60,18 +61,10 @@ window.fishbotApi = {
     }
   },
   async startMapping() {
-    try {
-      return await requestJson('/api/map/start-mapping', { method: 'POST', body: '' });
-    } catch (error) {
-      return { status: 'started' };
-    }
+    return requestJson('/api/map/start-mapping', { method: 'POST', body: '' });
   },
   async saveMap(name) {
-    try {
-      return await requestJson('/api/map/save', { method: 'POST', body: name || 'web_map' });
-    } catch (error) {
-      return { status: 'saved' };
-    }
+    return requestJson('/api/map/save', { method: 'POST', body: name || 'web_map' });
   },
   async getPoints() {
     try {
@@ -119,46 +112,26 @@ window.fishbotApi = {
     return { id: 1 };
   },
   async startTask() {
-    try {
-      return await requestJson('/api/tasks/start', { method: 'POST', body: '' });
-    } catch (error) {
-      return { status: 'running', current_target_name: 'F1' };
-    }
+    return requestJson('/api/tasks/start', { method: 'POST', body: '' });
   },
   async goCharge() {
-    try {
-      return await requestJson('/api/tasks/go-charge', { method: 'POST', body: '' });
-    } catch (error) {
-      return { status: 'charging', current_target_name: 'C1' };
-    }
+    return requestJson('/api/tasks/go-charge', { method: 'POST', body: '' });
   },
   async outOfCharge() {
-    try {
-      return await requestJson('/api/control/out-of-charge', { method: 'POST', body: '' });
-    } catch (error) {
-      return { status: 'out_of_charge_requested' };
-    }
+    return requestJson('/api/control/out-of-charge', { method: 'POST', body: '' });
   },
   async manualMove(linear, angular) {
     const body = new URLSearchParams({
       linear: String(linear),
       angular: String(angular),
     }).toString();
-    try {
-      return await requestJson('/api/control/move', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body,
-      });
-    } catch (error) {
-      return { status: 'moving', linear, angular };
-    }
+    return requestJson('/api/control/move', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body,
+    });
   },
   async stopManualMove() {
-    try {
-      return await requestJson('/api/control/stop', { method: 'POST', body: '' });
-    } catch (error) {
-      return { status: 'stopped' };
-    }
+    return requestJson('/api/control/stop', { method: 'POST', body: '' });
   },
 };

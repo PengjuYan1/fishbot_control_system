@@ -43,6 +43,15 @@ bool column_exists(sqlite3* db, const std::string& table_name, const std::string
     sqlite3_finalize(statement);
     return exists;
 }
+
+void add_column_if_missing(sqlite3* db, const std::string& table_name,
+                           const std::string& column_name, const std::string& column_definition) {
+    if (column_exists(db, table_name, column_name)) {
+        return;
+    }
+
+    exec_sql(db, "ALTER TABLE " + table_name + " ADD COLUMN " + column_definition);
+}
 }  // namespace
 
 DatabaseHandle::DatabaseHandle(sqlite3* db) : connection(db) {}
@@ -94,9 +103,9 @@ DatabaseHandle open_database(const std::string& path) {
 void run_migrations(const DatabaseHandle& db) {
     exec_sql(db.connection, read_file("storage/migrations/001_init.sql"));
 
-    if (!column_exists(db.connection, "points", "floor_id")) {
-        exec_sql(db.connection, read_file("storage/migrations/002_add_point_robot_ids.sql"));
-    }
+    add_column_if_missing(db.connection, "points", "floor_id", "floor_id INTEGER NOT NULL DEFAULT 0");
+    add_column_if_missing(db.connection, "points", "map_id", "map_id INTEGER NOT NULL DEFAULT 0");
+    add_column_if_missing(db.connection, "points", "point_id", "point_id INTEGER NOT NULL DEFAULT 0");
 }
 
 bool table_exists(const DatabaseHandle& db, const std::string& table_name) {
