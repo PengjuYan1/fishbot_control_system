@@ -40,7 +40,9 @@ target_link_libraries(fishbot_adapter PUBLIC Threads::Threads)
 
 add_library(fishbot_backend
     backend/app/AppServer.cpp
+    backend/api/ControlController.cpp
     backend/api/HealthController.cpp
+    backend/services/ManualControlService.cpp
     backend/services/SystemService.cpp
     backend/api/SystemController.cpp
     backend/services/MapService.cpp
@@ -159,6 +161,14 @@ target_link_libraries(test_system_status PRIVATE fishbot_backend)
 
 add_test(NAME SystemStatusTest COMMAND test_system_status)
 set_tests_properties(SystemStatusTest PROPERTIES WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+
+add_executable(test_manual_control_api
+    tests/integration/api/test_manual_control_api.cpp
+)
+target_link_libraries(test_manual_control_api PRIVATE fishbot_backend)
+
+add_test(NAME ManualControlApiTest COMMAND test_manual_control_api)
+set_tests_properties(ManualControlApiTest PROPERTIES WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
 
 add_executable(test_status_websocket
     tests/integration/api/test_status_websocket.cpp

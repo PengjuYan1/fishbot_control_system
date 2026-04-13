@@ -132,4 +132,33 @@ window.fishbotApi = {
       return { status: 'charging', current_target_name: 'C1' };
     }
   },
+  async outOfCharge() {
+    try {
+      return await requestJson('/api/control/out-of-charge', { method: 'POST', body: '' });
+    } catch (error) {
+      return { status: 'out_of_charge_requested' };
+    }
+  },
+  async manualMove(linear, angular) {
+    const body = new URLSearchParams({
+      linear: String(linear),
+      angular: String(angular),
+    }).toString();
+    try {
+      return await requestJson('/api/control/move', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body,
+      });
+    } catch (error) {
+      return { status: 'moving', linear, angular };
+    }
+  },
+  async stopManualMove() {
+    try {
+      return await requestJson('/api/control/stop', { method: 'POST', body: '' });
+    } catch (error) {
+      return { status: 'stopped' };
+    }
+  },
 };

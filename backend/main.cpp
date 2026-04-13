@@ -3,6 +3,7 @@
 #include <string>
 
 #include "backend/api/AlertController.h"
+#include "backend/api/ControlController.h"
 #include "backend/api/HealthController.h"
 #include "backend/api/MapController.h"
 #include "backend/api/PointController.h"
@@ -18,6 +19,7 @@
 #include "backend/scheduler/TaskScheduler.h"
 #include "backend/services/AlertService.h"
 #include "backend/services/MapService.h"
+#include "backend/services/ManualControlService.h"
 #include "backend/services/PointService.h"
 #include "backend/services/ScheduleService.h"
 #include "backend/services/SystemService.h"
@@ -56,6 +58,7 @@ int main(int argc, char** argv) {
         return TaskSummary{task.status, task.current_target_name};
     });
     MapService map_service(*context.adapter);
+    ManualControlService control_service(*context.adapter);
     PointService point_service(point_repository);
     ScheduleService schedule_service(schedule_repository);
     AlertService alert_service(event_log_repository);
@@ -67,6 +70,7 @@ int main(int argc, char** argv) {
     AppServer server;
     server.set_static_root(context.config.static_root);
     register_health_routes(server, context.config);
+    register_control_routes(server, control_service);
     register_system_routes(server, system_service);
     register_map_routes(server, map_service);
     register_point_routes(server, point_service);

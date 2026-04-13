@@ -10,16 +10,16 @@ It replaces the older direct-to-ROS web control approach with a layered architec
 
 ## Current Status
 
-This repository is in active bootstrap development.
-The completed foundation currently includes:
+This repository is already runnable for single-robot, single-map deployment and now includes:
 
-- CMake-based project skeleton
-- example runtime configuration
-- app bootstrap entry point
-- SQLite migration foundation
-- ROS adapter interface contract
-- rosbridge adapter skeleton
-- native ROS adapter skeleton
+- real HTTP runtime entrypoint (`fishbot_app`)
+- rosbridge live status integration
+- map snapshot and robot pose visualization
+- feed point / charge point persistence
+- task start and go-charge control
+- out-of-charge / unlock control
+- web manual drive controls backed by `cmd_vel`
+- full C++ test suite (`26/26` passing at the latest local verification)
 
 ## Planned Capabilities
 
@@ -33,6 +33,14 @@ The completed foundation currently includes:
 
 ```bash
 ./scripts/dev_run.sh
+```
+
+Or run the compiled app directly:
+
+```bash
+cmake -S . -B build
+cmake --build build -j"$(nproc)"
+./build/fishbot_app config/app.local.yaml
 ```
 
 ## Real Robot Probe
@@ -54,6 +62,36 @@ cmake -S . -B build
 cmake --build build
 cd build && ctest -V
 ```
+
+Frontend syntax checks:
+
+```bash
+node --check frontend/assets/js/api.js
+node --check frontend/assets/js/dashboard.js
+```
+
+## Web Controls
+
+The dashboard home page now exposes:
+
+- `开始建图`
+- `保存地图`
+- `启动任务`
+- `立即回充`
+- `脱离充电 / 解锁`
+- manual drive buttons for forward / backward / left / right / stop
+
+Manual drive behavior:
+
+- press and hold a direction button to keep sending low-speed movement commands
+- release, blur the page, or switch tabs to auto-stop
+- center `停止` and `立即停止` both send zero velocity
+
+The real robot rosbridge topics confirmed from the APK and used by this project are:
+
+- `outofcharge` with `std_msgs/Int16` payload `{"data":1}`
+- `cmd_vel` with `geometry_msgs/Twist`
+- `angular.z` uses the APK-compatible sign convention
 
 ## Repository Layout
 

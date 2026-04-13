@@ -101,6 +101,55 @@
   border-color: transparent;
 }
 
+.control-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.control-actions button {
+  border: none;
+  border-radius: 999px;
+  padding: 10px 14px;
+  background: #fffaf0;
+  color: var(--ink);
+  border: 1px solid rgba(16, 37, 66, 0.1);
+}
+
+.drive-pad {
+  display: grid;
+  gap: 10px;
+}
+
+.drive-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.drive-button {
+  border: 1px solid rgba(16, 37, 66, 0.1);
+  border-radius: 18px;
+  min-height: 52px;
+  background: rgba(255, 255, 255, 0.76);
+  color: var(--ink);
+  font-size: 15px;
+}
+
+.drive-button.danger,
+#manual-stop-button {
+  background: rgba(217, 93, 57, 0.12);
+  color: var(--accent);
+}
+
+.control-note {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
 .map-canvas {
   position: relative;
   min-height: 560px;
@@ -137,7 +186,8 @@
 }
 
 .status-panel,
-.task-panel {
+.task-panel,
+.control-panel {
   padding: 18px;
 }
 

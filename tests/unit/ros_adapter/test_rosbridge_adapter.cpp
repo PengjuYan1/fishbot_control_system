@@ -187,6 +187,30 @@ int main() {
         return EXIT_FAILURE;
     }
 
+    if (!adapter.out_of_charge()) {
+        std::cerr << "expected out_of_charge to succeed\n";
+        return EXIT_FAILURE;
+    }
+
+    if (transport.last_topic() != "outofcharge" ||
+        transport.last_payload().find("\"data\":1") == std::string::npos) {
+        std::cerr << "expected outofcharge publish with data=1\n";
+        return EXIT_FAILURE;
+    }
+
+    if (!adapter.manual_move(0.2, 0.4)) {
+        std::cerr << "expected manual_move to succeed\n";
+        return EXIT_FAILURE;
+    }
+
+    if (transport.last_topic() != "cmd_vel" ||
+        transport.last_type() != "geometry_msgs/Twist" ||
+        transport.last_payload().find("\"x\":0.2") == std::string::npos ||
+        transport.last_payload().find("\"z\":-0.4") == std::string::npos) {
+        std::cerr << "expected cmd_vel publish to match apk motion command format\n";
+        return EXIT_FAILURE;
+    }
+
     std::ostringstream huge_map;
     huge_map << "{\"info\":{\"width\":500,\"height\":500,\"resolution\":0.05,"
              << "\"origin\":{\"position\":{\"x\":-1.5,\"y\":-2.5}}},\"data\":[";

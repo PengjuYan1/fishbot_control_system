@@ -25,6 +25,10 @@ bool NativeRosAdapter::stop_navigation() { return connected_; }
 
 bool NativeRosAdapter::set_initial_pose(const Pose&) { return connected_; }
 
+bool NativeRosAdapter::out_of_charge() { return connected_; }
+
+bool NativeRosAdapter::manual_move(double, double) { return connected_; }
+
 Pose NativeRosAdapter::get_robot_pose() const { return {}; }
 
 int NativeRosAdapter::get_battery() const { return 0; }

@@ -23,6 +23,8 @@ class IRobotAdapter {
     virtual bool navigate_to_pose(const Pose& pose) = 0;
     virtual bool stop_navigation() = 0;
     virtual bool set_initial_pose(const Pose& pose) = 0;
+    virtual bool out_of_charge() = 0;
+    virtual bool manual_move(double linear_speed, double angular_speed) = 0;
     virtual Pose get_robot_pose() const = 0;
     virtual int get_battery() const = 0;
     virtual RobotStatus get_robot_status() const = 0;

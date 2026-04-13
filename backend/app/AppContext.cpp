@@ -30,6 +30,12 @@ class FakeRobotAdapter : public IRobotAdapter {
         pose_ = pose;
         return true;
     }
+    bool out_of_charge() override { return true; }
+    bool manual_move(double linear_speed, double angular_speed) override {
+        pose_.x += linear_speed;
+        pose_.theta += angular_speed;
+        return true;
+    }
     Pose get_robot_pose() const override { return pose_; }
     int get_battery() const override { return 100; }
     RobotStatus get_robot_status() const override { return RobotStatus{100, false, connected_, true}; }

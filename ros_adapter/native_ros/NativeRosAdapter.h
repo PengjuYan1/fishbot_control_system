@@ -20,6 +20,8 @@ class NativeRosAdapter : public IRobotAdapter {
     bool navigate_to_pose(const Pose& pose) override;
     bool stop_navigation() override;
     bool set_initial_pose(const Pose& pose) override;
+    bool out_of_charge() override;
+    bool manual_move(double linear_speed, double angular_speed) override;
     Pose get_robot_pose() const override;
     int get_battery() const override;
     RobotStatus get_robot_status() const override;

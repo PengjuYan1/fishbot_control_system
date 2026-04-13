@@ -26,6 +26,8 @@ class FakeEndToEndAdapter : public IRobotAdapter {
     bool navigate_to_pose(const Pose& pose) override { last_goal = pose; return true; }
     bool stop_navigation() override { return true; }
     bool set_initial_pose(const Pose&) override { return true; }
+    bool out_of_charge() override { return true; }
+    bool manual_move(double, double) override { return true; }
     Pose get_robot_pose() const override { return last_goal; }
     int get_battery() const override { return 88; }
     RobotStatus get_robot_status() const override { return RobotStatus{88, false, connected, true}; }

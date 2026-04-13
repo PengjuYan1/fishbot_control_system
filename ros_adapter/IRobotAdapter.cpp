@@ -12,6 +12,8 @@ std::vector<std::string> describe_adapter_contract() {
         "navigate_to_pose",
         "stop_navigation",
         "set_initial_pose",
+        "out_of_charge",
+        "manual_move",
         "get_robot_pose",
         "get_battery",
         "get_robot_status",

@@ -30,5 +30,15 @@ int main() {
         return EXIT_FAILURE;
     }
 
+    if (!contains(capabilities, "out_of_charge")) {
+        std::cerr << "expected out_of_charge capability\n";
+        return EXIT_FAILURE;
+    }
+
+    if (!contains(capabilities, "manual_move")) {
+        std::cerr << "expected manual_move capability\n";
+        return EXIT_FAILURE;
+    }
+
     return EXIT_SUCCESS;
 }

@@ -77,8 +77,32 @@ function bindControlButtons() {
   const saveMapButton = document.getElementById('save-map-button');
   const startTaskButton = document.getElementById('start-task-button');
   const goChargeButton = document.getElementById('go-charge-button');
+  const outOfChargeButton = document.getElementById('out-of-charge-button');
+  const manualStopButton = document.getElementById('manual-stop-button');
+  const driveStopCenterButton = document.getElementById('drive-stop-center');
+  const driveButtons = Array.from(document.querySelectorAll('.drive-button[data-linear]'));
   const mapEditorButton = document.getElementById('goto-map-editor-button');
   const feedEditorButton = document.getElementById('goto-map-editor-feed-button');
+  let moveTimer = null;
+  let activeDrivePointerId = null;
+
+  const stopDriving = async () => {
+    if (moveTimer) {
+      window.clearInterval(moveTimer);
+      moveTimer = null;
+    }
+    activeDrivePointerId = null;
+    await window.fishbotApi.stopManualMove();
+  };
+
+  const startDriving = async (linear, angular, pointerId) => {
+    await stopDriving();
+    activeDrivePointerId = pointerId;
+    await window.fishbotApi.manualMove(linear, angular);
+    moveTimer = window.setInterval(() => {
+      window.fishbotApi.manualMove(linear, angular);
+    }, 150);
+  };
 
   if (startMappingButton) {
     startMappingButton.addEventListener('click', async () => {
@@ -117,6 +141,65 @@ function bindControlButtons() {
       window.fishbotStore.setSystemSnapshot(nextSnapshot);
     });
   }
+
+  if (outOfChargeButton) {
+    outOfChargeButton.addEventListener('click', async () => {
+      await window.fishbotApi.outOfCharge();
+    });
+  }
+
+  if (manualStopButton) {
+    manualStopButton.addEventListener('click', stopDriving);
+  }
+
+  if (driveStopCenterButton) {
+    driveStopCenterButton.addEventListener('click', stopDriving);
+  }
+
+  driveButtons.forEach((button) => {
+    const linear = Number(button.dataset.linear || 0);
+    const angular = Number(button.dataset.angular || 0);
+    button.addEventListener('pointerdown', async (event) => {
+      event.preventDefault();
+      if (button.setPointerCapture && event.pointerId !== undefined) {
+        button.setPointerCapture(event.pointerId);
+      }
+      await startDriving(linear, angular, event.pointerId);
+    });
+    button.addEventListener('pointerup', async (event) => {
+      if (activeDrivePointerId === null || activeDrivePointerId === event.pointerId) {
+        await stopDriving();
+      }
+    });
+    button.addEventListener('pointerleave', async (event) => {
+      if (activeDrivePointerId === null || activeDrivePointerId === event.pointerId) {
+        await stopDriving();
+      }
+    });
+    button.addEventListener('pointercancel', async (event) => {
+      if (activeDrivePointerId === null || activeDrivePointerId === event.pointerId) {
+        await stopDriving();
+      }
+    });
+  });
+
+  window.addEventListener('pointerup', async (event) => {
+    if (moveTimer && (activeDrivePointerId === null || activeDrivePointerId === event.pointerId)) {
+      await stopDriving();
+    }
+  });
+
+  window.addEventListener('blur', () => {
+    if (moveTimer) {
+      stopDriving();
+    }
+  });
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden && moveTimer) {
+      stopDriving();
+    }
+  });
 
   if (mapEditorButton) {
     mapEditorButton.addEventListener('click', () => {
