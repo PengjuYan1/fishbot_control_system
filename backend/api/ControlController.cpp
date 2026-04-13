@@ -28,6 +28,12 @@ void register_control_routes(AppServer& server, ManualControlService& control_se
             : HttpResponse{500, "{\"error\":\"out_of_charge_failed\"}", "application/json"};
     });
 
+    server.register_post("/api/control/exit-navigation-mode", [&control_service](const std::string&) {
+        return control_service.exit_navigation_mode()
+            ? HttpResponse{200, "{\"status\":\"navigation_mode_exited\"}", "application/json"}
+            : HttpResponse{500, "{\"error\":\"exit_navigation_mode_failed\"}", "application/json"};
+    });
+
     server.register_post("/api/control/move", [&control_service](const std::string& body) {
         try {
             const auto values = parse_form_encoded(body);

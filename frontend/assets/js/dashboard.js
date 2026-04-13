@@ -200,6 +200,7 @@ function bindControlButtons() {
   const startTaskButton = document.getElementById('start-task-button');
   const goChargeButton = document.getElementById('go-charge-button');
   const outOfChargeButton = document.getElementById('out-of-charge-button');
+  const exitNavigationModeButton = document.getElementById('exit-navigation-mode-button');
   const manualStopButton = document.getElementById('manual-stop-button');
   const driveStopCenterButton = document.getElementById('drive-stop-center');
   const driveButtons = Array.from(document.querySelectorAll('.drive-button[data-linear]'));
@@ -349,6 +350,17 @@ function bindControlButtons() {
         setActionFeedback('已发送脱离充电 / 解锁指令，请观察出桩结果码是否变成 50。', 'success');
       } catch (error) {
         setActionFeedback(`脱离充电失败：${formatError(error)}`, 'error');
+      }
+    });
+  }
+
+  if (exitNavigationModeButton) {
+    exitNavigationModeButton.addEventListener('click', async () => {
+      try {
+        await window.fishbotApi.exitNavigationMode();
+        setActionFeedback('已发送退出导航模式指令，请观察导航状态码是否退出占用态。', 'success');
+      } catch (error) {
+        setActionFeedback(`退出导航模式失败：${formatError(error)}`, 'error');
       }
     });
   }

@@ -120,6 +120,9 @@ window.fishbotApi = {
   async outOfCharge() {
     return requestJson('/api/control/out-of-charge', { method: 'POST', body: '' });
   },
+  async exitNavigationMode() {
+    return requestJson('/api/control/exit-navigation-mode', { method: 'POST', body: '' });
+  },
   async manualMove(linear, angular) {
     const body = new URLSearchParams({
       linear: String(linear),

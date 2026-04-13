@@ -64,10 +64,19 @@ int main() {
         return EXIT_FAILURE;
     }
 
+    const auto exit_navigation = server.handle_post("/api/control/exit-navigation-mode", "");
+    if (exit_navigation.status != 200 || !adapter.stop_navigation_requested ||
+        adapter.stop_navigation_count != 1) {
+        std::cerr << "expected explicit exit-navigation request to release adapter control\n";
+        return EXIT_FAILURE;
+    }
+
+    adapter.stop_navigation_requested = false;
+
     const auto move = server.handle_post("/api/control/move", "linear=0.15&angular=0.6");
     if (move.status != 200 || !adapter.move_requested ||
         !adapter.stop_navigation_requested ||
-        adapter.stop_navigation_count != 1 ||
+        adapter.stop_navigation_count != 2 ||
         adapter.last_linear != 0.15 || adapter.last_angular != 0.6) {
         std::cerr << "expected manual move request to reach adapter\n";
         return EXIT_FAILURE;
@@ -77,7 +86,7 @@ int main() {
     adapter.navigation_status_code = 1;
     const auto second_move = server.handle_post("/api/control/move", "linear=0.10&angular=0.0");
     if (second_move.status != 200 || !adapter.move_requested ||
-        adapter.stop_navigation_count != 2 ||
+        adapter.stop_navigation_count != 3 ||
         adapter.last_linear != 0.10 || adapter.last_angular != 0.0) {
         std::cerr << "expected repeated move to re-release control when navigation becomes active again\n";
         return EXIT_FAILURE;
@@ -87,14 +96,14 @@ int main() {
     adapter.navigation_status_code = 83;
     const auto terminal_nav_move = server.handle_post("/api/control/move", "linear=0.08&angular=0.0");
     if (terminal_nav_move.status != 200 || !adapter.move_requested ||
-        adapter.stop_navigation_count != 2 ||
+        adapter.stop_navigation_count != 3 ||
         adapter.last_linear != 0.08 || adapter.last_angular != 0.0) {
         std::cerr << "expected terminal navigation status to avoid redundant release loop\n";
         return EXIT_FAILURE;
     }
 
     const auto stop = server.handle_post("/api/control/stop", "");
-    if (stop.status != 200 || adapter.stop_navigation_count != 3 ||
+    if (stop.status != 200 || adapter.stop_navigation_count != 4 ||
         adapter.last_linear != 0.0 || adapter.last_angular != 0.0) {
         std::cerr << "expected manual stop to release control and send zero velocity\n";
         return EXIT_FAILURE;

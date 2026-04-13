@@ -8,6 +8,7 @@ class ManualControlService {
     explicit ManualControlService(IRobotAdapter& adapter);
 
     bool out_of_charge();
+    bool exit_navigation_mode();
     bool move(double linear_speed, double angular_speed);
     bool stop();
 

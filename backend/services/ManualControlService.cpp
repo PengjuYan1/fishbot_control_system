@@ -18,6 +18,12 @@ bool ManualControlService::out_of_charge() {
     return adapter_.out_of_charge();
 }
 
+bool ManualControlService::exit_navigation_mode() {
+    const bool released = release_navigation_control();
+    control_session_active_ = false;
+    return released;
+}
+
 bool ManualControlService::move(double linear_speed, double angular_speed) {
     const bool wants_motion = linear_speed != 0.0 || angular_speed != 0.0;
     const auto robot_status = adapter_.get_robot_status();
