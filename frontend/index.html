@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fishbot Dashboard</title>
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Fishbot Control System</p>
+        <h1>渔场投喂主控台</h1>
+      </div>
+      <div class="topbar-meta">
+        <span class="pill online">ROS 在线</span>
+        <span class="pill warning">单机单图</span>
+      </div>
+    </header>
+
+    <main class="dashboard-grid">
+      <section class="map-stage panel">
+        <div class="panel-header">
+          <div>
+            <p class="panel-kicker">Map</p>
+            <h2>地图与实时位姿</h2>
+          </div>
+          <div class="panel-actions quick-actions">
+            <button type="button">开始建图</button>
+            <button type="button">保存地图</button>
+            <button type="button">设充电点</button>
+            <button type="button">新增投喂点</button>
+          </div>
+        </div>
+        <div class="map-canvas" id="map-canvas">
+          <div class="grid-glow"></div>
+          <div class="map-layer" id="map-layer"></div>
+          <div class="map-overlay-note">地图底图 / 机器人位置 / 轨迹 / 点位覆盖层</div>
+        </div>
+      </section>
+
+      <aside class="side-column">
+        <section class="panel status-panel">
+          <div class="panel-header compact">
+            <div>
+              <p class="panel-kicker">Status</p>
+              <h2>机器人状态</h2>
+            </div>
+          </div>
+          <div class="metric-list">
+            <div class="metric-card">
+              <span>电量</span>
+              <strong id="battery-value">78%</strong>
+            </div>
+            <div class="metric-card">
+              <span>定位</span>
+              <strong id="localization-value">正常</strong>
+            </div>
+            <div class="metric-card">
+              <span>导航</span>
+              <strong id="navigation-value">待命</strong>
+            </div>
+            <div class="metric-card">
+              <span>充电</span>
+              <strong id="charging-value">否</strong>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel task-panel">
+          <div class="panel-header compact">
+            <div>
+              <p class="panel-kicker">Task</p>
+              <h2>当前任务</h2>
+            </div>
+          </div>
+          <div class="task-summary">
+            <p id="task-status-text">等待手动启动或定时计划</p>
+            <dl>
+              <div>
+                <dt>当前目标</dt>
+                <dd id="task-target">--</dd>
+              </div>
+              <div>
+                <dt>停留倒计时</dt>
+                <dd id="task-countdown">--</dd>
+              </div>
+              <div>
+                <dt>低电量阈值</dt>
+                <dd>25%</dd>
+              </div>
+              <div>
+                <dt>回充后策略</dt>
+                <dd>继续任务</dd>
+              </div>
+            </dl>
+          </div>
+          <div class="task-buttons quick-actions">
+            <button type="button" class="accent">启动任务</button>
+            <button type="button">暂停</button>
+            <button type="button">终止</button>
+            <button type="button">立即回充</button>
+          </div>
+        </section>
+      </aside>
+    </main>
+  </div>
+
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/ws.js"></script>
+  <script src="assets/js/store.js"></script>
+  <script src="assets/js/map-canvas.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+</html>

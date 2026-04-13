@@ -1,0 +1,263 @@
+.app-shell {
+  width: min(1360px, calc(100vw - 32px));
+  margin: 0 auto;
+  padding: 24px 0 36px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 20px;
+}
+
+.eyebrow,
+.panel-kicker {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.topbar h1,
+.panel-header h2 {
+  margin: 6px 0 0;
+  font-family: "IBM Plex Serif", "Noto Serif SC", serif;
+}
+
+.topbar h1 {
+  font-size: clamp(32px, 4vw, 52px);
+}
+
+.topbar-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.pill {
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-size: 13px;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid var(--line);
+}
+
+.pill.online { color: var(--sea); }
+.pill.warning { color: var(--warning); }
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.8fr) minmax(320px, 0.9fr);
+  gap: 20px;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+}
+
+.map-stage {
+  padding: 18px;
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.panel-header.compact {
+  margin-bottom: 12px;
+}
+
+.panel-actions,
+.task-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.panel-actions button,
+.task-buttons button {
+  border: none;
+  border-radius: 999px;
+  padding: 10px 14px;
+  background: #fffaf0;
+  color: var(--ink);
+  border: 1px solid rgba(16, 37, 66, 0.1);
+}
+
+.task-buttons .accent {
+  background: var(--accent);
+  color: #fff;
+  border-color: transparent;
+}
+
+.map-canvas {
+  position: relative;
+  min-height: 560px;
+  border-radius: 20px;
+  overflow: hidden;
+  background:
+    linear-gradient(0deg, rgba(16, 37, 66, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16, 37, 66, 0.08) 1px, transparent 1px),
+    linear-gradient(135deg, #d7efe7 0%, #d8e7ef 100%);
+  background-size: 28px 28px, 28px 28px, auto;
+}
+
+.grid-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 25%, rgba(217, 93, 57, 0.18), transparent 18%),
+              radial-gradient(circle at 72% 62%, rgba(31, 122, 140, 0.2), transparent 22%);
+}
+
+.map-overlay-note {
+  position: absolute;
+  left: 24px;
+  bottom: 22px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid var(--line);
+  font-size: 13px;
+}
+
+.side-column {
+  display: grid;
+  gap: 20px;
+}
+
+.status-panel,
+.task-panel {
+  padding: 18px;
+}
+
+.metric-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.metric-card {
+  padding: 14px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid var(--line);
+}
+
+.metric-card span,
+.task-summary dt {
+  display: block;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.metric-card strong,
+.task-summary dd {
+  margin-top: 8px;
+  display: block;
+  font-size: 22px;
+}
+
+.task-summary {
+  display: grid;
+  gap: 16px;
+}
+
+.task-summary p {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.task-summary dl {
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.task-summary dd {
+  margin: 4px 0 0;
+  font-size: 18px;
+}
+
+@media (max-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .map-canvas {
+    min-height: 420px;
+  }
+}
+
+@media (max-width: 640px) {
+  .app-shell {
+    width: min(100vw - 20px, 100%);
+    padding-top: 16px;
+  }
+
+  .topbar,
+  .panel-header {
+    flex-direction: column;
+  }
+
+  .metric-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+.map-layer {
+  position: absolute;
+  inset: 0;
+}
+
+.robot-marker {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  margin-left: -9px;
+  margin-top: -9px;
+  border-radius: 50%;
+  background: var(--sea);
+  box-shadow: 0 0 0 8px rgba(31, 122, 140, 0.18);
+}
+
+.robot-heading {
+  position: absolute;
+  width: 44px;
+  height: 3px;
+  margin-left: -4px;
+  margin-top: -2px;
+  background: var(--accent);
+  transform-origin: left center;
+}
+
+.map-point {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.02em;
+}
+
+.charge-point {
+  background: #2563eb;
+}
+
+.feed-point {
+  background: #d95d39;
+}
