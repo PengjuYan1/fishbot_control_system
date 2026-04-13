@@ -20,6 +20,15 @@ TaskStartResult TaskService::start_scheduled_run(const std::string&) {
     return start_run("schedule");
 }
 
+TaskStartResult TaskService::start_charge_return() {
+    const auto charge_point = find_charge_point();
+    navigate_to_point(charge_point);
+    current_task_.status = "charging";
+    current_task_.current_target_name = charge_point.name;
+    last_trigger_type_ = "charge_return";
+    return current_task_;
+}
+
 TaskStartResult TaskService::current_task() const {
     return current_task_;
 }
@@ -118,6 +127,17 @@ std::vector<PointRecord> TaskService::list_feed_points() const {
     }
 
     return feed_points;
+}
+
+PointRecord TaskService::find_charge_point() const {
+    const auto points = point_repository_.list_points();
+    for (const auto& point : points) {
+        if (point.type == "charge") {
+            return point;
+        }
+    }
+
+    throw std::runtime_error("no_charge_point_configured");
 }
 
 void TaskService::navigate_to_point(const PointRecord& point) {

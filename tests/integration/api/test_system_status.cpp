@@ -29,7 +29,9 @@ class FakeRobotAdapter : public IRobotAdapter {
 
 int main() {
     FakeRobotAdapter adapter;
-    SystemService system_service(adapter);
+    SystemService system_service(adapter, []() {
+        return TaskSummary{"running", "F1"};
+    });
     AppServer server;
     register_system_routes(server, system_service);
 
@@ -51,6 +53,12 @@ int main() {
 
     if (response.body.find("\"task\":{") == std::string::npos) {
         std::cerr << "expected task field in response body\n";
+        return EXIT_FAILURE;
+    }
+
+    if (response.body.find("\"status\":\"running\"") == std::string::npos ||
+        response.body.find("\"current_target\":\"F1\"") == std::string::npos) {
+        std::cerr << "expected task summary from task supplier\n";
         return EXIT_FAILURE;
     }
 

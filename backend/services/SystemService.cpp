@@ -1,6 +1,8 @@
 #include "backend/services/SystemService.h"
 
-SystemService::SystemService(IRobotAdapter& adapter) : adapter_(adapter) {}
+SystemService::SystemService(IRobotAdapter& adapter, TaskSummaryProvider task_summary_provider)
+    : adapter_(adapter),
+      task_summary_provider_(std::move(task_summary_provider)) {}
 
 SystemSnapshot SystemService::get_snapshot() const {
     const auto robot_status = adapter_.get_robot_status();
@@ -11,7 +13,7 @@ SystemSnapshot SystemService::get_snapshot() const {
     snapshot.charging = adapter_.is_charging();
     snapshot.connected = robot_status.connected;
     snapshot.localized = robot_status.localized;
-    snapshot.task = TaskSummary{"idle", ""};
+    snapshot.task = task_summary_provider_ ? task_summary_provider_() : TaskSummary{"idle", ""};
     snapshot.connection.healthy = adapter_.is_connected() && robot_status.connected;
     snapshot.connection.last_error = last_error_;
     snapshot.connection.reconnect_attempts = reconnect_attempts_;

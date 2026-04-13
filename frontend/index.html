@@ -28,10 +28,10 @@
             <h2>地图与实时位姿</h2>
           </div>
           <div class="panel-actions quick-actions">
-            <button type="button">开始建图</button>
-            <button type="button">保存地图</button>
-            <button type="button">设充电点</button>
-            <button type="button">新增投喂点</button>
+            <button type="button" id="start-mapping-button">开始建图</button>
+            <button type="button" id="save-map-button">保存地图</button>
+            <button type="button" id="goto-map-editor-button">设充电点</button>
+            <button type="button" id="goto-map-editor-feed-button">新增投喂点</button>
           </div>
         </div>
         <div class="map-canvas" id="map-canvas">
@@ -98,10 +98,10 @@
             </dl>
           </div>
           <div class="task-buttons quick-actions">
-            <button type="button" class="accent">启动任务</button>
+            <button type="button" class="accent" id="start-task-button">启动任务</button>
             <button type="button">暂停</button>
             <button type="button">终止</button>
-            <button type="button">立即回充</button>
+            <button type="button" id="go-charge-button">立即回充</button>
           </div>
         </section>
       </aside>

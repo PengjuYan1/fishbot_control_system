@@ -72,6 +72,65 @@ function bindRealtimeStatusSocket() {
   };
 }
 
+function bindControlButtons() {
+  const startMappingButton = document.getElementById('start-mapping-button');
+  const saveMapButton = document.getElementById('save-map-button');
+  const startTaskButton = document.getElementById('start-task-button');
+  const goChargeButton = document.getElementById('go-charge-button');
+  const mapEditorButton = document.getElementById('goto-map-editor-button');
+  const feedEditorButton = document.getElementById('goto-map-editor-feed-button');
+
+  if (startMappingButton) {
+    startMappingButton.addEventListener('click', async () => {
+      await window.fishbotApi.startMapping();
+    });
+  }
+
+  if (saveMapButton) {
+    saveMapButton.addEventListener('click', async () => {
+      const name = window.prompt ? window.prompt('请输入地图名称', 'web_map') : 'web_map';
+      if (!name) {
+        return;
+      }
+      await window.fishbotApi.saveMap(name);
+    });
+  }
+
+  if (startTaskButton) {
+    startTaskButton.addEventListener('click', async () => {
+      const result = await window.fishbotApi.startTask();
+      const nextSnapshot = { ...window.fishbotStore.getState().system, task: {
+        status: result.status || 'running',
+        current_target: result.current_target_name || '',
+      } };
+      window.fishbotStore.setSystemSnapshot(nextSnapshot);
+    });
+  }
+
+  if (goChargeButton) {
+    goChargeButton.addEventListener('click', async () => {
+      const result = await window.fishbotApi.goCharge();
+      const nextSnapshot = { ...window.fishbotStore.getState().system, charging: true, task: {
+        status: result.status || 'charging',
+        current_target: result.current_target_name || '',
+      } };
+      window.fishbotStore.setSystemSnapshot(nextSnapshot);
+    });
+  }
+
+  if (mapEditorButton) {
+    mapEditorButton.addEventListener('click', () => {
+      window.location.href = 'map.html';
+    });
+  }
+
+  if (feedEditorButton) {
+    feedEditorButton.addEventListener('click', () => {
+      window.location.href = 'map.html';
+    });
+  }
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
   if (!window.fishbotApi || !window.fishbotStore) {
     return;
@@ -100,5 +159,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     window.renderMapOverlay();
   }
 
+  bindControlButtons();
   bindRealtimeStatusSocket();
 });

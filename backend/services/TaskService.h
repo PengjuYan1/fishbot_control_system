@@ -22,6 +22,7 @@ class TaskService {
 
     TaskStartResult start_manual_run();
     TaskStartResult start_scheduled_run(const std::string& schedule_name);
+    TaskStartResult start_charge_return();
     void complete_current_feed_point();
     void interrupt_for_low_battery();
     void on_charge_completed(bool resume_after_charge);
@@ -30,6 +31,7 @@ class TaskService {
 
   private:
     TaskStartResult start_run(const std::string& trigger_type);
+    PointRecord find_charge_point() const;
     std::vector<PointRecord> list_feed_points() const;
     void navigate_to_point(const PointRecord& point);
     std::string serialize_remaining_points() const;

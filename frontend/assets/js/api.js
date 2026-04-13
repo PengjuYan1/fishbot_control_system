@@ -59,6 +59,20 @@ window.fishbotApi = {
       return { ...mockState.map };
     }
   },
+  async startMapping() {
+    try {
+      return await requestJson('/api/map/start-mapping', { method: 'POST', body: '' });
+    } catch (error) {
+      return { status: 'started' };
+    }
+  },
+  async saveMap(name) {
+    try {
+      return await requestJson('/api/map/save', { method: 'POST', body: name || 'web_map' });
+    } catch (error) {
+      return { status: 'saved' };
+    }
+  },
   async getPoints() {
     try {
       return await requestJson('/api/points');
@@ -103,5 +117,19 @@ window.fishbotApi = {
   },
   async createSchedule() {
     return { id: 1 };
+  },
+  async startTask() {
+    try {
+      return await requestJson('/api/tasks/start', { method: 'POST', body: '' });
+    } catch (error) {
+      return { status: 'running', current_target_name: 'F1' };
+    }
+  },
+  async goCharge() {
+    try {
+      return await requestJson('/api/tasks/go-charge', { method: 'POST', body: '' });
+    } catch (error) {
+      return { status: 'charging', current_target_name: 'C1' };
+    }
   },
 };

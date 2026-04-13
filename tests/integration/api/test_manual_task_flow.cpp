@@ -73,5 +73,23 @@ int main() {
         return EXIT_FAILURE;
     }
 
+    const auto charge_response = server.handle_post("/api/tasks/go-charge", "");
+    if (charge_response.status != 200) {
+        std::cerr << "expected successful go-charge response\n";
+        return EXIT_FAILURE;
+    }
+
+    if (charge_response.body.find("\"status\":\"charging\"") == std::string::npos ||
+        charge_response.body.find("\"current_target_name\":\"C1\"") == std::string::npos) {
+        std::cerr << "expected charge point to become current target\n";
+        return EXIT_FAILURE;
+    }
+
+    if (adapter.last_goal.x != 1.0 || adapter.last_goal.y != 2.0 ||
+        adapter.last_goal.floor_id != 1 || adapter.last_goal.map_id != 11 || adapter.last_goal.point_id != 21) {
+        std::cerr << "expected go-charge to navigate to configured charge point\n";
+        return EXIT_FAILURE;
+    }
+
     return EXIT_SUCCESS;
 }

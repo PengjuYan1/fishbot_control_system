@@ -55,6 +55,7 @@ add_library(fishbot_backend
     backend/api/ScheduleController.cpp
     backend/scheduler/BatteryWatcher.cpp
     backend/scheduler/TaskScheduler.cpp
+    backend/runtime/StatusStreamService.cpp
     backend/state_machine/TaskStateMachine.cpp
     backend/websocket/StatusHub.cpp
 )
@@ -153,6 +154,14 @@ target_link_libraries(test_status_websocket PRIVATE fishbot_backend)
 
 add_test(NAME StatusWebSocketTest COMMAND test_status_websocket)
 set_tests_properties(StatusWebSocketTest PROPERTIES WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+
+add_executable(test_status_stream_service
+    tests/integration/runtime/test_status_stream_service.cpp
+)
+target_link_libraries(test_status_stream_service PRIVATE fishbot_backend)
+
+add_test(NAME StatusStreamServiceTest COMMAND test_status_stream_service)
+set_tests_properties(StatusStreamServiceTest PROPERTIES WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
 
 add_executable(test_map_workflow
     tests/integration/api/test_map_workflow.cpp
