@@ -242,7 +242,7 @@ bool RosbridgeAdapter::stop_navigation() {
 
     std::ostringstream payload;
     payload << "{\"linear\":{\"x\":0,\"y\":0,\"z\":0},\"angular\":{\"x\":0,\"y\":0,\"z\":0}}";
-    return publish_topic("cmd_vel", "geometry_msgs/Twist", payload.str()) && ok;
+    return publish_topic("/cmd_vel", "geometry_msgs/Twist", payload.str()) && ok;
 }
 
 bool RosbridgeAdapter::set_initial_pose(const Pose& pose) {
@@ -259,8 +259,8 @@ bool RosbridgeAdapter::manual_move(double linear_speed, double angular_speed) {
     std::ostringstream payload;
     payload << "{\"linear\":{\"x\":" << linear_speed
             << ",\"y\":0,\"z\":0},\"angular\":{\"x\":0,\"y\":0,\"z\":"
-            << (-angular_speed) << "}}";
-    return publish_topic("cmd_vel", "geometry_msgs/Twist", payload.str());
+            << angular_speed << "}}";
+    return publish_topic("/cmd_vel", "geometry_msgs/Twist", payload.str());
 }
 
 Pose RosbridgeAdapter::get_robot_pose() const { return pose_; }

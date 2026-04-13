@@ -219,7 +219,7 @@ int main() {
     if (stop_topics[stop_topics.size() - 4] != "/navi_stop" ||
         stop_topics[stop_topics.size() - 3] != "/navi_stop" ||
         stop_topics[stop_topics.size() - 2] != "/navi_stop" ||
-        stop_topics.back() != "cmd_vel") {
+        stop_topics.back() != "/cmd_vel") {
         std::cerr << "expected stop_navigation to publish repeated /navi_stop then zero cmd_vel\n";
         return EXIT_FAILURE;
     }
@@ -247,10 +247,10 @@ int main() {
         return EXIT_FAILURE;
     }
 
-    if (transport.last_topic() != "cmd_vel" ||
+    if (transport.last_topic() != "/cmd_vel" ||
         transport.last_type() != "geometry_msgs/Twist" ||
         transport.last_payload().find("\"x\":0.2") == std::string::npos ||
-        transport.last_payload().find("\"z\":-0.4") == std::string::npos) {
+        transport.last_payload().find("\"z\":0.4") == std::string::npos) {
         std::cerr << "expected cmd_vel publish to match apk motion command format\n";
         return EXIT_FAILURE;
     }
@@ -260,7 +260,7 @@ int main() {
         return EXIT_FAILURE;
     }
 
-    if (transport.last_topic() != "cmd_vel" ||
+    if (transport.last_topic() != "/cmd_vel" ||
         transport.last_type() != "geometry_msgs/Twist" ||
         transport.last_payload().find("\"x\":0.18") == std::string::npos ||
         transport.last_payload().find("\"z\":0") == std::string::npos) {
@@ -273,7 +273,7 @@ int main() {
         return EXIT_FAILURE;
     }
 
-    if (transport.last_topic() != "cmd_vel" ||
+    if (transport.last_topic() != "/cmd_vel" ||
         transport.last_type() != "geometry_msgs/Twist" ||
         transport.last_payload().find("\"x\":-0.12") == std::string::npos ||
         transport.last_payload().find("\"z\":0") == std::string::npos) {
@@ -286,10 +286,10 @@ int main() {
         return EXIT_FAILURE;
     }
 
-    if (transport.last_topic() != "cmd_vel" ||
+    if (transport.last_topic() != "/cmd_vel" ||
         transport.last_type() != "geometry_msgs/Twist" ||
         transport.last_payload().find("\"x\":0") == std::string::npos ||
-        transport.last_payload().find("\"z\":-0.8") == std::string::npos) {
+        transport.last_payload().find("\"z\":0.8") == std::string::npos) {
         std::cerr << "expected left turn button move to use repeated cmd_vel teleop format\n";
         return EXIT_FAILURE;
     }
@@ -299,10 +299,10 @@ int main() {
         return EXIT_FAILURE;
     }
 
-    if (transport.last_topic() != "cmd_vel" ||
+    if (transport.last_topic() != "/cmd_vel" ||
         transport.last_type() != "geometry_msgs/Twist" ||
         transport.last_payload().find("\"x\":0") == std::string::npos ||
-        transport.last_payload().find("\"z\":0.8") == std::string::npos) {
+        transport.last_payload().find("\"z\":-0.8") == std::string::npos) {
         std::cerr << "expected right turn button move to use repeated cmd_vel teleop format\n";
         return EXIT_FAILURE;
     }
@@ -312,7 +312,7 @@ int main() {
         return EXIT_FAILURE;
     }
 
-    if (transport.last_topic() != "cmd_vel" ||
+    if (transport.last_topic() != "/cmd_vel" ||
         transport.last_type() != "geometry_msgs/Twist" ||
         transport.last_payload().find("\"x\":0") == std::string::npos ||
         transport.last_payload().find("\"z\":0") == std::string::npos) {

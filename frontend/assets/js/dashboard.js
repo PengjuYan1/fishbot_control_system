@@ -272,7 +272,7 @@ function bindControlButtons() {
         } catch (stopError) {
         }
       });
-    }, 150);
+    }, 100);
   };
 
   if (startMappingButton) {
