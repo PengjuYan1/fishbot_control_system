@@ -2,7 +2,13 @@
 
 namespace {
 bool navigation_still_owns_chassis(const RobotStatus& status) {
-    return status.navigation_status_code != 0 && status.navigation_status_code != 7;
+    switch (status.navigation_status_code) {
+        case 1:
+        case 5:
+            return true;
+        default:
+            return false;
+    }
 }
 }  // namespace
 

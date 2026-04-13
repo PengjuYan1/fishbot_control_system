@@ -56,7 +56,7 @@ function formatControlBlockers(system) {
     blockers.push('电机未使能');
   }
   const navigationCode = Number(control.navigation_status_code || 0);
-  if (navigationCode !== 0 && navigationCode !== 7) {
+  if (navigationCode === 1 || navigationCode === 5) {
     blockers.push(`导航控制仍占用中 (${navigationCode})`);
   }
   if (Number(control.stm32_status_code || 0) === 17) {

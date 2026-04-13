@@ -237,7 +237,8 @@ bool RosbridgeAdapter::navigate_to_pose(const Pose& pose) {
 }
 
 bool RosbridgeAdapter::stop_navigation() {
-    bool ok = true;
+    std::string response;
+    bool ok = call_service("/set_mode", "map_msgs/SetMode", "{\"mode\":0}", &response);
     for (int attempt = 0; attempt < 5; ++attempt) {
         ok = publish_topic("/navi_stop", "std_msgs/Int16", "{\"data\":5}") && ok;
         std::this_thread::sleep_for(std::chrono::milliseconds(50));

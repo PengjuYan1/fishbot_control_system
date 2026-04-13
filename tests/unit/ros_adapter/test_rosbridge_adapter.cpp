@@ -37,6 +37,8 @@ class FakeRosbridgeTransport : public IRosbridgeTransport {
         last_service_ = service;
         last_type_ = type;
         last_payload_ = request;
+        called_services_.push_back(service);
+        called_payloads_.push_back(request);
         if (response != nullptr) {
             *response = "{}";
         }
@@ -65,6 +67,8 @@ class FakeRosbridgeTransport : public IRosbridgeTransport {
     std::size_t subscription_count() const { return subscriptions_.size(); }
     const std::vector<std::string>& published_topics() const { return published_topics_; }
     const std::vector<std::string>& published_payloads() const { return published_payloads_; }
+    const std::vector<std::string>& called_services() const { return called_services_; }
+    const std::vector<std::string>& called_payloads() const { return called_payloads_; }
 
   private:
     bool connected_ = false;
@@ -75,6 +79,8 @@ class FakeRosbridgeTransport : public IRosbridgeTransport {
     int published_count_ = 0;
     std::vector<std::string> published_topics_;
     std::vector<std::string> published_payloads_;
+    std::vector<std::string> called_services_;
+    std::vector<std::string> called_payloads_;
     std::unordered_map<std::string, MessageCallback> subscriptions_;
     std::unordered_map<std::string, std::string> subscription_types_;
 };
@@ -206,6 +212,14 @@ int main() {
 
     if (!adapter.stop_navigation()) {
         std::cerr << "expected stop_navigation to succeed\n";
+        return EXIT_FAILURE;
+    }
+
+    const auto& called_services = transport.called_services();
+    const auto& called_payloads = transport.called_payloads();
+    if (called_services.empty() || called_services.back() != "/set_mode" ||
+        called_payloads.back().find("\"mode\":0") == std::string::npos) {
+        std::cerr << "expected stop_navigation to request manual mode via /set_mode\n";
         return EXIT_FAILURE;
     }
 
