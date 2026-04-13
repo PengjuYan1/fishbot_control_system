@@ -1,0 +1,8 @@
+adapter_mode: rosbridge
+rosbridge_host: 10.7.5.88
+rosbridge_port: 9090
+battery_return_threshold: 25
+battery_start_threshold: 35
+feed_pause_seconds: 20
+resume_after_charge: true
+finish_action: return_to_charge
