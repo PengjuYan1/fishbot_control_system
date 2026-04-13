@@ -1,0 +1,20 @@
+#ifndef FISHBOT_STORAGE_REPOSITORIES_POINTREPOSITORY_H_
+#define FISHBOT_STORAGE_REPOSITORIES_POINTREPOSITORY_H_
+
+#include <vector>
+
+#include "backend/model/PointRecord.h"
+#include "storage/Database.h"
+
+class PointRepository {
+  public:
+    explicit PointRepository(const DatabaseHandle& db);
+
+    int insert_point(const PointRecord& point);
+    std::vector<PointRecord> list_points() const;
+
+  private:
+    sqlite3* db_;
+};
+
+#endif

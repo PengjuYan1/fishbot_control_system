@@ -19,6 +19,7 @@ target_include_directories(fishbot_bootstrap PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
 add_library(fishbot_storage
     storage/Database.cpp
+    storage/repositories/PointRepository.cpp
 )
 target_include_directories(fishbot_storage PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 target_link_libraries(fishbot_storage PUBLIC SQLite::SQLite3)
@@ -35,10 +36,14 @@ add_library(fishbot_backend
     backend/api/HealthController.cpp
     backend/services/SystemService.cpp
     backend/api/SystemController.cpp
+    backend/services/MapService.cpp
+    backend/api/MapController.cpp
+    backend/services/PointService.cpp
+    backend/api/PointController.cpp
     backend/websocket/StatusHub.cpp
 )
 target_include_directories(fishbot_backend PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
-target_link_libraries(fishbot_backend PUBLIC fishbot_bootstrap fishbot_adapter)
+target_link_libraries(fishbot_backend PUBLIC fishbot_bootstrap fishbot_adapter fishbot_storage)
 
 add_executable(fishbot_app
     backend/main.cpp
@@ -116,3 +121,19 @@ target_link_libraries(test_status_websocket PRIVATE fishbot_backend)
 
 add_test(NAME StatusWebSocketTest COMMAND test_status_websocket)
 set_tests_properties(StatusWebSocketTest PROPERTIES WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+
+add_executable(test_map_workflow
+    tests/integration/api/test_map_workflow.cpp
+)
+target_link_libraries(test_map_workflow PRIVATE fishbot_backend)
+
+add_test(NAME MapWorkflowTest COMMAND test_map_workflow)
+set_tests_properties(MapWorkflowTest PROPERTIES WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+
+add_executable(test_points_api
+    tests/integration/api/test_points_api.cpp
+)
+target_link_libraries(test_points_api PRIVATE fishbot_backend)
+
+add_test(NAME PointsApiTest COMMAND test_points_api)
+set_tests_properties(PointsApiTest PROPERTIES WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})

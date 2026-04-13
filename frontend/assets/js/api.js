@@ -5,5 +5,11 @@ window.fishbotApi = {
       pose: { x: 1.0, y: 2.0, theta: 0.5 },
       task: { status: 'idle', current_target: '' },
     };
+  },,
+  async getPoints() {
+    return [
+      { id: 1, name: 'C1', type: 'charge' },
+      { id: 2, name: 'F1', type: 'feed' },
+    ];
   },
 };

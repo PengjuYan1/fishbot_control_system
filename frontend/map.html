@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fishbot Points</title>
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Point Management</p>
+        <h1>地图与点位管理</h1>
+      </div>
+    </header>
+    <main class="dashboard-grid">
+      <section class="map-stage panel">
+        <div class="panel-header">
+          <div>
+            <p class="panel-kicker">Map</p>
+            <h2>点位编辑画布</h2>
+          </div>
+        </div>
+        <div class="map-canvas">
+          <div class="map-overlay-note">点击地图以设置充电点或投喂点</div>
+        </div>
+      </section>
+      <aside class="side-column">
+        <section class="panel status-panel">
+          <div class="panel-header compact">
+            <div>
+              <p class="panel-kicker">Points</p>
+              <h2>点位列表</h2>
+            </div>
+          </div>
+          <div id="point-list"></div>
+        </section>
+      </aside>
+    </main>
+  </div>
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/points.js"></script>
+</body>
+</html>
