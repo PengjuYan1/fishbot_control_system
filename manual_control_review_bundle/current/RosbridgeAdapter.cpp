@@ -1,10 +1,12 @@
 #include "ros_adapter/bridge_client/RosbridgeAdapter.h"
 
+#include <chrono>
 #include <cctype>
 #include <cmath>
 #include <regex>
 #include <sstream>
 #include <string>
+#include <thread>
 #include <vector>
 
 namespace {
@@ -236,8 +238,9 @@ bool RosbridgeAdapter::navigate_to_pose(const Pose& pose) {
 
 bool RosbridgeAdapter::stop_navigation() {
     bool ok = true;
-    for (int attempt = 0; attempt < 3; ++attempt) {
+    for (int attempt = 0; attempt < 5; ++attempt) {
         ok = publish_topic("/navi_stop", "std_msgs/Int16", "{\"data\":5}") && ok;
+        std::this_thread::sleep_for(std::chrono::milliseconds(50));
     }
 
     std::ostringstream payload;
@@ -281,6 +284,7 @@ RobotStatus RosbridgeAdapter::get_robot_status() const {
     status.stm32_status_code = stm32_status_code_;
     status.odom_status_code = odom_status_code_;
     status.motion_mode_code = motion_mode_code_;
+    status.navigation_status_code = navigation_status_;
     status.out_of_charge_status_code = out_of_charge_status_code_;
     status.out_machine_signal = out_machine_signal_;
     status.out_of_charge_result_code = out_of_charge_result_code_;

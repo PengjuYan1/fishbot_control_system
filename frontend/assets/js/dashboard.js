@@ -55,6 +55,10 @@ function formatControlBlockers(system) {
   if (Number(control.motor_status_code || 0) === 33) {
     blockers.push('电机未使能');
   }
+  const navigationCode = Number(control.navigation_status_code || 0);
+  if (navigationCode !== 0 && navigationCode !== 7) {
+    blockers.push(`导航控制仍占用中 (${navigationCode})`);
+  }
   if (Number(control.stm32_status_code || 0) === 17) {
     blockers.push('STM32 通讯异常');
   }
@@ -87,6 +91,7 @@ function updateDashboardStatus() {
   const chargeCodeNode = document.getElementById('charge-code-value');
   const stm32Node = document.getElementById('stm32-status-value');
   const odomNode = document.getElementById('odom-status-value');
+  const navigationCodeNode = document.getElementById('navigation-code-value');
   const outchargeResultNode = document.getElementById('outcharge-result-value');
   const controlBlockerNode = document.getElementById('control-blocker-value');
 
@@ -138,6 +143,10 @@ function updateDashboardStatus() {
 
   if (odomNode) {
     odomNode.textContent = formatOdomStatus(state.system.control);
+  }
+
+  if (navigationCodeNode) {
+    navigationCodeNode.textContent = String(state.system.control.navigation_status_code || 0);
   }
 
   if (outchargeResultNode) {

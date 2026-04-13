@@ -26,6 +26,7 @@ struct ControlDiagnostics {
     int stm32_status_code = 0;
     int odom_status_code = 0;
     int motion_mode_code = 0;
+    int navigation_status_code = 0;
     int out_of_charge_status_code = 0;
     bool out_machine_signal = false;
     int out_of_charge_result_code = 0;
@@ -64,6 +65,7 @@ inline std::string to_json(const SystemSnapshot& snapshot) {
         ",\"stm32_status_code\":" + std::to_string(snapshot.control.stm32_status_code) +
         ",\"odom_status_code\":" + std::to_string(snapshot.control.odom_status_code) +
         ",\"motion_mode_code\":" + std::to_string(snapshot.control.motion_mode_code) +
+        ",\"navigation_status_code\":" + std::to_string(snapshot.control.navigation_status_code) +
         ",\"out_of_charge_status_code\":" + std::to_string(snapshot.control.out_of_charge_status_code) +
         ",\"out_machine_signal\":" + (snapshot.control.out_machine_signal ? "true" : "false") +
         ",\"out_of_charge_result_code\":" + std::to_string(snapshot.control.out_of_charge_result_code) +

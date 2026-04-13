@@ -33,6 +33,7 @@ class FakeRobotAdapter : public IRobotAdapter {
         status.charge_status_code = 47;
         status.stm32_status_code = 17;
         status.odom_status_code = 19;
+        status.navigation_status_code = 1;
         return status;
     }
     MapSnapshot get_map_snapshot() const override { return MapSnapshot{10, 20, 0.05, {0, 100}}; }
@@ -84,7 +85,8 @@ int main() {
         response.body.find("\"motor_status_code\":33") == std::string::npos ||
         response.body.find("\"charge_status_code\":47") == std::string::npos ||
         response.body.find("\"stm32_status_code\":17") == std::string::npos ||
-        response.body.find("\"odom_status_code\":19") == std::string::npos) {
+        response.body.find("\"odom_status_code\":19") == std::string::npos ||
+        response.body.find("\"navigation_status_code\":1") == std::string::npos) {
         std::cerr << "expected extended drivetrain diagnostics in response body\n";
         return EXIT_FAILURE;
     }

@@ -211,12 +211,14 @@ int main() {
 
     const auto& stop_topics = transport.published_topics();
     const auto& stop_payloads = transport.published_payloads();
-    if (stop_topics.size() < 4) {
+    if (stop_topics.size() < 6) {
         std::cerr << "expected repeated stop_navigation publishes\n";
         return EXIT_FAILURE;
     }
 
-    if (stop_topics[stop_topics.size() - 4] != "/navi_stop" ||
+    if (stop_topics[stop_topics.size() - 6] != "/navi_stop" ||
+        stop_topics[stop_topics.size() - 5] != "/navi_stop" ||
+        stop_topics[stop_topics.size() - 4] != "/navi_stop" ||
         stop_topics[stop_topics.size() - 3] != "/navi_stop" ||
         stop_topics[stop_topics.size() - 2] != "/navi_stop" ||
         stop_topics.back() != "/cmd_vel") {
@@ -224,7 +226,7 @@ int main() {
         return EXIT_FAILURE;
     }
 
-    if (stop_payloads[stop_payloads.size() - 4].find("\"data\":5") == std::string::npos ||
+    if (stop_payloads[stop_payloads.size() - 6].find("\"data\":5") == std::string::npos ||
         stop_payloads.back().find("\"x\":0") == std::string::npos ||
         stop_payloads.back().find("\"z\":0") == std::string::npos) {
         std::cerr << "expected repeated stop payload and zero velocity release\n";

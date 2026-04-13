@@ -1,5 +1,11 @@
 #include "backend/services/ManualControlService.h"
 
+namespace {
+bool navigation_still_owns_chassis(const RobotStatus& status) {
+    return status.navigation_status_code != 0 && status.navigation_status_code != 7;
+}
+}  // namespace
+
 ManualControlService::ManualControlService(IRobotAdapter& adapter) : adapter_(adapter) {}
 
 bool ManualControlService::out_of_charge() {
@@ -8,7 +14,11 @@ bool ManualControlService::out_of_charge() {
 
 bool ManualControlService::move(double linear_speed, double angular_speed) {
     const bool wants_motion = linear_speed != 0.0 || angular_speed != 0.0;
-    if (wants_motion && !control_session_active_) {
+    const auto robot_status = adapter_.get_robot_status();
+    const bool must_reacquire_control =
+        wants_motion && (!control_session_active_ || navigation_still_owns_chassis(robot_status));
+
+    if (must_reacquire_control) {
         if (!release_navigation_control()) {
             return false;
         }

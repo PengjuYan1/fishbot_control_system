@@ -35,7 +35,11 @@ class FakeControlAdapter : public IRobotAdapter {
     }
     Pose get_robot_pose() const override { return {}; }
     int get_battery() const override { return 100; }
-    RobotStatus get_robot_status() const override { return RobotStatus{100, false, true, true}; }
+    RobotStatus get_robot_status() const override {
+        RobotStatus status{100, false, true, true};
+        status.navigation_status_code = navigation_status_code;
+        return status;
+    }
     MapSnapshot get_map_snapshot() const override { return {}; }
     bool is_charging() const override { return false; }
 
@@ -45,6 +49,7 @@ class FakeControlAdapter : public IRobotAdapter {
     int stop_navigation_count = 0;
     double last_linear = 0.0;
     double last_angular = 0.0;
+    int navigation_status_code = 0;
 };
 
 int main() {
@@ -69,16 +74,17 @@ int main() {
     }
 
     adapter.move_requested = false;
+    adapter.navigation_status_code = 1;
     const auto second_move = server.handle_post("/api/control/move", "linear=0.10&angular=0.0");
     if (second_move.status != 200 || !adapter.move_requested ||
-        adapter.stop_navigation_count != 1 ||
+        adapter.stop_navigation_count != 2 ||
         adapter.last_linear != 0.10 || adapter.last_angular != 0.0) {
-        std::cerr << "expected repeated move to reuse released control session\n";
+        std::cerr << "expected repeated move to re-release control when navigation becomes active again\n";
         return EXIT_FAILURE;
     }
 
     const auto stop = server.handle_post("/api/control/stop", "");
-    if (stop.status != 200 || adapter.stop_navigation_count != 2 ||
+    if (stop.status != 200 || adapter.stop_navigation_count != 3 ||
         adapter.last_linear != 0.0 || adapter.last_angular != 0.0) {
         std::cerr << "expected manual stop to release control and send zero velocity\n";
         return EXIT_FAILURE;

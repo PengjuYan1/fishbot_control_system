@@ -14,6 +14,7 @@ struct RobotStatus {
     int stm32_status_code = 0;
     int odom_status_code = 0;
     int motion_mode_code = 0;
+    int navigation_status_code = 0;
     int out_of_charge_status_code = 0;
     bool out_machine_signal = false;
     int out_of_charge_result_code = 0;

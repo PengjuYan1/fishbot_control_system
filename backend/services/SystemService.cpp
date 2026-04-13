@@ -26,6 +26,7 @@ SystemSnapshot SystemService::get_snapshot() const {
     snapshot.control.stm32_status_code = robot_status.stm32_status_code;
     snapshot.control.odom_status_code = robot_status.odom_status_code;
     snapshot.control.motion_mode_code = robot_status.motion_mode_code;
+    snapshot.control.navigation_status_code = robot_status.navigation_status_code;
     snapshot.control.out_of_charge_status_code = robot_status.out_of_charge_status_code;
     snapshot.control.out_machine_signal = robot_status.out_machine_signal;
     snapshot.control.out_of_charge_result_code = robot_status.out_of_charge_result_code;
