@@ -35,6 +35,18 @@ The completed foundation currently includes:
 ./scripts/dev_run.sh
 ```
 
+## Real Robot Probe
+
+Use the rosbridge probe before real robot联调. It only connects and subscribes to live topics, and does not issue navigation or map-changing commands.
+
+```bash
+cmake -S . -B build
+cmake --build build --target fishbot_rosbridge_probe
+./build/fishbot_rosbridge_probe 10.7.5.88 9090 2000
+```
+
+Expected output is a single JSON line with current connection state, battery, localization, charging flag, pose, and the latest map snapshot cache.
+
 ## Tests
 
 ```bash

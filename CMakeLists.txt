@@ -67,6 +67,11 @@ add_executable(fishbot_app
 )
 target_link_libraries(fishbot_app PRIVATE fishbot_bootstrap fishbot_backend)
 
+add_executable(fishbot_rosbridge_probe
+    tools/rosbridge_probe.cpp
+)
+target_link_libraries(fishbot_rosbridge_probe PRIVATE fishbot_adapter fishbot_bootstrap Threads::Threads)
+
 add_executable(test_bootstrap
     tests/integration/test_bootstrap.cpp
 )
@@ -130,6 +135,14 @@ target_link_libraries(test_rosbridge_websocket_transport PRIVATE fishbot_adapter
 
 add_test(NAME RosbridgeWebsocketTransportTest COMMAND test_rosbridge_websocket_transport)
 set_tests_properties(RosbridgeWebsocketTransportTest PROPERTIES WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+
+add_executable(test_rosbridge_probe
+    tests/integration/ros_adapter/test_rosbridge_probe.cpp
+)
+target_link_libraries(test_rosbridge_probe PRIVATE Threads::Threads)
+
+add_test(NAME RosbridgeProbeTest COMMAND test_rosbridge_probe)
+set_tests_properties(RosbridgeProbeTest PROPERTIES WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
 
 add_executable(test_health_endpoint
     tests/integration/api/test_health_endpoint.cpp
