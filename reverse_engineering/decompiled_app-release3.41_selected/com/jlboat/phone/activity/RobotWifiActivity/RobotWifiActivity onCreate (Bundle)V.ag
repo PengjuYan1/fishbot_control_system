@@ -1,0 +1,32 @@
+# Lcom/jlboat/phone/activity/RobotWifiActivity;->onCreate(Landroid/os/Bundle;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:android.os.Bundle
+#
+# - return:void
+
+onCreate-BB@0x0 : 
+	0       (00000000) invoke-super         v2, v3, Lcom/jlboat/phone/base/BaseFullActivity;->onCreate(Landroid/os/Bundle;)V
+	1       (00000006) const                v0, 2131361827
+	2       (0000000c) const                v1, 2131493170
+	3       (00000012) invoke-virtual       v2, v0, v1, Lcom/jlboat/phone/activity/RobotWifiActivity;->initTitleBar(I I)V
+	4       (00000018) const                v0, 2131230905
+	5       (0000001e) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/RobotWifiActivity;->findViewById(I)Landroid/view/View;
+	6       (00000024) move-result-object   v0
+	7       (00000026) check-cast           v0, Landroid/widget/EditText;
+	8       (0000002a) iput-object          v0, v2, Lcom/jlboat/phone/activity/RobotWifiActivity;->name Landroid/widget/EditText;
+	9       (0000002e) const                v0, 2131230906
+	10      (00000034) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/RobotWifiActivity;->findViewById(I)Landroid/view/View;
+	11      (0000003a) move-result-object   v0
+	12      (0000003c) check-cast           v0, Landroid/widget/EditText;
+	13      (00000040) iput-object          v0, v2, Lcom/jlboat/phone/activity/RobotWifiActivity;->pass Landroid/widget/EditText;
+	14      (00000044) const                v0, 2131230824
+	15      (0000004a) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/RobotWifiActivity;->findViewById(I)Landroid/view/View;
+	16      (00000050) move-result-object   v0
+	17      (00000052) check-cast           v0, Landroid/widget/Button;
+	18      (00000056) iput-object          v0, v2, Lcom/jlboat/phone/activity/RobotWifiActivity;->send Landroid/widget/Button;
+	19      (0000005a) iget-object          v0, v2, Lcom/jlboat/phone/activity/RobotWifiActivity;->send Landroid/widget/Button;
+	20      (0000005e) invoke-virtual       v0, v2, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	21      (00000064) return-void          
+

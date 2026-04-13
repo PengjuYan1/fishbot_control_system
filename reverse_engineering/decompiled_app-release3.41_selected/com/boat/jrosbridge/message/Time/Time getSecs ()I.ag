@@ -1,0 +1,11 @@
+# Lcom/boat/jrosbridge/message/Time;->getSecs()I [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:int
+
+getSecs-BB@0x0 : 
+	0       (00000000) iget                 v0, v1, Lcom/boat/jrosbridge/message/Time;->secs I
+	1       (00000004) return               v0
+

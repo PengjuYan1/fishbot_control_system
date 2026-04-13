@@ -1,0 +1,19 @@
+# Lcom/jlboat/phone/activity/SettingActivity$12;->onClick(Landroid/content/DialogInterface; I)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:android.content.DialogInterface
+# - v4:int
+#
+# - return:void
+
+onClick-BB@0x0 : 
+	0       (00000000) invoke-interface     v3, Landroid/content/DialogInterface;->dismiss()V
+	1       (00000006) iget-object          v0, v2, Lcom/jlboat/phone/activity/SettingActivity$12;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	2       (0000000a) invoke-static        v0, Lcom/jlboat/phone/activity/SettingActivity;->access$2600(Lcom/jlboat/phone/activity/SettingActivity;)Lcom/boat/jrosbridge/Topic;
+	3       (00000010) move-result-object   v0
+	4       (00000012) new-instance         v1, Lcom/boat/jrosbridge/message/std_msgs/Int16;
+	5       (00000016) invoke-direct        v1, Lcom/boat/jrosbridge/message/std_msgs/Int16;-><init>()V
+	6       (0000001c) invoke-virtual       v0, v1, Lcom/boat/jrosbridge/Topic;->publish(Lcom/boat/jrosbridge/message/Message;)V
+	7       (00000022) return-void          
+

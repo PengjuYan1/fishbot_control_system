@@ -1,0 +1,99 @@
+# Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$2;->onNewMessage(Lcom/jlboat/phone/message/map_msgs/GetConfigsResponse;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v6
+# - v7:com.jlboat.phone.message.map_msgs.GetConfigsResponse
+#
+# - return:void
+
+onNewMessage-BB@0x0 : [ onNewMessage-BB@0x8a ]
+	0       (00000000) new-instance         v0, Ljava/lang/StringBuilder;
+	1       (00000004) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	2       (0000000a) const-string         v1, "onNewMessage: aaa "
+	3       (0000000e) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	4       (00000014) move-result-object   v0
+	5       (00000016) invoke-virtual       v7, Lcom/jlboat/phone/message/map_msgs/GetConfigsResponse;->getConfigs()Ljava/util/List;
+	6       (0000001c) move-result-object   v2
+	7       (0000001e) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+	8       (00000024) move-result-object   v0
+	9       (00000026) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	10      (0000002c) move-result-object   v0
+	11      (0000002e) const-string         v2, "CameraFragment"
+	12      (00000032) invoke-static        v2, v0, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	13      (00000038) iget-object          v0, v6, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$2;->this$0 Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;
+	14      (0000003c) invoke-static        v0, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;->access$000(Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;)Ljava/util/List;
+	15      (00000042) move-result-object   v0
+	16      (00000044) invoke-interface     v0, Ljava/util/List;->clear()V
+	17      (0000004a) new-instance         v0, Ljava/lang/StringBuilder;
+	18      (0000004e) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	19      (00000054) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	20      (0000005a) move-result-object   v0
+	21      (0000005c) invoke-virtual       v7, Lcom/jlboat/phone/message/map_msgs/GetConfigsResponse;->getConfigs()Ljava/util/List;
+	22      (00000062) move-result-object   v3
+	23      (00000064) invoke-virtual       v0, v3, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+	24      (0000006a) move-result-object   v0
+	25      (0000006c) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	26      (00000072) move-result-object   v0
+	27      (00000074) invoke-static        v2, v0, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	28      (0000007a) invoke-virtual       v7, Lcom/jlboat/phone/message/map_msgs/GetConfigsResponse;->getConfigs()Ljava/util/List;
+	29      (00000080) move-result-object   v0
+	30      (00000082) invoke-interface     v0, Ljava/util/List;->iterator()Ljava/util/Iterator;
+	31      (00000088) move-result-object   v0
+
+onNewMessage-BB@0x8a : [ onNewMessage-BB@0x96 onNewMessage-BB@0x14c ]
+	32      (0000008a) invoke-interface     v0, Ljava/util/Iterator;->hasNext()Z
+	33      (00000090) move-result          v3
+	34      (00000092) if-eqz               v3, +05dh
+
+onNewMessage-BB@0x96 : [ onNewMessage-BB@0xea onNewMessage-BB@0x14a ]
+	35      (00000096) invoke-interface     v0, Ljava/util/Iterator;->next()Ljava/lang/Object;
+	36      (0000009c) move-result-object   v3
+	37      (0000009e) check-cast           v3, Lcom/jlboat/phone/message/map_msgs/Config;
+	38      (000000a2) new-instance         v4, Ljava/lang/StringBuilder;
+	39      (000000a6) invoke-direct        v4, Ljava/lang/StringBuilder;-><init>()V
+	40      (000000ac) invoke-virtual       v4, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	41      (000000b2) move-result-object   v4
+	42      (000000b4) invoke-virtual       v7, Lcom/jlboat/phone/message/map_msgs/GetConfigsResponse;->getConfigs()Ljava/util/List;
+	43      (000000ba) move-result-object   v5
+	44      (000000bc) invoke-virtual       v4, v5, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+	45      (000000c2) move-result-object   v4
+	46      (000000c4) invoke-virtual       v4, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	47      (000000ca) move-result-object   v4
+	48      (000000cc) invoke-static        v2, v4, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	49      (000000d2) invoke-virtual       v3, Lcom/jlboat/phone/message/map_msgs/Config;->getConfigName()Ljava/lang/String;
+	50      (000000d8) move-result-object   v4
+	51      (000000da) const-string         v5, "startcamera"
+	52      (000000de) invoke-virtual       v4, v5, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	53      (000000e4) move-result          v4
+	54      (000000e6) if-eqz               v4, +032h
+
+onNewMessage-BB@0xea : [ onNewMessage-BB@0x14c ]
+	55      (000000ea) iget-object          v0, v6, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$2;->this$0 Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;
+	56      (000000ee) invoke-static        v0, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;->access$000(Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;)Ljava/util/List;
+	57      (000000f4) move-result-object   v0
+	58      (000000f6) invoke-interface     v0, v3, Ljava/util/List;->add(Ljava/lang/Object;)Z
+	59      (000000fc) new-instance         v0, Ljava/lang/StringBuilder;
+	60      (00000100) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	61      (00000106) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	62      (0000010c) move-result-object   v0
+	63      (0000010e) invoke-virtual       v3, Lcom/jlboat/phone/message/map_msgs/Config;->getConfigName()Ljava/lang/String;
+	64      (00000114) move-result-object   v1
+	65      (00000116) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	66      (0000011c) move-result-object   v0
+	67      (0000011e) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	68      (00000124) move-result-object   v0
+	69      (00000126) invoke-static        v2, v0, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	70      (0000012c) iget-object          v0, v6, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$2;->this$0 Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;
+	71      (00000130) invoke-static        v0, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;->access$100(Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;)Landroid/os/Handler;
+	72      (00000136) move-result-object   v0
+	73      (00000138) new-instance         v1, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$2$1;
+	74      (0000013c) invoke-direct        v1, v6, v3, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$2$1;-><init>(Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$2; Lcom/jlboat/phone/message/map_msgs/Config;)V
+	75      (00000142) invoke-virtual       v0, v1, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+	76      (00000148) goto                 +2h
+
+onNewMessage-BB@0x14a : [ onNewMessage-BB@0x8a ]
+	77      (0000014a) goto                 -60h
+
+onNewMessage-BB@0x14c : 
+	78      (0000014c) return-void          
+

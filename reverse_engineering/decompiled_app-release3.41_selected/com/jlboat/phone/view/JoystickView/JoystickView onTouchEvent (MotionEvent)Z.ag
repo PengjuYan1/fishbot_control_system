@@ -1,0 +1,47 @@
+# Lcom/jlboat/phone/view/JoystickView;->onTouchEvent(Landroid/view/MotionEvent;)Z [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v6
+# - v7:android.view.MotionEvent
+#
+# - return:boolean
+
+onTouchEvent-BB@0x0 : [ D:onTouchEvent-BB@0x2a 0:onTouchEvent-BB@0x48 1:onTouchEvent-BB@0x2c 2:onTouchEvent-BB@0x48 ]
+	0       (00000000) invoke-virtual       v7, Landroid/view/MotionEvent;->getX()F
+	1       (00000006) move-result          v0
+	2       (00000008) invoke-virtual       v7, Landroid/view/MotionEvent;->getY()F
+	3       (0000000e) move-result          v1
+	4       (00000010) invoke-direct        v6, v0, v1, Lcom/jlboat/phone/view/JoystickView;->convertFromPxToPolar(F F)[F
+	5       (00000016) move-result-object   v2
+	6       (00000018) invoke-virtual       v7, Landroid/view/MotionEvent;->getActionMasked()I
+	7       (0000001e) move-result          v3
+	8       (00000020) const/4              v4, 0
+	9       (00000022) const/4              v5, 1
+	10      (00000024) packed-switch        v3, +000001eh
+
+onTouchEvent-BB@0x2a : 
+	11      (0000002a) return               v4
+
+onTouchEvent-BB@0x2c : [ onTouchEvent-BB@0x5c ]
+	12      (0000002c) iput-boolean         v4, v6, Lcom/jlboat/phone/view/JoystickView;->publishVelocity Z
+	13      (00000030) const/4              v3, 0
+	14      (00000032) invoke-direct        v6, v3, v3, Lcom/jlboat/phone/view/JoystickView;->moveTo(F F)V
+	15      (00000038) iget-object          v3, v6, Lcom/jlboat/phone/view/JoystickView;->publisher Lcom/boat/jrosbridge/Topic;
+	16      (0000003c) iget-object          v4, v6, Lcom/jlboat/phone/view/JoystickView;->currentVelocityCommand Lcom/boat/jrosbridge/message/geometry_msgs/Twist;
+	17      (00000040) invoke-virtual       v3, v4, Lcom/boat/jrosbridge/Topic;->publish(Lcom/boat/jrosbridge/message/Message;)V
+	18      (00000046) goto                 +bh
+
+onTouchEvent-BB@0x48 : [ onTouchEvent-BB@0x5c ]
+	19      (00000048) iput-boolean         v5, v6, Lcom/jlboat/phone/view/JoystickView;->publishVelocity Z
+	20      (0000004c) aget                 v3, v2, v4
+	21      (00000050) aget                 v4, v2, v5
+	22      (00000054) invoke-direct        v6, v3, v4, Lcom/jlboat/phone/view/JoystickView;->moveTo(F F)V
+	23      (0000005a) nop                  
+
+onTouchEvent-BB@0x5c : 
+	24      (0000005c) return               v5
+
+onTouchEvent-BB@0x5e : 
+	25      (0000005e) nop                  
+	26      (00000060) packed-switch-payload 0 1 2
+

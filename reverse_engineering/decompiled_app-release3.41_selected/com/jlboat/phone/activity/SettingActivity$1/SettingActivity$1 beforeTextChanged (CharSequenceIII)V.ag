@@ -1,0 +1,14 @@
+# Lcom/jlboat/phone/activity/SettingActivity$1;->beforeTextChanged(Ljava/lang/CharSequence; I I I)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:java.lang.CharSequence
+# - v2:int
+# - v3:int
+# - v4:int
+#
+# - return:void
+
+beforeTextChanged-BB@0x0 : 
+	0       (00000000) return-void          
+

@@ -1,0 +1,26 @@
+# Lcom/jlboat/phone/service/JlBoatService;->onBind(Landroid/content/Intent;)Landroid/os/IBinder; [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:android.content.Intent
+#
+# - return:android.os.IBinder
+
+onBind-BB@0x0 : 
+	0       (00000000) iget-object          v0, v2, Lcom/jlboat/phone/service/JlBoatService;->TAG Ljava/lang/String;
+	1       (00000004) const-string         v1, "bindServicewwoqidong2: onBind"
+	2       (00000008) invoke-static        v0, v1, Landroid/util/Log;->v(Ljava/lang/String; Ljava/lang/String;)I
+	3       (0000000e) invoke-virtual       v2, Lcom/jlboat/phone/service/JlBoatService;->getMyApplication()Lcom/boat/base/BaseApplication;
+	4       (00000014) move-result-object   v0
+	5       (00000016) check-cast           v0, Lcom/jlboat/phone/application/BoatSlamApplication;
+	6       (0000001a) invoke-virtual       v0, Lcom/jlboat/phone/application/BoatSlamApplication;->getAppController()Lcom/boat/controller/AppController;
+	7       (00000020) move-result-object   v0
+	8       (00000022) check-cast           v0, Lcom/jlboat/phone/controller/SlamAppController;
+	9       (00000026) invoke-virtual       v0, Lcom/jlboat/phone/controller/SlamAppController;->getJlNaviManager()Lcom/jlboat/phone/controller/JlNaviManager;
+	10      (0000002c) move-result-object   v0
+	11      (0000002e) invoke-virtual       v2, Lcom/jlboat/phone/service/JlBoatService;->getMyApplication()Lcom/boat/base/BaseApplication;
+	12      (00000034) move-result-object   v1
+	13      (00000036) invoke-virtual       v0, v1, Lcom/jlboat/phone/controller/JlNaviManager;->connect(Lcom/boat/base/BaseApplication;)V
+	14      (0000003c) iget-object          v0, v2, Lcom/jlboat/phone/service/JlBoatService;->navigationManager Lcom/jlboat/phone/manager/BoatNaviManager;
+	15      (00000040) return-object        v0
+

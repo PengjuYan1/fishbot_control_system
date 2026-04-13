@@ -1,0 +1,44 @@
+# Lcom/jlboat/phone/controller/JlNaviManager$15;->onNewMessage(Lcom/jlboat/phone/message/map_msgs/TargetGoalPlanResponse;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:com.jlboat.phone.message.map_msgs.TargetGoalPlanResponse
+#
+# - return:void
+
+onNewMessage-BB@0x0 : [ onNewMessage-BB@0x48 onNewMessage-BB@0x68 ]
+	0       (00000000) iget-object          v0, v3, Lcom/jlboat/phone/controller/JlNaviManager$15;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	1       (00000004) new-instance         v1, Ljava/lang/StringBuilder;
+	2       (00000008) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	3       (0000000e) const-string         v2, "onSuccess: naviTargetGoalPlan "
+	4       (00000012) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	5       (00000018) move-result-object   v1
+	6       (0000001a) invoke-virtual       v4, Lcom/jlboat/phone/message/map_msgs/TargetGoalPlanResponse;->getStatus()I
+	7       (00000020) move-result          v2
+	8       (00000022) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	9       (00000028) move-result-object   v1
+	10      (0000002a) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	11      (00000030) move-result-object   v1
+	12      (00000032) invoke-virtual       v0, v1, Lcom/jlboat/phone/controller/JlNaviManager;->toast(Ljava/lang/String;)V
+	13      (00000038) iget-object          v0, v3, Lcom/jlboat/phone/controller/JlNaviManager$15;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	14      (0000003c) invoke-static        v0, Lcom/jlboat/phone/controller/JlNaviManager;->access$3400(Lcom/jlboat/phone/controller/JlNaviManager;)Lcom/boat/support/slam/IResponseListener;
+	15      (00000042) move-result-object   v0
+	16      (00000044) if-eqz               v0, +012h
+
+onNewMessage-BB@0x48 : [ onNewMessage-BB@0x68 ]
+	17      (00000048) iget-object          v0, v3, Lcom/jlboat/phone/controller/JlNaviManager$15;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	18      (0000004c) invoke-static        v0, Lcom/jlboat/phone/controller/JlNaviManager;->access$3400(Lcom/jlboat/phone/controller/JlNaviManager;)Lcom/boat/support/slam/IResponseListener;
+	19      (00000052) move-result-object   v0
+	20      (00000054) const-string         v1, "succ"
+	21      (00000058) invoke-interface     v0, v1, Lcom/boat/support/slam/IResponseListener;->onSuccess(Ljava/lang/String;)V
+	22      (0000005e) goto                 +5h
+	48:5d
+	(Landroid/os/RemoteException; -> 60 onNewMessage-BB@0x60)
+
+onNewMessage-BB@0x60 : [ onNewMessage-BB@0x68 ]
+	23      (00000060) move-exception       v0
+	24      (00000062) invoke-virtual       v0, Landroid/os/RemoteException;->printStackTrace()V
+
+onNewMessage-BB@0x68 : 
+	25      (00000068) return-void          
+

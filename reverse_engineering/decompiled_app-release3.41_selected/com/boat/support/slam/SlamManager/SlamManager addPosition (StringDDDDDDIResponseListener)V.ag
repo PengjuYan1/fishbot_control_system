@@ -1,0 +1,44 @@
+# Lcom/boat/support/slam/SlamManager;->addPosition(Ljava/lang/String; D D D D D D Lcom/boat/support/slam/IResponseListener;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v23
+# - v24:java.lang.String
+# - v25:double
+# - v26:double
+# - v27:double
+# - v28:double
+# - v29:double
+# - v30:double
+# - v31:com.boat.support.slam.IResponseListener
+#
+# - return:void
+
+addPosition-BB@0x0 : [ addPosition-BB@0xc addPosition-BB@0x48 ]
+	0       (00000000) move-object/from16   v1, v17
+	1       (00000004) iget-object          v0, v1, Lcom/boat/support/slam/SlamManager;->slamService Lcom/boat/support/slam/ISlamService;
+	2       (00000008) if-eqz               v0, +020h
+
+addPosition-BB@0xc : [ addPosition-BB@0x48 ]
+	3       (0000000c) iget-object          v2, v1, Lcom/boat/support/slam/SlamManager;->slamService Lcom/boat/support/slam/ISlamService;
+	4       (00000010) move-object/from16   v3, v18
+	5       (00000014) move-wide/from16     v4, v19
+	6       (00000018) move-wide/from16     v6, v21
+	7       (0000001c) move-wide/from16     v8, v23
+	8       (00000020) move-wide/from16     v10, v25
+	9       (00000024) move-wide/from16     v12, v27
+	10      (00000028) move-wide/from16     v14, v29
+	11      (0000002c) move-object/from16   v16, v31
+	12      (00000030) invoke-interface/range v2 ... v16, Lcom/boat/support/slam/ISlamService;->addPosition(Ljava/lang/String; D D D D D D Lcom/boat/support/slam/IResponseListener;)V
+	13      (00000036) goto                 +9h
+	c:35
+	(Ljava/lang/Exception; -> 38 addPosition-BB@0x38)
+
+addPosition-BB@0x38 : [ addPosition-BB@0x48 ]
+	14      (00000038) move-exception       v0
+	15      (0000003a) const-string         v2, "SlamManager"
+	16      (0000003e) const-string         v3, "addPosition: "
+	17      (00000042) invoke-static        v2, v3, v0, Landroid/util/Log;->w(Ljava/lang/String; Ljava/lang/String; Ljava/lang/Throwable;)I
+
+addPosition-BB@0x48 : 
+	18      (00000048) return-void          
+

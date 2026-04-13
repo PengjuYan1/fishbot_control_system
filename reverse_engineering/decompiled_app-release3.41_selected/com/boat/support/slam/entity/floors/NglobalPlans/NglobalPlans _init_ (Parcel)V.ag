@@ -1,0 +1,20 @@
+# Lcom/boat/support/slam/entity/floors/NglobalPlans;-><init>(Landroid/os/Parcel;)V [access_flags=protected constructor]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:android.os.Parcel
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) invoke-direct        v1, Ljava/lang/Object;-><init>()V
+	1       (00000006) sget-object          v0, Lcom/boat/support/slam/entity/floors/NPoint;->CREATOR Landroid/os/Parcelable$Creator;
+	2       (0000000a) invoke-virtual       v2, v0, Landroid/os/Parcel;->createTypedArrayList(Landroid/os/Parcelable$Creator;)Ljava/util/ArrayList;
+	3       (00000010) move-result-object   v0
+	4       (00000012) iput-object          v0, v1, Lcom/boat/support/slam/entity/floors/NglobalPlans;->nPoints Ljava/util/List;
+	5       (00000016) sget-object          v0, Lcom/boat/support/slam/entity/floors/NLine;->CREATOR Landroid/os/Parcelable$Creator;
+	6       (0000001a) invoke-virtual       v2, v0, Landroid/os/Parcel;->createTypedArrayList(Landroid/os/Parcelable$Creator;)Ljava/util/ArrayList;
+	7       (00000020) move-result-object   v0
+	8       (00000022) iput-object          v0, v1, Lcom/boat/support/slam/entity/floors/NglobalPlans;->nLines Ljava/util/List;
+	9       (00000026) return-void          
+

@@ -1,0 +1,55 @@
+# Lcom/jlboat/phone/util/Utils;->isPing(Ljava/lang/String;)Z [access_flags=public static]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:java.lang.String
+#
+# - return:boolean
+
+isPing-BB@0x0 : [ isPing-BB@0x2 ]
+	0       (00000000) const/4              v0, 0
+
+isPing-BB@0x2 : [ isPing-BB@0x44 isPing-BB@0x48 ]
+	1       (00000002) invoke-static        Ljava/lang/Runtime;->getRuntime()Ljava/lang/Runtime;
+	2       (00000008) move-result-object   v1
+	3       (0000000a) new-instance         v2, Ljava/lang/StringBuilder;
+	4       (0000000e) invoke-direct        v2, Ljava/lang/StringBuilder;-><init>()V
+	5       (00000014) const-string         v3, "ping -c 3 -w 5 "
+	6       (00000018) invoke-virtual       v2, v3, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	7       (0000001e) move-result-object   v2
+	8       (00000020) invoke-virtual       v2, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	9       (00000026) move-result-object   v2
+	10      (00000028) invoke-virtual       v2, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	11      (0000002e) move-result-object   v2
+	12      (00000030) invoke-virtual       v1, v2, Ljava/lang/Runtime;->exec(Ljava/lang/String;)Ljava/lang/Process;
+	13      (00000036) move-result-object   v1
+	14      (00000038) invoke-virtual       v1, Ljava/lang/Process;->waitFor()I
+	15      (0000003e) move-result          v2
+	16      (00000040) if-nez               v2, +004h
+	2:3f
+	(Ljava/io/IOException; -> 50 isPing-BB@0x50)
+	(Ljava/lang/InterruptedException; -> 4c isPing-BB@0x4c)
+
+isPing-BB@0x44 : [ isPing-BB@0x4a ]
+	17      (00000044) const/4              v0, 1
+	18      (00000046) goto                 +2h
+
+isPing-BB@0x48 : [ isPing-BB@0x4a ]
+	19      (00000048) const/4              v0, 0
+
+isPing-BB@0x4a : [ isPing-BB@0x58 ]
+	20      (0000004a) goto                 +7h
+
+isPing-BB@0x4c : [ isPing-BB@0x52 ]
+	21      (0000004c) move-exception       v1
+	22      (0000004e) goto                 +2h
+
+isPing-BB@0x50 : [ isPing-BB@0x52 ]
+	23      (00000050) move-exception       v1
+
+isPing-BB@0x52 : [ isPing-BB@0x58 ]
+	24      (00000052) invoke-virtual       v1, Ljava/lang/Exception;->printStackTrace()V
+
+isPing-BB@0x58 : 
+	25      (00000058) return               v0
+

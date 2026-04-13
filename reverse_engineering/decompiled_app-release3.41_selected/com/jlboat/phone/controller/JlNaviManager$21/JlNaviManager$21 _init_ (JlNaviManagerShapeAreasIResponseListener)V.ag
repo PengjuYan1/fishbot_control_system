@@ -1,0 +1,17 @@
+# Lcom/jlboat/phone/controller/JlNaviManager$21;-><init>(Lcom/jlboat/phone/controller/JlNaviManager; Lcom/boat/support/slam/entity/floors/ShapeAreas; Lcom/boat/support/slam/IResponseListener;)V [access_flags=constructor]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.controller.JlNaviManager
+# - v2:com.boat.support.slam.entity.floors.ShapeAreas
+# - v3:com.boat.support.slam.IResponseListener
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) iput-object          v1, v0, Lcom/jlboat/phone/controller/JlNaviManager$21;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	1       (00000004) iput-object          v2, v0, Lcom/jlboat/phone/controller/JlNaviManager$21;->val$shapArea Lcom/boat/support/slam/entity/floors/ShapeAreas;
+	2       (00000008) iput-object          v3, v0, Lcom/jlboat/phone/controller/JlNaviManager$21;->val$responseListener Lcom/boat/support/slam/IResponseListener;
+	3       (0000000c) invoke-direct        v0, Ljava/lang/Object;-><init>()V
+	4       (00000012) return-void          
+

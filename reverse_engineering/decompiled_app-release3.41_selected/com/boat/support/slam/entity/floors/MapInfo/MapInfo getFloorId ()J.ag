@@ -1,0 +1,11 @@
+# Lcom/boat/support/slam/entity/floors/MapInfo;->getFloorId()J [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v2
+#
+# - return:long
+
+getFloorId-BB@0x0 : 
+	0       (00000000) iget-wide            v0, v2, Lcom/boat/support/slam/entity/floors/MapInfo;->floorId J
+	1       (00000004) return-wide          v0
+

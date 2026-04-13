@@ -1,0 +1,33 @@
+# Lcom/jlboat/phone/view/DrawMapView;->onDraw(Landroid/graphics/Canvas;)V [access_flags=protected]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:android.graphics.Canvas
+#
+# - return:void
+
+onDraw-BB@0x0 : [ onDraw-BB@0x8 onDraw-BB@0xa ]
+	0       (00000000) iget-boolean         v0, v3, Lcom/jlboat/phone/view/DrawMapView;->map_ready Z
+	1       (00000004) if-nez               v0, +003h
+
+onDraw-BB@0x8 : 
+	2       (00000008) return-void          
+
+onDraw-BB@0xa : [ onDraw-BB@0x12 onDraw-BB@0x3c ]
+	3       (0000000a) iget-object          v0, v3, Lcom/jlboat/phone/view/DrawMapView;->touchEvenHandler Lcom/jlboat/phone/view/TouchEvenHandler;
+	4       (0000000e) if-eqz               v0, +017h
+
+onDraw-BB@0x12 : [ onDraw-BB@0x3c ]
+	5       (00000012) iget-object          v0, v3, Lcom/jlboat/phone/view/DrawMapView;->drawFilter Landroid/graphics/DrawFilter;
+	6       (00000016) invoke-virtual       v4, v0, Landroid/graphics/Canvas;->setDrawFilter(Landroid/graphics/DrawFilter;)V
+	7       (0000001c) iget-object          v0, v3, Lcom/jlboat/phone/view/DrawMapView;->mutableBitmap Landroid/graphics/Bitmap;
+	8       (00000020) iget-object          v1, v3, Lcom/jlboat/phone/view/DrawMapView;->touchEvenHandler Lcom/jlboat/phone/view/TouchEvenHandler;
+	9       (00000024) invoke-virtual       v1, Lcom/jlboat/phone/view/TouchEvenHandler;->getMatrix()Landroid/graphics/Matrix;
+	10      (0000002a) move-result-object   v1
+	11      (0000002c) iget-object          v2, v3, Lcom/jlboat/phone/view/DrawMapView;->bitmapPaint Landroid/graphics/Paint;
+	12      (00000030) invoke-virtual       v4, v0, v1, v2, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap; Landroid/graphics/Matrix; Landroid/graphics/Paint;)V
+	13      (00000036) invoke-direct        v3, v4, Lcom/jlboat/phone/view/DrawMapView;->drawEraserIndicator(Landroid/graphics/Canvas;)V
+
+onDraw-BB@0x3c : 
+	14      (0000003c) return-void          
+

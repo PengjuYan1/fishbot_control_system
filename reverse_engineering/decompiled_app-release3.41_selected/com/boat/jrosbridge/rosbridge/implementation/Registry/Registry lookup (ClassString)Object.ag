@@ -1,0 +1,23 @@
+# Lcom/boat/jrosbridge/rosbridge/implementation/Registry;->lookup(Ljava/lang/Class; Ljava/lang/String;)Ljava/lang/Object; [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:java.lang.Class
+# - v4:java.lang.String
+#
+# - return:java.lang.Object
+
+lookup-BB@0x0 : [ lookup-BB@0x12 lookup-BB@0x1a ]
+	0       (00000000) const/4              v0, 0
+	1       (00000002) invoke-virtual       v2, v3, Lcom/boat/jrosbridge/rosbridge/implementation/Registry;->get(Ljava/lang/Object;)Ljava/lang/Object;
+	2       (00000008) move-result-object   v1
+	3       (0000000a) check-cast           v1, Ljava/util/Map;
+	4       (0000000e) if-eqz               v1, +006h
+
+lookup-BB@0x12 : [ lookup-BB@0x1a ]
+	5       (00000012) invoke-interface     v1, v4, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+	6       (00000018) move-result-object   v0
+
+lookup-BB@0x1a : 
+	7       (0000001a) return-object        v0
+

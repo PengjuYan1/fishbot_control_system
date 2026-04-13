@@ -1,0 +1,18 @@
+# Lcom/jlboat/phone/view/DrawMapView;->onStop()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:void
+
+onStop-BB@0x0 : [ onStop-BB@0x8 onStop-BB@0x12 ]
+	0       (00000000) iget-object          v0, v1, Lcom/jlboat/phone/view/DrawMapView;->sourceBitmap Landroid/graphics/Bitmap;
+	1       (00000004) if-eqz               v0, +007h
+
+onStop-BB@0x8 : [ onStop-BB@0x12 ]
+	2       (00000008) iget-object          v0, v1, Lcom/jlboat/phone/view/DrawMapView;->sourceBitmap Landroid/graphics/Bitmap;
+	3       (0000000c) invoke-virtual       v0, Landroid/graphics/Bitmap;->recycle()V
+
+onStop-BB@0x12 : 
+	4       (00000012) return-void          
+

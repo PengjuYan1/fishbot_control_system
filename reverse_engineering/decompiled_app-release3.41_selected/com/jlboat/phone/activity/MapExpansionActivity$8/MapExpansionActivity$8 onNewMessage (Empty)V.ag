@@ -1,0 +1,23 @@
+# Lcom/jlboat/phone/activity/MapExpansionActivity$8;->onNewMessage(Lcom/boat/jrosbridge/message/std_srvs/Empty;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:com.boat.jrosbridge.message.std_srvs.Empty
+#
+# - return:void
+
+onNewMessage-BB@0x0 : [ onNewMessage-BB@0x16 onNewMessage-BB@0x22 ]
+	0       (00000000) const-string         v0, "MapExpansionActivity"
+	1       (00000004) const-string         v1, "loadMap() Success"
+	2       (00000008) invoke-static        v0, v1, Landroid/util/Log;->i(Ljava/lang/String; Ljava/lang/String;)I
+	3       (0000000e) iget                 v0, v2, Lcom/jlboat/phone/activity/MapExpansionActivity$8;->val$type I
+	4       (00000012) if-nez               v0, +008h
+
+onNewMessage-BB@0x16 : [ onNewMessage-BB@0x22 ]
+	5       (00000016) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapExpansionActivity$8;->this$0 Lcom/jlboat/phone/activity/MapExpansionActivity;
+	6       (0000001a) const/4              v1, 1
+	7       (0000001c) invoke-static        v0, v1, Lcom/jlboat/phone/activity/MapExpansionActivity;->access$302(Lcom/jlboat/phone/activity/MapExpansionActivity; Z)Z
+
+onNewMessage-BB@0x22 : 
+	8       (00000022) return-void          
+

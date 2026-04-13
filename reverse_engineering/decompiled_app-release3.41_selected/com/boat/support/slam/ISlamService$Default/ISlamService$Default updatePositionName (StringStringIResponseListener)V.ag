@@ -1,0 +1,13 @@
+# Lcom/boat/support/slam/ISlamService$Default;->updatePositionName(Ljava/lang/String; Ljava/lang/String; Lcom/boat/support/slam/IResponseListener;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:java.lang.String
+# - v2:java.lang.String
+# - v3:com.boat.support.slam.IResponseListener
+#
+# - return:void
+
+updatePositionName-BB@0x0 : 
+	0       (00000000) return-void          
+

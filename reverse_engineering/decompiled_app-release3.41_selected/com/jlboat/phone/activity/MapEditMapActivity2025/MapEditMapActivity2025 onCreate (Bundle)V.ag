@@ -1,0 +1,42 @@
+# Lcom/jlboat/phone/activity/MapEditMapActivity2025;->onCreate(Landroid/os/Bundle;)V [access_flags=protected]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:android.os.Bundle
+#
+# - return:void
+
+onCreate-BB@0x0 : 
+	0       (00000000) const                v0, 2131361896
+	1       (00000006) const                v1, 2131492931
+	2       (0000000c) invoke-virtual       v2, v0, v1, Lcom/jlboat/phone/activity/MapEditMapActivity2025;->initTitleBar(I I)V
+	3       (00000012) const                v0, 2131230984
+	4       (00000018) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/MapEditMapActivity2025;->findViewById(I)Landroid/view/View;
+	5       (0000001e) move-result-object   v0
+	6       (00000020) check-cast           v0, Lcom/jlboat/phone/view/DrawMapView;
+	7       (00000024) iput-object          v0, v2, Lcom/jlboat/phone/activity/MapEditMapActivity2025;->mapView Lcom/jlboat/phone/view/DrawMapView;
+	8       (00000028) const                v0, 2131230842
+	9       (0000002e) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/MapEditMapActivity2025;->findViewById(I)Landroid/view/View;
+	10      (00000034) move-result-object   v0
+	11      (00000036) check-cast           v0, Landroid/widget/CheckBox;
+	12      (0000003a) iput-object          v0, v2, Lcom/jlboat/phone/activity/MapEditMapActivity2025;->cb_is_clear Landroid/widget/CheckBox;
+	13      (0000003e) const                v0, 2131230823
+	14      (00000044) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/MapEditMapActivity2025;->findViewById(I)Landroid/view/View;
+	15      (0000004a) move-result-object   v0
+	16      (0000004c) check-cast           v0, Landroid/widget/Button;
+	17      (00000050) iput-object          v0, v2, Lcom/jlboat/phone/activity/MapEditMapActivity2025;->bt_save_update_map Landroid/widget/Button;
+	18      (00000054) const                v0, 2131230946
+	19      (0000005a) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/MapEditMapActivity2025;->findViewById(I)Landroid/view/View;
+	20      (00000060) move-result-object   v0
+	21      (00000062) check-cast           v0, Landroid/widget/ImageView;
+	22      (00000066) iput-object          v0, v2, Lcom/jlboat/phone/activity/MapEditMapActivity2025;->iv_rectangle Landroid/widget/ImageView;
+	23      (0000006a) invoke-super         v2, v3, Lcom/jlboat/phone/base/BaseFullActivity;->onCreate(Landroid/os/Bundle;)V
+	24      (00000070) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapEditMapActivity2025;->bt_save_update_map Landroid/widget/Button;
+	25      (00000074) invoke-virtual       v0, v2, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	26      (0000007a) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapEditMapActivity2025;->cb_is_clear Landroid/widget/CheckBox;
+	27      (0000007e) new-instance         v1, Lcom/jlboat/phone/activity/MapEditMapActivity2025$2;
+	28      (00000082) invoke-direct        v1, v2, Lcom/jlboat/phone/activity/MapEditMapActivity2025$2;-><init>(Lcom/jlboat/phone/activity/MapEditMapActivity2025;)V
+	29      (00000088) invoke-virtual       v0, v1, Landroid/widget/CheckBox;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+	30      (0000008e) invoke-direct        v2, Lcom/jlboat/phone/activity/MapEditMapActivity2025;->init()V
+	31      (00000094) return-void          
+

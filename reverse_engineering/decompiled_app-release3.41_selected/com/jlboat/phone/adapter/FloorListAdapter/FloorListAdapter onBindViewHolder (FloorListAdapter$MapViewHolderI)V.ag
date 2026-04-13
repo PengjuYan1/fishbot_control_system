@@ -1,0 +1,74 @@
+# Lcom/jlboat/phone/adapter/FloorListAdapter;->onBindViewHolder(Lcom/jlboat/phone/adapter/FloorListAdapter$MapViewHolder; I)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v5
+# - v6:com.jlboat.phone.adapter.FloorListAdapter$MapViewHolder
+# - v7:int
+#
+# - return:void
+
+onBindViewHolder-BB@0x0 : [ onBindViewHolder-BB@0x48 onBindViewHolder-BB@0x8c ]
+	0       (00000000) iget-object          v0, v5, Lcom/jlboat/phone/adapter/FloorListAdapter;->floorsList Ljava/util/List;
+	1       (00000004) invoke-interface     v0, v7, Ljava/util/List;->get(I)Ljava/lang/Object;
+	2       (0000000a) move-result-object   v0
+	3       (0000000c) check-cast           v0, Ljava/lang/Integer;
+	4       (00000010) invoke-virtual       v0, Ljava/lang/Integer;->intValue()I
+	5       (00000016) move-result          v0
+	6       (00000018) iget-object          v1, v6, Lcom/jlboat/phone/adapter/FloorListAdapter$MapViewHolder;->floorTv Landroid/widget/TextView;
+	7       (0000001c) invoke-static        v0, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+	8       (00000022) move-result-object   v2
+	9       (00000024) invoke-virtual       v1, v2, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+	10      (0000002a) iget-object          v1, v5, Lcom/jlboat/phone/adapter/FloorListAdapter;->selectedPositions Ljava/util/Set;
+	11      (0000002e) invoke-static        v7, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+	12      (00000034) move-result-object   v2
+	13      (00000036) invoke-interface     v1, v2, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
+	14      (0000003c) move-result          v1
+	15      (0000003e) const                v2, 2131034240
+	16      (00000044) if-eqz               v1, +024h
+
+onBindViewHolder-BB@0x48 : [ onBindViewHolder-BB@0xce ]
+	17      (00000048) iget-object          v1, v6, Lcom/jlboat/phone/adapter/FloorListAdapter$MapViewHolder;->rl_bn Landroid/widget/RelativeLayout;
+	18      (0000004c) iget-object          v3, v5, Lcom/jlboat/phone/adapter/FloorListAdapter;->context Landroid/content/Context;
+	19      (00000050) invoke-virtual       v3, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+	20      (00000056) move-result-object   v3
+	21      (00000058) const                v4, 2131034221
+	22      (0000005e) invoke-virtual       v3, v4, Landroid/content/res/Resources;->getColor(I)I
+	23      (00000064) move-result          v3
+	24      (00000066) invoke-virtual       v1, v3, Landroid/widget/RelativeLayout;->setBackgroundColor(I)V
+	25      (0000006c) iget-object          v1, v6, Lcom/jlboat/phone/adapter/FloorListAdapter$MapViewHolder;->floorTv Landroid/widget/TextView;
+	26      (00000070) iget-object          v3, v5, Lcom/jlboat/phone/adapter/FloorListAdapter;->context Landroid/content/Context;
+	27      (00000074) invoke-virtual       v3, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+	28      (0000007a) move-result-object   v3
+	29      (0000007c) invoke-virtual       v3, v2, Landroid/content/res/Resources;->getColor(I)I
+	30      (00000082) move-result          v2
+	31      (00000084) invoke-virtual       v1, v2, Landroid/widget/TextView;->setTextColor(I)V
+	32      (0000008a) goto                 +22h
+
+onBindViewHolder-BB@0x8c : [ onBindViewHolder-BB@0xce ]
+	33      (0000008c) iget-object          v1, v6, Lcom/jlboat/phone/adapter/FloorListAdapter$MapViewHolder;->rl_bn Landroid/widget/RelativeLayout;
+	34      (00000090) iget-object          v3, v5, Lcom/jlboat/phone/adapter/FloorListAdapter;->context Landroid/content/Context;
+	35      (00000094) invoke-virtual       v3, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+	36      (0000009a) move-result-object   v3
+	37      (0000009c) invoke-virtual       v3, v2, Landroid/content/res/Resources;->getColor(I)I
+	38      (000000a2) move-result          v2
+	39      (000000a4) invoke-virtual       v1, v2, Landroid/widget/RelativeLayout;->setBackgroundColor(I)V
+	40      (000000aa) iget-object          v1, v6, Lcom/jlboat/phone/adapter/FloorListAdapter$MapViewHolder;->floorTv Landroid/widget/TextView;
+	41      (000000ae) iget-object          v2, v5, Lcom/jlboat/phone/adapter/FloorListAdapter;->context Landroid/content/Context;
+	42      (000000b2) invoke-virtual       v2, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+	43      (000000b8) move-result-object   v2
+	44      (000000ba) const                v3, 2131034147
+	45      (000000c0) invoke-virtual       v2, v3, Landroid/content/res/Resources;->getColor(I)I
+	46      (000000c6) move-result          v2
+	47      (000000c8) invoke-virtual       v1, v2, Landroid/widget/TextView;->setTextColor(I)V
+
+onBindViewHolder-BB@0xce : 
+	48      (000000ce) iget-object          v1, v6, Lcom/jlboat/phone/adapter/FloorListAdapter$MapViewHolder;->rl_bn Landroid/widget/RelativeLayout;
+	49      (000000d2) new-instance         v2, Lcom/jlboat/phone/adapter/FloorListAdapter$$ExternalSyntheticLambda0;
+	50      (000000d6) invoke-direct        v2, v5, v7, Lcom/jlboat/phone/adapter/FloorListAdapter$$ExternalSyntheticLambda0;-><init>(Lcom/jlboat/phone/adapter/FloorListAdapter; I)V
+	51      (000000dc) invoke-virtual       v1, v2, Landroid/widget/RelativeLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	52      (000000e2) iget-object          v1, v6, Lcom/jlboat/phone/adapter/FloorListAdapter$MapViewHolder;->rl_bn Landroid/widget/RelativeLayout;
+	53      (000000e6) new-instance         v2, Lcom/jlboat/phone/adapter/FloorListAdapter$$ExternalSyntheticLambda1;
+	54      (000000ea) invoke-direct        v2, Lcom/jlboat/phone/adapter/FloorListAdapter$$ExternalSyntheticLambda1;-><init>()V
+	55      (000000f0) invoke-virtual       v1, v2, Landroid/widget/RelativeLayout;->setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
+	56      (000000f6) return-void          
+

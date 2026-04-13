@@ -1,0 +1,22 @@
+# Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508$5;->lambda$onNewMessage$0$com-jlboat-phone-fragment-settingfragment-NavigationTestFragment202508$5()V [access_flags=synthetic]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:void
+
+lambda$onNewMessage$0$com-jlboat-phone-fragment-settingfragment-NavigationTestFragment202508$5-BB@0x0 : [ lambda$onNewMessage$0$com-jlboat-phone-fragment-settingfragment-NavigationTestFragment202508$5-BB@0x10 lambda$onNewMessage$0$com-jlboat-phone-fragment-settingfragment-NavigationTestFragment202508$5-BB@0x22 ]
+	0       (00000000) iget-object          v0, v1, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508$5;->this$0 Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;
+	1       (00000004) invoke-static        v0, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;->access$2000(Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;)Lcom/boat/jrosbridge/Topic;
+	2       (0000000a) move-result-object   v0
+	3       (0000000c) if-eqz               v0, +00bh
+
+lambda$onNewMessage$0$com-jlboat-phone-fragment-settingfragment-NavigationTestFragment202508$5-BB@0x10 : [ lambda$onNewMessage$0$com-jlboat-phone-fragment-settingfragment-NavigationTestFragment202508$5-BB@0x22 ]
+	4       (00000010) iget-object          v0, v1, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508$5;->this$0 Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;
+	5       (00000014) invoke-static        v0, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;->access$2000(Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;)Lcom/boat/jrosbridge/Topic;
+	6       (0000001a) move-result-object   v0
+	7       (0000001c) invoke-virtual       v0, v1, Lcom/boat/jrosbridge/Topic;->subscribe(Lcom/boat/jrosbridge/MessageListener;)V
+
+lambda$onNewMessage$0$com-jlboat-phone-fragment-settingfragment-NavigationTestFragment202508$5-BB@0x22 : 
+	8       (00000022) return-void          
+

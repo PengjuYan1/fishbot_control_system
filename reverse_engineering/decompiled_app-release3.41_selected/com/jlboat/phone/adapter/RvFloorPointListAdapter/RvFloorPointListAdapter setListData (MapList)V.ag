@@ -1,0 +1,30 @@
+# Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;->setListData(Lcom/boat/support/slam/entity/floors/MapList;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:com.boat.support.slam.entity.floors.MapList
+#
+# - return:void
+
+setListData-BB@0x0 : [ setListData-BB@0x1c setListData-BB@0x40 ]
+	0       (00000000) const-string         v0, "111"
+	1       (00000004) const-string         v1, "setListData"
+	2       (00000008) invoke-static        v0, v1, Landroid/util/Log;->e(Ljava/lang/String; Ljava/lang/String;)I
+	3       (0000000e) iget-object          v0, v2, Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;->listData Ljava/util/List;
+	4       (00000012) invoke-interface     v0, Ljava/util/List;->clear()V
+	5       (00000018) if-eqz               v3, +014h
+
+setListData-BB@0x1c : [ setListData-BB@0x40 ]
+	6       (0000001c) invoke-virtual       v3, Lcom/boat/support/slam/entity/floors/MapList;->getDefaultFloor()J
+	7       (00000022) move-result-wide     v0
+	8       (00000024) iput-wide            v0, v2, Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;->defFloorId J
+	9       (00000028) invoke-virtual       v3, Lcom/boat/support/slam/entity/floors/MapList;->getFloors()Ljava/util/List;
+	10      (0000002e) move-result-object   v0
+	11      (00000030) iget-object          v1, v2, Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;->listData Ljava/util/List;
+	12      (00000034) invoke-interface     v1, v0, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
+	13      (0000003a) invoke-direct        v2, v0, Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;->expandDefaultFloor(Ljava/util/List;)V
+
+setListData-BB@0x40 : 
+	14      (00000040) invoke-virtual       v2, Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;->notifyDataSetChanged()V
+	15      (00000046) return-void          
+

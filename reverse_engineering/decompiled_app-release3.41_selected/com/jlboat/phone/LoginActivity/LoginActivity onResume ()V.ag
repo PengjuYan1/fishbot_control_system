@@ -1,0 +1,75 @@
+# Lcom/jlboat/phone/LoginActivity;->onResume()V [access_flags=protected]
+#
+# Parameters:
+# local registers: v0...v4
+#
+# - return:void
+
+onResume-BB@0x0 : [ onResume-BB@0x1a onResume-BB@0x4c ]
+	0       (00000000) invoke-super         v4, Landroid/support/v7/app/AppCompatActivity;->onResume()V
+	1       (00000006) const/4              v0, 0
+	2       (00000008) invoke-virtual       v4, v0, Lcom/jlboat/phone/LoginActivity;->setNetWorkManager1(Z)V
+	3       (0000000e) iput-boolean         v0, v4, Lcom/jlboat/phone/LoginActivity;->isConnecting Z
+	4       (00000012) iget-boolean         v1, v4, Lcom/jlboat/phone/LoginActivity;->isdestory Z
+	5       (00000016) if-eqz               v1, +01bh
+
+onResume-BB@0x1a : [ onResume-BB@0x44 ]
+	6       (0000001a) new-instance         v0, Landroid/content/Intent;
+	7       (0000001e) const-class          v1, Lcom/jlboat/phone/service/ErrorMsgService;
+	8       (00000022) invoke-direct        v0, v4, v1, Landroid/content/Intent;-><init>(Landroid/content/Context; Ljava/lang/Class;)V
+	9       (00000028) const-string         v1, "stop"
+	10      (0000002c) invoke-virtual       v0, v1, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
+	11      (00000032) invoke-virtual       v4, v0, Lcom/jlboat/phone/LoginActivity;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
+	12      (00000038) nop                  
+	13      (0000003a) goto                 +5h
+	1a:37
+	(Ljava/lang/Exception; -> 3c onResume-BB@0x3c)
+
+onResume-BB@0x3c : [ onResume-BB@0x44 ]
+	14      (0000003c) move-exception       v0
+	15      (0000003e) invoke-virtual       v0, Ljava/lang/Exception;->printStackTrace()V
+
+onResume-BB@0x44 : 
+	16      (00000044) invoke-virtual       v4, Lcom/jlboat/phone/LoginActivity;->finish()V
+	17      (0000004a) return-void          
+
+onResume-BB@0x4c : [ onResume-BB@0x58 onResume-BB@0xb0 ]
+	18      (0000004c) invoke-virtual       v4, Lcom/jlboat/phone/LoginActivity;->getIntent()Landroid/content/Intent;
+	19      (00000052) move-result-object   v1
+	20      (00000054) if-eqz               v1, +02eh
+
+onResume-BB@0x58 : [ onResume-BB@0x88 onResume-BB@0xb0 ]
+	21      (00000058) invoke-virtual       v4, Lcom/jlboat/phone/LoginActivity;->getIntent()Landroid/content/Intent;
+	22      (0000005e) move-result-object   v1
+	23      (00000060) const-string         v2, "needLogin"
+	24      (00000064) invoke-virtual       v1, v2, v0, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String; Z)Z
+	25      (0000006a) move-result          v1
+	26      (0000006c) invoke-virtual       v4, Lcom/jlboat/phone/LoginActivity;->getIntent()Landroid/content/Intent;
+	27      (00000072) move-result-object   v2
+	28      (00000074) const-string         v3, "loginAction"
+	29      (00000078) invoke-virtual       v2, v3, v0, Landroid/content/Intent;->getIntExtra(Ljava/lang/String; I)I
+	30      (0000007e) move-result          v0
+	31      (00000080) iput                 v0, v4, Lcom/jlboat/phone/LoginActivity;->actionCode I
+	32      (00000084) if-eqz               v1, +016h
+
+onResume-BB@0x88 : [ onResume-BB@0x98 onResume-BB@0xa4 ]
+	33      (00000088) iget-object          v0, v4, Lcom/jlboat/phone/LoginActivity;->permissions [Ljava/lang/String;
+	34      (0000008c) invoke-virtual       v4, v0, Lcom/jlboat/phone/LoginActivity;->checkPermissionAllGranted([Ljava/lang/String;)Z
+	35      (00000092) move-result          v0
+	36      (00000094) if-nez               v0, +008h
+
+onResume-BB@0x98 : [ onResume-BB@0xaa ]
+	37      (00000098) iget-object          v2, v4, Lcom/jlboat/phone/LoginActivity;->permissions [Ljava/lang/String;
+	38      (0000009c) invoke-virtual       v4, v2, Lcom/jlboat/phone/LoginActivity;->requestPermissions_([Ljava/lang/String;)V
+	39      (000000a2) goto                 +4h
+
+onResume-BB@0xa4 : [ onResume-BB@0xaa ]
+	40      (000000a4) invoke-direct        v4, Lcom/jlboat/phone/LoginActivity;->checkLogin()V
+
+onResume-BB@0xaa : [ onResume-BB@0xb0 ]
+	41      (000000aa) const/4              v2, 1
+	42      (000000ac) iput-boolean         v2, v4, Lcom/jlboat/phone/LoginActivity;->isdestory Z
+
+onResume-BB@0xb0 : 
+	43      (000000b0) return-void          
+

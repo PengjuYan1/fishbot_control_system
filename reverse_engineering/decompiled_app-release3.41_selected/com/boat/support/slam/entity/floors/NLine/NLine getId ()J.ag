@@ -1,0 +1,11 @@
+# Lcom/boat/support/slam/entity/floors/NLine;->getId()J [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v2
+#
+# - return:long
+
+getId-BB@0x0 : 
+	0       (00000000) iget-wide            v0, v2, Lcom/boat/support/slam/entity/floors/NLine;->id J
+	1       (00000004) return-wide          v0
+

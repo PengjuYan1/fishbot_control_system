@@ -1,0 +1,17 @@
+# Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment$1;->onNewMessage(Lcom/jlboat/phone/message/map_msgs/RobotIrCode;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:com.jlboat.phone.message.map_msgs.RobotIrCode
+#
+# - return:void
+
+onNewMessage-BB@0x0 : 
+	0       (00000000) iget-object          v0, v2, Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment$1;->this$0 Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment;
+	1       (00000004) invoke-static        v0, Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment;->access$000(Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment;)Lcom/jlboat/phone/view/CustomProgress;
+	2       (0000000a) move-result-object   v0
+	3       (0000000c) new-instance         v1, Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment$1$1;
+	4       (00000010) invoke-direct        v1, v2, v3, Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment$1$1;-><init>(Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment$1; Lcom/jlboat/phone/message/map_msgs/RobotIrCode;)V
+	5       (00000016) invoke-virtual       v0, v1, Lcom/jlboat/phone/view/CustomProgress;->post(Ljava/lang/Runnable;)Z
+	6       (0000001c) return-void          
+

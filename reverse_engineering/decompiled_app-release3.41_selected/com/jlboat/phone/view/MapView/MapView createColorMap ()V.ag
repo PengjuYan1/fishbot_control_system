@@ -1,0 +1,45 @@
+# Lcom/jlboat/phone/view/MapView;->createColorMap()V [access_flags=private]
+#
+# Parameters:
+# local registers: v0...v6
+#
+# - return:void
+
+createColorMap-BB@0x0 : [ createColorMap-BB@0x3e ]
+	0       (00000000) new-instance         v0, Landroid/graphics/Paint;
+	1       (00000004) invoke-direct        v0, Landroid/graphics/Paint;-><init>()V
+	2       (0000000a) iput-object          v0, v6, Lcom/jlboat/phone/view/MapView;->bitmapPaint Landroid/graphics/Paint;
+	3       (0000000e) iget-object          v0, v6, Lcom/jlboat/phone/view/MapView;->bitmapPaint Landroid/graphics/Paint;
+	4       (00000012) const/high16         v1, -65536
+	5       (00000016) invoke-virtual       v0, v1, Landroid/graphics/Paint;->setColor(I)V
+	6       (0000001c) iget-object          v0, v6, Lcom/jlboat/phone/view/MapView;->bitmapPaint Landroid/graphics/Paint;
+	7       (00000020) const/high16         v1, 1109393408
+	8       (00000024) invoke-virtual       v0, v1, Landroid/graphics/Paint;->setTextSize(F)V
+	9       (0000002a) const/4              v0, 0
+	10      (0000002c) iput                 v0, v6, Lcom/jlboat/phone/view/MapView;->currentStatus I
+	11      (00000030) const/16             v0, 101
+	12      (00000034) new-array            v1, v0, [I
+	13      (00000038) iput-object          v1, v6, Lcom/jlboat/phone/view/MapView;->colorMap [I
+	14      (0000003c) const/4              v1, 0
+
+createColorMap-BB@0x3e : [ createColorMap-BB@0x42 createColorMap-BB@0x70 ]
+	15      (0000003e) if-ge                v1, v0, +019h
+
+createColorMap-BB@0x42 : [ createColorMap-BB@0x3e ]
+	16      (00000042) int-to-float         v2, v1
+	17      (00000044) const/high16         v3, 1120534528
+	18      (00000048) div-float/2addr      v2, v3
+	19      (0000004a) iget-object          v3, v6, Lcom/jlboat/phone/view/MapView;->colorMap [I
+	20      (0000004e) iget-object          v4, v6, Lcom/jlboat/phone/view/MapView;->colorLow Lcom/jlboat/phone/util/ROSColor;
+	21      (00000052) iget-object          v5, v6, Lcom/jlboat/phone/view/MapView;->colorHigh Lcom/jlboat/phone/util/ROSColor;
+	22      (00000056) invoke-virtual       v4, v5, v2, Lcom/jlboat/phone/util/ROSColor;->interpolate(Lcom/jlboat/phone/util/ROSColor; F)Lcom/jlboat/phone/util/ROSColor;
+	23      (0000005c) move-result-object   v4
+	24      (0000005e) invoke-virtual       v4, Lcom/jlboat/phone/util/ROSColor;->toInt()I
+	25      (00000064) move-result          v4
+	26      (00000066) aput                 v4, v3, v1
+	27      (0000006a) add-int/lit8         v1, v1, 1
+	28      (0000006e) goto                 -18h
+
+createColorMap-BB@0x70 : 
+	29      (00000070) return-void          
+

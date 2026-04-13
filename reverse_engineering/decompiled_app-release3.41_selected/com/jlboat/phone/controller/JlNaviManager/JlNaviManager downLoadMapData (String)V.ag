@@ -1,0 +1,54 @@
+# Lcom/jlboat/phone/controller/JlNaviManager;->downLoadMapData(Ljava/lang/String;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:java.lang.String
+#
+# - return:void
+
+downLoadMapData-BB@0x0 : [ downLoadMapData-BB@0x4 downLoadMapData-BB@0x3c ]
+	0       (00000000) if-eqz               v4, +01eh
+
+downLoadMapData-BB@0x4 : [ downLoadMapData-BB@0x10 downLoadMapData-BB@0x12 ]
+	1       (00000004) invoke-virtual       v4, Ljava/lang/String;->isEmpty()Z
+	2       (0000000a) move-result          v0
+	3       (0000000c) if-eqz               v0, +003h
+
+downLoadMapData-BB@0x10 : [ downLoadMapData-BB@0x3c ]
+	4       (00000010) goto                 +16h
+
+downLoadMapData-BB@0x12 : [ downLoadMapData-BB@0x1a downLoadMapData-BB@0x2c ]
+	5       (00000012) iget-boolean         v0, v3, Lcom/jlboat/phone/controller/JlNaviManager;->connectStatus Z
+	6       (00000016) if-eqz               v0, +00bh
+
+downLoadMapData-BB@0x1a : [ downLoadMapData-BB@0x22 downLoadMapData-BB@0x24 ]
+	7       (0000001a) iget-boolean         v0, v3, Lcom/jlboat/phone/controller/JlNaviManager;->isNavigationInited Z
+	8       (0000001e) if-nez               v0, +003h
+
+downLoadMapData-BB@0x22 : [ downLoadMapData-BB@0x2c ]
+	9       (00000022) goto                 +5h
+
+downLoadMapData-BB@0x24 : 
+	10      (00000024) invoke-direct        v3, v4, Lcom/jlboat/phone/controller/JlNaviManager;->slamDownLoadMapData(Ljava/lang/String;)V
+	11      (0000002a) return-void          
+
+downLoadMapData-BB@0x2c : 
+	12      (0000002c) iget-object          v0, v3, Lcom/jlboat/phone/controller/JlNaviManager;->TAG Ljava/lang/String;
+	13      (00000030) const-string         v1, "downLoadMapData: 初始化未成功 通知底盘下载地图文件失败"
+	14      (00000034) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	15      (0000003a) return-void          
+
+downLoadMapData-BB@0x3c : 
+	16      (0000003c) iget-object          v0, v3, Lcom/jlboat/phone/controller/JlNaviManager;->TAG Ljava/lang/String;
+	17      (00000040) new-instance         v1, Ljava/lang/StringBuilder;
+	18      (00000044) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	19      (0000004a) const-string         v2, "downLoadMapData: json数据为空 通知底盘下载地图文件失败 json："
+	20      (0000004e) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	21      (00000054) move-result-object   v1
+	22      (00000056) invoke-virtual       v1, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	23      (0000005c) move-result-object   v1
+	24      (0000005e) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	25      (00000064) move-result-object   v1
+	26      (00000066) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	27      (0000006c) return-void          
+

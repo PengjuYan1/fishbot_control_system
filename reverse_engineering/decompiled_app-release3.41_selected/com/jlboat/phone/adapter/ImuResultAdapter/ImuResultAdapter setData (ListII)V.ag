@@ -1,0 +1,17 @@
+# Lcom/jlboat/phone/adapter/ImuResultAdapter;->setData(Ljava/util/List; I I)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:java.util.List
+# - v2:int
+# - v3:int
+#
+# - return:void
+
+setData-BB@0x0 : 
+	0       (00000000) iput-object          v1, v0, Lcom/jlboat/phone/adapter/ImuResultAdapter;->mList Ljava/util/List;
+	1       (00000004) iput                 v2, v0, Lcom/jlboat/phone/adapter/ImuResultAdapter;->mType I
+	2       (00000008) iput                 v3, v0, Lcom/jlboat/phone/adapter/ImuResultAdapter;->mNum I
+	3       (0000000c) invoke-virtual       v0, Lcom/jlboat/phone/adapter/ImuResultAdapter;->notifyDataSetChanged()V
+	4       (00000012) return-void          
+

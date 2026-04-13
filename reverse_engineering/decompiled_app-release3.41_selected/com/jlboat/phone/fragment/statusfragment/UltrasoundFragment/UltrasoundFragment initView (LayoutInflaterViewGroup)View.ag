@@ -1,0 +1,147 @@
+# Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->initView(Landroid/view/LayoutInflater; Landroid/view/ViewGroup;)Landroid/view/View; [access_flags=protected]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:android.view.LayoutInflater
+# - v5:android.view.ViewGroup
+#
+# - return:android.view.View
+
+initView-BB@0x0 : 
+	0       (00000000) const                v0, 2131361834
+	1       (00000006) const/4              v1, 0
+	2       (00000008) invoke-virtual       v4, v0, v5, v1, Landroid/view/LayoutInflater;->inflate(I Landroid/view/ViewGroup; Z)Landroid/view/View;
+	3       (0000000e) move-result-object   v0
+	4       (00000010) const                v1, 2131231249
+	5       (00000016) invoke-virtual       v0, v1, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	6       (0000001c) move-result-object   v1
+	7       (0000001e) check-cast           v1, Landroid/widget/Button;
+	8       (00000022) iput-object          v1, v3, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->set_sonar Landroid/widget/Button;
+	9       (00000026) const                v1, 2131230968
+	10      (0000002c) invoke-virtual       v0, v1, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	11      (00000032) move-result-object   v1
+	12      (00000034) check-cast           v1, Landroid/widget/LinearLayout;
+	13      (00000038) iput-object          v1, v3, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->ll_con Landroid/widget/LinearLayout;
+	14      (0000003c) const                v1, 2131231010
+	15      (00000042) invoke-virtual       v0, v1, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	16      (00000048) move-result-object   v1
+	17      (0000004a) check-cast           v1, Landroid/widget/EditText;
+	18      (0000004e) iput-object          v1, v3, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->min_front_et Landroid/widget/EditText;
+	19      (00000052) const                v1, 2131230994
+	20      (00000058) invoke-virtual       v0, v1, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	21      (0000005e) move-result-object   v1
+	22      (00000060) check-cast           v1, Landroid/widget/EditText;
+	23      (00000064) iput-object          v1, v3, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->max_front_et Landroid/widget/EditText;
+	24      (00000068) const                v1, 2131231009
+	25      (0000006e) invoke-virtual       v0, v1, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	26      (00000074) move-result-object   v1
+	27      (00000076) check-cast           v1, Landroid/widget/EditText;
+	28      (0000007a) iput-object          v1, v3, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->min_back_et Landroid/widget/EditText;
+	29      (0000007e) const                v1, 2131230993
+	30      (00000084) invoke-virtual       v0, v1, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	31      (0000008a) move-result-object   v1
+	32      (0000008c) check-cast           v1, Landroid/widget/EditText;
+	33      (00000090) iput-object          v1, v3, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->max_back_et Landroid/widget/EditText;
+	34      (00000094) const                v1, 2131231011
+	35      (0000009a) invoke-virtual       v0, v1, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	36      (000000a0) move-result-object   v1
+	37      (000000a2) check-cast           v1, Landroid/widget/EditText;
+	38      (000000a6) iput-object          v1, v3, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->min_left_et Landroid/widget/EditText;
+	39      (000000aa) const                v1, 2131230995
+	40      (000000b0) invoke-virtual       v0, v1, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	41      (000000b6) move-result-object   v1
+	42      (000000b8) check-cast           v1, Landroid/widget/EditText;
+	43      (000000bc) iput-object          v1, v3, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->max_left_et Landroid/widget/EditText;
+	44      (000000c0) const                v1, 2131231012
+	45      (000000c6) invoke-virtual       v0, v1, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	46      (000000cc) move-result-object   v1
+	47      (000000ce) check-cast           v1, Landroid/widget/EditText;
+	48      (000000d2) iput-object          v1, v3, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->min_leftm_et Landroid/widget/EditText;
+	49      (000000d6) const                v1, 2131230996
+	50      (000000dc) invoke-virtual       v0, v1, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	51      (000000e2) move-result-object   v1
+	52      (000000e4) check-cast           v1, Landroid/widget/EditText;
+	53      (000000e8) iput-object          v1, v3, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->max_leftm_et Landroid/widget/EditText;
+	54      (000000ec) const                v1, 2131231013
+	55      (000000f2) invoke-virtual       v0, v1, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	56      (000000f8) move-result-object   v1
+	57      (000000fa) check-cast           v1, Landroid/widget/EditText;
+	58      (000000fe) iput-object          v1, v3, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->min_right_et Landroid/widget/EditText;
+	59      (00000102) const                v1, 2131230997
+	60      (00000108) invoke-virtual       v0, v1, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	61      (0000010e) move-result-object   v1
+	62      (00000110) check-cast           v1, Landroid/widget/EditText;
+	63      (00000114) iput-object          v1, v3, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->max_right_et Landroid/widget/EditText;
+	64      (00000118) const                v1, 2131231014
+	65      (0000011e) invoke-virtual       v0, v1, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	66      (00000124) move-result-object   v1
+	67      (00000126) check-cast           v1, Landroid/widget/EditText;
+	68      (0000012a) iput-object          v1, v3, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->min_rightm_et Landroid/widget/EditText;
+	69      (0000012e) const                v1, 2131230998
+	70      (00000134) invoke-virtual       v0, v1, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	71      (0000013a) move-result-object   v1
+	72      (0000013c) check-cast           v1, Landroid/widget/EditText;
+	73      (00000140) iput-object          v1, v3, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->max_rightm_et Landroid/widget/EditText;
+	74      (00000144) const                v1, 2131231015
+	75      (0000014a) invoke-virtual       v0, v1, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	76      (00000150) move-result-object   v1
+	77      (00000152) check-cast           v1, Landroid/widget/EditText;
+	78      (00000156) iput-object          v1, v3, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->min_up_et Landroid/widget/EditText;
+	79      (0000015a) const                v1, 2131230999
+	80      (00000160) invoke-virtual       v0, v1, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	81      (00000166) move-result-object   v1
+	82      (00000168) check-cast           v1, Landroid/widget/EditText;
+	83      (0000016c) iput-object          v1, v3, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->max_up_et Landroid/widget/EditText;
+	84      (00000170) const                v1, 2131230921
+	85      (00000176) invoke-virtual       v0, v1, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	86      (0000017c) move-result-object   v1
+	87      (0000017e) check-cast           v1, Landroid/widget/Switch;
+	88      (00000182) iput-object          v1, v3, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->front_sw Landroid/widget/Switch;
+	89      (00000186) const                v1, 2131230953
+	90      (0000018c) invoke-virtual       v0, v1, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	91      (00000192) move-result-object   v1
+	92      (00000194) check-cast           v1, Landroid/widget/Switch;
+	93      (00000198) iput-object          v1, v3, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->left_sw Landroid/widget/Switch;
+	94      (0000019c) const                v1, 2131230955
+	95      (000001a2) invoke-virtual       v0, v1, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	96      (000001a8) move-result-object   v1
+	97      (000001aa) check-cast           v1, Landroid/widget/Switch;
+	98      (000001ae) iput-object          v1, v3, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->leftm_sw Landroid/widget/Switch;
+	99      (000001b2) const                v1, 2131231175
+	100     (000001b8) invoke-virtual       v0, v1, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	101     (000001be) move-result-object   v1
+	102     (000001c0) check-cast           v1, Landroid/widget/Switch;
+	103     (000001c4) iput-object          v1, v3, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->right_sw Landroid/widget/Switch;
+	104     (000001c8) const                v1, 2131231177
+	105     (000001ce) invoke-virtual       v0, v1, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	106     (000001d4) move-result-object   v1
+	107     (000001d6) check-cast           v1, Landroid/widget/Switch;
+	108     (000001da) iput-object          v1, v3, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->rightm_sw Landroid/widget/Switch;
+	109     (000001de) const                v1, 2131230771
+	110     (000001e4) invoke-virtual       v0, v1, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	111     (000001ea) move-result-object   v1
+	112     (000001ec) check-cast           v1, Landroid/widget/Switch;
+	113     (000001f0) iput-object          v1, v3, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->back_sw Landroid/widget/Switch;
+	114     (000001f4) const                v1, 2131231346
+	115     (000001fa) invoke-virtual       v0, v1, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	116     (00000200) move-result-object   v1
+	117     (00000202) check-cast           v1, Landroid/widget/Switch;
+	118     (00000206) iput-object          v1, v3, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->up_sw Landroid/widget/Switch;
+	119     (0000020a) const                v1, 2131230765
+	120     (00000210) invoke-virtual       v0, v1, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	121     (00000216) move-result-object   v1
+	122     (00000218) check-cast           v1, Landroid/widget/Switch;
+	123     (0000021c) iput-object          v1, v3, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->all_sw Landroid/widget/Switch;
+	124     (00000220) iget-object          v1, v3, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->all_sw Landroid/widget/Switch;
+	125     (00000224) invoke-virtual       v1, v3, Landroid/widget/Switch;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	126     (0000022a) iget-object          v1, v3, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->all_sw Landroid/widget/Switch;
+	127     (0000022e) new-instance         v2, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment$1;
+	128     (00000232) invoke-direct        v2, v3, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment$1;-><init>(Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;)V
+	129     (00000238) invoke-virtual       v1, v2, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+	130     (0000023e) iget-object          v1, v3, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->set_sonar Landroid/widget/Button;
+	131     (00000242) invoke-virtual       v1, v3, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	132     (00000248) new-instance         v1, Lcom/jlboat/phone/communication/StatusServiceClient;
+	133     (0000024c) invoke-direct        v1, Lcom/jlboat/phone/communication/StatusServiceClient;-><init>()V
+	134     (00000252) iput-object          v1, v3, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->statusServiceClient Lcom/jlboat/phone/communication/StatusServiceClient;
+	135     (00000256) return-object        v0
+

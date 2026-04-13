@@ -1,0 +1,29 @@
+# Lcom/boat/support/slam/SlamManager;->isMotorEnabled()Z [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v3
+#
+# - return:boolean
+
+isMotorEnabled-BB@0x0 : [ isMotorEnabled-BB@0x8 isMotorEnabled-BB@0x26 ]
+	0       (00000000) iget-object          v0, v3, Lcom/boat/support/slam/SlamManager;->slamService Lcom/boat/support/slam/ISlamService;
+	1       (00000004) if-eqz               v0, +011h
+
+isMotorEnabled-BB@0x8 : 
+	2       (00000008) iget-object          v0, v3, Lcom/boat/support/slam/SlamManager;->slamService Lcom/boat/support/slam/ISlamService;
+	3       (0000000c) invoke-interface     v0, Lcom/boat/support/slam/ISlamService;->isMotorEnabled()Z
+	4       (00000012) move-result          v0
+	5       (00000014) return               v0
+	8:13
+	(Landroid/os/RemoteException; -> 16 isMotorEnabled-BB@0x16)
+
+isMotorEnabled-BB@0x16 : [ isMotorEnabled-BB@0x26 ]
+	6       (00000016) move-exception       v0
+	7       (00000018) const-string         v1, "SlamManager"
+	8       (0000001c) const-string         v2, "isMotorEnabled: "
+	9       (00000020) invoke-static        v1, v2, v0, Landroid/util/Log;->w(Ljava/lang/String; Ljava/lang/String; Ljava/lang/Throwable;)I
+
+isMotorEnabled-BB@0x26 : 
+	10      (00000026) const/4              v0, 0
+	11      (00000028) return               v0
+

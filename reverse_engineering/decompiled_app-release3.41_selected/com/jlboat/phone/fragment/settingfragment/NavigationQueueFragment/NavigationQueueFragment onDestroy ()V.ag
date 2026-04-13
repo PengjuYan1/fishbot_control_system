@@ -1,0 +1,21 @@
+# Lcom/jlboat/phone/fragment/settingfragment/NavigationQueueFragment;->onDestroy()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:void
+
+onDestroy-BB@0x0 : [ onDestroy-BB@0xe onDestroy-BB@0x1e ]
+	0       (00000000) invoke-super         v1, Lcom/jlboat/phone/base/BaseFullActivity;->onDestroy()V
+	1       (00000006) iget-object          v0, v1, Lcom/jlboat/phone/fragment/settingfragment/NavigationQueueFragment;->getTestMsg Lcom/boat/jrosbridge/Topic;
+	2       (0000000a) if-eqz               v0, +00ah
+
+onDestroy-BB@0xe : [ onDestroy-BB@0x1e ]
+	3       (0000000e) iget-object          v0, v1, Lcom/jlboat/phone/fragment/settingfragment/NavigationQueueFragment;->getTestMsg Lcom/boat/jrosbridge/Topic;
+	4       (00000012) invoke-virtual       v0, Lcom/boat/jrosbridge/Topic;->unsubscribe()V
+	5       (00000018) const/4              v0, 0
+	6       (0000001a) iput-object          v0, v1, Lcom/jlboat/phone/fragment/settingfragment/NavigationQueueFragment;->getTestMsg Lcom/boat/jrosbridge/Topic;
+
+onDestroy-BB@0x1e : 
+	7       (0000001e) return-void          
+

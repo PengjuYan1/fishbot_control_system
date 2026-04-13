@@ -1,0 +1,31 @@
+# Lcom/jlboat/phone/controller/JlNaviManager$27;->onNewMessage(Lcom/jlboat/phone/message/map_msgs/PointSetResponse;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:com.jlboat.phone.message.map_msgs.PointSetResponse
+#
+# - return:void
+
+onNewMessage-BB@0x0 : [ onNewMessage-BB@0x16 onNewMessage-BB@0x32 ]
+	0       (00000000) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager$27;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	1       (00000004) const-string         v1, "添加导航点成功"
+	2       (00000008) invoke-virtual       v0, v1, Lcom/jlboat/phone/controller/JlNaviManager;->toast(Ljava/lang/String;)V
+	3       (0000000e) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager$27;->val$responseListener Lcom/boat/support/slam/IResponseListener;
+	4       (00000012) if-eqz               v0, +010h
+
+onNewMessage-BB@0x16 : [ onNewMessage-BB@0x32 ]
+	5       (00000016) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager$27;->val$responseListener Lcom/boat/support/slam/IResponseListener;
+	6       (0000001a) invoke-virtual       v3, Ljava/lang/Object;->toString()Ljava/lang/String;
+	7       (00000020) move-result-object   v1
+	8       (00000022) invoke-interface     v0, v1, Lcom/boat/support/slam/IResponseListener;->onSuccess(Ljava/lang/String;)V
+	9       (00000028) goto                 +5h
+	16:27
+	(Landroid/os/RemoteException; -> 2a onNewMessage-BB@0x2a)
+
+onNewMessage-BB@0x2a : [ onNewMessage-BB@0x32 ]
+	10      (0000002a) move-exception       v0
+	11      (0000002c) invoke-virtual       v0, Landroid/os/RemoteException;->printStackTrace()V
+
+onNewMessage-BB@0x32 : 
+	12      (00000032) return-void          
+

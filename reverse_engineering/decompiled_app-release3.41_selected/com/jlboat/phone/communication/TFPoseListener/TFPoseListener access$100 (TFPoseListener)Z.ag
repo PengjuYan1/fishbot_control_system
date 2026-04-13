@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/communication/TFPoseListener;->access$100(Lcom/jlboat/phone/communication/TFPoseListener;)Z [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.communication.TFPoseListener
+#
+# - return:boolean
+
+access$100-BB@0x0 : 
+	0       (00000000) iget-boolean         v0, v1, Lcom/jlboat/phone/communication/TFPoseListener;->isStart Z
+	1       (00000004) return               v0
+

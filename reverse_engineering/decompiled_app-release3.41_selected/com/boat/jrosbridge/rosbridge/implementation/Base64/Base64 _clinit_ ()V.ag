@@ -1,0 +1,40 @@
+# Lcom/boat/jrosbridge/rosbridge/implementation/Base64;-><clinit>()V [access_flags=static constructor]
+#
+# Parameters:
+# local registers: v0...v3
+#
+# - return:void
+
+<clinit>-BB@0x0 : [ <clinit>-BB@0x30 ]
+	0       (00000000) const-string         v0, "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+	1       (00000004) invoke-virtual       v0, Ljava/lang/String;->toCharArray()[C
+	2       (0000000a) move-result-object   v0
+	3       (0000000c) sput-object          v0, Lcom/boat/jrosbridge/rosbridge/implementation/Base64;->CA [C
+	4       (00000010) const/16             v0, 256
+	5       (00000014) new-array            v0, v0, [I
+	6       (00000018) sput-object          v0, Lcom/boat/jrosbridge/rosbridge/implementation/Base64;->IA [I
+	7       (0000001c) sget-object          v0, Lcom/boat/jrosbridge/rosbridge/implementation/Base64;->IA [I
+	8       (00000020) const/4              v1, -1
+	9       (00000022) invoke-static        v0, v1, Ljava/util/Arrays;->fill([I I)V
+	10      (00000028) const/4              v0, 0
+	11      (0000002a) sget-object          v1, Lcom/boat/jrosbridge/rosbridge/implementation/Base64;->CA [C
+	12      (0000002e) array-length         v1, v1
+
+<clinit>-BB@0x30 : [ <clinit>-BB@0x34 <clinit>-BB@0x4a ]
+	13      (00000030) if-ge                v0, v1, +00dh
+
+<clinit>-BB@0x34 : [ <clinit>-BB@0x30 ]
+	14      (00000034) sget-object          v2, Lcom/boat/jrosbridge/rosbridge/implementation/Base64;->IA [I
+	15      (00000038) sget-object          v3, Lcom/boat/jrosbridge/rosbridge/implementation/Base64;->CA [C
+	16      (0000003c) aget-char            v3, v3, v0
+	17      (00000040) aput                 v0, v2, v3
+	18      (00000044) add-int/lit8         v0, v0, 1
+	19      (00000048) goto                 -ch
+
+<clinit>-BB@0x4a : 
+	20      (0000004a) sget-object          v0, Lcom/boat/jrosbridge/rosbridge/implementation/Base64;->IA [I
+	21      (0000004e) const/16             v1, 61
+	22      (00000052) const/4              v2, 0
+	23      (00000054) aput                 v2, v0, v1
+	24      (00000058) return-void          
+

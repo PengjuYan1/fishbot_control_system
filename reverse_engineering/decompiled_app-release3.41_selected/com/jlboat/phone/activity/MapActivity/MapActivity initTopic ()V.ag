@@ -1,0 +1,66 @@
+# Lcom/jlboat/phone/activity/MapActivity;->initTopic()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v4
+#
+# - return:void
+
+initTopic-BB@0x0 : 
+	0       (00000000) new-instance         v0, Lcom/boat/jrosbridge/Topic;
+	1       (00000004) sget-object          v1, Lcom/jlboat/phone/util/TopicNames;->naviTargetgoal Ljava/lang/String;
+	2       (00000008) const-class          v2, Lcom/jlboat/phone/message/map_msgs/TargetGoal;
+	3       (0000000c) sget-object          v3, Lcom/jlboat/phone/application/BoatSlamApplication;->client Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;
+	4       (00000010) invoke-direct        v0, v1, v2, v3, Lcom/boat/jrosbridge/Topic;-><init>(Ljava/lang/String; Ljava/lang/Class; Lcom/boat/jrosbridge/ROSClient;)V
+	5       (00000016) iput-object          v0, v4, Lcom/jlboat/phone/activity/MapActivity;->naviTargetGoalPublish Lcom/boat/jrosbridge/Topic;
+	6       (0000001a) new-instance         v0, Lcom/boat/jrosbridge/Topic;
+	7       (0000001e) sget-object          v1, Lcom/jlboat/phone/util/TopicNames;->NaviStop Ljava/lang/String;
+	8       (00000022) const-class          v2, Lcom/boat/jrosbridge/message/std_msgs/Int16;
+	9       (00000026) sget-object          v3, Lcom/jlboat/phone/application/BoatSlamApplication;->client Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;
+	10      (0000002a) invoke-direct        v0, v1, v2, v3, Lcom/boat/jrosbridge/Topic;-><init>(Ljava/lang/String; Ljava/lang/Class; Lcom/boat/jrosbridge/ROSClient;)V
+	11      (00000030) iput-object          v0, v4, Lcom/jlboat/phone/activity/MapActivity;->stopNaviPublish Lcom/boat/jrosbridge/Topic;
+	12      (00000034) new-instance         v0, Lcom/boat/jrosbridge/Topic;
+	13      (00000038) sget-object          v1, Lcom/jlboat/phone/util/TopicNames;->GoCharge Ljava/lang/String;
+	14      (0000003c) const-class          v2, Lcom/boat/jrosbridge/message/std_msgs/Int16;
+	15      (00000040) sget-object          v3, Lcom/jlboat/phone/application/BoatSlamApplication;->client Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;
+	16      (00000044) invoke-direct        v0, v1, v2, v3, Lcom/boat/jrosbridge/Topic;-><init>(Ljava/lang/String; Ljava/lang/Class; Lcom/boat/jrosbridge/ROSClient;)V
+	17      (0000004a) iput-object          v0, v4, Lcom/jlboat/phone/activity/MapActivity;->goChargePublish Lcom/boat/jrosbridge/Topic;
+	18      (0000004e) new-instance         v0, Lcom/boat/jrosbridge/Topic;
+	19      (00000052) sget-object          v1, Lcom/jlboat/phone/util/TopicNames;->CurrentposeLocationmiss Ljava/lang/String;
+	20      (00000056) const-class          v2, Lcom/boat/jrosbridge/message/std_msgs/Int16;
+	21      (0000005a) sget-object          v3, Lcom/jlboat/phone/application/BoatSlamApplication;->client Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;
+	22      (0000005e) invoke-direct        v0, v1, v2, v3, Lcom/boat/jrosbridge/Topic;-><init>(Ljava/lang/String; Ljava/lang/Class; Lcom/boat/jrosbridge/ROSClient;)V
+	23      (00000064) iput-object          v0, v4, Lcom/jlboat/phone/activity/MapActivity;->currentposeLocationmiss Lcom/boat/jrosbridge/Topic;
+	24      (00000068) iget-object          v0, v4, Lcom/jlboat/phone/activity/MapActivity;->naviTargetGoalPublish Lcom/boat/jrosbridge/Topic;
+	25      (0000006c) invoke-virtual       v0, Lcom/boat/jrosbridge/Topic;->advertise()V
+	26      (00000072) iget-object          v0, v4, Lcom/jlboat/phone/activity/MapActivity;->stopNaviPublish Lcom/boat/jrosbridge/Topic;
+	27      (00000076) invoke-virtual       v0, Lcom/boat/jrosbridge/Topic;->advertise()V
+	28      (0000007c) iget-object          v0, v4, Lcom/jlboat/phone/activity/MapActivity;->goChargePublish Lcom/boat/jrosbridge/Topic;
+	29      (00000080) invoke-virtual       v0, Lcom/boat/jrosbridge/Topic;->advertise()V
+	30      (00000086) iget-object          v0, v4, Lcom/jlboat/phone/activity/MapActivity;->currentposeLocationmiss Lcom/boat/jrosbridge/Topic;
+	31      (0000008a) invoke-virtual       v0, Lcom/boat/jrosbridge/Topic;->advertise()V
+	32      (00000090) iget-object          v0, v4, Lcom/jlboat/phone/activity/MapActivity;->spiritTopicListener Lcom/jlboat/phone/communication/SpiritTopicListener;
+	33      (00000094) new-instance         v1, Lcom/jlboat/phone/activity/MapActivity$4;
+	34      (00000098) invoke-direct        v1, v4, Lcom/jlboat/phone/activity/MapActivity$4;-><init>(Lcom/jlboat/phone/activity/MapActivity;)V
+	35      (0000009e) invoke-virtual       v0, v1, Lcom/jlboat/phone/communication/SpiritTopicListener;->getInitMsg(Lcom/boat/jrosbridge/MessageListener;)V
+	36      (000000a4) iget-object          v0, v4, Lcom/jlboat/phone/activity/MapActivity;->spiritTopicListener Lcom/jlboat/phone/communication/SpiritTopicListener;
+	37      (000000a8) new-instance         v1, Lcom/jlboat/phone/activity/MapActivity$5;
+	38      (000000ac) invoke-direct        v1, v4, Lcom/jlboat/phone/activity/MapActivity$5;-><init>(Lcom/jlboat/phone/activity/MapActivity;)V
+	39      (000000b2) invoke-virtual       v0, v1, Lcom/jlboat/phone/communication/SpiritTopicListener;->getMapStatus(Lcom/boat/jrosbridge/MessageListener;)V
+	40      (000000b8) iget-object          v0, v4, Lcom/jlboat/phone/activity/MapActivity;->spiritTopicListener Lcom/jlboat/phone/communication/SpiritTopicListener;
+	41      (000000bc) new-instance         v1, Lcom/jlboat/phone/activity/MapActivity$6;
+	42      (000000c0) invoke-direct        v1, v4, Lcom/jlboat/phone/activity/MapActivity$6;-><init>(Lcom/jlboat/phone/activity/MapActivity;)V
+	43      (000000c6) invoke-virtual       v0, v1, Lcom/jlboat/phone/communication/SpiritTopicListener;->getWallUpdateMsg(Lcom/boat/jrosbridge/MessageListener;)V
+	44      (000000cc) iget-object          v0, v4, Lcom/jlboat/phone/activity/MapActivity;->spiritTopicListener Lcom/jlboat/phone/communication/SpiritTopicListener;
+	45      (000000d0) new-instance         v1, Lcom/jlboat/phone/activity/MapActivity$7;
+	46      (000000d4) invoke-direct        v1, v4, Lcom/jlboat/phone/activity/MapActivity$7;-><init>(Lcom/jlboat/phone/activity/MapActivity;)V
+	47      (000000da) invoke-virtual       v0, v1, Lcom/jlboat/phone/communication/SpiritTopicListener;->getNavigationMsg(Lcom/boat/jrosbridge/MessageListener;)V
+	48      (000000e0) iget-object          v0, v4, Lcom/jlboat/phone/activity/MapActivity;->spiritTopicListener Lcom/jlboat/phone/communication/SpiritTopicListener;
+	49      (000000e4) new-instance         v1, Lcom/jlboat/phone/activity/MapActivity$8;
+	50      (000000e8) invoke-direct        v1, v4, Lcom/jlboat/phone/activity/MapActivity$8;-><init>(Lcom/jlboat/phone/activity/MapActivity;)V
+	51      (000000ee) invoke-virtual       v0, v1, Lcom/jlboat/phone/communication/SpiritTopicListener;->getAutoChargeStatusMsg(Lcom/boat/jrosbridge/MessageListener;)V
+	52      (000000f4) iget-object          v0, v4, Lcom/jlboat/phone/activity/MapActivity;->spiritTopicListener Lcom/jlboat/phone/communication/SpiritTopicListener;
+	53      (000000f8) new-instance         v1, Lcom/jlboat/phone/activity/MapActivity$9;
+	54      (000000fc) invoke-direct        v1, v4, Lcom/jlboat/phone/activity/MapActivity$9;-><init>(Lcom/jlboat/phone/activity/MapActivity;)V
+	55      (00000102) invoke-virtual       v0, v1, Lcom/jlboat/phone/communication/SpiritTopicListener;->getNaviTargetgoalList(Lcom/boat/jrosbridge/MessageListener;)V
+	56      (00000108) return-void          
+

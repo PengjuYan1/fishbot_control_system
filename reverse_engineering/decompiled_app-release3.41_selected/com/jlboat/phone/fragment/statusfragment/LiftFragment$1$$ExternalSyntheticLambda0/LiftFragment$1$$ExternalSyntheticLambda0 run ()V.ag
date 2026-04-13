@@ -1,0 +1,13 @@
+# Lcom/jlboat/phone/fragment/statusfragment/LiftFragment$1$$ExternalSyntheticLambda0;->run()V [access_flags=public final]
+#
+# Parameters:
+# local registers: v0...v2
+#
+# - return:void
+
+run-BB@0x0 : 
+	0       (00000000) iget-object          v0, v2, Lcom/jlboat/phone/fragment/statusfragment/LiftFragment$1$$ExternalSyntheticLambda0;->f$0 Lcom/jlboat/phone/fragment/statusfragment/LiftFragment$1;
+	1       (00000004) iget-short           v1, v2, Lcom/jlboat/phone/fragment/statusfragment/LiftFragment$1$$ExternalSyntheticLambda0;->f$1 S
+	2       (00000008) invoke-virtual       v0, v1, Lcom/jlboat/phone/fragment/statusfragment/LiftFragment$1;->lambda$onNewMessage$0$com-jlboat-phone-fragment-statusfragment-LiftFragment$1(S)V
+	3       (0000000e) return-void          
+

@@ -1,0 +1,32 @@
+# Lcom/jlboat/phone/communication/SubMapLisener;->d(Ljava/lang/String; Ljava/lang/String;)V [access_flags=public static]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:java.lang.String
+# - v3:java.lang.String
+#
+# - return:void
+
+d-BB@0x0 : [ d-BB@0xc ]
+	0       (00000000) invoke-virtual       v2, Ljava/lang/String;->length()I
+	1       (00000006) move-result          v0
+	2       (00000008) rsub-int             v0, v0, 2001
+
+d-BB@0xc : [ d-BB@0x18 d-BB@0x32 ]
+	3       (0000000c) invoke-virtual       v3, Ljava/lang/String;->length()I
+	4       (00000012) move-result          v1
+	5       (00000014) if-le                v1, v0, +00fh
+
+d-BB@0x18 : [ d-BB@0xc ]
+	6       (00000018) const/4              v1, 0
+	7       (0000001a) invoke-virtual       v3, v1, v0, Ljava/lang/String;->substring(I I)Ljava/lang/String;
+	8       (00000020) move-result-object   v1
+	9       (00000022) invoke-static        v2, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	10      (00000028) invoke-virtual       v3, v0, Ljava/lang/String;->substring(I)Ljava/lang/String;
+	11      (0000002e) move-result-object   v3
+	12      (00000030) goto                 -12h
+
+d-BB@0x32 : 
+	13      (00000032) invoke-static        v2, v3, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	14      (00000038) return-void          
+

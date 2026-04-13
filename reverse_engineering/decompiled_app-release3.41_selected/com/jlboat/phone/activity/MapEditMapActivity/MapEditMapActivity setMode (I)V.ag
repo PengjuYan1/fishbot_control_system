@@ -1,0 +1,26 @@
+# Lcom/jlboat/phone/activity/MapEditMapActivity;->setMode(I)V [access_flags=private]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:int
+#
+# - return:void
+
+setMode-BB@0x0 : 
+	0       (00000000) new-instance         v0, Ljava/lang/StringBuilder;
+	1       (00000004) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	2       (0000000a) const-string         v1, "setMode: "
+	3       (0000000e) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	4       (00000014) move-result-object   v0
+	5       (00000016) invoke-virtual       v0, v3, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	6       (0000001c) move-result-object   v0
+	7       (0000001e) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	8       (00000024) move-result-object   v0
+	9       (00000026) const-string         v1, "MapEditMapActivity"
+	10      (0000002a) invoke-static        v1, v0, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	11      (00000030) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapEditMapActivity;->spiritServiceClient Lcom/jlboat/phone/communication/SpiritServiceClient;
+	12      (00000034) new-instance         v1, Lcom/jlboat/phone/activity/MapEditMapActivity$3;
+	13      (00000038) invoke-direct        v1, v2, v3, Lcom/jlboat/phone/activity/MapEditMapActivity$3;-><init>(Lcom/jlboat/phone/activity/MapEditMapActivity; I)V
+	14      (0000003e) invoke-virtual       v0, v3, v1, Lcom/jlboat/phone/communication/SpiritServiceClient;->setEraseModeService(I Lcom/boat/jrosbridge/MessageListener;)V
+	15      (00000044) return-void          
+

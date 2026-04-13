@@ -1,0 +1,13 @@
+# Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->access$2300(Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift; Lcom/boat/support/slam/entity/floors/SelectedTestPoint;)V [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v-1
+# - v0:com.jlboat.phone.fragment.settingfragment.NavigationTestFragment2025lift
+# - v1:com.boat.support.slam.entity.floors.SelectedTestPoint
+#
+# - return:void
+
+access$2300-BB@0x0 : 
+	0       (00000000) invoke-direct        v0, v1, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->getCargoAtoBEntry(Lcom/boat/support/slam/entity/floors/SelectedTestPoint;)V
+	1       (00000006) return-void          
+

@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/activity/DiyPathActivity;->access$100(Lcom/jlboat/phone/activity/DiyPathActivity;)Lcom/jlboat/phone/view/loading/MyLoading; [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.activity.DiyPathActivity
+#
+# - return:com.jlboat.phone.view.loading.MyLoading
+
+access$100-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/jlboat/phone/activity/DiyPathActivity;->loading Lcom/jlboat/phone/view/loading/MyLoading;
+	1       (00000004) return-object        v0
+

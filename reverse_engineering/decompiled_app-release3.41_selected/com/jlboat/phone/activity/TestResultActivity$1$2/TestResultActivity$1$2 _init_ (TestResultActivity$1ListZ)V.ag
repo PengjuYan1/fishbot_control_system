@@ -1,0 +1,17 @@
+# Lcom/jlboat/phone/activity/TestResultActivity$1$2;-><init>(Lcom/jlboat/phone/activity/TestResultActivity$1; Ljava/util/List; Z)V [access_flags=constructor]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.activity.TestResultActivity$1
+# - v2:java.util.List
+# - v3:boolean
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) iput-object          v1, v0, Lcom/jlboat/phone/activity/TestResultActivity$1$2;->this$1 Lcom/jlboat/phone/activity/TestResultActivity$1;
+	1       (00000004) iput-object          v2, v0, Lcom/jlboat/phone/activity/TestResultActivity$1$2;->val$resultEntries Ljava/util/List;
+	2       (00000008) iput-boolean         v3, v0, Lcom/jlboat/phone/activity/TestResultActivity$1$2;->val$finalIsEnd Z
+	3       (0000000c) invoke-direct        v0, Ljava/lang/Object;-><init>()V
+	4       (00000012) return-void          
+

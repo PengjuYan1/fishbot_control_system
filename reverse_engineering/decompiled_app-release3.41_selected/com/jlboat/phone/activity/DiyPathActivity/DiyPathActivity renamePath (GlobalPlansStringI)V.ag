@@ -1,0 +1,36 @@
+# Lcom/jlboat/phone/activity/DiyPathActivity;->renamePath(Lcom/boat/support/slam/entity/floors/GlobalPlans; Ljava/lang/String; I)V [access_flags=private]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:com.boat.support.slam.entity.floors.GlobalPlans
+# - v5:java.lang.String
+# - v6:int
+#
+# - return:void
+
+renamePath-BB@0x0 : [ renamePath-BB@0x8 renamePath-BB@0x1e ]
+	0       (00000000) iget-object          v0, v3, Lcom/jlboat/phone/activity/DiyPathActivity;->loading Lcom/jlboat/phone/view/loading/MyLoading;
+	1       (00000004) if-nez               v0, +00dh
+
+renamePath-BB@0x8 : [ renamePath-BB@0x1e ]
+	2       (00000008) const                v0, 2131361892
+	3       (0000000e) const-string         v1, "修改中..."
+	4       (00000012) invoke-static        v3, v0, v1, Lcom/jlboat/phone/util/Utils;->showLoading(Landroid/content/Context; I Ljava/lang/String;)Lcom/jlboat/phone/view/loading/MyLoading;
+	5       (00000018) move-result-object   v0
+	6       (0000001a) iput-object          v0, v3, Lcom/jlboat/phone/activity/DiyPathActivity;->loading Lcom/jlboat/phone/view/loading/MyLoading;
+
+renamePath-BB@0x1e : 
+	7       (0000001e) new-instance         v0, Lworld_canvas_msgs18/DiyPathEnty;
+	8       (00000022) invoke-direct        v0, Lworld_canvas_msgs18/DiyPathEnty;-><init>()V
+	9       (00000028) invoke-virtual       v0, v5, Lworld_canvas_msgs18/DiyPathEnty;->setGlobalplanName(Ljava/lang/String;)V
+	10      (0000002e) int-to-long          v1, v6
+	11      (00000030) invoke-virtual       v0, v1, v2, Lworld_canvas_msgs18/DiyPathEnty;->setDir(J)V
+	12      (00000036) invoke-virtual       v4, Lcom/boat/support/slam/entity/floors/GlobalPlans;->getGlobalplanId()J
+	13      (0000003c) move-result-wide     v1
+	14      (0000003e) invoke-virtual       v0, v1, v2, Lworld_canvas_msgs18/DiyPathEnty;->setGlobalplanId(J)V
+	15      (00000044) iget-object          v1, v3, Lcom/jlboat/phone/activity/DiyPathActivity;->spiritServiceClient Lcom/jlboat/phone/communication/SpiritServiceClient;
+	16      (00000048) new-instance         v2, Lcom/jlboat/phone/activity/DiyPathActivity$14;
+	17      (0000004c) invoke-direct        v2, v3, Lcom/jlboat/phone/activity/DiyPathActivity$14;-><init>(Lcom/jlboat/phone/activity/DiyPathActivity;)V
+	18      (00000052) invoke-virtual       v1, v0, v2, Lcom/jlboat/phone/communication/SpiritServiceClient;->renameDiyPath(Lworld_canvas_msgs18/DiyPathEnty; Lcom/boat/jrosbridge/MessageListener;)V
+	19      (00000058) return-void          
+

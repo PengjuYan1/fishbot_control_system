@@ -1,0 +1,29 @@
+# Lcom/boat/jrosbridge/rosbridge/implementation/ROSBridgeWebSocketClient;->register(Ljava/lang/Class; Ljava/lang/String; Ljava/lang/Class; Lcom/boat/jrosbridge/rosbridge/FullMessageHandler;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:java.lang.Class
+# - v4:java.lang.String
+# - v5:java.lang.Class
+# - v6:com.boat.jrosbridge.rosbridge.FullMessageHandler
+#
+# - return:void
+
+register-BB@0x0 : [ register-BB@0x28 register-BB@0x32 ]
+	0       (00000000) iget-object          v0, v2, Lcom/boat/jrosbridge/rosbridge/implementation/ROSBridgeWebSocketClient;->classes Lcom/boat/jrosbridge/rosbridge/implementation/Registry;
+	1       (00000004) const-class          v1, Lcom/boat/jrosbridge/message/Message;
+	2       (00000008) invoke-virtual       v0, v1, Lcom/boat/jrosbridge/rosbridge/implementation/Registry;->get(Ljava/lang/Object;)Ljava/lang/Object;
+	3       (0000000e) move-result-object   v0
+	4       (00000010) check-cast           v0, Ljava/util/Map;
+	5       (00000014) invoke-static        v5, v0, Lcom/boat/jrosbridge/message/Message;->register(Ljava/lang/Class; Ljava/util/Map;)V
+	6       (0000001a) iget-object          v0, v2, Lcom/boat/jrosbridge/rosbridge/implementation/ROSBridgeWebSocketClient;->classes Lcom/boat/jrosbridge/rosbridge/implementation/Registry;
+	7       (0000001e) invoke-virtual       v0, v3, v4, v5, Lcom/boat/jrosbridge/rosbridge/implementation/Registry;->register(Ljava/lang/Class; Ljava/lang/String; Ljava/lang/Object;)V
+	8       (00000024) if-eqz               v6, +007h
+
+register-BB@0x28 : [ register-BB@0x32 ]
+	9       (00000028) iget-object          v0, v2, Lcom/boat/jrosbridge/rosbridge/implementation/ROSBridgeWebSocketClient;->handlers Lcom/boat/jrosbridge/rosbridge/implementation/Registry;
+	10      (0000002c) invoke-virtual       v0, v3, v4, v6, Lcom/boat/jrosbridge/rosbridge/implementation/Registry;->register(Ljava/lang/Class; Ljava/lang/String; Ljava/lang/Object;)V
+
+register-BB@0x32 : 
+	11      (00000032) return-void          
+

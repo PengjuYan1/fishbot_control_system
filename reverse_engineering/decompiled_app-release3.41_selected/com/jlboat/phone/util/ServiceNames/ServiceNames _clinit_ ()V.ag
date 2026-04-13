@@ -1,0 +1,127 @@
+# Lcom/jlboat/phone/util/ServiceNames;-><clinit>()V [access_flags=static constructor]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:void
+
+<clinit>-BB@0x0 : 
+	0       (00000000) const-string         v0, "get_lorastatus"
+	1       (00000004) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->GetLoraStatus Ljava/lang/String;
+	2       (00000008) const-string         v0, "get_espstatus"
+	3       (0000000c) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->GetESPStatus Ljava/lang/String;
+	4       (00000010) const-string         v0, "calculate_odom_service"
+	5       (00000014) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->CalculateOdom Ljava/lang/String;
+	6       (00000018) const-string         v0, "move_calibration"
+	7       (0000001c) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->MoveCalibration Ljava/lang/String;
+	8       (00000020) const-string         v0, "set_navi_test"
+	9       (00000024) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->NaviTest Ljava/lang/String;
+	10      (00000028) const-string         v0, "/navi_info"
+	11      (0000002c) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->NaviInfo Ljava/lang/String;
+	12      (00000030) const-string         v0, "/set_coconum"
+	13      (00000034) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->CocoNum Ljava/lang/String;
+	14      (00000038) const-string         v0, "/set_wifi"
+	15      (0000003c) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->Wifi Ljava/lang/String;
+	16      (00000040) const-string         v0, "/set_mode"
+	17      (00000044) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->Mode Ljava/lang/String;
+	18      (00000048) const-string         v0, "/set_navi_cmd"
+	19      (0000004c) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->Navicmd Ljava/lang/String;
+	20      (00000050) const-string         v0, "/get_position"
+	21      (00000054) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->CurrentPosint Ljava/lang/String;
+	22      (00000058) const-string         v0, "/set_charpriority"
+	23      (0000005c) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->Chargpriority Ljava/lang/String;
+	24      (00000060) const-string         v0, "get_maps"
+	25      (00000064) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->GetMaps Ljava/lang/String;
+	26      (00000068) const-string         v0, "/publish_map"
+	27      (0000006c) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->ChangeMap Ljava/lang/String;
+	28      (00000070) const-string         v0, "clear_map"
+	29      (00000074) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->ClearMap Ljava/lang/String;
+	30      (00000078) const-string         v0, "rebuild_map"
+	31      (0000007c) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->RebuildMap Ljava/lang/String;
+	32      (00000080) const-string         v0, "save_map"
+	33      (00000084) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->SaveMap Ljava/lang/String;
+	34      (00000088) const-string         v0, "saveerase_map"
+	35      (0000008c) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->saveEraseMap Ljava/lang/String;
+	36      (00000090) const-string         v0, "save_ext_map"
+	37      (00000094) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->saveExtMap Ljava/lang/String;
+	38      (00000098) const-string         v0, "set_erasermode"
+	39      (0000009c) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->EraserMode Ljava/lang/String;
+	40      (000000a0) const-string         v0, "delete_map"
+	41      (000000a4) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->DeleteMap Ljava/lang/String;
+	42      (000000a8) const-string         v0, "delete_floor"
+	43      (000000ac) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->DeleteFloor Ljava/lang/String;
+	44      (000000b0) const-string         v0, "rename_floor"
+	45      (000000b4) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->RenameFloor Ljava/lang/String;
+	46      (000000b8) const-string         v0, "delete_allmap"
+	47      (000000bc) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->DeleteAllMap Ljava/lang/String;
+	48      (000000c0) const-string         v0, "rename_map"
+	49      (000000c4) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->RenameMapName Ljava/lang/String;
+	50      (000000c8) const-string         v0, "list_navi_points"
+	51      (000000cc) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->NaviPoints Ljava/lang/String;
+	52      (000000d0) const-string         v0, "point_set"
+	53      (000000d4) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->AddPoint Ljava/lang/String;
+	54      (000000d8) const-string         v0, "delete_test_point"
+	55      (000000dc) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->DeleteTestPoint Ljava/lang/String;
+	56      (000000e0) const-string         v0, "point_rename"
+	57      (000000e4) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->RenamePoint Ljava/lang/String;
+	58      (000000e8) const-string         v0, "point_update"
+	59      (000000ec) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->UpdatePoint Ljava/lang/String;
+	60      (000000f0) const-string         v0, "set_goal"
+	61      (000000f4) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->Goal Ljava/lang/String;
+	62      (000000f8) const-string         v0, "navi_targegoalplan"
+	63      (000000fc) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->NaviGoal Ljava/lang/String;
+	64      (00000100) const-string         v0, "set_shape"
+	65      (00000104) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->ShapeService Ljava/lang/String;
+	66      (00000108) const-string         v0, "set_region"
+	67      (0000010c) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->RegionService Ljava/lang/String;
+	68      (00000110) const-string         v0, "set_globalplan"
+	69      (00000114) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->DiyPath Ljava/lang/String;
+	70      (00000118) const-string         v0, "rename_globalplan"
+	71      (0000011c) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->RenamePath Ljava/lang/String;
+	72      (00000120) const-string         v0, "addpoints_globalplan"
+	73      (00000124) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->AddPointsGlobalplan Ljava/lang/String;
+	74      (00000128) const-string         v0, "deletepoints_globalplan"
+	75      (0000012c) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->DeletePointsGlobalPlan Ljava/lang/String;
+	76      (00000130) const-string         v0, "move_base/execute_path"
+	77      (00000134) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->ExecutePath Ljava/lang/String;
+	78      (00000138) const-string         v0, "get_log"
+	79      (0000013c) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->GetLogs Ljava/lang/String;
+	80      (00000140) const-string         v0, "delete_allbags"
+	81      (00000144) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->DeleteAlllogs Ljava/lang/String;
+	82      (00000148) const-string         v1, "bag_list"
+	83      (0000014c) sput-object          v1, Lcom/jlboat/phone/util/ServiceNames;->GetBags Ljava/lang/String;
+	84      (00000150) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->DeleteAllBags Ljava/lang/String;
+	85      (00000154) const-string         v0, "robot_ssh"
+	86      (00000158) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->Ssh Ljava/lang/String;
+	87      (0000015c) const-string         v0, "set_relocation"
+	88      (00000160) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->Relocation Ljava/lang/String;
+	89      (00000164) const-string         v0, "pointmanu_set"
+	90      (00000168) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->AddManuPoint Ljava/lang/String;
+	91      (0000016c) const-string         v0, "import_configs"
+	92      (00000170) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->slamDownMap Ljava/lang/String;
+	93      (00000174) const-string         v0, "set_cleanArea"
+	94      (00000178) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->CleanAreaService Ljava/lang/String;
+	95      (0000017c) const-string         v0, "robot_sonarlist"
+	96      (00000180) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->robotSonar Ljava/lang/String;
+	97      (00000184) const-string         v0, "robot_sonarset"
+	98      (00000188) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->robotSonarSet Ljava/lang/String;
+	99      (0000018c) const-string         v0, "robot_speedlist"
+	100     (00000190) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->robotSpeed Ljava/lang/String;
+	101     (00000194) const-string         v0, "robot_speedset"
+	102     (00000198) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->robotSpeedSet Ljava/lang/String;
+	103     (0000019c) const-string         v0, "navigation_safesetlist"
+	104     (000001a0) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->robotSafe Ljava/lang/String;
+	105     (000001a4) const-string         v0, "navigation_safeset"
+	106     (000001a8) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->robotSafeSet Ljava/lang/String;
+	107     (000001ac) const-string         v0, "navigation_Creamsetlist"
+	108     (000001b0) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->robotCream Ljava/lang/String;
+	109     (000001b4) const-string         v0, "navigation_Creamset"
+	110     (000001b8) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->robotCreamSet Ljava/lang/String;
+	111     (000001bc) const-string         v0, "get_configs"
+	112     (000001c0) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->robotConfig Ljava/lang/String;
+	113     (000001c4) const-string         v0, "set_configs"
+	114     (000001c8) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->robotConfigSet Ljava/lang/String;
+	115     (000001cc) const-string         v0, "test_driver_service"
+	116     (000001d0) sput-object          v0, Lcom/jlboat/phone/util/ServiceNames;->robotTestDriver Ljava/lang/String;
+	117     (000001d4) return-void          
+

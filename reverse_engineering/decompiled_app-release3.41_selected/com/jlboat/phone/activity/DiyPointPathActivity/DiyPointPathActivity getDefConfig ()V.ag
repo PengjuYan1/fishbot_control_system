@@ -1,0 +1,15 @@
+# Lcom/jlboat/phone/activity/DiyPointPathActivity;->getDefConfig()V [access_flags=private]
+#
+# Parameters:
+# local registers: v0...v3
+#
+# - return:void
+
+getDefConfig-BB@0x0 : 
+	0       (00000000) iget-object          v0, v3, Lcom/jlboat/phone/activity/DiyPointPathActivity;->statusServiceClient Lcom/jlboat/phone/communication/StatusServiceClient;
+	1       (00000004) new-instance         v1, Lcom/jlboat/phone/activity/DiyPointPathActivity$9;
+	2       (00000008) invoke-direct        v1, v3, Lcom/jlboat/phone/activity/DiyPointPathActivity$9;-><init>(Lcom/jlboat/phone/activity/DiyPointPathActivity;)V
+	3       (0000000e) const/4              v2, 1
+	4       (00000010) invoke-virtual       v0, v2, v1, Lcom/jlboat/phone/communication/StatusServiceClient;->getConfigsService(I Lcom/boat/jrosbridge/MessageListener;)V
+	5       (00000016) return-void          
+

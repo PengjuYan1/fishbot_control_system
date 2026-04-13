@@ -1,0 +1,33 @@
+# Lcom/jlboat/phone/activity/DiyPathActivity;-><init>()V [access_flags=public constructor]
+#
+# Parameters:
+# local registers: v0...v2
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) invoke-direct        v2, Lcom/jlboat/phone/base/BaseFullActivity;-><init>()V
+	1       (00000006) const/16             v0, 1001
+	2       (0000000a) iput                 v0, v2, Lcom/jlboat/phone/activity/DiyPathActivity;->START_REQ I
+	3       (0000000e) const/16             v0, 1002
+	4       (00000012) iput                 v0, v2, Lcom/jlboat/phone/activity/DiyPathActivity;->REQ_END I
+	5       (00000016) const/16             v0, 1003
+	6       (0000001a) iput                 v0, v2, Lcom/jlboat/phone/activity/DiyPathActivity;->POINT_VERIFY I
+	7       (0000001e) const/16             v0, 1004
+	8       (00000022) iput                 v0, v2, Lcom/jlboat/phone/activity/DiyPathActivity;->UPDATE_ALLLIST I
+	9       (00000026) const/16             v0, 1005
+	10      (0000002a) iput                 v0, v2, Lcom/jlboat/phone/activity/DiyPathActivity;->STOP_PATH_TEST I
+	11      (0000002e) new-instance         v0, Lcom/jlboat/phone/activity/DiyPathActivity$1;
+	12      (00000032) invoke-direct        v0, v2, Lcom/jlboat/phone/activity/DiyPathActivity$1;-><init>(Lcom/jlboat/phone/activity/DiyPathActivity;)V
+	13      (00000038) iput-object          v0, v2, Lcom/jlboat/phone/activity/DiyPathActivity;->handler Landroid/os/Handler;
+	14      (0000003c) const/4              v0, 1
+	15      (0000003e) iput-boolean         v0, v2, Lcom/jlboat/phone/activity/DiyPathActivity;->isSreenModel Z
+	16      (00000042) new-instance         v1, Ljava/util/LinkedList;
+	17      (00000046) invoke-direct        v1, Ljava/util/LinkedList;-><init>()V
+	18      (0000004c) iput-object          v1, v2, Lcom/jlboat/phone/activity/DiyPathActivity;->points Ljava/util/List;
+	19      (00000050) const/4              v1, 0
+	20      (00000052) iput                 v1, v2, Lcom/jlboat/phone/activity/DiyPathActivity;->longClickPos I
+	21      (00000056) iput-boolean         v0, v2, Lcom/jlboat/phone/activity/DiyPathActivity;->isAdd Z
+	22      (0000005a) iput-boolean         v0, v2, Lcom/jlboat/phone/activity/DiyPathActivity;->isNext Z
+	23      (0000005e) return-void          
+

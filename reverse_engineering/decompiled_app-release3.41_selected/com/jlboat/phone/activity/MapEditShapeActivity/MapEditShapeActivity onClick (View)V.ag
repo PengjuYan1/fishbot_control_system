@@ -1,0 +1,291 @@
+# Lcom/jlboat/phone/activity/MapEditShapeActivity;->onClick(Landroid/view/View;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v14
+# - v15:android.view.View
+#
+# - return:void
+
+onClick-BB@0x0 : [ D:onClick-BB@0x14 2131230756:onClick-BB@0x300 2131230839:onClick-BB@0x2e0 2131231054:onClick-BB@0x18 ]
+	0       (00000000) invoke-virtual       v15, Landroid/view/View;->getId()I
+	1       (00000006) move-result          v0
+	2       (00000008) const/4              v1, 0
+	3       (0000000a) const/16             v2, 8
+	4       (0000000e) sparse-switch        v0, +00001abh
+
+onClick-BB@0x14 : [ onClick-BB@0x362 ]
+	5       (00000014) goto/16              +1a7h
+
+onClick-BB@0x18 : [ onClick-BB@0x20 onClick-BB@0x24 ]
+	6       (00000018) iget-object          v0, v14, Lcom/jlboat/phone/activity/MapEditShapeActivity;->mapView Lcom/jlboat/phone/view/MapView;
+	7       (0000001c) if-nez               v0, +004h
+
+onClick-BB@0x20 : [ onClick-BB@0x362 ]
+	8       (00000020) goto/16              +1a1h
+
+onClick-BB@0x24 : [ onClick-BB@0x50 onClick-BB@0x7e ]
+	9       (00000024) new-instance         v0, Lworld_canvas_msgs18/SetShapeRequestEnty;
+	10      (00000028) invoke-direct        v0, Lworld_canvas_msgs18/SetShapeRequestEnty;-><init>()V
+	11      (0000002e) invoke-virtual       v0, v1, Lworld_canvas_msgs18/SetShapeRequestEnty;->setClosed(Z)V
+	12      (00000034) const-string         v1, "lines"
+	13      (00000038) invoke-virtual       v0, v1, Lworld_canvas_msgs18/SetShapeRequestEnty;->setType(Ljava/lang/String;)V
+	14      (0000003e) new-instance         v1, Ljava/util/LinkedList;
+	15      (00000042) invoke-direct        v1, Ljava/util/LinkedList;-><init>()V
+	16      (00000048) iget                 v3, v14, Lcom/jlboat/phone/activity/MapEditShapeActivity;->itemType I
+	17      (0000004c) if-nez               v3, +019h
+
+onClick-BB@0x50 : [ onClick-BB@0x74 onClick-BB@0x7e ]
+	18      (00000050) iget-object          v3, v14, Lcom/jlboat/phone/activity/MapEditShapeActivity;->cancel Landroid/widget/Button;
+	19      (00000054) invoke-virtual       v3, v2, Landroid/widget/Button;->setVisibility(I)V
+	20      (0000005a) iget-object          v3, v14, Lcom/jlboat/phone/activity/MapEditShapeActivity;->ok Landroid/widget/Button;
+	21      (0000005e) invoke-virtual       v3, v2, Landroid/widget/Button;->setVisibility(I)V
+	22      (00000064) iget-object          v2, v14, Lcom/jlboat/phone/activity/MapEditShapeActivity;->linesList Ljava/util/List;
+	23      (00000068) invoke-interface     v2, Ljava/util/List;->isEmpty()Z
+	24      (0000006e) move-result          v2
+	25      (00000070) if-nez               v2, +007h
+
+onClick-BB@0x74 : [ onClick-BB@0x7e ]
+	26      (00000074) iget-object          v2, v14, Lcom/jlboat/phone/activity/MapEditShapeActivity;->linesList Ljava/util/List;
+	27      (00000078) invoke-virtual       v0, v2, Lworld_canvas_msgs18/SetShapeRequestEnty;->setPoints(Ljava/util/List;)V
+
+onClick-BB@0x7e : [ onClick-BB@0x88 onClick-BB@0x194 ]
+	28      (0000007e) iget                 v2, v14, Lcom/jlboat/phone/activity/MapEditShapeActivity;->itemType I
+	29      (00000082) const/4              v3, 1
+	30      (00000084) if-ne                v2, v3, +088h
+
+onClick-BB@0x88 : [ onClick-BB@0xc4 onClick-BB@0xc8 ]
+	31      (00000088) invoke-virtual       v0, v3, Lworld_canvas_msgs18/SetShapeRequestEnty;->setClosed(Z)V
+	32      (0000008e) iget-object          v2, v14, Lcom/jlboat/phone/activity/MapEditShapeActivity;->mapView Lcom/jlboat/phone/view/MapView;
+	33      (00000092) iget-object          v3, v14, Lcom/jlboat/phone/activity/MapEditShapeActivity;->ivRectangle Landroid/widget/ImageView;
+	34      (00000096) invoke-virtual       v3, Landroid/widget/ImageView;->getLeft()I
+	35      (0000009c) move-result          v3
+	36      (0000009e) iget-object          v4, v14, Lcom/jlboat/phone/activity/MapEditShapeActivity;->ivRectangle Landroid/widget/ImageView;
+	37      (000000a2) invoke-virtual       v4, Landroid/widget/ImageView;->getTop()I
+	38      (000000a8) move-result          v4
+	39      (000000aa) iget-object          v5, v14, Lcom/jlboat/phone/activity/MapEditShapeActivity;->ivRectangle Landroid/widget/ImageView;
+	40      (000000ae) invoke-virtual       v5, Landroid/widget/ImageView;->getHeight()I
+	41      (000000b4) move-result          v5
+	42      (000000b6) add-int/2addr        v4, v5
+	43      (000000b8) invoke-virtual       v2, v3, v4, Lcom/jlboat/phone/view/MapView;->getRosMapPoint(I I)Lcom/boat/support/slam/entity/floors/Lines;
+	44      (000000be) move-result-object   v2
+	45      (000000c0) if-nez               v2, +004h
+
+onClick-BB@0xc4 : [ onClick-BB@0x362 ]
+	46      (000000c4) goto/16              +14fh
+
+onClick-BB@0xc8 : [ onClick-BB@0xf0 onClick-BB@0xf4 ]
+	47      (000000c8) iget-object          v3, v14, Lcom/jlboat/phone/activity/MapEditShapeActivity;->mapView Lcom/jlboat/phone/view/MapView;
+	48      (000000cc) iget-object          v4, v14, Lcom/jlboat/phone/activity/MapEditShapeActivity;->ivRectangle Landroid/widget/ImageView;
+	49      (000000d0) invoke-virtual       v4, Landroid/widget/ImageView;->getLeft()I
+	50      (000000d6) move-result          v4
+	51      (000000d8) iget-object          v5, v14, Lcom/jlboat/phone/activity/MapEditShapeActivity;->ivRectangle Landroid/widget/ImageView;
+	52      (000000dc) invoke-virtual       v5, Landroid/widget/ImageView;->getTop()I
+	53      (000000e2) move-result          v5
+	54      (000000e4) invoke-virtual       v3, v4, v5, Lcom/jlboat/phone/view/MapView;->getRosMapPoint(I I)Lcom/boat/support/slam/entity/floors/Lines;
+	55      (000000ea) move-result-object   v3
+	56      (000000ec) if-nez               v3, +004h
+
+onClick-BB@0xf0 : [ onClick-BB@0x362 ]
+	57      (000000f0) goto/16              +139h
+
+onClick-BB@0xf4 : [ onClick-BB@0x12a onClick-BB@0x12e ]
+	58      (000000f4) iget-object          v4, v14, Lcom/jlboat/phone/activity/MapEditShapeActivity;->mapView Lcom/jlboat/phone/view/MapView;
+	59      (000000f8) iget-object          v5, v14, Lcom/jlboat/phone/activity/MapEditShapeActivity;->ivRectangle Landroid/widget/ImageView;
+	60      (000000fc) invoke-virtual       v5, Landroid/widget/ImageView;->getLeft()I
+	61      (00000102) move-result          v5
+	62      (00000104) iget-object          v6, v14, Lcom/jlboat/phone/activity/MapEditShapeActivity;->ivRectangle Landroid/widget/ImageView;
+	63      (00000108) invoke-virtual       v6, Landroid/widget/ImageView;->getWidth()I
+	64      (0000010e) move-result          v6
+	65      (00000110) add-int/2addr        v5, v6
+	66      (00000112) iget-object          v6, v14, Lcom/jlboat/phone/activity/MapEditShapeActivity;->ivRectangle Landroid/widget/ImageView;
+	67      (00000116) invoke-virtual       v6, Landroid/widget/ImageView;->getTop()I
+	68      (0000011c) move-result          v6
+	69      (0000011e) invoke-virtual       v4, v5, v6, Lcom/jlboat/phone/view/MapView;->getRosMapPoint(I I)Lcom/boat/support/slam/entity/floors/Lines;
+	70      (00000124) move-result-object   v4
+	71      (00000126) if-nez               v4, +004h
+
+onClick-BB@0x12a : [ onClick-BB@0x362 ]
+	72      (0000012a) goto/16              +11ch
+
+onClick-BB@0x12e : [ onClick-BB@0x172 onClick-BB@0x176 ]
+	73      (0000012e) iget-object          v5, v14, Lcom/jlboat/phone/activity/MapEditShapeActivity;->mapView Lcom/jlboat/phone/view/MapView;
+	74      (00000132) iget-object          v6, v14, Lcom/jlboat/phone/activity/MapEditShapeActivity;->ivRectangle Landroid/widget/ImageView;
+	75      (00000136) invoke-virtual       v6, Landroid/widget/ImageView;->getLeft()I
+	76      (0000013c) move-result          v6
+	77      (0000013e) iget-object          v7, v14, Lcom/jlboat/phone/activity/MapEditShapeActivity;->ivRectangle Landroid/widget/ImageView;
+	78      (00000142) invoke-virtual       v7, Landroid/widget/ImageView;->getWidth()I
+	79      (00000148) move-result          v7
+	80      (0000014a) add-int/2addr        v6, v7
+	81      (0000014c) iget-object          v7, v14, Lcom/jlboat/phone/activity/MapEditShapeActivity;->ivRectangle Landroid/widget/ImageView;
+	82      (00000150) invoke-virtual       v7, Landroid/widget/ImageView;->getTop()I
+	83      (00000156) move-result          v7
+	84      (00000158) iget-object          v8, v14, Lcom/jlboat/phone/activity/MapEditShapeActivity;->ivRectangle Landroid/widget/ImageView;
+	85      (0000015c) invoke-virtual       v8, Landroid/widget/ImageView;->getHeight()I
+	86      (00000162) move-result          v8
+	87      (00000164) add-int/2addr        v7, v8
+	88      (00000166) invoke-virtual       v5, v6, v7, Lcom/jlboat/phone/view/MapView;->getRosMapPoint(I I)Lcom/boat/support/slam/entity/floors/Lines;
+	89      (0000016c) move-result-object   v5
+	90      (0000016e) if-nez               v5, +004h
+
+onClick-BB@0x172 : [ onClick-BB@0x362 ]
+	91      (00000172) goto/16              +0f8h
+
+onClick-BB@0x176 : [ onClick-BB@0x194 ]
+	92      (00000176) invoke-interface     v1, v2, Ljava/util/List;->add(Ljava/lang/Object;)Z
+	93      (0000017c) invoke-interface     v1, v3, Ljava/util/List;->add(Ljava/lang/Object;)Z
+	94      (00000182) invoke-interface     v1, v4, Ljava/util/List;->add(Ljava/lang/Object;)Z
+	95      (00000188) invoke-interface     v1, v5, Ljava/util/List;->add(Ljava/lang/Object;)Z
+	96      (0000018e) invoke-virtual       v0, v1, Lworld_canvas_msgs18/SetShapeRequestEnty;->setPoints(Ljava/util/List;)V
+
+onClick-BB@0x194 : [ onClick-BB@0x19e onClick-BB@0x2ca ]
+	97      (00000194) iget                 v2, v14, Lcom/jlboat/phone/activity/MapEditShapeActivity;->itemType I
+	98      (00000198) const/4              v3, 2
+	99      (0000019a) if-ne                v2, v3, +098h
+
+onClick-BB@0x19e : [ onClick-BB@0x1e8 onClick-BB@0x1ec ]
+	100     (0000019e) const-string         v2, "circle"
+	101     (000001a2) invoke-virtual       v0, v2, Lworld_canvas_msgs18/SetShapeRequestEnty;->setType(Ljava/lang/String;)V
+	102     (000001a8) iget-object          v2, v14, Lcom/jlboat/phone/activity/MapEditShapeActivity;->mapView Lcom/jlboat/phone/view/MapView;
+	103     (000001ac) invoke-virtual       v2, Lcom/jlboat/phone/view/MapView;->getRosMapPoint()Lcom/boat/support/slam/entity/floors/Lines;
+	104     (000001b2) move-result-object   v2
+	105     (000001b4) new-instance         v4, Ljava/lang/StringBuilder;
+	106     (000001b8) invoke-direct        v4, Ljava/lang/StringBuilder;-><init>()V
+	107     (000001be) const-string         v5, "onClick: "
+	108     (000001c2) invoke-virtual       v4, v5, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	109     (000001c8) move-result-object   v4
+	110     (000001ca) invoke-virtual       v4, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+	111     (000001d0) move-result-object   v4
+	112     (000001d2) invoke-virtual       v4, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	113     (000001d8) move-result-object   v4
+	114     (000001da) const-string         v5, "MapEditShapeActivity"
+	115     (000001de) invoke-static        v5, v4, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	116     (000001e4) if-nez               v2, +004h
+
+onClick-BB@0x1e8 : [ onClick-BB@0x362 ]
+	117     (000001e8) goto/16              +0bdh
+
+onClick-BB@0x1ec : [ onClick-BB@0x224 onClick-BB@0x228 ]
+	118     (000001ec) iget-object          v4, v14, Lcom/jlboat/phone/activity/MapEditShapeActivity;->mapView Lcom/jlboat/phone/view/MapView;
+	119     (000001f0) iget-object          v6, v14, Lcom/jlboat/phone/activity/MapEditShapeActivity;->ivRound Landroid/widget/ImageView;
+	120     (000001f4) invoke-virtual       v6, Landroid/widget/ImageView;->getLeft()I
+	121     (000001fa) move-result          v6
+	122     (000001fc) iget-object          v7, v14, Lcom/jlboat/phone/activity/MapEditShapeActivity;->ivRound Landroid/widget/ImageView;
+	123     (00000200) invoke-virtual       v7, Landroid/widget/ImageView;->getWidth()I
+	124     (00000206) move-result          v7
+	125     (00000208) div-int/2addr        v7, v3
+	126     (0000020a) add-int/2addr        v6, v7
+	127     (0000020c) iget-object          v3, v14, Lcom/jlboat/phone/activity/MapEditShapeActivity;->ivRound Landroid/widget/ImageView;
+	128     (00000210) invoke-virtual       v3, Landroid/widget/ImageView;->getTop()I
+	129     (00000216) move-result          v3
+	130     (00000218) invoke-virtual       v4, v6, v3, Lcom/jlboat/phone/view/MapView;->getRosMapPoint(I I)Lcom/boat/support/slam/entity/floors/Lines;
+	131     (0000021e) move-result-object   v3
+	132     (00000220) if-nez               v3, +004h
+
+onClick-BB@0x224 : [ onClick-BB@0x362 ]
+	133     (00000224) goto/16              +09fh
+
+onClick-BB@0x228 : [ onClick-BB@0x2ca ]
+	134     (00000228) invoke-virtual       v2, Lcom/boat/support/slam/entity/floors/Lines;->getX()D
+	135     (0000022e) move-result-wide     v6
+	136     (00000230) invoke-virtual       v3, Lcom/boat/support/slam/entity/floors/Lines;->getX()D
+	137     (00000236) move-result-wide     v8
+	138     (00000238) sub-double/2addr     v6, v8
+	139     (0000023a) invoke-virtual       v2, Lcom/boat/support/slam/entity/floors/Lines;->getX()D
+	140     (00000240) move-result-wide     v8
+	141     (00000242) invoke-virtual       v3, Lcom/boat/support/slam/entity/floors/Lines;->getX()D
+	142     (00000248) move-result-wide     v10
+	143     (0000024a) sub-double/2addr     v8, v10
+	144     (0000024c) mul-double           v6, v6, v8
+	145     (00000250) invoke-virtual       v2, Lcom/boat/support/slam/entity/floors/Lines;->getY()D
+	146     (00000256) move-result-wide     v8
+	147     (00000258) invoke-virtual       v3, Lcom/boat/support/slam/entity/floors/Lines;->getY()D
+	148     (0000025e) move-result-wide     v10
+	149     (00000260) sub-double/2addr     v8, v10
+	150     (00000262) invoke-virtual       v2, Lcom/boat/support/slam/entity/floors/Lines;->getY()D
+	151     (00000268) move-result-wide     v10
+	152     (0000026a) invoke-virtual       v3, Lcom/boat/support/slam/entity/floors/Lines;->getY()D
+	153     (00000270) move-result-wide     v12
+	154     (00000272) sub-double/2addr     v10, v12
+	155     (00000274) mul-double           v8, v8, v10
+	156     (00000278) add-double/2addr     v6, v8
+	157     (0000027a) invoke-static        v6, v7, Ljava/lang/Math;->abs(D)D
+	158     (00000280) move-result-wide     v6
+	159     (00000282) invoke-static        v6, v7, Ljava/lang/Math;->sqrt(D)D
+	160     (00000288) move-result-wide     v6
+	161     (0000028a) new-instance         v4, Ljava/lang/StringBuilder;
+	162     (0000028e) invoke-direct        v4, Ljava/lang/StringBuilder;-><init>()V
+	163     (00000294) const-string         v8, "onClick: 两点间的距离是:"
+	164     (00000298) invoke-virtual       v4, v8, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	165     (0000029e) move-result-object   v4
+	166     (000002a0) invoke-virtual       v4, v6, v7, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
+	167     (000002a6) move-result-object   v4
+	168     (000002a8) invoke-virtual       v4, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	169     (000002ae) move-result-object   v4
+	170     (000002b0) invoke-static        v5, v4, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	171     (000002b6) invoke-interface     v1, v2, Ljava/util/List;->add(Ljava/lang/Object;)Z
+	172     (000002bc) invoke-virtual       v0, v1, Lworld_canvas_msgs18/SetShapeRequestEnty;->setPoints(Ljava/util/List;)V
+	173     (000002c2) double-to-float      v4, v6
+	174     (000002c4) invoke-virtual       v0, v4, Lworld_canvas_msgs18/SetShapeRequestEnty;->setRadius(F)V
+
+onClick-BB@0x2ca : [ onClick-BB@0x362 ]
+	175     (000002ca) iget-object          v2, v14, Lcom/jlboat/phone/activity/MapEditShapeActivity;->spiritServiceClient Lcom/jlboat/phone/communication/SpiritServiceClient;
+	176     (000002ce) new-instance         v3, Lcom/jlboat/phone/activity/MapEditShapeActivity$6;
+	177     (000002d2) invoke-direct        v3, v14, Lcom/jlboat/phone/activity/MapEditShapeActivity$6;-><init>(Lcom/jlboat/phone/activity/MapEditShapeActivity;)V
+	178     (000002d8) invoke-virtual       v2, v0, v3, Lcom/jlboat/phone/communication/SpiritServiceClient;->addOrDelShapeServer(Lworld_canvas_msgs18/SetShapeRequestEnty; Lcom/boat/jrosbridge/MessageListener;)V
+	179     (000002de) goto                 +42h
+
+onClick-BB@0x2e0 : [ onClick-BB@0x362 ]
+	180     (000002e0) iget-object          v0, v14, Lcom/jlboat/phone/activity/MapEditShapeActivity;->linesList Ljava/util/List;
+	181     (000002e4) invoke-interface     v0, Ljava/util/List;->clear()V
+	182     (000002ea) iget-object          v0, v14, Lcom/jlboat/phone/activity/MapEditShapeActivity;->cancel Landroid/widget/Button;
+	183     (000002ee) invoke-virtual       v0, v2, Landroid/widget/Button;->setVisibility(I)V
+	184     (000002f4) iget-object          v0, v14, Lcom/jlboat/phone/activity/MapEditShapeActivity;->ok Landroid/widget/Button;
+	185     (000002f8) invoke-virtual       v0, v2, Landroid/widget/Button;->setVisibility(I)V
+	186     (000002fe) goto                 +32h
+
+onClick-BB@0x300 : [ onClick-BB@0x308 onClick-BB@0x30a ]
+	187     (00000300) iget-object          v0, v14, Lcom/jlboat/phone/activity/MapEditShapeActivity;->mapView Lcom/jlboat/phone/view/MapView;
+	188     (00000304) if-nez               v0, +003h
+
+onClick-BB@0x308 : [ onClick-BB@0x362 ]
+	189     (00000308) goto                 +2dh
+
+onClick-BB@0x30a : [ onClick-BB@0x312 onClick-BB@0x362 ]
+	190     (0000030a) iget                 v0, v14, Lcom/jlboat/phone/activity/MapEditShapeActivity;->itemType I
+	191     (0000030e) if-nez               v0, +02ah
+
+onClick-BB@0x312 : [ onClick-BB@0x322 onClick-BB@0x324 ]
+	192     (00000312) iget-object          v0, v14, Lcom/jlboat/phone/activity/MapEditShapeActivity;->mapView Lcom/jlboat/phone/view/MapView;
+	193     (00000316) invoke-virtual       v0, Lcom/jlboat/phone/view/MapView;->getRosMapPoint()Lcom/boat/support/slam/entity/floors/Lines;
+	194     (0000031c) move-result-object   v0
+	195     (0000031e) if-nez               v0, +003h
+
+onClick-BB@0x322 : [ onClick-BB@0x362 ]
+	196     (00000322) goto                 +20h
+
+onClick-BB@0x324 : [ onClick-BB@0x33e onClick-BB@0x352 ]
+	197     (00000324) iget-object          v2, v14, Lcom/jlboat/phone/activity/MapEditShapeActivity;->linesList Ljava/util/List;
+	198     (00000328) invoke-interface     v2, v0, Ljava/util/List;->add(Ljava/lang/Object;)Z
+	199     (0000032e) iget-object          v2, v14, Lcom/jlboat/phone/activity/MapEditShapeActivity;->linesList Ljava/util/List;
+	200     (00000332) invoke-interface     v2, Ljava/util/List;->isEmpty()Z
+	201     (00000338) move-result          v2
+	202     (0000033a) if-nez               v2, +00ch
+
+onClick-BB@0x33e : [ onClick-BB@0x352 ]
+	203     (0000033e) iget-object          v2, v14, Lcom/jlboat/phone/activity/MapEditShapeActivity;->ok Landroid/widget/Button;
+	204     (00000342) invoke-virtual       v2, v1, Landroid/widget/Button;->setVisibility(I)V
+	205     (00000348) iget-object          v2, v14, Lcom/jlboat/phone/activity/MapEditShapeActivity;->cancel Landroid/widget/Button;
+	206     (0000034c) invoke-virtual       v2, v1, Landroid/widget/Button;->setVisibility(I)V
+
+onClick-BB@0x352 : [ onClick-BB@0x362 ]
+	207     (00000352) iget-object          v1, v14, Lcom/jlboat/phone/activity/MapEditShapeActivity;->mapView Lcom/jlboat/phone/view/MapView;
+	208     (00000356) iget-object          v2, v14, Lcom/jlboat/phone/activity/MapEditShapeActivity;->linesList Ljava/util/List;
+	209     (0000035a) invoke-virtual       v1, v2, Lcom/jlboat/phone/view/MapView;->setLinesStyle(Ljava/util/List;)V
+	210     (00000360) nop                  
+
+onClick-BB@0x362 : 
+	211     (00000362) return-void          
+
+onClick-BB@0x364 : 
+	212     (00000364) sparse-switch-payload 7f080024 7f080077 7f08014e
+

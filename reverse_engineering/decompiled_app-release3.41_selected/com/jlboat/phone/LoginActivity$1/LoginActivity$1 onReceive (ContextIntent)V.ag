@@ -1,0 +1,249 @@
+# Lcom/jlboat/phone/LoginActivity$1;->onReceive(Landroid/content/Context; Landroid/content/Intent;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v6
+# - v7:android.content.Context
+# - v8:android.content.Intent
+#
+# - return:void
+
+onReceive-BB@0x0 : [ onReceive-BB@0x4 onReceive-BB@0x6 ]
+	0       (00000000) if-nez               v8, +003h
+
+onReceive-BB@0x4 : 
+	1       (00000004) return-void          
+
+onReceive-BB@0x6 : [ onReceive-BB@0x12 onReceive-BB@0x14 ]
+	2       (00000006) invoke-virtual       v8, Landroid/content/Intent;->getAction()Ljava/lang/String;
+	3       (0000000c) move-result-object   v0
+	4       (0000000e) if-nez               v0, +003h
+
+onReceive-BB@0x12 : 
+	5       (00000012) return-void          
+
+onReceive-BB@0x14 : [ D:onReceive-BB@0x56 -1747645096:onReceive-BB@0x6c 2022760137:onReceive-BB@0x58 ]
+	6       (00000014) new-instance         v1, Ljava/lang/StringBuilder;
+	7       (00000018) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	8       (0000001e) const-string         v2, "onReceive: 收到 "
+	9       (00000022) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	10      (00000028) move-result-object   v1
+	11      (0000002a) invoke-virtual       v1, v0, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	12      (00000030) move-result-object   v1
+	13      (00000032) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	14      (00000038) move-result-object   v1
+	15      (0000003a) const-string         v2, "LoginActivity"
+	16      (0000003e) invoke-static        v2, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	17      (00000044) invoke-virtual       v0, Ljava/lang/String;->hashCode()I
+	18      (0000004a) move-result          v1
+	19      (0000004c) const/4              v3, 1
+	20      (0000004e) const/4              v4, 0
+	21      (00000050) sparse-switch        v1, +0000132h
+
+onReceive-BB@0x56 : [ onReceive-BB@0x80 ]
+	22      (00000056) goto                 +15h
+
+onReceive-BB@0x58 : [ onReceive-BB@0x68 onReceive-BB@0x56 ]
+	23      (00000058) const-string         v1, "login_re"
+	24      (0000005c) invoke-virtual       v0, v1, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	25      (00000062) move-result          v1
+	26      (00000064) if-eqz               v1, -007h
+
+onReceive-BB@0x68 : [ onReceive-BB@0x82 ]
+	27      (00000068) const/4              v1, 1
+	28      (0000006a) goto                 +ch
+
+onReceive-BB@0x6c : [ onReceive-BB@0x7c onReceive-BB@0x56 ]
+	29      (0000006c) const-string         v1, "login_succ"
+	30      (00000070) invoke-virtual       v0, v1, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	31      (00000076) move-result          v1
+	32      (00000078) if-eqz               v1, -011h
+
+onReceive-BB@0x7c : [ onReceive-BB@0x82 ]
+	33      (0000007c) const/4              v1, 0
+	34      (0000007e) goto                 +2h
+
+onReceive-BB@0x80 : [ onReceive-BB@0x82 ]
+	35      (00000080) const/4              v1, -1
+
+onReceive-BB@0x82 : [ D:onReceive-BB@0x88 0:onReceive-BB@0xb2 1:onReceive-BB@0x8c ]
+	36      (00000082) packed-switch        v1, +0000123h
+
+onReceive-BB@0x88 : [ onReceive-BB@0x2b0 ]
+	37      (00000088) goto/16              +114h
+
+onReceive-BB@0x8c : [ onReceive-BB@0x2b0 ]
+	38      (0000008c) const-string         v1, "onReceive: 收到"
+	39      (00000090) invoke-static        v2, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	40      (00000096) iget-object          v1, v6, Lcom/jlboat/phone/LoginActivity$1;->this$0 Lcom/jlboat/phone/LoginActivity;
+	41      (0000009a) iput-boolean         v4, v1, Lcom/jlboat/phone/LoginActivity;->isConnecting Z
+	42      (0000009e) iget-object          v1, v6, Lcom/jlboat/phone/LoginActivity$1;->this$0 Lcom/jlboat/phone/LoginActivity;
+	43      (000000a2) const                v2, 2131493272
+	44      (000000a8) invoke-virtual       v1, v2, Lcom/jlboat/phone/LoginActivity;->toast(I)V
+	45      (000000ae) goto/16              +101h
+
+onReceive-BB@0xb2 : [ onReceive-BB@0xc6 onReceive-BB@0xea ]
+	46      (000000b2) iget-object          v1, v6, Lcom/jlboat/phone/LoginActivity$1;->this$0 Lcom/jlboat/phone/LoginActivity;
+	47      (000000b6) iput-boolean         v4, v1, Lcom/jlboat/phone/LoginActivity;->isConnecting Z
+	48      (000000ba) iget-object          v1, v6, Lcom/jlboat/phone/LoginActivity$1;->this$0 Lcom/jlboat/phone/LoginActivity;
+	49      (000000be) iget                 v1, v1, Lcom/jlboat/phone/LoginActivity;->actionCode I
+	50      (000000c2) if-ne                v1, v3, +014h
+
+onReceive-BB@0xc6 : [ onReceive-BB@0x2b0 ]
+	51      (000000c6) iget-object          v1, v6, Lcom/jlboat/phone/LoginActivity$1;->this$0 Lcom/jlboat/phone/LoginActivity;
+	52      (000000ca) new-instance         v2, Landroid/content/Intent;
+	53      (000000ce) iget-object          v3, v6, Lcom/jlboat/phone/LoginActivity$1;->this$0 Lcom/jlboat/phone/LoginActivity;
+	54      (000000d2) iget-object          v3, v3, Lcom/jlboat/phone/LoginActivity;->mContext Landroid/content/Context;
+	55      (000000d6) const-class          v4, Lcom/jlboat/phone/activity/MapActivity;
+	56      (000000da) invoke-direct        v2, v3, v4, Landroid/content/Intent;-><init>(Landroid/content/Context; Ljava/lang/Class;)V
+	57      (000000e0) invoke-virtual       v1, v2, Lcom/jlboat/phone/LoginActivity;->startActivity(Landroid/content/Intent;)V
+	58      (000000e6) goto/16              +0e5h
+
+onReceive-BB@0xea : [ onReceive-BB@0xfa onReceive-BB@0x11e ]
+	59      (000000ea) iget-object          v1, v6, Lcom/jlboat/phone/LoginActivity$1;->this$0 Lcom/jlboat/phone/LoginActivity;
+	60      (000000ee) iget                 v1, v1, Lcom/jlboat/phone/LoginActivity;->actionCode I
+	61      (000000f2) const/16             v2, 11
+	62      (000000f6) if-ne                v1, v2, +014h
+
+onReceive-BB@0xfa : [ onReceive-BB@0x2b0 ]
+	63      (000000fa) iget-object          v1, v6, Lcom/jlboat/phone/LoginActivity$1;->this$0 Lcom/jlboat/phone/LoginActivity;
+	64      (000000fe) new-instance         v2, Landroid/content/Intent;
+	65      (00000102) iget-object          v3, v6, Lcom/jlboat/phone/LoginActivity$1;->this$0 Lcom/jlboat/phone/LoginActivity;
+	66      (00000106) iget-object          v3, v3, Lcom/jlboat/phone/LoginActivity;->mContext Landroid/content/Context;
+	67      (0000010a) const-class          v4, Lcom/jlboat/phone/activity/MapEditActivity;
+	68      (0000010e) invoke-direct        v2, v3, v4, Landroid/content/Intent;-><init>(Landroid/content/Context; Ljava/lang/Class;)V
+	69      (00000114) invoke-virtual       v1, v2, Lcom/jlboat/phone/LoginActivity;->startActivity(Landroid/content/Intent;)V
+	70      (0000011a) goto/16              +0cbh
+
+onReceive-BB@0x11e : [ onReceive-BB@0x12e onReceive-BB@0x152 ]
+	71      (0000011e) iget-object          v1, v6, Lcom/jlboat/phone/LoginActivity$1;->this$0 Lcom/jlboat/phone/LoginActivity;
+	72      (00000122) iget                 v1, v1, Lcom/jlboat/phone/LoginActivity;->actionCode I
+	73      (00000126) const/16             v2, 111
+	74      (0000012a) if-ne                v1, v2, +014h
+
+onReceive-BB@0x12e : [ onReceive-BB@0x2b0 ]
+	75      (0000012e) iget-object          v1, v6, Lcom/jlboat/phone/LoginActivity$1;->this$0 Lcom/jlboat/phone/LoginActivity;
+	76      (00000132) new-instance         v2, Landroid/content/Intent;
+	77      (00000136) iget-object          v3, v6, Lcom/jlboat/phone/LoginActivity$1;->this$0 Lcom/jlboat/phone/LoginActivity;
+	78      (0000013a) iget-object          v3, v3, Lcom/jlboat/phone/LoginActivity;->mContext Landroid/content/Context;
+	79      (0000013e) const-class          v4, Lcom/jlboat/phone/activity/MapEditMapActivity2025;
+	80      (00000142) invoke-direct        v2, v3, v4, Landroid/content/Intent;-><init>(Landroid/content/Context; Ljava/lang/Class;)V
+	81      (00000148) invoke-virtual       v1, v2, Lcom/jlboat/phone/LoginActivity;->startActivity(Landroid/content/Intent;)V
+	82      (0000014e) goto/16              +0b1h
+
+onReceive-BB@0x152 : [ onReceive-BB@0x162 onReceive-BB@0x186 ]
+	83      (00000152) iget-object          v1, v6, Lcom/jlboat/phone/LoginActivity$1;->this$0 Lcom/jlboat/phone/LoginActivity;
+	84      (00000156) iget                 v1, v1, Lcom/jlboat/phone/LoginActivity;->actionCode I
+	85      (0000015a) const/16             v2, 112
+	86      (0000015e) if-ne                v1, v2, +014h
+
+onReceive-BB@0x162 : [ onReceive-BB@0x2b0 ]
+	87      (00000162) iget-object          v1, v6, Lcom/jlboat/phone/LoginActivity$1;->this$0 Lcom/jlboat/phone/LoginActivity;
+	88      (00000166) new-instance         v2, Landroid/content/Intent;
+	89      (0000016a) iget-object          v3, v6, Lcom/jlboat/phone/LoginActivity$1;->this$0 Lcom/jlboat/phone/LoginActivity;
+	90      (0000016e) iget-object          v3, v3, Lcom/jlboat/phone/LoginActivity;->mContext Landroid/content/Context;
+	91      (00000172) const-class          v4, Lcom/jlboat/phone/activity/MapEditShapeActivity;
+	92      (00000176) invoke-direct        v2, v3, v4, Landroid/content/Intent;-><init>(Landroid/content/Context; Ljava/lang/Class;)V
+	93      (0000017c) invoke-virtual       v1, v2, Lcom/jlboat/phone/LoginActivity;->startActivity(Landroid/content/Intent;)V
+	94      (00000182) goto/16              +097h
+
+onReceive-BB@0x186 : [ onReceive-BB@0x196 onReceive-BB@0x1ba ]
+	95      (00000186) iget-object          v1, v6, Lcom/jlboat/phone/LoginActivity$1;->this$0 Lcom/jlboat/phone/LoginActivity;
+	96      (0000018a) iget                 v1, v1, Lcom/jlboat/phone/LoginActivity;->actionCode I
+	97      (0000018e) const/16             v2, 113
+	98      (00000192) if-ne                v1, v2, +014h
+
+onReceive-BB@0x196 : [ onReceive-BB@0x2b0 ]
+	99      (00000196) iget-object          v1, v6, Lcom/jlboat/phone/LoginActivity$1;->this$0 Lcom/jlboat/phone/LoginActivity;
+	100     (0000019a) new-instance         v2, Landroid/content/Intent;
+	101     (0000019e) iget-object          v3, v6, Lcom/jlboat/phone/LoginActivity$1;->this$0 Lcom/jlboat/phone/LoginActivity;
+	102     (000001a2) iget-object          v3, v3, Lcom/jlboat/phone/LoginActivity;->mContext Landroid/content/Context;
+	103     (000001a6) const-class          v4, Lcom/jlboat/phone/activity/MapEditRegionActivity;
+	104     (000001aa) invoke-direct        v2, v3, v4, Landroid/content/Intent;-><init>(Landroid/content/Context; Ljava/lang/Class;)V
+	105     (000001b0) invoke-virtual       v1, v2, Lcom/jlboat/phone/LoginActivity;->startActivity(Landroid/content/Intent;)V
+	106     (000001b6) goto/16              +07dh
+
+onReceive-BB@0x1ba : [ onReceive-BB@0x1ca onReceive-BB@0x1f8 ]
+	107     (000001ba) iget-object          v1, v6, Lcom/jlboat/phone/LoginActivity$1;->this$0 Lcom/jlboat/phone/LoginActivity;
+	108     (000001be) iget                 v1, v1, Lcom/jlboat/phone/LoginActivity;->actionCode I
+	109     (000001c2) const/16             v2, 114
+	110     (000001c6) if-ne                v1, v2, +019h
+
+onReceive-BB@0x1ca : [ onReceive-BB@0x2b0 ]
+	111     (000001ca) iget-object          v1, v6, Lcom/jlboat/phone/LoginActivity$1;->this$0 Lcom/jlboat/phone/LoginActivity;
+	112     (000001ce) new-instance         v2, Landroid/content/Intent;
+	113     (000001d2) iget-object          v4, v6, Lcom/jlboat/phone/LoginActivity$1;->this$0 Lcom/jlboat/phone/LoginActivity;
+	114     (000001d6) iget-object          v4, v4, Lcom/jlboat/phone/LoginActivity;->mContext Landroid/content/Context;
+	115     (000001da) const-class          v5, Lcom/jlboat/phone/activity/MapActivity;
+	116     (000001de) invoke-direct        v2, v4, v5, Landroid/content/Intent;-><init>(Landroid/content/Context; Ljava/lang/Class;)V
+	117     (000001e4) const-string         v4, "isCreate"
+	118     (000001e8) invoke-virtual       v2, v4, v3, Landroid/content/Intent;->putExtra(Ljava/lang/String; Z)Landroid/content/Intent;
+	119     (000001ee) move-result-object   v2
+	120     (000001f0) invoke-virtual       v1, v2, Lcom/jlboat/phone/LoginActivity;->startActivity(Landroid/content/Intent;)V
+	121     (000001f6) goto                 +5dh
+
+onReceive-BB@0x1f8 : [ onReceive-BB@0x208 onReceive-BB@0x22a ]
+	122     (000001f8) iget-object          v1, v6, Lcom/jlboat/phone/LoginActivity$1;->this$0 Lcom/jlboat/phone/LoginActivity;
+	123     (000001fc) iget                 v1, v1, Lcom/jlboat/phone/LoginActivity;->actionCode I
+	124     (00000200) const/16             v2, 115
+	125     (00000204) if-ne                v1, v2, +013h
+
+onReceive-BB@0x208 : [ onReceive-BB@0x2b0 ]
+	126     (00000208) iget-object          v1, v6, Lcom/jlboat/phone/LoginActivity$1;->this$0 Lcom/jlboat/phone/LoginActivity;
+	127     (0000020c) new-instance         v2, Landroid/content/Intent;
+	128     (00000210) iget-object          v3, v6, Lcom/jlboat/phone/LoginActivity$1;->this$0 Lcom/jlboat/phone/LoginActivity;
+	129     (00000214) iget-object          v3, v3, Lcom/jlboat/phone/LoginActivity;->mContext Landroid/content/Context;
+	130     (00000218) const-class          v4, Lcom/jlboat/phone/activity/MapExpansionActivity;
+	131     (0000021c) invoke-direct        v2, v3, v4, Landroid/content/Intent;-><init>(Landroid/content/Context; Ljava/lang/Class;)V
+	132     (00000222) invoke-virtual       v1, v2, Lcom/jlboat/phone/LoginActivity;->startActivity(Landroid/content/Intent;)V
+	133     (00000228) goto                 +44h
+
+onReceive-BB@0x22a : [ onReceive-BB@0x23a onReceive-BB@0x25c ]
+	134     (0000022a) iget-object          v1, v6, Lcom/jlboat/phone/LoginActivity$1;->this$0 Lcom/jlboat/phone/LoginActivity;
+	135     (0000022e) iget                 v1, v1, Lcom/jlboat/phone/LoginActivity;->actionCode I
+	136     (00000232) const/16             v2, 116
+	137     (00000236) if-ne                v1, v2, +013h
+
+onReceive-BB@0x23a : [ onReceive-BB@0x2b0 ]
+	138     (0000023a) iget-object          v1, v6, Lcom/jlboat/phone/LoginActivity$1;->this$0 Lcom/jlboat/phone/LoginActivity;
+	139     (0000023e) new-instance         v2, Landroid/content/Intent;
+	140     (00000242) iget-object          v3, v6, Lcom/jlboat/phone/LoginActivity$1;->this$0 Lcom/jlboat/phone/LoginActivity;
+	141     (00000246) iget-object          v3, v3, Lcom/jlboat/phone/LoginActivity;->mContext Landroid/content/Context;
+	142     (0000024a) const-class          v4, Lcom/jlboat/phone/activity/MapRepositionActivity;
+	143     (0000024e) invoke-direct        v2, v3, v4, Landroid/content/Intent;-><init>(Landroid/content/Context; Ljava/lang/Class;)V
+	144     (00000254) invoke-virtual       v1, v2, Lcom/jlboat/phone/LoginActivity;->startActivity(Landroid/content/Intent;)V
+	145     (0000025a) goto                 +2bh
+
+onReceive-BB@0x25c : [ onReceive-BB@0x26c onReceive-BB@0x28e ]
+	146     (0000025c) iget-object          v1, v6, Lcom/jlboat/phone/LoginActivity$1;->this$0 Lcom/jlboat/phone/LoginActivity;
+	147     (00000260) iget                 v1, v1, Lcom/jlboat/phone/LoginActivity;->actionCode I
+	148     (00000264) const/16             v2, 117
+	149     (00000268) if-ne                v1, v2, +013h
+
+onReceive-BB@0x26c : [ onReceive-BB@0x2b0 ]
+	150     (0000026c) iget-object          v1, v6, Lcom/jlboat/phone/LoginActivity$1;->this$0 Lcom/jlboat/phone/LoginActivity;
+	151     (00000270) new-instance         v2, Landroid/content/Intent;
+	152     (00000274) iget-object          v3, v6, Lcom/jlboat/phone/LoginActivity$1;->this$0 Lcom/jlboat/phone/LoginActivity;
+	153     (00000278) iget-object          v3, v3, Lcom/jlboat/phone/LoginActivity;->mContext Landroid/content/Context;
+	154     (0000027c) const-class          v4, Lcom/jlboat/phone/activity/DiyPointPathActivity;
+	155     (00000280) invoke-direct        v2, v3, v4, Landroid/content/Intent;-><init>(Landroid/content/Context; Ljava/lang/Class;)V
+	156     (00000286) invoke-virtual       v1, v2, Lcom/jlboat/phone/LoginActivity;->startActivity(Landroid/content/Intent;)V
+	157     (0000028c) goto                 +12h
+
+onReceive-BB@0x28e : [ onReceive-BB@0x2b0 ]
+	158     (0000028e) iget-object          v1, v6, Lcom/jlboat/phone/LoginActivity$1;->this$0 Lcom/jlboat/phone/LoginActivity;
+	159     (00000292) new-instance         v2, Landroid/content/Intent;
+	160     (00000296) iget-object          v3, v6, Lcom/jlboat/phone/LoginActivity$1;->this$0 Lcom/jlboat/phone/LoginActivity;
+	161     (0000029a) iget-object          v3, v3, Lcom/jlboat/phone/LoginActivity;->mContext Landroid/content/Context;
+	162     (0000029e) const-class          v4, Lcom/jlboat/phone/MainActivity;
+	163     (000002a2) invoke-direct        v2, v3, v4, Landroid/content/Intent;-><init>(Landroid/content/Context; Ljava/lang/Class;)V
+	164     (000002a8) invoke-virtual       v1, v2, Lcom/jlboat/phone/LoginActivity;->startActivity(Landroid/content/Intent;)V
+	165     (000002ae) nop                  
+
+onReceive-BB@0x2b0 : 
+	166     (000002b0) return-void          
+
+onReceive-BB@0x2b2 : 
+	167     (000002b2) nop                  
+	168     (000002b4) sparse-switch-payload -682af2a8 7890dec9
+	169     (000002c8) packed-switch-payload 0 1
+

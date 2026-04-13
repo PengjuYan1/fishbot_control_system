@@ -1,0 +1,11 @@
+# Lcom/jlboat/phone/controller/JlNaviManager$11;->getResolution()F [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:float
+
+getResolution-BB@0x0 : 
+	0       (00000000) iget                 v0, v1, Lcom/jlboat/phone/controller/JlNaviManager$11;->val$resolution F
+	1       (00000004) return               v0
+

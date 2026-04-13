@@ -1,0 +1,17 @@
+# Lcom/boat/ros/geometry/Quaternion;->identity()Lcom/boat/ros/geometry/Quaternion; [access_flags=public static]
+#
+# Parameters:
+# local registers: v0...v9
+#
+# - return:com.boat.ros.geometry.Quaternion
+
+identity-BB@0x0 : 
+	0       (00000000) new-instance         v9, Lcom/boat/ros/geometry/Quaternion;
+	1       (00000004) const-wide/16        v5, 0
+	2       (00000008) const-wide/high16    v7, 4607182418800017408
+	3       (0000000c) const-wide/16        v1, 0
+	4       (00000010) const-wide/16        v3, 0
+	5       (00000014) move-object          v0, v9
+	6       (00000016) invoke-direct/range  v0 ... v8, Lcom/boat/ros/geometry/Quaternion;-><init>(D D D D)V
+	7       (0000001c) return-object        v9
+

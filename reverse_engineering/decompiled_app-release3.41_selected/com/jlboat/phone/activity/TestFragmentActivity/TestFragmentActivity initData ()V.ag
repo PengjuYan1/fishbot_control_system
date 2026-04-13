@@ -1,0 +1,183 @@
+# Lcom/jlboat/phone/activity/TestFragmentActivity;->initData()V [access_flags=private]
+#
+# Parameters:
+# local registers: v0...v8
+#
+# - return:void
+
+initData-BB@0x0 : [ initData-BB@0x1a initData-BB@0x22 ]
+	0       (00000000) invoke-virtual       v8, Lcom/jlboat/phone/activity/TestFragmentActivity;->getIntent()Landroid/content/Intent;
+	1       (00000006) move-result-object   v0
+	2       (00000008) const-string         v1, "type"
+	3       (0000000c) const/4              v2, -1
+	4       (0000000e) invoke-virtual       v0, v1, v2, Landroid/content/Intent;->getIntExtra(Ljava/lang/String; I)I
+	5       (00000014) move-result          v0
+	6       (00000016) if-ne                v0, v2, +006h
+
+initData-BB@0x1a : 
+	7       (0000001a) invoke-virtual       v8, Lcom/jlboat/phone/activity/TestFragmentActivity;->finish()V
+	8       (00000020) return-void          
+
+initData-BB@0x22 : [ initData-BB@0x46 initData-BB@0xca ]
+	9       (00000022) const                v1, 2131361831
+	10      (00000028) invoke-virtual       v8, v1, v0, Lcom/jlboat/phone/activity/TestFragmentActivity;->initTitleBar(I I)V
+	11      (0000002e) sget                 v1, Lcom/jlboat/phone/application/BoatSlamApplication;->classis_version_code I
+	12      (00000032) const/16             v2, 452
+	13      (00000036) const/4              v3, 0
+	14      (00000038) const/4              v4, 2
+	15      (0000003a) const/4              v5, 1
+	16      (0000003c) const                v6, 2131231182
+	17      (00000042) if-le                v1, v2, +044h
+
+initData-BB@0x46 : [ D:initData-BB@0x4c 2131493310:initData-BB@0x9e 2131493323:initData-BB@0x76 2131493342:initData-BB@0x4e ]
+	18      (00000046) sparse-switch        v0, +00000dbh
+
+initData-BB@0x4c : [ initData-BB@0xc6 ]
+	19      (0000004c) goto                 +3dh
+
+initData-BB@0x4e : [ initData-BB@0xc6 ]
+	20      (0000004e) invoke-virtual       v8, Lcom/jlboat/phone/activity/TestFragmentActivity;->getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;
+	21      (00000054) move-result-object   v1
+	22      (00000056) invoke-virtual       v1, Landroid/support/v4/app/FragmentManager;->beginTransaction()Landroid/support/v4/app/FragmentTransaction;
+	23      (0000005c) move-result-object   v1
+	24      (0000005e) invoke-static        v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;->newInstance(I)Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;
+	25      (00000064) move-result-object   v2
+	26      (00000066) invoke-virtual       v1, v6, v2, Landroid/support/v4/app/FragmentTransaction;->replace(I Landroid/support/v4/app/Fragment;)Landroid/support/v4/app/FragmentTransaction;
+	27      (0000006c) move-result-object   v1
+	28      (0000006e) invoke-virtual       v1, Landroid/support/v4/app/FragmentTransaction;->commit()I
+	29      (00000074) goto                 +29h
+
+initData-BB@0x76 : [ initData-BB@0xc6 ]
+	30      (00000076) invoke-virtual       v8, Lcom/jlboat/phone/activity/TestFragmentActivity;->getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;
+	31      (0000007c) move-result-object   v1
+	32      (0000007e) invoke-virtual       v1, Landroid/support/v4/app/FragmentManager;->beginTransaction()Landroid/support/v4/app/FragmentTransaction;
+	33      (00000084) move-result-object   v1
+	34      (00000086) invoke-static        v4, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;->newInstance(I)Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;
+	35      (0000008c) move-result-object   v2
+	36      (0000008e) invoke-virtual       v1, v6, v2, Landroid/support/v4/app/FragmentTransaction;->replace(I Landroid/support/v4/app/Fragment;)Landroid/support/v4/app/FragmentTransaction;
+	37      (00000094) move-result-object   v1
+	38      (00000096) invoke-virtual       v1, Landroid/support/v4/app/FragmentTransaction;->commit()I
+	39      (0000009c) goto                 +15h
+
+initData-BB@0x9e : [ initData-BB@0xc6 ]
+	40      (0000009e) invoke-virtual       v8, Lcom/jlboat/phone/activity/TestFragmentActivity;->getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;
+	41      (000000a4) move-result-object   v1
+	42      (000000a6) invoke-virtual       v1, Landroid/support/v4/app/FragmentManager;->beginTransaction()Landroid/support/v4/app/FragmentTransaction;
+	43      (000000ac) move-result-object   v1
+	44      (000000ae) invoke-static        v5, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;->newInstance(I)Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;
+	45      (000000b4) move-result-object   v2
+	46      (000000b6) invoke-virtual       v1, v6, v2, Landroid/support/v4/app/FragmentTransaction;->replace(I Landroid/support/v4/app/Fragment;)Landroid/support/v4/app/FragmentTransaction;
+	47      (000000bc) move-result-object   v1
+	48      (000000be) invoke-virtual       v1, Landroid/support/v4/app/FragmentTransaction;->commit()I
+	49      (000000c4) nop                  
+
+initData-BB@0xc6 : [ initData-BB@0x1fa ]
+	50      (000000c6) goto/16              +09ah
+
+initData-BB@0xca : [ initData-BB@0xdc initData-BB@0x16c ]
+	51      (000000ca) sget                 v1, Lcom/jlboat/phone/application/BoatSlamApplication;->classis_version_code I
+	52      (000000ce) const/16             v2, 448
+	53      (000000d2) const                v7, 2131493307
+	54      (000000d8) if-le                v1, v2, +04ah
+
+initData-BB@0xdc : [ D:initData-BB@0xf0 2131493310:initData-BB@0x142 2131493323:initData-BB@0x11a 2131493342:initData-BB@0xf2 ]
+	55      (000000dc) invoke-virtual       v8, v7, Lcom/jlboat/phone/activity/TestFragmentActivity;->getString(I)Ljava/lang/String;
+	56      (000000e2) move-result-object   v1
+	57      (000000e4) invoke-static        v1, Lcom/jlboat/phone/util/Utils;->toast(Ljava/lang/String;)V
+	58      (000000ea) sparse-switch        v0, +0000097h
+
+initData-BB@0xf0 : [ initData-BB@0x16a ]
+	59      (000000f0) goto                 +3dh
+
+initData-BB@0xf2 : [ initData-BB@0x16a ]
+	60      (000000f2) invoke-virtual       v8, Lcom/jlboat/phone/activity/TestFragmentActivity;->getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;
+	61      (000000f8) move-result-object   v1
+	62      (000000fa) invoke-virtual       v1, Landroid/support/v4/app/FragmentManager;->beginTransaction()Landroid/support/v4/app/FragmentTransaction;
+	63      (00000100) move-result-object   v1
+	64      (00000102) invoke-static        v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;->newInstance(I)Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;
+	65      (00000108) move-result-object   v2
+	66      (0000010a) invoke-virtual       v1, v6, v2, Landroid/support/v4/app/FragmentTransaction;->replace(I Landroid/support/v4/app/Fragment;)Landroid/support/v4/app/FragmentTransaction;
+	67      (00000110) move-result-object   v1
+	68      (00000112) invoke-virtual       v1, Landroid/support/v4/app/FragmentTransaction;->commit()I
+	69      (00000118) goto                 +29h
+
+initData-BB@0x11a : [ initData-BB@0x16a ]
+	70      (0000011a) invoke-virtual       v8, Lcom/jlboat/phone/activity/TestFragmentActivity;->getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;
+	71      (00000120) move-result-object   v1
+	72      (00000122) invoke-virtual       v1, Landroid/support/v4/app/FragmentManager;->beginTransaction()Landroid/support/v4/app/FragmentTransaction;
+	73      (00000128) move-result-object   v1
+	74      (0000012a) invoke-static        v4, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;->newInstance(I)Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;
+	75      (00000130) move-result-object   v2
+	76      (00000132) invoke-virtual       v1, v6, v2, Landroid/support/v4/app/FragmentTransaction;->replace(I Landroid/support/v4/app/Fragment;)Landroid/support/v4/app/FragmentTransaction;
+	77      (00000138) move-result-object   v1
+	78      (0000013a) invoke-virtual       v1, Landroid/support/v4/app/FragmentTransaction;->commit()I
+	79      (00000140) goto                 +15h
+
+initData-BB@0x142 : [ initData-BB@0x16a ]
+	80      (00000142) invoke-virtual       v8, Lcom/jlboat/phone/activity/TestFragmentActivity;->getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;
+	81      (00000148) move-result-object   v1
+	82      (0000014a) invoke-virtual       v1, Landroid/support/v4/app/FragmentManager;->beginTransaction()Landroid/support/v4/app/FragmentTransaction;
+	83      (00000150) move-result-object   v1
+	84      (00000152) invoke-static        v5, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;->newInstance(I)Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;
+	85      (00000158) move-result-object   v2
+	86      (0000015a) invoke-virtual       v1, v6, v2, Landroid/support/v4/app/FragmentTransaction;->replace(I Landroid/support/v4/app/Fragment;)Landroid/support/v4/app/FragmentTransaction;
+	87      (00000160) move-result-object   v1
+	88      (00000162) invoke-virtual       v1, Landroid/support/v4/app/FragmentTransaction;->commit()I
+	89      (00000168) nop                  
+
+initData-BB@0x16a : [ initData-BB@0x1fa ]
+	90      (0000016a) goto                 +48h
+
+initData-BB@0x16c : [ D:initData-BB@0x180 2131493310:initData-BB@0x1d2 2131493323:initData-BB@0x1aa 2131493342:initData-BB@0x182 ]
+	91      (0000016c) invoke-virtual       v8, v7, Lcom/jlboat/phone/activity/TestFragmentActivity;->getString(I)Ljava/lang/String;
+	92      (00000172) move-result-object   v1
+	93      (00000174) invoke-static        v1, Lcom/jlboat/phone/util/Utils;->toast(Ljava/lang/String;)V
+	94      (0000017a) sparse-switch        v0, +000005dh
+
+initData-BB@0x180 : [ initData-BB@0x1fa ]
+	95      (00000180) goto                 +3dh
+
+initData-BB@0x182 : [ initData-BB@0x1fa ]
+	96      (00000182) invoke-virtual       v8, Lcom/jlboat/phone/activity/TestFragmentActivity;->getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;
+	97      (00000188) move-result-object   v1
+	98      (0000018a) invoke-virtual       v1, Landroid/support/v4/app/FragmentManager;->beginTransaction()Landroid/support/v4/app/FragmentTransaction;
+	99      (00000190) move-result-object   v1
+	100     (00000192) invoke-static        v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment;->newInstance(I)Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment;
+	101     (00000198) move-result-object   v2
+	102     (0000019a) invoke-virtual       v1, v6, v2, Landroid/support/v4/app/FragmentTransaction;->replace(I Landroid/support/v4/app/Fragment;)Landroid/support/v4/app/FragmentTransaction;
+	103     (000001a0) move-result-object   v1
+	104     (000001a2) invoke-virtual       v1, Landroid/support/v4/app/FragmentTransaction;->commit()I
+	105     (000001a8) goto                 +29h
+
+initData-BB@0x1aa : [ initData-BB@0x1fa ]
+	106     (000001aa) invoke-virtual       v8, Lcom/jlboat/phone/activity/TestFragmentActivity;->getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;
+	107     (000001b0) move-result-object   v1
+	108     (000001b2) invoke-virtual       v1, Landroid/support/v4/app/FragmentManager;->beginTransaction()Landroid/support/v4/app/FragmentTransaction;
+	109     (000001b8) move-result-object   v1
+	110     (000001ba) invoke-static        v4, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment;->newInstance(I)Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment;
+	111     (000001c0) move-result-object   v2
+	112     (000001c2) invoke-virtual       v1, v6, v2, Landroid/support/v4/app/FragmentTransaction;->replace(I Landroid/support/v4/app/Fragment;)Landroid/support/v4/app/FragmentTransaction;
+	113     (000001c8) move-result-object   v1
+	114     (000001ca) invoke-virtual       v1, Landroid/support/v4/app/FragmentTransaction;->commit()I
+	115     (000001d0) goto                 +15h
+
+initData-BB@0x1d2 : [ initData-BB@0x1fa ]
+	116     (000001d2) invoke-virtual       v8, Lcom/jlboat/phone/activity/TestFragmentActivity;->getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;
+	117     (000001d8) move-result-object   v1
+	118     (000001da) invoke-virtual       v1, Landroid/support/v4/app/FragmentManager;->beginTransaction()Landroid/support/v4/app/FragmentTransaction;
+	119     (000001e0) move-result-object   v1
+	120     (000001e2) invoke-static        v5, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment;->newInstance(I)Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment;
+	121     (000001e8) move-result-object   v2
+	122     (000001ea) invoke-virtual       v1, v6, v2, Landroid/support/v4/app/FragmentTransaction;->replace(I Landroid/support/v4/app/Fragment;)Landroid/support/v4/app/FragmentTransaction;
+	123     (000001f0) move-result-object   v1
+	124     (000001f2) invoke-virtual       v1, Landroid/support/v4/app/FragmentTransaction;->commit()I
+	125     (000001f8) nop                  
+
+initData-BB@0x1fa : 
+	126     (000001fa) return-void          
+
+initData-BB@0x1fc : 
+	127     (000001fc) sparse-switch-payload 7f0c01be 7f0c01cb 7f0c01de
+	128     (00000218) sparse-switch-payload 7f0c01be 7f0c01cb 7f0c01de
+	129     (00000234) sparse-switch-payload 7f0c01be 7f0c01cb 7f0c01de
+

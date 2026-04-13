@@ -1,0 +1,52 @@
+# Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;->initView(Landroid/view/LayoutInflater; Landroid/view/ViewGroup;)Landroid/view/View; [access_flags=protected]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:android.view.LayoutInflater
+# - v5:android.view.ViewGroup
+#
+# - return:android.view.View
+
+initView-BB@0x0 : 
+	0       (00000000) const                v0, 2131361866
+	1       (00000006) const/4              v1, 0
+	2       (00000008) invoke-virtual       v4, v0, v5, v1, Landroid/view/LayoutInflater;->inflate(I Landroid/view/ViewGroup; Z)Landroid/view/View;
+	3       (0000000e) move-result-object   v0
+	4       (00000010) const                v1, 2131231226
+	5       (00000016) invoke-virtual       v0, v1, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	6       (0000001c) move-result-object   v1
+	7       (0000001e) check-cast           v1, Landroid/widget/TextView;
+	8       (00000022) iput-object          v1, v3, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;->scan_no_tv Landroid/widget/TextView;
+	9       (00000026) const                v1, 2131230794
+	10      (0000002c) invoke-virtual       v0, v1, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	11      (00000032) move-result-object   v1
+	12      (00000034) check-cast           v1, Landroid/widget/Button;
+	13      (00000038) iput-object          v1, v3, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;->cameraOpen Landroid/widget/Button;
+	14      (0000003c) const                v1, 2131230752
+	15      (00000042) invoke-virtual       v0, v1, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	16      (00000048) move-result-object   v1
+	17      (0000004a) check-cast           v1, Landroid/widget/Button;
+	18      (0000004e) iput-object          v1, v3, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;->add_tv Landroid/widget/Button;
+	19      (00000052) const                v1, 2131231145
+	20      (00000058) invoke-virtual       v0, v1, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	21      (0000005e) move-result-object   v1
+	22      (00000060) check-cast           v1, Landroid/widget/Button;
+	23      (00000064) iput-object          v1, v3, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;->reduce_tv Landroid/widget/Button;
+	24      (00000068) const                v1, 2131230951
+	25      (0000006e) invoke-virtual       v0, v1, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	26      (00000074) move-result-object   v1
+	27      (00000076) check-cast           v1, Lcom/jlboat/phone/view/LaserCameraView;
+	28      (0000007a) iput-object          v1, v3, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;->laserView Lcom/jlboat/phone/view/LaserCameraView;
+	29      (0000007e) iget-object          v1, v3, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;->cameraOpen Landroid/widget/Button;
+	30      (00000082) invoke-virtual       v1, v3, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	31      (00000088) iget-object          v1, v3, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;->add_tv Landroid/widget/Button;
+	32      (0000008c) invoke-virtual       v1, v3, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	33      (00000092) iget-object          v1, v3, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;->reduce_tv Landroid/widget/Button;
+	34      (00000096) invoke-virtual       v1, v3, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	35      (0000009c) iget-object          v1, v3, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;->laserView Lcom/jlboat/phone/view/LaserCameraView;
+	36      (000000a0) new-instance         v2, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$1;
+	37      (000000a4) invoke-direct        v2, v3, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$1;-><init>(Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;)V
+	38      (000000aa) invoke-virtual       v1, v2, Lcom/jlboat/phone/view/LaserCameraView;->setHasData(Lcom/jlboat/phone/view/LaserCameraView$IHasData;)V
+	39      (000000b0) invoke-virtual       v3, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;->init()V
+	40      (000000b6) return-object        v0
+

@@ -1,0 +1,25 @@
+# Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment;->setInfraredStatus()V [access_flags=private]
+#
+# Parameters:
+# local registers: v0...v3
+#
+# - return:void
+
+setInfraredStatus-BB@0x0 : [ setInfraredStatus-BB@0xc setInfraredStatus-BB@0x12 ]
+	0       (00000000) iget-object          v0, v3, Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment;->statusServiceClient Lcom/jlboat/phone/communication/StatusServiceClient;
+	1       (00000004) iget-boolean         v1, v3, Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment;->isOpen Z
+	2       (00000008) if-eqz               v1, +005h
+
+setInfraredStatus-BB@0xc : [ setInfraredStatus-BB@0x16 ]
+	3       (0000000c) const/16             v1, 21
+	4       (00000010) goto                 +3h
+
+setInfraredStatus-BB@0x12 : [ setInfraredStatus-BB@0x16 ]
+	5       (00000012) const/16             v1, 20
+
+setInfraredStatus-BB@0x16 : 
+	6       (00000016) new-instance         v2, Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment$2;
+	7       (0000001a) invoke-direct        v2, v3, Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment$2;-><init>(Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment;)V
+	8       (00000020) invoke-virtual       v0, v1, v2, Lcom/jlboat/phone/communication/StatusServiceClient;->setTestDriverService(I Lcom/boat/jrosbridge/MessageListener;)V
+	9       (00000026) return-void          
+

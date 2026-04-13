@@ -1,0 +1,11 @@
+# Lcom/boat/ros/geometry/FrameTransform;->getTime()Lcom/boat/jrosbridge/message/Time; [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:com.boat.jrosbridge.message.Time
+
+getTime-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/boat/ros/geometry/FrameTransform;->time Lcom/boat/jrosbridge/message/Time;
+	1       (00000004) return-object        v0
+

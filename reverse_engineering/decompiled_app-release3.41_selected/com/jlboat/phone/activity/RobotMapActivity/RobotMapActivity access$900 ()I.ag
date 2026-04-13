@@ -1,0 +1,11 @@
+# Lcom/jlboat/phone/activity/RobotMapActivity;->access$900()I [access_flags=static synthetic]
+#
+# Parameters:
+# local registers: v0...v0
+#
+# - return:int
+
+access$900-BB@0x0 : 
+	0       (00000000) sget                 v0, Lcom/jlboat/phone/activity/RobotMapActivity;->mapStatus I
+	1       (00000004) return               v0
+

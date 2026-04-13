@@ -1,0 +1,76 @@
+# Lcom/jlboat/phone/activity/MapActivity;->goNavito(Lcom/boat/support/slam/entity/floors/Floors; Lcom/boat/support/slam/entity/floors/Maps; Lcom/boat/support/slam/entity/floors/Points;)V [access_flags=private]
+#
+# Parameters:
+# - local registers: v0...v8
+# - v9:com.boat.support.slam.entity.floors.Floors
+# - v10:com.boat.support.slam.entity.floors.Maps
+# - v11:com.boat.support.slam.entity.floors.Points
+#
+# - return:void
+
+goNavito-BB@0x0 : 
+	0       (00000000) new-instance         v0, Lcom/jlboat/phone/message/map_msgs/TargetGoal;
+	1       (00000004) invoke-direct        v0, Lcom/jlboat/phone/message/map_msgs/TargetGoal;-><init>()V
+	2       (0000000a) invoke-virtual       v9, Lcom/boat/support/slam/entity/floors/Floors;->getFloorId()J
+	3       (00000010) move-result-wide     v1
+	4       (00000012) invoke-virtual       v0, v1, v2, Lcom/jlboat/phone/message/map_msgs/TargetGoal;->setFloorId(J)V
+	5       (00000018) invoke-virtual       v10, Lcom/boat/support/slam/entity/floors/Maps;->getMapId()J
+	6       (0000001e) move-result-wide     v1
+	7       (00000020) invoke-virtual       v0, v1, v2, Lcom/jlboat/phone/message/map_msgs/TargetGoal;->setMapId(J)V
+	8       (00000026) invoke-virtual       v11, Lcom/boat/support/slam/entity/floors/Points;->getPointId()J
+	9       (0000002c) move-result-wide     v1
+	10      (0000002e) invoke-virtual       v0, v1, v2, Lcom/jlboat/phone/message/map_msgs/TargetGoal;->setPointId(J)V
+	11      (00000034) new-instance         v1, Ljava/lang/StringBuilder;
+	12      (00000038) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	13      (0000003e) const-string         v2, "goNavito: aaa f: "
+	14      (00000042) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	15      (00000048) move-result-object   v1
+	16      (0000004a) invoke-virtual       v9, Lcom/boat/support/slam/entity/floors/Floors;->getFloorName()Ljava/lang/String;
+	17      (00000050) move-result-object   v3
+	18      (00000052) invoke-virtual       v1, v3, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	19      (00000058) move-result-object   v1
+	20      (0000005a) const-string         v3, ", m: "
+	21      (0000005e) invoke-virtual       v1, v3, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	22      (00000064) move-result-object   v1
+	23      (00000066) invoke-virtual       v10, Lcom/boat/support/slam/entity/floors/Maps;->getMapName()Ljava/lang/String;
+	24      (0000006c) move-result-object   v4
+	25      (0000006e) invoke-virtual       v1, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	26      (00000074) move-result-object   v1
+	27      (00000076) const-string         v4, ", p: "
+	28      (0000007a) invoke-virtual       v1, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	29      (00000080) move-result-object   v1
+	30      (00000082) invoke-virtual       v11, Lcom/boat/support/slam/entity/floors/Points;->getPointName()Ljava/lang/String;
+	31      (00000088) move-result-object   v5
+	32      (0000008a) invoke-virtual       v1, v5, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	33      (00000090) move-result-object   v1
+	34      (00000092) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	35      (00000098) move-result-object   v1
+	36      (0000009a) const-string         v5, "MapActivity"
+	37      (0000009e) invoke-static        v5, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	38      (000000a4) new-instance         v1, Ljava/lang/StringBuilder;
+	39      (000000a8) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	40      (000000ae) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	41      (000000b4) move-result-object   v1
+	42      (000000b6) invoke-virtual       v9, Lcom/boat/support/slam/entity/floors/Floors;->getFloorId()J
+	43      (000000bc) move-result-wide     v6
+	44      (000000be) invoke-virtual       v1, v6, v7, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+	45      (000000c4) move-result-object   v1
+	46      (000000c6) invoke-virtual       v1, v3, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	47      (000000cc) move-result-object   v1
+	48      (000000ce) invoke-virtual       v10, Lcom/boat/support/slam/entity/floors/Maps;->getMapId()J
+	49      (000000d4) move-result-wide     v2
+	50      (000000d6) invoke-virtual       v1, v2, v3, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+	51      (000000dc) move-result-object   v1
+	52      (000000de) invoke-virtual       v1, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	53      (000000e4) move-result-object   v1
+	54      (000000e6) invoke-virtual       v11, Lcom/boat/support/slam/entity/floors/Points;->getPointId()J
+	55      (000000ec) move-result-wide     v2
+	56      (000000ee) invoke-virtual       v1, v2, v3, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+	57      (000000f4) move-result-object   v1
+	58      (000000f6) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	59      (000000fc) move-result-object   v1
+	60      (000000fe) invoke-static        v5, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	61      (00000104) iget-object          v1, v8, Lcom/jlboat/phone/activity/MapActivity;->naviTargetGoalPublish Lcom/boat/jrosbridge/Topic;
+	62      (00000108) invoke-virtual       v1, v0, Lcom/boat/jrosbridge/Topic;->publish(Lcom/boat/jrosbridge/message/Message;)V
+	63      (0000010e) return-void          
+

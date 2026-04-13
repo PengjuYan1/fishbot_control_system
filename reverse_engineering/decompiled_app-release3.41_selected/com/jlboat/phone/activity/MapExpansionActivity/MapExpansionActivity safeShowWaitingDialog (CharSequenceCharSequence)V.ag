@@ -1,0 +1,24 @@
+# Lcom/jlboat/phone/activity/MapExpansionActivity;->safeShowWaitingDialog(Ljava/lang/CharSequence; Ljava/lang/CharSequence;)V [access_flags=private]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:java.lang.CharSequence
+# - v5:java.lang.CharSequence
+#
+# - return:void
+
+safeShowWaitingDialog-BB@0x0 : 
+	0       (00000000) new-instance         v0, Landroid/os/Message;
+	1       (00000004) invoke-direct        v0, Landroid/os/Message;-><init>()V
+	2       (0000000a) const/4              v1, 2
+	3       (0000000c) iput                 v1, v0, Landroid/os/Message;->what I
+	4       (00000010) new-array            v1, v1, [Ljava/lang/Object;
+	5       (00000014) const/4              v2, 0
+	6       (00000016) aput-object          v4, v1, v2
+	7       (0000001a) const/4              v2, 1
+	8       (0000001c) aput-object          v5, v1, v2
+	9       (00000020) iput-object          v1, v0, Landroid/os/Message;->obj Ljava/lang/Object;
+	10      (00000024) iget-object          v1, v3, Lcom/jlboat/phone/activity/MapExpansionActivity;->handler Landroid/os/Handler;
+	11      (00000028) invoke-virtual       v1, v0, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
+	12      (0000002e) return-void          
+

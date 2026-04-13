@@ -1,0 +1,37 @@
+# Lcom/jlboat/phone/communication/SpiritServiceClient;->addPointsGlobalplan(Lworld_canvas_msgs18/DiyPathEnty; I Lcom/boat/jrosbridge/MessageListener;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v5
+# - v6:world_canvas_msgs18.DiyPathEnty
+# - v7:int
+# - v8:com.boat.jrosbridge.MessageListener
+#
+# - return:void
+
+addPointsGlobalplan-BB@0x0 : [ addPointsGlobalplan-BB@0x8 addPointsGlobalplan-BB@0xe ]
+	0       (00000000) new-instance         v0, Lcom/boat/jrosbridge/Service;
+	1       (00000004) if-nez               v7, +005h
+
+addPointsGlobalplan-BB@0x8 : [ addPointsGlobalplan-BB@0x12 ]
+	2       (00000008) sget-object          v1, Lcom/jlboat/phone/util/ServiceNames;->AddPointsGlobalplan Ljava/lang/String;
+	3       (0000000c) goto                 +3h
+
+addPointsGlobalplan-BB@0xe : [ addPointsGlobalplan-BB@0x12 ]
+	4       (0000000e) sget-object          v1, Lcom/jlboat/phone/util/ServiceNames;->DeletePointsGlobalPlan Ljava/lang/String;
+
+addPointsGlobalplan-BB@0x12 : 
+	5       (00000012) const-class          v2, Lcom/jlboat/phone/message/map_msgs/AddPointsGlobalPlanRequest;
+	6       (00000016) const-class          v3, Lcom/jlboat/phone/message/map_msgs/AddPointsGlobalPlanResponse;
+	7       (0000001a) sget-object          v4, Lcom/jlboat/phone/application/BoatSlamApplication;->client Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;
+	8       (0000001e) invoke-direct        v0, v1, v2, v3, v4, Lcom/boat/jrosbridge/Service;-><init>(Ljava/lang/String; Ljava/lang/Class; Ljava/lang/Class; Lcom/boat/jrosbridge/ROSClient;)V
+	9       (00000024) new-instance         v1, Lcom/jlboat/phone/message/map_msgs/AddPointsGlobalPlanRequest;
+	10      (00000028) invoke-direct        v1, Lcom/jlboat/phone/message/map_msgs/AddPointsGlobalPlanRequest;-><init>()V
+	11      (0000002e) invoke-virtual       v6, Lworld_canvas_msgs18/DiyPathEnty;->getGlobalplanId()J
+	12      (00000034) move-result-wide     v2
+	13      (00000036) invoke-virtual       v1, v2, v3, Lcom/jlboat/phone/message/map_msgs/AddPointsGlobalPlanRequest;->setGlobalplanId(J)V
+	14      (0000003c) invoke-virtual       v6, Lworld_canvas_msgs18/DiyPathEnty;->getAddPoint()Lcom/jlboat/phone/message/map_msgs/GlobalPlanPoints;
+	15      (00000042) move-result-object   v2
+	16      (00000044) invoke-virtual       v1, v2, Lcom/jlboat/phone/message/map_msgs/AddPointsGlobalPlanRequest;->setAddPoints(Lcom/jlboat/phone/message/map_msgs/GlobalPlanPoints;)V
+	17      (0000004a) invoke-virtual       v0, v1, v8, Lcom/boat/jrosbridge/Service;->callWithHandler(Lcom/boat/jrosbridge/message/Message; Lcom/boat/jrosbridge/MessageListener;)V
+	18      (00000050) return-void          
+

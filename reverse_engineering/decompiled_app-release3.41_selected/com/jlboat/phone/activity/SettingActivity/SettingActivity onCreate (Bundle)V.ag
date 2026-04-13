@@ -1,0 +1,211 @@
+# Lcom/jlboat/phone/activity/SettingActivity;->onCreate(Landroid/os/Bundle;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:android.os.Bundle
+#
+# - return:void
+
+onCreate-BB@0x0 : 
+	0       (00000000) invoke-super         v3, v4, Lcom/jlboat/phone/base/BaseFullActivity;->onCreate(Landroid/os/Bundle;)V
+	1       (00000006) const                v0, 2131361828
+	2       (0000000c) const                v1, 2131493347
+	3       (00000012) invoke-virtual       v3, v0, v1, Lcom/jlboat/phone/activity/SettingActivity;->initTitleBar(I I)V
+	4       (00000018) const                v0, 2131231249
+	5       (0000001e) invoke-virtual       v3, v0, Lcom/jlboat/phone/activity/SettingActivity;->findViewById(I)Landroid/view/View;
+	6       (00000024) move-result-object   v0
+	7       (00000026) check-cast           v0, Landroid/widget/Button;
+	8       (0000002a) iput-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity;->set_sonar Landroid/widget/Button;
+	9       (0000002e) const                v0, 2131231205
+	10      (00000034) invoke-virtual       v3, v0, Lcom/jlboat/phone/activity/SettingActivity;->findViewById(I)Landroid/view/View;
+	11      (0000003a) move-result-object   v0
+	12      (0000003c) check-cast           v0, Landroid/widget/Button;
+	13      (00000040) iput-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity;->robot_config_bt Landroid/widget/Button;
+	14      (00000044) const                v0, 2131231211
+	15      (0000004a) invoke-virtual       v3, v0, Lcom/jlboat/phone/activity/SettingActivity;->findViewById(I)Landroid/view/View;
+	16      (00000050) move-result-object   v0
+	17      (00000052) check-cast           v0, Landroid/widget/Button;
+	18      (00000056) iput-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity;->robot_wifi_bt Landroid/widget/Button;
+	19      (0000005a) const                v0, 2131231196
+	20      (00000060) invoke-virtual       v3, v0, Lcom/jlboat/phone/activity/SettingActivity;->findViewById(I)Landroid/view/View;
+	21      (00000066) move-result-object   v0
+	22      (00000068) check-cast           v0, Landroid/widget/Button;
+	23      (0000006c) iput-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity;->robot_calibration Landroid/widget/Button;
+	24      (00000070) const                v0, 2131230817
+	25      (00000076) invoke-virtual       v3, v0, Lcom/jlboat/phone/activity/SettingActivity;->findViewById(I)Landroid/view/View;
+	26      (0000007c) move-result-object   v0
+	27      (0000007e) check-cast           v0, Landroid/widget/RadioButton;
+	28      (00000082) iput-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity;->bt_lowspeed Landroid/widget/RadioButton;
+	29      (00000086) const                v0, 2131230819
+	30      (0000008c) invoke-virtual       v3, v0, Lcom/jlboat/phone/activity/SettingActivity;->findViewById(I)Landroid/view/View;
+	31      (00000092) move-result-object   v0
+	32      (00000094) check-cast           v0, Landroid/widget/RadioButton;
+	33      (00000098) iput-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity;->bt_medspeed Landroid/widget/RadioButton;
+	34      (0000009c) const                v0, 2131230811
+	35      (000000a2) invoke-virtual       v3, v0, Lcom/jlboat/phone/activity/SettingActivity;->findViewById(I)Landroid/view/View;
+	36      (000000a8) move-result-object   v0
+	37      (000000aa) check-cast           v0, Landroid/widget/RadioButton;
+	38      (000000ae) iput-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity;->bt_higspeed Landroid/widget/RadioButton;
+	39      (000000b2) const                v0, 2131230816
+	40      (000000b8) invoke-virtual       v3, v0, Lcom/jlboat/phone/activity/SettingActivity;->findViewById(I)Landroid/view/View;
+	41      (000000be) move-result-object   v0
+	42      (000000c0) check-cast           v0, Landroid/widget/RadioButton;
+	43      (000000c4) iput-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity;->bt_lowsafe Landroid/widget/RadioButton;
+	44      (000000c8) const                v0, 2131230818
+	45      (000000ce) invoke-virtual       v3, v0, Lcom/jlboat/phone/activity/SettingActivity;->findViewById(I)Landroid/view/View;
+	46      (000000d4) move-result-object   v0
+	47      (000000d6) check-cast           v0, Landroid/widget/RadioButton;
+	48      (000000da) iput-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity;->bt_medsafe Landroid/widget/RadioButton;
+	49      (000000de) const                v0, 2131230810
+	50      (000000e4) invoke-virtual       v3, v0, Lcom/jlboat/phone/activity/SettingActivity;->findViewById(I)Landroid/view/View;
+	51      (000000ea) move-result-object   v0
+	52      (000000ec) check-cast           v0, Landroid/widget/RadioButton;
+	53      (000000f0) iput-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity;->bt_higsafe Landroid/widget/RadioButton;
+	54      (000000f4) const                v0, 2131230814
+	55      (000000fa) invoke-virtual       v3, v0, Lcom/jlboat/phone/activity/SettingActivity;->findViewById(I)Landroid/view/View;
+	56      (00000100) move-result-object   v0
+	57      (00000102) check-cast           v0, Landroid/widget/RadioButton;
+	58      (00000106) iput-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity;->bt_lowcream Landroid/widget/RadioButton;
+	59      (0000010a) const                v0, 2131230808
+	60      (00000110) invoke-virtual       v3, v0, Lcom/jlboat/phone/activity/SettingActivity;->findViewById(I)Landroid/view/View;
+	61      (00000116) move-result-object   v0
+	62      (00000118) check-cast           v0, Landroid/widget/RadioButton;
+	63      (0000011c) iput-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity;->bt_higcream Landroid/widget/RadioButton;
+	64      (00000120) const                v0, 2131230815
+	65      (00000126) invoke-virtual       v3, v0, Lcom/jlboat/phone/activity/SettingActivity;->findViewById(I)Landroid/view/View;
+	66      (0000012c) move-result-object   v0
+	67      (0000012e) check-cast           v0, Landroid/widget/RadioButton;
+	68      (00000132) iput-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity;->bt_lowpoint Landroid/widget/RadioButton;
+	69      (00000136) const                v0, 2131230809
+	70      (0000013c) invoke-virtual       v3, v0, Lcom/jlboat/phone/activity/SettingActivity;->findViewById(I)Landroid/view/View;
+	71      (00000142) move-result-object   v0
+	72      (00000144) check-cast           v0, Landroid/widget/RadioButton;
+	73      (00000148) iput-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity;->bt_higpoint Landroid/widget/RadioButton;
+	74      (0000014c) const                v0, 2131231112
+	75      (00000152) invoke-virtual       v3, v0, Lcom/jlboat/phone/activity/SettingActivity;->findViewById(I)Landroid/view/View;
+	76      (00000158) move-result-object   v0
+	77      (0000015a) check-cast           v0, Landroid/widget/RadioButton;
+	78      (0000015e) iput-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity;->qs_lowspeed Landroid/widget/RadioButton;
+	79      (00000162) const                v0, 2131231113
+	80      (00000168) invoke-virtual       v3, v0, Lcom/jlboat/phone/activity/SettingActivity;->findViewById(I)Landroid/view/View;
+	81      (0000016e) move-result-object   v0
+	82      (00000170) check-cast           v0, Landroid/widget/RadioButton;
+	83      (00000174) iput-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity;->qs_medspeed Landroid/widget/RadioButton;
+	84      (00000178) const                v0, 2131231111
+	85      (0000017e) invoke-virtual       v3, v0, Lcom/jlboat/phone/activity/SettingActivity;->findViewById(I)Landroid/view/View;
+	86      (00000184) move-result-object   v0
+	87      (00000186) check-cast           v0, Landroid/widget/RadioButton;
+	88      (0000018a) iput-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity;->qs_higspeed Landroid/widget/RadioButton;
+	89      (0000018e) const                v0, 2131231210
+	90      (00000194) invoke-virtual       v3, v0, Lcom/jlboat/phone/activity/SettingActivity;->findViewById(I)Landroid/view/View;
+	91      (0000019a) move-result-object   v0
+	92      (0000019c) check-cast           v0, Landroid/widget/Switch;
+	93      (000001a0) iput-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity;->robotUpdateSw Landroid/widget/Switch;
+	94      (000001a4) const                v0, 2131231197
+	95      (000001aa) invoke-virtual       v3, v0, Lcom/jlboat/phone/activity/SettingActivity;->findViewById(I)Landroid/view/View;
+	96      (000001b0) move-result-object   v0
+	97      (000001b2) check-cast           v0, Landroid/widget/TextView;
+	98      (000001b6) iput-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity;->robotDriverName Landroid/widget/TextView;
+	99      (000001ba) const                v0, 2131230767
+	100     (000001c0) invoke-virtual       v3, v0, Lcom/jlboat/phone/activity/SettingActivity;->findViewById(I)Landroid/view/View;
+	101     (000001c6) move-result-object   v0
+	102     (000001c8) check-cast           v0, Landroid/widget/TextView;
+	103     (000001cc) iput-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity;->appVersion Landroid/widget/TextView;
+	104     (000001d0) const                v0, 2131231207
+	105     (000001d6) invoke-virtual       v3, v0, Lcom/jlboat/phone/activity/SettingActivity;->findViewById(I)Landroid/view/View;
+	106     (000001dc) move-result-object   v0
+	107     (000001de) check-cast           v0, Landroid/widget/TextView;
+	108     (000001e2) iput-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity;->robotSlam Landroid/widget/TextView;
+	109     (000001e6) const                v0, 2131231183
+	110     (000001ec) invoke-virtual       v3, v0, Lcom/jlboat/phone/activity/SettingActivity;->findViewById(I)Landroid/view/View;
+	111     (000001f2) move-result-object   v0
+	112     (000001f4) check-cast           v0, Landroid/widget/RelativeLayout;
+	113     (000001f8) iput-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity;->rl_robotVersionName Landroid/widget/RelativeLayout;
+	114     (000001fc) const                v0, 2131231188
+	115     (00000202) invoke-virtual       v3, v0, Lcom/jlboat/phone/activity/SettingActivity;->findViewById(I)Landroid/view/View;
+	116     (00000208) move-result-object   v0
+	117     (0000020a) check-cast           v0, Landroid/widget/TextView;
+	118     (0000020e) iput-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity;->robotCocoNum Landroid/widget/TextView;
+	119     (00000212) const                v0, 2131231190
+	120     (00000218) invoke-virtual       v3, v0, Lcom/jlboat/phone/activity/SettingActivity;->findViewById(I)Landroid/view/View;
+	121     (0000021e) move-result-object   v0
+	122     (00000220) check-cast           v0, Landroid/widget/TextView;
+	123     (00000224) iput-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity;->robotVersionNum Landroid/widget/TextView;
+	124     (00000228) const                v0, 2131231189
+	125     (0000022e) invoke-virtual       v3, v0, Lcom/jlboat/phone/activity/SettingActivity;->findViewById(I)Landroid/view/View;
+	126     (00000234) move-result-object   v0
+	127     (00000236) check-cast           v0, Landroid/widget/TextView;
+	128     (0000023a) iput-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity;->robotVersionName Landroid/widget/TextView;
+	129     (0000023e) const                v0, 2131231212
+	130     (00000244) invoke-virtual       v3, v0, Lcom/jlboat/phone/activity/SettingActivity;->findViewById(I)Landroid/view/View;
+	131     (0000024a) move-result-object   v0
+	132     (0000024c) check-cast           v0, Landroid/widget/TextView;
+	133     (00000250) iput-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity;->robotchann Landroid/widget/TextView;
+	134     (00000254) const                v0, 2131231192
+	135     (0000025a) invoke-virtual       v3, v0, Lcom/jlboat/phone/activity/SettingActivity;->findViewById(I)Landroid/view/View;
+	136     (00000260) move-result-object   v0
+	137     (00000262) check-cast           v0, Landroid/widget/EditText;
+	138     (00000266) iput-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity;->robotAutoChangePowerBt Landroid/widget/EditText;
+	139     (0000026a) const                v0, 2131231193
+	140     (00000270) invoke-virtual       v3, v0, Lcom/jlboat/phone/activity/SettingActivity;->findViewById(I)Landroid/view/View;
+	141     (00000276) move-result-object   v0
+	142     (00000278) check-cast           v0, Landroid/widget/EditText;
+	143     (0000027c) iput-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity;->robotAutoWorkPowerBt Landroid/widget/EditText;
+	144     (00000280) const                v0, 2131231199
+	145     (00000286) invoke-virtual       v3, v0, Lcom/jlboat/phone/activity/SettingActivity;->findViewById(I)Landroid/view/View;
+	146     (0000028c) move-result-object   v0
+	147     (0000028e) check-cast           v0, Landroid/widget/EditText;
+	148     (00000292) iput-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity;->robotLedWarnTimeBt Landroid/widget/EditText;
+	149     (00000296) iget-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity;->robotAutoChangePowerBt Landroid/widget/EditText;
+	150     (0000029a) const/4              v1, 6
+	151     (0000029c) invoke-virtual       v0, v1, Landroid/widget/EditText;->setImeOptions(I)V
+	152     (000002a2) iget-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity;->robotAutoChangePowerBt Landroid/widget/EditText;
+	153     (000002a6) new-instance         v2, Lcom/jlboat/phone/activity/SettingActivity$1;
+	154     (000002aa) invoke-direct        v2, v3, Lcom/jlboat/phone/activity/SettingActivity$1;-><init>(Lcom/jlboat/phone/activity/SettingActivity;)V
+	155     (000002b0) invoke-virtual       v0, v2, Landroid/widget/EditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
+	156     (000002b6) iget-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity;->robotAutoWorkPowerBt Landroid/widget/EditText;
+	157     (000002ba) invoke-virtual       v0, v1, Landroid/widget/EditText;->setImeOptions(I)V
+	158     (000002c0) iget-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity;->robotAutoWorkPowerBt Landroid/widget/EditText;
+	159     (000002c4) new-instance         v1, Lcom/jlboat/phone/activity/SettingActivity$2;
+	160     (000002c8) invoke-direct        v1, v3, Lcom/jlboat/phone/activity/SettingActivity$2;-><init>(Lcom/jlboat/phone/activity/SettingActivity;)V
+	161     (000002ce) invoke-virtual       v0, v1, Landroid/widget/EditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
+	162     (000002d4) iget-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity;->rl_robotVersionName Landroid/widget/RelativeLayout;
+	163     (000002d8) invoke-virtual       v0, v3, Landroid/widget/RelativeLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	164     (000002de) iget-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity;->robotUpdateSw Landroid/widget/Switch;
+	165     (000002e2) invoke-virtual       v0, v3, Landroid/widget/Switch;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	166     (000002e8) iget-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity;->bt_lowspeed Landroid/widget/RadioButton;
+	167     (000002ec) invoke-virtual       v0, v3, Landroid/widget/RadioButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	168     (000002f2) iget-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity;->bt_medspeed Landroid/widget/RadioButton;
+	169     (000002f6) invoke-virtual       v0, v3, Landroid/widget/RadioButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	170     (000002fc) iget-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity;->bt_higspeed Landroid/widget/RadioButton;
+	171     (00000300) invoke-virtual       v0, v3, Landroid/widget/RadioButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	172     (00000306) iget-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity;->bt_lowsafe Landroid/widget/RadioButton;
+	173     (0000030a) invoke-virtual       v0, v3, Landroid/widget/RadioButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	174     (00000310) iget-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity;->bt_medsafe Landroid/widget/RadioButton;
+	175     (00000314) invoke-virtual       v0, v3, Landroid/widget/RadioButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	176     (0000031a) iget-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity;->bt_higsafe Landroid/widget/RadioButton;
+	177     (0000031e) invoke-virtual       v0, v3, Landroid/widget/RadioButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	178     (00000324) iget-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity;->bt_lowcream Landroid/widget/RadioButton;
+	179     (00000328) invoke-virtual       v0, v3, Landroid/widget/RadioButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	180     (0000032e) iget-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity;->bt_higcream Landroid/widget/RadioButton;
+	181     (00000332) invoke-virtual       v0, v3, Landroid/widget/RadioButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	182     (00000338) iget-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity;->bt_lowpoint Landroid/widget/RadioButton;
+	183     (0000033c) invoke-virtual       v0, v3, Landroid/widget/RadioButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	184     (00000342) iget-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity;->bt_higpoint Landroid/widget/RadioButton;
+	185     (00000346) invoke-virtual       v0, v3, Landroid/widget/RadioButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	186     (0000034c) iget-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity;->robot_config_bt Landroid/widget/Button;
+	187     (00000350) invoke-virtual       v0, v3, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	188     (00000356) iget-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity;->robot_wifi_bt Landroid/widget/Button;
+	189     (0000035a) invoke-virtual       v0, v3, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	190     (00000360) iget-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity;->robot_calibration Landroid/widget/Button;
+	191     (00000364) invoke-virtual       v0, v3, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	192     (0000036a) iget-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity;->qs_lowspeed Landroid/widget/RadioButton;
+	193     (0000036e) invoke-virtual       v0, v3, Landroid/widget/RadioButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	194     (00000374) iget-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity;->qs_medspeed Landroid/widget/RadioButton;
+	195     (00000378) invoke-virtual       v0, v3, Landroid/widget/RadioButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	196     (0000037e) iget-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity;->qs_higspeed Landroid/widget/RadioButton;
+	197     (00000382) invoke-virtual       v0, v3, Landroid/widget/RadioButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	198     (00000388) invoke-direct        v3, Lcom/jlboat/phone/activity/SettingActivity;->init()V
+	199     (0000038e) invoke-direct        v3, Lcom/jlboat/phone/activity/SettingActivity;->setText()V
+	200     (00000394) return-void          
+

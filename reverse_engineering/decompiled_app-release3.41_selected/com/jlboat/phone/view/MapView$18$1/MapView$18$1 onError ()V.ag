@@ -1,0 +1,10 @@
+# Lcom/jlboat/phone/view/MapView$18$1;->onError()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v0
+#
+# - return:void
+
+onError-BB@0x0 : 
+	0       (00000000) return-void          
+

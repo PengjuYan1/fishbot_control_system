@@ -1,0 +1,60 @@
+# Lcom/jlboat/phone/activity/MapEditMapActivity$3;->onNewMessage(Lcom/jlboat/phone/message/map_msgs/SetEraserModeResponse;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v4
+# - v5:com.jlboat.phone.message.map_msgs.SetEraserModeResponse
+#
+# - return:void
+
+onNewMessage-BB@0x0 : [ onNewMessage-BB@0x72 onNewMessage-BB@0x7e ]
+	0       (00000000) iget-object          v0, v4, Lcom/jlboat/phone/activity/MapEditMapActivity$3;->this$0 Lcom/jlboat/phone/activity/MapEditMapActivity;
+	1       (00000004) new-instance         v1, Ljava/lang/StringBuilder;
+	2       (00000008) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	3       (0000000e) iget-object          v2, v4, Lcom/jlboat/phone/activity/MapEditMapActivity$3;->this$0 Lcom/jlboat/phone/activity/MapEditMapActivity;
+	4       (00000012) const                v3, 2131493301
+	5       (00000018) invoke-virtual       v2, v3, Lcom/jlboat/phone/activity/MapEditMapActivity;->getResString(I)Ljava/lang/String;
+	6       (0000001e) move-result-object   v2
+	7       (00000020) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	8       (00000026) move-result-object   v1
+	9       (00000028) iget                 v2, v4, Lcom/jlboat/phone/activity/MapEditMapActivity$3;->val$mode I
+	10      (0000002c) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	11      (00000032) move-result-object   v1
+	12      (00000034) const-string         v2, ", "
+	13      (00000038) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	14      (0000003e) move-result-object   v1
+	15      (00000040) iget-object          v2, v4, Lcom/jlboat/phone/activity/MapEditMapActivity$3;->this$0 Lcom/jlboat/phone/activity/MapEditMapActivity;
+	16      (00000044) const                v3, 2131493300
+	17      (0000004a) invoke-virtual       v2, v3, Lcom/jlboat/phone/activity/MapEditMapActivity;->getResString(I)Ljava/lang/String;
+	18      (00000050) move-result-object   v2
+	19      (00000052) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	20      (00000058) move-result-object   v1
+	21      (0000005a) const-string         v2, " "
+	22      (0000005e) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	23      (00000064) move-result-object   v1
+	24      (00000066) invoke-virtual       v5, Lcom/jlboat/phone/message/map_msgs/SetEraserModeResponse;->getStatus()I
+	25      (0000006c) move-result          v2
+	26      (0000006e) if-nez               v2, +008h
+
+onNewMessage-BB@0x72 : [ onNewMessage-BB@0x88 ]
+	27      (00000072) iget-object          v2, v4, Lcom/jlboat/phone/activity/MapEditMapActivity$3;->this$0 Lcom/jlboat/phone/activity/MapEditMapActivity;
+	28      (00000076) const                v3, 2131493252
+	29      (0000007c) goto                 +6h
+
+onNewMessage-BB@0x7e : [ onNewMessage-BB@0x88 ]
+	30      (0000007e) iget-object          v2, v4, Lcom/jlboat/phone/activity/MapEditMapActivity$3;->this$0 Lcom/jlboat/phone/activity/MapEditMapActivity;
+	31      (00000082) const                v3, 2131493241
+
+onNewMessage-BB@0x88 : 
+	32      (00000088) invoke-virtual       v2, v3, Lcom/jlboat/phone/activity/MapEditMapActivity;->getResString(I)Ljava/lang/String;
+	33      (0000008e) move-result-object   v2
+	34      (00000090) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	35      (00000096) move-result-object   v1
+	36      (00000098) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	37      (0000009e) move-result-object   v1
+	38      (000000a0) invoke-virtual       v0, v1, Lcom/jlboat/phone/activity/MapEditMapActivity;->toast(Ljava/lang/CharSequence;)V
+	39      (000000a6) iget-object          v0, v4, Lcom/jlboat/phone/activity/MapEditMapActivity$3;->this$0 Lcom/jlboat/phone/activity/MapEditMapActivity;
+	40      (000000aa) new-instance         v1, Lcom/jlboat/phone/activity/MapEditMapActivity$3$1;
+	41      (000000ae) invoke-direct        v1, v4, Lcom/jlboat/phone/activity/MapEditMapActivity$3$1;-><init>(Lcom/jlboat/phone/activity/MapEditMapActivity$3;)V
+	42      (000000b4) invoke-virtual       v0, v1, Lcom/jlboat/phone/activity/MapEditMapActivity;->runOnUiThread(Ljava/lang/Runnable;)V
+	43      (000000ba) return-void          
+

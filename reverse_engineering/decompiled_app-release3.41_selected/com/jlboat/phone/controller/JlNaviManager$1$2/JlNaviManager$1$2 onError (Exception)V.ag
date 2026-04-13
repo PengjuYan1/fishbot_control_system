@@ -1,0 +1,18 @@
+# Lcom/jlboat/phone/controller/JlNaviManager$1$2;->onError(Ljava/lang/Exception;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:java.lang.Exception
+#
+# - return:void
+
+onError-BB@0x0 : 
+	0       (00000000) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	1       (00000004) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	2       (00000008) invoke-static        v0, Lcom/jlboat/phone/controller/JlNaviManager;->access$000(Lcom/jlboat/phone/controller/JlNaviManager;)Ljava/lang/String;
+	3       (0000000e) move-result-object   v0
+	4       (00000010) const-string         v1, "ROSBridgeClient onError: "
+	5       (00000014) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	6       (0000001a) invoke-virtual       v3, Ljava/lang/Exception;->printStackTrace()V
+	7       (00000020) return-void          
+

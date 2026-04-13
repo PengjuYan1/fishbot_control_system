@@ -1,0 +1,14 @@
+# Lcom/boat/support/slam/IBitmapService$_Parcel;->access$000(Landroid/os/Parcel; Landroid/os/Parcelable; I)V [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v-1
+# - v0:android.os.Parcel
+# - v1:android.os.Parcelable
+# - v2:int
+#
+# - return:void
+
+access$000-BB@0x0 : 
+	0       (00000000) invoke-static        v0, v1, v2, Lcom/boat/support/slam/IBitmapService$_Parcel;->writeTypedObject(Landroid/os/Parcel; Landroid/os/Parcelable; I)V
+	1       (00000006) return-void          
+

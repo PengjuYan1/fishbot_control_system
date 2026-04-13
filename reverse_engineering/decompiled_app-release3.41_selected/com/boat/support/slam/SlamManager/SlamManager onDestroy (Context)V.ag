@@ -1,0 +1,20 @@
+# Lcom/boat/support/slam/SlamManager;->onDestroy(Landroid/content/Context;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:android.content.Context
+#
+# - return:void
+
+onDestroy-BB@0x0 : [ onDestroy-BB@0x8 onDestroy-BB@0x18 ]
+	0       (00000000) iget-object          v0, v1, Lcom/boat/support/slam/SlamManager;->connection Landroid/content/ServiceConnection;
+	1       (00000004) if-eqz               v0, +00ah
+
+onDestroy-BB@0x8 : [ onDestroy-BB@0x18 ]
+	2       (00000008) invoke-direct        v1, Lcom/boat/support/slam/SlamManager;->unregist()V
+	3       (0000000e) iget-object          v0, v1, Lcom/boat/support/slam/SlamManager;->connection Landroid/content/ServiceConnection;
+	4       (00000012) invoke-virtual       v2, v0, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V
+
+onDestroy-BB@0x18 : 
+	5       (00000018) return-void          
+

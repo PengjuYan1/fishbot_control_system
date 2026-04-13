@@ -1,0 +1,176 @@
+# Lcom/jlboat/phone/view/TouchEvenHandler;->touchEvent(Landroid/view/MotionEvent;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v7
+# - v8:android.view.MotionEvent
+#
+# - return:void
+
+touchEvent-BB@0x0 : [ D:touchEvent-BB@0x16 0:touchEvent-BB@0x1c4 1:touchEvent-BB@0x1b2 2:touchEvent-BB@0x52 3:touchEvent-BB@0x16 4:touchEvent-BB@0x16 5:touchEvent-BB@0x1a 6:touchEvent-BB@0x1b2 ]
+	0       (00000000) invoke-virtual       v8, Landroid/view/MotionEvent;->getAction()I
+	1       (00000006) move-result          v0
+	2       (00000008) and-int/lit16        v0, v0, 255
+	3       (0000000c) const/4              v1, 1
+	4       (0000000e) const/4              v2, 2
+	5       (00000010) packed-switch        v0, +00000f2h
+
+touchEvent-BB@0x16 : [ touchEvent-BB@0x1f0 ]
+	6       (00000016) goto/16              +0edh
+
+touchEvent-BB@0x1a : [ touchEvent-BB@0x1f0 ]
+	7       (0000001a) iput                 v1, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->currentStatus I
+	8       (0000001e) invoke-direct        v7, v8, Lcom/jlboat/phone/view/TouchEvenHandler;->spacing(Landroid/view/MotionEvent;)F
+	9       (00000024) move-result          v0
+	10      (00000026) iput                 v0, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->oldDist F
+	11      (0000002a) invoke-direct        v7, v8, Lcom/jlboat/phone/view/TouchEvenHandler;->rotation(Landroid/view/MotionEvent;)F
+	12      (00000030) move-result          v0
+	13      (00000032) iput                 v0, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->oldRotation F
+	14      (00000036) iget-object          v0, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->savedMatrix Landroid/graphics/Matrix;
+	15      (0000003a) iget-object          v1, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->matrix Landroid/graphics/Matrix;
+	16      (0000003e) invoke-virtual       v0, v1, Landroid/graphics/Matrix;->set(Landroid/graphics/Matrix;)V
+	17      (00000044) iget-object          v0, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->mid Landroid/graphics/PointF;
+	18      (00000048) invoke-direct        v7, v0, v8, Lcom/jlboat/phone/view/TouchEvenHandler;->midPoint(Landroid/graphics/PointF; Landroid/view/MotionEvent;)V
+	19      (0000004e) goto/16              +0d1h
+
+touchEvent-BB@0x52 : [ touchEvent-BB@0x5a touchEvent-BB@0x12c ]
+	20      (00000052) iget                 v0, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->currentStatus I
+	21      (00000056) if-ne                v0, v1, +06bh
+
+touchEvent-BB@0x5a : [ touchEvent-BB@0x8e touchEvent-BB@0x96 ]
+	22      (0000005a) iget-object          v0, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->matrix1 Landroid/graphics/Matrix;
+	23      (0000005e) iget-object          v2, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->savedMatrix Landroid/graphics/Matrix;
+	24      (00000062) invoke-virtual       v0, v2, Landroid/graphics/Matrix;->set(Landroid/graphics/Matrix;)V
+	25      (00000068) invoke-direct        v7, v8, Lcom/jlboat/phone/view/TouchEvenHandler;->rotation(Landroid/view/MotionEvent;)F
+	26      (0000006e) move-result          v0
+	27      (00000070) iget                 v2, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->oldRotation F
+	28      (00000074) sub-float/2addr      v0, v2
+	29      (00000076) iput                 v0, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->rotation F
+	30      (0000007a) invoke-direct        v7, v8, Lcom/jlboat/phone/view/TouchEvenHandler;->spacing(Landroid/view/MotionEvent;)F
+	31      (00000080) move-result          v0
+	32      (00000082) iget                 v2, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->oldDist F
+	33      (00000086) cmpl-float           v2, v0, v2
+	34      (0000008a) if-lez               v2, +006h
+
+touchEvent-BB@0x8e : [ touchEvent-BB@0x9c ]
+	35      (0000008e) const/4              v2, 5
+	36      (00000090) iput                 v2, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->currentStatus I
+	37      (00000094) goto                 +4h
+
+touchEvent-BB@0x96 : [ touchEvent-BB@0x9c ]
+	38      (00000096) const/4              v2, 6
+	39      (00000098) iput                 v2, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->currentStatus I
+
+touchEvent-BB@0x9c : [ touchEvent-BB@0xc6 touchEvent-BB@0xe4 ]
+	40      (0000009c) iget                 v2, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->oldDist F
+	41      (000000a0) div-float            v2, v0, v2
+	42      (000000a4) iget-object          v3, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->matrix1 Landroid/graphics/Matrix;
+	43      (000000a8) iget-object          v4, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->mid Landroid/graphics/PointF;
+	44      (000000ac) iget                 v4, v4, Landroid/graphics/PointF;->x F
+	45      (000000b0) iget-object          v5, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->mid Landroid/graphics/PointF;
+	46      (000000b4) iget                 v5, v5, Landroid/graphics/PointF;->y F
+	47      (000000b8) invoke-virtual       v3, v2, v2, v4, v5, Landroid/graphics/Matrix;->postScale(F F F F)Z
+	48      (000000be) iget-boolean         v3, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->canRotate Z
+	49      (000000c2) if-eqz               v3, +011h
+
+touchEvent-BB@0xc6 : [ touchEvent-BB@0xe4 ]
+	50      (000000c6) iget-object          v3, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->matrix1 Landroid/graphics/Matrix;
+	51      (000000ca) iget                 v4, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->rotation F
+	52      (000000ce) iget-object          v5, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->mid Landroid/graphics/PointF;
+	53      (000000d2) iget                 v5, v5, Landroid/graphics/PointF;->x F
+	54      (000000d6) iget-object          v6, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->mid Landroid/graphics/PointF;
+	55      (000000da) iget                 v6, v6, Landroid/graphics/PointF;->y F
+	56      (000000de) invoke-virtual       v3, v4, v5, v6, Landroid/graphics/Matrix;->postRotate(F F F)Z
+
+touchEvent-BB@0xe4 : [ touchEvent-BB@0xf8 touchEvent-BB@0x1b0 ]
+	57      (000000e4) invoke-direct        v7, Lcom/jlboat/phone/view/TouchEvenHandler;->matrixCheck()Z
+	58      (000000ea) move-result          v3
+	59      (000000ec) iput-boolean         v3, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->matrixCheck Z
+	60      (000000f0) iget-boolean         v3, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->matrixCheck Z
+	61      (000000f4) if-nez               v3, +05eh
+
+touchEvent-BB@0xf8 : [ touchEvent-BB@0x120 touchEvent-BB@0x1b0 ]
+	62      (000000f8) iput                 v1, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->currentStatus I
+	63      (000000fc) iget-object          v1, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->matrix1 Landroid/graphics/Matrix;
+	64      (00000100) iget-object          v3, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->values [F
+	65      (00000104) invoke-virtual       v1, v3, Landroid/graphics/Matrix;->getValues([F)V
+	66      (0000010a) iget-object          v1, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->matrix Landroid/graphics/Matrix;
+	67      (0000010e) iget-object          v3, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->matrix1 Landroid/graphics/Matrix;
+	68      (00000112) invoke-virtual       v1, v3, Landroid/graphics/Matrix;->set(Landroid/graphics/Matrix;)V
+	69      (00000118) iget-boolean         v1, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->isAutoRefresh Z
+	70      (0000011c) if-nez               v1, +04ah
+
+touchEvent-BB@0x120 : [ touchEvent-BB@0x1b0 ]
+	71      (00000120) iget-object          v1, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->view Landroid/view/View;
+	72      (00000124) invoke-virtual       v1, Landroid/view/View;->invalidate()V
+	73      (0000012a) goto                 +43h
+
+touchEvent-BB@0x12c : [ touchEvent-BB@0x134 touchEvent-BB@0x1b0 ]
+	74      (0000012c) iget                 v0, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->currentStatus I
+	75      (00000130) if-ne                v0, v2, +040h
+
+touchEvent-BB@0x134 : [ touchEvent-BB@0x17c touchEvent-BB@0x1f0 ]
+	76      (00000134) iget-object          v0, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->matrix1 Landroid/graphics/Matrix;
+	77      (00000138) iget-object          v1, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->savedMatrix Landroid/graphics/Matrix;
+	78      (0000013c) invoke-virtual       v0, v1, Landroid/graphics/Matrix;->set(Landroid/graphics/Matrix;)V
+	79      (00000142) iget-object          v0, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->matrix1 Landroid/graphics/Matrix;
+	80      (00000146) invoke-virtual       v8, Landroid/view/MotionEvent;->getX()F
+	81      (0000014c) move-result          v1
+	82      (0000014e) iget                 v3, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->x_down F
+	83      (00000152) sub-float/2addr      v1, v3
+	84      (00000154) invoke-virtual       v8, Landroid/view/MotionEvent;->getY()F
+	85      (0000015a) move-result          v3
+	86      (0000015c) iget                 v4, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->y_down F
+	87      (00000160) sub-float/2addr      v3, v4
+	88      (00000162) invoke-virtual       v0, v1, v3, Landroid/graphics/Matrix;->postTranslate(F F)Z
+	89      (00000168) invoke-direct        v7, Lcom/jlboat/phone/view/TouchEvenHandler;->matrixCheck()Z
+	90      (0000016e) move-result          v0
+	91      (00000170) iput-boolean         v0, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->matrixCheck Z
+	92      (00000174) iget-boolean         v0, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->matrixCheck Z
+	93      (00000178) if-nez               v0, +03ch
+
+touchEvent-BB@0x17c : [ touchEvent-BB@0x1a4 touchEvent-BB@0x1f0 ]
+	94      (0000017c) iput                 v2, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->currentStatus I
+	95      (00000180) iget-object          v0, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->matrix1 Landroid/graphics/Matrix;
+	96      (00000184) iget-object          v1, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->values [F
+	97      (00000188) invoke-virtual       v0, v1, Landroid/graphics/Matrix;->getValues([F)V
+	98      (0000018e) iget-object          v0, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->matrix Landroid/graphics/Matrix;
+	99      (00000192) iget-object          v1, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->matrix1 Landroid/graphics/Matrix;
+	100     (00000196) invoke-virtual       v0, v1, Landroid/graphics/Matrix;->set(Landroid/graphics/Matrix;)V
+	101     (0000019c) iget-boolean         v0, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->isAutoRefresh Z
+	102     (000001a0) if-nez               v0, +028h
+
+touchEvent-BB@0x1a4 : [ touchEvent-BB@0x1f0 ]
+	103     (000001a4) iget-object          v0, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->view Landroid/view/View;
+	104     (000001a8) invoke-virtual       v0, Landroid/view/View;->invalidate()V
+	105     (000001ae) goto                 +21h
+
+touchEvent-BB@0x1b0 : [ touchEvent-BB@0x1f0 ]
+	106     (000001b0) goto                 +20h
+
+touchEvent-BB@0x1b2 : [ touchEvent-BB@0x1f0 ]
+	107     (000001b2) const/4              v0, 4
+	108     (000001b4) iput                 v0, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->currentStatus I
+	109     (000001b8) iget-object          v0, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->view Landroid/view/View;
+	110     (000001bc) invoke-virtual       v0, Landroid/view/View;->invalidate()V
+	111     (000001c2) goto                 +17h
+
+touchEvent-BB@0x1c4 : [ touchEvent-BB@0x1f0 ]
+	112     (000001c4) iput                 v2, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->currentStatus I
+	113     (000001c8) invoke-virtual       v8, Landroid/view/MotionEvent;->getX()F
+	114     (000001ce) move-result          v0
+	115     (000001d0) iput                 v0, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->x_down F
+	116     (000001d4) invoke-virtual       v8, Landroid/view/MotionEvent;->getY()F
+	117     (000001da) move-result          v0
+	118     (000001dc) iput                 v0, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->y_down F
+	119     (000001e0) iget-object          v0, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->savedMatrix Landroid/graphics/Matrix;
+	120     (000001e4) iget-object          v1, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->matrix Landroid/graphics/Matrix;
+	121     (000001e8) invoke-virtual       v0, v1, Landroid/graphics/Matrix;->set(Landroid/graphics/Matrix;)V
+	122     (000001ee) nop                  
+
+touchEvent-BB@0x1f0 : 
+	123     (000001f0) return-void          
+
+touchEvent-BB@0x1f2 : 
+	124     (000001f2) nop                  
+	125     (000001f4) packed-switch-payload 0 1 2 3 4 5 6
+

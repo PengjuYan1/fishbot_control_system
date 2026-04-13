@@ -1,0 +1,16 @@
+# Lcom/boat/ros/geometry/Quaternion;->normalize()Lcom/boat/ros/geometry/Quaternion; [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v4
+#
+# - return:com.boat.ros.geometry.Quaternion
+
+normalize-BB@0x0 : 
+	0       (00000000) const-wide/high16    v0, 4607182418800017408
+	1       (00000004) invoke-virtual       v4, Lcom/boat/ros/geometry/Quaternion;->getMagnitude()D
+	2       (0000000a) move-result-wide     v2
+	3       (0000000c) div-double/2addr     v0, v2
+	4       (0000000e) invoke-virtual       v4, v0, v1, Lcom/boat/ros/geometry/Quaternion;->scale(D)Lcom/boat/ros/geometry/Quaternion;
+	5       (00000014) move-result-object   v0
+	6       (00000016) return-object        v0
+

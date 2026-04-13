@@ -1,0 +1,47 @@
+# Lcom/jlboat/phone/activity/MapActivity;->pointUpdate(I J J J Lcom/boat/support/slam/entity/floors/Points;)V [access_flags=private]
+#
+# Parameters:
+# - local registers: v0...v16
+# - v17:int
+# - v18:long
+# - v19:long
+# - v20:long
+# - v21:com.boat.support.slam.entity.floors.Points
+#
+# - return:void
+
+pointUpdate-BB@0x0 : 
+	0       (00000000) move-object          v0, v13
+	1       (00000002) const                v1, 2131493124
+	2       (00000008) invoke-virtual       v13, v1, Lcom/jlboat/phone/activity/MapActivity;->getResString(I)Ljava/lang/String;
+	3       (0000000e) move-result-object   v1
+	4       (00000010) invoke-virtual/range v21, Lcom/boat/support/slam/entity/floors/Points;->getPointName()Ljava/lang/String;
+	5       (00000016) move-result-object   v2
+	6       (00000018) invoke-direct        v13, v1, v2, Lcom/jlboat/phone/activity/MapActivity;->safeShowWaitingDialog(Ljava/lang/CharSequence; Ljava/lang/CharSequence;)V
+	7       (0000001e) new-instance         v1, Lcom/google/gson/Gson;
+	8       (00000022) invoke-direct        v1, Lcom/google/gson/Gson;-><init>()V
+	9       (00000028) move-object/from16   v2, v21
+	10      (0000002c) invoke-virtual       v1, v2, Lcom/google/gson/Gson;->toJson(Ljava/lang/Object;)Ljava/lang/String;
+	11      (00000032) move-result-object   v1
+	12      (00000034) new-instance         v3, Ljava/lang/StringBuilder;
+	13      (00000038) invoke-direct        v3, Ljava/lang/StringBuilder;-><init>()V
+	14      (0000003e) const-string         v4, "pointUpdate: "
+	15      (00000042) invoke-virtual       v3, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	16      (00000048) move-result-object   v3
+	17      (0000004a) invoke-virtual       v3, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	18      (00000050) move-result-object   v3
+	19      (00000052) invoke-virtual       v3, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	20      (00000058) move-result-object   v3
+	21      (0000005a) const-string         v4, "MapActivity"
+	22      (0000005e) invoke-static        v4, v3, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	23      (00000064) iget-object          v3, v0, Lcom/jlboat/phone/activity/MapActivity;->spiritServiceClient Lcom/jlboat/phone/communication/SpiritServiceClient;
+	24      (00000068) new-instance         v12, Lcom/jlboat/phone/activity/MapActivity$49;
+	25      (0000006c) invoke-direct        v12, v13, Lcom/jlboat/phone/activity/MapActivity$49;-><init>(Lcom/jlboat/phone/activity/MapActivity;)V
+	26      (00000072) move                 v4, v14
+	27      (00000074) move-wide            v5, v15
+	28      (00000076) move-wide/from16     v7, v17
+	29      (0000007a) move-wide/from16     v9, v19
+	30      (0000007e) move-object          v11, v1
+	31      (00000080) invoke-virtual/range v3 ... v12, Lcom/jlboat/phone/communication/SpiritServiceClient;->updatePointService(I J J J Ljava/lang/String; Lcom/boat/jrosbridge/MessageListener;)V
+	32      (00000086) return-void          
+

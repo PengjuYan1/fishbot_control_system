@@ -1,0 +1,13 @@
+# Lcom/boat/support/slam/IResponseListener$Stub$Proxy;-><init>(Landroid/os/IBinder;)V [access_flags=constructor]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:android.os.IBinder
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) invoke-direct        v0, Ljava/lang/Object;-><init>()V
+	1       (00000006) iput-object          v1, v0, Lcom/boat/support/slam/IResponseListener$Stub$Proxy;->mRemote Landroid/os/IBinder;
+	2       (0000000a) return-void          
+

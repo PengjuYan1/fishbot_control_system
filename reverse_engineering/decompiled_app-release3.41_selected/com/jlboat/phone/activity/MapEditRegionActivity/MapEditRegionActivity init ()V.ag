@@ -1,0 +1,27 @@
+# Lcom/jlboat/phone/activity/MapEditRegionActivity;->init()V [access_flags=private]
+#
+# Parameters:
+# local registers: v0...v2
+#
+# - return:void
+
+init-BB@0x0 : 
+	0       (00000000) new-instance         v0, Lcom/jlboat/phone/communication/SpiritTopicListener;
+	1       (00000004) invoke-direct        v0, Lcom/jlboat/phone/communication/SpiritTopicListener;-><init>()V
+	2       (0000000a) iput-object          v0, v2, Lcom/jlboat/phone/activity/MapEditRegionActivity;->spiritTopicListener Lcom/jlboat/phone/communication/SpiritTopicListener;
+	3       (0000000e) new-instance         v0, Lcom/jlboat/phone/communication/SpiritServiceClient;
+	4       (00000012) invoke-direct        v0, Lcom/jlboat/phone/communication/SpiritServiceClient;-><init>()V
+	5       (00000018) iput-object          v0, v2, Lcom/jlboat/phone/activity/MapEditRegionActivity;->spiritServiceClient Lcom/jlboat/phone/communication/SpiritServiceClient;
+	6       (0000001c) new-instance         v0, Ljava/util/LinkedList;
+	7       (00000020) invoke-direct        v0, Ljava/util/LinkedList;-><init>()V
+	8       (00000026) iput-object          v0, v2, Lcom/jlboat/phone/activity/MapEditRegionActivity;->linesList Ljava/util/List;
+	9       (0000002a) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapEditRegionActivity;->radioGroup Landroid/widget/RadioGroup;
+	10      (0000002e) const                v1, 2131231127
+	11      (00000034) invoke-virtual       v0, v1, Landroid/widget/RadioGroup;->check(I)V
+	12      (0000003a) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapEditRegionActivity;->ok Landroid/widget/Button;
+	13      (0000003e) const/16             v1, 8
+	14      (00000042) invoke-virtual       v0, v1, Landroid/widget/Button;->setVisibility(I)V
+	15      (00000048) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapEditRegionActivity;->ivRectangle Landroid/widget/ImageView;
+	16      (0000004c) invoke-virtual       v0, v1, Landroid/widget/ImageView;->setVisibility(I)V
+	17      (00000052) return-void          
+

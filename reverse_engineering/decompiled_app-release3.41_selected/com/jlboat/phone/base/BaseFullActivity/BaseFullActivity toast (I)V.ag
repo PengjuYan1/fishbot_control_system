@@ -1,0 +1,24 @@
+# Lcom/jlboat/phone/base/BaseFullActivity;->toast(I)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:int
+#
+# - return:void
+
+toast-BB@0x0 : [ toast-BB@0x16 toast-BB@0x1e ]
+	0       (00000000) invoke-static        v4, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+	1       (00000006) move-result-object   v0
+	2       (00000008) invoke-virtual       v0, Ljava/lang/String;->length()I
+	3       (0000000e) move-result          v1
+	4       (00000010) const/4              v2, 5
+	5       (00000012) if-le                v1, v2, +006h
+
+toast-BB@0x16 : [ toast-BB@0x1e ]
+	6       (00000016) invoke-virtual       v3, v4, Lcom/jlboat/phone/base/BaseFullActivity;->getResString(I)Ljava/lang/String;
+	7       (0000001c) move-result-object   v0
+
+toast-BB@0x1e : 
+	8       (0000001e) invoke-virtual       v3, v0, Lcom/jlboat/phone/base/BaseFullActivity;->toast(Ljava/lang/CharSequence;)V
+	9       (00000024) return-void          
+

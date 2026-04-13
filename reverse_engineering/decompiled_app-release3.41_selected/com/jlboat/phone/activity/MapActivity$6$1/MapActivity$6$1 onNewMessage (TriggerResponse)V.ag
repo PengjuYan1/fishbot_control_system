@@ -1,0 +1,454 @@
+# Lcom/jlboat/phone/activity/MapActivity$6$1;->onNewMessage(Lcom/boat/jrosbridge/message/std_srvs/TriggerResponse;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v17
+# - v18:com.boat.jrosbridge.message.std_srvs.TriggerResponse
+#
+# - return:void
+
+onNewMessage-BB@0x0 : [ onNewMessage-BB@0x10 onNewMessage-BB@0x56a ]
+	0       (00000000) move-object/from16   v1, v17
+	1       (00000004) invoke-virtual/range v18, Lcom/boat/jrosbridge/message/std_srvs/TriggerResponse;->getSuccess()Z
+	2       (0000000a) move-result          v0
+	3       (0000000c) if-eqz               v0, +2afh
+
+onNewMessage-BB@0x10 : [ onNewMessage-BB@0x24 onNewMessage-BB@0x26 ]
+	4       (00000010) invoke-virtual/range v18, Lcom/boat/jrosbridge/message/std_srvs/TriggerResponse;->getMessage()Ljava/lang/String;
+	5       (00000016) move-result-object   v0
+	6       (00000018) invoke-virtual       v0, Ljava/lang/String;->isEmpty()Z
+	7       (0000001e) move-result          v0
+	8       (00000020) if-eqz               v0, +003h
+
+onNewMessage-BB@0x24 : 
+	9       (00000024) return-void          
+
+onNewMessage-BB@0x26 : [ onNewMessage-BB@0x3e ]
+	10      (00000026) iget-object          v0, v1, Lcom/jlboat/phone/activity/MapActivity$6$1;->this$1 Lcom/jlboat/phone/activity/MapActivity$6;
+	11      (0000002a) iget-object          v0, v0, Lcom/jlboat/phone/activity/MapActivity$6;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	12      (0000002e) new-instance         v2, Lcom/boat/support/slam/entity/floors/MapList;
+	13      (00000032) invoke-direct        v2, Lcom/boat/support/slam/entity/floors/MapList;-><init>()V
+	14      (00000038) invoke-static        v0, v2, Lcom/jlboat/phone/activity/MapActivity;->access$1202(Lcom/jlboat/phone/activity/MapActivity; Lcom/boat/support/slam/entity/floors/MapList;)Lcom/boat/support/slam/entity/floors/MapList;
+
+onNewMessage-BB@0x3e : [ onNewMessage-BB@0x9a ]
+	15      (0000003e) new-instance         v0, Lorg/json/JSONObject;
+	16      (00000042) invoke-virtual/range v18, Lcom/boat/jrosbridge/message/std_srvs/TriggerResponse;->getMessage()Ljava/lang/String;
+	17      (00000048) move-result-object   v2
+	18      (0000004a) invoke-direct        v0, v2, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
+	19      (00000050) iget-object          v2, v1, Lcom/jlboat/phone/activity/MapActivity$6$1;->this$1 Lcom/jlboat/phone/activity/MapActivity$6;
+	20      (00000054) iget-object          v2, v2, Lcom/jlboat/phone/activity/MapActivity$6;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	21      (00000058) new-instance         v3, Lcom/google/gson/Gson;
+	22      (0000005c) invoke-direct        v3, Lcom/google/gson/Gson;-><init>()V
+	23      (00000062) invoke-virtual       v0, Lorg/json/JSONObject;->toString()Ljava/lang/String;
+	24      (00000068) move-result-object   v4
+	25      (0000006a) new-instance         v5, Lcom/jlboat/phone/activity/MapActivity$6$1$1;
+	26      (0000006e) invoke-direct        v5, v1, Lcom/jlboat/phone/activity/MapActivity$6$1$1;-><init>(Lcom/jlboat/phone/activity/MapActivity$6$1;)V
+	27      (00000074) invoke-virtual       v5, Lcom/jlboat/phone/activity/MapActivity$6$1$1;->getType()Ljava/lang/reflect/Type;
+	28      (0000007a) move-result-object   v5
+	29      (0000007c) invoke-virtual       v3, v4, v5, Lcom/google/gson/Gson;->fromJson(Ljava/lang/String; Ljava/lang/reflect/Type;)Ljava/lang/Object;
+	30      (00000082) move-result-object   v3
+	31      (00000084) check-cast           v3, Lcom/boat/support/slam/entity/floors/MapList;
+	32      (00000088) invoke-static        v2, v3, Lcom/jlboat/phone/activity/MapActivity;->access$1202(Lcom/jlboat/phone/activity/MapActivity; Lcom/boat/support/slam/entity/floors/MapList;)Lcom/boat/support/slam/entity/floors/MapList;
+	33      (0000008e) nop                  
+	34      (00000090) goto                 +5h
+	3e:8d
+	(Lorg/json/JSONException; -> 92 onNewMessage-BB@0x92)
+
+onNewMessage-BB@0x92 : [ onNewMessage-BB@0x9a ]
+	35      (00000092) move-exception       v0
+	36      (00000094) invoke-virtual       v0, Lorg/json/JSONException;->printStackTrace()V
+
+onNewMessage-BB@0x9a : [ onNewMessage-BB@0x12c ]
+	37      (0000009a) iget-object          v0, v1, Lcom/jlboat/phone/activity/MapActivity$6$1;->this$1 Lcom/jlboat/phone/activity/MapActivity$6;
+	38      (0000009e) iget-object          v0, v0, Lcom/jlboat/phone/activity/MapActivity$6;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	39      (000000a2) iget-object          v2, v1, Lcom/jlboat/phone/activity/MapActivity$6$1;->this$1 Lcom/jlboat/phone/activity/MapActivity$6;
+	40      (000000a6) iget-object          v2, v2, Lcom/jlboat/phone/activity/MapActivity$6;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	41      (000000aa) invoke-static        v2, Lcom/jlboat/phone/activity/MapActivity;->access$1200(Lcom/jlboat/phone/activity/MapActivity;)Lcom/boat/support/slam/entity/floors/MapList;
+	42      (000000b0) move-result-object   v2
+	43      (000000b2) invoke-virtual       v2, Lcom/boat/support/slam/entity/floors/MapList;->getChargingPrioritys()Ljava/util/List;
+	44      (000000b8) move-result-object   v2
+	45      (000000ba) invoke-static        v0, v2, Lcom/jlboat/phone/activity/MapActivity;->access$1302(Lcom/jlboat/phone/activity/MapActivity; Ljava/util/List;)Ljava/util/List;
+	46      (000000c0) iget-object          v0, v1, Lcom/jlboat/phone/activity/MapActivity$6$1;->this$1 Lcom/jlboat/phone/activity/MapActivity$6;
+	47      (000000c4) iget-object          v0, v0, Lcom/jlboat/phone/activity/MapActivity$6;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	48      (000000c8) iget-object          v2, v1, Lcom/jlboat/phone/activity/MapActivity$6$1;->this$1 Lcom/jlboat/phone/activity/MapActivity$6;
+	49      (000000cc) iget-object          v2, v2, Lcom/jlboat/phone/activity/MapActivity$6;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	50      (000000d0) invoke-static        v2, Lcom/jlboat/phone/activity/MapActivity;->access$1200(Lcom/jlboat/phone/activity/MapActivity;)Lcom/boat/support/slam/entity/floors/MapList;
+	51      (000000d6) move-result-object   v2
+	52      (000000d8) invoke-virtual       v2, Lcom/boat/support/slam/entity/floors/MapList;->getFloors()Ljava/util/List;
+	53      (000000de) move-result-object   v2
+	54      (000000e0) invoke-static        v0, v2, Lcom/jlboat/phone/activity/MapActivity;->access$1402(Lcom/jlboat/phone/activity/MapActivity; Ljava/util/List;)Ljava/util/List;
+	55      (000000e6) iget-object          v0, v1, Lcom/jlboat/phone/activity/MapActivity$6$1;->this$1 Lcom/jlboat/phone/activity/MapActivity$6;
+	56      (000000ea) iget-object          v0, v0, Lcom/jlboat/phone/activity/MapActivity$6;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	57      (000000ee) iget-object          v2, v1, Lcom/jlboat/phone/activity/MapActivity$6$1;->this$1 Lcom/jlboat/phone/activity/MapActivity$6;
+	58      (000000f2) iget-object          v2, v2, Lcom/jlboat/phone/activity/MapActivity$6;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	59      (000000f6) invoke-static        v2, Lcom/jlboat/phone/activity/MapActivity;->access$1200(Lcom/jlboat/phone/activity/MapActivity;)Lcom/boat/support/slam/entity/floors/MapList;
+	60      (000000fc) move-result-object   v2
+	61      (000000fe) invoke-virtual       v2, Lcom/boat/support/slam/entity/floors/MapList;->getDefaultFloor()J
+	62      (00000104) move-result-wide     v2
+	63      (00000106) invoke-static        v0, v2, v3, Lcom/jlboat/phone/activity/MapActivity;->access$002(Lcom/jlboat/phone/activity/MapActivity; J)J
+	64      (0000010c) iget-object          v0, v1, Lcom/jlboat/phone/activity/MapActivity$6$1;->this$1 Lcom/jlboat/phone/activity/MapActivity$6;
+	65      (00000110) iget-object          v0, v0, Lcom/jlboat/phone/activity/MapActivity$6;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	66      (00000114) invoke-static        v0, Lcom/jlboat/phone/activity/MapActivity;->access$1200(Lcom/jlboat/phone/activity/MapActivity;)Lcom/boat/support/slam/entity/floors/MapList;
+	67      (0000011a) move-result-object   v0
+	68      (0000011c) invoke-virtual       v0, Lcom/boat/support/slam/entity/floors/MapList;->getFloors()Ljava/util/List;
+	69      (00000122) move-result-object   v0
+	70      (00000124) invoke-interface     v0, Ljava/util/List;->iterator()Ljava/util/Iterator;
+	71      (0000012a) move-result-object   v0
+
+onNewMessage-BB@0x12c : [ onNewMessage-BB@0x138 onNewMessage-BB@0x552 ]
+	72      (0000012c) invoke-interface     v0, Ljava/util/Iterator;->hasNext()Z
+	73      (00000132) move-result          v2
+	74      (00000134) if-eqz               v2, +20fh
+
+onNewMessage-BB@0x138 : [ onNewMessage-BB@0x16c onNewMessage-BB@0x54e ]
+	75      (00000138) invoke-interface     v0, Ljava/util/Iterator;->next()Ljava/lang/Object;
+	76      (0000013e) move-result-object   v2
+	77      (00000140) check-cast           v2, Lcom/boat/support/slam/entity/floors/Floors;
+	78      (00000144) invoke-virtual       v2, Lcom/boat/support/slam/entity/floors/Floors;->getFloorId()J
+	79      (0000014a) move-result-wide     v3
+	80      (0000014c) iget-object          v5, v1, Lcom/jlboat/phone/activity/MapActivity$6$1;->this$1 Lcom/jlboat/phone/activity/MapActivity$6;
+	81      (00000150) iget-object          v5, v5, Lcom/jlboat/phone/activity/MapActivity$6;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	82      (00000154) invoke-static        v5, Lcom/jlboat/phone/activity/MapActivity;->access$1200(Lcom/jlboat/phone/activity/MapActivity;)Lcom/boat/support/slam/entity/floors/MapList;
+	83      (0000015a) move-result-object   v5
+	84      (0000015c) invoke-virtual       v5, Lcom/boat/support/slam/entity/floors/MapList;->getDefaultFloor()J
+	85      (00000162) move-result-wide     v5
+	86      (00000164) cmp-long             v7, v3, v5
+	87      (00000168) if-nez               v7, +1f3h
+
+onNewMessage-BB@0x16c : [ onNewMessage-BB@0x18a ]
+	88      (0000016c) iget-object          v0, v1, Lcom/jlboat/phone/activity/MapActivity$6$1;->this$1 Lcom/jlboat/phone/activity/MapActivity$6;
+	89      (00000170) iget-object          v0, v0, Lcom/jlboat/phone/activity/MapActivity$6;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	90      (00000174) invoke-static        v0, v2, Lcom/jlboat/phone/activity/MapActivity;->access$1502(Lcom/jlboat/phone/activity/MapActivity; Lcom/boat/support/slam/entity/floors/Floors;)Lcom/boat/support/slam/entity/floors/Floors;
+	91      (0000017a) invoke-virtual       v2, Lcom/boat/support/slam/entity/floors/Floors;->getMaps()Ljava/util/List;
+	92      (00000180) move-result-object   v0
+	93      (00000182) invoke-interface     v0, Ljava/util/List;->iterator()Ljava/util/Iterator;
+	94      (00000188) move-result-object   v0
+
+onNewMessage-BB@0x18a : [ onNewMessage-BB@0x196 onNewMessage-BB@0x54c ]
+	95      (0000018a) invoke-interface     v0, Ljava/util/Iterator;->hasNext()Z
+	96      (00000190) move-result          v3
+	97      (00000192) if-eqz               v3, +1ddh
+
+onNewMessage-BB@0x196 : [ onNewMessage-BB@0x1ba onNewMessage-BB@0x548 ]
+	98      (00000196) invoke-interface     v0, Ljava/util/Iterator;->next()Ljava/lang/Object;
+	99      (0000019c) move-result-object   v3
+	100     (0000019e) check-cast           v3, Lcom/boat/support/slam/entity/floors/Maps;
+	101     (000001a2) invoke-virtual       v2, Lcom/boat/support/slam/entity/floors/Floors;->getDefaultmap()J
+	102     (000001a8) move-result-wide     v4
+	103     (000001aa) invoke-virtual       v3, Lcom/boat/support/slam/entity/floors/Maps;->getMapId()J
+	104     (000001b0) move-result-wide     v6
+	105     (000001b2) cmp-long             v8, v4, v6
+	106     (000001b6) if-nez               v8, +1c9h
+
+onNewMessage-BB@0x1ba : [ onNewMessage-BB@0x1ce onNewMessage-BB@0x458 ]
+	107     (000001ba) iget-object          v0, v1, Lcom/jlboat/phone/activity/MapActivity$6$1;->this$1 Lcom/jlboat/phone/activity/MapActivity$6;
+	108     (000001be) iget-object          v0, v0, Lcom/jlboat/phone/activity/MapActivity$6;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	109     (000001c2) invoke-static        v0, Lcom/jlboat/phone/activity/MapActivity;->access$800(Lcom/jlboat/phone/activity/MapActivity;)I
+	110     (000001c8) move-result          v0
+	111     (000001ca) if-nez               v0, +147h
+
+onNewMessage-BB@0x1ce : [ onNewMessage-BB@0x1da onNewMessage-BB@0x220 ]
+	112     (000001ce) invoke-virtual       v3, Lcom/boat/support/slam/entity/floors/Maps;->getShapeAreas()Ljava/util/List;
+	113     (000001d4) move-result-object   v0
+	114     (000001d6) if-eqz               v0, +025h
+
+onNewMessage-BB@0x1da : [ onNewMessage-BB@0x1ee onNewMessage-BB@0x220 ]
+	115     (000001da) invoke-virtual       v3, Lcom/boat/support/slam/entity/floors/Maps;->getShapeAreas()Ljava/util/List;
+	116     (000001e0) move-result-object   v0
+	117     (000001e2) invoke-interface     v0, Ljava/util/List;->isEmpty()Z
+	118     (000001e8) move-result          v0
+	119     (000001ea) if-nez               v0, +01bh
+
+onNewMessage-BB@0x1ee : [ onNewMessage-BB@0x202 onNewMessage-BB@0x220 ]
+	120     (000001ee) iget-object          v0, v1, Lcom/jlboat/phone/activity/MapActivity$6$1;->this$1 Lcom/jlboat/phone/activity/MapActivity$6;
+	121     (000001f2) iget-object          v0, v0, Lcom/jlboat/phone/activity/MapActivity$6;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	122     (000001f6) invoke-static        v0, Lcom/jlboat/phone/activity/MapActivity;->access$900(Lcom/jlboat/phone/activity/MapActivity;)Lcom/jlboat/phone/view/MapView;
+	123     (000001fc) move-result-object   v0
+	124     (000001fe) if-eqz               v0, +011h
+
+onNewMessage-BB@0x202 : [ onNewMessage-BB@0x220 ]
+	125     (00000202) iget-object          v0, v1, Lcom/jlboat/phone/activity/MapActivity$6$1;->this$1 Lcom/jlboat/phone/activity/MapActivity$6;
+	126     (00000206) iget-object          v0, v0, Lcom/jlboat/phone/activity/MapActivity$6;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	127     (0000020a) invoke-static        v0, Lcom/jlboat/phone/activity/MapActivity;->access$900(Lcom/jlboat/phone/activity/MapActivity;)Lcom/jlboat/phone/view/MapView;
+	128     (00000210) move-result-object   v0
+	129     (00000212) invoke-virtual       v3, Lcom/boat/support/slam/entity/floors/Maps;->getShapeAreas()Ljava/util/List;
+	130     (00000218) move-result-object   v4
+	131     (0000021a) invoke-virtual       v0, v4, Lcom/jlboat/phone/view/MapView;->setProhibition(Ljava/util/List;)V
+
+onNewMessage-BB@0x220 : [ onNewMessage-BB@0x22c onNewMessage-BB@0x272 ]
+	132     (00000220) invoke-virtual       v3, Lcom/boat/support/slam/entity/floors/Maps;->getRegionList()Ljava/util/List;
+	133     (00000226) move-result-object   v0
+	134     (00000228) if-eqz               v0, +025h
+
+onNewMessage-BB@0x22c : [ onNewMessage-BB@0x240 onNewMessage-BB@0x272 ]
+	135     (0000022c) invoke-virtual       v3, Lcom/boat/support/slam/entity/floors/Maps;->getRegionList()Ljava/util/List;
+	136     (00000232) move-result-object   v0
+	137     (00000234) invoke-interface     v0, Ljava/util/List;->isEmpty()Z
+	138     (0000023a) move-result          v0
+	139     (0000023c) if-nez               v0, +01bh
+
+onNewMessage-BB@0x240 : [ onNewMessage-BB@0x254 onNewMessage-BB@0x272 ]
+	140     (00000240) iget-object          v0, v1, Lcom/jlboat/phone/activity/MapActivity$6$1;->this$1 Lcom/jlboat/phone/activity/MapActivity$6;
+	141     (00000244) iget-object          v0, v0, Lcom/jlboat/phone/activity/MapActivity$6;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	142     (00000248) invoke-static        v0, Lcom/jlboat/phone/activity/MapActivity;->access$900(Lcom/jlboat/phone/activity/MapActivity;)Lcom/jlboat/phone/view/MapView;
+	143     (0000024e) move-result-object   v0
+	144     (00000250) if-eqz               v0, +011h
+
+onNewMessage-BB@0x254 : [ onNewMessage-BB@0x272 ]
+	145     (00000254) iget-object          v0, v1, Lcom/jlboat/phone/activity/MapActivity$6$1;->this$1 Lcom/jlboat/phone/activity/MapActivity$6;
+	146     (00000258) iget-object          v0, v0, Lcom/jlboat/phone/activity/MapActivity$6;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	147     (0000025c) invoke-static        v0, Lcom/jlboat/phone/activity/MapActivity;->access$900(Lcom/jlboat/phone/activity/MapActivity;)Lcom/jlboat/phone/view/MapView;
+	148     (00000262) move-result-object   v0
+	149     (00000264) invoke-virtual       v3, Lcom/boat/support/slam/entity/floors/Maps;->getRegionList()Ljava/util/List;
+	150     (0000026a) move-result-object   v4
+	151     (0000026c) invoke-virtual       v0, v4, Lcom/jlboat/phone/view/MapView;->setRegion(Ljava/util/List;)V
+
+onNewMessage-BB@0x272 : [ onNewMessage-BB@0x29c onNewMessage-BB@0x2f2 ]
+	152     (00000272) iget-object          v0, v1, Lcom/jlboat/phone/activity/MapActivity$6$1;->this$1 Lcom/jlboat/phone/activity/MapActivity$6;
+	153     (00000276) iget-object          v0, v0, Lcom/jlboat/phone/activity/MapActivity$6;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	154     (0000027a) invoke-virtual       v3, Lcom/boat/support/slam/entity/floors/Maps;->getGlobalPlans()Ljava/util/List;
+	155     (00000280) move-result-object   v4
+	156     (00000282) invoke-static        v0, v4, Lcom/jlboat/phone/activity/MapActivity;->access$1602(Lcom/jlboat/phone/activity/MapActivity; Ljava/util/List;)Ljava/util/List;
+	157     (00000288) iget-object          v0, v1, Lcom/jlboat/phone/activity/MapActivity$6$1;->this$1 Lcom/jlboat/phone/activity/MapActivity$6;
+	158     (0000028c) iget-object          v0, v0, Lcom/jlboat/phone/activity/MapActivity$6;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	159     (00000290) invoke-static        v0, Lcom/jlboat/phone/activity/MapActivity;->access$900(Lcom/jlboat/phone/activity/MapActivity;)Lcom/jlboat/phone/view/MapView;
+	160     (00000296) move-result-object   v0
+	161     (00000298) if-eqz               v0, +02dh
+
+onNewMessage-BB@0x29c : [ onNewMessage-BB@0x2b0 onNewMessage-BB@0x2f2 ]
+	162     (0000029c) iget-object          v0, v1, Lcom/jlboat/phone/activity/MapActivity$6$1;->this$1 Lcom/jlboat/phone/activity/MapActivity$6;
+	163     (000002a0) iget-object          v0, v0, Lcom/jlboat/phone/activity/MapActivity$6;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	164     (000002a4) invoke-static        v0, Lcom/jlboat/phone/activity/MapActivity;->access$1600(Lcom/jlboat/phone/activity/MapActivity;)Ljava/util/List;
+	165     (000002aa) move-result-object   v0
+	166     (000002ac) if-eqz               v0, +023h
+
+onNewMessage-BB@0x2b0 : [ onNewMessage-BB@0x2cc onNewMessage-BB@0x2f2 ]
+	167     (000002b0) iget-object          v0, v1, Lcom/jlboat/phone/activity/MapActivity$6$1;->this$1 Lcom/jlboat/phone/activity/MapActivity$6;
+	168     (000002b4) iget-object          v0, v0, Lcom/jlboat/phone/activity/MapActivity$6;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	169     (000002b8) invoke-static        v0, Lcom/jlboat/phone/activity/MapActivity;->access$1600(Lcom/jlboat/phone/activity/MapActivity;)Ljava/util/List;
+	170     (000002be) move-result-object   v0
+	171     (000002c0) invoke-interface     v0, Ljava/util/List;->isEmpty()Z
+	172     (000002c6) move-result          v0
+	173     (000002c8) if-nez               v0, +015h
+
+onNewMessage-BB@0x2cc : [ onNewMessage-BB@0x2f2 ]
+	174     (000002cc) iget-object          v0, v1, Lcom/jlboat/phone/activity/MapActivity$6$1;->this$1 Lcom/jlboat/phone/activity/MapActivity$6;
+	175     (000002d0) iget-object          v0, v0, Lcom/jlboat/phone/activity/MapActivity$6;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	176     (000002d4) invoke-static        v0, Lcom/jlboat/phone/activity/MapActivity;->access$900(Lcom/jlboat/phone/activity/MapActivity;)Lcom/jlboat/phone/view/MapView;
+	177     (000002da) move-result-object   v0
+	178     (000002dc) iget-object          v4, v1, Lcom/jlboat/phone/activity/MapActivity$6$1;->this$1 Lcom/jlboat/phone/activity/MapActivity$6;
+	179     (000002e0) iget-object          v4, v4, Lcom/jlboat/phone/activity/MapActivity$6;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	180     (000002e4) invoke-static        v4, Lcom/jlboat/phone/activity/MapActivity;->access$1600(Lcom/jlboat/phone/activity/MapActivity;)Ljava/util/List;
+	181     (000002ea) move-result-object   v4
+	182     (000002ec) invoke-virtual       v0, v4, Lcom/jlboat/phone/view/MapView;->setGlobalPlans(Ljava/util/List;)V
+
+onNewMessage-BB@0x2f2 : [ onNewMessage-BB@0x2fe onNewMessage-BB@0x458 ]
+	183     (000002f2) invoke-virtual       v3, Lcom/boat/support/slam/entity/floors/Maps;->getNglobalPlans()Lcom/boat/support/slam/entity/floors/NglobalPlans;
+	184     (000002f8) move-result-object   v0
+	185     (000002fa) if-eqz               v0, +0afh
+
+onNewMessage-BB@0x2fe : [ onNewMessage-BB@0x312 onNewMessage-BB@0x458 ]
+	186     (000002fe) invoke-virtual       v3, Lcom/boat/support/slam/entity/floors/Maps;->getNglobalPlans()Lcom/boat/support/slam/entity/floors/NglobalPlans;
+	187     (00000304) move-result-object   v0
+	188     (00000306) invoke-virtual       v0, Lcom/boat/support/slam/entity/floors/NglobalPlans;->getnLines()Ljava/util/List;
+	189     (0000030c) move-result-object   v0
+	190     (0000030e) if-eqz               v0, +0a5h
+
+onNewMessage-BB@0x312 : [ onNewMessage-BB@0x32e onNewMessage-BB@0x458 ]
+	191     (00000312) invoke-virtual       v3, Lcom/boat/support/slam/entity/floors/Maps;->getNglobalPlans()Lcom/boat/support/slam/entity/floors/NglobalPlans;
+	192     (00000318) move-result-object   v0
+	193     (0000031a) invoke-virtual       v0, Lcom/boat/support/slam/entity/floors/NglobalPlans;->getnLines()Ljava/util/List;
+	194     (00000320) move-result-object   v0
+	195     (00000322) invoke-interface     v0, Ljava/util/List;->size()I
+	196     (00000328) move-result          v0
+	197     (0000032a) if-lez               v0, +097h
+
+onNewMessage-BB@0x32e : [ onNewMessage-BB@0x350 ]
+	198     (0000032e) new-instance         v0, Ljava/util/LinkedList;
+	199     (00000332) invoke-direct        v0, Ljava/util/LinkedList;-><init>()V
+	200     (00000338) invoke-virtual       v3, Lcom/boat/support/slam/entity/floors/Maps;->getNglobalPlans()Lcom/boat/support/slam/entity/floors/NglobalPlans;
+	201     (0000033e) move-result-object   v4
+	202     (00000340) invoke-virtual       v4, Lcom/boat/support/slam/entity/floors/NglobalPlans;->getnLines()Ljava/util/List;
+	203     (00000346) move-result-object   v4
+	204     (00000348) invoke-interface     v4, Ljava/util/List;->iterator()Ljava/util/Iterator;
+	205     (0000034e) move-result-object   v4
+
+onNewMessage-BB@0x350 : [ onNewMessage-BB@0x35c onNewMessage-BB@0x442 ]
+	206     (00000350) invoke-interface     v4, Ljava/util/Iterator;->hasNext()Z
+	207     (00000356) move-result          v5
+	208     (00000358) if-eqz               v5, +075h
+
+onNewMessage-BB@0x35c : [ onNewMessage-BB@0x3aa ]
+	209     (0000035c) invoke-interface     v4, Ljava/util/Iterator;->next()Ljava/lang/Object;
+	210     (00000362) move-result-object   v5
+	211     (00000364) check-cast           v5, Lcom/boat/support/slam/entity/floors/NLine;
+	212     (00000368) new-instance         v6, Lcom/jlboat/phone/bean/NgNline;
+	213     (0000036c) invoke-direct        v6, Lcom/jlboat/phone/bean/NgNline;-><init>()V
+	214     (00000372) invoke-virtual       v6, v5, Lcom/jlboat/phone/bean/NgNline;->setnLine(Lcom/boat/support/slam/entity/floors/NLine;)V
+	215     (00000378) const/4              v7, 0
+	216     (0000037a) const/4              v8, 0
+	217     (0000037c) new-instance         v9, Ljava/util/LinkedList;
+	218     (00000380) invoke-direct        v9, Ljava/util/LinkedList;-><init>()V
+	219     (00000386) invoke-virtual       v3, Lcom/boat/support/slam/entity/floors/Maps;->getPoints()Ljava/util/List;
+	220     (0000038c) move-result-object   v10
+	221     (0000038e) invoke-interface     v9, v10, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
+	222     (00000394) invoke-virtual       v3, Lcom/boat/support/slam/entity/floors/Maps;->getSystemPoints()Ljava/util/List;
+	223     (0000039a) move-result-object   v10
+	224     (0000039c) invoke-interface     v9, v10, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
+	225     (000003a2) invoke-interface     v9, Ljava/util/List;->iterator()Ljava/util/Iterator;
+	226     (000003a8) move-result-object   v10
+
+onNewMessage-BB@0x3aa : [ onNewMessage-BB@0x3b6 onNewMessage-BB@0x43a ]
+	227     (000003aa) invoke-interface     v10, Ljava/util/Iterator;->hasNext()Z
+	228     (000003b0) move-result          v11
+	229     (000003b2) if-eqz               v11, +044h
+
+onNewMessage-BB@0x3b6 : [ onNewMessage-BB@0x3da onNewMessage-BB@0x3f8 ]
+	230     (000003b6) invoke-interface     v10, Ljava/util/Iterator;->next()Ljava/lang/Object;
+	231     (000003bc) move-result-object   v11
+	232     (000003be) check-cast           v11, Lcom/boat/support/slam/entity/floors/Points;
+	233     (000003c2) invoke-virtual       v11, Lcom/boat/support/slam/entity/floors/Points;->getPointId()J
+	234     (000003c8) move-result-wide     v12
+	235     (000003ca) invoke-virtual       v5, Lcom/boat/support/slam/entity/floors/NLine;->getStartNid()J
+	236     (000003d0) move-result-wide     v14
+	237     (000003d2) cmp-long             v16, v12, v14
+	238     (000003d6) if-nez               v16, +011h
+
+onNewMessage-BB@0x3da : [ onNewMessage-BB@0x3f8 ]
+	239     (000003da) invoke-virtual       v11, Lcom/boat/support/slam/entity/floors/Points;->getPositionX()D
+	240     (000003e0) move-result-wide     v12
+	241     (000003e2) invoke-virtual       v6, v12, v13, Lcom/jlboat/phone/bean/NgNline;->setStartX(D)V
+	242     (000003e8) invoke-virtual       v11, Lcom/boat/support/slam/entity/floors/Points;->getPositionY()D
+	243     (000003ee) move-result-wide     v12
+	244     (000003f0) invoke-virtual       v6, v12, v13, Lcom/jlboat/phone/bean/NgNline;->setStartY(D)V
+	245     (000003f6) const/4              v7, 1
+
+onNewMessage-BB@0x3f8 : [ onNewMessage-BB@0x410 onNewMessage-BB@0x42e ]
+	246     (000003f8) invoke-virtual       v11, Lcom/boat/support/slam/entity/floors/Points;->getPointId()J
+	247     (000003fe) move-result-wide     v12
+	248     (00000400) invoke-virtual       v5, Lcom/boat/support/slam/entity/floors/NLine;->getEndNid()J
+	249     (00000406) move-result-wide     v14
+	250     (00000408) cmp-long             v16, v12, v14
+	251     (0000040c) if-nez               v16, +011h
+
+onNewMessage-BB@0x410 : [ onNewMessage-BB@0x42e ]
+	252     (00000410) invoke-virtual       v11, Lcom/boat/support/slam/entity/floors/Points;->getPositionX()D
+	253     (00000416) move-result-wide     v12
+	254     (00000418) invoke-virtual       v6, v12, v13, Lcom/jlboat/phone/bean/NgNline;->setEndX(D)V
+	255     (0000041e) invoke-virtual       v11, Lcom/boat/support/slam/entity/floors/Points;->getPositionY()D
+	256     (00000424) move-result-wide     v12
+	257     (00000426) invoke-virtual       v6, v12, v13, Lcom/jlboat/phone/bean/NgNline;->setEndY(D)V
+	258     (0000042c) const/4              v8, 1
+
+onNewMessage-BB@0x42e : [ onNewMessage-BB@0x432 onNewMessage-BB@0x438 ]
+	259     (0000042e) if-eqz               v7, +005h
+
+onNewMessage-BB@0x432 : [ onNewMessage-BB@0x436 onNewMessage-BB@0x438 ]
+	260     (00000432) if-eqz               v8, +003h
+
+onNewMessage-BB@0x436 : [ onNewMessage-BB@0x43a ]
+	261     (00000436) goto                 +2h
+
+onNewMessage-BB@0x438 : [ onNewMessage-BB@0x3aa ]
+	262     (00000438) goto                 -47h
+
+onNewMessage-BB@0x43a : [ onNewMessage-BB@0x350 ]
+	263     (0000043a) invoke-interface     v0, v6, Ljava/util/List;->add(Ljava/lang/Object;)Z
+	264     (00000440) goto                 -78h
+
+onNewMessage-BB@0x442 : [ onNewMessage-BB@0x458 ]
+	265     (00000442) iget-object          v4, v1, Lcom/jlboat/phone/activity/MapActivity$6$1;->this$1 Lcom/jlboat/phone/activity/MapActivity$6;
+	266     (00000446) iget-object          v4, v4, Lcom/jlboat/phone/activity/MapActivity$6;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	267     (0000044a) invoke-static        v4, Lcom/jlboat/phone/activity/MapActivity;->access$900(Lcom/jlboat/phone/activity/MapActivity;)Lcom/jlboat/phone/view/MapView;
+	268     (00000450) move-result-object   v4
+	269     (00000452) invoke-virtual       v4, v0, Lcom/jlboat/phone/view/MapView;->setNgLines(Ljava/util/List;)V
+
+onNewMessage-BB@0x458 : [ onNewMessage-BB@0x4c0 ]
+	270     (00000458) iget-object          v0, v1, Lcom/jlboat/phone/activity/MapActivity$6$1;->this$1 Lcom/jlboat/phone/activity/MapActivity$6;
+	271     (0000045c) iget-object          v0, v0, Lcom/jlboat/phone/activity/MapActivity$6;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	272     (00000460) invoke-virtual       v2, Lcom/boat/support/slam/entity/floors/Floors;->getMaps()Ljava/util/List;
+	273     (00000466) move-result-object   v4
+	274     (00000468) invoke-static        v0, v4, Lcom/jlboat/phone/activity/MapActivity;->access$1702(Lcom/jlboat/phone/activity/MapActivity; Ljava/util/List;)Ljava/util/List;
+	275     (0000046e) iget-object          v0, v1, Lcom/jlboat/phone/activity/MapActivity$6$1;->this$1 Lcom/jlboat/phone/activity/MapActivity$6;
+	276     (00000472) iget-object          v0, v0, Lcom/jlboat/phone/activity/MapActivity$6;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	277     (00000476) invoke-virtual       v2, Lcom/boat/support/slam/entity/floors/Floors;->getDefaultmap()J
+	278     (0000047c) move-result-wide     v4
+	279     (0000047e) invoke-static        v0, v4, v5, Lcom/jlboat/phone/activity/MapActivity;->access$102(Lcom/jlboat/phone/activity/MapActivity; J)J
+	280     (00000484) iget-object          v0, v1, Lcom/jlboat/phone/activity/MapActivity$6$1;->this$1 Lcom/jlboat/phone/activity/MapActivity$6;
+	281     (00000488) iget-object          v0, v0, Lcom/jlboat/phone/activity/MapActivity$6;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	282     (0000048c) invoke-static        v0, Lcom/jlboat/phone/activity/MapActivity;->access$1800(Lcom/jlboat/phone/activity/MapActivity;)Ljava/util/List;
+	283     (00000492) move-result-object   v0
+	284     (00000494) invoke-interface     v0, Ljava/util/List;->clear()V
+	285     (0000049a) iget-object          v0, v1, Lcom/jlboat/phone/activity/MapActivity$6$1;->this$1 Lcom/jlboat/phone/activity/MapActivity$6;
+	286     (0000049e) iget-object          v0, v0, Lcom/jlboat/phone/activity/MapActivity$6;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	287     (000004a2) invoke-static        v0, Lcom/jlboat/phone/activity/MapActivity;->access$1900(Lcom/jlboat/phone/activity/MapActivity;)Ljava/util/List;
+	288     (000004a8) move-result-object   v0
+	289     (000004aa) invoke-interface     v0, Ljava/util/List;->clear()V
+	290     (000004b0) invoke-virtual       v3, Lcom/boat/support/slam/entity/floors/Maps;->getPoints()Ljava/util/List;
+	291     (000004b6) move-result-object   v0
+	292     (000004b8) invoke-interface     v0, Ljava/util/List;->iterator()Ljava/util/Iterator;
+	293     (000004be) move-result-object   v0
+
+onNewMessage-BB@0x4c0 : [ onNewMessage-BB@0x4cc onNewMessage-BB@0x50a ]
+	294     (000004c0) invoke-interface     v0, Ljava/util/Iterator;->hasNext()Z
+	295     (000004c6) move-result          v4
+	296     (000004c8) if-eqz               v4, +021h
+
+onNewMessage-BB@0x4cc : [ onNewMessage-BB@0x4f0 onNewMessage-BB@0x4f2 ]
+	297     (000004cc) invoke-interface     v0, Ljava/util/Iterator;->next()Ljava/lang/Object;
+	298     (000004d2) move-result-object   v4
+	299     (000004d4) check-cast           v4, Lcom/boat/support/slam/entity/floors/Points;
+	300     (000004d8) invoke-virtual       v4, Lcom/boat/support/slam/entity/floors/Points;->getPointName()Ljava/lang/String;
+	301     (000004de) move-result-object   v5
+	302     (000004e0) sget-object          v6, Lcom/jlboat/phone/application/BoatSlamApplication;->CANCLEPOINTNAME Ljava/lang/String;
+	303     (000004e4) invoke-virtual       v5, v6, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	304     (000004ea) move-result          v5
+	305     (000004ec) if-eqz               v5, +003h
+
+onNewMessage-BB@0x4f0 : [ onNewMessage-BB@0x4c0 ]
+	306     (000004f0) goto                 -18h
+
+onNewMessage-BB@0x4f2 : [ onNewMessage-BB@0x4c0 ]
+	307     (000004f2) iget-object          v5, v1, Lcom/jlboat/phone/activity/MapActivity$6$1;->this$1 Lcom/jlboat/phone/activity/MapActivity$6;
+	308     (000004f6) iget-object          v5, v5, Lcom/jlboat/phone/activity/MapActivity$6;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	309     (000004fa) invoke-static        v5, Lcom/jlboat/phone/activity/MapActivity;->access$1800(Lcom/jlboat/phone/activity/MapActivity;)Ljava/util/List;
+	310     (00000500) move-result-object   v5
+	311     (00000502) invoke-interface     v5, v4, Ljava/util/List;->add(Ljava/lang/Object;)Z
+	312     (00000508) goto                 -24h
+
+onNewMessage-BB@0x50a : [ onNewMessage-BB@0x54c ]
+	313     (0000050a) iget-object          v0, v1, Lcom/jlboat/phone/activity/MapActivity$6$1;->this$1 Lcom/jlboat/phone/activity/MapActivity$6;
+	314     (0000050e) iget-object          v0, v0, Lcom/jlboat/phone/activity/MapActivity$6;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	315     (00000512) invoke-virtual       v3, Lcom/boat/support/slam/entity/floors/Maps;->getSystemPoints()Ljava/util/List;
+	316     (00000518) move-result-object   v4
+	317     (0000051a) invoke-static        v0, v4, Lcom/jlboat/phone/activity/MapActivity;->access$1902(Lcom/jlboat/phone/activity/MapActivity; Ljava/util/List;)Ljava/util/List;
+	318     (00000520) iget-object          v0, v1, Lcom/jlboat/phone/activity/MapActivity$6$1;->this$1 Lcom/jlboat/phone/activity/MapActivity$6;
+	319     (00000524) iget-object          v0, v0, Lcom/jlboat/phone/activity/MapActivity$6;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	320     (00000528) invoke-static        v0, Lcom/jlboat/phone/activity/MapActivity;->access$1800(Lcom/jlboat/phone/activity/MapActivity;)Ljava/util/List;
+	321     (0000052e) move-result-object   v0
+	322     (00000530) iget-object          v4, v1, Lcom/jlboat/phone/activity/MapActivity$6$1;->this$1 Lcom/jlboat/phone/activity/MapActivity$6;
+	323     (00000534) iget-object          v4, v4, Lcom/jlboat/phone/activity/MapActivity$6;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	324     (00000538) invoke-static        v4, Lcom/jlboat/phone/activity/MapActivity;->access$1900(Lcom/jlboat/phone/activity/MapActivity;)Ljava/util/List;
+	325     (0000053e) move-result-object   v4
+	326     (00000540) invoke-interface     v0, v4, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
+	327     (00000546) goto                 +3h
+
+onNewMessage-BB@0x548 : [ onNewMessage-BB@0x18a ]
+	328     (00000548) goto/16              -1dfh
+
+onNewMessage-BB@0x54c : [ onNewMessage-BB@0x552 ]
+	329     (0000054c) goto                 +3h
+
+onNewMessage-BB@0x54e : [ onNewMessage-BB@0x12c ]
+	330     (0000054e) goto/16              -211h
+
+onNewMessage-BB@0x552 : [ onNewMessage-BB@0x56a ]
+	331     (00000552) iget-object          v0, v1, Lcom/jlboat/phone/activity/MapActivity$6$1;->this$1 Lcom/jlboat/phone/activity/MapActivity$6;
+	332     (00000556) iget-object          v0, v0, Lcom/jlboat/phone/activity/MapActivity$6;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	333     (0000055a) invoke-static        v0, Lcom/jlboat/phone/activity/MapActivity;->access$2000(Lcom/jlboat/phone/activity/MapActivity;)Landroid/os/Handler;
+	334     (00000560) move-result-object   v0
+	335     (00000562) const/4              v2, 1
+	336     (00000564) invoke-virtual       v0, v2, Landroid/os/Handler;->sendEmptyMessage(I)Z
+
+onNewMessage-BB@0x56a : 
+	337     (0000056a) return-void          
+

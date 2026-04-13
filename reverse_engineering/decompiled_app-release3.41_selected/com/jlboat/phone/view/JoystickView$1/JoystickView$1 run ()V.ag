@@ -1,0 +1,25 @@
+# Lcom/jlboat/phone/view/JoystickView$1;->run()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v2
+#
+# - return:void
+
+run-BB@0x0 : [ run-BB@0x10 run-BB@0x2e ]
+	0       (00000000) iget-object          v0, v2, Lcom/jlboat/phone/view/JoystickView$1;->this$0 Lcom/jlboat/phone/view/JoystickView;
+	1       (00000004) invoke-static        v0, Lcom/jlboat/phone/view/JoystickView;->access$000(Lcom/jlboat/phone/view/JoystickView;)Z
+	2       (0000000a) move-result          v0
+	3       (0000000c) if-eqz               v0, +011h
+
+run-BB@0x10 : [ run-BB@0x2e ]
+	4       (00000010) iget-object          v0, v2, Lcom/jlboat/phone/view/JoystickView$1;->this$0 Lcom/jlboat/phone/view/JoystickView;
+	5       (00000014) invoke-static        v0, Lcom/jlboat/phone/view/JoystickView;->access$200(Lcom/jlboat/phone/view/JoystickView;)Lcom/boat/jrosbridge/Topic;
+	6       (0000001a) move-result-object   v0
+	7       (0000001c) iget-object          v1, v2, Lcom/jlboat/phone/view/JoystickView$1;->this$0 Lcom/jlboat/phone/view/JoystickView;
+	8       (00000020) invoke-static        v1, Lcom/jlboat/phone/view/JoystickView;->access$100(Lcom/jlboat/phone/view/JoystickView;)Lcom/boat/jrosbridge/message/geometry_msgs/Twist;
+	9       (00000026) move-result-object   v1
+	10      (00000028) invoke-virtual       v0, v1, Lcom/boat/jrosbridge/Topic;->publish(Lcom/boat/jrosbridge/message/Message;)V
+
+run-BB@0x2e : 
+	11      (0000002e) return-void          
+

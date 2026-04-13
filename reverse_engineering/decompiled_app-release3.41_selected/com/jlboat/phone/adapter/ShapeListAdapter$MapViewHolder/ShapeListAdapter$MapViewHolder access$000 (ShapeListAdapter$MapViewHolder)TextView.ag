@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/adapter/ShapeListAdapter$MapViewHolder;->access$000(Lcom/jlboat/phone/adapter/ShapeListAdapter$MapViewHolder;)Landroid/widget/TextView; [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.adapter.ShapeListAdapter$MapViewHolder
+#
+# - return:android.widget.TextView
+
+access$000-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/jlboat/phone/adapter/ShapeListAdapter$MapViewHolder;->tv Landroid/widget/TextView;
+	1       (00000004) return-object        v0
+

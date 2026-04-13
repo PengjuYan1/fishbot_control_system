@@ -1,0 +1,61 @@
+# Lcom/jlboat/phone/base/BaseFullActivity;->checkTitle()V [access_flags=private]
+#
+# Parameters:
+# local registers: v0...v3
+#
+# - return:void
+
+checkTitle-BB@0x0 : [ checkTitle-BB@0x8 checkTitle-BB@0x18 ]
+	0       (00000000) iget-object          v0, v3, Lcom/jlboat/phone/base/BaseFullActivity;->batteryView Lcom/jlboat/phone/view/BatteryView;
+	1       (00000004) if-eqz               v0, +00ah
+
+checkTitle-BB@0x8 : [ checkTitle-BB@0x18 ]
+	2       (00000008) iget-object          v0, v3, Lcom/jlboat/phone/base/BaseFullActivity;->batteryView Lcom/jlboat/phone/view/BatteryView;
+	3       (0000000c) sget                 v1, Lcom/jlboat/phone/application/BoatSlamApplication;->power I
+	4       (00000010) int-to-float         v1, v1
+	5       (00000012) invoke-virtual       v0, v1, Lcom/jlboat/phone/view/BatteryView;->setPower(F)V
+
+checkTitle-BB@0x18 : [ checkTitle-BB@0x20 checkTitle-BB@0x54 ]
+	6       (00000018) iget-object          v0, v3, Lcom/jlboat/phone/base/BaseFullActivity;->robo_phow_text Landroid/widget/TextView;
+	7       (0000001c) if-eqz               v0, +01ch
+
+checkTitle-BB@0x20 : [ checkTitle-BB@0x54 ]
+	8       (00000020) iget-object          v0, v3, Lcom/jlboat/phone/base/BaseFullActivity;->robo_phow_text Landroid/widget/TextView;
+	9       (00000024) new-instance         v1, Ljava/lang/StringBuilder;
+	10      (00000028) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	11      (0000002e) sget                 v2, Lcom/jlboat/phone/application/BoatSlamApplication;->power I
+	12      (00000032) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	13      (00000038) move-result-object   v1
+	14      (0000003a) const-string         v2, "%"
+	15      (0000003e) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	16      (00000044) move-result-object   v1
+	17      (00000046) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	18      (0000004c) move-result-object   v1
+	19      (0000004e) invoke-virtual       v0, v1, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+checkTitle-BB@0x54 : [ checkTitle-BB@0x5c checkTitle-BB@0x86 ]
+	20      (00000054) iget-boolean         v0, v3, Lcom/jlboat/phone/base/BaseFullActivity;->isShowBattery Z
+	21      (00000058) if-eqz               v0, +017h
+
+checkTitle-BB@0x5c : [ checkTitle-BB@0x64 checkTitle-BB@0x86 ]
+	22      (0000005c) iget-object          v0, v3, Lcom/jlboat/phone/base/BaseFullActivity;->iv_battery_eating Landroid/widget/ImageView;
+	23      (00000060) if-eqz               v0, +013h
+
+checkTitle-BB@0x64 : [ checkTitle-BB@0x6c checkTitle-BB@0x7a ]
+	24      (00000064) sget                 v0, Lcom/jlboat/phone/application/BoatSlamApplication;->change I
+	25      (00000068) if-nez               v0, +009h
+
+checkTitle-BB@0x6c : [ checkTitle-BB@0x86 ]
+	26      (0000006c) iget-object          v0, v3, Lcom/jlboat/phone/base/BaseFullActivity;->iv_battery_eating Landroid/widget/ImageView;
+	27      (00000070) const/4              v1, 4
+	28      (00000072) invoke-virtual       v0, v1, Landroid/widget/ImageView;->setVisibility(I)V
+	29      (00000078) goto                 +7h
+
+checkTitle-BB@0x7a : [ checkTitle-BB@0x86 ]
+	30      (0000007a) iget-object          v0, v3, Lcom/jlboat/phone/base/BaseFullActivity;->iv_battery_eating Landroid/widget/ImageView;
+	31      (0000007e) const/4              v1, 0
+	32      (00000080) invoke-virtual       v0, v1, Landroid/widget/ImageView;->setVisibility(I)V
+
+checkTitle-BB@0x86 : 
+	33      (00000086) return-void          
+

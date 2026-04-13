@@ -1,0 +1,26 @@
+# Lcom/jlboat/phone/activity/MapCleanAreaActivity$9;->onNewMessage(Lcom/jlboat/phone/message/map_msgs/SetCleanAreaResponse;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:com.jlboat.phone.message.map_msgs.SetCleanAreaResponse
+#
+# - return:void
+
+onNewMessage-BB@0x0 : [ onNewMessage-BB@0x8 onNewMessage-BB@0x1a ]
+	0       (00000000) iget-boolean         v0, v2, Lcom/jlboat/phone/activity/MapCleanAreaActivity$9;->val$isadd Z
+	1       (00000004) if-eqz               v0, +00bh
+
+onNewMessage-BB@0x8 : [ onNewMessage-BB@0x2a ]
+	2       (00000008) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapCleanAreaActivity$9;->this$0 Lcom/jlboat/phone/activity/MapCleanAreaActivity;
+	3       (0000000c) const                v1, 2131492918
+	4       (00000012) invoke-virtual       v0, v1, Lcom/jlboat/phone/activity/MapCleanAreaActivity;->toast(I)V
+	5       (00000018) goto                 +9h
+
+onNewMessage-BB@0x1a : [ onNewMessage-BB@0x2a ]
+	6       (0000001a) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapCleanAreaActivity$9;->this$0 Lcom/jlboat/phone/activity/MapCleanAreaActivity;
+	7       (0000001e) const                v1, 2131492917
+	8       (00000024) invoke-virtual       v0, v1, Lcom/jlboat/phone/activity/MapCleanAreaActivity;->toast(I)V
+
+onNewMessage-BB@0x2a : 
+	9       (0000002a) return-void          
+

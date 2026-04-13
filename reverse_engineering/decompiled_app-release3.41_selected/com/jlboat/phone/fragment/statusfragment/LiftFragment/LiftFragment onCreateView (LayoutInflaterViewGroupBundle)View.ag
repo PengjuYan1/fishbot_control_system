@@ -1,0 +1,27 @@
+# Lcom/jlboat/phone/fragment/statusfragment/LiftFragment;->onCreateView(Landroid/view/LayoutInflater; Landroid/view/ViewGroup; Landroid/os/Bundle;)Landroid/view/View; [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:android.view.LayoutInflater
+# - v4:android.view.ViewGroup
+# - v5:android.os.Bundle
+#
+# - return:android.view.View
+
+onCreateView-BB@0x0 : 
+	0       (00000000) invoke-virtual       v2, Lcom/jlboat/phone/fragment/statusfragment/LiftFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+	1       (00000006) move-result-object   v0
+	2       (00000008) iput-object          v0, v2, Lcom/jlboat/phone/fragment/statusfragment/LiftFragment;->mContext Landroid/content/Context;
+	3       (0000000c) const-string         v0, "LiftFragment"
+	4       (00000010) const-string         v1, "onCreateView called"
+	5       (00000014) invoke-static        v0, v1, Lcom/boat/jrosbridge/message/Log;->d(Ljava/lang/String; Ljava/lang/String;)V
+	6       (0000001a) new-instance         v0, Landroid/os/Handler;
+	7       (0000001e) invoke-static        Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
+	8       (00000024) move-result-object   v1
+	9       (00000026) invoke-direct        v0, v1, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+	10      (0000002c) iput-object          v0, v2, Lcom/jlboat/phone/fragment/statusfragment/LiftFragment;->mainHandler Landroid/os/Handler;
+	11      (00000030) invoke-virtual       v2, Lcom/jlboat/phone/fragment/statusfragment/LiftFragment;->init()V
+	12      (00000036) invoke-super         v2, v3, v4, v5, Lcom/jlboat/phone/base/BaseFragment;->onCreateView(Landroid/view/LayoutInflater; Landroid/view/ViewGroup; Landroid/os/Bundle;)Landroid/view/View;
+	13      (0000003c) move-result-object   v0
+	14      (0000003e) return-object        v0
+

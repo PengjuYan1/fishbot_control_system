@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/adapter/NgLineListAdapter;->setOnclickItem(Lcom/jlboat/phone/adapter/NgLineListAdapter$OnClick;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.adapter.NgLineListAdapter$OnClick
+#
+# - return:void
+
+setOnclickItem-BB@0x0 : 
+	0       (00000000) iput-object          v1, v0, Lcom/jlboat/phone/adapter/NgLineListAdapter;->onclick Lcom/jlboat/phone/adapter/NgLineListAdapter$OnClick;
+	1       (00000004) return-void          
+

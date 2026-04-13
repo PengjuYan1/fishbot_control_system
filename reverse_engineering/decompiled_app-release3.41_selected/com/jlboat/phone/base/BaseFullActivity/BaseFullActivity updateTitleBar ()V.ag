@@ -1,0 +1,32 @@
+# Lcom/jlboat/phone/base/BaseFullActivity;->updateTitleBar()V [access_flags=private]
+#
+# Parameters:
+# local registers: v0...v4
+#
+# - return:void
+
+updateTitleBar-BB@0x0 : [ updateTitleBar-BB@0x14 updateTitleBar-BB@0x34 ]
+	0       (00000000) sget-object          v0, Lcom/jlboat/phone/application/BoatSlamApplication;->errList Ljava/util/List;
+	1       (00000004) invoke-interface     v0, Ljava/util/List;->isEmpty()Z
+	2       (0000000a) move-result          v0
+	3       (0000000c) const/16             v1, 100
+	4       (00000010) if-eqz               v0, +012h
+
+updateTitleBar-BB@0x14 : [ updateTitleBar-BB@0x42 ]
+	5       (00000014) iget-object          v0, v4, Lcom/jlboat/phone/base/BaseFullActivity;->mHandler Landroid/os/Handler;
+	6       (00000018) invoke-virtual       v0, v1, Landroid/os/Handler;->removeMessages(I)V
+	7       (0000001e) iget-object          v0, v4, Lcom/jlboat/phone/base/BaseFullActivity;->errImg Landroid/widget/ImageView;
+	8       (00000022) const/16             v1, 8
+	9       (00000026) invoke-virtual       v0, v1, Landroid/widget/ImageView;->setVisibility(I)V
+	10      (0000002c) const/4              v0, 1
+	11      (0000002e) iput-boolean         v0, v4, Lcom/jlboat/phone/base/BaseFullActivity;->IS_SHOW_ERR_IMG Z
+	12      (00000032) goto                 +8h
+
+updateTitleBar-BB@0x34 : [ updateTitleBar-BB@0x42 ]
+	13      (00000034) iget-object          v0, v4, Lcom/jlboat/phone/base/BaseFullActivity;->mHandler Landroid/os/Handler;
+	14      (00000038) const-wide/16        v2, 2000
+	15      (0000003c) invoke-virtual       v0, v1, v2, v3, Landroid/os/Handler;->sendEmptyMessageDelayed(I J)Z
+
+updateTitleBar-BB@0x42 : 
+	16      (00000042) return-void          
+

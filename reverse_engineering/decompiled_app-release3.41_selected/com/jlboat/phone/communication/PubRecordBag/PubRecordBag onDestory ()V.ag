@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/communication/PubRecordBag;->onDestory()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:void
+
+onDestory-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/jlboat/phone/communication/PubRecordBag;->grabagPublisher Lcom/boat/jrosbridge/Topic;
+	1       (00000004) invoke-virtual       v0, Lcom/boat/jrosbridge/Topic;->unadvertise()V
+	2       (0000000a) return-void          
+

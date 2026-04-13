@@ -1,0 +1,46 @@
+# Lcom/jlboat/phone/communication/TFPoseListener$2;->run()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v2
+#
+# - return:void
+
+run-BB@0x0 : [ run-BB@0x2 ]
+	0       (00000000) nop                  
+
+run-BB@0x2 : [ run-BB@0x12 run-BB@0x3c ]
+	1       (00000002) iget-object          v0, v2, Lcom/jlboat/phone/communication/TFPoseListener$2;->this$0 Lcom/jlboat/phone/communication/TFPoseListener;
+	2       (00000006) invoke-static        v0, Lcom/jlboat/phone/communication/TFPoseListener;->access$100(Lcom/jlboat/phone/communication/TFPoseListener;)Z
+	3       (0000000c) move-result          v0
+	4       (0000000e) if-eqz               v0, +017h
+
+run-BB@0x12 : [ run-BB@0x16 ]
+	5       (00000012) const-wide/16        v0, 200
+
+run-BB@0x16 : [ run-BB@0x26 ]
+	6       (00000016) invoke-static        v0, v1, Ljava/lang/Thread;->sleep(J)V
+	7       (0000001c) goto                 +5h
+	16:1b
+	(Ljava/lang/InterruptedException; -> 1e run-BB@0x1e)
+
+run-BB@0x1e : [ run-BB@0x26 ]
+	8       (0000001e) move-exception       v0
+	9       (00000020) invoke-virtual       v0, Ljava/lang/InterruptedException;->printStackTrace()V
+
+run-BB@0x26 : [ run-BB@0x3a ]
+	10      (00000026) iget-object          v0, v2, Lcom/jlboat/phone/communication/TFPoseListener$2;->this$0 Lcom/jlboat/phone/communication/TFPoseListener;
+	11      (0000002a) invoke-static        v0, Lcom/jlboat/phone/communication/TFPoseListener;->access$200(Lcom/jlboat/phone/communication/TFPoseListener;)V
+	12      (00000030) goto                 +5h
+	26:2f
+	(Ljava/lang/Exception; -> 32 run-BB@0x32)
+
+run-BB@0x32 : [ run-BB@0x3a ]
+	13      (00000032) move-exception       v0
+	14      (00000034) invoke-virtual       v0, Ljava/lang/Exception;->printStackTrace()V
+
+run-BB@0x3a : [ run-BB@0x2 ]
+	15      (0000003a) goto                 -1ch
+
+run-BB@0x3c : 
+	16      (0000003c) return-void          
+

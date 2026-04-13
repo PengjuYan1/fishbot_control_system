@@ -1,0 +1,40 @@
+# Lcom/boat/support/slam/ISlamService$Stub$Proxy;->getLocalFloors()Lcom/boat/support/slam/entity/floors/Floors; [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v5
+#
+# - return:com.boat.support.slam.entity.floors.Floors
+
+getLocalFloors-BB@0x0 : [ getLocalFloors-BB@0x10 ]
+	0       (00000000) invoke-static        Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+	1       (00000006) move-result-object   v0
+	2       (00000008) invoke-static        Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+	3       (0000000e) move-result-object   v1
+
+getLocalFloors-BB@0x10 : 
+	4       (00000010) const-string         v2, "com.boat.support.slam.ISlamService"
+	5       (00000014) invoke-virtual       v0, v2, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+	6       (0000001a) iget-object          v2, v5, Lcom/boat/support/slam/ISlamService$Stub$Proxy;->mRemote Landroid/os/IBinder;
+	7       (0000001e) const/16             v3, 34
+	8       (00000022) const/4              v4, 0
+	9       (00000024) invoke-interface     v2, v3, v0, v1, v4, Landroid/os/IBinder;->transact(I Landroid/os/Parcel; Landroid/os/Parcel; I)Z
+	10      (0000002a) move-result          v2
+	11      (0000002c) invoke-virtual       v1, Landroid/os/Parcel;->readException()V
+	12      (00000032) sget-object          v3, Lcom/boat/support/slam/entity/floors/Floors;->CREATOR Landroid/os/Parcelable$Creator;
+	13      (00000036) invoke-static        v1, v3, Lcom/boat/support/slam/ISlamService$_Parcel;->access$000(Landroid/os/Parcel; Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
+	14      (0000003c) move-result-object   v3
+	15      (0000003e) check-cast           v3, Lcom/boat/support/slam/entity/floors/Floors;
+	16      (00000042) move-object          v2, v3
+	17      (00000044) invoke-virtual       v1, Landroid/os/Parcel;->recycle()V
+	18      (0000004a) invoke-virtual       v0, Landroid/os/Parcel;->recycle()V
+	19      (00000050) nop                  
+	20      (00000052) return-object        v2
+	10:41
+	(Ljava/lang/Throwable; -> 54 getLocalFloors-BB@0x54)
+
+getLocalFloors-BB@0x54 : 
+	21      (00000054) move-exception       v2
+	22      (00000056) invoke-virtual       v1, Landroid/os/Parcel;->recycle()V
+	23      (0000005c) invoke-virtual       v0, Landroid/os/Parcel;->recycle()V
+	24      (00000062) throw                v2
+

@@ -1,0 +1,30 @@
+# Lcom/jlboat/phone/view/Err;->readFromParcel(Landroid/os/Parcel;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v5
+# - v6:android.os.Parcel
+#
+# - return:void
+
+readFromParcel-BB@0x0 : [ readFromParcel-BB@0x20 readFromParcel-BB@0x24 ]
+	0       (00000000) invoke-virtual       v6, Landroid/os/Parcel;->readString()Ljava/lang/String;
+	1       (00000006) move-result-object   v0
+	2       (00000008) iput-object          v0, v5, Lcom/jlboat/phone/view/Err;->msg Ljava/lang/String;
+	3       (0000000c) invoke-virtual       v6, Landroid/os/Parcel;->readLong()J
+	4       (00000012) move-result-wide     v0
+	5       (00000014) const-wide/16        v2, -1
+	6       (00000018) cmp-long             v4, v0, v2
+	7       (0000001c) if-nez               v4, +004h
+
+readFromParcel-BB@0x20 : [ readFromParcel-BB@0x2e ]
+	8       (00000020) const/4              v2, 0
+	9       (00000022) goto                 +6h
+
+readFromParcel-BB@0x24 : [ readFromParcel-BB@0x2e ]
+	10      (00000024) new-instance         v2, Ljava/util/Date;
+	11      (00000028) invoke-direct        v2, v0, v1, Ljava/util/Date;-><init>(J)V
+
+readFromParcel-BB@0x2e : 
+	12      (0000002e) iput-object          v2, v5, Lcom/jlboat/phone/view/Err;->da Ljava/util/Date;
+	13      (00000032) return-void          
+

@@ -1,0 +1,19 @@
+# Lcom/boat/utils/OkHttpUtils;->getJsonRequestAboutGet(Ljava/lang/String;)Lokhttp3/Request; [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:java.lang.String
+#
+# - return:okhttp3.Request
+
+getJsonRequestAboutGet-BB@0x0 : 
+	0       (00000000) new-instance         v0, Lokhttp3/Request$Builder;
+	1       (00000004) invoke-direct        v0, Lokhttp3/Request$Builder;-><init>()V
+	2       (0000000a) invoke-virtual       v0, v2, Lokhttp3/Request$Builder;->url(Ljava/lang/String;)Lokhttp3/Request$Builder;
+	3       (00000010) move-result-object   v0
+	4       (00000012) invoke-virtual       v0, Lokhttp3/Request$Builder;->get()Lokhttp3/Request$Builder;
+	5       (00000018) move-result-object   v0
+	6       (0000001a) invoke-virtual       v0, Lokhttp3/Request$Builder;->build()Lokhttp3/Request;
+	7       (00000020) move-result-object   v0
+	8       (00000022) return-object        v0
+

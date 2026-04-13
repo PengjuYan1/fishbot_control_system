@@ -1,0 +1,16 @@
+# Lcom/jlboat/phone/activity/TestResultActivity202508;->cancleTest()V [access_flags=private]
+#
+# Parameters:
+# local registers: v0...v2
+#
+# - return:void
+
+cancleTest-BB@0x0 : 
+	0       (00000000) new-instance         v0, Lcom/boat/jrosbridge/message/std_msgs/Int16;
+	1       (00000004) invoke-direct        v0, Lcom/boat/jrosbridge/message/std_msgs/Int16;-><init>()V
+	2       (0000000a) const/4              v1, 5
+	3       (0000000c) invoke-virtual       v0, v1, Lcom/boat/jrosbridge/message/std_msgs/Int16;->setData(S)V
+	4       (00000012) iget-object          v1, v2, Lcom/jlboat/phone/activity/TestResultActivity202508;->stopNaviPublish Lcom/boat/jrosbridge/Topic;
+	5       (00000016) invoke-virtual       v1, v0, Lcom/boat/jrosbridge/Topic;->publish(Lcom/boat/jrosbridge/message/Message;)V
+	6       (0000001c) return-void          
+

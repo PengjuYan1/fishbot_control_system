@@ -1,0 +1,56 @@
+# Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift$2;->onClick(Landroid/view/View;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:android.view.View
+#
+# - return:void
+
+onClick-BB@0x0 : [ onClick-BB@0x30 onClick-BB@0x4e ]
+	0       (00000000) iget-object          v0, v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift$2;->this$0 Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;
+	1       (00000004) invoke-static        v0, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->access$500(Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;)Ljava/lang/String;
+	2       (0000000a) move-result-object   v0
+	3       (0000000c) const-string         v1, "点击添加队列"
+	4       (00000010) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	5       (00000016) iget-object          v0, v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift$2;->this$0 Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;
+	6       (0000001a) invoke-static        v0, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->access$300(Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;)Ljava/util/List;
+	7       (00000020) move-result-object   v0
+	8       (00000022) invoke-interface     v0, Ljava/util/List;->size()I
+	9       (00000028) move-result          v0
+	10      (0000002a) const/4              v1, 2
+	11      (0000002c) if-eq                v0, v1, +011h
+
+onClick-BB@0x30 : 
+	12      (00000030) const-string         v0, "请选择两个点位"
+	13      (00000034) invoke-static        v0, Lcom/jlboat/phone/util/Utils;->toast(Ljava/lang/String;)V
+	14      (0000003a) iget-object          v1, v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift$2;->this$0 Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;
+	15      (0000003e) invoke-static        v1, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->access$500(Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;)Ljava/lang/String;
+	16      (00000044) move-result-object   v1
+	17      (00000046) invoke-static        v1, v0, Landroid/util/Log;->e(Ljava/lang/String; Ljava/lang/String;)I
+	18      (0000004c) return-void          
+
+onClick-BB@0x4e : 
+	19      (0000004e) iget-object          v0, v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift$2;->this$0 Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;
+	20      (00000052) invoke-static        v0, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->access$600(Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;)V
+	21      (00000058) const-string         v0, "添加成功"
+	22      (0000005c) invoke-static        v0, Lcom/jlboat/phone/util/Utils;->toast(Ljava/lang/String;)V
+	23      (00000062) iget-object          v0, v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift$2;->this$0 Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;
+	24      (00000066) invoke-static        v0, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->access$500(Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;)Ljava/lang/String;
+	25      (0000006c) move-result-object   v0
+	26      (0000006e) new-instance         v1, Ljava/lang/StringBuilder;
+	27      (00000072) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	28      (00000078) const-string         v2, "添加后队列："
+	29      (0000007c) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	30      (00000082) move-result-object   v1
+	31      (00000084) iget-object          v2, v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift$2;->this$0 Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;
+	32      (00000088) invoke-static        v2, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->access$700(Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;)Lcom/jlboat/phone/message/map_msgs/NaviQueueList;
+	33      (0000008e) move-result-object   v2
+	34      (00000090) invoke-virtual       v2, Lcom/jlboat/phone/message/map_msgs/NaviQueueList;->toString()Ljava/lang/String;
+	35      (00000096) move-result-object   v2
+	36      (00000098) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	37      (0000009e) move-result-object   v1
+	38      (000000a0) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	39      (000000a6) move-result-object   v1
+	40      (000000a8) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	41      (000000ae) return-void          
+

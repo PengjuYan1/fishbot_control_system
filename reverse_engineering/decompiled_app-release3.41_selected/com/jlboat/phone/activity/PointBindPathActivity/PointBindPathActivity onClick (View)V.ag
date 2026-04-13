@@ -1,0 +1,68 @@
+# Lcom/jlboat/phone/activity/PointBindPathActivity;->onClick(Landroid/view/View;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:android.view.View
+#
+# - return:void
+
+onClick-BB@0x0 : [ D:onClick-BB@0xe 2131230784:onClick-BB@0x76 2131230785:onClick-BB@0xe 2131230786:onClick-BB@0xe 2131230787:onClick-BB@0x74 2131230788:onClick-BB@0x10 ]
+	0       (00000000) invoke-virtual       v3, Landroid/view/View;->getId()I
+	1       (00000006) move-result          v0
+	2       (00000008) packed-switch        v0, +0000048h
+
+onClick-BB@0xe : [ onClick-BB@0x94 ]
+	3       (0000000e) goto                 +43h
+
+onClick-BB@0x10 : [ onClick-BB@0x20 onClick-BB@0x66 ]
+	4       (00000010) iget-object          v0, v2, Lcom/jlboat/phone/activity/PointBindPathActivity;->newAddPos Ljava/util/List;
+	5       (00000014) invoke-interface     v0, Ljava/util/List;->size()I
+	6       (0000001a) move-result          v0
+	7       (0000001c) if-lez               v0, +025h
+
+onClick-BB@0x20 : [ onClick-BB@0x28 onClick-BB@0x58 ]
+	8       (00000020) iget                 v0, v2, Lcom/jlboat/phone/activity/PointBindPathActivity;->flag I
+	9       (00000024) if-nez               v0, +01ah
+
+onClick-BB@0x28 : [ onClick-BB@0x94 ]
+	10      (00000028) iget-object          v0, v2, Lcom/jlboat/phone/activity/PointBindPathActivity;->newAddPos Ljava/util/List;
+	11      (0000002c) invoke-interface     v0, Ljava/util/List;->size()I
+	12      (00000032) move-result          v0
+	13      (00000034) iput                 v0, v2, Lcom/jlboat/phone/activity/PointBindPathActivity;->isShowToast I
+	14      (00000038) iget-object          v0, v2, Lcom/jlboat/phone/activity/PointBindPathActivity;->handler Landroid/os/Handler;
+	15      (0000003c) const/16             v1, 1001
+	16      (00000040) invoke-virtual       v0, v1, Landroid/os/Handler;->sendEmptyMessage(I)Z
+	17      (00000046) new-instance         v0, Lcom/jlboat/phone/activity/PointBindPathActivity$3;
+	18      (0000004a) invoke-direct        v0, v2, Lcom/jlboat/phone/activity/PointBindPathActivity$3;-><init>(Lcom/jlboat/phone/activity/PointBindPathActivity;)V
+	19      (00000050) invoke-virtual       v0, Lcom/jlboat/phone/activity/PointBindPathActivity$3;->start()V
+	20      (00000056) goto                 +1fh
+
+onClick-BB@0x58 : [ onClick-BB@0x94 ]
+	21      (00000058) const                v0, 2131493295
+	22      (0000005e) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/PointBindPathActivity;->toast(I)V
+	23      (00000064) goto                 +18h
+
+onClick-BB@0x66 : [ onClick-BB@0x94 ]
+	24      (00000066) const                v0, 2131493294
+	25      (0000006c) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/PointBindPathActivity;->toast(I)V
+	26      (00000072) goto                 +11h
+
+onClick-BB@0x74 : [ onClick-BB@0x94 ]
+	27      (00000074) goto                 +10h
+
+onClick-BB@0x76 : [ onClick-BB@0x94 ]
+	28      (00000076) iget-object          v0, v2, Lcom/jlboat/phone/activity/PointBindPathActivity;->newAddPos Ljava/util/List;
+	29      (0000007a) invoke-interface     v0, Ljava/util/List;->clear()V
+	30      (00000080) const/4              v0, 0
+	31      (00000082) iput                 v0, v2, Lcom/jlboat/phone/activity/PointBindPathActivity;->flag I
+	32      (00000086) iget-object          v0, v2, Lcom/jlboat/phone/activity/PointBindPathActivity;->newBindPointListAdapter Lcom/jlboat/phone/adapter/NewBindPointListAdapter;
+	33      (0000008a) iget-object          v1, v2, Lcom/jlboat/phone/activity/PointBindPathActivity;->newAddPos Ljava/util/List;
+	34      (0000008e) invoke-virtual       v0, v1, Lcom/jlboat/phone/adapter/NewBindPointListAdapter;->setData(Ljava/util/List;)V
+
+onClick-BB@0x94 : 
+	35      (00000094) return-void          
+
+onClick-BB@0x96 : 
+	36      (00000096) nop                  
+	37      (00000098) packed-switch-payload 7f080040 7f080041 7f080042 7f080043 7f080044
+

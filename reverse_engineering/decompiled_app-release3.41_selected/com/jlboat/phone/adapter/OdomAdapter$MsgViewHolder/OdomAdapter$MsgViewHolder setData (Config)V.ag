@@ -1,0 +1,33 @@
+# Lcom/jlboat/phone/adapter/OdomAdapter$MsgViewHolder;->setData(Lcom/jlboat/phone/message/map_msgs/Config;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:com.jlboat.phone.message.map_msgs.Config
+#
+# - return:void
+
+setData-BB@0x0 : 
+	0       (00000000) invoke-static        Lcom/jlboat/phone/adapter/OdomAdapter;->access$700()Ljava/lang/String;
+	1       (00000006) move-result-object   v0
+	2       (00000008) new-instance         v1, Ljava/lang/StringBuilder;
+	3       (0000000c) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	4       (00000012) const-string         v2, "setData: "
+	5       (00000016) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	6       (0000001c) move-result-object   v1
+	7       (0000001e) invoke-virtual       v4, Lcom/jlboat/phone/message/map_msgs/Config;->getType()I
+	8       (00000024) move-result          v2
+	9       (00000026) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	10      (0000002c) move-result-object   v1
+	11      (0000002e) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	12      (00000034) move-result-object   v1
+	13      (00000036) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	14      (0000003c) iget-object          v0, v3, Lcom/jlboat/phone/adapter/OdomAdapter$MsgViewHolder;->odom_name Landroid/widget/TextView;
+	15      (00000040) invoke-virtual       v4, Lcom/jlboat/phone/message/map_msgs/Config;->getConfigName()Ljava/lang/String;
+	16      (00000046) move-result-object   v1
+	17      (00000048) invoke-virtual       v0, v1, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+	18      (0000004e) iget-object          v0, v3, Lcom/jlboat/phone/adapter/OdomAdapter$MsgViewHolder;->odom_value Landroid/widget/TextView;
+	19      (00000052) invoke-virtual       v4, Lcom/jlboat/phone/message/map_msgs/Config;->getConfigValue()Ljava/lang/String;
+	20      (00000058) move-result-object   v1
+	21      (0000005a) invoke-virtual       v0, v1, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+	22      (00000060) return-void          
+

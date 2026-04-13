@@ -1,0 +1,23 @@
+# Lcom/jlboat/phone/activity/GrabBagActivity;-><init>()V [access_flags=public constructor]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) invoke-direct        v1, Lcom/jlboat/phone/base/BaseFullActivity;-><init>()V
+	1       (00000006) const-string         v0, "GrabBagActivity"
+	2       (0000000a) iput-object          v0, v1, Lcom/jlboat/phone/activity/GrabBagActivity;->TAG Ljava/lang/String;
+	3       (0000000e) new-instance         v0, Lcom/jlboat/phone/communication/PubRecordBag;
+	4       (00000012) invoke-direct        v0, Lcom/jlboat/phone/communication/PubRecordBag;-><init>()V
+	5       (00000018) iput-object          v0, v1, Lcom/jlboat/phone/activity/GrabBagActivity;->pubRecordBagListener Lcom/jlboat/phone/communication/PubRecordBag;
+	6       (0000001c) new-instance         v0, Lcom/jlboat/phone/communication/SpiritServiceClient;
+	7       (00000020) invoke-direct        v0, Lcom/jlboat/phone/communication/SpiritServiceClient;-><init>()V
+	8       (00000026) iput-object          v0, v1, Lcom/jlboat/phone/activity/GrabBagActivity;->spiritServiceClient Lcom/jlboat/phone/communication/SpiritServiceClient;
+	9       (0000002a) iput-object          v1, v1, Lcom/jlboat/phone/activity/GrabBagActivity;->mContext Landroid/content/Context;
+	10      (0000002e) new-instance         v0, Lcom/jlboat/phone/activity/GrabBagActivity$3;
+	11      (00000032) invoke-direct        v0, v1, Lcom/jlboat/phone/activity/GrabBagActivity$3;-><init>(Lcom/jlboat/phone/activity/GrabBagActivity;)V
+	12      (00000038) iput-object          v0, v1, Lcom/jlboat/phone/activity/GrabBagActivity;->handler Landroid/os/Handler;
+	13      (0000003c) return-void          
+

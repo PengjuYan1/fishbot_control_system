@@ -1,0 +1,19 @@
+# Lcom/jlboat/phone/fragment/statusfragment/LiftFragment$1;->onNewMessage(Lcom/boat/jrosbridge/message/std_msgs/Int16;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:com.boat.jrosbridge.message.std_msgs.Int16
+#
+# - return:void
+
+onNewMessage-BB@0x0 : 
+	0       (00000000) invoke-virtual       v4, Lcom/boat/jrosbridge/message/std_msgs/Int16;->getData()S
+	1       (00000006) move-result          v0
+	2       (00000008) iget-object          v1, v3, Lcom/jlboat/phone/fragment/statusfragment/LiftFragment$1;->this$0 Lcom/jlboat/phone/fragment/statusfragment/LiftFragment;
+	3       (0000000c) invoke-static        v1, Lcom/jlboat/phone/fragment/statusfragment/LiftFragment;->access$000(Lcom/jlboat/phone/fragment/statusfragment/LiftFragment;)Landroid/os/Handler;
+	4       (00000012) move-result-object   v1
+	5       (00000014) new-instance         v2, Lcom/jlboat/phone/fragment/statusfragment/LiftFragment$1$$ExternalSyntheticLambda0;
+	6       (00000018) invoke-direct        v2, v3, v0, Lcom/jlboat/phone/fragment/statusfragment/LiftFragment$1$$ExternalSyntheticLambda0;-><init>(Lcom/jlboat/phone/fragment/statusfragment/LiftFragment$1; S)V
+	7       (0000001e) invoke-virtual       v1, v2, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+	8       (00000024) return-void          
+

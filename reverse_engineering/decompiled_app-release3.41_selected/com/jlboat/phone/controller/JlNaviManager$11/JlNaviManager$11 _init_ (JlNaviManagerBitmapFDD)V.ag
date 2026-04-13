@@ -1,0 +1,21 @@
+# Lcom/jlboat/phone/controller/JlNaviManager$11;-><init>(Lcom/jlboat/phone/controller/JlNaviManager; Landroid/graphics/Bitmap; F D D)V [access_flags=constructor]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:com.jlboat.phone.controller.JlNaviManager
+# - v4:android.graphics.Bitmap
+# - v5:float
+# - v6:double
+# - v7:double
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) iput-object          v1, v0, Lcom/jlboat/phone/controller/JlNaviManager$11;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	1       (00000004) iput-object          v2, v0, Lcom/jlboat/phone/controller/JlNaviManager$11;->val$data Landroid/graphics/Bitmap;
+	2       (00000008) iput                 v3, v0, Lcom/jlboat/phone/controller/JlNaviManager$11;->val$resolution F
+	3       (0000000c) iput-wide            v4, v0, Lcom/jlboat/phone/controller/JlNaviManager$11;->val$originX D
+	4       (00000010) iput-wide            v6, v0, Lcom/jlboat/phone/controller/JlNaviManager$11;->val$originY D
+	5       (00000014) invoke-direct        v0, Lcom/boat/support/slam/IBitmapService$Stub;-><init>()V
+	6       (0000001a) return-void          
+

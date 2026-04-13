@@ -1,0 +1,21 @@
+# Lcom/boat/jrosbridge/rosbridge/implementation/Registry;->unregister(Ljava/lang/Class; Ljava/lang/String;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:java.lang.Class
+# - v3:java.lang.String
+#
+# - return:void
+
+unregister-BB@0x0 : [ unregister-BB@0x10 unregister-BB@0x16 ]
+	0       (00000000) invoke-virtual       v1, v2, Lcom/boat/jrosbridge/rosbridge/implementation/Registry;->get(Ljava/lang/Object;)Ljava/lang/Object;
+	1       (00000006) move-result-object   v0
+	2       (00000008) check-cast           v0, Ljava/util/Map;
+	3       (0000000c) if-eqz               v0, +005h
+
+unregister-BB@0x10 : [ unregister-BB@0x16 ]
+	4       (00000010) invoke-interface     v0, v3, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+
+unregister-BB@0x16 : 
+	5       (00000016) return-void          
+

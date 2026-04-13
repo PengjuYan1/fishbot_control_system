@@ -1,0 +1,15 @@
+# Lcom/jlboat/phone/view/loading/LoadingView;->OnStopAnim()I [access_flags=protected]
+#
+# Parameters:
+# local registers: v0...v2
+#
+# - return:int
+
+OnStopAnim-BB@0x0 : 
+	0       (00000000) const/4              v0, 0
+	1       (00000002) iput-boolean         v0, v2, Lcom/jlboat/phone/view/loading/LoadingView;->isSmile Z
+	2       (00000006) const/4              v1, 0
+	3       (00000008) iput                 v1, v2, Lcom/jlboat/phone/view/loading/LoadingView;->mAnimatedValue F
+	4       (0000000c) iput                 v1, v2, Lcom/jlboat/phone/view/loading/LoadingView;->startAngle F
+	5       (00000010) return               v0
+

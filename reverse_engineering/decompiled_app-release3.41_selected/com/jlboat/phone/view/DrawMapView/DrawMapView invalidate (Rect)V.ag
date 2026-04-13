@@ -1,0 +1,24 @@
+# Lcom/jlboat/phone/view/DrawMapView;->invalidate(Landroid/graphics/Rect;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v7
+# - v8:android.graphics.Rect
+#
+# - return:void
+
+invalidate-BB@0x0 : [ invalidate-BB@0x1c invalidate-BB@0x26 ]
+	0       (00000000) invoke-static        Ljava/lang/System;->currentTimeMillis()J
+	1       (00000006) move-result-wide     v0
+	2       (00000008) iget-wide            v2, v7, Lcom/jlboat/phone/view/DrawMapView;->lastRefreshTime J
+	3       (0000000c) sub-long             v2, v0, v2
+	4       (00000010) const-wide/16        v4, 16
+	5       (00000014) cmp-long             v6, v2, v4
+	6       (00000018) if-lez               v6, +007h
+
+invalidate-BB@0x1c : [ invalidate-BB@0x26 ]
+	7       (0000001c) invoke-super         v7, Landroid/view/View;->invalidate()V
+	8       (00000022) iput-wide            v0, v7, Lcom/jlboat/phone/view/DrawMapView;->lastRefreshTime J
+
+invalidate-BB@0x26 : 
+	9       (00000026) return-void          
+

@@ -1,0 +1,63 @@
+# Lcom/jlboat/phone/adapter/ConfigListAdapter$3;->handleMessage(Landroid/os/Message;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v5
+# - v6:android.os.Message
+#
+# - return:void
+
+handleMessage-BB@0x0 : [ D:handleMessage-BB@0xa 1:handleMessage-BB@0xc ]
+	0       (00000000) iget                 v0, v6, Landroid/os/Message;->what I
+	1       (00000004) packed-switch        v0, +0000050h
+
+handleMessage-BB@0xa : [ handleMessage-BB@0xa2 ]
+	2       (0000000a) goto                 +4ch
+
+handleMessage-BB@0xc : [ handleMessage-BB@0x24 handleMessage-BB@0x6e ]
+	3       (0000000c) iget-object          v0, v5, Lcom/jlboat/phone/adapter/ConfigListAdapter$3;->this$0 Lcom/jlboat/phone/adapter/ConfigListAdapter;
+	4       (00000010) invoke-static        v0, Lcom/jlboat/phone/adapter/ConfigListAdapter;->access$700(Lcom/jlboat/phone/adapter/ConfigListAdapter;)J
+	5       (00000016) move-result-wide     v0
+	6       (00000018) const-wide/16        v2, 0
+	7       (0000001c) cmp-long             v4, v0, v2
+	8       (00000020) if-nez               v4, +027h
+
+handleMessage-BB@0x24 : [ handleMessage-BB@0xa2 ]
+	9       (00000024) iget-object          v0, v5, Lcom/jlboat/phone/adapter/ConfigListAdapter$3;->this$0 Lcom/jlboat/phone/adapter/ConfigListAdapter;
+	10      (00000028) invoke-static        v0, Lcom/jlboat/phone/adapter/ConfigListAdapter;->access$900(Lcom/jlboat/phone/adapter/ConfigListAdapter;)Lcom/jlboat/phone/activity/BasicSettingActivity;
+	11      (0000002e) move-result-object   v0
+	12      (00000030) const/4              v1, 0
+	13      (00000032) invoke-virtual       v0, v1, Lcom/jlboat/phone/activity/BasicSettingActivity;->getConfigs(I)V
+	14      (00000038) iget-object          v0, v5, Lcom/jlboat/phone/adapter/ConfigListAdapter$3;->this$0 Lcom/jlboat/phone/adapter/ConfigListAdapter;
+	15      (0000003c) invoke-static        v0, Lcom/jlboat/phone/adapter/ConfigListAdapter;->access$300(Lcom/jlboat/phone/adapter/ConfigListAdapter;)Landroid/content/Context;
+	16      (00000042) move-result-object   v0
+	17      (00000044) iget-object          v1, v5, Lcom/jlboat/phone/adapter/ConfigListAdapter$3;->this$0 Lcom/jlboat/phone/adapter/ConfigListAdapter;
+	18      (00000048) invoke-static        v1, Lcom/jlboat/phone/adapter/ConfigListAdapter;->access$300(Lcom/jlboat/phone/adapter/ConfigListAdapter;)Landroid/content/Context;
+	19      (0000004e) move-result-object   v1
+	20      (00000050) invoke-virtual       v1, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+	21      (00000056) move-result-object   v1
+	22      (00000058) const                v2, 2131493306
+	23      (0000005e) invoke-virtual       v1, v2, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+	24      (00000064) move-result-object   v1
+	25      (00000066) invoke-static        v0, v1, Lcom/jlboat/phone/adapter/ConfigListAdapter;->showToast(Landroid/content/Context; Ljava/lang/String;)V
+	26      (0000006c) goto                 +1bh
+
+handleMessage-BB@0x6e : [ handleMessage-BB@0xa2 ]
+	27      (0000006e) iget-object          v0, v5, Lcom/jlboat/phone/adapter/ConfigListAdapter$3;->this$0 Lcom/jlboat/phone/adapter/ConfigListAdapter;
+	28      (00000072) invoke-static        v0, Lcom/jlboat/phone/adapter/ConfigListAdapter;->access$300(Lcom/jlboat/phone/adapter/ConfigListAdapter;)Landroid/content/Context;
+	29      (00000078) move-result-object   v0
+	30      (0000007a) iget-object          v1, v5, Lcom/jlboat/phone/adapter/ConfigListAdapter$3;->this$0 Lcom/jlboat/phone/adapter/ConfigListAdapter;
+	31      (0000007e) invoke-static        v1, Lcom/jlboat/phone/adapter/ConfigListAdapter;->access$300(Lcom/jlboat/phone/adapter/ConfigListAdapter;)Landroid/content/Context;
+	32      (00000084) move-result-object   v1
+	33      (00000086) invoke-virtual       v1, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+	34      (0000008c) move-result-object   v1
+	35      (0000008e) const                v2, 2131493305
+	36      (00000094) invoke-virtual       v1, v2, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+	37      (0000009a) move-result-object   v1
+	38      (0000009c) invoke-static        v0, v1, Lcom/jlboat/phone/adapter/ConfigListAdapter;->showToast(Landroid/content/Context; Ljava/lang/String;)V
+
+handleMessage-BB@0xa2 : 
+	39      (000000a2) return-void          
+
+handleMessage-BB@0xa4 : 
+	40      (000000a4) packed-switch-payload 1
+

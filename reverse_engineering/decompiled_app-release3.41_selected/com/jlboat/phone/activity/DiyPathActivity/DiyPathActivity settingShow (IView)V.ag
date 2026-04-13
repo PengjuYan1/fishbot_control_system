@@ -1,0 +1,43 @@
+# Lcom/jlboat/phone/activity/DiyPathActivity;->settingShow(I Landroid/view/View;)V [access_flags=private]
+#
+# Parameters:
+# - local registers: v0...v8
+# - v9:int
+# - v10:android.view.View
+#
+# - return:void
+
+settingShow-BB@0x0 : 
+	0       (00000000) iget-object          v0, v8, Lcom/jlboat/phone/activity/DiyPathActivity;->mGlobalPlans Ljava/util/List;
+	1       (00000004) invoke-interface     v0, v9, Ljava/util/List;->get(I)Ljava/lang/Object;
+	2       (0000000a) move-result-object   v0
+	3       (0000000c) check-cast           v0, Lcom/boat/support/slam/entity/floors/GlobalPlans;
+	4       (00000010) new-instance         v7, Lcom/jlboat/phone/view/PathItemSettingPopup;
+	5       (00000014) new-instance         v3, Lcom/jlboat/phone/activity/DiyPathActivity$7;
+	6       (00000018) invoke-direct        v3, v8, v0, Lcom/jlboat/phone/activity/DiyPathActivity$7;-><init>(Lcom/jlboat/phone/activity/DiyPathActivity; Lcom/boat/support/slam/entity/floors/GlobalPlans;)V
+	7       (0000001e) new-instance         v4, Lcom/jlboat/phone/activity/DiyPathActivity$8;
+	8       (00000022) invoke-direct        v4, v8, v0, Lcom/jlboat/phone/activity/DiyPathActivity$8;-><init>(Lcom/jlboat/phone/activity/DiyPathActivity; Lcom/boat/support/slam/entity/floors/GlobalPlans;)V
+	9       (00000028) new-instance         v5, Lcom/jlboat/phone/activity/DiyPathActivity$9;
+	10      (0000002c) invoke-direct        v5, v8, v9, Lcom/jlboat/phone/activity/DiyPathActivity$9;-><init>(Lcom/jlboat/phone/activity/DiyPathActivity; I)V
+	11      (00000032) new-instance         v6, Lcom/jlboat/phone/activity/DiyPathActivity$10;
+	12      (00000036) invoke-direct        v6, v8, v9, v0, Lcom/jlboat/phone/activity/DiyPathActivity$10;-><init>(Lcom/jlboat/phone/activity/DiyPathActivity; I Lcom/boat/support/slam/entity/floors/GlobalPlans;)V
+	13      (0000003c) move-object          v1, v7
+	14      (0000003e) move-object          v2, v8
+	15      (00000040) invoke-direct/range  v1 ... v6, Lcom/jlboat/phone/view/PathItemSettingPopup;-><init>(Landroid/content/Context; Landroid/view/View$OnClickListener; Landroid/view/View$OnClickListener; Landroid/view/View$OnClickListener; Landroid/view/View$OnClickListener;)V
+	16      (00000046) iput-object          v7, v8, Lcom/jlboat/phone/activity/DiyPathActivity;->pathItemSettingPopup Lcom/jlboat/phone/view/PathItemSettingPopup;
+	17      (0000004a) invoke-static        v8, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
+	18      (00000050) move-result-object   v1
+	19      (00000052) const                v2, 2131361927
+	20      (00000058) const/4              v3, 0
+	21      (0000005a) invoke-virtual       v1, v2, v3, Landroid/view/LayoutInflater;->inflate(I Landroid/view/ViewGroup;)Landroid/view/View;
+	22      (00000060) move-result-object   v1
+	23      (00000062) invoke-direct        v8, v10, v1, Lcom/jlboat/phone/activity/DiyPathActivity;->calculatePopWindowPos(Landroid/view/View; Landroid/view/View;)[I
+	24      (00000068) move-result-object   v2
+	25      (0000006a) iget-object          v3, v8, Lcom/jlboat/phone/activity/DiyPathActivity;->pathItemSettingPopup Lcom/jlboat/phone/view/PathItemSettingPopup;
+	26      (0000006e) const/4              v4, 0
+	27      (00000070) aget                 v5, v2, v4
+	28      (00000074) const/4              v6, 1
+	29      (00000076) aget                 v6, v2, v6
+	30      (0000007a) invoke-virtual       v3, v10, v4, v5, v6, Lcom/jlboat/phone/view/PathItemSettingPopup;->showAtLocation(Landroid/view/View; I I I)V
+	31      (00000080) return-void          
+

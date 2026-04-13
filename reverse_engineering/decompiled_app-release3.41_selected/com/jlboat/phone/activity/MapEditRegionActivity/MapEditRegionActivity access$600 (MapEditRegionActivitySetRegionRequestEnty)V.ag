@@ -1,0 +1,13 @@
+# Lcom/jlboat/phone/activity/MapEditRegionActivity;->access$600(Lcom/jlboat/phone/activity/MapEditRegionActivity; Lworld_canvas_msgs18/SetRegionRequestEnty;)V [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v-1
+# - v0:com.jlboat.phone.activity.MapEditRegionActivity
+# - v1:world_canvas_msgs18.SetRegionRequestEnty
+#
+# - return:void
+
+access$600-BB@0x0 : 
+	0       (00000000) invoke-direct        v0, v1, Lcom/jlboat/phone/activity/MapEditRegionActivity;->delRegion(Lworld_canvas_msgs18/SetRegionRequestEnty;)V
+	1       (00000006) return-void          
+

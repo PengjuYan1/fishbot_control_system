@@ -1,0 +1,26 @@
+# Lcom/boat/support/slam/SlamManager;->saveMap(Ljava/lang/String;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:java.lang.String
+#
+# - return:void
+
+saveMap-BB@0x0 : [ saveMap-BB@0x8 saveMap-BB@0x1c ]
+	0       (00000000) iget-object          v0, v1, Lcom/boat/support/slam/SlamManager;->slamService Lcom/boat/support/slam/ISlamService;
+	1       (00000004) if-eqz               v0, +00ch
+
+saveMap-BB@0x8 : [ saveMap-BB@0x1c ]
+	2       (00000008) iget-object          v0, v1, Lcom/boat/support/slam/SlamManager;->slamService Lcom/boat/support/slam/ISlamService;
+	3       (0000000c) invoke-interface     v0, v2, Lcom/boat/support/slam/ISlamService;->saveMap(Ljava/lang/String;)V
+	4       (00000012) goto                 +5h
+	8:11
+	(Landroid/os/RemoteException; -> 14 saveMap-BB@0x14)
+
+saveMap-BB@0x14 : [ saveMap-BB@0x1c ]
+	5       (00000014) move-exception       v0
+	6       (00000016) invoke-virtual       v0, Landroid/os/RemoteException;->printStackTrace()V
+
+saveMap-BB@0x1c : 
+	7       (0000001c) return-void          
+

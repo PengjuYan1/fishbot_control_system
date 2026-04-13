@@ -1,0 +1,11 @@
+# Lcom/boat/support/slam/entity/floors/ShapeAreas;->getClosed()Z [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:boolean
+
+getClosed-BB@0x0 : 
+	0       (00000000) iget-boolean         v0, v1, Lcom/boat/support/slam/entity/floors/ShapeAreas;->closed Z
+	1       (00000004) return               v0
+

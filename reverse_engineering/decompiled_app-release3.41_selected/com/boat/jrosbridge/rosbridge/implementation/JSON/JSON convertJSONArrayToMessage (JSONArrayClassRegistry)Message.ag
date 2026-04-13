@@ -1,0 +1,61 @@
+# Lcom/boat/jrosbridge/rosbridge/implementation/JSON;->convertJSONArrayToMessage(Lorg/json/simple/JSONArray; Ljava/lang/Class; Lcom/boat/jrosbridge/rosbridge/implementation/Registry;)Lcom/boat/jrosbridge/message/Message; [access_flags=private static]
+#
+# Parameters:
+# - local registers: v0...v9
+# - v10:org.json.simple.JSONArray
+# - v11:java.lang.Class
+# - v12:com.boat.jrosbridge.rosbridge.implementation.Registry
+#
+# - return:com.boat.jrosbridge.message.Message
+
+convertJSONArrayToMessage-BB@0x0 : [ convertJSONArrayToMessage-BB@0x2 ]
+	0       (00000000) const/4              v0, 0
+
+convertJSONArrayToMessage-BB@0x2 : [ convertJSONArrayToMessage-BB@0x1c ]
+	1       (00000002) invoke-virtual       v11, Ljava/lang/Class;->newInstance()Ljava/lang/Object;
+	2       (00000008) move-result-object   v1
+	3       (0000000a) check-cast           v1, Lcom/boat/jrosbridge/message/Message;
+	4       (0000000e) const/4              v2, 0
+	5       (00000010) invoke-virtual       v11, Ljava/lang/Class;->getFields()[Ljava/lang/reflect/Field;
+	6       (00000016) move-result-object   v3
+	7       (00000018) array-length         v4, v3
+	8       (0000001a) const/4              v5, 0
+	2:49
+	(Ljava/lang/Exception; -> 54 convertJSONArrayToMessage-BB@0x54)
+
+convertJSONArrayToMessage-BB@0x1c : [ convertJSONArrayToMessage-BB@0x20 convertJSONArrayToMessage-BB@0x52 ]
+	9       (0000001c) if-ge                v5, v4, +01bh
+	2:49
+	(Ljava/lang/Exception; -> 54 convertJSONArrayToMessage-BB@0x54)
+
+convertJSONArrayToMessage-BB@0x20 : [ convertJSONArrayToMessage-BB@0x3c convertJSONArrayToMessage-BB@0x4a ]
+	10      (00000020) aget-object          v6, v3, v5
+	11      (00000024) invoke-static        v1, v0, v6, v12, Lcom/boat/jrosbridge/rosbridge/implementation/JSON;->getFieldClass(Lcom/boat/jrosbridge/message/Message; Lorg/json/simple/JSONObject; Ljava/lang/reflect/Field; Lcom/boat/jrosbridge/rosbridge/implementation/Registry;)Ljava/lang/Class;
+	12      (0000002a) move-result-object   v7
+	13      (0000002c) add-int/lit8         v8, v2, 1
+	14      (00000030) invoke-virtual       v10, v2, Lorg/json/simple/JSONArray;->get(I)Ljava/lang/Object;
+	15      (00000036) move-result-object   v2
+	16      (00000038) if-eqz               v2, +009h
+	2:49
+	(Ljava/lang/Exception; -> 54 convertJSONArrayToMessage-BB@0x54)
+
+convertJSONArrayToMessage-BB@0x3c : [ convertJSONArrayToMessage-BB@0x4a ]
+	17      (0000003c) invoke-static        v2, v7, v6, v12, Lcom/boat/jrosbridge/rosbridge/implementation/JSON;->convertElementToField(Ljava/lang/Object; Ljava/lang/Class; Ljava/lang/reflect/Field; Lcom/boat/jrosbridge/rosbridge/implementation/Registry;)Ljava/lang/Object;
+	18      (00000042) move-result-object   v9
+	19      (00000044) invoke-virtual       v6, v1, v9, Ljava/lang/reflect/Field;->set(Ljava/lang/Object; Ljava/lang/Object;)V
+	2:49
+	(Ljava/lang/Exception; -> 54 convertJSONArrayToMessage-BB@0x54)
+
+convertJSONArrayToMessage-BB@0x4a : [ convertJSONArrayToMessage-BB@0x1c ]
+	20      (0000004a) add-int/lit8         v5, v5, 1
+	21      (0000004e) move                 v2, v8
+	22      (00000050) goto                 -1ah
+
+convertJSONArrayToMessage-BB@0x52 : 
+	23      (00000052) return-object        v1
+
+convertJSONArrayToMessage-BB@0x54 : 
+	24      (00000054) move-exception       v1
+	25      (00000056) invoke-virtual       v1, Ljava/lang/Exception;->printStackTrace()V
+	26      (0000005c) return-object        v0
+

@@ -1,0 +1,26 @@
+# Lcom/jlboat/phone/view/MapView;->pointToLine(D D D D D D)D [access_flags=private]
+#
+# Parameters:
+# - local registers: v0...v21
+# - v22:double
+# - v23:double
+# - v24:double
+# - v25:double
+# - v26:double
+# - v27:double
+#
+# - return:double
+
+pointToLine-BB@0x0 : 
+	0       (00000000) const-wide           v13, 4517329193108106637
+	1       (0000000a) move-object          v0, v15
+	2       (0000000c) move-wide/from16     v1, v16
+	3       (00000010) move-wide/from16     v3, v18
+	4       (00000014) move-wide/from16     v5, v20
+	5       (00000018) move-wide/from16     v7, v22
+	6       (0000001c) move-wide/from16     v9, v24
+	7       (00000020) move-wide/from16     v11, v26
+	8       (00000024) invoke-direct/range  v0 ... v14, Lcom/jlboat/phone/view/MapView;->pointToLine(D D D D D D D)D
+	9       (0000002a) move-result-wide     v0
+	10      (0000002c) return-wide          v0
+

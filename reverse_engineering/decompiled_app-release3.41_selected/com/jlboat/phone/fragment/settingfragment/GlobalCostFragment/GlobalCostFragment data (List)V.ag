@@ -1,0 +1,28 @@
+# Lcom/jlboat/phone/fragment/settingfragment/GlobalCostFragment;->data(Ljava/util/List;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:java.util.List
+#
+# - return:void
+
+data-BB@0x0 : 
+	0       (00000000) new-instance         v0, Lcom/jlboat/phone/adapter/ConfigListAdapter;
+	1       (00000004) iget-object          v1, v3, Lcom/jlboat/phone/fragment/settingfragment/GlobalCostFragment;->mContext Landroid/content/Context;
+	2       (00000008) invoke-direct        v0, v1, Lcom/jlboat/phone/adapter/ConfigListAdapter;-><init>(Landroid/content/Context;)V
+	3       (0000000e) iput-object          v0, v3, Lcom/jlboat/phone/fragment/settingfragment/GlobalCostFragment;->adapter Lcom/jlboat/phone/adapter/ConfigListAdapter;
+	4       (00000012) iget-object          v0, v3, Lcom/jlboat/phone/fragment/settingfragment/GlobalCostFragment;->rvq Landroid/support/v7/widget/RecyclerView;
+	5       (00000016) new-instance         v1, Landroid/support/v7/widget/LinearLayoutManager;
+	6       (0000001a) iget-object          v2, v3, Lcom/jlboat/phone/fragment/settingfragment/GlobalCostFragment;->mContext Landroid/content/Context;
+	7       (0000001e) invoke-direct        v1, v2, Landroid/support/v7/widget/LinearLayoutManager;-><init>(Landroid/content/Context;)V
+	8       (00000024) invoke-virtual       v0, v1, Landroid/support/v7/widget/RecyclerView;->setLayoutManager(Landroid/support/v7/widget/RecyclerView$LayoutManager;)V
+	9       (0000002a) iget-object          v0, v3, Lcom/jlboat/phone/fragment/settingfragment/GlobalCostFragment;->rvq Landroid/support/v7/widget/RecyclerView;
+	10      (0000002e) iget-object          v1, v3, Lcom/jlboat/phone/fragment/settingfragment/GlobalCostFragment;->adapter Lcom/jlboat/phone/adapter/ConfigListAdapter;
+	11      (00000032) invoke-virtual       v0, v1, Landroid/support/v7/widget/RecyclerView;->setAdapter(Landroid/support/v7/widget/RecyclerView$Adapter;)V
+	12      (00000038) iget-object          v0, v3, Lcom/jlboat/phone/fragment/settingfragment/GlobalCostFragment;->adapter Lcom/jlboat/phone/adapter/ConfigListAdapter;
+	13      (0000003c) const/4              v1, 2
+	14      (0000003e) invoke-virtual       v0, v4, v1, Lcom/jlboat/phone/adapter/ConfigListAdapter;->setMdata(Ljava/util/List; I)V
+	15      (00000044) iget-object          v0, v3, Lcom/jlboat/phone/fragment/settingfragment/GlobalCostFragment;->adapter Lcom/jlboat/phone/adapter/ConfigListAdapter;
+	16      (00000048) invoke-virtual       v0, Lcom/jlboat/phone/adapter/ConfigListAdapter;->notifyDataSetChanged()V
+	17      (0000004e) return-void          
+

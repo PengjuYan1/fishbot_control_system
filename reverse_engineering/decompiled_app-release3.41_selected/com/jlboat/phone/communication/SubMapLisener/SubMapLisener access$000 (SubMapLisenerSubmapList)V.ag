@@ -1,0 +1,13 @@
+# Lcom/jlboat/phone/communication/SubMapLisener;->access$000(Lcom/jlboat/phone/communication/SubMapLisener; Lcartographer_ros_msgs/SubmapList;)V [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v-1
+# - v0:com.jlboat.phone.communication.SubMapLisener
+# - v1:cartographer_ros_msgs.SubmapList
+#
+# - return:void
+
+access$000-BB@0x0 : 
+	0       (00000000) invoke-direct        v0, v1, Lcom/jlboat/phone/communication/SubMapLisener;->pubSubmapList(Lcartographer_ros_msgs/SubmapList;)V
+	1       (00000006) return-void          
+

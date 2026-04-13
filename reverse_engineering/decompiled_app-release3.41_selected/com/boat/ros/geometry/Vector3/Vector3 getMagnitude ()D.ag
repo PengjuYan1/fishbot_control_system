@@ -1,0 +1,14 @@
+# Lcom/boat/ros/geometry/Vector3;->getMagnitude()D [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v2
+#
+# - return:double
+
+getMagnitude-BB@0x0 : 
+	0       (00000000) invoke-virtual       v2, Lcom/boat/ros/geometry/Vector3;->getMagnitudeSquared()D
+	1       (00000006) move-result-wide     v0
+	2       (00000008) invoke-static        v0, v1, Ljava/lang/Math;->sqrt(D)D
+	3       (0000000e) move-result-wide     v0
+	4       (00000010) return-wide          v0
+

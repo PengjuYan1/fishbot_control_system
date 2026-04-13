@@ -1,0 +1,33 @@
+# Lcom/jlboat/phone/LoginActivity;->checkPermissionAllGranted([Ljava/lang/String;)Z [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v5
+# - v6:java.lang.String[]
+#
+# - return:boolean
+
+checkPermissionAllGranted-BB@0x0 : [ checkPermissionAllGranted-BB@0x6 ]
+	0       (00000000) array-length         v0, v6
+	1       (00000002) const/4              v1, 0
+	2       (00000004) const/4              v2, 0
+
+checkPermissionAllGranted-BB@0x6 : [ checkPermissionAllGranted-BB@0xa checkPermissionAllGranted-BB@0x22 ]
+	3       (00000006) if-ge                v2, v0, +00eh
+
+checkPermissionAllGranted-BB@0xa : [ checkPermissionAllGranted-BB@0x1a checkPermissionAllGranted-BB@0x1c ]
+	4       (0000000a) aget-object          v3, v6, v2
+	5       (0000000e) invoke-static        v5, v3, Landroid/support/v4/content/ContextCompat;->checkSelfPermission(Landroid/content/Context; Ljava/lang/String;)I
+	6       (00000014) move-result          v4
+	7       (00000016) if-eqz               v4, +003h
+
+checkPermissionAllGranted-BB@0x1a : 
+	8       (0000001a) return               v1
+
+checkPermissionAllGranted-BB@0x1c : [ checkPermissionAllGranted-BB@0x6 ]
+	9       (0000001c) add-int/lit8         v2, v2, 1
+	10      (00000020) goto                 -dh
+
+checkPermissionAllGranted-BB@0x22 : 
+	11      (00000022) const/4              v0, 1
+	12      (00000024) return               v0
+

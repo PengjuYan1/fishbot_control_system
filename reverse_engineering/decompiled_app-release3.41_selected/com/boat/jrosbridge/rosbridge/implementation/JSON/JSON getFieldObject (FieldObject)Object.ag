@@ -1,0 +1,27 @@
+# Lcom/boat/jrosbridge/rosbridge/implementation/JSON;->getFieldObject(Ljava/lang/reflect/Field; Ljava/lang/Object;)Ljava/lang/Object; [access_flags=private static]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:java.lang.reflect.Field
+# - v3:java.lang.Object
+#
+# - return:java.lang.Object
+
+getFieldObject-BB@0x0 : [ getFieldObject-BB@0x2 ]
+	0       (00000000) const/4              v0, 0
+
+getFieldObject-BB@0x2 : [ getFieldObject-BB@0x16 ]
+	1       (00000002) invoke-virtual       v2, v3, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
+	2       (00000008) move-result-object   v1
+	3       (0000000a) move-object          v0, v1
+	4       (0000000c) goto                 +5h
+	2:9
+	(Ljava/lang/IllegalAccessException; -> e getFieldObject-BB@0xe)
+
+getFieldObject-BB@0xe : [ getFieldObject-BB@0x16 ]
+	5       (0000000e) move-exception       v1
+	6       (00000010) invoke-virtual       v1, Ljava/lang/IllegalAccessException;->printStackTrace()V
+
+getFieldObject-BB@0x16 : 
+	7       (00000016) return-object        v0
+

@@ -1,0 +1,11 @@
+# Lcom/jlboat/phone/controller/JlNaviManager;->updateHeadAndLight(Z)V [access_flags=private]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:boolean
+#
+# - return:void
+
+updateHeadAndLight-BB@0x0 : 
+	0       (00000000) return-void          
+

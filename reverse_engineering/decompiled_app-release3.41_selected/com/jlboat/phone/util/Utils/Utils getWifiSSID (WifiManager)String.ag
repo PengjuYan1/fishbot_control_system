@@ -1,0 +1,31 @@
+# Lcom/jlboat/phone/util/Utils;->getWifiSSID(Landroid/net/wifi/WifiManager;)Ljava/lang/String; [access_flags=public static]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:android.net.wifi.WifiManager
+#
+# - return:java.lang.String
+
+getWifiSSID-BB@0x0 : [ getWifiSSID-BB@0x6 getWifiSSID-BB@0x8 ]
+	0       (00000000) const/4              v0, 0
+	1       (00000002) if-nez               v4, +003h
+
+getWifiSSID-BB@0x6 : 
+	2       (00000006) return-object        v0
+
+getWifiSSID-BB@0x8 : [ getWifiSSID-BB@0x20 getWifiSSID-BB@0x2a ]
+	3       (00000008) invoke-virtual       v4, Landroid/net/wifi/WifiManager;->getConnectionInfo()Landroid/net/wifi/WifiInfo;
+	4       (0000000e) move-result-object   v1
+	5       (00000010) invoke-virtual       v1, Landroid/net/wifi/WifiInfo;->getSupplicantState()Landroid/net/wifi/SupplicantState;
+	6       (00000016) move-result-object   v2
+	7       (00000018) sget-object          v3, Landroid/net/wifi/SupplicantState;->COMPLETED Landroid/net/wifi/SupplicantState;
+	8       (0000001c) if-ne                v2, v3, +007h
+
+getWifiSSID-BB@0x20 : 
+	9       (00000020) invoke-virtual       v1, Landroid/net/wifi/WifiInfo;->getSSID()Ljava/lang/String;
+	10      (00000026) move-result-object   v0
+	11      (00000028) return-object        v0
+
+getWifiSSID-BB@0x2a : 
+	12      (0000002a) return-object        v0
+

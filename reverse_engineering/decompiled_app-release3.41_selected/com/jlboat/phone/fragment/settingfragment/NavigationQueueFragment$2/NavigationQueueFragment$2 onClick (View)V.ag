@@ -1,0 +1,38 @@
+# Lcom/jlboat/phone/fragment/settingfragment/NavigationQueueFragment$2;->onClick(Landroid/view/View;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:android.view.View
+#
+# - return:void
+
+onClick-BB@0x0 : 
+	0       (00000000) iget-object          v0, v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationQueueFragment$2;->this$0 Lcom/jlboat/phone/fragment/settingfragment/NavigationQueueFragment;
+	1       (00000004) invoke-static        v0, Lcom/jlboat/phone/fragment/settingfragment/NavigationQueueFragment;->access$500(Lcom/jlboat/phone/fragment/settingfragment/NavigationQueueFragment;)Ljava/lang/String;
+	2       (0000000a) move-result-object   v0
+	3       (0000000c) const-string         v1, "点击添加队列"
+	4       (00000010) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	5       (00000016) iget-object          v0, v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationQueueFragment$2;->this$0 Lcom/jlboat/phone/fragment/settingfragment/NavigationQueueFragment;
+	6       (0000001a) invoke-static        v0, Lcom/jlboat/phone/fragment/settingfragment/NavigationQueueFragment;->access$600(Lcom/jlboat/phone/fragment/settingfragment/NavigationQueueFragment;)V
+	7       (00000020) const-string         v0, "添加成功"
+	8       (00000024) invoke-static        v0, Lcom/jlboat/phone/util/Utils;->toast(Ljava/lang/String;)V
+	9       (0000002a) iget-object          v0, v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationQueueFragment$2;->this$0 Lcom/jlboat/phone/fragment/settingfragment/NavigationQueueFragment;
+	10      (0000002e) invoke-static        v0, Lcom/jlboat/phone/fragment/settingfragment/NavigationQueueFragment;->access$500(Lcom/jlboat/phone/fragment/settingfragment/NavigationQueueFragment;)Ljava/lang/String;
+	11      (00000034) move-result-object   v0
+	12      (00000036) new-instance         v1, Ljava/lang/StringBuilder;
+	13      (0000003a) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	14      (00000040) const-string         v2, "添加后队列："
+	15      (00000044) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	16      (0000004a) move-result-object   v1
+	17      (0000004c) iget-object          v2, v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationQueueFragment$2;->this$0 Lcom/jlboat/phone/fragment/settingfragment/NavigationQueueFragment;
+	18      (00000050) invoke-static        v2, Lcom/jlboat/phone/fragment/settingfragment/NavigationQueueFragment;->access$700(Lcom/jlboat/phone/fragment/settingfragment/NavigationQueueFragment;)Lcom/jlboat/phone/message/map_msgs/NaviQueueList;
+	19      (00000056) move-result-object   v2
+	20      (00000058) invoke-virtual       v2, Lcom/jlboat/phone/message/map_msgs/NaviQueueList;->toString()Ljava/lang/String;
+	21      (0000005e) move-result-object   v2
+	22      (00000060) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	23      (00000066) move-result-object   v1
+	24      (00000068) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	25      (0000006e) move-result-object   v1
+	26      (00000070) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	27      (00000076) return-void          
+

@@ -1,0 +1,13 @@
+# Lcom/boat/support/slam/IResponseListener$Stub;-><init>()V [access_flags=public constructor]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) invoke-direct        v1, Landroid/os/Binder;-><init>()V
+	1       (00000006) const-string         v0, "com.boat.support.slam.IResponseListener"
+	2       (0000000a) invoke-virtual       v1, v1, v0, Lcom/boat/support/slam/IResponseListener$Stub;->attachInterface(Landroid/os/IInterface; Ljava/lang/String;)V
+	3       (00000010) return-void          
+

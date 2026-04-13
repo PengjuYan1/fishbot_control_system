@@ -1,0 +1,21 @@
+# Lcom/jlboat/phone/activity/RobotMapActivity;->onResume()V [access_flags=protected]
+#
+# Parameters:
+# local registers: v0...v2
+#
+# - return:void
+
+onResume-BB@0x0 : 
+	0       (00000000) invoke-super         v2, Lcom/jlboat/phone/base/BaseFullActivity;->onResume()V
+	1       (00000006) iget-object          v0, v2, Lcom/jlboat/phone/activity/RobotMapActivity;->mapView Lcom/jlboat/phone/view/MapView;
+	2       (0000000a) const/4              v1, 1
+	3       (0000000c) invoke-virtual       v0, v1, Lcom/jlboat/phone/view/MapView;->setRobot(Z)V
+	4       (00000012) iget-object          v0, v2, Lcom/jlboat/phone/activity/RobotMapActivity;->mapView Lcom/jlboat/phone/view/MapView;
+	5       (00000016) invoke-virtual       v2, Lcom/jlboat/phone/activity/RobotMapActivity;->getMyApplication()Lcom/boat/base/BaseApplication;
+	6       (0000001c) move-result-object   v1
+	7       (0000001e) invoke-virtual       v0, v1, Lcom/jlboat/phone/view/MapView;->onStart(Lcom/boat/base/BaseApplication;)V
+	8       (00000024) iget-object          v0, v2, Lcom/jlboat/phone/activity/RobotMapActivity;->virtualJoystickView Lcom/jlboat/phone/view/JoystickView;
+	9       (00000028) invoke-virtual       v0, Lcom/jlboat/phone/view/JoystickView;->onStart()V
+	10      (0000002e) invoke-virtual       v2, Lcom/jlboat/phone/activity/RobotMapActivity;->initTopic()V
+	11      (00000034) return-void          
+

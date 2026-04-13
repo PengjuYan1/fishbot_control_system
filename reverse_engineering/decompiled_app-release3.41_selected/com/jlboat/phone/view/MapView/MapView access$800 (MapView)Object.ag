@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/view/MapView;->access$800(Lcom/jlboat/phone/view/MapView;)Ljava/lang/Object; [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.view.MapView
+#
+# - return:java.lang.Object
+
+access$800-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/jlboat/phone/view/MapView;->mutex Ljava/lang/Object;
+	1       (00000004) return-object        v0
+

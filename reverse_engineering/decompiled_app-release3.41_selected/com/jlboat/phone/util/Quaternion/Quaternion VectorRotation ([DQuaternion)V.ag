@@ -1,0 +1,34 @@
+# Lcom/jlboat/phone/util/Quaternion;->VectorRotation([D Lcom/jlboat/phone/util/Quaternion;)V [access_flags=static]
+#
+# Parameters:
+# - local registers: v0...v12
+# - v13:double[]
+# - v14:com.jlboat.phone.util.Quaternion
+#
+# - return:void
+
+VectorRotation-BB@0x0 : 
+	0       (00000000) new-instance         v9, Lcom/jlboat/phone/util/Quaternion;
+	1       (00000004) const/4              v10, 0
+	2       (00000006) aget-wide            v3, v13, v10
+	3       (0000000a) const/4              v11, 1
+	4       (0000000c) aget-wide            v5, v13, v11
+	5       (00000010) const/4              v12, 2
+	6       (00000012) aget-wide            v7, v13, v12
+	7       (00000016) const-wide/16        v1, 0
+	8       (0000001a) move-object          v0, v9
+	9       (0000001c) invoke-direct/range  v0 ... v8, Lcom/jlboat/phone/util/Quaternion;-><init>(D D D D)V
+	10      (00000022) invoke-static        v14, v0, Lcom/jlboat/phone/util/Quaternion;->Multiplication(Lcom/jlboat/phone/util/Quaternion; Lcom/jlboat/phone/util/Quaternion;)Lcom/jlboat/phone/util/Quaternion;
+	11      (00000028) move-result-object   v1
+	12      (0000002a) invoke-virtual       v14, Lcom/jlboat/phone/util/Quaternion;->Inverse()Lcom/jlboat/phone/util/Quaternion;
+	13      (00000030) move-result-object   v2
+	14      (00000032) invoke-static        v1, v2, Lcom/jlboat/phone/util/Quaternion;->Multiplication(Lcom/jlboat/phone/util/Quaternion; Lcom/jlboat/phone/util/Quaternion;)Lcom/jlboat/phone/util/Quaternion;
+	15      (00000038) move-result-object   v0
+	16      (0000003a) iget-wide            v1, v0, Lcom/jlboat/phone/util/Quaternion;->x D
+	17      (0000003e) aput-wide            v1, v13, v10
+	18      (00000042) iget-wide            v1, v0, Lcom/jlboat/phone/util/Quaternion;->y D
+	19      (00000046) aput-wide            v1, v13, v11
+	20      (0000004a) iget-wide            v1, v0, Lcom/jlboat/phone/util/Quaternion;->z D
+	21      (0000004e) aput-wide            v1, v13, v12
+	22      (00000052) return-void          
+

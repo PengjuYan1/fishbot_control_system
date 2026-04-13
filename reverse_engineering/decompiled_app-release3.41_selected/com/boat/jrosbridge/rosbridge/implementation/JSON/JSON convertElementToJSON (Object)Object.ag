@@ -1,0 +1,36 @@
+# Lcom/boat/jrosbridge/rosbridge/implementation/JSON;->convertElementToJSON(Ljava/lang/Object;)Ljava/lang/Object; [access_flags=private static]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:java.lang.Object
+#
+# - return:java.lang.Object
+
+convertElementToJSON-BB@0x0 : [ convertElementToJSON-BB@0x14 convertElementToJSON-BB@0x18 ]
+	0       (00000000) invoke-virtual       v2, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+	1       (00000006) move-result-object   v0
+	2       (00000008) invoke-static        v0, Lcom/boat/jrosbridge/message/Message;->isPrimitive(Ljava/lang/Class;)Z
+	3       (0000000e) move-result          v1
+	4       (00000010) if-eqz               v1, +004h
+
+convertElementToJSON-BB@0x14 : [ convertElementToJSON-BB@0x36 ]
+	5       (00000014) move-object          v1, v2
+	6       (00000016) goto                 +10h
+
+convertElementToJSON-BB@0x18 : [ convertElementToJSON-BB@0x24 convertElementToJSON-BB@0x2e ]
+	7       (00000018) invoke-virtual       v0, Ljava/lang/Class;->isArray()Z
+	8       (0000001e) move-result          v1
+	9       (00000020) if-eqz               v1, +007h
+
+convertElementToJSON-BB@0x24 : [ convertElementToJSON-BB@0x36 ]
+	10      (00000024) invoke-static        v2, Lcom/boat/jrosbridge/rosbridge/implementation/JSON;->convertArrayToJSONArray(Ljava/lang/Object;)Lorg/json/simple/JSONArray;
+	11      (0000002a) move-result-object   v1
+	12      (0000002c) goto                 +5h
+
+convertElementToJSON-BB@0x2e : [ convertElementToJSON-BB@0x36 ]
+	13      (0000002e) invoke-static        v2, Lcom/boat/jrosbridge/rosbridge/implementation/JSON;->convertObjectToJSONObject(Ljava/lang/Object;)Lorg/json/simple/JSONObject;
+	14      (00000034) move-result-object   v1
+
+convertElementToJSON-BB@0x36 : 
+	15      (00000036) return-object        v1
+

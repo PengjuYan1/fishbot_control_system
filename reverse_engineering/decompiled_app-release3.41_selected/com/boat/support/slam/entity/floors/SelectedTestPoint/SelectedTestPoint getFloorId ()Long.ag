@@ -1,0 +1,11 @@
+# Lcom/boat/support/slam/entity/floors/SelectedTestPoint;->getFloorId()Ljava/lang/Long; [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:java.lang.Long
+
+getFloorId-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/boat/support/slam/entity/floors/SelectedTestPoint;->floorId Ljava/lang/Long;
+	1       (00000004) return-object        v0
+

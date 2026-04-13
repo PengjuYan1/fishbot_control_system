@@ -1,0 +1,21 @@
+# Lcom/jlboat/phone/activity/MapCleanAreaActivity$8$1;->run()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v2
+#
+# - return:void
+
+run-BB@0x0 : 
+	0       (00000000) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapCleanAreaActivity$8$1;->this$1 Lcom/jlboat/phone/activity/MapCleanAreaActivity$8;
+	1       (00000004) iget-object          v0, v0, Lcom/jlboat/phone/activity/MapCleanAreaActivity$8;->this$0 Lcom/jlboat/phone/activity/MapCleanAreaActivity;
+	2       (00000008) iget-object          v0, v0, Lcom/jlboat/phone/activity/MapCleanAreaActivity;->bt_start_clean_area Landroid/widget/Button;
+	3       (0000000c) const/16             v1, 8
+	4       (00000010) invoke-virtual       v0, v1, Landroid/widget/Button;->setVisibility(I)V
+	5       (00000016) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapCleanAreaActivity$8$1;->this$1 Lcom/jlboat/phone/activity/MapCleanAreaActivity$8;
+	6       (0000001a) iget-object          v0, v0, Lcom/jlboat/phone/activity/MapCleanAreaActivity$8;->this$0 Lcom/jlboat/phone/activity/MapCleanAreaActivity;
+	7       (0000001e) iget-object          v0, v0, Lcom/jlboat/phone/activity/MapCleanAreaActivity;->cleanAreaRvAdapter Lcom/jlboat/phone/adapter/CleanAreaRvAdapter;
+	8       (00000022) new-instance         v1, Ljava/util/LinkedList;
+	9       (00000026) invoke-direct        v1, Ljava/util/LinkedList;-><init>()V
+	10      (0000002c) invoke-virtual       v0, v1, Lcom/jlboat/phone/adapter/CleanAreaRvAdapter;->setListData(Ljava/util/List;)V
+	11      (00000032) return-void          
+

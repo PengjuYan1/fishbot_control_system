@@ -1,0 +1,54 @@
+# Lcom/boat/jrosbridge/Example;->testService(Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;)V [access_flags=public static]
+#
+# Parameters:
+# - local registers: v0...v6
+# - v7:com.boat.jrosbridge.rosbridge.ROSBridgeClient
+#
+# - return:void
+
+testService-BB@0x0 : [ testService-BB@0x4 ]
+	0       (00000000) const-string         v0, "/rosapi/service_response_details"
+
+testService-BB@0x4 : [ testService-BB@0x9a ]
+	1       (00000004) new-instance         v1, Lcom/boat/jrosbridge/Service;
+	2       (00000008) const-string         v2, "/rosapi/get_time"
+	3       (0000000c) const-class          v3, Lcom/boat/jrosbridge/message/std_srvs/Empty;
+	4       (00000010) const-class          v4, Lcom/boat/jrosbridge/message/rosapi/GetTime;
+	5       (00000014) invoke-direct        v1, v2, v3, v4, v7, Lcom/boat/jrosbridge/Service;-><init>(Ljava/lang/String; Ljava/lang/Class; Ljava/lang/Class; Lcom/boat/jrosbridge/ROSClient;)V
+	6       (0000001a) invoke-virtual       v1, Lcom/boat/jrosbridge/Service;->verify()V
+	7       (00000020) new-instance         v2, Lcom/boat/jrosbridge/Service;
+	8       (00000024) const-string         v3, "/rosapi/service_type"
+	9       (00000028) const-class          v4, Lcom/boat/jrosbridge/message/rosapi/Service;
+	10      (0000002c) const-class          v5, Lcom/boat/jrosbridge/message/rosapi/Type;
+	11      (00000030) invoke-direct        v2, v3, v4, v5, v7, Lcom/boat/jrosbridge/Service;-><init>(Ljava/lang/String; Ljava/lang/Class; Ljava/lang/Class; Lcom/boat/jrosbridge/ROSClient;)V
+	12      (00000036) invoke-virtual       v2, Lcom/boat/jrosbridge/Service;->verify()V
+	13      (0000003c) new-instance         v3, Lcom/boat/jrosbridge/message/rosapi/Service;
+	14      (00000040) invoke-direct        v3, v0, Lcom/boat/jrosbridge/message/rosapi/Service;-><init>(Ljava/lang/String;)V
+	15      (00000046) invoke-virtual       v2, v3, Lcom/boat/jrosbridge/Service;->callBlocking(Lcom/boat/jrosbridge/message/Message;)Lcom/boat/jrosbridge/message/Message;
+	16      (0000004c) move-result-object   v3
+	17      (0000004e) check-cast           v3, Lcom/boat/jrosbridge/message/rosapi/Type;
+	18      (00000052) iget-object          v3, v3, Lcom/boat/jrosbridge/message/rosapi/Type;->type Ljava/lang/String;
+	19      (00000056) new-instance         v4, Lcom/boat/jrosbridge/Service;
+	20      (0000005a) const-class          v5, Lcom/boat/jrosbridge/message/rosapi/Type;
+	21      (0000005e) const-class          v6, Lcom/boat/jrosbridge/message/rosapi/MessageDetails;
+	22      (00000062) invoke-direct        v4, v0, v5, v6, v7, Lcom/boat/jrosbridge/Service;-><init>(Ljava/lang/String; Ljava/lang/Class; Ljava/lang/Class; Lcom/boat/jrosbridge/ROSClient;)V
+	23      (00000068) move-object          v0, v4
+	24      (0000006a) invoke-virtual       v0, Lcom/boat/jrosbridge/Service;->verify()V
+	25      (00000070) new-instance         v4, Lcom/boat/jrosbridge/Topic;
+	26      (00000074) const-string         v5, "/rosout"
+	27      (00000078) const-class          v6, Lcom/boat/jrosbridge/message/Log;
+	28      (0000007c) invoke-direct        v4, v5, v6, v7, Lcom/boat/jrosbridge/Topic;-><init>(Ljava/lang/String; Ljava/lang/Class; Lcom/boat/jrosbridge/ROSClient;)V
+	29      (00000082) invoke-virtual       v4, Lcom/boat/jrosbridge/Topic;->verify()V
+	30      (00000088) goto                 +9h
+	4:87
+	(Ljava/lang/InterruptedException; -> 8a testService-BB@0x8a)
+
+testService-BB@0x8a : [ testService-BB@0x9a ]
+	31      (0000008a) move-exception       v0
+	32      (0000008c) sget-object          v1, Ljava/lang/System;->out Ljava/io/PrintStream;
+	33      (00000090) const-string         v2, "Process was interrupted."
+	34      (00000094) invoke-virtual       v1, v2, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+
+testService-BB@0x9a : 
+	35      (0000009a) return-void          
+

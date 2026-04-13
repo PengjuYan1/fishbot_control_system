@@ -1,0 +1,13 @@
+# Lcom/jlboat/phone/view/loading/BaseLoading$1;->onAnimationUpdate(Landroid/animation/ValueAnimator;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:android.animation.ValueAnimator
+#
+# - return:void
+
+onAnimationUpdate-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/jlboat/phone/view/loading/BaseLoading$1;->this$0 Lcom/jlboat/phone/view/loading/BaseLoading;
+	1       (00000004) invoke-virtual       v0, v2, Lcom/jlboat/phone/view/loading/BaseLoading;->OnAnimationUpdate(Landroid/animation/ValueAnimator;)V
+	2       (0000000a) return-void          
+

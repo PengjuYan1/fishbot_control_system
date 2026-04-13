@@ -1,0 +1,35 @@
+# Lcom/boat/utils/NetworkUtils;->isConnected(Landroid/content/Context;)Z [access_flags=public static]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:android.content.Context
+#
+# - return:boolean
+
+isConnected-BB@0x0 : [ isConnected-BB@0x6 isConnected-BB@0x32 ]
+	0       (00000000) const/4              v0, 0
+	1       (00000002) if-eqz               v3, +018h
+
+isConnected-BB@0x6 : [ isConnected-BB@0x1a isConnected-BB@0x1c ]
+	2       (00000006) const-string         v1, "connectivity"
+	3       (0000000a) invoke-virtual       v3, v1, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+	4       (00000010) move-result-object   v1
+	5       (00000012) check-cast           v1, Landroid/net/ConnectivityManager;
+	6       (00000016) if-nez               v1, +003h
+
+isConnected-BB@0x1a : 
+	7       (0000001a) return               v0
+
+isConnected-BB@0x1c : [ isConnected-BB@0x28 isConnected-BB@0x32 ]
+	8       (0000001c) invoke-virtual       v1, Landroid/net/ConnectivityManager;->getActiveNetworkInfo()Landroid/net/NetworkInfo;
+	9       (00000022) move-result-object   v2
+	10      (00000024) if-eqz               v2, +007h
+
+isConnected-BB@0x28 : 
+	11      (00000028) invoke-virtual       v2, Landroid/net/NetworkInfo;->isAvailable()Z
+	12      (0000002e) move-result          v0
+	13      (00000030) return               v0
+
+isConnected-BB@0x32 : 
+	14      (00000032) return               v0
+

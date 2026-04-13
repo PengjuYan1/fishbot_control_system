@@ -1,0 +1,13 @@
+# Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;->access$1000(Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025; Lcom/boat/support/slam/entity/floors/MapList;)V [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v-1
+# - v0:com.jlboat.phone.fragment.settingfragment.NavigationTestFragment2025
+# - v1:com.boat.support.slam.entity.floors.MapList
+#
+# - return:void
+
+access$1000-BB@0x0 : 
+	0       (00000000) invoke-direct        v0, v1, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;->setupFloorMapData(Lcom/boat/support/slam/entity/floors/MapList;)V
+	1       (00000006) return-void          
+

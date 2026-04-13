@@ -1,0 +1,123 @@
+# Lcom/jlboat/phone/activity/PointBindPathActivity;->onCreate(Landroid/os/Bundle;)V [access_flags=protected]
+#
+# Parameters:
+# - local registers: v0...v5
+# - v6:android.os.Bundle
+#
+# - return:void
+
+onCreate-BB@0x0 : [ onCreate-BB@0x40 onCreate-BB@0x52 ]
+	0       (00000000) const                v0, 2131361929
+	1       (00000006) const                v1, 2131493031
+	2       (0000000c) invoke-virtual       v5, v0, v1, Lcom/jlboat/phone/activity/PointBindPathActivity;->initTitleBar(I I)V
+	3       (00000012) invoke-super         v5, v6, Lcom/jlboat/phone/base/BaseFullActivity;->onCreate(Landroid/os/Bundle;)V
+	4       (00000018) invoke-virtual       v5, Lcom/jlboat/phone/activity/PointBindPathActivity;->getIntent()Landroid/content/Intent;
+	5       (0000001e) move-result-object   v0
+	6       (00000020) const-string         v1, "data"
+	7       (00000024) const-wide/16        v2, -1
+	8       (00000028) invoke-virtual       v0, v1, v2, v3, Landroid/content/Intent;->getLongExtra(Ljava/lang/String; J)J
+	9       (0000002e) move-result-wide     v0
+	10      (00000030) iput-wide            v0, v5, Lcom/jlboat/phone/activity/PointBindPathActivity;->globalplanId J
+	11      (00000034) iget-wide            v0, v5, Lcom/jlboat/phone/activity/PointBindPathActivity;->globalplanId J
+	12      (00000038) cmp-long             v4, v2, v0
+	13      (0000003c) if-nez               v4, +00bh
+
+onCreate-BB@0x40 : [ onCreate-BB@0x52 ]
+	14      (00000040) const                v0, 2131493296
+	15      (00000046) invoke-virtual       v5, v0, Lcom/jlboat/phone/activity/PointBindPathActivity;->toast(I)V
+	16      (0000004c) invoke-virtual       v5, Lcom/jlboat/phone/activity/PointBindPathActivity;->finish()V
+
+onCreate-BB@0x52 : 
+	17      (00000052) const                v0, 2131230785
+	18      (00000058) invoke-virtual       v5, v0, Lcom/jlboat/phone/activity/PointBindPathActivity;->findViewById(I)Landroid/view/View;
+	19      (0000005e) move-result-object   v0
+	20      (00000060) check-cast           v0, Lcom/jlboat/phone/view/MapView;
+	21      (00000064) iput-object          v0, v5, Lcom/jlboat/phone/activity/PointBindPathActivity;->mapView Lcom/jlboat/phone/view/MapView;
+	22      (00000068) const                v0, 2131230787
+	23      (0000006e) invoke-virtual       v5, v0, Lcom/jlboat/phone/activity/PointBindPathActivity;->findViewById(I)Landroid/view/View;
+	24      (00000074) move-result-object   v0
+	25      (00000076) check-cast           v0, Landroid/widget/TextView;
+	26      (0000007a) iput-object          v0, v5, Lcom/jlboat/phone/activity/PointBindPathActivity;->bpPathNameTv Landroid/widget/TextView;
+	27      (0000007e) iget-object          v0, v5, Lcom/jlboat/phone/activity/PointBindPathActivity;->bpPathNameTv Landroid/widget/TextView;
+	28      (00000082) invoke-virtual       v0, v5, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	29      (00000088) const                v0, 2131230782
+	30      (0000008e) invoke-virtual       v5, v0, Lcom/jlboat/phone/activity/PointBindPathActivity;->findViewById(I)Landroid/view/View;
+	31      (00000094) move-result-object   v0
+	32      (00000096) check-cast           v0, Landroid/support/v7/widget/RecyclerView;
+	33      (0000009a) iput-object          v0, v5, Lcom/jlboat/phone/activity/PointBindPathActivity;->bpBindRv Landroid/support/v7/widget/RecyclerView;
+	34      (0000009e) iget-object          v0, v5, Lcom/jlboat/phone/activity/PointBindPathActivity;->bpBindRv Landroid/support/v7/widget/RecyclerView;
+	35      (000000a2) new-instance         v1, Landroid/support/v7/widget/LinearLayoutManager;
+	36      (000000a6) invoke-direct        v1, v5, Landroid/support/v7/widget/LinearLayoutManager;-><init>(Landroid/content/Context;)V
+	37      (000000ac) invoke-virtual       v0, v1, Landroid/support/v7/widget/RecyclerView;->setLayoutManager(Landroid/support/v7/widget/RecyclerView$LayoutManager;)V
+	38      (000000b2) new-instance         v0, Lcom/jlboat/phone/adapter/BindPointListAdapter;
+	39      (000000b6) invoke-direct        v0, Lcom/jlboat/phone/adapter/BindPointListAdapter;-><init>()V
+	40      (000000bc) iput-object          v0, v5, Lcom/jlboat/phone/activity/PointBindPathActivity;->bindPointListAdapter Lcom/jlboat/phone/adapter/BindPointListAdapter;
+	41      (000000c0) iget-object          v0, v5, Lcom/jlboat/phone/activity/PointBindPathActivity;->bpBindRv Landroid/support/v7/widget/RecyclerView;
+	42      (000000c4) iget-object          v1, v5, Lcom/jlboat/phone/activity/PointBindPathActivity;->bindPointListAdapter Lcom/jlboat/phone/adapter/BindPointListAdapter;
+	43      (000000c8) invoke-virtual       v0, v1, Landroid/support/v7/widget/RecyclerView;->setAdapter(Landroid/support/v7/widget/RecyclerView$Adapter;)V
+	44      (000000ce) const                v0, 2131230786
+	45      (000000d4) invoke-virtual       v5, v0, Lcom/jlboat/phone/activity/PointBindPathActivity;->findViewById(I)Landroid/view/View;
+	46      (000000da) move-result-object   v0
+	47      (000000dc) check-cast           v0, Landroid/support/v7/widget/RecyclerView;
+	48      (000000e0) iput-object          v0, v5, Lcom/jlboat/phone/activity/PointBindPathActivity;->bpNavPointRv Landroid/support/v7/widget/RecyclerView;
+	49      (000000e4) new-instance         v0, Landroid/support/v7/widget/LinearLayoutManager;
+	50      (000000e8) invoke-direct        v0, v5, Landroid/support/v7/widget/LinearLayoutManager;-><init>(Landroid/content/Context;)V
+	51      (000000ee) const/4              v1, 0
+	52      (000000f0) invoke-virtual       v0, v1, Landroid/support/v7/widget/LinearLayoutManager;->setOrientation(I)V
+	53      (000000f6) iget-object          v1, v5, Lcom/jlboat/phone/activity/PointBindPathActivity;->bpNavPointRv Landroid/support/v7/widget/RecyclerView;
+	54      (000000fa) invoke-virtual       v1, v0, Landroid/support/v7/widget/RecyclerView;->setLayoutManager(Landroid/support/v7/widget/RecyclerView$LayoutManager;)V
+	55      (00000100) new-instance         v1, Lcom/jlboat/phone/adapter/NavPointListAdapter;
+	56      (00000104) invoke-direct        v1, Lcom/jlboat/phone/adapter/NavPointListAdapter;-><init>()V
+	57      (0000010a) iput-object          v1, v5, Lcom/jlboat/phone/activity/PointBindPathActivity;->navPointListAdapter Lcom/jlboat/phone/adapter/NavPointListAdapter;
+	58      (0000010e) iget-object          v1, v5, Lcom/jlboat/phone/activity/PointBindPathActivity;->bpNavPointRv Landroid/support/v7/widget/RecyclerView;
+	59      (00000112) iget-object          v2, v5, Lcom/jlboat/phone/activity/PointBindPathActivity;->navPointListAdapter Lcom/jlboat/phone/adapter/NavPointListAdapter;
+	60      (00000116) invoke-virtual       v1, v2, Landroid/support/v7/widget/RecyclerView;->setAdapter(Landroid/support/v7/widget/RecyclerView$Adapter;)V
+	61      (0000011c) iget-object          v1, v5, Lcom/jlboat/phone/activity/PointBindPathActivity;->navPointListAdapter Lcom/jlboat/phone/adapter/NavPointListAdapter;
+	62      (00000120) new-instance         v2, Lcom/jlboat/phone/activity/PointBindPathActivity$NavPointItemCL;
+	63      (00000124) const/4              v3, 0
+	64      (00000126) invoke-direct        v2, v5, v3, Lcom/jlboat/phone/activity/PointBindPathActivity$NavPointItemCL;-><init>(Lcom/jlboat/phone/activity/PointBindPathActivity; Lcom/jlboat/phone/activity/PointBindPathActivity$1;)V
+	65      (0000012c) invoke-virtual       v1, v2, Lcom/jlboat/phone/adapter/NavPointListAdapter;->setOnItemClickListener(Lcom/jlboat/phone/adapter/NavPointListAdapter$OnItemClickListener;)V
+	66      (00000132) const                v1, 2131230781
+	67      (00000138) invoke-virtual       v5, v1, Lcom/jlboat/phone/activity/PointBindPathActivity;->findViewById(I)Landroid/view/View;
+	68      (0000013e) move-result-object   v1
+	69      (00000140) check-cast           v1, Landroid/support/v7/widget/RecyclerView;
+	70      (00000144) iput-object          v1, v5, Lcom/jlboat/phone/activity/PointBindPathActivity;->newBindPointRv Landroid/support/v7/widget/RecyclerView;
+	71      (00000148) iget-object          v1, v5, Lcom/jlboat/phone/activity/PointBindPathActivity;->newBindPointRv Landroid/support/v7/widget/RecyclerView;
+	72      (0000014c) new-instance         v2, Landroid/support/v7/widget/LinearLayoutManager;
+	73      (00000150) invoke-direct        v2, v5, Landroid/support/v7/widget/LinearLayoutManager;-><init>(Landroid/content/Context;)V
+	74      (00000156) invoke-virtual       v1, v2, Landroid/support/v7/widget/RecyclerView;->setLayoutManager(Landroid/support/v7/widget/RecyclerView$LayoutManager;)V
+	75      (0000015c) new-instance         v1, Lcom/jlboat/phone/adapter/NewBindPointListAdapter;
+	76      (00000160) invoke-direct        v1, Lcom/jlboat/phone/adapter/NewBindPointListAdapter;-><init>()V
+	77      (00000166) iput-object          v1, v5, Lcom/jlboat/phone/activity/PointBindPathActivity;->newBindPointListAdapter Lcom/jlboat/phone/adapter/NewBindPointListAdapter;
+	78      (0000016a) iget-object          v1, v5, Lcom/jlboat/phone/activity/PointBindPathActivity;->newBindPointRv Landroid/support/v7/widget/RecyclerView;
+	79      (0000016e) iget-object          v2, v5, Lcom/jlboat/phone/activity/PointBindPathActivity;->newBindPointListAdapter Lcom/jlboat/phone/adapter/NewBindPointListAdapter;
+	80      (00000172) invoke-virtual       v1, v2, Landroid/support/v7/widget/RecyclerView;->setAdapter(Landroid/support/v7/widget/RecyclerView$Adapter;)V
+	81      (00000178) iget-object          v1, v5, Lcom/jlboat/phone/activity/PointBindPathActivity;->newBindPointListAdapter Lcom/jlboat/phone/adapter/NewBindPointListAdapter;
+	82      (0000017c) new-instance         v2, Lcom/jlboat/phone/activity/PointBindPathActivity$NewBindPointItemCL;
+	83      (00000180) invoke-direct        v2, v5, v3, Lcom/jlboat/phone/activity/PointBindPathActivity$NewBindPointItemCL;-><init>(Lcom/jlboat/phone/activity/PointBindPathActivity; Lcom/jlboat/phone/activity/PointBindPathActivity$1;)V
+	84      (00000186) invoke-virtual       v1, v2, Lcom/jlboat/phone/adapter/NewBindPointListAdapter;->setOnItemClickListener(Lcom/jlboat/phone/adapter/NewBindPointListAdapter$OnItemClickListener;)V
+	85      (0000018c) const                v1, 2131230788
+	86      (00000192) invoke-virtual       v5, v1, Lcom/jlboat/phone/activity/PointBindPathActivity;->findViewById(I)Landroid/view/View;
+	87      (00000198) move-result-object   v1
+	88      (0000019a) check-cast           v1, Landroid/widget/Button;
+	89      (0000019e) iput-object          v1, v5, Lcom/jlboat/phone/activity/PointBindPathActivity;->bpSaveBt Landroid/widget/Button;
+	90      (000001a2) const                v1, 2131230784
+	91      (000001a8) invoke-virtual       v5, v1, Lcom/jlboat/phone/activity/PointBindPathActivity;->findViewById(I)Landroid/view/View;
+	92      (000001ae) move-result-object   v1
+	93      (000001b0) check-cast           v1, Landroid/widget/Button;
+	94      (000001b4) iput-object          v1, v5, Lcom/jlboat/phone/activity/PointBindPathActivity;->bpCancelBt Landroid/widget/Button;
+	95      (000001b8) iget-object          v1, v5, Lcom/jlboat/phone/activity/PointBindPathActivity;->bpSaveBt Landroid/widget/Button;
+	96      (000001bc) invoke-virtual       v1, v5, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	97      (000001c2) iget-object          v1, v5, Lcom/jlboat/phone/activity/PointBindPathActivity;->bpCancelBt Landroid/widget/Button;
+	98      (000001c6) invoke-virtual       v1, v5, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	99      (000001cc) new-instance         v1, Lcom/jlboat/phone/communication/SpiritServiceClient;
+	100     (000001d0) invoke-direct        v1, Lcom/jlboat/phone/communication/SpiritServiceClient;-><init>()V
+	101     (000001d6) iput-object          v1, v5, Lcom/jlboat/phone/activity/PointBindPathActivity;->spiritServiceClient Lcom/jlboat/phone/communication/SpiritServiceClient;
+	102     (000001da) new-instance         v1, Lcom/jlboat/phone/communication/SpiritTopicListener;
+	103     (000001de) invoke-direct        v1, Lcom/jlboat/phone/communication/SpiritTopicListener;-><init>()V
+	104     (000001e4) iput-object          v1, v5, Lcom/jlboat/phone/activity/PointBindPathActivity;->spiritTopicListener Lcom/jlboat/phone/communication/SpiritTopicListener;
+	105     (000001e8) new-instance         v1, Ljava/util/LinkedList;
+	106     (000001ec) invoke-direct        v1, Ljava/util/LinkedList;-><init>()V
+	107     (000001f2) iput-object          v1, v5, Lcom/jlboat/phone/activity/PointBindPathActivity;->linesList Ljava/util/List;
+	108     (000001f6) return-void          
+

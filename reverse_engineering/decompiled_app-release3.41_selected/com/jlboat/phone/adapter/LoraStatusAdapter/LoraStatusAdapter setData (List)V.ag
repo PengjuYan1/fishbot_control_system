@@ -1,0 +1,39 @@
+# Lcom/jlboat/phone/adapter/LoraStatusAdapter;->setData(Ljava/util/List;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:java.util.List
+#
+# - return:void
+
+setData-BB@0x0 : [ setData-BB@0xe setData-BB@0x3e ]
+	0       (00000000) iget-object          v0, v3, Lcom/jlboat/phone/adapter/LoraStatusAdapter;->mList Ljava/util/List;
+	1       (00000004) invoke-interface     v0, Ljava/util/List;->clear()V
+	2       (0000000a) if-eqz               v4, +01ah
+
+setData-BB@0xe : [ setData-BB@0x16 ]
+	3       (0000000e) invoke-interface     v4, Ljava/util/List;->iterator()Ljava/util/Iterator;
+	4       (00000014) move-result-object   v0
+
+setData-BB@0x16 : [ setData-BB@0x22 setData-BB@0x3e ]
+	5       (00000016) invoke-interface     v0, Ljava/util/Iterator;->hasNext()Z
+	6       (0000001c) move-result          v1
+	7       (0000001e) if-eqz               v1, +010h
+
+setData-BB@0x22 : [ setData-BB@0x32 setData-BB@0x3c ]
+	8       (00000022) invoke-interface     v0, Ljava/util/Iterator;->next()Ljava/lang/Object;
+	9       (00000028) move-result-object   v1
+	10      (0000002a) check-cast           v1, Lcom/boat/support/slam/entity/floors/LoraInfo;
+	11      (0000002e) if-eqz               v1, +007h
+
+setData-BB@0x32 : [ setData-BB@0x3c ]
+	12      (00000032) iget-object          v2, v3, Lcom/jlboat/phone/adapter/LoraStatusAdapter;->mList Ljava/util/List;
+	13      (00000036) invoke-interface     v2, v1, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+setData-BB@0x3c : [ setData-BB@0x16 ]
+	14      (0000003c) goto                 -13h
+
+setData-BB@0x3e : 
+	15      (0000003e) invoke-virtual       v3, Lcom/jlboat/phone/adapter/LoraStatusAdapter;->notifyDataSetChanged()V
+	16      (00000044) return-void          
+

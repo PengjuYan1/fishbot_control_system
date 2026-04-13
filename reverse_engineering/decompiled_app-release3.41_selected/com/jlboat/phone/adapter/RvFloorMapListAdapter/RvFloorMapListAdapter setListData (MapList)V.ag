@@ -1,0 +1,99 @@
+# Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;->setListData(Lcom/boat/support/slam/entity/floors/MapList;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v8
+# - v9:com.boat.support.slam.entity.floors.MapList
+#
+# - return:void
+
+setListData-BB@0x0 : [ setListData-BB@0xe setListData-BB@0x104 ]
+	0       (00000000) iget-object          v0, v8, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;->listData Ljava/util/List;
+	1       (00000004) invoke-interface     v0, Ljava/util/List;->clear()V
+	2       (0000000a) if-eqz               v9, +07dh
+
+setListData-BB@0xe : [ setListData-BB@0x7c ]
+	3       (0000000e) new-instance         v0, Ljava/lang/StringBuilder;
+	4       (00000012) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	5       (00000018) const-string         v1, "setListData: groups.size "
+	6       (0000001c) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	7       (00000022) move-result-object   v0
+	8       (00000024) invoke-virtual       v9, Lcom/boat/support/slam/entity/floors/MapList;->getFloors()Ljava/util/List;
+	9       (0000002a) move-result-object   v1
+	10      (0000002c) invoke-interface     v1, Ljava/util/List;->size()I
+	11      (00000032) move-result          v1
+	12      (00000034) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	13      (0000003a) move-result-object   v0
+	14      (0000003c) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	15      (00000042) move-result-object   v0
+	16      (00000044) const-string         v1, "RvFloorMapListAdapter"
+	17      (00000048) invoke-static        v1, v0, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	18      (0000004e) invoke-virtual       v9, Lcom/boat/support/slam/entity/floors/MapList;->getDefaultFloor()J
+	19      (00000054) move-result-wide     v0
+	20      (00000056) iput-wide            v0, v8, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;->defFloorId J
+	21      (0000005a) iget-object          v0, v8, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;->listData Ljava/util/List;
+	22      (0000005e) invoke-virtual       v9, Lcom/boat/support/slam/entity/floors/MapList;->getFloors()Ljava/util/List;
+	23      (00000064) move-result-object   v1
+	24      (00000066) invoke-interface     v0, v1, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
+	25      (0000006c) invoke-virtual       v9, Lcom/boat/support/slam/entity/floors/MapList;->getFloors()Ljava/util/List;
+	26      (00000072) move-result-object   v0
+	27      (00000074) invoke-interface     v0, Ljava/util/List;->iterator()Ljava/util/Iterator;
+	28      (0000007a) move-result-object   v0
+
+setListData-BB@0x7c : [ setListData-BB@0x88 setListData-BB@0x104 ]
+	29      (0000007c) invoke-interface     v0, Ljava/util/Iterator;->hasNext()Z
+	30      (00000082) move-result          v1
+	31      (00000084) if-eqz               v1, +040h
+
+setListData-BB@0x88 : [ setListData-BB@0xa8 setListData-BB@0x102 ]
+	32      (00000088) invoke-interface     v0, Ljava/util/Iterator;->next()Ljava/lang/Object;
+	33      (0000008e) move-result-object   v1
+	34      (00000090) check-cast           v1, Lcom/boat/support/slam/entity/floors/Floors;
+	35      (00000094) invoke-virtual       v1, Lcom/boat/support/slam/entity/floors/Floors;->getFloorId()J
+	36      (0000009a) move-result-wide     v2
+	37      (0000009c) iget-wide            v4, v8, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;->defFloorId J
+	38      (000000a0) cmp-long             v6, v2, v4
+	39      (000000a4) if-nez               v6, +02fh
+
+setListData-BB@0xa8 : [ setListData-BB@0xc0 ]
+	40      (000000a8) iget-wide            v2, v8, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;->defFloorId J
+	41      (000000ac) iput-wide            v2, v8, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;->currentExpandedFloorId J
+	42      (000000b0) invoke-virtual       v1, Lcom/boat/support/slam/entity/floors/Floors;->getMaps()Ljava/util/List;
+	43      (000000b6) move-result-object   v0
+	44      (000000b8) invoke-interface     v0, Ljava/util/List;->iterator()Ljava/util/Iterator;
+	45      (000000be) move-result-object   v0
+
+setListData-BB@0xc0 : [ setListData-BB@0xcc setListData-BB@0x100 ]
+	46      (000000c0) invoke-interface     v0, Ljava/util/Iterator;->hasNext()Z
+	47      (000000c6) move-result          v2
+	48      (000000c8) if-eqz               v2, +01ch
+
+setListData-BB@0xcc : [ setListData-BB@0xf0 setListData-BB@0xfe ]
+	49      (000000cc) invoke-interface     v0, Ljava/util/Iterator;->next()Ljava/lang/Object;
+	50      (000000d2) move-result-object   v2
+	51      (000000d4) check-cast           v2, Lcom/boat/support/slam/entity/floors/Maps;
+	52      (000000d8) invoke-virtual       v2, Lcom/boat/support/slam/entity/floors/Maps;->getMapId()J
+	53      (000000de) move-result-wide     v3
+	54      (000000e0) invoke-virtual       v1, Lcom/boat/support/slam/entity/floors/Floors;->getDefaultmap()J
+	55      (000000e6) move-result-wide     v5
+	56      (000000e8) cmp-long             v7, v3, v5
+	57      (000000ec) if-nez               v7, +009h
+
+setListData-BB@0xf0 : [ setListData-BB@0x100 ]
+	58      (000000f0) invoke-virtual       v2, Lcom/boat/support/slam/entity/floors/Maps;->getMapId()J
+	59      (000000f6) move-result-wide     v3
+	60      (000000f8) iput-wide            v3, v8, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;->currentDefaultMapId J
+	61      (000000fc) goto                 +2h
+
+setListData-BB@0xfe : [ setListData-BB@0xc0 ]
+	62      (000000fe) goto                 -1fh
+
+setListData-BB@0x100 : [ setListData-BB@0x104 ]
+	63      (00000100) goto                 +2h
+
+setListData-BB@0x102 : [ setListData-BB@0x7c ]
+	64      (00000102) goto                 -43h
+
+setListData-BB@0x104 : 
+	65      (00000104) invoke-virtual       v8, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;->notifyDataSetChanged()V
+	66      (0000010a) return-void          
+

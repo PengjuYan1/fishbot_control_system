@@ -1,0 +1,13 @@
+# Lcom/jlboat/phone/controller/JlNaviManager;->access$3002(Lcom/jlboat/phone/controller/JlNaviManager; Lcom/boat/support/slam/entity/floors/MapList;)Lcom/boat/support/slam/entity/floors/MapList; [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v-1
+# - v0:com.jlboat.phone.controller.JlNaviManager
+# - v1:com.boat.support.slam.entity.floors.MapList
+#
+# - return:com.boat.support.slam.entity.floors.MapList
+
+access$3002-BB@0x0 : 
+	0       (00000000) iput-object          v1, v0, Lcom/jlboat/phone/controller/JlNaviManager;->mapList Lcom/boat/support/slam/entity/floors/MapList;
+	1       (00000004) return-object        v1
+

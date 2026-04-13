@@ -1,0 +1,18 @@
+# Lcom/boat/ros/geometry/Quaternion;->invert()Lcom/boat/ros/geometry/Quaternion; [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v5
+#
+# - return:com.boat.ros.geometry.Quaternion
+
+invert-BB@0x0 : 
+	0       (00000000) invoke-virtual       v5, Lcom/boat/ros/geometry/Quaternion;->getMagnitudeSquared()D
+	1       (00000006) move-result-wide     v0
+	2       (00000008) invoke-virtual       v5, Lcom/boat/ros/geometry/Quaternion;->conjugate()Lcom/boat/ros/geometry/Quaternion;
+	3       (0000000e) move-result-object   v2
+	4       (00000010) const-wide/high16    v3, 4607182418800017408
+	5       (00000014) div-double/2addr     v3, v0
+	6       (00000016) invoke-virtual       v2, v3, v4, Lcom/boat/ros/geometry/Quaternion;->scale(D)Lcom/boat/ros/geometry/Quaternion;
+	7       (0000001c) move-result-object   v2
+	8       (0000001e) return-object        v2
+

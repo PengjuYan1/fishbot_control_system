@@ -1,0 +1,39 @@
+# Lcom/jlboat/phone/view/MapView$23;->onNewMessage(Lcom/boat/jrosbridge/message/visualization_msgs/Marker;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:com.boat.jrosbridge.message.visualization_msgs.Marker
+#
+# - return:void
+
+onNewMessage-BB@0x0 : [ onNewMessage-BB@0x4a onNewMessage-BB@0x68 ]
+	0       (00000000) iget-object          v0, v2, Lcom/jlboat/phone/view/MapView$23;->this$0 Lcom/jlboat/phone/view/MapView;
+	1       (00000004) const/4              v1, 1
+	2       (00000006) invoke-static        v0, v1, Lcom/jlboat/phone/view/MapView;->access$1602(Lcom/jlboat/phone/view/MapView; Z)Z
+	3       (0000000c) iget-object          v0, v2, Lcom/jlboat/phone/view/MapView$23;->this$0 Lcom/jlboat/phone/view/MapView;
+	4       (00000010) invoke-virtual       v3, Lcom/boat/jrosbridge/message/visualization_msgs/Marker;->getPoints()[Lcom/boat/jrosbridge/message/geometry_msgs/Point;
+	5       (00000016) move-result-object   v1
+	6       (00000018) invoke-static        v1, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+	7       (0000001e) move-result-object   v1
+	8       (00000020) invoke-static        v0, v1, Lcom/jlboat/phone/view/MapView;->access$1702(Lcom/jlboat/phone/view/MapView; Ljava/util/List;)Ljava/util/List;
+	9       (00000026) iget-object          v0, v2, Lcom/jlboat/phone/view/MapView$23;->this$0 Lcom/jlboat/phone/view/MapView;
+	10      (0000002a) new-instance         v1, Lcom/jlboat/phone/view/MapView$23$1;
+	11      (0000002e) invoke-direct        v1, v2, Lcom/jlboat/phone/view/MapView$23$1;-><init>(Lcom/jlboat/phone/view/MapView$23;)V
+	12      (00000034) invoke-virtual       v0, v1, Lcom/jlboat/phone/view/MapView;->post(Ljava/lang/Runnable;)Z
+	13      (0000003a) iget-object          v0, v2, Lcom/jlboat/phone/view/MapView$23;->this$0 Lcom/jlboat/phone/view/MapView;
+	14      (0000003e) invoke-static        v0, Lcom/jlboat/phone/view/MapView;->access$1800(Lcom/jlboat/phone/view/MapView;)Lcom/jlboat/phone/view/MapView$PathCallBack;
+	15      (00000044) move-result-object   v0
+	16      (00000046) if-eqz               v0, +011h
+
+onNewMessage-BB@0x4a : [ onNewMessage-BB@0x68 ]
+	17      (0000004a) iget-object          v0, v2, Lcom/jlboat/phone/view/MapView$23;->this$0 Lcom/jlboat/phone/view/MapView;
+	18      (0000004e) invoke-static        v0, Lcom/jlboat/phone/view/MapView;->access$1800(Lcom/jlboat/phone/view/MapView;)Lcom/jlboat/phone/view/MapView$PathCallBack;
+	19      (00000054) move-result-object   v0
+	20      (00000056) iget-object          v1, v2, Lcom/jlboat/phone/view/MapView$23;->this$0 Lcom/jlboat/phone/view/MapView;
+	21      (0000005a) invoke-static        v1, Lcom/jlboat/phone/view/MapView;->access$1700(Lcom/jlboat/phone/view/MapView;)Ljava/util/List;
+	22      (00000060) move-result-object   v1
+	23      (00000062) invoke-interface     v0, v1, Lcom/jlboat/phone/view/MapView$PathCallBack;->onPath(Ljava/util/List;)V
+
+onNewMessage-BB@0x68 : 
+	24      (00000068) return-void          
+

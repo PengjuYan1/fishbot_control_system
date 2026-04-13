@@ -1,0 +1,23 @@
+# Lcom/jlboat/phone/adapter/FloorListAdapter;->lambda$onBindViewHolder$0$com-jlboat-phone-adapter-FloorListAdapter(I Landroid/view/View;)V [access_flags=synthetic]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:int
+# - v4:android.view.View
+#
+# - return:void
+
+lambda$onBindViewHolder$0$com-jlboat-phone-adapter-FloorListAdapter-BB@0x0 : [ lambda$onBindViewHolder$0$com-jlboat-phone-adapter-FloorListAdapter-BB@0xe lambda$onBindViewHolder$0$com-jlboat-phone-adapter-FloorListAdapter-BB@0x20 ]
+	0       (00000000) invoke-direct        v2, v3, Lcom/jlboat/phone/adapter/FloorListAdapter;->toggleSelection(I)V
+	1       (00000006) iget-object          v0, v2, Lcom/jlboat/phone/adapter/FloorListAdapter;->onMultiSelectListener Lcom/jlboat/phone/adapter/FloorListAdapter$OnMultiSelectListener;
+	2       (0000000a) if-eqz               v0, +00bh
+
+lambda$onBindViewHolder$0$com-jlboat-phone-adapter-FloorListAdapter-BB@0xe : [ lambda$onBindViewHolder$0$com-jlboat-phone-adapter-FloorListAdapter-BB@0x20 ]
+	3       (0000000e) iget-object          v0, v2, Lcom/jlboat/phone/adapter/FloorListAdapter;->onMultiSelectListener Lcom/jlboat/phone/adapter/FloorListAdapter$OnMultiSelectListener;
+	4       (00000012) invoke-direct        v2, Lcom/jlboat/phone/adapter/FloorListAdapter;->getSelectedFloors()Ljava/util/List;
+	5       (00000018) move-result-object   v1
+	6       (0000001a) invoke-interface     v0, v1, Lcom/jlboat/phone/adapter/FloorListAdapter$OnMultiSelectListener;->onSelectionChanged(Ljava/util/List;)V
+
+lambda$onBindViewHolder$0$com-jlboat-phone-adapter-FloorListAdapter-BB@0x20 : 
+	7       (00000020) return-void          
+

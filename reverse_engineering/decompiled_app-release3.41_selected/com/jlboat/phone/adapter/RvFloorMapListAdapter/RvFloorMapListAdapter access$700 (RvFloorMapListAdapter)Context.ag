@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;->access$700(Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;)Landroid/content/Context; [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.adapter.RvFloorMapListAdapter
+#
+# - return:android.content.Context
+
+access$700-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;->context Landroid/content/Context;
+	1       (00000004) return-object        v0
+

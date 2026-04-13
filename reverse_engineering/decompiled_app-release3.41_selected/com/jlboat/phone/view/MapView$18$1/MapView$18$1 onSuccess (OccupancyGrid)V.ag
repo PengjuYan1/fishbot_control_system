@@ -1,0 +1,14 @@
+# Lcom/jlboat/phone/view/MapView$18$1;->onSuccess(Lcom/boat/jrosbridge/message/nav_msgs/OccupancyGrid;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:com.boat.jrosbridge.message.nav_msgs.OccupancyGrid
+#
+# - return:void
+
+onSuccess-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/jlboat/phone/view/MapView$18$1;->this$1 Lcom/jlboat/phone/view/MapView$18;
+	1       (00000004) iget-object          v0, v0, Lcom/jlboat/phone/view/MapView$18;->this$0 Lcom/jlboat/phone/view/MapView;
+	2       (00000008) invoke-static        v0, v2, Lcom/jlboat/phone/view/MapView;->access$200(Lcom/jlboat/phone/view/MapView; Lcom/boat/jrosbridge/message/nav_msgs/OccupancyGrid;)V
+	3       (0000000e) return-void          
+

@@ -1,0 +1,16 @@
+# Lcom/jlboat/phone/activity/PointBindPathActivity;->addBindNavPoint(Lworld_canvas_msgs18/DiyPathEnty; I)V [access_flags=private]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:world_canvas_msgs18.DiyPathEnty
+# - v4:int
+#
+# - return:void
+
+addBindNavPoint-BB@0x0 : 
+	0       (00000000) iget-object          v0, v2, Lcom/jlboat/phone/activity/PointBindPathActivity;->spiritServiceClient Lcom/jlboat/phone/communication/SpiritServiceClient;
+	1       (00000004) new-instance         v1, Lcom/jlboat/phone/activity/PointBindPathActivity$4;
+	2       (00000008) invoke-direct        v1, v2, Lcom/jlboat/phone/activity/PointBindPathActivity$4;-><init>(Lcom/jlboat/phone/activity/PointBindPathActivity;)V
+	3       (0000000e) invoke-virtual       v0, v3, v4, v1, Lcom/jlboat/phone/communication/SpiritServiceClient;->addPointsGlobalplan(Lworld_canvas_msgs18/DiyPathEnty; I Lcom/boat/jrosbridge/MessageListener;)V
+	4       (00000014) return-void          
+

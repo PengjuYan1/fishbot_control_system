@@ -1,0 +1,13 @@
+# Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity$5;-><init>(Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;)V [access_flags=constructor]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.activity.MultiMachineSchedulingActivity
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) iput-object          v1, v0, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity$5;->this$0 Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;
+	1       (00000004) invoke-direct        v0, Landroid/os/Handler;-><init>()V
+	2       (0000000a) return-void          
+

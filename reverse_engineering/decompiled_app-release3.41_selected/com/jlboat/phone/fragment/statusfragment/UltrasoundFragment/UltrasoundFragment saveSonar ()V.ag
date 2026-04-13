@@ -1,0 +1,424 @@
+# Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->saveSonar()V [access_flags=private]
+#
+# Parameters:
+# local registers: v0...v7
+#
+# - return:void
+
+saveSonar-BB@0x0 : [ saveSonar-BB@0x2 ]
+	0       (00000000) const/4              v0, 0
+
+saveSonar-BB@0x2 : [ saveSonar-BB@0x12 saveSonar-BB@0x532 ]
+	1       (00000002) iget-object          v1, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->sonarEntryList Ljava/util/List;
+	2       (00000006) invoke-interface     v1, Ljava/util/List;->size()I
+	3       (0000000c) move-result          v1
+	4       (0000000e) if-ge                v0, v1, +292h
+
+saveSonar-BB@0x12 : [ saveSonar-BB@0x42 saveSonar-BB@0xd4 ]
+	5       (00000012) iget-object          v1, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->sonarEntryList Ljava/util/List;
+	6       (00000016) invoke-interface     v1, v0, Ljava/util/List;->get(I)Ljava/lang/Object;
+	7       (0000001c) move-result-object   v1
+	8       (0000001e) check-cast           v1, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;
+	9       (00000022) invoke-virtual       v1, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;->getName()Ljava/lang/String;
+	10      (00000028) move-result-object   v1
+	11      (0000002a) const-string         v2, "front"
+	12      (0000002e) invoke-virtual       v2, v1, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	13      (00000034) move-result          v1
+	14      (00000036) const-wide/16        v2, 1
+	15      (0000003a) const-wide/16        v4, 0
+	16      (0000003e) if-eqz               v1, +04bh
+
+saveSonar-BB@0x42 : [ saveSonar-BB@0x62 saveSonar-BB@0x64 ]
+	17      (00000042) iget-object          v1, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->sonarEntryList Ljava/util/List;
+	18      (00000046) invoke-interface     v1, v0, Ljava/util/List;->get(I)Ljava/lang/Object;
+	19      (0000004c) move-result-object   v1
+	20      (0000004e) check-cast           v1, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;
+	21      (00000052) iget-object          v6, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->front_sw Landroid/widget/Switch;
+	22      (00000056) invoke-virtual       v6, Landroid/widget/Switch;->isChecked()Z
+	23      (0000005c) move-result          v6
+	24      (0000005e) if-eqz               v6, +003h
+
+saveSonar-BB@0x62 : [ saveSonar-BB@0x66 ]
+	25      (00000062) goto                 +2h
+
+saveSonar-BB@0x64 : [ saveSonar-BB@0x66 ]
+	26      (00000064) move-wide            v2, v4
+
+saveSonar-BB@0x66 : [ saveSonar-BB@0x52a ]
+	27      (00000066) invoke-virtual       v1, v2, v3, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;->setSonarSwitch(J)V
+	28      (0000006c) iget-object          v1, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->sonarEntryList Ljava/util/List;
+	29      (00000070) invoke-interface     v1, v0, Ljava/util/List;->get(I)Ljava/lang/Object;
+	30      (00000076) move-result-object   v1
+	31      (00000078) check-cast           v1, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;
+	32      (0000007c) iget-object          v2, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->min_front_et Landroid/widget/EditText;
+	33      (00000080) invoke-virtual       v2, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+	34      (00000086) move-result-object   v2
+	35      (00000088) invoke-virtual       v2, Ljava/lang/Object;->toString()Ljava/lang/String;
+	36      (0000008e) move-result-object   v2
+	37      (00000090) invoke-static        v2, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+	38      (00000096) move-result          v2
+	39      (00000098) invoke-virtual       v1, v2, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;->setMinRange(F)V
+	40      (0000009e) iget-object          v1, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->sonarEntryList Ljava/util/List;
+	41      (000000a2) invoke-interface     v1, v0, Ljava/util/List;->get(I)Ljava/lang/Object;
+	42      (000000a8) move-result-object   v1
+	43      (000000aa) check-cast           v1, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;
+	44      (000000ae) iget-object          v2, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->max_front_et Landroid/widget/EditText;
+	45      (000000b2) invoke-virtual       v2, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+	46      (000000b8) move-result-object   v2
+	47      (000000ba) invoke-virtual       v2, Ljava/lang/Object;->toString()Ljava/lang/String;
+	48      (000000c0) move-result-object   v2
+	49      (000000c2) invoke-static        v2, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+	50      (000000c8) move-result          v2
+	51      (000000ca) invoke-virtual       v1, v2, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;->setMaxRange(F)V
+	52      (000000d0) goto/16              +22dh
+
+saveSonar-BB@0xd4 : [ saveSonar-BB@0xfc saveSonar-BB@0x18e ]
+	53      (000000d4) iget-object          v1, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->sonarEntryList Ljava/util/List;
+	54      (000000d8) invoke-interface     v1, v0, Ljava/util/List;->get(I)Ljava/lang/Object;
+	55      (000000de) move-result-object   v1
+	56      (000000e0) check-cast           v1, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;
+	57      (000000e4) invoke-virtual       v1, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;->getName()Ljava/lang/String;
+	58      (000000ea) move-result-object   v1
+	59      (000000ec) const-string         v6, "back"
+	60      (000000f0) invoke-virtual       v6, v1, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	61      (000000f6) move-result          v1
+	62      (000000f8) if-eqz               v1, +04bh
+
+saveSonar-BB@0xfc : [ saveSonar-BB@0x11c saveSonar-BB@0x11e ]
+	63      (000000fc) iget-object          v1, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->sonarEntryList Ljava/util/List;
+	64      (00000100) invoke-interface     v1, v0, Ljava/util/List;->get(I)Ljava/lang/Object;
+	65      (00000106) move-result-object   v1
+	66      (00000108) check-cast           v1, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;
+	67      (0000010c) iget-object          v6, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->back_sw Landroid/widget/Switch;
+	68      (00000110) invoke-virtual       v6, Landroid/widget/Switch;->isChecked()Z
+	69      (00000116) move-result          v6
+	70      (00000118) if-eqz               v6, +003h
+
+saveSonar-BB@0x11c : [ saveSonar-BB@0x120 ]
+	71      (0000011c) goto                 +2h
+
+saveSonar-BB@0x11e : [ saveSonar-BB@0x120 ]
+	72      (0000011e) move-wide            v2, v4
+
+saveSonar-BB@0x120 : [ saveSonar-BB@0x52a ]
+	73      (00000120) invoke-virtual       v1, v2, v3, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;->setSonarSwitch(J)V
+	74      (00000126) iget-object          v1, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->sonarEntryList Ljava/util/List;
+	75      (0000012a) invoke-interface     v1, v0, Ljava/util/List;->get(I)Ljava/lang/Object;
+	76      (00000130) move-result-object   v1
+	77      (00000132) check-cast           v1, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;
+	78      (00000136) iget-object          v2, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->min_back_et Landroid/widget/EditText;
+	79      (0000013a) invoke-virtual       v2, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+	80      (00000140) move-result-object   v2
+	81      (00000142) invoke-virtual       v2, Ljava/lang/Object;->toString()Ljava/lang/String;
+	82      (00000148) move-result-object   v2
+	83      (0000014a) invoke-static        v2, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+	84      (00000150) move-result          v2
+	85      (00000152) invoke-virtual       v1, v2, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;->setMinRange(F)V
+	86      (00000158) iget-object          v1, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->sonarEntryList Ljava/util/List;
+	87      (0000015c) invoke-interface     v1, v0, Ljava/util/List;->get(I)Ljava/lang/Object;
+	88      (00000162) move-result-object   v1
+	89      (00000164) check-cast           v1, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;
+	90      (00000168) iget-object          v2, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->max_back_et Landroid/widget/EditText;
+	91      (0000016c) invoke-virtual       v2, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+	92      (00000172) move-result-object   v2
+	93      (00000174) invoke-virtual       v2, Ljava/lang/Object;->toString()Ljava/lang/String;
+	94      (0000017a) move-result-object   v2
+	95      (0000017c) invoke-static        v2, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+	96      (00000182) move-result          v2
+	97      (00000184) invoke-virtual       v1, v2, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;->setMaxRange(F)V
+	98      (0000018a) goto/16              +1d0h
+
+saveSonar-BB@0x18e : [ saveSonar-BB@0x1b6 saveSonar-BB@0x248 ]
+	99      (0000018e) iget-object          v1, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->sonarEntryList Ljava/util/List;
+	100     (00000192) invoke-interface     v1, v0, Ljava/util/List;->get(I)Ljava/lang/Object;
+	101     (00000198) move-result-object   v1
+	102     (0000019a) check-cast           v1, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;
+	103     (0000019e) invoke-virtual       v1, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;->getName()Ljava/lang/String;
+	104     (000001a4) move-result-object   v1
+	105     (000001a6) const-string         v6, "left"
+	106     (000001aa) invoke-virtual       v6, v1, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	107     (000001b0) move-result          v1
+	108     (000001b2) if-eqz               v1, +04bh
+
+saveSonar-BB@0x1b6 : [ saveSonar-BB@0x1d6 saveSonar-BB@0x1d8 ]
+	109     (000001b6) iget-object          v1, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->sonarEntryList Ljava/util/List;
+	110     (000001ba) invoke-interface     v1, v0, Ljava/util/List;->get(I)Ljava/lang/Object;
+	111     (000001c0) move-result-object   v1
+	112     (000001c2) check-cast           v1, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;
+	113     (000001c6) iget-object          v6, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->left_sw Landroid/widget/Switch;
+	114     (000001ca) invoke-virtual       v6, Landroid/widget/Switch;->isChecked()Z
+	115     (000001d0) move-result          v6
+	116     (000001d2) if-eqz               v6, +003h
+
+saveSonar-BB@0x1d6 : [ saveSonar-BB@0x1da ]
+	117     (000001d6) goto                 +2h
+
+saveSonar-BB@0x1d8 : [ saveSonar-BB@0x1da ]
+	118     (000001d8) move-wide            v2, v4
+
+saveSonar-BB@0x1da : [ saveSonar-BB@0x52a ]
+	119     (000001da) invoke-virtual       v1, v2, v3, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;->setSonarSwitch(J)V
+	120     (000001e0) iget-object          v1, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->sonarEntryList Ljava/util/List;
+	121     (000001e4) invoke-interface     v1, v0, Ljava/util/List;->get(I)Ljava/lang/Object;
+	122     (000001ea) move-result-object   v1
+	123     (000001ec) check-cast           v1, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;
+	124     (000001f0) iget-object          v2, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->min_left_et Landroid/widget/EditText;
+	125     (000001f4) invoke-virtual       v2, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+	126     (000001fa) move-result-object   v2
+	127     (000001fc) invoke-virtual       v2, Ljava/lang/Object;->toString()Ljava/lang/String;
+	128     (00000202) move-result-object   v2
+	129     (00000204) invoke-static        v2, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+	130     (0000020a) move-result          v2
+	131     (0000020c) invoke-virtual       v1, v2, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;->setMinRange(F)V
+	132     (00000212) iget-object          v1, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->sonarEntryList Ljava/util/List;
+	133     (00000216) invoke-interface     v1, v0, Ljava/util/List;->get(I)Ljava/lang/Object;
+	134     (0000021c) move-result-object   v1
+	135     (0000021e) check-cast           v1, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;
+	136     (00000222) iget-object          v2, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->max_left_et Landroid/widget/EditText;
+	137     (00000226) invoke-virtual       v2, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+	138     (0000022c) move-result-object   v2
+	139     (0000022e) invoke-virtual       v2, Ljava/lang/Object;->toString()Ljava/lang/String;
+	140     (00000234) move-result-object   v2
+	141     (00000236) invoke-static        v2, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+	142     (0000023c) move-result          v2
+	143     (0000023e) invoke-virtual       v1, v2, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;->setMaxRange(F)V
+	144     (00000244) goto/16              +173h
+
+saveSonar-BB@0x248 : [ saveSonar-BB@0x270 saveSonar-BB@0x302 ]
+	145     (00000248) iget-object          v1, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->sonarEntryList Ljava/util/List;
+	146     (0000024c) invoke-interface     v1, v0, Ljava/util/List;->get(I)Ljava/lang/Object;
+	147     (00000252) move-result-object   v1
+	148     (00000254) check-cast           v1, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;
+	149     (00000258) invoke-virtual       v1, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;->getName()Ljava/lang/String;
+	150     (0000025e) move-result-object   v1
+	151     (00000260) const-string         v6, "leftmiddle"
+	152     (00000264) invoke-virtual       v6, v1, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	153     (0000026a) move-result          v1
+	154     (0000026c) if-eqz               v1, +04bh
+
+saveSonar-BB@0x270 : [ saveSonar-BB@0x290 saveSonar-BB@0x292 ]
+	155     (00000270) iget-object          v1, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->sonarEntryList Ljava/util/List;
+	156     (00000274) invoke-interface     v1, v0, Ljava/util/List;->get(I)Ljava/lang/Object;
+	157     (0000027a) move-result-object   v1
+	158     (0000027c) check-cast           v1, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;
+	159     (00000280) iget-object          v6, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->leftm_sw Landroid/widget/Switch;
+	160     (00000284) invoke-virtual       v6, Landroid/widget/Switch;->isChecked()Z
+	161     (0000028a) move-result          v6
+	162     (0000028c) if-eqz               v6, +003h
+
+saveSonar-BB@0x290 : [ saveSonar-BB@0x294 ]
+	163     (00000290) goto                 +2h
+
+saveSonar-BB@0x292 : [ saveSonar-BB@0x294 ]
+	164     (00000292) move-wide            v2, v4
+
+saveSonar-BB@0x294 : [ saveSonar-BB@0x52a ]
+	165     (00000294) invoke-virtual       v1, v2, v3, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;->setSonarSwitch(J)V
+	166     (0000029a) iget-object          v1, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->sonarEntryList Ljava/util/List;
+	167     (0000029e) invoke-interface     v1, v0, Ljava/util/List;->get(I)Ljava/lang/Object;
+	168     (000002a4) move-result-object   v1
+	169     (000002a6) check-cast           v1, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;
+	170     (000002aa) iget-object          v2, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->min_leftm_et Landroid/widget/EditText;
+	171     (000002ae) invoke-virtual       v2, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+	172     (000002b4) move-result-object   v2
+	173     (000002b6) invoke-virtual       v2, Ljava/lang/Object;->toString()Ljava/lang/String;
+	174     (000002bc) move-result-object   v2
+	175     (000002be) invoke-static        v2, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+	176     (000002c4) move-result          v2
+	177     (000002c6) invoke-virtual       v1, v2, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;->setMinRange(F)V
+	178     (000002cc) iget-object          v1, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->sonarEntryList Ljava/util/List;
+	179     (000002d0) invoke-interface     v1, v0, Ljava/util/List;->get(I)Ljava/lang/Object;
+	180     (000002d6) move-result-object   v1
+	181     (000002d8) check-cast           v1, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;
+	182     (000002dc) iget-object          v2, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->max_leftm_et Landroid/widget/EditText;
+	183     (000002e0) invoke-virtual       v2, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+	184     (000002e6) move-result-object   v2
+	185     (000002e8) invoke-virtual       v2, Ljava/lang/Object;->toString()Ljava/lang/String;
+	186     (000002ee) move-result-object   v2
+	187     (000002f0) invoke-static        v2, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+	188     (000002f6) move-result          v2
+	189     (000002f8) invoke-virtual       v1, v2, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;->setMaxRange(F)V
+	190     (000002fe) goto/16              +116h
+
+saveSonar-BB@0x302 : [ saveSonar-BB@0x32a saveSonar-BB@0x3bc ]
+	191     (00000302) iget-object          v1, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->sonarEntryList Ljava/util/List;
+	192     (00000306) invoke-interface     v1, v0, Ljava/util/List;->get(I)Ljava/lang/Object;
+	193     (0000030c) move-result-object   v1
+	194     (0000030e) check-cast           v1, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;
+	195     (00000312) invoke-virtual       v1, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;->getName()Ljava/lang/String;
+	196     (00000318) move-result-object   v1
+	197     (0000031a) const-string         v6, "right"
+	198     (0000031e) invoke-virtual       v6, v1, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	199     (00000324) move-result          v1
+	200     (00000326) if-eqz               v1, +04bh
+
+saveSonar-BB@0x32a : [ saveSonar-BB@0x34a saveSonar-BB@0x34c ]
+	201     (0000032a) iget-object          v1, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->sonarEntryList Ljava/util/List;
+	202     (0000032e) invoke-interface     v1, v0, Ljava/util/List;->get(I)Ljava/lang/Object;
+	203     (00000334) move-result-object   v1
+	204     (00000336) check-cast           v1, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;
+	205     (0000033a) iget-object          v6, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->right_sw Landroid/widget/Switch;
+	206     (0000033e) invoke-virtual       v6, Landroid/widget/Switch;->isChecked()Z
+	207     (00000344) move-result          v6
+	208     (00000346) if-eqz               v6, +003h
+
+saveSonar-BB@0x34a : [ saveSonar-BB@0x34e ]
+	209     (0000034a) goto                 +2h
+
+saveSonar-BB@0x34c : [ saveSonar-BB@0x34e ]
+	210     (0000034c) move-wide            v2, v4
+
+saveSonar-BB@0x34e : [ saveSonar-BB@0x52a ]
+	211     (0000034e) invoke-virtual       v1, v2, v3, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;->setSonarSwitch(J)V
+	212     (00000354) iget-object          v1, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->sonarEntryList Ljava/util/List;
+	213     (00000358) invoke-interface     v1, v0, Ljava/util/List;->get(I)Ljava/lang/Object;
+	214     (0000035e) move-result-object   v1
+	215     (00000360) check-cast           v1, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;
+	216     (00000364) iget-object          v2, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->min_right_et Landroid/widget/EditText;
+	217     (00000368) invoke-virtual       v2, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+	218     (0000036e) move-result-object   v2
+	219     (00000370) invoke-virtual       v2, Ljava/lang/Object;->toString()Ljava/lang/String;
+	220     (00000376) move-result-object   v2
+	221     (00000378) invoke-static        v2, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+	222     (0000037e) move-result          v2
+	223     (00000380) invoke-virtual       v1, v2, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;->setMinRange(F)V
+	224     (00000386) iget-object          v1, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->sonarEntryList Ljava/util/List;
+	225     (0000038a) invoke-interface     v1, v0, Ljava/util/List;->get(I)Ljava/lang/Object;
+	226     (00000390) move-result-object   v1
+	227     (00000392) check-cast           v1, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;
+	228     (00000396) iget-object          v2, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->max_right_et Landroid/widget/EditText;
+	229     (0000039a) invoke-virtual       v2, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+	230     (000003a0) move-result-object   v2
+	231     (000003a2) invoke-virtual       v2, Ljava/lang/Object;->toString()Ljava/lang/String;
+	232     (000003a8) move-result-object   v2
+	233     (000003aa) invoke-static        v2, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+	234     (000003b0) move-result          v2
+	235     (000003b2) invoke-virtual       v1, v2, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;->setMaxRange(F)V
+	236     (000003b8) goto/16              +0b9h
+
+saveSonar-BB@0x3bc : [ saveSonar-BB@0x3e4 saveSonar-BB@0x474 ]
+	237     (000003bc) iget-object          v1, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->sonarEntryList Ljava/util/List;
+	238     (000003c0) invoke-interface     v1, v0, Ljava/util/List;->get(I)Ljava/lang/Object;
+	239     (000003c6) move-result-object   v1
+	240     (000003c8) check-cast           v1, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;
+	241     (000003cc) invoke-virtual       v1, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;->getName()Ljava/lang/String;
+	242     (000003d2) move-result-object   v1
+	243     (000003d4) const-string         v6, "rightmiddle"
+	244     (000003d8) invoke-virtual       v6, v1, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	245     (000003de) move-result          v1
+	246     (000003e0) if-eqz               v1, +04ah
+
+saveSonar-BB@0x3e4 : [ saveSonar-BB@0x404 saveSonar-BB@0x406 ]
+	247     (000003e4) iget-object          v1, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->sonarEntryList Ljava/util/List;
+	248     (000003e8) invoke-interface     v1, v0, Ljava/util/List;->get(I)Ljava/lang/Object;
+	249     (000003ee) move-result-object   v1
+	250     (000003f0) check-cast           v1, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;
+	251     (000003f4) iget-object          v6, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->rightm_sw Landroid/widget/Switch;
+	252     (000003f8) invoke-virtual       v6, Landroid/widget/Switch;->isChecked()Z
+	253     (000003fe) move-result          v6
+	254     (00000400) if-eqz               v6, +003h
+
+saveSonar-BB@0x404 : [ saveSonar-BB@0x408 ]
+	255     (00000404) goto                 +2h
+
+saveSonar-BB@0x406 : [ saveSonar-BB@0x408 ]
+	256     (00000406) move-wide            v2, v4
+
+saveSonar-BB@0x408 : [ saveSonar-BB@0x52a ]
+	257     (00000408) invoke-virtual       v1, v2, v3, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;->setSonarSwitch(J)V
+	258     (0000040e) iget-object          v1, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->sonarEntryList Ljava/util/List;
+	259     (00000412) invoke-interface     v1, v0, Ljava/util/List;->get(I)Ljava/lang/Object;
+	260     (00000418) move-result-object   v1
+	261     (0000041a) check-cast           v1, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;
+	262     (0000041e) iget-object          v2, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->min_rightm_et Landroid/widget/EditText;
+	263     (00000422) invoke-virtual       v2, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+	264     (00000428) move-result-object   v2
+	265     (0000042a) invoke-virtual       v2, Ljava/lang/Object;->toString()Ljava/lang/String;
+	266     (00000430) move-result-object   v2
+	267     (00000432) invoke-static        v2, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+	268     (00000438) move-result          v2
+	269     (0000043a) invoke-virtual       v1, v2, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;->setMinRange(F)V
+	270     (00000440) iget-object          v1, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->sonarEntryList Ljava/util/List;
+	271     (00000444) invoke-interface     v1, v0, Ljava/util/List;->get(I)Ljava/lang/Object;
+	272     (0000044a) move-result-object   v1
+	273     (0000044c) check-cast           v1, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;
+	274     (00000450) iget-object          v2, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->max_rightm_et Landroid/widget/EditText;
+	275     (00000454) invoke-virtual       v2, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+	276     (0000045a) move-result-object   v2
+	277     (0000045c) invoke-virtual       v2, Ljava/lang/Object;->toString()Ljava/lang/String;
+	278     (00000462) move-result-object   v2
+	279     (00000464) invoke-static        v2, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+	280     (0000046a) move-result          v2
+	281     (0000046c) invoke-virtual       v1, v2, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;->setMaxRange(F)V
+	282     (00000472) goto                 +5ch
+
+saveSonar-BB@0x474 : [ saveSonar-BB@0x49c saveSonar-BB@0x52a ]
+	283     (00000474) iget-object          v1, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->sonarEntryList Ljava/util/List;
+	284     (00000478) invoke-interface     v1, v0, Ljava/util/List;->get(I)Ljava/lang/Object;
+	285     (0000047e) move-result-object   v1
+	286     (00000480) check-cast           v1, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;
+	287     (00000484) invoke-virtual       v1, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;->getName()Ljava/lang/String;
+	288     (0000048a) move-result-object   v1
+	289     (0000048c) const-string         v6, "up"
+	290     (00000490) invoke-virtual       v6, v1, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	291     (00000496) move-result          v1
+	292     (00000498) if-eqz               v1, +049h
+
+saveSonar-BB@0x49c : [ saveSonar-BB@0x4bc saveSonar-BB@0x4be ]
+	293     (0000049c) iget-object          v1, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->sonarEntryList Ljava/util/List;
+	294     (000004a0) invoke-interface     v1, v0, Ljava/util/List;->get(I)Ljava/lang/Object;
+	295     (000004a6) move-result-object   v1
+	296     (000004a8) check-cast           v1, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;
+	297     (000004ac) iget-object          v6, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->up_sw Landroid/widget/Switch;
+	298     (000004b0) invoke-virtual       v6, Landroid/widget/Switch;->isChecked()Z
+	299     (000004b6) move-result          v6
+	300     (000004b8) if-eqz               v6, +003h
+
+saveSonar-BB@0x4bc : [ saveSonar-BB@0x4c0 ]
+	301     (000004bc) goto                 +2h
+
+saveSonar-BB@0x4be : [ saveSonar-BB@0x4c0 ]
+	302     (000004be) move-wide            v2, v4
+
+saveSonar-BB@0x4c0 : [ saveSonar-BB@0x52a ]
+	303     (000004c0) invoke-virtual       v1, v2, v3, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;->setSonarSwitch(J)V
+	304     (000004c6) iget-object          v1, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->sonarEntryList Ljava/util/List;
+	305     (000004ca) invoke-interface     v1, v0, Ljava/util/List;->get(I)Ljava/lang/Object;
+	306     (000004d0) move-result-object   v1
+	307     (000004d2) check-cast           v1, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;
+	308     (000004d6) iget-object          v2, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->min_up_et Landroid/widget/EditText;
+	309     (000004da) invoke-virtual       v2, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+	310     (000004e0) move-result-object   v2
+	311     (000004e2) invoke-virtual       v2, Ljava/lang/Object;->toString()Ljava/lang/String;
+	312     (000004e8) move-result-object   v2
+	313     (000004ea) invoke-static        v2, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+	314     (000004f0) move-result          v2
+	315     (000004f2) invoke-virtual       v1, v2, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;->setMinRange(F)V
+	316     (000004f8) iget-object          v1, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->sonarEntryList Ljava/util/List;
+	317     (000004fc) invoke-interface     v1, v0, Ljava/util/List;->get(I)Ljava/lang/Object;
+	318     (00000502) move-result-object   v1
+	319     (00000504) check-cast           v1, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;
+	320     (00000508) iget-object          v2, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->max_up_et Landroid/widget/EditText;
+	321     (0000050c) invoke-virtual       v2, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+	322     (00000512) move-result-object   v2
+	323     (00000514) invoke-virtual       v2, Ljava/lang/Object;->toString()Ljava/lang/String;
+	324     (0000051a) move-result-object   v2
+	325     (0000051c) invoke-static        v2, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+	326     (00000522) move-result          v2
+	327     (00000524) invoke-virtual       v1, v2, Lcom/jlboat/phone/message/map_msgs/RobotSonarEntry;->setMaxRange(F)V
+
+saveSonar-BB@0x52a : [ saveSonar-BB@0x2 ]
+	328     (0000052a) add-int/lit8         v0, v0, 1
+	329     (0000052e) goto/16              -296h
+
+saveSonar-BB@0x532 : 
+	330     (00000532) iget-object          v0, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->statusServiceClient Lcom/jlboat/phone/communication/StatusServiceClient;
+	331     (00000536) iget-object          v1, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->sonarEntryList Ljava/util/List;
+	332     (0000053a) iget-object          v2, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->all_sw Landroid/widget/Switch;
+	333     (0000053e) invoke-virtual       v2, Landroid/widget/Switch;->isChecked()Z
+	334     (00000544) move-result          v2
+	335     (00000546) new-instance         v3, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment$3;
+	336     (0000054a) invoke-direct        v3, v7, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment$3;-><init>(Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;)V
+	337     (00000550) invoke-virtual       v0, v1, v2, v3, Lcom/jlboat/phone/communication/StatusServiceClient;->setSonarService(Ljava/util/List; Z Lcom/boat/jrosbridge/MessageListener;)V
+	338     (00000556) return-void          
+

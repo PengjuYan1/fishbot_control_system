@@ -1,0 +1,162 @@
+# Lcom/jlboat/phone/controller/JlNaviManager;->requestString(Ljava/lang/String; Ljava/lang/String;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:java.lang.String
+# - v5:java.lang.String
+#
+# - return:void
+
+requestString-BB@0x0 : [ requestString-BB@0x8 requestString-BB@0x128 ]
+	0       (00000000) iget-boolean         v0, v3, Lcom/jlboat/phone/controller/JlNaviManager;->connectStatus Z
+	1       (00000004) if-eqz               v0, +092h
+
+requestString-BB@0x8 : [ requestString-BB@0x10 requestString-BB@0x14 ]
+	2       (00000008) iget-boolean         v0, v3, Lcom/jlboat/phone/controller/JlNaviManager;->isNavigationInited Z
+	3       (0000000c) if-nez               v0, +004h
+
+requestString-BB@0x10 : [ requestString-BB@0x128 ]
+	4       (00000010) goto/16              +08ch
+
+requestString-BB@0x14 : [ D:requestString-BB@0x52 -1473136522:requestString-BB@0x7c -1099079617:requestString-BB@0x68 -721558305:requestString-BB@0x54 ]
+	5       (00000014) iget-object          v0, v3, Lcom/jlboat/phone/controller/JlNaviManager;->TAG Ljava/lang/String;
+	6       (00000018) new-instance         v1, Ljava/lang/StringBuilder;
+	7       (0000001c) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	8       (00000022) const-string         v2, "requestString: 请求的单次数据类型 "
+	9       (00000026) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	10      (0000002c) move-result-object   v1
+	11      (0000002e) invoke-virtual       v1, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	12      (00000034) move-result-object   v1
+	13      (00000036) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	14      (0000003c) move-result-object   v1
+	15      (0000003e) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	16      (00000044) invoke-virtual       v4, Ljava/lang/String;->hashCode()I
+	17      (0000004a) move-result          v0
+	18      (0000004c) sparse-switch        v0, +0000088h
+
+requestString-BB@0x52 : [ requestString-BB@0x90 ]
+	19      (00000052) goto                 +1fh
+
+requestString-BB@0x54 : [ requestString-BB@0x64 requestString-BB@0x52 ]
+	20      (00000054) const-string         v0, "requestRobotUpdateNGlobalplansConfig"
+	21      (00000058) invoke-virtual       v4, v0, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	22      (0000005e) move-result          v0
+	23      (00000060) if-eqz               v0, -007h
+
+requestString-BB@0x64 : [ requestString-BB@0x92 ]
+	24      (00000064) const/4              v0, 1
+	25      (00000066) goto                 +16h
+
+requestString-BB@0x68 : [ requestString-BB@0x78 requestString-BB@0x52 ]
+	26      (00000068) const-string         v0, "requestRobotNGlobalplan"
+	27      (0000006c) invoke-virtual       v4, v0, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	28      (00000072) move-result          v0
+	29      (00000074) if-eqz               v0, -011h
+
+requestString-BB@0x78 : [ requestString-BB@0x92 ]
+	30      (00000078) const/4              v0, 2
+	31      (0000007a) goto                 +ch
+
+requestString-BB@0x7c : [ requestString-BB@0x8c requestString-BB@0x52 ]
+	32      (0000007c) const-string         v0, "requestRobotNGlobalplansConfig"
+	33      (00000080) invoke-virtual       v4, v0, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	34      (00000086) move-result          v0
+	35      (00000088) if-eqz               v0, -01bh
+
+requestString-BB@0x8c : [ requestString-BB@0x92 ]
+	36      (0000008c) const/4              v0, 0
+	37      (0000008e) goto                 +2h
+
+requestString-BB@0x90 : [ requestString-BB@0x92 ]
+	38      (00000090) const/4              v0, -1
+
+requestString-BB@0x92 : [ D:requestString-BB@0x98 0:requestString-BB@0x11e 1:requestString-BB@0xdc 2:requestString-BB@0x9a ]
+	39      (00000092) packed-switch        v0, +0000073h
+
+requestString-BB@0x98 : [ requestString-BB@0x126 ]
+	40      (00000098) goto                 +47h
+
+requestString-BB@0x9a : [ requestString-BB@0x9c ]
+	41      (0000009a) const/4              v0, 0
+
+requestString-BB@0x9c : [ requestString-BB@0xd0 ]
+	42      (0000009c) new-instance         v1, Lcom/google/gson/Gson;
+	43      (000000a0) invoke-direct        v1, Lcom/google/gson/Gson;-><init>()V
+	44      (000000a6) new-instance         v2, Lcom/jlboat/phone/controller/JlNaviManager$36;
+	45      (000000aa) invoke-direct        v2, v3, Lcom/jlboat/phone/controller/JlNaviManager$36;-><init>(Lcom/jlboat/phone/controller/JlNaviManager;)V
+	46      (000000b0) invoke-virtual       v2, Lcom/jlboat/phone/controller/JlNaviManager$36;->getType()Ljava/lang/reflect/Type;
+	47      (000000b6) move-result-object   v2
+	48      (000000b8) invoke-virtual       v1, v5, v2, Lcom/google/gson/Gson;->fromJson(Ljava/lang/String; Ljava/lang/reflect/Type;)Ljava/lang/Object;
+	49      (000000be) move-result-object   v1
+	50      (000000c0) check-cast           v1, Lcom/boat/support/slam/entity/floors/NLine;
+	51      (000000c4) move-object          v0, v1
+	52      (000000c6) goto                 +5h
+	9c:c3
+	(Ljava/lang/Exception; -> c8 requestString-BB@0xc8)
+
+requestString-BB@0xc8 : [ requestString-BB@0xd0 ]
+	53      (000000c8) move-exception       v1
+	54      (000000ca) invoke-virtual       v1, Ljava/lang/Exception;->printStackTrace()V
+
+requestString-BB@0xd0 : [ requestString-BB@0xd4 requestString-BB@0x126 ]
+	55      (000000d0) if-eqz               v0, +02bh
+
+requestString-BB@0xd4 : [ requestString-BB@0x126 ]
+	56      (000000d4) invoke-direct        v3, v0, Lcom/jlboat/phone/controller/JlNaviManager;->addNGPointLine(Lcom/boat/support/slam/entity/floors/NLine;)V
+	57      (000000da) goto                 +26h
+
+requestString-BB@0xdc : [ requestString-BB@0xde ]
+	58      (000000dc) const/4              v0, 0
+
+requestString-BB@0xde : [ requestString-BB@0x112 ]
+	59      (000000de) new-instance         v1, Lcom/google/gson/Gson;
+	60      (000000e2) invoke-direct        v1, Lcom/google/gson/Gson;-><init>()V
+	61      (000000e8) new-instance         v2, Lcom/jlboat/phone/controller/JlNaviManager$35;
+	62      (000000ec) invoke-direct        v2, v3, Lcom/jlboat/phone/controller/JlNaviManager$35;-><init>(Lcom/jlboat/phone/controller/JlNaviManager;)V
+	63      (000000f2) invoke-virtual       v2, Lcom/jlboat/phone/controller/JlNaviManager$35;->getType()Ljava/lang/reflect/Type;
+	64      (000000f8) move-result-object   v2
+	65      (000000fa) invoke-virtual       v1, v5, v2, Lcom/google/gson/Gson;->fromJson(Ljava/lang/String; Ljava/lang/reflect/Type;)Ljava/lang/Object;
+	66      (00000100) move-result-object   v1
+	67      (00000102) check-cast           v1, Lcom/boat/support/slam/entity/floors/NLine;
+	68      (00000106) move-object          v0, v1
+	69      (00000108) goto                 +5h
+	de:105
+	(Ljava/lang/Exception; -> 10a requestString-BB@0x10a)
+
+requestString-BB@0x10a : [ requestString-BB@0x112 ]
+	70      (0000010a) move-exception       v1
+	71      (0000010c) invoke-virtual       v1, Ljava/lang/Exception;->printStackTrace()V
+
+requestString-BB@0x112 : [ requestString-BB@0x116 requestString-BB@0x126 ]
+	72      (00000112) if-eqz               v0, +00ah
+
+requestString-BB@0x116 : [ requestString-BB@0x126 ]
+	73      (00000116) invoke-direct        v3, v0, Lcom/jlboat/phone/controller/JlNaviManager;->uodateDiyLineConfig(Lcom/boat/support/slam/entity/floors/NLine;)V
+	74      (0000011c) goto                 +5h
+
+requestString-BB@0x11e : [ requestString-BB@0x126 ]
+	75      (0000011e) invoke-direct        v3, Lcom/jlboat/phone/controller/JlNaviManager;->getDefDiyLineConfig()V
+	76      (00000124) nop                  
+
+requestString-BB@0x126 : 
+	77      (00000126) return-void          
+
+requestString-BB@0x128 : 
+	78      (00000128) iget-object          v0, v3, Lcom/jlboat/phone/controller/JlNaviManager;->TAG Ljava/lang/String;
+	79      (0000012c) new-instance         v1, Ljava/lang/StringBuilder;
+	80      (00000130) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	81      (00000136) const-string         v2, "requestString: 初始化未成功 不可以进行数据请求  requesType : "
+	82      (0000013a) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	83      (00000140) move-result-object   v1
+	84      (00000142) invoke-virtual       v1, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	85      (00000148) move-result-object   v1
+	86      (0000014a) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	87      (00000150) move-result-object   v1
+	88      (00000152) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	89      (00000158) return-void          
+
+requestString-BB@0x15a : 
+	90      (0000015a) nop                  
+	91      (0000015c) sparse-switch-payload -57ce478a -41829fc1 -2b021b21
+	92      (00000178) packed-switch-payload 0 1 2
+

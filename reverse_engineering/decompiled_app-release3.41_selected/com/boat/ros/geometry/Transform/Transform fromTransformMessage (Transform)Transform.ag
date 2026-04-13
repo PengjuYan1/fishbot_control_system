@@ -1,0 +1,21 @@
+# Lcom/boat/ros/geometry/Transform;->fromTransformMessage(Lcom/boat/jrosbridge/message/geometry_msgs/Transform;)Lcom/boat/ros/geometry/Transform; [access_flags=public static]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:com.boat.jrosbridge.message.geometry_msgs.Transform
+#
+# - return:com.boat.ros.geometry.Transform
+
+fromTransformMessage-BB@0x0 : 
+	0       (00000000) new-instance         v0, Lcom/boat/ros/geometry/Transform;
+	1       (00000004) invoke-virtual       v3, Lcom/boat/jrosbridge/message/geometry_msgs/Transform;->getTranslation()Lcom/boat/jrosbridge/message/geometry_msgs/Vector3;
+	2       (0000000a) move-result-object   v1
+	3       (0000000c) invoke-static        v1, Lcom/boat/ros/geometry/Vector3;->fromVector3Message(Lcom/boat/jrosbridge/message/geometry_msgs/Vector3;)Lcom/boat/ros/geometry/Vector3;
+	4       (00000012) move-result-object   v1
+	5       (00000014) invoke-virtual       v3, Lcom/boat/jrosbridge/message/geometry_msgs/Transform;->getRotation()Lcom/boat/jrosbridge/message/geometry_msgs/Quaternion;
+	6       (0000001a) move-result-object   v2
+	7       (0000001c) invoke-static        v2, Lcom/boat/ros/geometry/Quaternion;->fromQuaternionMessage(Lcom/boat/jrosbridge/message/geometry_msgs/Quaternion;)Lcom/boat/ros/geometry/Quaternion;
+	8       (00000022) move-result-object   v2
+	9       (00000024) invoke-direct        v0, v1, v2, Lcom/boat/ros/geometry/Transform;-><init>(Lcom/boat/ros/geometry/Vector3; Lcom/boat/ros/geometry/Quaternion;)V
+	10      (0000002a) return-object        v0
+

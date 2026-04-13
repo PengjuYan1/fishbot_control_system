@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/adapter/ConfigListAdapter;->access$700(Lcom/jlboat/phone/adapter/ConfigListAdapter;)J [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:com.jlboat.phone.adapter.ConfigListAdapter
+#
+# - return:long
+
+access$700-BB@0x0 : 
+	0       (00000000) iget-wide            v0, v2, Lcom/jlboat/phone/adapter/ConfigListAdapter;->status J
+	1       (00000004) return-wide          v0
+

@@ -1,0 +1,56 @@
+# Lcom/jlboat/phone/activity/MapEditRegionActivity$3;->click(Lcom/boat/support/slam/entity/floors/Region; I)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v4
+# - v5:com.boat.support.slam.entity.floors.Region
+# - v6:int
+#
+# - return:void
+
+click-BB@0x0 : [ click-BB@0x48 click-BB@0x72 ]
+	0       (00000000) new-instance         v0, Ljava/lang/StringBuilder;
+	1       (00000004) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	2       (0000000a) const-string         v1, "isOK0:"
+	3       (0000000e) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	4       (00000014) move-result-object   v0
+	5       (00000016) iget-object          v1, v4, Lcom/jlboat/phone/activity/MapEditRegionActivity$3;->this$0 Lcom/jlboat/phone/activity/MapEditRegionActivity;
+	6       (0000001a) invoke-static        v1, Lcom/jlboat/phone/activity/MapEditRegionActivity;->access$300(Lcom/jlboat/phone/activity/MapEditRegionActivity;)Z
+	7       (00000020) move-result          v1
+	8       (00000022) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+	9       (00000028) move-result-object   v0
+	10      (0000002a) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	11      (00000030) move-result-object   v0
+	12      (00000032) const-string         v1, "MapEditShapeActivity"
+	13      (00000036) invoke-static        v1, v0, Landroid/util/Log;->e(Ljava/lang/String; Ljava/lang/String;)I
+	14      (0000003c) iget-object          v0, v4, Lcom/jlboat/phone/activity/MapEditRegionActivity$3;->this$0 Lcom/jlboat/phone/activity/MapEditRegionActivity;
+	15      (00000040) iget-object          v0, v0, Lcom/jlboat/phone/activity/MapEditRegionActivity;->mapView Lcom/jlboat/phone/view/MapView;
+	16      (00000044) if-eqz               v0, +017h
+
+click-BB@0x48 : [ click-BB@0x72 ]
+	17      (00000048) iget-object          v0, v4, Lcom/jlboat/phone/activity/MapEditRegionActivity$3;->this$0 Lcom/jlboat/phone/activity/MapEditRegionActivity;
+	18      (0000004c) iget-object          v0, v0, Lcom/jlboat/phone/activity/MapEditRegionActivity;->mapView Lcom/jlboat/phone/view/MapView;
+	19      (00000050) invoke-virtual       v5, Lcom/boat/support/slam/entity/floors/Region;->getRegionId()J
+	20      (00000056) move-result-wide     v1
+	21      (00000058) invoke-virtual       v0, v1, v2, Lcom/jlboat/phone/view/MapView;->setTagRegionId(J)V
+	22      (0000005e) iget-object          v0, v4, Lcom/jlboat/phone/activity/MapEditRegionActivity$3;->this$0 Lcom/jlboat/phone/activity/MapEditRegionActivity;
+	23      (00000062) invoke-static        v0, Lcom/jlboat/phone/activity/MapEditRegionActivity;->access$100(Lcom/jlboat/phone/activity/MapEditRegionActivity;)V
+	24      (00000068) iget-object          v0, v4, Lcom/jlboat/phone/activity/MapEditRegionActivity$3;->this$0 Lcom/jlboat/phone/activity/MapEditRegionActivity;
+	25      (0000006c) invoke-static        v0, v5, Lcom/jlboat/phone/activity/MapEditRegionActivity;->access$400(Lcom/jlboat/phone/activity/MapEditRegionActivity; Lcom/boat/support/slam/entity/floors/Region;)V
+
+click-BB@0x72 : 
+	26      (00000072) iget-object          v0, v4, Lcom/jlboat/phone/activity/MapEditRegionActivity$3;->this$0 Lcom/jlboat/phone/activity/MapEditRegionActivity;
+	27      (00000076) new-instance         v1, Ljava/lang/StringBuilder;
+	28      (0000007a) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	29      (00000080) iget-object          v2, v4, Lcom/jlboat/phone/activity/MapEditRegionActivity$3;->this$0 Lcom/jlboat/phone/activity/MapEditRegionActivity;
+	30      (00000084) const                v3, 2131493140
+	31      (0000008a) invoke-virtual       v2, v3, Lcom/jlboat/phone/activity/MapEditRegionActivity;->getResString(I)Ljava/lang/String;
+	32      (00000090) move-result-object   v2
+	33      (00000092) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	34      (00000098) move-result-object   v1
+	35      (0000009a) invoke-virtual       v1, v6, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	36      (000000a0) move-result-object   v1
+	37      (000000a2) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	38      (000000a8) move-result-object   v1
+	39      (000000aa) invoke-virtual       v0, v1, Lcom/jlboat/phone/activity/MapEditRegionActivity;->toast(Ljava/lang/CharSequence;)V
+	40      (000000b0) return-void          
+

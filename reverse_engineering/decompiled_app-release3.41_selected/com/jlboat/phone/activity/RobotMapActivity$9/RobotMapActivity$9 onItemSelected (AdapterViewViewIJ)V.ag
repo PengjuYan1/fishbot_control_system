@@ -1,0 +1,28 @@
+# Lcom/jlboat/phone/activity/RobotMapActivity$9;->onItemSelected(Landroid/widget/AdapterView; Landroid/view/View; I J)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:android.widget.AdapterView
+# - v5:android.view.View
+# - v6:int
+# - v7:long
+#
+# - return:void
+
+onItemSelected-BB@0x0 : 
+	0       (00000000) new-instance         v0, Ljava/lang/StringBuilder;
+	1       (00000004) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	2       (0000000a) const-string         v1, "spinner_floors onItemClick: "
+	3       (0000000e) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	4       (00000014) move-result-object   v0
+	5       (00000016) invoke-virtual       v0, v5, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	6       (0000001c) move-result-object   v0
+	7       (0000001e) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	8       (00000024) move-result-object   v0
+	9       (00000026) const-string         v1, "RobotMapActivity"
+	10      (0000002a) invoke-static        v1, v0, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	11      (00000030) iget-object          v0, v2, Lcom/jlboat/phone/activity/RobotMapActivity$9;->val$selectFloorIndex [I
+	12      (00000034) const/4              v1, 0
+	13      (00000036) aput                 v5, v0, v1
+	14      (0000003a) return-void          
+

@@ -1,0 +1,26 @@
+# Lcom/boat/jrosbridge/rosbridge/operation/Operation;->toOperation(Ljava/lang/String; Lcom/boat/jrosbridge/rosbridge/implementation/Registry;)Lcom/boat/jrosbridge/rosbridge/operation/Operation; [access_flags=public static]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:java.lang.String
+# - v3:com.boat.jrosbridge.rosbridge.implementation.Registry
+#
+# - return:com.boat.jrosbridge.rosbridge.operation.Operation
+
+toOperation-BB@0x0 : [ toOperation-BB@0x14 toOperation-BB@0x1a ]
+	0       (00000000) const-class          v0, Lcom/boat/jrosbridge/rosbridge/operation/Wrapper;
+	1       (00000004) invoke-static        v2, v0, v3, Lcom/boat/jrosbridge/rosbridge/implementation/JSON;->toMessage(Ljava/lang/String; Ljava/lang/Class; Lcom/boat/jrosbridge/rosbridge/implementation/Registry;)Lcom/boat/jrosbridge/message/Message;
+	2       (0000000a) move-result-object   v0
+	3       (0000000c) check-cast           v0, Lcom/boat/jrosbridge/rosbridge/operation/Wrapper;
+	4       (00000010) if-eqz               v0, +005h
+
+toOperation-BB@0x14 : [ toOperation-BB@0x1c ]
+	5       (00000014) iget-object          v1, v0, Lcom/boat/jrosbridge/rosbridge/operation/Wrapper;->msg Lcom/boat/jrosbridge/rosbridge/operation/Operation;
+	6       (00000018) goto                 +2h
+
+toOperation-BB@0x1a : [ toOperation-BB@0x1c ]
+	7       (0000001a) const/4              v1, 0
+
+toOperation-BB@0x1c : 
+	8       (0000001c) return-object        v1
+

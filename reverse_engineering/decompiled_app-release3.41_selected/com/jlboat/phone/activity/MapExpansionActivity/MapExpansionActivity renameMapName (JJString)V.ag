@@ -1,0 +1,24 @@
+# Lcom/jlboat/phone/activity/MapExpansionActivity;->renameMapName(J J Ljava/lang/String;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v10
+# - v11:long
+# - v12:long
+# - v13:java.lang.String
+#
+# - return:void
+
+renameMapName-BB@0x0 : 
+	0       (00000000) const                v0, 2131493123
+	1       (00000006) invoke-virtual       v8, v0, Lcom/jlboat/phone/activity/MapExpansionActivity;->getResString(I)Ljava/lang/String;
+	2       (0000000c) move-result-object   v0
+	3       (0000000e) invoke-direct        v8, v0, v13, Lcom/jlboat/phone/activity/MapExpansionActivity;->safeShowWaitingDialog(Ljava/lang/CharSequence; Ljava/lang/CharSequence;)V
+	4       (00000014) iget-object          v1, v8, Lcom/jlboat/phone/activity/MapExpansionActivity;->spiritServiceClient Lcom/jlboat/phone/communication/SpiritServiceClient;
+	5       (00000018) new-instance         v7, Lcom/jlboat/phone/activity/MapExpansionActivity$25;
+	6       (0000001c) invoke-direct        v7, v8, Lcom/jlboat/phone/activity/MapExpansionActivity$25;-><init>(Lcom/jlboat/phone/activity/MapExpansionActivity;)V
+	7       (00000022) move-wide            v2, v9
+	8       (00000024) move-wide            v4, v11
+	9       (00000026) move-object          v6, v13
+	10      (00000028) invoke-virtual/range v1 ... v7, Lcom/jlboat/phone/communication/SpiritServiceClient;->renameMapService(J J Ljava/lang/String; Lcom/boat/jrosbridge/MessageListener;)V
+	11      (0000002e) return-void          
+

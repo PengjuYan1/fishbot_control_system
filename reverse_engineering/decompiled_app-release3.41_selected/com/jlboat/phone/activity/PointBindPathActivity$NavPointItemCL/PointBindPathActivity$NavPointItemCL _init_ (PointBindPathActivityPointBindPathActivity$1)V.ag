@@ -1,0 +1,13 @@
+# Lcom/jlboat/phone/activity/PointBindPathActivity$NavPointItemCL;-><init>(Lcom/jlboat/phone/activity/PointBindPathActivity; Lcom/jlboat/phone/activity/PointBindPathActivity$1;)V [access_flags=synthetic constructor]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.activity.PointBindPathActivity
+# - v2:com.jlboat.phone.activity.PointBindPathActivity$1
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) invoke-direct        v0, v1, Lcom/jlboat/phone/activity/PointBindPathActivity$NavPointItemCL;-><init>(Lcom/jlboat/phone/activity/PointBindPathActivity;)V
+	1       (00000006) return-void          
+

@@ -1,0 +1,30 @@
+# Lcom/jlboat/phone/fragment/statusfragment/LiftFragment;->handleDropButtonClick()V [access_flags=private]
+#
+# Parameters:
+# local registers: v0...v3
+#
+# - return:void
+
+handleDropButtonClick-BB@0x0 : [ handleDropButtonClick-BB@0xc handleDropButtonClick-BB@0x32 ]
+	0       (00000000) iget-object          v0, v3, Lcom/jlboat/phone/fragment/statusfragment/LiftFragment;->jackingStatus Lcom/boat/jrosbridge/Topic;
+	1       (00000004) const-string         v1, "LiftFragment"
+	2       (00000008) if-eqz               v0, +015h
+
+handleDropButtonClick-BB@0xc : [ handleDropButtonClick-BB@0x3c ]
+	3       (0000000c) iget-object          v0, v3, Lcom/jlboat/phone/fragment/statusfragment/LiftFragment;->int16 Lcom/boat/jrosbridge/message/std_msgs/Int16;
+	4       (00000010) const/4              v2, 2
+	5       (00000012) invoke-virtual       v0, v2, Lcom/boat/jrosbridge/message/std_msgs/Int16;->setData(S)V
+	6       (00000018) iget-object          v0, v3, Lcom/jlboat/phone/fragment/statusfragment/LiftFragment;->jackingStatus Lcom/boat/jrosbridge/Topic;
+	7       (0000001c) iget-object          v2, v3, Lcom/jlboat/phone/fragment/statusfragment/LiftFragment;->int16 Lcom/boat/jrosbridge/message/std_msgs/Int16;
+	8       (00000020) invoke-virtual       v0, v2, Lcom/boat/jrosbridge/Topic;->publish(Lcom/boat/jrosbridge/message/Message;)V
+	9       (00000026) const-string         v0, "Topic落下命令已发送"
+	10      (0000002a) invoke-static        v1, v0, Lcom/boat/jrosbridge/message/Log;->d(Ljava/lang/String; Ljava/lang/String;)V
+	11      (00000030) goto                 +6h
+
+handleDropButtonClick-BB@0x32 : [ handleDropButtonClick-BB@0x3c ]
+	12      (00000032) const-string         v0, "Topic未初始化成功"
+	13      (00000036) invoke-static        v1, v0, Lcom/boat/jrosbridge/message/Log;->d(Ljava/lang/String; Ljava/lang/String;)V
+
+handleDropButtonClick-BB@0x3c : 
+	14      (0000003c) return-void          
+

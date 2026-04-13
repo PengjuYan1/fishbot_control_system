@@ -1,0 +1,16 @@
+# Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;->init()V [access_flags=protected]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:void
+
+init-BB@0x0 : 
+	0       (00000000) new-instance         v0, Lcom/jlboat/phone/communication/StatusServiceClient;
+	1       (00000004) invoke-direct        v0, Lcom/jlboat/phone/communication/StatusServiceClient;-><init>()V
+	2       (0000000a) iput-object          v0, v1, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;->statusServiceClient Lcom/jlboat/phone/communication/StatusServiceClient;
+	3       (0000000e) new-instance         v0, Lcom/jlboat/phone/communication/SpiritServiceClient;
+	4       (00000012) invoke-direct        v0, Lcom/jlboat/phone/communication/SpiritServiceClient;-><init>()V
+	5       (00000018) iput-object          v0, v1, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;->spiritServiceClient Lcom/jlboat/phone/communication/SpiritServiceClient;
+	6       (0000001c) return-void          
+

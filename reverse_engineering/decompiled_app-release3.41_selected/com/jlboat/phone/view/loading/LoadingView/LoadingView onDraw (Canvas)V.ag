@@ -1,0 +1,68 @@
+# Lcom/jlboat/phone/view/loading/LoadingView;->onDraw(Landroid/graphics/Canvas;)V [access_flags=protected]
+#
+# Parameters:
+# - local registers: v0...v8
+# - v9:android.graphics.Canvas
+#
+# - return:void
+
+onDraw-BB@0x0 : [ onDraw-BB@0x6e onDraw-BB@0xc8 ]
+	0       (00000000) invoke-super         v8, v9, Lcom/jlboat/phone/view/loading/BaseLoading;->onDraw(Landroid/graphics/Canvas;)V
+	1       (00000006) new-instance         v0, Landroid/graphics/RectF;
+	2       (0000000a) iget                 v1, v8, Lcom/jlboat/phone/view/loading/LoadingView;->mPadding F
+	3       (0000000e) iget                 v2, v8, Lcom/jlboat/phone/view/loading/LoadingView;->mPadding F
+	4       (00000012) iget                 v3, v8, Lcom/jlboat/phone/view/loading/LoadingView;->mWidth F
+	5       (00000016) iget                 v4, v8, Lcom/jlboat/phone/view/loading/LoadingView;->mPadding F
+	6       (0000001a) sub-float/2addr      v3, v4
+	7       (0000001c) iget                 v4, v8, Lcom/jlboat/phone/view/loading/LoadingView;->mWidth F
+	8       (00000020) iget                 v5, v8, Lcom/jlboat/phone/view/loading/LoadingView;->mPadding F
+	9       (00000024) sub-float/2addr      v4, v5
+	10      (00000026) invoke-direct        v0, v1, v2, v3, v4, Landroid/graphics/RectF;-><init>(F F F F)V
+	11      (0000002c) iput-object          v0, v8, Lcom/jlboat/phone/view/loading/LoadingView;->rectF Landroid/graphics/RectF;
+	12      (00000030) iget-object          v0, v8, Lcom/jlboat/phone/view/loading/LoadingView;->mPaint Landroid/graphics/Paint;
+	13      (00000034) sget-object          v1, Landroid/graphics/Paint$Style;->STROKE Landroid/graphics/Paint$Style;
+	14      (00000038) invoke-virtual       v0, v1, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
+	15      (0000003e) iget-object          v3, v8, Lcom/jlboat/phone/view/loading/LoadingView;->rectF Landroid/graphics/RectF;
+	16      (00000042) iget                 v4, v8, Lcom/jlboat/phone/view/loading/LoadingView;->startAngle F
+	17      (00000046) const/4              v6, 0
+	18      (00000048) iget-object          v7, v8, Lcom/jlboat/phone/view/loading/LoadingView;->mPaint Landroid/graphics/Paint;
+	19      (0000004c) const/high16         v5, 1127481344
+	20      (00000050) move-object          v2, v9
+	21      (00000052) invoke-virtual/range v2 ... v7, Landroid/graphics/Canvas;->drawArc(Landroid/graphics/RectF; F F Z Landroid/graphics/Paint;)V
+	22      (00000058) iget-object          v0, v8, Lcom/jlboat/phone/view/loading/LoadingView;->mPaint Landroid/graphics/Paint;
+	23      (0000005c) sget-object          v1, Landroid/graphics/Paint$Style;->FILL Landroid/graphics/Paint$Style;
+	24      (00000060) invoke-virtual       v0, v1, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
+	25      (00000066) iget-boolean         v0, v8, Lcom/jlboat/phone/view/loading/LoadingView;->isSmile Z
+	26      (0000006a) if-eqz               v0, +02fh
+
+onDraw-BB@0x6e : [ onDraw-BB@0xc8 ]
+	27      (0000006e) iget                 v0, v8, Lcom/jlboat/phone/view/loading/LoadingView;->mPadding F
+	28      (00000072) iget                 v1, v8, Lcom/jlboat/phone/view/loading/LoadingView;->mEyeWidth F
+	29      (00000076) add-float/2addr      v0, v1
+	30      (00000078) iget                 v1, v8, Lcom/jlboat/phone/view/loading/LoadingView;->mEyeWidth F
+	31      (0000007c) const/high16         v2, 1073741824
+	32      (00000080) div-float/2addr      v1, v2
+	33      (00000082) add-float/2addr      v0, v1
+	34      (00000084) iget                 v1, v8, Lcom/jlboat/phone/view/loading/LoadingView;->mWidth F
+	35      (00000088) const/high16         v3, 1077936128
+	36      (0000008c) div-float/2addr      v1, v3
+	37      (0000008e) iget                 v4, v8, Lcom/jlboat/phone/view/loading/LoadingView;->mEyeWidth F
+	38      (00000092) iget-object          v5, v8, Lcom/jlboat/phone/view/loading/LoadingView;->mPaint Landroid/graphics/Paint;
+	39      (00000096) invoke-virtual       v9, v0, v1, v4, v5, Landroid/graphics/Canvas;->drawCircle(F F F Landroid/graphics/Paint;)V
+	40      (0000009c) iget                 v0, v8, Lcom/jlboat/phone/view/loading/LoadingView;->mWidth F
+	41      (000000a0) iget                 v1, v8, Lcom/jlboat/phone/view/loading/LoadingView;->mPadding F
+	42      (000000a4) sub-float/2addr      v0, v1
+	43      (000000a6) iget                 v1, v8, Lcom/jlboat/phone/view/loading/LoadingView;->mEyeWidth F
+	44      (000000aa) sub-float/2addr      v0, v1
+	45      (000000ac) iget                 v1, v8, Lcom/jlboat/phone/view/loading/LoadingView;->mEyeWidth F
+	46      (000000b0) div-float/2addr      v1, v2
+	47      (000000b2) sub-float/2addr      v0, v1
+	48      (000000b4) iget                 v1, v8, Lcom/jlboat/phone/view/loading/LoadingView;->mWidth F
+	49      (000000b8) div-float/2addr      v1, v3
+	50      (000000ba) iget                 v2, v8, Lcom/jlboat/phone/view/loading/LoadingView;->mEyeWidth F
+	51      (000000be) iget-object          v3, v8, Lcom/jlboat/phone/view/loading/LoadingView;->mPaint Landroid/graphics/Paint;
+	52      (000000c2) invoke-virtual       v9, v0, v1, v2, v3, Landroid/graphics/Canvas;->drawCircle(F F F Landroid/graphics/Paint;)V
+
+onDraw-BB@0xc8 : 
+	53      (000000c8) return-void          
+

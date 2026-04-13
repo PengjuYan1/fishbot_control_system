@@ -1,0 +1,19 @@
+# Lcom/jlboat/phone/service/ErrorMsgService$3$1;->onError(Ljava/lang/Exception;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:java.lang.Exception
+#
+# - return:void
+
+onError-BB@0x0 : 
+	0       (00000000) const-string         v0, "ErrorMsgService"
+	1       (00000004) const-string         v1, "ROSBridgeClient onError: "
+	2       (00000008) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	3       (0000000e) invoke-virtual       v3, Ljava/lang/Exception;->printStackTrace()V
+	4       (00000014) iget-object          v0, v2, Lcom/jlboat/phone/service/ErrorMsgService$3$1;->this$1 Lcom/jlboat/phone/service/ErrorMsgService$3;
+	5       (00000018) iget-object          v0, v0, Lcom/jlboat/phone/service/ErrorMsgService$3;->val$end [Z
+	6       (0000001c) const/4              v1, 0
+	7       (0000001e) aput-boolean         v1, v0, v1
+	8       (00000022) return-void          
+

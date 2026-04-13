@@ -1,0 +1,42 @@
+# Lcom/jlboat/phone/activity/ErrorMessageActivity;->sj()V [access_flags=private]
+#
+# Parameters:
+# local registers: v0...v2
+#
+# - return:void
+
+sj-BB@0x0 : [ sj-BB@0x8 sj-BB@0x38 ]
+	0       (00000000) sget-object          v0, Lcom/jlboat/phone/application/BoatSlamApplication;->errList Ljava/util/List;
+	1       (00000004) if-eqz               v0, +01ah
+
+sj-BB@0x8 : [ sj-BB@0x18 sj-BB@0x1a ]
+	2       (00000008) sget-object          v0, Lcom/jlboat/phone/application/BoatSlamApplication;->errList Ljava/util/List;
+	3       (0000000c) invoke-interface     v0, Ljava/util/List;->size()I
+	4       (00000012) move-result          v0
+	5       (00000014) if-nez               v0, +003h
+
+sj-BB@0x18 : [ sj-BB@0x38 ]
+	6       (00000018) goto                 +10h
+
+sj-BB@0x1a : [ sj-BB@0x5c ]
+	7       (0000001a) iget-object          v0, v2, Lcom/jlboat/phone/activity/ErrorMessageActivity;->adapter Lcom/jlboat/phone/view/ErrorMsgAdapter;
+	8       (0000001e) sget-object          v1, Lcom/jlboat/phone/application/BoatSlamApplication;->errList Ljava/util/List;
+	9       (00000022) invoke-virtual       v0, v1, Lcom/jlboat/phone/view/ErrorMsgAdapter;->setMdata(Ljava/util/List;)V
+	10      (00000028) iget-object          v0, v2, Lcom/jlboat/phone/activity/ErrorMessageActivity;->wasj Landroid/widget/TextView;
+	11      (0000002c) const/16             v1, 8
+	12      (00000030) invoke-virtual       v0, v1, Landroid/widget/TextView;->setVisibility(I)V
+	13      (00000036) goto                 +13h
+
+sj-BB@0x38 : [ sj-BB@0x5c ]
+	14      (00000038) iget-object          v0, v2, Lcom/jlboat/phone/activity/ErrorMessageActivity;->wasj Landroid/widget/TextView;
+	15      (0000003c) const/4              v1, 0
+	16      (0000003e) invoke-virtual       v0, v1, Landroid/widget/TextView;->setVisibility(I)V
+	17      (00000044) iget-object          v0, v2, Lcom/jlboat/phone/activity/ErrorMessageActivity;->wasj Landroid/widget/TextView;
+	18      (00000048) const                v1, 2131493343
+	19      (0000004e) invoke-virtual       v2, v1, Lcom/jlboat/phone/activity/ErrorMessageActivity;->getResString(I)Ljava/lang/String;
+	20      (00000054) move-result-object   v1
+	21      (00000056) invoke-virtual       v0, v1, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+sj-BB@0x5c : 
+	22      (0000005c) return-void          
+

@@ -1,0 +1,13 @@
+# Lcom/boat/support/slam/SlamManager$1;-><init>(Lcom/boat/support/slam/SlamManager;)V [access_flags=constructor]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.boat.support.slam.SlamManager
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) iput-object          v1, v0, Lcom/boat/support/slam/SlamManager$1;->this$0 Lcom/boat/support/slam/SlamManager;
+	1       (00000004) invoke-direct        v0, Ljava/lang/Object;-><init>()V
+	2       (0000000a) return-void          
+

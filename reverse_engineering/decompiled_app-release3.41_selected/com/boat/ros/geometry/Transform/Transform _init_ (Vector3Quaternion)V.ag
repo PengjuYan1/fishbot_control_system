@@ -1,0 +1,15 @@
+# Lcom/boat/ros/geometry/Transform;-><init>(Lcom/boat/ros/geometry/Vector3; Lcom/boat/ros/geometry/Quaternion;)V [access_flags=public constructor]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.boat.ros.geometry.Vector3
+# - v2:com.boat.ros.geometry.Quaternion
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) invoke-direct        v0, Ljava/lang/Object;-><init>()V
+	1       (00000006) iput-object          v1, v0, Lcom/boat/ros/geometry/Transform;->translation Lcom/boat/ros/geometry/Vector3;
+	2       (0000000a) iput-object          v2, v0, Lcom/boat/ros/geometry/Transform;->rotationAndScale Lcom/boat/ros/geometry/Quaternion;
+	3       (0000000e) return-void          
+

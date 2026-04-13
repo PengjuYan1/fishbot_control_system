@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/activity/TestResultActivity202508;->access$400(Lcom/jlboat/phone/activity/TestResultActivity202508;)Lcom/jlboat/phone/communication/SpiritServiceClient; [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.activity.TestResultActivity202508
+#
+# - return:com.jlboat.phone.communication.SpiritServiceClient
+
+access$400-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/jlboat/phone/activity/TestResultActivity202508;->spiritServiceClient Lcom/jlboat/phone/communication/SpiritServiceClient;
+	1       (00000004) return-object        v0
+

@@ -1,0 +1,28 @@
+# Lcom/jlboat/phone/controller/JlNaviManager;->saveMap(Ljava/lang/String;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:java.lang.String
+#
+# - return:void
+
+saveMap-BB@0x0 : [ saveMap-BB@0x8 saveMap-BB@0x14 ]
+	0       (00000000) iget-boolean         v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->connectStatus Z
+	1       (00000004) if-eqz               v0, +008h
+
+saveMap-BB@0x8 : [ saveMap-BB@0x10 saveMap-BB@0x12 ]
+	2       (00000008) iget-boolean         v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->isNavigationInited Z
+	3       (0000000c) if-nez               v0, +003h
+
+saveMap-BB@0x10 : [ saveMap-BB@0x14 ]
+	4       (00000010) goto                 +2h
+
+saveMap-BB@0x12 : 
+	5       (00000012) return-void          
+
+saveMap-BB@0x14 : 
+	6       (00000014) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->TAG Ljava/lang/String;
+	7       (00000018) const-string         v1, "saveMap: 初始化未成功 不可以进行数据请求 saveMap"
+	8       (0000001c) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	9       (00000022) return-void          
+

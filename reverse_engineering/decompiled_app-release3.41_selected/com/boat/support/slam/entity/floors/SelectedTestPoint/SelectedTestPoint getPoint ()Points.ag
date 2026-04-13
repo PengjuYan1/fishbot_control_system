@@ -1,0 +1,11 @@
+# Lcom/boat/support/slam/entity/floors/SelectedTestPoint;->getPoint()Lcom/boat/support/slam/entity/floors/Points; [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:com.boat.support.slam.entity.floors.Points
+
+getPoint-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/boat/support/slam/entity/floors/SelectedTestPoint;->point Lcom/boat/support/slam/entity/floors/Points;
+	1       (00000004) return-object        v0
+

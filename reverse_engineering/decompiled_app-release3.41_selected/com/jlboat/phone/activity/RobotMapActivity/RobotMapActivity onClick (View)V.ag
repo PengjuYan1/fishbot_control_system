@@ -1,0 +1,121 @@
+# Lcom/jlboat/phone/activity/RobotMapActivity;->onClick(Landroid/view/View;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v6
+# - v7:android.view.View
+#
+# - return:void
+
+onClick-BB@0x0 : [ D:onClick-BB@0xe 2131230754:onClick-BB@0xf2 2131230755:onClick-BB@0xe2 2131230757:onClick-BB@0xda 2131231274:onClick-BB@0x12 ]
+	0       (00000000) invoke-virtual       v7, Landroid/view/View;->getId()I
+	1       (00000006) move-result          v0
+	2       (00000008) sparse-switch        v0, +000007eh
+
+onClick-BB@0xe : [ onClick-BB@0x102 ]
+	3       (0000000e) goto/16              +07ah
+
+onClick-BB@0x12 : [ onClick-BB@0x1c onClick-BB@0xd2 ]
+	4       (00000012) sget                 v0, Lcom/jlboat/phone/activity/RobotMapActivity;->mapStatus I
+	5       (00000016) const/4              v1, 1
+	6       (00000018) if-ne                v0, v1, +05dh
+
+onClick-BB@0x1c : [ onClick-BB@0x28 onClick-BB@0xa6 ]
+	7       (0000001c) const/4              v0, 0
+	8       (0000001e) const/4              v1, 0
+	9       (00000020) iget-object          v2, v6, Lcom/jlboat/phone/activity/RobotMapActivity;->buildMapLocalSystemPoint Ljava/util/List;
+	10      (00000024) if-eqz               v2, +041h
+
+onClick-BB@0x28 : [ onClick-BB@0x38 onClick-BB@0xa6 ]
+	11      (00000028) iget-object          v2, v6, Lcom/jlboat/phone/activity/RobotMapActivity;->buildMapLocalSystemPoint Ljava/util/List;
+	12      (0000002c) invoke-interface     v2, Ljava/util/List;->size()I
+	13      (00000032) move-result          v2
+	14      (00000034) if-lez               v2, +039h
+
+onClick-BB@0x38 : [ onClick-BB@0x44 ]
+	15      (00000038) iget-object          v2, v6, Lcom/jlboat/phone/activity/RobotMapActivity;->buildMapLocalSystemPoint Ljava/util/List;
+	16      (0000003c) invoke-interface     v2, Ljava/util/List;->iterator()Ljava/util/Iterator;
+	17      (00000042) move-result-object   v2
+
+onClick-BB@0x44 : [ onClick-BB@0x50 onClick-BB@0xa6 ]
+	18      (00000044) invoke-interface     v2, Ljava/util/Iterator;->hasNext()Z
+	19      (0000004a) move-result          v3
+	20      (0000004c) if-eqz               v3, +02dh
+
+onClick-BB@0x50 : [ onClick-BB@0x7e onClick-BB@0x80 ]
+	21      (00000050) invoke-interface     v2, Ljava/util/Iterator;->next()Ljava/lang/Object;
+	22      (00000056) move-result-object   v3
+	23      (00000058) check-cast           v3, Lcom/boat/support/slam/entity/floors/Points;
+	24      (0000005c) const                v4, 2131493071
+	25      (00000062) invoke-virtual       v6, v4, Lcom/jlboat/phone/activity/RobotMapActivity;->getResString(I)Ljava/lang/String;
+	26      (00000068) move-result-object   v4
+	27      (0000006a) invoke-virtual       v3, Lcom/boat/support/slam/entity/floors/Points;->getPointName()Ljava/lang/String;
+	28      (00000070) move-result-object   v5
+	29      (00000072) invoke-virtual       v4, v5, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	30      (00000078) move-result          v4
+	31      (0000007a) if-eqz               v4, +003h
+
+onClick-BB@0x7e : [ onClick-BB@0x80 ]
+	32      (0000007e) const/4              v0, 1
+
+onClick-BB@0x80 : [ onClick-BB@0xa2 onClick-BB@0xa4 ]
+	33      (00000080) const                v4, 2131493070
+	34      (00000086) invoke-virtual       v6, v4, Lcom/jlboat/phone/activity/RobotMapActivity;->getResString(I)Ljava/lang/String;
+	35      (0000008c) move-result-object   v4
+	36      (0000008e) invoke-virtual       v3, Lcom/boat/support/slam/entity/floors/Points;->getPointName()Ljava/lang/String;
+	37      (00000094) move-result-object   v5
+	38      (00000096) invoke-virtual       v4, v5, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	39      (0000009c) move-result          v4
+	40      (0000009e) if-eqz               v4, +003h
+
+onClick-BB@0xa2 : [ onClick-BB@0xa4 ]
+	41      (000000a2) const/4              v1, 1
+
+onClick-BB@0xa4 : [ onClick-BB@0x44 ]
+	42      (000000a4) goto                 -30h
+
+onClick-BB@0xa6 : [ onClick-BB@0xaa onClick-BB@0xb8 ]
+	43      (000000a6) if-nez               v0, +009h
+
+onClick-BB@0xaa : [ onClick-BB@0x102 ]
+	44      (000000aa) const                v2, 2131493281
+	45      (000000b0) invoke-virtual       v6, v2, Lcom/jlboat/phone/activity/RobotMapActivity;->toast(I)V
+	46      (000000b6) goto                 +26h
+
+onClick-BB@0xb8 : [ onClick-BB@0xbc onClick-BB@0xca ]
+	47      (000000b8) if-nez               v1, +009h
+
+onClick-BB@0xbc : [ onClick-BB@0x102 ]
+	48      (000000bc) const                v2, 2131493280
+	49      (000000c2) invoke-virtual       v6, v2, Lcom/jlboat/phone/activity/RobotMapActivity;->toast(I)V
+	50      (000000c8) goto                 +1dh
+
+onClick-BB@0xca : [ onClick-BB@0x102 ]
+	51      (000000ca) invoke-direct        v6, Lcom/jlboat/phone/activity/RobotMapActivity;->mapAdd()V
+	52      (000000d0) goto                 +19h
+
+onClick-BB@0xd2 : [ onClick-BB@0x102 ]
+	53      (000000d2) invoke-direct        v6, Lcom/jlboat/phone/activity/RobotMapActivity;->clearMap()V
+	54      (000000d8) goto                 +15h
+
+onClick-BB@0xda : [ onClick-BB@0x102 ]
+	55      (000000da) invoke-direct        v6, Lcom/jlboat/phone/activity/RobotMapActivity;->pointAdd()V
+	56      (000000e0) goto                 +11h
+
+onClick-BB@0xe2 : [ onClick-BB@0x102 ]
+	57      (000000e2) const-wide/16        v0, 1
+	58      (000000e6) const-string         v2, "充电桩"
+	59      (000000ea) invoke-direct        v6, v0, v1, v2, Lcom/jlboat/phone/activity/RobotMapActivity;->addPoint(J Ljava/lang/String;)V
+	60      (000000f0) goto                 +9h
+
+onClick-BB@0xf2 : [ onClick-BB@0x102 ]
+	61      (000000f2) const-wide/16        v0, 2
+	62      (000000f6) const-string         v2, "初始点"
+	63      (000000fa) invoke-direct        v6, v0, v1, v2, Lcom/jlboat/phone/activity/RobotMapActivity;->addPoint(J Ljava/lang/String;)V
+	64      (00000100) nop                  
+
+onClick-BB@0x102 : 
+	65      (00000102) return-void          
+
+onClick-BB@0x104 : 
+	66      (00000104) sparse-switch-payload 7f080022 7f080023 7f080025 7f08022a
+

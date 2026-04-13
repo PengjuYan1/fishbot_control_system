@@ -1,0 +1,197 @@
+# Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity$3;->onNewMessage(Lcom/jlboat/phone/message/map_msgs/GetConfigsResponse;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v5
+# - v6:com.jlboat.phone.message.map_msgs.GetConfigsResponse
+#
+# - return:void
+
+onNewMessage-BB@0x0 : [ onNewMessage-BB@0x58 onNewMessage-BB@0x8a ]
+	0       (00000000) new-instance         v0, Ljava/lang/StringBuilder;
+	1       (00000004) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	2       (0000000a) const-string         v1, "运行次数："
+	3       (0000000e) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	4       (00000014) move-result-object   v0
+	5       (00000016) iget-object          v1, v5, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity$3;->this$0 Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;
+	6       (0000001a) invoke-static        v1, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;->access$204(Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;)I
+	7       (00000020) move-result          v1
+	8       (00000022) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	9       (00000028) move-result-object   v0
+	10      (0000002a) const-string         v1, "  type:"
+	11      (0000002e) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	12      (00000034) move-result-object   v0
+	13      (00000036) iget                 v1, v5, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity$3;->val$type I
+	14      (0000003a) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	15      (00000040) move-result-object   v0
+	16      (00000042) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	17      (00000048) move-result-object   v0
+	18      (0000004a) const-string         v1, "MultiMachineSchedulingActivity"
+	19      (0000004e) invoke-static        v1, v0, Landroid/util/Log;->e(Ljava/lang/String; Ljava/lang/String;)I
+	20      (00000054) if-nez               v6, +01bh
+
+onNewMessage-BB@0x58 : 
+	21      (00000058) new-instance         v0, Ljava/lang/StringBuilder;
+	22      (0000005c) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	23      (00000062) const-string         v2, "Response is null for type: "
+	24      (00000066) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	25      (0000006c) move-result-object   v0
+	26      (0000006e) iget                 v2, v5, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity$3;->val$type I
+	27      (00000072) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	28      (00000078) move-result-object   v0
+	29      (0000007a) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	30      (00000080) move-result-object   v0
+	31      (00000082) invoke-static        v1, v0, Landroid/util/Log;->e(Ljava/lang/String; Ljava/lang/String;)I
+	32      (00000088) return-void          
+
+onNewMessage-BB@0x8a : [ onNewMessage-BB@0x96 onNewMessage-BB@0x152 ]
+	33      (0000008a) iget                 v0, v5, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity$3;->val$type I
+	34      (0000008e) const/16             v2, 9
+	35      (00000092) if-ne                v0, v2, +060h
+
+onNewMessage-BB@0x96 : [ onNewMessage-BB@0xb8 ]
+	36      (00000096) iget-object          v0, v5, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity$3;->this$0 Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;
+	37      (0000009a) invoke-static        v0, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;->access$300(Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;)Ljava/util/List;
+	38      (000000a0) move-result-object   v0
+	39      (000000a2) invoke-interface     v0, Ljava/util/List;->clear()V
+	40      (000000a8) invoke-virtual       v6, Lcom/jlboat/phone/message/map_msgs/GetConfigsResponse;->getConfigs()Ljava/util/List;
+	41      (000000ae) move-result-object   v0
+	42      (000000b0) invoke-interface     v0, Ljava/util/List;->iterator()Ljava/util/Iterator;
+	43      (000000b6) move-result-object   v0
+
+onNewMessage-BB@0xb8 : [ onNewMessage-BB@0xc4 onNewMessage-BB@0x14e ]
+	44      (000000b8) invoke-interface     v0, Ljava/util/Iterator;->hasNext()Z
+	45      (000000be) move-result          v2
+	46      (000000c0) if-eqz               v2, +047h
+
+onNewMessage-BB@0xc4 : [ onNewMessage-BB@0xe8 onNewMessage-BB@0x14c ]
+	47      (000000c4) invoke-interface     v0, Ljava/util/Iterator;->next()Ljava/lang/Object;
+	48      (000000ca) move-result-object   v2
+	49      (000000cc) check-cast           v2, Lcom/jlboat/phone/message/map_msgs/Config;
+	50      (000000d0) invoke-virtual       v2, Lcom/jlboat/phone/message/map_msgs/Config;->getConfigName()Ljava/lang/String;
+	51      (000000d6) move-result-object   v3
+	52      (000000d8) const-string         v4, "startRobotOA"
+	53      (000000dc) invoke-virtual       v3, v4, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	54      (000000e2) move-result          v3
+	55      (000000e4) if-eqz               v3, +034h
+
+onNewMessage-BB@0xe8 : [ onNewMessage-BB@0x14e ]
+	56      (000000e8) iget-object          v0, v5, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity$3;->this$0 Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;
+	57      (000000ec) invoke-static        v0, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;->access$300(Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;)Ljava/util/List;
+	58      (000000f2) move-result-object   v0
+	59      (000000f4) invoke-interface     v0, v2, Ljava/util/List;->add(Ljava/lang/Object;)Z
+	60      (000000fa) new-instance         v0, Ljava/lang/StringBuilder;
+	61      (000000fe) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	62      (00000104) const-string         v3, "startRobotOA:"
+	63      (00000108) invoke-virtual       v0, v3, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	64      (0000010e) move-result-object   v0
+	65      (00000110) invoke-virtual       v2, Lcom/jlboat/phone/message/map_msgs/Config;->toString()Ljava/lang/String;
+	66      (00000116) move-result-object   v3
+	67      (00000118) invoke-virtual       v0, v3, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	68      (0000011e) move-result-object   v0
+	69      (00000120) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	70      (00000126) move-result-object   v0
+	71      (00000128) invoke-static        v1, v0, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	72      (0000012e) iget-object          v0, v5, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity$3;->this$0 Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;
+	73      (00000132) invoke-static        v0, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;->access$500(Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;)Landroid/os/Handler;
+	74      (00000138) move-result-object   v0
+	75      (0000013a) new-instance         v1, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity$3$1;
+	76      (0000013e) invoke-direct        v1, v5, v2, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity$3$1;-><init>(Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity$3; Lcom/jlboat/phone/message/map_msgs/Config;)V
+	77      (00000144) invoke-virtual       v0, v1, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+	78      (0000014a) goto                 +2h
+
+onNewMessage-BB@0x14c : [ onNewMessage-BB@0xb8 ]
+	79      (0000014c) goto                 -4ah
+
+onNewMessage-BB@0x14e : [ onNewMessage-BB@0x288 ]
+	80      (0000014e) goto/16              +09dh
+
+onNewMessage-BB@0x152 : [ onNewMessage-BB@0x174 ]
+	81      (00000152) iget-object          v0, v5, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity$3;->this$0 Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;
+	82      (00000156) invoke-static        v0, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;->access$000(Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;)Ljava/util/List;
+	83      (0000015c) move-result-object   v0
+	84      (0000015e) invoke-interface     v0, Ljava/util/List;->clear()V
+	85      (00000164) invoke-virtual       v6, Lcom/jlboat/phone/message/map_msgs/GetConfigsResponse;->getConfigs()Ljava/util/List;
+	86      (0000016a) move-result-object   v0
+	87      (0000016c) invoke-interface     v0, Ljava/util/List;->iterator()Ljava/util/Iterator;
+	88      (00000172) move-result-object   v0
+
+onNewMessage-BB@0x174 : [ onNewMessage-BB@0x180 onNewMessage-BB@0x288 ]
+	89      (00000174) invoke-interface     v0, Ljava/util/Iterator;->hasNext()Z
+	90      (0000017a) move-result          v2
+	91      (0000017c) if-eqz               v2, +086h
+
+onNewMessage-BB@0x180 : [ onNewMessage-BB@0x1a4 onNewMessage-BB@0x208 ]
+	92      (00000180) invoke-interface     v0, Ljava/util/Iterator;->next()Ljava/lang/Object;
+	93      (00000186) move-result-object   v2
+	94      (00000188) check-cast           v2, Lcom/jlboat/phone/message/map_msgs/Config;
+	95      (0000018c) invoke-virtual       v2, Lcom/jlboat/phone/message/map_msgs/Config;->getConfigName()Ljava/lang/String;
+	96      (00000192) move-result-object   v3
+	97      (00000194) const-string         v4, "meeting_distance"
+	98      (00000198) invoke-virtual       v3, v4, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	99      (0000019e) move-result          v3
+	100     (000001a0) if-eqz               v3, +034h
+
+onNewMessage-BB@0x1a4 : [ onNewMessage-BB@0x284 ]
+	101     (000001a4) iget-object          v3, v5, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity$3;->this$0 Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;
+	102     (000001a8) invoke-static        v3, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;->access$000(Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;)Ljava/util/List;
+	103     (000001ae) move-result-object   v3
+	104     (000001b0) invoke-interface     v3, v2, Ljava/util/List;->add(Ljava/lang/Object;)Z
+	105     (000001b6) new-instance         v3, Ljava/lang/StringBuilder;
+	106     (000001ba) invoke-direct        v3, Ljava/lang/StringBuilder;-><init>()V
+	107     (000001c0) const-string         v4, "meeting_distance:"
+	108     (000001c4) invoke-virtual       v3, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	109     (000001ca) move-result-object   v3
+	110     (000001cc) invoke-virtual       v2, Lcom/jlboat/phone/message/map_msgs/Config;->toString()Ljava/lang/String;
+	111     (000001d2) move-result-object   v4
+	112     (000001d4) invoke-virtual       v3, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	113     (000001da) move-result-object   v3
+	114     (000001dc) invoke-virtual       v3, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	115     (000001e2) move-result-object   v3
+	116     (000001e4) invoke-static        v1, v3, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	117     (000001ea) iget-object          v3, v5, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity$3;->this$0 Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;
+	118     (000001ee) invoke-static        v3, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;->access$500(Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;)Landroid/os/Handler;
+	119     (000001f4) move-result-object   v3
+	120     (000001f6) new-instance         v4, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity$3$2;
+	121     (000001fa) invoke-direct        v4, v5, v2, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity$3$2;-><init>(Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity$3; Lcom/jlboat/phone/message/map_msgs/Config;)V
+	122     (00000200) invoke-virtual       v3, v4, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+	123     (00000206) goto                 +3fh
+
+onNewMessage-BB@0x208 : [ onNewMessage-BB@0x220 onNewMessage-BB@0x284 ]
+	124     (00000208) invoke-virtual       v2, Lcom/jlboat/phone/message/map_msgs/Config;->getConfigName()Ljava/lang/String;
+	125     (0000020e) move-result-object   v3
+	126     (00000210) const-string         v4, "priority_level"
+	127     (00000214) invoke-virtual       v3, v4, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	128     (0000021a) move-result          v3
+	129     (0000021c) if-eqz               v3, +034h
+
+onNewMessage-BB@0x220 : [ onNewMessage-BB@0x288 ]
+	130     (00000220) iget-object          v0, v5, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity$3;->this$0 Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;
+	131     (00000224) invoke-static        v0, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;->access$000(Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;)Ljava/util/List;
+	132     (0000022a) move-result-object   v0
+	133     (0000022c) invoke-interface     v0, v2, Ljava/util/List;->add(Ljava/lang/Object;)Z
+	134     (00000232) new-instance         v0, Ljava/lang/StringBuilder;
+	135     (00000236) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	136     (0000023c) const-string         v3, "priority_level:"
+	137     (00000240) invoke-virtual       v0, v3, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	138     (00000246) move-result-object   v0
+	139     (00000248) invoke-virtual       v2, Lcom/jlboat/phone/message/map_msgs/Config;->toString()Ljava/lang/String;
+	140     (0000024e) move-result-object   v3
+	141     (00000250) invoke-virtual       v0, v3, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	142     (00000256) move-result-object   v0
+	143     (00000258) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	144     (0000025e) move-result-object   v0
+	145     (00000260) invoke-static        v1, v0, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	146     (00000266) iget-object          v0, v5, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity$3;->this$0 Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;
+	147     (0000026a) invoke-static        v0, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;->access$500(Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;)Landroid/os/Handler;
+	148     (00000270) move-result-object   v0
+	149     (00000272) new-instance         v1, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity$3$3;
+	150     (00000276) invoke-direct        v1, v5, v2, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity$3$3;-><init>(Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity$3; Lcom/jlboat/phone/message/map_msgs/Config;)V
+	151     (0000027c) invoke-virtual       v0, v1, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+	152     (00000282) goto                 +3h
+
+onNewMessage-BB@0x284 : [ onNewMessage-BB@0x174 ]
+	153     (00000284) goto/16              -088h
+
+onNewMessage-BB@0x288 : 
+	154     (00000288) return-void          
+

@@ -1,0 +1,29 @@
+# Lcom/boat/support/slam/entity/floors/Ellipse;-><init>(Landroid/os/Parcel;)V [access_flags=protected constructor]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:android.os.Parcel
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) invoke-direct        v1, Ljava/lang/Object;-><init>()V
+	1       (00000006) invoke-virtual       v2, Landroid/os/Parcel;->readString()Ljava/lang/String;
+	2       (0000000c) move-result-object   v0
+	3       (0000000e) iput-object          v0, v1, Lcom/boat/support/slam/entity/floors/Ellipse;->p Ljava/lang/String;
+	4       (00000012) const-class          v0, Lcom/boat/support/slam/entity/floors/F2;
+	5       (00000016) invoke-virtual       v0, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+	6       (0000001c) move-result-object   v0
+	7       (0000001e) invoke-virtual       v2, v0, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
+	8       (00000024) move-result-object   v0
+	9       (00000026) check-cast           v0, Lcom/boat/support/slam/entity/floors/F2;
+	10      (0000002a) iput-object          v0, v1, Lcom/boat/support/slam/entity/floors/Ellipse;->f2 Lcom/boat/support/slam/entity/floors/F2;
+	11      (0000002e) const-class          v0, Lcom/boat/support/slam/entity/floors/F1;
+	12      (00000032) invoke-virtual       v0, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+	13      (00000038) move-result-object   v0
+	14      (0000003a) invoke-virtual       v2, v0, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
+	15      (00000040) move-result-object   v0
+	16      (00000042) check-cast           v0, Lcom/boat/support/slam/entity/floors/F1;
+	17      (00000046) iput-object          v0, v1, Lcom/boat/support/slam/entity/floors/Ellipse;->f1 Lcom/boat/support/slam/entity/floors/F1;
+	18      (0000004a) return-void          
+

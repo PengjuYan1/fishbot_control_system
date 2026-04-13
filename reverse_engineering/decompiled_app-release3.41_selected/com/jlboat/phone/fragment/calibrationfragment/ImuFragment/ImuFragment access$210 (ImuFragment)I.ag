@@ -1,0 +1,14 @@
+# Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment;->access$210(Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment;)I [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:com.jlboat.phone.fragment.calibrationfragment.ImuFragment
+#
+# - return:int
+
+access$210-BB@0x0 : 
+	0       (00000000) iget                 v0, v2, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment;->num I
+	1       (00000004) add-int/lit8         v1, v0, -1
+	2       (00000008) iput                 v1, v2, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment;->num I
+	3       (0000000c) return               v0
+

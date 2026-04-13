@@ -1,0 +1,20 @@
+# Lcom/jlboat/phone/service/ErrorMsgService;->stopRos()V [access_flags=private]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:void
+
+stopRos-BB@0x0 : [ stopRos-BB@0x10 stopRos-BB@0x1a ]
+	0       (00000000) sget-object          v0, Lcom/jlboat/phone/application/BoatSlamApplication;->client Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;
+	1       (00000004) invoke-virtual       v0, Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;->isConnect()Z
+	2       (0000000a) move-result          v0
+	3       (0000000c) if-eqz               v0, +007h
+
+stopRos-BB@0x10 : [ stopRos-BB@0x1a ]
+	4       (00000010) sget-object          v0, Lcom/jlboat/phone/application/BoatSlamApplication;->client Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;
+	5       (00000014) invoke-virtual       v0, Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;->disconnect()V
+
+stopRos-BB@0x1a : 
+	6       (0000001a) return-void          
+

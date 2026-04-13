@@ -1,0 +1,51 @@
+# Lcom/boat/jrosbridge/Example;->testTopic(Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;)V [access_flags=public static]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:com.boat.jrosbridge.rosbridge.ROSBridgeClient
+#
+# - return:void
+
+testTopic-BB@0x0 : [ testTopic-BB@0x1c ]
+	0       (00000000) new-instance         v0, Lcom/boat/jrosbridge/Topic;
+	1       (00000004) const-string         v1, "/clock"
+	2       (00000008) const-class          v2, Lcom/boat/jrosbridge/message/Clock;
+	3       (0000000c) invoke-direct        v0, v1, v2, v4, Lcom/boat/jrosbridge/Topic;-><init>(Ljava/lang/String; Ljava/lang/Class; Lcom/boat/jrosbridge/ROSClient;)V
+	4       (00000012) invoke-virtual       v0, Lcom/boat/jrosbridge/Topic;->subscribe()V
+	5       (00000018) const-wide/16        v1, 20000
+
+testTopic-BB@0x1c : [ testTopic-BB@0x26 ]
+	6       (0000001c) invoke-static        v1, v2, Ljava/lang/Thread;->sleep(J)V
+	7       (00000022) goto                 +2h
+	1c:21
+	(Ljava/lang/InterruptedException; -> 24 testTopic-BB@0x24)
+
+testTopic-BB@0x24 : [ testTopic-BB@0x26 ]
+	8       (00000024) move-exception       v1
+
+testTopic-BB@0x26 : [ testTopic-BB@0x28 ]
+	9       (00000026) const/4              v1, 0
+
+testTopic-BB@0x28 : [ testTopic-BB@0x3a ]
+	10      (00000028) invoke-virtual       v0, Lcom/boat/jrosbridge/Topic;->take()Ljava/lang/Object;
+	11      (0000002e) move-result-object   v2
+	12      (00000030) check-cast           v2, Lcom/boat/jrosbridge/message/Clock;
+	13      (00000034) move-object          v1, v2
+	14      (00000036) goto                 +2h
+	28:33
+	(Ljava/lang/InterruptedException; -> 38 testTopic-BB@0x38)
+
+testTopic-BB@0x38 : [ testTopic-BB@0x3a ]
+	15      (00000038) move-exception       v2
+
+testTopic-BB@0x3a : 
+	16      (0000003a) iget-object          v2, v1, Lcom/boat/jrosbridge/message/Clock;->clock Lcom/boat/jrosbridge/message/Time;
+	17      (0000003e) iget                 v3, v2, Lcom/boat/jrosbridge/message/Time;->nsecs I
+	18      (00000042) add-int/lit8         v3, v3, 1
+	19      (00000046) iput                 v3, v2, Lcom/boat/jrosbridge/message/Time;->nsecs I
+	20      (0000004a) invoke-virtual       v0, Lcom/boat/jrosbridge/Topic;->unsubscribe()V
+	21      (00000050) invoke-virtual       v0, Lcom/boat/jrosbridge/Topic;->advertise()V
+	22      (00000056) invoke-virtual       v0, v1, Lcom/boat/jrosbridge/Topic;->publish(Lcom/boat/jrosbridge/message/Message;)V
+	23      (0000005c) invoke-virtual       v0, Lcom/boat/jrosbridge/Topic;->unadvertise()V
+	24      (00000062) return-void          
+

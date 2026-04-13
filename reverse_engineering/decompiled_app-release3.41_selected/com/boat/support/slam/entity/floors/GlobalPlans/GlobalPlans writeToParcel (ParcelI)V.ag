@@ -1,0 +1,22 @@
+# Lcom/boat/support/slam/entity/floors/GlobalPlans;->writeToParcel(Landroid/os/Parcel; I)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:android.os.Parcel
+# - v4:int
+#
+# - return:void
+
+writeToParcel-BB@0x0 : 
+	0       (00000000) iget-object          v0, v2, Lcom/boat/support/slam/entity/floors/GlobalPlans;->lines Ljava/util/List;
+	1       (00000004) invoke-virtual       v3, v0, Landroid/os/Parcel;->writeTypedList(Ljava/util/List;)V
+	2       (0000000a) iget-object          v0, v2, Lcom/boat/support/slam/entity/floors/GlobalPlans;->globalplanName Ljava/lang/String;
+	3       (0000000e) invoke-virtual       v3, v0, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+	4       (00000014) iget                 v0, v2, Lcom/boat/support/slam/entity/floors/GlobalPlans;->orderNum I
+	5       (00000018) invoke-virtual       v3, v0, Landroid/os/Parcel;->writeInt(I)V
+	6       (0000001e) iget-wide            v0, v2, Lcom/boat/support/slam/entity/floors/GlobalPlans;->globalplanId J
+	7       (00000022) invoke-virtual       v3, v0, v1, Landroid/os/Parcel;->writeLong(J)V
+	8       (00000028) iget                 v0, v2, Lcom/boat/support/slam/entity/floors/GlobalPlans;->dir I
+	9       (0000002c) invoke-virtual       v3, v0, Landroid/os/Parcel;->writeInt(I)V
+	10      (00000032) return-void          
+

@@ -1,0 +1,48 @@
+# Lcom/jlboat/phone/activity/DiyPointPathActivity;->addPoint(D D)V [access_flags=private]
+#
+# Parameters:
+# - local registers: v0...v19
+# - v20:double
+# - v21:double
+#
+# - return:void
+
+addPoint-BB@0x0 : [ addPoint-BB@0x22 addPoint-BB@0x78 ]
+	0       (00000000) move-object/from16   v0, v17
+	1       (00000004) invoke-static        Ljava/lang/System;->currentTimeMillis()J
+	2       (0000000a) move-result-wide     v1
+	3       (0000000c) iget-wide            v3, v0, Lcom/jlboat/phone/activity/DiyPointPathActivity;->firstTimeaddPoint J
+	4       (00000010) sub-long             v3, v1, v3
+	5       (00000014) iget                 v5, v0, Lcom/jlboat/phone/activity/DiyPointPathActivity;->timeout I
+	6       (00000018) int-to-long          v5, v5
+	7       (0000001a) cmp-long             v7, v3, v5
+	8       (0000001e) if-lez               v7, +02dh
+
+addPoint-BB@0x22 : 
+	9       (00000022) iput-wide            v1, v0, Lcom/jlboat/phone/activity/DiyPointPathActivity;->firstTimeaddPoint J
+	10      (00000026) new-instance         v3, Lcom/jlboat/phone/util/EulerAngles;
+	11      (0000002a) const-wide/16        v11, 0
+	12      (0000002e) const-wide/16        v13, 0
+	13      (00000032) const-wide/16        v9, 0
+	14      (00000036) move-object          v8, v3
+	15      (00000038) invoke-direct/range  v8 ... v14, Lcom/jlboat/phone/util/EulerAngles;-><init>(D D D)V
+	16      (0000003e) invoke-virtual       v3, Lcom/jlboat/phone/util/EulerAngles;->ToQuaternion()Lcom/jlboat/phone/util/Quaternion;
+	17      (00000044) move-result-object   v3
+	18      (00000046) iget-object          v4, v0, Lcom/jlboat/phone/activity/DiyPointPathActivity;->spiritServiceClient Lcom/jlboat/phone/communication/SpiritServiceClient;
+	19      (0000004a) sget-object          v7, Lcom/jlboat/phone/application/BoatSlamApplication;->CANCLEPOINTNAME Ljava/lang/String;
+	20      (0000004e) iget-wide            v12, v3, Lcom/jlboat/phone/util/Quaternion;->z D
+	21      (00000052) iget-wide            v14, v3, Lcom/jlboat/phone/util/Quaternion;->w D
+	22      (00000056) new-instance         v10, Lcom/jlboat/phone/activity/DiyPointPathActivity$11;
+	23      (0000005a) invoke-direct        v10, v0, Lcom/jlboat/phone/activity/DiyPointPathActivity$11;-><init>(Lcom/jlboat/phone/activity/DiyPointPathActivity;)V
+	24      (00000060) const-wide/16        v5, 0
+	25      (00000064) move-wide/from16     v8, v18
+	26      (00000068) move-object/from16   v16, v10
+	27      (0000006c) move-wide/from16     v10, v20
+	28      (00000070) invoke-virtual/range v4 ... v16, Lcom/jlboat/phone/communication/SpiritServiceClient;->addManuPosintServices(J Ljava/lang/String; D D D D Lcom/boat/jrosbridge/MessageListener;)V
+	29      (00000076) return-void          
+
+addPoint-BB@0x78 : 
+	30      (00000078) const                v3, 2131493271
+	31      (0000007e) invoke-virtual       v0, v3, Lcom/jlboat/phone/activity/DiyPointPathActivity;->toast(I)V
+	32      (00000084) return-void          
+

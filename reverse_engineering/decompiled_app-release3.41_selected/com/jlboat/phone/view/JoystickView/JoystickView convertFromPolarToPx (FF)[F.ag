@@ -1,0 +1,33 @@
+# Lcom/jlboat/phone/view/JoystickView;->convertFromPolarToPx(F F)[F [access_flags=private]
+#
+# Parameters:
+# - local registers: v0...v6
+# - v7:float
+# - v8:float
+#
+# - return:float[]
+
+convertFromPolarToPx-BB@0x0 : 
+	0       (00000000) invoke-virtual       v6, Lcom/jlboat/phone/view/JoystickView;->getWidth()I
+	1       (00000006) move-result          v0
+	2       (00000008) int-to-float         v0, v0
+	3       (0000000a) const/high16         v1, 1073741824
+	4       (0000000e) div-float/2addr      v0, v1
+	5       (00000010) invoke-virtual       v6, Lcom/jlboat/phone/view/JoystickView;->getHeight()I
+	6       (00000016) move-result          v2
+	7       (00000018) int-to-float         v2, v2
+	8       (0000001a) div-float/2addr      v2, v1
+	9       (0000001c) iget                 v1, v6, Lcom/jlboat/phone/view/JoystickView;->joystickRadius F
+	10      (00000020) sub-float            v1, v0, v1
+	11      (00000024) const/4              v3, 2
+	12      (00000026) new-array            v3, v3, [F
+	13      (0000002a) mul-float            v4, v7, v1
+	14      (0000002e) add-float/2addr      v4, v0
+	15      (00000030) const/4              v5, 0
+	16      (00000032) aput                 v4, v3, v5
+	17      (00000036) mul-float            v4, v8, v1
+	18      (0000003a) sub-float            v4, v2, v4
+	19      (0000003e) const/4              v5, 1
+	20      (00000040) aput                 v4, v3, v5
+	21      (00000044) return-object        v3
+

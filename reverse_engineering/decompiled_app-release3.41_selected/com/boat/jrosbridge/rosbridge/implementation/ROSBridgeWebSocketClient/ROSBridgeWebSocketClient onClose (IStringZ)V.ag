@@ -1,0 +1,38 @@
+# Lcom/boat/jrosbridge/rosbridge/implementation/ROSBridgeWebSocketClient;->onClose(I Ljava/lang/String; Z)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:int
+# - v4:java.lang.String
+# - v5:boolean
+#
+# - return:void
+
+onClose-BB@0x0 : [ onClose-BB@0x8 onClose-BB@0x26 ]
+	0       (00000000) iget-object          v0, v2, Lcom/boat/jrosbridge/rosbridge/implementation/ROSBridgeWebSocketClient;->listener Lcom/boat/jrosbridge/ROSClient$ConnectionStatusListener;
+	1       (00000004) if-eqz               v0, +011h
+
+onClose-BB@0x8 : [ onClose-BB@0xc onClose-BB@0x1a ]
+	2       (00000008) if-nez               v5, +009h
+
+onClose-BB@0xc : [ onClose-BB@0x14 onClose-BB@0x16 ]
+	3       (0000000c) const/16             v0, 1000
+	4       (00000010) if-ne                v3, v0, +003h
+
+onClose-BB@0x14 : [ onClose-BB@0x1a ]
+	5       (00000014) goto                 +3h
+
+onClose-BB@0x16 : [ onClose-BB@0x1c ]
+	6       (00000016) const/4              v0, 0
+	7       (00000018) goto                 +2h
+
+onClose-BB@0x1a : [ onClose-BB@0x1c ]
+	8       (0000001a) const/4              v0, 1
+
+onClose-BB@0x1c : [ onClose-BB@0x26 ]
+	9       (0000001c) iget-object          v1, v2, Lcom/boat/jrosbridge/rosbridge/implementation/ROSBridgeWebSocketClient;->listener Lcom/boat/jrosbridge/ROSClient$ConnectionStatusListener;
+	10      (00000020) invoke-interface     v1, v0, v4, v3, Lcom/boat/jrosbridge/ROSClient$ConnectionStatusListener;->onDisconnect(Z Ljava/lang/String; I)V
+
+onClose-BB@0x26 : 
+	11      (00000026) return-void          
+

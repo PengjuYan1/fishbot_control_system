@@ -1,0 +1,13 @@
+# Lcom/jlboat/phone/application/BoatSlamApplication$1;-><init>(Landroid/net/ConnectivityManager;)V [access_flags=constructor]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:android.net.ConnectivityManager
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) iput-object          v1, v0, Lcom/jlboat/phone/application/BoatSlamApplication$1;->val$connectivityManager Landroid/net/ConnectivityManager;
+	1       (00000004) invoke-direct        v0, Landroid/net/ConnectivityManager$NetworkCallback;-><init>()V
+	2       (0000000a) return-void          
+

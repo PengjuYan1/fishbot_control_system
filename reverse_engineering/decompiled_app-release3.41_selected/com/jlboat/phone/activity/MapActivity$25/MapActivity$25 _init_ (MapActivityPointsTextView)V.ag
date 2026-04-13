@@ -1,0 +1,17 @@
+# Lcom/jlboat/phone/activity/MapActivity$25;-><init>(Lcom/jlboat/phone/activity/MapActivity; Lcom/boat/support/slam/entity/floors/Points; Landroid/widget/TextView;)V [access_flags=constructor]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.activity.MapActivity
+# - v2:com.boat.support.slam.entity.floors.Points
+# - v3:android.widget.TextView
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) iput-object          v1, v0, Lcom/jlboat/phone/activity/MapActivity$25;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	1       (00000004) iput-object          v2, v0, Lcom/jlboat/phone/activity/MapActivity$25;->val$frd Lcom/boat/support/slam/entity/floors/Points;
+	2       (00000008) iput-object          v3, v0, Lcom/jlboat/phone/activity/MapActivity$25;->val$point_wait_et Landroid/widget/TextView;
+	3       (0000000c) invoke-direct        v0, Ljava/lang/Object;-><init>()V
+	4       (00000012) return-void          
+

@@ -1,0 +1,16 @@
+# Lcom/jlboat/phone/view/MapView$21;->onNewMessage(Lcom/boat/jrosbridge/message/sensor_msgs/LaserScan;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:com.boat.jrosbridge.message.sensor_msgs.LaserScan
+#
+# - return:void
+
+onNewMessage-BB@0x0 : 
+	0       (00000000) iget-object          v0, v2, Lcom/jlboat/phone/view/MapView$21;->this$0 Lcom/jlboat/phone/view/MapView;
+	1       (00000004) iget-object          v1, v2, Lcom/jlboat/phone/view/MapView$21;->this$0 Lcom/jlboat/phone/view/MapView;
+	2       (00000008) invoke-static        v1, Lcom/jlboat/phone/view/MapView;->access$600(Lcom/jlboat/phone/view/MapView;)I
+	3       (0000000e) move-result          v1
+	4       (00000010) invoke-static        v0, v3, v1, Lcom/jlboat/phone/view/MapView;->access$700(Lcom/jlboat/phone/view/MapView; Lcom/boat/jrosbridge/message/sensor_msgs/LaserScan; I)V
+	5       (00000016) return-void          
+

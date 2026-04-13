@@ -1,0 +1,162 @@
+# Lcom/jlboat/phone/communication/TFPoseListener;->updataPose()V [access_flags=private]
+#
+# Parameters:
+# local registers: v0...v15
+#
+# - return:void
+
+updataPose-BB@0x0 : [ updataPose-BB@0x2a ]
+	0       (00000000) iget-object          v0, v15, Lcom/jlboat/phone/communication/TFPoseListener;->frameTransformTree Lcom/boat/ros/geometry/FrameTransformTree;
+	1       (00000004) iget-object          v1, v15, Lcom/jlboat/phone/communication/TFPoseListener;->base_footprint_frame Lorg/ros/namespace/GraphName;
+	2       (00000008) iget-object          v2, v15, Lcom/jlboat/phone/communication/TFPoseListener;->map_frame Lorg/ros/namespace/GraphName;
+	3       (0000000c) invoke-virtual       v0, v1, v2, Lcom/boat/ros/geometry/FrameTransformTree;->transform(Lorg/ros/namespace/GraphName; Lorg/ros/namespace/GraphName;)Lcom/boat/ros/geometry/FrameTransform;
+	4       (00000012) move-result-object   v0
+	5       (00000014) iput-object          v0, v15, Lcom/jlboat/phone/communication/TFPoseListener;->frameTransform_footprint_to_map Lcom/boat/ros/geometry/FrameTransform;
+	6       (00000018) goto                 +9h
+	0:17
+	(Ljava/lang/IllegalStateException; -> 1a updataPose-BB@0x1a)
+
+updataPose-BB@0x1a : [ updataPose-BB@0x2a ]
+	7       (0000001a) move-exception       v0
+	8       (0000001c) iget-object          v1, v15, Lcom/jlboat/phone/communication/TFPoseListener;->TAG Ljava/lang/String;
+	9       (00000020) const-string         v2, "updataPose: robot canthas tf"
+	10      (00000024) invoke-static        v1, v2, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+
+updataPose-BB@0x2a : [ updataPose-BB@0x32 updataPose-BB@0x25a ]
+	11      (0000002a) iget-object          v0, v15, Lcom/jlboat/phone/communication/TFPoseListener;->frameTransform_footprint_to_map Lcom/boat/ros/geometry/FrameTransform;
+	12      (0000002e) if-eqz               v0, +116h
+
+updataPose-BB@0x32 : [ updataPose-BB@0x4a updataPose-BB@0x25a ]
+	13      (00000032) iget-object          v0, v15, Lcom/jlboat/phone/communication/TFPoseListener;->frameTransform_footprint_to_map Lcom/boat/ros/geometry/FrameTransform;
+	14      (00000036) invoke-virtual       v0, Lcom/boat/ros/geometry/FrameTransform;->getTransform()Lcom/boat/ros/geometry/Transform;
+	15      (0000003c) move-result-object   v0
+	16      (0000003e) iput-object          v0, v15, Lcom/jlboat/phone/communication/TFPoseListener;->transform_footprint_to_mapTransform Lcom/boat/ros/geometry/Transform;
+	17      (00000042) iget-object          v0, v15, Lcom/jlboat/phone/communication/TFPoseListener;->transform_footprint_to_mapTransform Lcom/boat/ros/geometry/Transform;
+	18      (00000046) if-eqz               v0, +10ah
+
+updataPose-BB@0x4a : [ updataPose-BB@0x244 updataPose-BB@0x25a ]
+	19      (0000004a) new-instance         v0, Lcom/boat/ros/geometry/Vector3;
+	20      (0000004e) const-wide/16        v4, 0
+	21      (00000052) const-wide/16        v6, 0
+	22      (00000056) const-wide/16        v2, 0
+	23      (0000005a) move-object          v1, v0
+	24      (0000005c) invoke-direct/range  v1 ... v7, Lcom/boat/ros/geometry/Vector3;-><init>(D D D)V
+	25      (00000062) iput-object          v0, v15, Lcom/jlboat/phone/communication/TFPoseListener;->vector Lcom/boat/ros/geometry/Vector3;
+	26      (00000066) new-instance         v0, Lcom/boat/ros/geometry/Vector3;
+	27      (0000006a) const-wide           v11, 4596734067664517857
+	28      (00000074) const-wide/16        v13, 0
+	29      (00000078) const-wide           v9, -4626637969190257951
+	30      (00000082) move-object          v8, v0
+	31      (00000084) invoke-direct/range  v8 ... v14, Lcom/boat/ros/geometry/Vector3;-><init>(D D D)V
+	32      (0000008a) iput-object          v0, v15, Lcom/jlboat/phone/communication/TFPoseListener;->vectorleft Lcom/boat/ros/geometry/Vector3;
+	33      (0000008e) new-instance         v0, Lcom/boat/ros/geometry/Vector3;
+	34      (00000092) const-wide           v2, 4599075939470750515
+	35      (0000009c) move-object          v1, v0
+	36      (0000009e) invoke-direct/range  v1 ... v7, Lcom/boat/ros/geometry/Vector3;-><init>(D D D)V
+	37      (000000a4) iput-object          v0, v15, Lcom/jlboat/phone/communication/TFPoseListener;->vectortop Lcom/boat/ros/geometry/Vector3;
+	38      (000000a8) new-instance         v0, Lcom/boat/ros/geometry/Vector3;
+	39      (000000ac) const-wide           v11, -4626998257160447590
+	40      (000000b6) const-wide           v9, -4626998257160447590
+	41      (000000c0) move-object          v8, v0
+	42      (000000c2) invoke-direct/range  v8 ... v14, Lcom/boat/ros/geometry/Vector3;-><init>(D D D)V
+	43      (000000c8) iput-object          v0, v15, Lcom/jlboat/phone/communication/TFPoseListener;->vectorright Lcom/boat/ros/geometry/Vector3;
+	44      (000000cc) new-instance         v0, Ljava/util/LinkedList;
+	45      (000000d0) invoke-direct        v0, Ljava/util/LinkedList;-><init>()V
+	46      (000000d6) iput-object          v0, v15, Lcom/jlboat/phone/communication/TFPoseListener;->doubleList Ljava/util/List;
+	47      (000000da) iget-object          v0, v15, Lcom/jlboat/phone/communication/TFPoseListener;->doubleList Ljava/util/List;
+	48      (000000de) iget-object          v1, v15, Lcom/jlboat/phone/communication/TFPoseListener;->transform_footprint_to_mapTransform Lcom/boat/ros/geometry/Transform;
+	49      (000000e2) iget-object          v2, v15, Lcom/jlboat/phone/communication/TFPoseListener;->vector Lcom/boat/ros/geometry/Vector3;
+	50      (000000e6) invoke-virtual       v1, v2, Lcom/boat/ros/geometry/Transform;->apply(Lcom/boat/ros/geometry/Vector3;)Lcom/boat/ros/geometry/Vector3;
+	51      (000000ec) move-result-object   v1
+	52      (000000ee) invoke-virtual       v1, Lcom/boat/ros/geometry/Vector3;->getX()D
+	53      (000000f4) move-result-wide     v1
+	54      (000000f6) invoke-static        v1, v2, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
+	55      (000000fc) move-result-object   v1
+	56      (000000fe) invoke-interface     v0, v1, Ljava/util/List;->add(Ljava/lang/Object;)Z
+	57      (00000104) iget-object          v0, v15, Lcom/jlboat/phone/communication/TFPoseListener;->doubleList Ljava/util/List;
+	58      (00000108) iget-object          v1, v15, Lcom/jlboat/phone/communication/TFPoseListener;->transform_footprint_to_mapTransform Lcom/boat/ros/geometry/Transform;
+	59      (0000010c) iget-object          v2, v15, Lcom/jlboat/phone/communication/TFPoseListener;->vector Lcom/boat/ros/geometry/Vector3;
+	60      (00000110) invoke-virtual       v1, v2, Lcom/boat/ros/geometry/Transform;->apply(Lcom/boat/ros/geometry/Vector3;)Lcom/boat/ros/geometry/Vector3;
+	61      (00000116) move-result-object   v1
+	62      (00000118) invoke-virtual       v1, Lcom/boat/ros/geometry/Vector3;->getY()D
+	63      (0000011e) move-result-wide     v1
+	64      (00000120) invoke-static        v1, v2, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
+	65      (00000126) move-result-object   v1
+	66      (00000128) invoke-interface     v0, v1, Ljava/util/List;->add(Ljava/lang/Object;)Z
+	67      (0000012e) iget-object          v0, v15, Lcom/jlboat/phone/communication/TFPoseListener;->doubleList Ljava/util/List;
+	68      (00000132) iget-object          v1, v15, Lcom/jlboat/phone/communication/TFPoseListener;->transform_footprint_to_mapTransform Lcom/boat/ros/geometry/Transform;
+	69      (00000136) iget-object          v2, v15, Lcom/jlboat/phone/communication/TFPoseListener;->vectorleft Lcom/boat/ros/geometry/Vector3;
+	70      (0000013a) invoke-virtual       v1, v2, Lcom/boat/ros/geometry/Transform;->apply(Lcom/boat/ros/geometry/Vector3;)Lcom/boat/ros/geometry/Vector3;
+	71      (00000140) move-result-object   v1
+	72      (00000142) invoke-virtual       v1, Lcom/boat/ros/geometry/Vector3;->getX()D
+	73      (00000148) move-result-wide     v1
+	74      (0000014a) invoke-static        v1, v2, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
+	75      (00000150) move-result-object   v1
+	76      (00000152) invoke-interface     v0, v1, Ljava/util/List;->add(Ljava/lang/Object;)Z
+	77      (00000158) iget-object          v0, v15, Lcom/jlboat/phone/communication/TFPoseListener;->doubleList Ljava/util/List;
+	78      (0000015c) iget-object          v1, v15, Lcom/jlboat/phone/communication/TFPoseListener;->transform_footprint_to_mapTransform Lcom/boat/ros/geometry/Transform;
+	79      (00000160) iget-object          v2, v15, Lcom/jlboat/phone/communication/TFPoseListener;->vectorleft Lcom/boat/ros/geometry/Vector3;
+	80      (00000164) invoke-virtual       v1, v2, Lcom/boat/ros/geometry/Transform;->apply(Lcom/boat/ros/geometry/Vector3;)Lcom/boat/ros/geometry/Vector3;
+	81      (0000016a) move-result-object   v1
+	82      (0000016c) invoke-virtual       v1, Lcom/boat/ros/geometry/Vector3;->getY()D
+	83      (00000172) move-result-wide     v1
+	84      (00000174) invoke-static        v1, v2, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
+	85      (0000017a) move-result-object   v1
+	86      (0000017c) invoke-interface     v0, v1, Ljava/util/List;->add(Ljava/lang/Object;)Z
+	87      (00000182) iget-object          v0, v15, Lcom/jlboat/phone/communication/TFPoseListener;->doubleList Ljava/util/List;
+	88      (00000186) iget-object          v1, v15, Lcom/jlboat/phone/communication/TFPoseListener;->transform_footprint_to_mapTransform Lcom/boat/ros/geometry/Transform;
+	89      (0000018a) iget-object          v2, v15, Lcom/jlboat/phone/communication/TFPoseListener;->vectortop Lcom/boat/ros/geometry/Vector3;
+	90      (0000018e) invoke-virtual       v1, v2, Lcom/boat/ros/geometry/Transform;->apply(Lcom/boat/ros/geometry/Vector3;)Lcom/boat/ros/geometry/Vector3;
+	91      (00000194) move-result-object   v1
+	92      (00000196) invoke-virtual       v1, Lcom/boat/ros/geometry/Vector3;->getX()D
+	93      (0000019c) move-result-wide     v1
+	94      (0000019e) invoke-static        v1, v2, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
+	95      (000001a4) move-result-object   v1
+	96      (000001a6) invoke-interface     v0, v1, Ljava/util/List;->add(Ljava/lang/Object;)Z
+	97      (000001ac) iget-object          v0, v15, Lcom/jlboat/phone/communication/TFPoseListener;->doubleList Ljava/util/List;
+	98      (000001b0) iget-object          v1, v15, Lcom/jlboat/phone/communication/TFPoseListener;->transform_footprint_to_mapTransform Lcom/boat/ros/geometry/Transform;
+	99      (000001b4) iget-object          v2, v15, Lcom/jlboat/phone/communication/TFPoseListener;->vectortop Lcom/boat/ros/geometry/Vector3;
+	100     (000001b8) invoke-virtual       v1, v2, Lcom/boat/ros/geometry/Transform;->apply(Lcom/boat/ros/geometry/Vector3;)Lcom/boat/ros/geometry/Vector3;
+	101     (000001be) move-result-object   v1
+	102     (000001c0) invoke-virtual       v1, Lcom/boat/ros/geometry/Vector3;->getY()D
+	103     (000001c6) move-result-wide     v1
+	104     (000001c8) invoke-static        v1, v2, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
+	105     (000001ce) move-result-object   v1
+	106     (000001d0) invoke-interface     v0, v1, Ljava/util/List;->add(Ljava/lang/Object;)Z
+	107     (000001d6) iget-object          v0, v15, Lcom/jlboat/phone/communication/TFPoseListener;->doubleList Ljava/util/List;
+	108     (000001da) iget-object          v1, v15, Lcom/jlboat/phone/communication/TFPoseListener;->transform_footprint_to_mapTransform Lcom/boat/ros/geometry/Transform;
+	109     (000001de) iget-object          v2, v15, Lcom/jlboat/phone/communication/TFPoseListener;->vectorright Lcom/boat/ros/geometry/Vector3;
+	110     (000001e2) invoke-virtual       v1, v2, Lcom/boat/ros/geometry/Transform;->apply(Lcom/boat/ros/geometry/Vector3;)Lcom/boat/ros/geometry/Vector3;
+	111     (000001e8) move-result-object   v1
+	112     (000001ea) invoke-virtual       v1, Lcom/boat/ros/geometry/Vector3;->getX()D
+	113     (000001f0) move-result-wide     v1
+	114     (000001f2) invoke-static        v1, v2, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
+	115     (000001f8) move-result-object   v1
+	116     (000001fa) invoke-interface     v0, v1, Ljava/util/List;->add(Ljava/lang/Object;)Z
+	117     (00000200) iget-object          v0, v15, Lcom/jlboat/phone/communication/TFPoseListener;->doubleList Ljava/util/List;
+	118     (00000204) iget-object          v1, v15, Lcom/jlboat/phone/communication/TFPoseListener;->transform_footprint_to_mapTransform Lcom/boat/ros/geometry/Transform;
+	119     (00000208) iget-object          v2, v15, Lcom/jlboat/phone/communication/TFPoseListener;->vectorright Lcom/boat/ros/geometry/Vector3;
+	120     (0000020c) invoke-virtual       v1, v2, Lcom/boat/ros/geometry/Transform;->apply(Lcom/boat/ros/geometry/Vector3;)Lcom/boat/ros/geometry/Vector3;
+	121     (00000212) move-result-object   v1
+	122     (00000214) invoke-virtual       v1, Lcom/boat/ros/geometry/Vector3;->getY()D
+	123     (0000021a) move-result-wide     v1
+	124     (0000021c) invoke-static        v1, v2, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
+	125     (00000222) move-result-object   v1
+	126     (00000224) invoke-interface     v0, v1, Ljava/util/List;->add(Ljava/lang/Object;)Z
+	127     (0000022a) new-instance         v0, Lorg/json/JSONArray;
+	128     (0000022e) iget-object          v1, v15, Lcom/jlboat/phone/communication/TFPoseListener;->doubleList Ljava/util/List;
+	129     (00000232) invoke-direct        v0, v1, Lorg/json/JSONArray;-><init>(Ljava/util/Collection;)V
+	130     (00000238) iput-object          v0, v15, Lcom/jlboat/phone/communication/TFPoseListener;->data Lorg/json/JSONArray;
+	131     (0000023c) iget-object          v0, v15, Lcom/jlboat/phone/communication/TFPoseListener;->onCallBack Lcom/jlboat/phone/communication/TFPoseListener$OnCallBack;
+	132     (00000240) if-eqz               v0, +00dh
+
+updataPose-BB@0x244 : [ updataPose-BB@0x25a ]
+	133     (00000244) iget-object          v0, v15, Lcom/jlboat/phone/communication/TFPoseListener;->onCallBack Lcom/jlboat/phone/communication/TFPoseListener$OnCallBack;
+	134     (00000248) iget-object          v1, v15, Lcom/jlboat/phone/communication/TFPoseListener;->data Lorg/json/JSONArray;
+	135     (0000024c) invoke-virtual       v1, Lorg/json/JSONArray;->toString()Ljava/lang/String;
+	136     (00000252) move-result-object   v1
+	137     (00000254) invoke-interface     v0, v1, Lcom/jlboat/phone/communication/TFPoseListener$OnCallBack;->onTFDataListener(Ljava/lang/String;)V
+
+updataPose-BB@0x25a : 
+	138     (0000025a) return-void          
+

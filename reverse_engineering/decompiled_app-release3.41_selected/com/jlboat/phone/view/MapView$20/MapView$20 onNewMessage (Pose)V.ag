@@ -1,0 +1,38 @@
+# Lcom/jlboat/phone/view/MapView$20;->onNewMessage(Lcom/boat/jrosbridge/message/geometry_msgs/Pose;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:com.boat.jrosbridge.message.geometry_msgs.Pose
+#
+# - return:void
+
+onNewMessage-BB@0x0 : 
+	0       (00000000) new-instance         v0, Ljava/lang/StringBuilder;
+	1       (00000004) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	2       (0000000a) const-string         v1, "scanPoseSub onNewMessage: "
+	3       (0000000e) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	4       (00000014) move-result-object   v0
+	5       (00000016) invoke-virtual       v4, Lcom/boat/jrosbridge/message/geometry_msgs/Pose;->getPosition()Lcom/boat/jrosbridge/message/geometry_msgs/Point;
+	6       (0000001c) move-result-object   v1
+	7       (0000001e) invoke-virtual       v1, Lcom/boat/jrosbridge/message/geometry_msgs/Point;->getX()D
+	8       (00000024) move-result-wide     v1
+	9       (00000026) invoke-virtual       v0, v1, v2, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
+	10      (0000002c) move-result-object   v0
+	11      (0000002e) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	12      (00000034) move-result-object   v0
+	13      (00000036) const-string         v1, "MapView"
+	14      (0000003a) invoke-static        v1, v0, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	15      (00000040) iget-object          v0, v3, Lcom/jlboat/phone/view/MapView$20;->this$0 Lcom/jlboat/phone/view/MapView;
+	16      (00000044) invoke-virtual       v4, Lcom/boat/jrosbridge/message/geometry_msgs/Pose;->getPosition()Lcom/boat/jrosbridge/message/geometry_msgs/Point;
+	17      (0000004a) move-result-object   v1
+	18      (0000004c) invoke-virtual       v1, Lcom/boat/jrosbridge/message/geometry_msgs/Point;->getX()D
+	19      (00000052) move-result-wide     v1
+	20      (00000054) invoke-static        v0, v1, v2, Lcom/jlboat/phone/view/MapView;->access$402(Lcom/jlboat/phone/view/MapView; D)D
+	21      (0000005a) iget-object          v0, v3, Lcom/jlboat/phone/view/MapView$20;->this$0 Lcom/jlboat/phone/view/MapView;
+	22      (0000005e) invoke-virtual       v4, Lcom/boat/jrosbridge/message/geometry_msgs/Pose;->getPosition()Lcom/boat/jrosbridge/message/geometry_msgs/Point;
+	23      (00000064) move-result-object   v1
+	24      (00000066) invoke-virtual       v1, Lcom/boat/jrosbridge/message/geometry_msgs/Point;->getY()D
+	25      (0000006c) move-result-wide     v1
+	26      (0000006e) invoke-static        v0, v1, v2, Lcom/jlboat/phone/view/MapView;->access$502(Lcom/jlboat/phone/view/MapView; D)D
+	27      (00000074) return-void          
+

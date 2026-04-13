@@ -1,0 +1,35 @@
+# Lcom/jlboat/phone/view/loading/BaseLoading;->stopAnim()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v2
+#
+# - return:void
+
+stopAnim-BB@0x0 : [ stopAnim-BB@0x8 stopAnim-BB@0x58 ]
+	0       (00000000) iget-object          v0, v2, Lcom/jlboat/phone/view/loading/BaseLoading;->valueAnimator Landroid/animation/ValueAnimator;
+	1       (00000004) if-eqz               v0, +02ah
+
+stopAnim-BB@0x8 : [ stopAnim-BB@0x3a stopAnim-BB@0x58 ]
+	2       (00000008) invoke-virtual       v2, Lcom/jlboat/phone/view/loading/BaseLoading;->clearAnimation()V
+	3       (0000000e) iget-object          v0, v2, Lcom/jlboat/phone/view/loading/BaseLoading;->valueAnimator Landroid/animation/ValueAnimator;
+	4       (00000012) const/4              v1, 0
+	5       (00000014) invoke-virtual       v0, v1, Landroid/animation/ValueAnimator;->setRepeatCount(I)V
+	6       (0000001a) iget-object          v0, v2, Lcom/jlboat/phone/view/loading/BaseLoading;->valueAnimator Landroid/animation/ValueAnimator;
+	7       (0000001e) invoke-virtual       v0, Landroid/animation/ValueAnimator;->cancel()V
+	8       (00000024) iget-object          v0, v2, Lcom/jlboat/phone/view/loading/BaseLoading;->valueAnimator Landroid/animation/ValueAnimator;
+	9       (00000028) invoke-virtual       v0, Landroid/animation/ValueAnimator;->end()V
+	10      (0000002e) invoke-virtual       v2, Lcom/jlboat/phone/view/loading/BaseLoading;->OnStopAnim()I
+	11      (00000034) move-result          v0
+	12      (00000036) if-nez               v0, +011h
+
+stopAnim-BB@0x3a : [ stopAnim-BB@0x58 ]
+	13      (0000003a) iget-object          v0, v2, Lcom/jlboat/phone/view/loading/BaseLoading;->valueAnimator Landroid/animation/ValueAnimator;
+	14      (0000003e) invoke-virtual       v0, v1, Landroid/animation/ValueAnimator;->setRepeatCount(I)V
+	15      (00000044) iget-object          v0, v2, Lcom/jlboat/phone/view/loading/BaseLoading;->valueAnimator Landroid/animation/ValueAnimator;
+	16      (00000048) invoke-virtual       v0, Landroid/animation/ValueAnimator;->cancel()V
+	17      (0000004e) iget-object          v0, v2, Lcom/jlboat/phone/view/loading/BaseLoading;->valueAnimator Landroid/animation/ValueAnimator;
+	18      (00000052) invoke-virtual       v0, Landroid/animation/ValueAnimator;->end()V
+
+stopAnim-BB@0x58 : 
+	19      (00000058) return-void          
+

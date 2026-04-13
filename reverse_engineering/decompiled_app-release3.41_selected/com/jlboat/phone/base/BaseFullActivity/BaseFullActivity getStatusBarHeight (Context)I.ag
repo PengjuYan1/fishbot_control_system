@@ -1,0 +1,28 @@
+# Lcom/jlboat/phone/base/BaseFullActivity;->getStatusBarHeight(Landroid/content/Context;)I [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v5
+# - v6:android.content.Context
+#
+# - return:int
+
+getStatusBarHeight-BB@0x0 : [ getStatusBarHeight-BB@0x22 getStatusBarHeight-BB@0x32 ]
+	0       (00000000) const/4              v0, 0
+	1       (00000002) invoke-virtual       v6, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+	2       (00000008) move-result-object   v1
+	3       (0000000a) const-string         v2, "dimen"
+	4       (0000000e) const-string         v3, "android"
+	5       (00000012) const-string         v4, "status_bar_height"
+	6       (00000016) invoke-virtual       v1, v4, v2, v3, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String; Ljava/lang/String; Ljava/lang/String;)I
+	7       (0000001c) move-result          v1
+	8       (0000001e) if-lez               v1, +00ah
+
+getStatusBarHeight-BB@0x22 : [ getStatusBarHeight-BB@0x32 ]
+	9       (00000022) invoke-virtual       v6, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+	10      (00000028) move-result-object   v2
+	11      (0000002a) invoke-virtual       v2, v1, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+	12      (00000030) move-result          v0
+
+getStatusBarHeight-BB@0x32 : 
+	13      (00000032) return               v0
+

@@ -1,0 +1,154 @@
+# Lcom/jlboat/phone/view/ErrorMsgAdapter$MsgViewHolder;->setData(Lcom/jlboat/phone/view/Err;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:com.jlboat.phone.view.Err
+#
+# - return:void
+
+setData-BB@0x0 : [ setData-BB@0x10 setData-BB@0x46 ]
+	0       (00000000) invoke-virtual       v4, Lcom/jlboat/phone/view/Err;->getType()I
+	1       (00000006) move-result          v0
+	2       (00000008) const/16             v1, 10
+	3       (0000000c) if-lez               v0, +01dh
+
+setData-BB@0x10 : [ setData-BB@0x1c setData-BB@0x46 ]
+	4       (00000010) invoke-virtual       v4, Lcom/jlboat/phone/view/Err;->getType()I
+	5       (00000016) move-result          v0
+	6       (00000018) if-ge                v0, v1, +017h
+
+setData-BB@0x1c : [ setData-BB@0x160 ]
+	7       (0000001c) iget-object          v0, v3, Lcom/jlboat/phone/view/ErrorMsgAdapter$MsgViewHolder;->this$0 Lcom/jlboat/phone/view/ErrorMsgAdapter;
+	8       (00000020) invoke-static        v0, Lcom/jlboat/phone/view/ErrorMsgAdapter;->access$000(Lcom/jlboat/phone/view/ErrorMsgAdapter;)Landroid/content/Context;
+	9       (00000026) move-result-object   v0
+	10      (00000028) invoke-virtual       v0, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+	11      (0000002e) move-result-object   v0
+	12      (00000030) const                v1, 2131493401
+	13      (00000036) invoke-virtual       v0, v1, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+	14      (0000003c) move-result-object   v0
+	15      (0000003e) iput-object          v0, v3, Lcom/jlboat/phone/view/ErrorMsgAdapter$MsgViewHolder;->title Ljava/lang/String;
+	16      (00000042) goto/16              +08fh
+
+setData-BB@0x46 : [ setData-BB@0x52 setData-BB@0x8a ]
+	17      (00000046) invoke-virtual       v4, Lcom/jlboat/phone/view/Err;->getType()I
+	18      (0000004c) move-result          v0
+	19      (0000004e) if-le                v0, v1, +01eh
+
+setData-BB@0x52 : [ setData-BB@0x62 setData-BB@0x8a ]
+	20      (00000052) invoke-virtual       v4, Lcom/jlboat/phone/view/Err;->getType()I
+	21      (00000058) move-result          v0
+	22      (0000005a) const/16             v1, 21
+	23      (0000005e) if-gt                v0, v1, +016h
+
+setData-BB@0x62 : [ setData-BB@0x160 ]
+	24      (00000062) iget-object          v0, v3, Lcom/jlboat/phone/view/ErrorMsgAdapter$MsgViewHolder;->this$0 Lcom/jlboat/phone/view/ErrorMsgAdapter;
+	25      (00000066) invoke-static        v0, Lcom/jlboat/phone/view/ErrorMsgAdapter;->access$000(Lcom/jlboat/phone/view/ErrorMsgAdapter;)Landroid/content/Context;
+	26      (0000006c) move-result-object   v0
+	27      (0000006e) invoke-virtual       v0, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+	28      (00000074) move-result-object   v0
+	29      (00000076) const                v1, 2131493403
+	30      (0000007c) invoke-virtual       v0, v1, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+	31      (00000082) move-result-object   v0
+	32      (00000084) iput-object          v0, v3, Lcom/jlboat/phone/view/ErrorMsgAdapter$MsgViewHolder;->title Ljava/lang/String;
+	33      (00000088) goto                 +6ch
+
+setData-BB@0x8a : [ setData-BB@0x9a setData-BB@0xd2 ]
+	34      (0000008a) invoke-virtual       v4, Lcom/jlboat/phone/view/Err;->getType()I
+	35      (00000090) move-result          v0
+	36      (00000092) const/16             v1, 41
+	37      (00000096) if-lt                v0, v1, +01eh
+
+setData-BB@0x9a : [ setData-BB@0xaa setData-BB@0xd2 ]
+	38      (0000009a) invoke-virtual       v4, Lcom/jlboat/phone/view/Err;->getType()I
+	39      (000000a0) move-result          v0
+	40      (000000a2) const/16             v1, 51
+	41      (000000a6) if-gt                v0, v1, +016h
+
+setData-BB@0xaa : [ setData-BB@0x160 ]
+	42      (000000aa) iget-object          v0, v3, Lcom/jlboat/phone/view/ErrorMsgAdapter$MsgViewHolder;->this$0 Lcom/jlboat/phone/view/ErrorMsgAdapter;
+	43      (000000ae) invoke-static        v0, Lcom/jlboat/phone/view/ErrorMsgAdapter;->access$000(Lcom/jlboat/phone/view/ErrorMsgAdapter;)Landroid/content/Context;
+	44      (000000b4) move-result-object   v0
+	45      (000000b6) invoke-virtual       v0, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+	46      (000000bc) move-result-object   v0
+	47      (000000be) const                v1, 2131493398
+	48      (000000c4) invoke-virtual       v0, v1, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+	49      (000000ca) move-result-object   v0
+	50      (000000cc) iput-object          v0, v3, Lcom/jlboat/phone/view/ErrorMsgAdapter$MsgViewHolder;->title Ljava/lang/String;
+	51      (000000d0) goto                 +48h
+
+setData-BB@0xd2 : [ setData-BB@0xe2 setData-BB@0x11a ]
+	52      (000000d2) invoke-virtual       v4, Lcom/jlboat/phone/view/Err;->getType()I
+	53      (000000d8) move-result          v0
+	54      (000000da) const/16             v1, 101
+	55      (000000de) if-lt                v0, v1, +01eh
+
+setData-BB@0xe2 : [ setData-BB@0xf2 setData-BB@0x11a ]
+	56      (000000e2) invoke-virtual       v4, Lcom/jlboat/phone/view/Err;->getType()I
+	57      (000000e8) move-result          v0
+	58      (000000ea) const/16             v1, 124
+	59      (000000ee) if-ge                v0, v1, +016h
+
+setData-BB@0xf2 : [ setData-BB@0x160 ]
+	60      (000000f2) iget-object          v0, v3, Lcom/jlboat/phone/view/ErrorMsgAdapter$MsgViewHolder;->this$0 Lcom/jlboat/phone/view/ErrorMsgAdapter;
+	61      (000000f6) invoke-static        v0, Lcom/jlboat/phone/view/ErrorMsgAdapter;->access$000(Lcom/jlboat/phone/view/ErrorMsgAdapter;)Landroid/content/Context;
+	62      (000000fc) move-result-object   v0
+	63      (000000fe) invoke-virtual       v0, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+	64      (00000104) move-result-object   v0
+	65      (00000106) const                v1, 2131493399
+	66      (0000010c) invoke-virtual       v0, v1, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+	67      (00000112) move-result-object   v0
+	68      (00000114) iput-object          v0, v3, Lcom/jlboat/phone/view/ErrorMsgAdapter$MsgViewHolder;->title Ljava/lang/String;
+	69      (00000118) goto                 +24h
+
+setData-BB@0x11a : [ setData-BB@0x12a setData-BB@0x160 ]
+	70      (0000011a) invoke-virtual       v4, Lcom/jlboat/phone/view/Err;->getType()I
+	71      (00000120) move-result          v0
+	72      (00000122) const/16             v1, 61
+	73      (00000126) if-lt                v0, v1, +01dh
+
+setData-BB@0x12a : [ setData-BB@0x13a setData-BB@0x160 ]
+	74      (0000012a) invoke-virtual       v4, Lcom/jlboat/phone/view/Err;->getType()I
+	75      (00000130) move-result          v0
+	76      (00000132) const/16             v1, 67
+	77      (00000136) if-gt                v0, v1, +015h
+
+setData-BB@0x13a : [ setData-BB@0x160 ]
+	78      (0000013a) iget-object          v0, v3, Lcom/jlboat/phone/view/ErrorMsgAdapter$MsgViewHolder;->this$0 Lcom/jlboat/phone/view/ErrorMsgAdapter;
+	79      (0000013e) invoke-static        v0, Lcom/jlboat/phone/view/ErrorMsgAdapter;->access$000(Lcom/jlboat/phone/view/ErrorMsgAdapter;)Landroid/content/Context;
+	80      (00000144) move-result-object   v0
+	81      (00000146) invoke-virtual       v0, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+	82      (0000014c) move-result-object   v0
+	83      (0000014e) const                v1, 2131493400
+	84      (00000154) invoke-virtual       v0, v1, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+	85      (0000015a) move-result-object   v0
+	86      (0000015c) iput-object          v0, v3, Lcom/jlboat/phone/view/ErrorMsgAdapter$MsgViewHolder;->title Ljava/lang/String;
+
+setData-BB@0x160 : 
+	87      (00000160) iget-object          v0, v3, Lcom/jlboat/phone/view/ErrorMsgAdapter$MsgViewHolder;->service_name Landroid/widget/TextView;
+	88      (00000164) new-instance         v1, Ljava/lang/StringBuilder;
+	89      (00000168) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	90      (0000016e) iget-object          v2, v3, Lcom/jlboat/phone/view/ErrorMsgAdapter$MsgViewHolder;->title Ljava/lang/String;
+	91      (00000172) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	92      (00000178) move-result-object   v1
+	93      (0000017a) const-string         v2, "  "
+	94      (0000017e) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	95      (00000184) move-result-object   v1
+	96      (00000186) invoke-virtual       v4, Lcom/jlboat/phone/view/Err;->getDa()Ljava/util/Date;
+	97      (0000018c) move-result-object   v2
+	98      (0000018e) invoke-static        v2, Lcom/jlboat/phone/util/Utils;->getCurrentTime(Ljava/util/Date;)Ljava/lang/String;
+	99      (00000194) move-result-object   v2
+	100     (00000196) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	101     (0000019c) move-result-object   v1
+	102     (0000019e) const-string         v2, "  
+"
+	103     (000001a2) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	104     (000001a8) move-result-object   v1
+	105     (000001aa) invoke-virtual       v4, Lcom/jlboat/phone/view/Err;->getMsg()Ljava/lang/String;
+	106     (000001b0) move-result-object   v2
+	107     (000001b2) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	108     (000001b8) move-result-object   v1
+	109     (000001ba) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	110     (000001c0) move-result-object   v1
+	111     (000001c2) invoke-virtual       v0, v1, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+	112     (000001c8) return-void          
+

@@ -1,0 +1,114 @@
+# Lcom/jlboat/phone/util/TopicNames;-><clinit>()V [access_flags=static constructor]
+#
+# Parameters:
+# local registers: v0...v0
+#
+# - return:void
+
+<clinit>-BB@0x0 : 
+	0       (00000000) const-string         v0, "erase_pose"
+	1       (00000004) sput-object          v0, Lcom/jlboat/phone/util/TopicNames;->ErasePose Ljava/lang/String;
+	2       (00000008) const-string         v0, "cmd_vel"
+	3       (0000000c) sput-object          v0, Lcom/jlboat/phone/util/TopicNames;->CMD_VEL Ljava/lang/String;
+	4       (00000010) const-string         v0, "/currentpose_locationmiss"
+	5       (00000014) sput-object          v0, Lcom/jlboat/phone/util/TopicNames;->CurrentposeLocationmiss Ljava/lang/String;
+	6       (00000018) const-string         v0, "/start_cleanarea"
+	7       (0000001c) sput-object          v0, Lcom/jlboat/phone/util/TopicNames;->CleanArea Ljava/lang/String;
+	8       (00000020) const-string         v0, "/npath_addorDel"
+	9       (00000024) sput-object          v0, Lcom/jlboat/phone/util/TopicNames;->NpathAddorDel Ljava/lang/String;
+	10      (00000028) const-string         v0, "outofcharge"
+	11      (0000002c) sput-object          v0, Lcom/jlboat/phone/util/TopicNames;->OUTOFCHARGE Ljava/lang/String;
+	12      (00000030) const-string         v0, "warnLed_status"
+	13      (00000034) sput-object          v0, Lcom/jlboat/phone/util/TopicNames;->WARNLEDSTATUS Ljava/lang/String;
+	14      (00000038) const-string         v0, "reachPoint_status"
+	15      (0000003c) sput-object          v0, Lcom/jlboat/phone/util/TopicNames;->REACHPOINT_STATUS Ljava/lang/String;
+	16      (00000040) const-string         v0, "add_target_goals"
+	17      (00000044) sput-object          v0, Lcom/jlboat/phone/util/TopicNames;->ADD_TARGET_GOALS Ljava/lang/String;
+	18      (00000048) const-string         v0, "/add_wait_time_target_goal"
+	19      (0000004c) sput-object          v0, Lcom/jlboat/phone/util/TopicNames;->ADD_WAIT_TIME_TARGET_GOAL Ljava/lang/String;
+	20      (00000050) const-string         v0, "/set_types_target_goal"
+	21      (00000054) sput-object          v0, Lcom/jlboat/phone/util/TopicNames;->SET_TYPES_TARGET_GOAL Ljava/lang/String;
+	22      (00000058) const-string         v0, "/android_startgoal"
+	23      (0000005c) sput-object          v0, Lcom/jlboat/phone/util/TopicNames;->AndroidStartgoal Ljava/lang/String;
+	24      (00000060) const-string         v0, "/navi_target_goal_list"
+	25      (00000064) sput-object          v0, Lcom/jlboat/phone/util/TopicNames;->NAVI_TARGET_GOAL_LIST Ljava/lang/String;
+	26      (00000068) const-string         v0, "/target_goal_wait_time"
+	27      (0000006c) sput-object          v0, Lcom/jlboat/phone/util/TopicNames;->TARGET_GOAL_WAIT_TIME Ljava/lang/String;
+	28      (00000070) const-string         v0, "/location_status"
+	29      (00000074) sput-object          v0, Lcom/jlboat/phone/util/TopicNames;->LocationStatus Ljava/lang/String;
+	30      (00000078) const-string         v0, "/testodom"
+	31      (0000007c) sput-object          v0, Lcom/jlboat/phone/util/TopicNames;->MoveTestMsg Ljava/lang/String;
+	32      (00000080) const-string         v0, "/navitest_result"
+	33      (00000084) sput-object          v0, Lcom/jlboat/phone/util/TopicNames;->TestMsg Ljava/lang/String;
+	34      (00000088) const-string         v0, "heart_beat"
+	35      (0000008c) sput-object          v0, Lcom/jlboat/phone/util/TopicNames;->HeartMsg Ljava/lang/String;
+	36      (00000090) const-string         v0, "androidmsg_initstatus"
+	37      (00000094) sput-object          v0, Lcom/jlboat/phone/util/TopicNames;->InitMsg Ljava/lang/String;
+	38      (00000098) const-string         v0, "androidmsg_emergencystatus"
+	39      (0000009c) sput-object          v0, Lcom/jlboat/phone/util/TopicNames;->EMEMsg Ljava/lang/String;
+	40      (000000a0) const-string         v0, "androidmsg_motorenabledstatus"
+	41      (000000a4) sput-object          v0, Lcom/jlboat/phone/util/TopicNames;->MOROTMsg Ljava/lang/String;
+	42      (000000a8) const-string         v0, "androidmsg_chargestatus"
+	43      (000000ac) sput-object          v0, Lcom/jlboat/phone/util/TopicNames;->ChageMsg Ljava/lang/String;
+	44      (000000b0) const-string         v0, "power_report"
+	45      (000000b4) sput-object          v0, Lcom/jlboat/phone/util/TopicNames;->Battry Ljava/lang/String;
+	46      (000000b8) const-string         v0, "motion_mode"
+	47      (000000bc) sput-object          v0, Lcom/jlboat/phone/util/TopicNames;->ChNgeMotionMode Ljava/lang/String;
+	48      (000000c0) const-string         v0, "outofcharge_status"
+	49      (000000c4) sput-object          v0, Lcom/jlboat/phone/util/TopicNames;->OUTOFCHARGE_STATUS Ljava/lang/String;
+	50      (000000c8) const-string         v0, "reviceOutMachineSignal"
+	51      (000000cc) sput-object          v0, Lcom/jlboat/phone/util/TopicNames;->REVICE_OUTMACHINE_SIGNAL Ljava/lang/String;
+	52      (000000d0) const-string         v0, "androidmsg_locationstatus"
+	53      (000000d4) sput-object          v0, Lcom/jlboat/phone/util/TopicNames;->LocationMsg Ljava/lang/String;
+	54      (000000d8) const-string         v0, "wall_update"
+	55      (000000dc) sput-object          v0, Lcom/jlboat/phone/util/TopicNames;->WallUpdateMsg Ljava/lang/String;
+	56      (000000e0) const-string         v0, "androidmsg_navigationstatus"
+	57      (000000e4) sput-object          v0, Lcom/jlboat/phone/util/TopicNames;->NavigationMsg Ljava/lang/String;
+	58      (000000e8) const-string         v0, "/set_targetgoal"
+	59      (000000ec) sput-object          v0, Lcom/jlboat/phone/util/TopicNames;->NaviToPointName Ljava/lang/String;
+	60      (000000f0) const-string         v0, "/navi_targetgoal"
+	61      (000000f4) sput-object          v0, Lcom/jlboat/phone/util/TopicNames;->naviTargetgoal Ljava/lang/String;
+	62      (000000f8) const-string         v0, "/navi_stop"
+	63      (000000fc) sput-object          v0, Lcom/jlboat/phone/util/TopicNames;->NaviStop Ljava/lang/String;
+	64      (00000100) const-string         v0, "/globalplans_update"
+	65      (00000104) sput-object          v0, Lcom/jlboat/phone/util/TopicNames;->GlobalPlansTest Ljava/lang/String;
+	66      (00000108) const-string         v0, "autocharge"
+	67      (0000010c) sput-object          v0, Lcom/jlboat/phone/util/TopicNames;->GoCharge Ljava/lang/String;
+	68      (00000110) const-string         v0, "androidmsg_virtualmapstatus"
+	69      (00000114) sput-object          v0, Lcom/jlboat/phone/util/TopicNames;->VirtualMsg Ljava/lang/String;
+	70      (00000118) const-string         v0, "map_status"
+	71      (0000011c) sput-object          v0, Lcom/jlboat/phone/util/TopicNames;->MapStatus Ljava/lang/String;
+	72      (00000120) const-string         v0, "androidmsg_mapstatus"
+	73      (00000124) sput-object          v0, Lcom/jlboat/phone/util/TopicNames;->MapStatusMsg Ljava/lang/String;
+	74      (00000128) const-string         v0, "androidmsg_mapbuildstatus"
+	75      (0000012c) sput-object          v0, Lcom/jlboat/phone/util/TopicNames;->MapBuildStatusMsg Ljava/lang/String;
+	76      (00000130) const-string         v0, "androidmsg_outofchargepoint"
+	77      (00000134) sput-object          v0, Lcom/jlboat/phone/util/TopicNames;->OutChargeMsg Ljava/lang/String;
+	78      (00000138) const-string         v0, "androidmsg_lidarstatus"
+	79      (0000013c) sput-object          v0, Lcom/jlboat/phone/util/TopicNames;->LidarMsg Ljava/lang/String;
+	80      (00000140) const-string         v0, "androidmsg_stm32status"
+	81      (00000144) sput-object          v0, Lcom/jlboat/phone/util/TopicNames;->Stm32Msg Ljava/lang/String;
+	82      (00000148) const-string         v0, "androidmsg_odomstatus"
+	83      (0000014c) sput-object          v0, Lcom/jlboat/phone/util/TopicNames;->OdomMsg Ljava/lang/String;
+	84      (00000150) const-string         v0, "androidmsg_navinetworkstatus"
+	85      (00000154) sput-object          v0, Lcom/jlboat/phone/util/TopicNames;->NaviNetworkMsg Ljava/lang/String;
+	86      (00000158) const-string         v0, "androidmsg_imustatus"
+	87      (0000015c) sput-object          v0, Lcom/jlboat/phone/util/TopicNames;->ImuMsg Ljava/lang/String;
+	88      (00000160) const-string         v0, "androidmsg_sonarstatus"
+	89      (00000164) sput-object          v0, Lcom/jlboat/phone/util/TopicNames;->SonarMsg Ljava/lang/String;
+	90      (00000168) const-string         v0, "androidmsg_motor1status"
+	91      (0000016c) sput-object          v0, Lcom/jlboat/phone/util/TopicNames;->Motor1Msg Ljava/lang/String;
+	92      (00000170) const-string         v0, "androidmsg_motor2status"
+	93      (00000174) sput-object          v0, Lcom/jlboat/phone/util/TopicNames;->Motor2Msg Ljava/lang/String;
+	94      (00000178) const-string         v0, "androidmsg_leftmotorstatus"
+	95      (0000017c) sput-object          v0, Lcom/jlboat/phone/util/TopicNames;->LeftMotorMsg Ljava/lang/String;
+	96      (00000180) const-string         v0, "androidmsg_rightmotorstatus"
+	97      (00000184) sput-object          v0, Lcom/jlboat/phone/util/TopicNames;->RightMotorMsg Ljava/lang/String;
+	98      (00000188) const-string         v0, "androidmsg_camerastatus"
+	99      (0000018c) sput-object          v0, Lcom/jlboat/phone/util/TopicNames;->CameraMsg Ljava/lang/String;
+	100     (00000190) const-string         v0, "androidmsg_batterystatus"
+	101     (00000194) sput-object          v0, Lcom/jlboat/phone/util/TopicNames;->BatteryMsg Ljava/lang/String;
+	102     (00000198) const-string         v0, "androidmsg_importfilesstatus"
+	103     (0000019c) sput-object          v0, Lcom/jlboat/phone/util/TopicNames;->DownMapStateMsg Ljava/lang/String;
+	104     (000001a0) return-void          
+

@@ -1,0 +1,19 @@
+# Lcom/jlboat/phone/LoginActivity$5;->run()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v3
+#
+# - return:void
+
+run-BB@0x0 : 
+	0       (00000000) iget-object          v0, v3, Lcom/jlboat/phone/LoginActivity$5;->this$0 Lcom/jlboat/phone/LoginActivity;
+	1       (00000004) iget-object          v0, v0, Lcom/jlboat/phone/LoginActivity;->mContext Landroid/content/Context;
+	2       (00000008) invoke-virtual       v0, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+	3       (0000000e) move-result-object   v0
+	4       (00000010) iget-object          v1, v3, Lcom/jlboat/phone/LoginActivity$5;->val$text Ljava/lang/String;
+	5       (00000014) const/4              v2, 0
+	6       (00000016) invoke-static        v0, v1, v2, Landroid/widget/Toast;->makeText(Landroid/content/Context; Ljava/lang/CharSequence; I)Landroid/widget/Toast;
+	7       (0000001c) move-result-object   v0
+	8       (0000001e) invoke-virtual       v0, Landroid/widget/Toast;->show()V
+	9       (00000024) return-void          
+

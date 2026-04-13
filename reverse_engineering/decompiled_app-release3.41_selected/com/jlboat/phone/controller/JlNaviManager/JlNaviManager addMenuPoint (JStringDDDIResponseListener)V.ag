@@ -1,0 +1,71 @@
+# Lcom/jlboat/phone/controller/JlNaviManager;->addMenuPoint(J Ljava/lang/String; D D D Lcom/boat/support/slam/IResponseListener;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v29
+# - v30:long
+# - v31:java.lang.String
+# - v32:double
+# - v33:double
+# - v34:double
+# - v35:com.boat.support.slam.IResponseListener
+#
+# - return:void
+
+addMenuPoint-BB@0x0 : [ addMenuPoint-BB@0xc addMenuPoint-BB@0xa8 ]
+	0       (00000000) move-object/from16   v0, v25
+	1       (00000004) iget-boolean         v1, v0, Lcom/jlboat/phone/controller/JlNaviManager;->connectStatus Z
+	2       (00000008) if-eqz               v1, +050h
+
+addMenuPoint-BB@0xc : [ addMenuPoint-BB@0x14 addMenuPoint-BB@0x1a ]
+	3       (0000000c) iget-boolean         v1, v0, Lcom/jlboat/phone/controller/JlNaviManager;->isNavigationInited Z
+	4       (00000010) if-nez               v1, +005h
+
+addMenuPoint-BB@0x14 : [ addMenuPoint-BB@0xac ]
+	5       (00000014) move-wide/from16     v10, v33
+	6       (00000018) goto                 +4ah
+
+addMenuPoint-BB@0x1a : 
+	7       (0000001a) iget-object          v1, v0, Lcom/jlboat/phone/controller/JlNaviManager;->TAG Ljava/lang/String;
+	8       (0000001e) new-instance         v2, Ljava/lang/StringBuilder;
+	9       (00000022) invoke-direct        v2, Ljava/lang/StringBuilder;-><init>()V
+	10      (00000028) const-string         v3, "addMenuPoint:  yaw = "
+	11      (0000002c) invoke-virtual       v2, v3, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	12      (00000032) move-result-object   v2
+	13      (00000034) move-wide/from16     v10, v33
+	14      (00000038) invoke-virtual       v2, v10, v11, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
+	15      (0000003e) move-result-object   v2
+	16      (00000040) invoke-virtual       v2, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	17      (00000046) move-result-object   v2
+	18      (00000048) invoke-static        v1, v2, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	19      (0000004e) new-instance         v1, Lcom/jlboat/phone/util/EulerAngles;
+	20      (00000052) const-wide/16        v4, 0
+	21      (00000056) const-wide/16        v8, 0
+	22      (0000005a) move-object          v3, v1
+	23      (0000005c) move-wide/from16     v6, v33
+	24      (00000060) invoke-direct/range  v3 ... v9, Lcom/jlboat/phone/util/EulerAngles;-><init>(D D D)V
+	25      (00000066) invoke-virtual       v1, Lcom/jlboat/phone/util/EulerAngles;->ToQuaternion()Lcom/jlboat/phone/util/Quaternion;
+	26      (0000006c) move-result-object   v1
+	27      (0000006e) iget-object          v12, v0, Lcom/jlboat/phone/controller/JlNaviManager;->spiritServiceClient Lcom/jlboat/phone/communication/SpiritServiceClient;
+	28      (00000072) iget-wide            v2, v1, Lcom/jlboat/phone/util/Quaternion;->z D
+	29      (00000076) iget-wide            v4, v1, Lcom/jlboat/phone/util/Quaternion;->w D
+	30      (0000007a) new-instance         v6, Lcom/jlboat/phone/controller/JlNaviManager$28;
+	31      (0000007e) invoke-direct        v6, v0, Lcom/jlboat/phone/controller/JlNaviManager$28;-><init>(Lcom/jlboat/phone/controller/JlNaviManager;)V
+	32      (00000084) move-wide/from16     v13, v26
+	33      (00000088) move-object/from16   v15, v28
+	34      (0000008c) move-wide/from16     v16, v29
+	35      (00000090) move-wide/from16     v18, v31
+	36      (00000094) move-wide/from16     v20, v2
+	37      (00000098) move-wide/from16     v22, v4
+	38      (0000009c) move-object/from16   v24, v6
+	39      (000000a0) invoke-virtual/range v12 ... v24, Lcom/jlboat/phone/communication/SpiritServiceClient;->addManuPosintServices(J Ljava/lang/String; D D D D Lcom/boat/jrosbridge/MessageListener;)V
+	40      (000000a6) return-void          
+
+addMenuPoint-BB@0xa8 : [ addMenuPoint-BB@0xac ]
+	41      (000000a8) move-wide/from16     v10, v33
+
+addMenuPoint-BB@0xac : 
+	42      (000000ac) iget-object          v1, v0, Lcom/jlboat/phone/controller/JlNaviManager;->TAG Ljava/lang/String;
+	43      (000000b0) const-string         v2, "addMenuPoint: 初始化未成功 不可以进行数据请求 addMenuPoint "
+	44      (000000b4) invoke-static        v1, v2, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	45      (000000ba) return-void          
+

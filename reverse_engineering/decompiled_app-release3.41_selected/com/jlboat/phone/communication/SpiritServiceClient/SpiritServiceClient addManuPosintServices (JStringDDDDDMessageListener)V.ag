@@ -1,0 +1,143 @@
+# Lcom/jlboat/phone/communication/SpiritServiceClient;->addManuPosintServices(J Ljava/lang/String; D D D D D Lcom/boat/jrosbridge/MessageListener;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v24
+# - v25:long
+# - v26:java.lang.String
+# - v27:double
+# - v28:double
+# - v29:double
+# - v30:double
+# - v31:double
+# - v32:com.boat.jrosbridge.MessageListener
+#
+# - return:void
+
+addManuPosintServices-BB@0x0 : 
+	0       (00000000) new-instance         v0, Lcom/boat/jrosbridge/Service;
+	1       (00000004) sget-object          v1, Lcom/jlboat/phone/util/ServiceNames;->AddManuPoint Ljava/lang/String;
+	2       (00000008) const-class          v2, Lcom/jlboat/phone/message/map_msgs/PointManuSetRequest;
+	3       (0000000c) const-class          v3, Lcom/jlboat/phone/message/map_msgs/PointMaunSetResponse;
+	4       (00000010) sget-object          v4, Lcom/jlboat/phone/application/BoatSlamApplication;->client Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;
+	5       (00000014) invoke-direct        v0, v1, v2, v3, v4, Lcom/boat/jrosbridge/Service;-><init>(Ljava/lang/String; Ljava/lang/Class; Ljava/lang/Class; Lcom/boat/jrosbridge/ROSClient;)V
+	6       (0000001a) new-instance         v1, Lcom/jlboat/phone/message/map_msgs/PointManuSetRequest;
+	7       (0000001e) invoke-direct        v1, Lcom/jlboat/phone/message/map_msgs/PointManuSetRequest;-><init>()V
+	8       (00000024) move-object/from16   v2, v21
+	9       (00000028) invoke-virtual       v1, v2, Lcom/jlboat/phone/message/map_msgs/PointManuSetRequest;->setPointName(Ljava/lang/String;)V
+	10      (0000002e) move-wide/from16     v3, v19
+	11      (00000032) invoke-virtual       v1, v3, v4, Lcom/jlboat/phone/message/map_msgs/PointManuSetRequest;->setPointMode(J)V
+	12      (00000038) new-instance         v5, Lcom/boat/jrosbridge/message/geometry_msgs/Quaternion;
+	13      (0000003c) invoke-direct        v5, Lcom/boat/jrosbridge/message/geometry_msgs/Quaternion;-><init>()V
+	14      (00000042) move-wide/from16     v6, v28
+	15      (00000046) invoke-virtual       v5, v6, v7, Lcom/boat/jrosbridge/message/geometry_msgs/Quaternion;->setW(D)V
+	16      (0000004c) const-wide/16        v8, 0
+	17      (00000050) invoke-virtual       v5, v8, v9, Lcom/boat/jrosbridge/message/geometry_msgs/Quaternion;->setX(D)V
+	18      (00000056) invoke-virtual       v5, v8, v9, Lcom/boat/jrosbridge/message/geometry_msgs/Quaternion;->setY(D)V
+	19      (0000005c) move-wide/from16     v10, v26
+	20      (00000060) invoke-virtual       v5, v10, v11, Lcom/boat/jrosbridge/message/geometry_msgs/Quaternion;->setZ(D)V
+	21      (00000066) new-instance         v12, Lcom/boat/jrosbridge/message/geometry_msgs/Point;
+	22      (0000006a) invoke-direct        v12, Lcom/boat/jrosbridge/message/geometry_msgs/Point;-><init>()V
+	23      (00000070) move-wide/from16     v13, v22
+	24      (00000074) invoke-virtual       v12, v13, v14, Lcom/boat/jrosbridge/message/geometry_msgs/Point;->setX(D)V
+	25      (0000007a) move-wide/from16     v8, v24
+	26      (0000007e) invoke-virtual       v12, v8, v9, Lcom/boat/jrosbridge/message/geometry_msgs/Point;->setY(D)V
+	27      (00000084) const-wide/16        v2, 0
+	28      (00000088) invoke-virtual       v12, v2, v3, Lcom/boat/jrosbridge/message/geometry_msgs/Point;->setZ(D)V
+	29      (0000008e) new-instance         v2, Lcom/boat/jrosbridge/message/geometry_msgs/Pose;
+	30      (00000092) invoke-direct        v2, Lcom/boat/jrosbridge/message/geometry_msgs/Pose;-><init>()V
+	31      (00000098) invoke-virtual       v2, v5, Lcom/boat/jrosbridge/message/geometry_msgs/Pose;->setOrientation(Lcom/boat/jrosbridge/message/geometry_msgs/Quaternion;)V
+	32      (0000009e) invoke-virtual       v2, v12, Lcom/boat/jrosbridge/message/geometry_msgs/Pose;->setPosition(Lcom/boat/jrosbridge/message/geometry_msgs/Point;)V
+	33      (000000a4) new-instance         v3, Lcom/boat/jrosbridge/message/geometry_msgs/PoseWithCovariance;
+	34      (000000a8) invoke-direct        v3, Lcom/boat/jrosbridge/message/geometry_msgs/PoseWithCovariance;-><init>()V
+	35      (000000ae) invoke-virtual       v3, v2, Lcom/boat/jrosbridge/message/geometry_msgs/PoseWithCovariance;->setPose(Lcom/boat/jrosbridge/message/geometry_msgs/Pose;)V
+	36      (000000b4) const/16             v4, 36
+	37      (000000b8) new-array            v4, v4, [D
+	38      (000000bc) const/16             v17, 0
+	39      (000000c0) aput-wide            v30, v4, v17
+	40      (000000c4) const/16             v17, 1
+	41      (000000c8) const-wide/16        v15, 0
+	42      (000000cc) aput-wide            v15, v4, v17
+	43      (000000d0) const/16             v17, 2
+	44      (000000d4) aput-wide            v15, v4, v17
+	45      (000000d8) const/16             v17, 3
+	46      (000000dc) aput-wide            v15, v4, v17
+	47      (000000e0) const/16             v17, 4
+	48      (000000e4) aput-wide            v15, v4, v17
+	49      (000000e8) const/16             v17, 5
+	50      (000000ec) aput-wide            v15, v4, v17
+	51      (000000f0) const/16             v17, 6
+	52      (000000f4) aput-wide            v15, v4, v17
+	53      (000000f8) const/16             v17, 7
+	54      (000000fc) aput-wide            v15, v4, v17
+	55      (00000100) const/16             v17, 8
+	56      (00000104) aput-wide            v15, v4, v17
+	57      (00000108) const/16             v17, 9
+	58      (0000010c) aput-wide            v15, v4, v17
+	59      (00000110) const/16             v17, 10
+	60      (00000114) aput-wide            v15, v4, v17
+	61      (00000118) const/16             v17, 11
+	62      (0000011c) aput-wide            v15, v4, v17
+	63      (00000120) const/16             v17, 12
+	64      (00000124) aput-wide            v15, v4, v17
+	65      (00000128) const/16             v17, 13
+	66      (0000012c) aput-wide            v15, v4, v17
+	67      (00000130) const/16             v17, 14
+	68      (00000134) aput-wide            v15, v4, v17
+	69      (00000138) const/16             v17, 15
+	70      (0000013c) aput-wide            v15, v4, v17
+	71      (00000140) const/16             v17, 16
+	72      (00000144) aput-wide            v15, v4, v17
+	73      (00000148) const/16             v17, 17
+	74      (0000014c) aput-wide            v15, v4, v17
+	75      (00000150) const/16             v17, 18
+	76      (00000154) aput-wide            v15, v4, v17
+	77      (00000158) const/16             v17, 19
+	78      (0000015c) aput-wide            v15, v4, v17
+	79      (00000160) const/16             v17, 20
+	80      (00000164) aput-wide            v15, v4, v17
+	81      (00000168) const/16             v17, 21
+	82      (0000016c) aput-wide            v15, v4, v17
+	83      (00000170) const/16             v17, 22
+	84      (00000174) aput-wide            v15, v4, v17
+	85      (00000178) const/16             v17, 23
+	86      (0000017c) aput-wide            v15, v4, v17
+	87      (00000180) const/16             v17, 24
+	88      (00000184) aput-wide            v15, v4, v17
+	89      (00000188) const/16             v17, 25
+	90      (0000018c) aput-wide            v15, v4, v17
+	91      (00000190) const/16             v17, 26
+	92      (00000194) aput-wide            v15, v4, v17
+	93      (00000198) const/16             v17, 27
+	94      (0000019c) aput-wide            v15, v4, v17
+	95      (000001a0) const/16             v17, 28
+	96      (000001a4) aput-wide            v15, v4, v17
+	97      (000001a8) const/16             v17, 29
+	98      (000001ac) aput-wide            v15, v4, v17
+	99      (000001b0) const/16             v17, 30
+	100     (000001b4) aput-wide            v15, v4, v17
+	101     (000001b8) const/16             v17, 31
+	102     (000001bc) aput-wide            v15, v4, v17
+	103     (000001c0) const/16             v17, 32
+	104     (000001c4) aput-wide            v15, v4, v17
+	105     (000001c8) const/16             v17, 33
+	106     (000001cc) aput-wide            v15, v4, v17
+	107     (000001d0) const/16             v17, 34
+	108     (000001d4) aput-wide            v15, v4, v17
+	109     (000001d8) const/16             v17, 35
+	110     (000001dc) aput-wide            v15, v4, v17
+	111     (000001e0) invoke-virtual       v3, v4, Lcom/boat/jrosbridge/message/geometry_msgs/PoseWithCovariance;->setCovariance([D)V
+	112     (000001e6) new-instance         v15, Lcom/boat/jrosbridge/message/std_msgs/Header;
+	113     (000001ea) invoke-direct        v15, Lcom/boat/jrosbridge/message/std_msgs/Header;-><init>()V
+	114     (000001f0) move-object/from16   v16, v2
+	115     (000001f4) const-string         v2, "map"
+	116     (000001f8) invoke-virtual       v15, v2, Lcom/boat/jrosbridge/message/std_msgs/Header;->setFrameId(Ljava/lang/String;)V
+	117     (000001fe) new-instance         v2, Lcom/boat/jrosbridge/message/geometry_msgs/PoseWithCovarianceStamped;
+	118     (00000202) invoke-direct        v2, Lcom/boat/jrosbridge/message/geometry_msgs/PoseWithCovarianceStamped;-><init>()V
+	119     (00000208) invoke-virtual       v2, v15, Lcom/boat/jrosbridge/message/geometry_msgs/PoseWithCovarianceStamped;->setHeader(Lcom/boat/jrosbridge/message/std_msgs/Header;)V
+	120     (0000020e) invoke-virtual       v2, v3, Lcom/boat/jrosbridge/message/geometry_msgs/PoseWithCovarianceStamped;->setPose(Lcom/boat/jrosbridge/message/geometry_msgs/PoseWithCovariance;)V
+	121     (00000214) invoke-virtual       v1, v2, Lcom/jlboat/phone/message/map_msgs/PointManuSetRequest;->setPoint(Lcom/boat/jrosbridge/message/geometry_msgs/PoseWithCovarianceStamped;)V
+	122     (0000021a) move-object/from16   v17, v2
+	123     (0000021e) move-object/from16   v2, v32
+	124     (00000222) invoke-virtual       v0, v1, v2, Lcom/boat/jrosbridge/Service;->callWithHandler(Lcom/boat/jrosbridge/message/Message; Lcom/boat/jrosbridge/MessageListener;)V
+	125     (00000228) return-void          
+

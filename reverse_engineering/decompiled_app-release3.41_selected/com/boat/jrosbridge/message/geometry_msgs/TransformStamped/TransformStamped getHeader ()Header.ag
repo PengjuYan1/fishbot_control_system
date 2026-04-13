@@ -1,0 +1,11 @@
+# Lcom/boat/jrosbridge/message/geometry_msgs/TransformStamped;->getHeader()Lcom/boat/jrosbridge/message/std_msgs/Header; [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:com.boat.jrosbridge.message.std_msgs.Header
+
+getHeader-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/boat/jrosbridge/message/geometry_msgs/TransformStamped;->header Lcom/boat/jrosbridge/message/std_msgs/Header;
+	1       (00000004) return-object        v0
+

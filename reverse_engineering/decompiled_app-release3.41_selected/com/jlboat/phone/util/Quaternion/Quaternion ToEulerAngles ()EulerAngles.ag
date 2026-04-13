@@ -1,0 +1,17 @@
+# Lcom/jlboat/phone/util/Quaternion;->ToEulerAngles()Lcom/jlboat/phone/util/EulerAngles; [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v10
+#
+# - return:com.jlboat.phone.util.EulerAngles
+
+ToEulerAngles-BB@0x0 : 
+	0       (00000000) new-instance         v9, Lcom/jlboat/phone/util/EulerAngles;
+	1       (00000004) iget-wide            v1, v10, Lcom/jlboat/phone/util/Quaternion;->w D
+	2       (00000008) iget-wide            v3, v10, Lcom/jlboat/phone/util/Quaternion;->x D
+	3       (0000000c) iget-wide            v5, v10, Lcom/jlboat/phone/util/Quaternion;->y D
+	4       (00000010) iget-wide            v7, v10, Lcom/jlboat/phone/util/Quaternion;->z D
+	5       (00000014) move-object          v0, v9
+	6       (00000016) invoke-direct/range  v0 ... v8, Lcom/jlboat/phone/util/EulerAngles;-><init>(D D D D)V
+	7       (0000001c) return-object        v9
+

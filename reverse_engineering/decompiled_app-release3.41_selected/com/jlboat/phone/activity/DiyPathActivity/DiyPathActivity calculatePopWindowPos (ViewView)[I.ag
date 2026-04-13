@@ -1,0 +1,88 @@
+# Lcom/jlboat/phone/activity/DiyPathActivity;->calculatePopWindowPos(Landroid/view/View; Landroid/view/View;)[I [access_flags=private]
+#
+# Parameters:
+# - local registers: v0...v18
+# - v19:android.view.View
+# - v20:android.view.View
+#
+# - return:int[]
+
+calculatePopWindowPos-BB@0x0 : [ calculatePopWindowPos-BB@0x68 calculatePopWindowPos-BB@0x6c ]
+	0       (00000000) const/4              v0, 2
+	1       (00000002) new-array            v1, v0, [I
+	2       (00000006) new-array            v0, v0, [I
+	3       (0000000a) move-object/from16   v2, v19
+	4       (0000000e) invoke-virtual       v2, v0, Landroid/view/View;->getLocationOnScreen([I)V
+	5       (00000014) invoke-virtual/range v19, Landroid/view/View;->getHeight()I
+	6       (0000001a) move-result          v3
+	7       (0000001c) invoke-virtual/range v19, Landroid/view/View;->getContext()Landroid/content/Context;
+	8       (00000022) move-result-object   v4
+	9       (00000024) invoke-static        v4, Lcom/jlboat/phone/util/Utils;->getScreenHeight(Landroid/content/Context;)I
+	10      (0000002a) move-result          v4
+	11      (0000002c) invoke-virtual/range v19, Landroid/view/View;->getContext()Landroid/content/Context;
+	12      (00000032) move-result-object   v5
+	13      (00000034) invoke-static        v5, Lcom/jlboat/phone/util/Utils;->getScreenWidth(Landroid/content/Context;)I
+	14      (0000003a) move-result          v5
+	15      (0000003c) const/4              v6, 0
+	16      (0000003e) move-object/from16   v7, v20
+	17      (00000042) invoke-virtual       v7, v6, v6, Landroid/view/View;->measure(I I)V
+	18      (00000048) invoke-virtual/range v20, Landroid/view/View;->getMeasuredHeight()I
+	19      (0000004e) move-result          v8
+	20      (00000050) invoke-virtual/range v20, Landroid/view/View;->getMeasuredWidth()I
+	21      (00000056) move-result          v9
+	22      (00000058) const/4              v10, 1
+	23      (0000005a) aget                 v11, v0, v10
+	24      (0000005e) sub-int              v11, v4, v11
+	25      (00000062) sub-int/2addr        v11, v3
+	26      (00000064) if-ge                v11, v8, +004h
+
+calculatePopWindowPos-BB@0x68 : [ calculatePopWindowPos-BB@0x6e ]
+	27      (00000068) const/4              v11, 1
+	28      (0000006a) goto                 +2h
+
+calculatePopWindowPos-BB@0x6c : [ calculatePopWindowPos-BB@0x6e ]
+	29      (0000006c) const/4              v11, 0
+
+calculatePopWindowPos-BB@0x6e : [ calculatePopWindowPos-BB@0x96 calculatePopWindowPos-BB@0xb6 ]
+	30      (0000006e) int-to-double        v12, v5
+	31      (00000070) invoke-virtual/range v19, Landroid/view/View;->getWidth()I
+	32      (00000076) move-result          v14
+	33      (00000078) int-to-double        v14, v14
+	34      (0000007a) invoke-virtual/range v19, Landroid/view/View;->getWidth()I
+	35      (00000080) move-result          v10
+	36      (00000082) int-to-double        v6, v10
+	37      (00000084) const-wide/high16    v16, 4609434218613702656
+	38      (00000088) mul-double           v6, v6, v16
+	39      (0000008c) add-double/2addr     v14, v6
+	40      (0000008e) sub-double/2addr     v12, v14
+	41      (00000090) double-to-int        v6, v12
+	42      (00000092) if-eqz               v11, +012h
+
+calculatePopWindowPos-BB@0x96 : [ calculatePopWindowPos-BB@0xd4 ]
+	43      (00000096) sub-int              v7, v5, v9
+	44      (0000009a) sub-int/2addr        v7, v6
+	45      (0000009c) const/4              v10, 0
+	46      (0000009e) aput                 v7, v1, v10
+	47      (000000a2) const/4              v7, 1
+	48      (000000a4) aget                 v10, v0, v7
+	49      (000000a8) sub-int/2addr        v10, v8
+	50      (000000aa) div-int/lit8         v12, v3, 2
+	51      (000000ae) add-int/2addr        v10, v12
+	52      (000000b0) aput                 v10, v1, v7
+	53      (000000b4) goto                 +10h
+
+calculatePopWindowPos-BB@0xb6 : [ calculatePopWindowPos-BB@0xd4 ]
+	54      (000000b6) const/4              v7, 1
+	55      (000000b8) sub-int              v10, v5, v9
+	56      (000000bc) sub-int/2addr        v10, v6
+	57      (000000be) const/4              v12, 0
+	58      (000000c0) aput                 v10, v1, v12
+	59      (000000c4) aget                 v10, v0, v7
+	60      (000000c8) add-int/2addr        v10, v3
+	61      (000000ca) div-int/lit8         v12, v3, 2
+	62      (000000ce) sub-int/2addr        v10, v12
+	63      (000000d0) aput                 v10, v1, v7
+
+calculatePopWindowPos-BB@0xd4 : 
+	64      (000000d4) return-object        v1
+

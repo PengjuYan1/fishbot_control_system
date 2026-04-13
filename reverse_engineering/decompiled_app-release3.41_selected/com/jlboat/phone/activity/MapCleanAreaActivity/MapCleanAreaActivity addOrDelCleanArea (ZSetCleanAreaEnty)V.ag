@@ -1,0 +1,35 @@
+# Lcom/jlboat/phone/activity/MapCleanAreaActivity;->addOrDelCleanArea(Z Lworld_canvas_msgs18/SetCleanAreaEnty;)V [access_flags=private]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:boolean
+# - v5:world_canvas_msgs18.SetCleanAreaEnty
+#
+# - return:void
+
+addOrDelCleanArea-BB@0x0 : [ addOrDelCleanArea-BB@0x40 addOrDelCleanArea-BB@0x54 ]
+	0       (00000000) new-instance         v0, Ljava/lang/StringBuilder;
+	1       (00000004) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	2       (0000000a) const-string         v1, "addOrDelCleanArea: "
+	3       (0000000e) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	4       (00000014) move-result-object   v0
+	5       (00000016) invoke-virtual       v5, Lworld_canvas_msgs18/SetCleanAreaEnty;->getCleanAreaId()J
+	6       (0000001c) move-result-wide     v1
+	7       (0000001e) invoke-virtual       v0, v1, v2, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+	8       (00000024) move-result-object   v0
+	9       (00000026) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	10      (0000002c) move-result-object   v0
+	11      (0000002e) const-string         v1, "MapCleanAreaActivity"
+	12      (00000032) invoke-static        v1, v0, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	13      (00000038) iget-object          v0, v3, Lcom/jlboat/phone/activity/MapCleanAreaActivity;->spiritServiceClient Lcom/jlboat/phone/communication/SpiritServiceClient;
+	14      (0000003c) if-eqz               v0, +00ch
+
+addOrDelCleanArea-BB@0x40 : [ addOrDelCleanArea-BB@0x54 ]
+	15      (00000040) iget-object          v0, v3, Lcom/jlboat/phone/activity/MapCleanAreaActivity;->spiritServiceClient Lcom/jlboat/phone/communication/SpiritServiceClient;
+	16      (00000044) new-instance         v1, Lcom/jlboat/phone/activity/MapCleanAreaActivity$9;
+	17      (00000048) invoke-direct        v1, v3, v4, Lcom/jlboat/phone/activity/MapCleanAreaActivity$9;-><init>(Lcom/jlboat/phone/activity/MapCleanAreaActivity; Z)V
+	18      (0000004e) invoke-virtual       v0, v5, v1, Lcom/jlboat/phone/communication/SpiritServiceClient;->addOrDelCleanAreaServer(Lworld_canvas_msgs18/SetCleanAreaEnty; Lcom/boat/jrosbridge/MessageListener;)V
+
+addOrDelCleanArea-BB@0x54 : 
+	19      (00000054) return-void          
+

@@ -1,0 +1,13 @@
+# Lcom/jlboat/phone/activity/DiyPointPathActivity;->access$902(Lcom/jlboat/phone/activity/DiyPointPathActivity; Lcom/boat/support/slam/entity/floors/Maps;)Lcom/boat/support/slam/entity/floors/Maps; [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v-1
+# - v0:com.jlboat.phone.activity.DiyPointPathActivity
+# - v1:com.boat.support.slam.entity.floors.Maps
+#
+# - return:com.boat.support.slam.entity.floors.Maps
+
+access$902-BB@0x0 : 
+	0       (00000000) iput-object          v1, v0, Lcom/jlboat/phone/activity/DiyPointPathActivity;->map Lcom/boat/support/slam/entity/floors/Maps;
+	1       (00000004) return-object        v1
+

@@ -1,0 +1,28 @@
+# Lcom/boat/support/slam/SlamManager;->setWarnLedStatus(Z)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:boolean
+#
+# - return:void
+
+setWarnLedStatus-BB@0x0 : [ setWarnLedStatus-BB@0x8 setWarnLedStatus-BB@0x24 ]
+	0       (00000000) iget-object          v0, v3, Lcom/boat/support/slam/SlamManager;->slamService Lcom/boat/support/slam/ISlamService;
+	1       (00000004) if-eqz               v0, +010h
+
+setWarnLedStatus-BB@0x8 : [ setWarnLedStatus-BB@0x24 ]
+	2       (00000008) iget-object          v0, v3, Lcom/boat/support/slam/SlamManager;->slamService Lcom/boat/support/slam/ISlamService;
+	3       (0000000c) invoke-interface     v0, v4, Lcom/boat/support/slam/ISlamService;->setWarnLedStatus(Z)V
+	4       (00000012) goto                 +9h
+	8:11
+	(Landroid/os/RemoteException; -> 14 setWarnLedStatus-BB@0x14)
+
+setWarnLedStatus-BB@0x14 : [ setWarnLedStatus-BB@0x24 ]
+	5       (00000014) move-exception       v0
+	6       (00000016) const-string         v1, "SlamManager"
+	7       (0000001a) const-string         v2, "setWarnLedStatus: "
+	8       (0000001e) invoke-static        v1, v2, v0, Landroid/util/Log;->w(Ljava/lang/String; Ljava/lang/String; Ljava/lang/Throwable;)I
+
+setWarnLedStatus-BB@0x24 : 
+	9       (00000024) return-void          
+

@@ -1,0 +1,14 @@
+# Lcom/jlboat/phone/adapter/NaviListAdapter;->onCreateViewHolder(Landroid/view/ViewGroup; I)Landroid/support/v7/widget/RecyclerView$ViewHolder; [access_flags=public bridge synthetic]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:android.view.ViewGroup
+# - v2:int
+#
+# - return:android.support.v7.widget.RecyclerView$ViewHolder
+
+onCreateViewHolder-BB@0x0 : 
+	0       (00000000) invoke-virtual       v0, v1, v2, Lcom/jlboat/phone/adapter/NaviListAdapter;->onCreateViewHolder(Landroid/view/ViewGroup; I)Lcom/jlboat/phone/adapter/NaviListAdapter$MapViewHolder;
+	1       (00000006) move-result-object   v1
+	2       (00000008) return-object        v1
+

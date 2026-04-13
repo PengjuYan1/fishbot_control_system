@@ -1,0 +1,84 @@
+# Lcom/jlboat/phone/activity/MapActivity$5;->onNewMessage(Lcom/boat/jrosbridge/message/std_msgs/Int16;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v5
+# - v6:com.boat.jrosbridge.message.std_msgs.Int16
+#
+# - return:void
+
+onNewMessage-BB@0x0 : [ onNewMessage-BB@0x8e onNewMessage-BB@0xaa ]
+	0       (00000000) invoke-virtual       v6, Lcom/boat/jrosbridge/message/std_msgs/Int16;->getData()S
+	1       (00000006) move-result          v0
+	2       (00000008) new-instance         v1, Ljava/lang/StringBuilder;
+	3       (0000000c) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	4       (00000012) const-string         v2, "topic getMapBuildStatusMsg: "
+	5       (00000016) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	6       (0000001c) move-result-object   v1
+	7       (0000001e) invoke-virtual       v1, v0, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	8       (00000024) move-result-object   v1
+	9       (00000026) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	10      (0000002c) move-result-object   v1
+	11      (0000002e) const-string         v2, "MapActivity"
+	12      (00000032) invoke-static        v2, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	13      (00000038) new-instance         v1, Ljava/lang/StringBuilder;
+	14      (0000003c) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	15      (00000042) const-string         v3, "topic mapStatus: "
+	16      (00000046) invoke-virtual       v1, v3, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	17      (0000004c) move-result-object   v1
+	18      (0000004e) iget-object          v3, v5, Lcom/jlboat/phone/activity/MapActivity$5;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	19      (00000052) invoke-static        v3, Lcom/jlboat/phone/activity/MapActivity;->access$800(Lcom/jlboat/phone/activity/MapActivity;)I
+	20      (00000058) move-result          v3
+	21      (0000005a) invoke-virtual       v1, v3, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	22      (00000060) move-result-object   v1
+	23      (00000062) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	24      (00000068) move-result-object   v1
+	25      (0000006a) invoke-static        v2, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	26      (00000070) iget-object          v1, v5, Lcom/jlboat/phone/activity/MapActivity$5;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	27      (00000074) invoke-static        v1, v0, Lcom/jlboat/phone/activity/MapActivity;->access$802(Lcom/jlboat/phone/activity/MapActivity; I)I
+	28      (0000007a) iget-object          v1, v5, Lcom/jlboat/phone/activity/MapActivity$5;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	29      (0000007e) invoke-static        v1, Lcom/jlboat/phone/activity/MapActivity;->access$900(Lcom/jlboat/phone/activity/MapActivity;)Lcom/jlboat/phone/view/MapView;
+	30      (00000084) move-result-object   v1
+	31      (00000086) const/4              v2, 1
+	32      (00000088) const/4              v3, 0
+	33      (0000008a) if-eqz               v1, +010h
+
+onNewMessage-BB@0x8e : [ onNewMessage-BB@0x9e onNewMessage-BB@0xa2 ]
+	34      (0000008e) iget-object          v1, v5, Lcom/jlboat/phone/activity/MapActivity$5;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	35      (00000092) invoke-static        v1, Lcom/jlboat/phone/activity/MapActivity;->access$900(Lcom/jlboat/phone/activity/MapActivity;)Lcom/jlboat/phone/view/MapView;
+	36      (00000098) move-result-object   v1
+	37      (0000009a) if-eqz               v0, +004h
+
+onNewMessage-BB@0x9e : [ onNewMessage-BB@0xa4 ]
+	38      (0000009e) const/4              v4, 1
+	39      (000000a0) goto                 +2h
+
+onNewMessage-BB@0xa2 : [ onNewMessage-BB@0xa4 ]
+	40      (000000a2) const/4              v4, 0
+
+onNewMessage-BB@0xa4 : [ onNewMessage-BB@0xaa ]
+	41      (000000a4) invoke-virtual       v1, v4, Lcom/jlboat/phone/view/MapView;->setBuildType(Z)V
+
+onNewMessage-BB@0xaa : [ onNewMessage-BB@0xc4 onNewMessage-BB@0xea ]
+	42      (000000aa) iget-object          v1, v5, Lcom/jlboat/phone/activity/MapActivity$5;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	43      (000000ae) invoke-static        v1, Lcom/jlboat/phone/activity/MapActivity;->access$1000(Lcom/jlboat/phone/activity/MapActivity;)V
+	44      (000000b4) iget-object          v1, v5, Lcom/jlboat/phone/activity/MapActivity$5;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	45      (000000b8) invoke-static        v1, Lcom/jlboat/phone/activity/MapActivity;->access$800(Lcom/jlboat/phone/activity/MapActivity;)I
+	46      (000000be) move-result          v1
+	47      (000000c0) if-nez               v1, +015h
+
+onNewMessage-BB@0xc4 : [ onNewMessage-BB@0xd0 onNewMessage-BB@0xea ]
+	48      (000000c4) iget-object          v1, v5, Lcom/jlboat/phone/activity/MapActivity$5;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	49      (000000c8) iget-boolean         v1, v1, Lcom/jlboat/phone/activity/MapActivity;->iscreate Z
+	50      (000000cc) if-eqz               v1, +00fh
+
+onNewMessage-BB@0xd0 : [ onNewMessage-BB@0xea ]
+	51      (000000d0) iget-object          v1, v5, Lcom/jlboat/phone/activity/MapActivity$5;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	52      (000000d4) iput-boolean         v3, v1, Lcom/jlboat/phone/activity/MapActivity;->iscreate Z
+	53      (000000d8) iget-object          v1, v5, Lcom/jlboat/phone/activity/MapActivity$5;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	54      (000000dc) iput                 v2, v1, Lcom/jlboat/phone/activity/MapActivity;->isFinish I
+	55      (000000e0) iget-object          v1, v5, Lcom/jlboat/phone/activity/MapActivity$5;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	56      (000000e4) invoke-static        v1, Lcom/jlboat/phone/activity/MapActivity;->access$1100(Lcom/jlboat/phone/activity/MapActivity;)V
+
+onNewMessage-BB@0xea : 
+	57      (000000ea) return-void          
+

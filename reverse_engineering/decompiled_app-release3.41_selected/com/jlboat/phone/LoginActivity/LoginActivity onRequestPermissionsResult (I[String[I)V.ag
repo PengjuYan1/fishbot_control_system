@@ -1,0 +1,52 @@
+# Lcom/jlboat/phone/LoginActivity;->onRequestPermissionsResult(I [Ljava/lang/String; [I)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v4
+# - v5:int
+# - v6:java.lang.String[]
+# - v7:int[]
+#
+# - return:void
+
+onRequestPermissionsResult-BB@0x0 : [ onRequestPermissionsResult-BB@0xe onRequestPermissionsResult-BB@0x4e ]
+	0       (00000000) invoke-super         v4, v5, v6, v7, Landroid/support/v7/app/AppCompatActivity;->onRequestPermissionsResult(I [Ljava/lang/String; [I)V
+	1       (00000006) const/16             v0, 101
+	2       (0000000a) if-ne                v5, v0, +022h
+
+onRequestPermissionsResult-BB@0xe : [ onRequestPermissionsResult-BB@0x14 ]
+	3       (0000000e) const/4              v0, 1
+	4       (00000010) array-length         v1, v7
+	5       (00000012) const/4              v2, 0
+
+onRequestPermissionsResult-BB@0x14 : [ onRequestPermissionsResult-BB@0x18 onRequestPermissionsResult-BB@0x2a ]
+	6       (00000014) if-ge                v2, v1, +00bh
+
+onRequestPermissionsResult-BB@0x18 : [ onRequestPermissionsResult-BB@0x20 onRequestPermissionsResult-BB@0x24 ]
+	7       (00000018) aget                 v3, v7, v2
+	8       (0000001c) if-eqz               v3, +004h
+
+onRequestPermissionsResult-BB@0x20 : [ onRequestPermissionsResult-BB@0x2a ]
+	9       (00000020) const/4              v0, 0
+	10      (00000022) goto                 +4h
+
+onRequestPermissionsResult-BB@0x24 : [ onRequestPermissionsResult-BB@0x14 ]
+	11      (00000024) add-int/lit8         v2, v2, 1
+	12      (00000028) goto                 -ah
+
+onRequestPermissionsResult-BB@0x2a : [ onRequestPermissionsResult-BB@0x2e onRequestPermissionsResult-BB@0x3a ]
+	13      (0000002a) if-nez               v0, +008h
+
+onRequestPermissionsResult-BB@0x2e : [ onRequestPermissionsResult-BB@0x4e ]
+	14      (0000002e) const-string         v1, "null"
+	15      (00000032) invoke-virtual       v4, v1, Lcom/jlboat/phone/LoginActivity;->openAppDetails(Ljava/lang/String;)V
+	16      (00000038) goto                 +bh
+
+onRequestPermissionsResult-BB@0x3a : [ onRequestPermissionsResult-BB@0x4e ]
+	17      (0000003a) const-string         v1, "LoginActivity"
+	18      (0000003e) const-string         v2, "onRequestPermissionsResult: 自动登录"
+	19      (00000042) invoke-static        v1, v2, Landroid/util/Log;->e(Ljava/lang/String; Ljava/lang/String;)I
+	20      (00000048) invoke-direct        v4, Lcom/jlboat/phone/LoginActivity;->checkLogin()V
+
+onRequestPermissionsResult-BB@0x4e : 
+	21      (0000004e) return-void          
+

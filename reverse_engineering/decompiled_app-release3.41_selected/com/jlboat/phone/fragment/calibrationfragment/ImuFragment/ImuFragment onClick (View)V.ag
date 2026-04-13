@@ -1,0 +1,74 @@
+# Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment;->onClick(Landroid/view/View;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v4
+# - v5:android.view.View
+#
+# - return:void
+
+onClick-BB@0x0 : [ D:onClick-BB@0x14 2131230886:onClick-BB@0x70 2131231268:onClick-BB@0x36 2131231275:onClick-BB@0x16 ]
+	0       (00000000) invoke-virtual       v5, Landroid/view/View;->getId()I
+	1       (00000006) move-result          v0
+	2       (00000008) const/4              v1, 0
+	3       (0000000a) const/16             v2, 8
+	4       (0000000e) sparse-switch        v0, +0000051h
+
+onClick-BB@0x14 : [ onClick-BB@0xac ]
+	5       (00000014) goto                 +4ch
+
+onClick-BB@0x16 : [ onClick-BB@0xac ]
+	6       (00000016) const/16             v0, 301
+	7       (0000001a) invoke-direct        v4, v0, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment;->setDates(I)V
+	8       (00000020) iget-object          v0, v4, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment;->stopLL Landroid/widget/LinearLayout;
+	9       (00000024) invoke-virtual       v0, v2, Landroid/widget/LinearLayout;->setVisibility(I)V
+	10      (0000002a) iget-object          v0, v4, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment;->startLL Landroid/widget/LinearLayout;
+	11      (0000002e) invoke-virtual       v0, v1, Landroid/widget/LinearLayout;->setVisibility(I)V
+	12      (00000034) goto                 +3ch
+
+onClick-BB@0x36 : [ onClick-BB@0xac ]
+	13      (00000036) const-string         v0, "ImuFragment"
+	14      (0000003a) const-string         v3, "set onClick:300"
+	15      (0000003e) invoke-static        v0, v3, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	16      (00000044) const/16             v0, 300
+	17      (00000048) invoke-direct        v4, v0, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment;->setDates(I)V
+	18      (0000004e) iget                 v0, v4, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment;->num I
+	19      (00000052) add-int/lit8         v0, v0, 1
+	20      (00000056) iput                 v0, v4, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment;->num I
+	21      (0000005a) iget-object          v0, v4, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment;->startLL Landroid/widget/LinearLayout;
+	22      (0000005e) invoke-virtual       v0, v2, Landroid/widget/LinearLayout;->setVisibility(I)V
+	23      (00000064) iget-object          v0, v4, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment;->stopLL Landroid/widget/LinearLayout;
+	24      (00000068) invoke-virtual       v0, v1, Landroid/widget/LinearLayout;->setVisibility(I)V
+	25      (0000006e) goto                 +1fh
+
+onClick-BB@0x70 : [ onClick-BB@0x7a onClick-BB@0x86 ]
+	26      (00000070) iget                 v0, v4, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment;->num I
+	27      (00000074) const/4              v1, 2
+	28      (00000076) if-ge                v0, v1, +008h
+
+onClick-BB@0x7a : [ onClick-BB@0xac ]
+	29      (0000007a) const-string         v0, "请校正两次以上"
+	30      (0000007e) invoke-static        v0, Lcom/jlboat/phone/util/Utils;->toast(Ljava/lang/String;)V
+	31      (00000084) goto                 +14h
+
+onClick-BB@0x86 : [ onClick-BB@0x96 onClick-BB@0xa2 ]
+	32      (00000086) iget-object          v0, v4, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment;->startCalibration Landroid/widget/Button;
+	33      (0000008a) invoke-virtual       v0, Landroid/widget/Button;->getVisibility()I
+	34      (00000090) move-result          v0
+	35      (00000092) if-ne                v0, v2, +008h
+
+onClick-BB@0x96 : [ onClick-BB@0xac ]
+	36      (00000096) const-string         v0, "请停止当前校正"
+	37      (0000009a) invoke-static        v0, Lcom/jlboat/phone/util/Utils;->toast(Ljava/lang/String;)V
+	38      (000000a0) goto                 +6h
+
+onClick-BB@0xa2 : [ onClick-BB@0xac ]
+	39      (000000a2) const/16             v0, 302
+	40      (000000a6) invoke-direct        v4, v0, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment;->setDates(I)V
+
+onClick-BB@0xac : 
+	41      (000000ac) return-void          
+
+onClick-BB@0xae : 
+	42      (000000ae) nop                  
+	43      (000000b0) sparse-switch-payload 7f0800a6 7f080224 7f08022b
+

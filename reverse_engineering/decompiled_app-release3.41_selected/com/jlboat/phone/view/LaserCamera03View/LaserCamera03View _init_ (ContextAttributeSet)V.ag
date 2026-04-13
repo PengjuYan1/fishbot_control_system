@@ -1,0 +1,27 @@
+# Lcom/jlboat/phone/view/LaserCamera03View;-><init>(Landroid/content/Context; Landroid/util/AttributeSet;)V [access_flags=public constructor]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:android.content.Context
+# - v3:android.util.AttributeSet
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) invoke-direct        v1, v2, v3, Landroid/view/View;-><init>(Landroid/content/Context; Landroid/util/AttributeSet;)V
+	1       (00000006) const-string         v0, "LaserCamera03View"
+	2       (0000000a) iput-object          v0, v1, Lcom/jlboat/phone/view/LaserCamera03View;->TAG Ljava/lang/String;
+	3       (0000000e) new-instance         v0, Ljava/lang/Object;
+	4       (00000012) invoke-direct        v0, Ljava/lang/Object;-><init>()V
+	5       (00000018) iput-object          v0, v1, Lcom/jlboat/phone/view/LaserCamera03View;->mutex03 Ljava/lang/Object;
+	6       (0000001c) const/4              v0, 1
+	7       (0000001e) iput                 v0, v1, Lcom/jlboat/phone/view/LaserCamera03View;->stride I
+	8       (00000022) new-instance         v0, Ljava/util/concurrent/CopyOnWriteArrayList;
+	9       (00000026) invoke-direct        v0, Ljava/util/concurrent/CopyOnWriteArrayList;-><init>()V
+	10      (0000002c) iput-object          v0, v1, Lcom/jlboat/phone/view/LaserCamera03View;->vectorScan03 Ljava/util/List;
+	11      (00000030) const/16             v0, 100
+	12      (00000034) iput                 v0, v1, Lcom/jlboat/phone/view/LaserCamera03View;->matrix I
+	13      (00000038) invoke-direct        v1, Lcom/jlboat/phone/view/LaserCamera03View;->creatScanPaint()V
+	14      (0000003e) invoke-direct        v1, Lcom/jlboat/phone/view/LaserCamera03View;->init()V
+	15      (00000044) return-void          
+

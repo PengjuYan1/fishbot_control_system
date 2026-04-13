@@ -1,0 +1,16 @@
+# Lcom/jlboat/phone/activity/RobotMapActivity;->renameMapName(Ljava/lang/String; Ljava/lang/String;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:java.lang.String
+# - v3:java.lang.String
+#
+# - return:void
+
+renameMapName-BB@0x0 : 
+	0       (00000000) const                v0, 2131493123
+	1       (00000006) invoke-virtual       v1, v0, Lcom/jlboat/phone/activity/RobotMapActivity;->getResString(I)Ljava/lang/String;
+	2       (0000000c) move-result-object   v0
+	3       (0000000e) invoke-direct        v1, v0, v3, Lcom/jlboat/phone/activity/RobotMapActivity;->safeShowWaitingDialog(Ljava/lang/CharSequence; Ljava/lang/CharSequence;)V
+	4       (00000014) return-void          
+

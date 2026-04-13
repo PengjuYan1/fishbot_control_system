@@ -1,0 +1,14 @@
+# Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;->getMaps()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v2
+#
+# - return:void
+
+getMaps-BB@0x0 : 
+	0       (00000000) iget-object          v0, v2, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;->spiritServiceClient Lcom/jlboat/phone/communication/SpiritServiceClient;
+	1       (00000004) new-instance         v1, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508$3;
+	2       (00000008) invoke-direct        v1, v2, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508$3;-><init>(Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;)V
+	3       (0000000e) invoke-virtual       v0, v1, Lcom/jlboat/phone/communication/SpiritServiceClient;->getMapsService(Lcom/boat/jrosbridge/MessageListener;)V
+	4       (00000014) return-void          
+

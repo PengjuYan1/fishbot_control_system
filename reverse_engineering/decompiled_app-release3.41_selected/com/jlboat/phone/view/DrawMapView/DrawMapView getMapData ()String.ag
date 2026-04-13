@@ -1,0 +1,22 @@
+# Lcom/jlboat/phone/view/DrawMapView;->getMapData()Ljava/lang/String; [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v5
+#
+# - return:java.lang.String
+
+getMapData-BB@0x0 : 
+	0       (00000000) const-string         v0, ""
+	1       (00000004) new-instance         v1, Ljava/io/ByteArrayOutputStream;
+	2       (00000008) invoke-direct        v1, Ljava/io/ByteArrayOutputStream;-><init>()V
+	3       (0000000e) iget-object          v2, v5, Lcom/jlboat/phone/view/DrawMapView;->mutableBitmap Landroid/graphics/Bitmap;
+	4       (00000012) sget-object          v3, Landroid/graphics/Bitmap$CompressFormat;->PNG Landroid/graphics/Bitmap$CompressFormat;
+	5       (00000016) const/16             v4, 100
+	6       (0000001a) invoke-virtual       v2, v3, v4, v1, Landroid/graphics/Bitmap;->compress(Landroid/graphics/Bitmap$CompressFormat; I Ljava/io/OutputStream;)Z
+	7       (00000020) invoke-virtual       v1, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
+	8       (00000026) move-result-object   v2
+	9       (00000028) const/4              v3, 2
+	10      (0000002a) invoke-static        v2, v3, Landroid/util/Base64;->encodeToString([B I)Ljava/lang/String;
+	11      (00000030) move-result-object   v0
+	12      (00000032) return-object        v0
+

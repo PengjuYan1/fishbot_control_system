@@ -1,0 +1,34 @@
+# Lcom/jlboat/phone/controller/JlNaviManager$14;->onNewMessage(Lcom/boat/jrosbridge/message/std_srvs/Empty;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:com.boat.jrosbridge.message.std_srvs.Empty
+#
+# - return:void
+
+onNewMessage-BB@0x0 : [ onNewMessage-BB@0x1e onNewMessage-BB@0x3e ]
+	0       (00000000) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager$14;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	1       (00000004) const-string         v1, "onSuccess: SetGoalResponse"
+	2       (00000008) invoke-virtual       v0, v1, Lcom/jlboat/phone/controller/JlNaviManager;->toast(Ljava/lang/String;)V
+	3       (0000000e) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager$14;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	4       (00000012) invoke-static        v0, Lcom/jlboat/phone/controller/JlNaviManager;->access$3400(Lcom/jlboat/phone/controller/JlNaviManager;)Lcom/boat/support/slam/IResponseListener;
+	5       (00000018) move-result-object   v0
+	6       (0000001a) if-eqz               v0, +012h
+
+onNewMessage-BB@0x1e : [ onNewMessage-BB@0x3e ]
+	7       (0000001e) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager$14;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	8       (00000022) invoke-static        v0, Lcom/jlboat/phone/controller/JlNaviManager;->access$3400(Lcom/jlboat/phone/controller/JlNaviManager;)Lcom/boat/support/slam/IResponseListener;
+	9       (00000028) move-result-object   v0
+	10      (0000002a) const-string         v1, "succ"
+	11      (0000002e) invoke-interface     v0, v1, Lcom/boat/support/slam/IResponseListener;->onSuccess(Ljava/lang/String;)V
+	12      (00000034) goto                 +5h
+	1e:33
+	(Landroid/os/RemoteException; -> 36 onNewMessage-BB@0x36)
+
+onNewMessage-BB@0x36 : [ onNewMessage-BB@0x3e ]
+	13      (00000036) move-exception       v0
+	14      (00000038) invoke-virtual       v0, Landroid/os/RemoteException;->printStackTrace()V
+
+onNewMessage-BB@0x3e : 
+	15      (0000003e) return-void          
+

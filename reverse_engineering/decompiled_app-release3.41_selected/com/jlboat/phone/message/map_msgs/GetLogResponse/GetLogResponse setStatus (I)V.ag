@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/message/map_msgs/GetLogResponse;->setStatus(I)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:int
+#
+# - return:void
+
+setStatus-BB@0x0 : 
+	0       (00000000) iput                 v1, v0, Lcom/jlboat/phone/message/map_msgs/GetLogResponse;->status I
+	1       (00000004) return-void          
+

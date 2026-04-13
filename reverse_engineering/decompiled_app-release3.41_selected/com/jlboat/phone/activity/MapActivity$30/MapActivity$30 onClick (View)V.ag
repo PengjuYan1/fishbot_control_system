@@ -1,0 +1,231 @@
+# Lcom/jlboat/phone/activity/MapActivity$30;->onClick(Landroid/view/View;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v10
+# - v11:android.view.View
+#
+# - return:void
+
+onClick-BB@0x0 : [ onClick-BB@0x32 onClick-BB@0x64 ]
+	0       (00000000) iget-object          v0, v10, Lcom/jlboat/phone/activity/MapActivity$30;->val$editFloorText Landroid/widget/EditText;
+	1       (00000004) invoke-virtual       v0, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+	2       (0000000a) move-result-object   v0
+	3       (0000000c) invoke-virtual       v0, Ljava/lang/Object;->toString()Ljava/lang/String;
+	4       (00000012) move-result-object   v0
+	5       (00000014) iget-object          v1, v10, Lcom/jlboat/phone/activity/MapActivity$30;->val$radioGroup Landroid/widget/RadioGroup;
+	6       (00000018) invoke-virtual       v1, Landroid/widget/RadioGroup;->getCheckedRadioButtonId()I
+	7       (0000001e) move-result          v1
+	8       (00000020) const-string         v2, " "
+	9       (00000024) const-string         v3, ""
+	10      (00000028) const                v4, 2131231123
+	11      (0000002e) if-ne                v1, v4, +01bh
+
+onClick-BB@0x32 : [ onClick-BB@0x46 onClick-BB@0x64 ]
+	12      (00000032) invoke-virtual       v0, v2, v3, Ljava/lang/String;->replace(Ljava/lang/CharSequence; Ljava/lang/CharSequence;)Ljava/lang/String;
+	13      (00000038) move-result-object   v1
+	14      (0000003a) invoke-virtual       v1, v3, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	15      (00000040) move-result          v1
+	16      (00000042) if-eqz               v1, +011h
+
+onClick-BB@0x46 : 
+	17      (00000046) iget-object          v1, v10, Lcom/jlboat/phone/activity/MapActivity$30;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	18      (0000004a) iget-object          v2, v10, Lcom/jlboat/phone/activity/MapActivity$30;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	19      (0000004e) const                v3, 2131493275
+	20      (00000054) invoke-virtual       v2, v3, Lcom/jlboat/phone/activity/MapActivity;->getResString(I)Ljava/lang/String;
+	21      (0000005a) move-result-object   v2
+	22      (0000005c) invoke-virtual       v1, v2, Lcom/jlboat/phone/activity/MapActivity;->toast(Ljava/lang/CharSequence;)V
+	23      (00000062) return-void          
+
+onClick-BB@0x64 : [ onClick-BB@0x8c onClick-BB@0xaa ]
+	24      (00000064) iget-object          v1, v10, Lcom/jlboat/phone/activity/MapActivity$30;->val$editText Landroid/widget/EditText;
+	25      (00000068) invoke-virtual       v1, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+	26      (0000006e) move-result-object   v1
+	27      (00000070) invoke-virtual       v1, Ljava/lang/Object;->toString()Ljava/lang/String;
+	28      (00000076) move-result-object   v1
+	29      (00000078) invoke-virtual       v1, v2, v3, Ljava/lang/String;->replace(Ljava/lang/CharSequence; Ljava/lang/CharSequence;)Ljava/lang/String;
+	30      (0000007e) move-result-object   v2
+	31      (00000080) invoke-virtual       v2, v3, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	32      (00000086) move-result          v2
+	33      (00000088) if-eqz               v2, +011h
+
+onClick-BB@0x8c : 
+	34      (0000008c) iget-object          v2, v10, Lcom/jlboat/phone/activity/MapActivity$30;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	35      (00000090) iget-object          v3, v10, Lcom/jlboat/phone/activity/MapActivity$30;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	36      (00000094) const                v4, 2131493283
+	37      (0000009a) invoke-virtual       v3, v4, Lcom/jlboat/phone/activity/MapActivity;->getResString(I)Ljava/lang/String;
+	38      (000000a0) move-result-object   v3
+	39      (000000a2) invoke-virtual       v2, v3, Lcom/jlboat/phone/activity/MapActivity;->toast(Ljava/lang/CharSequence;)V
+	40      (000000a8) return-void          
+
+onClick-BB@0xaa : [ onClick-BB@0xc2 onClick-BB@0xc4 ]
+	41      (000000aa) const/4              v2, 0
+	42      (000000ac) iget-object          v3, v10, Lcom/jlboat/phone/activity/MapActivity$30;->val$radioGroup Landroid/widget/RadioGroup;
+	43      (000000b0) invoke-virtual       v3, Landroid/widget/RadioGroup;->getCheckedRadioButtonId()I
+	44      (000000b6) move-result          v3
+	45      (000000b8) const                v5, 2131231122
+	46      (000000be) if-ne                v3, v5, +003h
+
+onClick-BB@0xc2 : [ onClick-BB@0xc4 ]
+	47      (000000c2) const/4              v2, 1
+
+onClick-BB@0xc4 : [ onClick-BB@0xd4 onClick-BB@0xd6 ]
+	48      (000000c4) iget-object          v3, v10, Lcom/jlboat/phone/activity/MapActivity$30;->val$radioGroup Landroid/widget/RadioGroup;
+	49      (000000c8) invoke-virtual       v3, Landroid/widget/RadioGroup;->getCheckedRadioButtonId()I
+	50      (000000ce) move-result          v3
+	51      (000000d0) if-ne                v3, v4, +003h
+
+onClick-BB@0xd4 : [ onClick-BB@0xd6 ]
+	52      (000000d4) const/4              v2, 2
+
+onClick-BB@0xd6 : [ onClick-BB@0xe0 onClick-BB@0x16e ]
+	53      (000000d6) const                v9, 2131493284
+	54      (000000dc) if-nez               v2, +049h
+
+onClick-BB@0xe0 : [ onClick-BB@0xf4 ]
+	55      (000000e0) iget-object          v3, v10, Lcom/jlboat/phone/activity/MapActivity$30;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	56      (000000e4) invoke-static        v3, Lcom/jlboat/phone/activity/MapActivity;->access$1700(Lcom/jlboat/phone/activity/MapActivity;)Ljava/util/List;
+	57      (000000ea) move-result-object   v3
+	58      (000000ec) invoke-interface     v3, Ljava/util/List;->iterator()Ljava/util/Iterator;
+	59      (000000f2) move-result-object   v3
+
+onClick-BB@0xf4 : [ onClick-BB@0x100 onClick-BB@0x12e ]
+	60      (000000f4) invoke-interface     v3, Ljava/util/Iterator;->hasNext()Z
+	61      (000000fa) move-result          v4
+	62      (000000fc) if-eqz               v4, +019h
+
+onClick-BB@0x100 : [ onClick-BB@0x120 onClick-BB@0x12c ]
+	63      (00000100) invoke-interface     v3, Ljava/util/Iterator;->next()Ljava/lang/Object;
+	64      (00000106) move-result-object   v4
+	65      (00000108) check-cast           v4, Lcom/boat/support/slam/entity/floors/Maps;
+	66      (0000010c) invoke-virtual       v4, Lcom/boat/support/slam/entity/floors/Maps;->getMapName()Ljava/lang/String;
+	67      (00000112) move-result-object   v5
+	68      (00000114) invoke-virtual       v1, v5, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	69      (0000011a) move-result          v5
+	70      (0000011c) if-eqz               v5, +008h
+
+onClick-BB@0x120 : 
+	71      (00000120) iget-object          v3, v10, Lcom/jlboat/phone/activity/MapActivity$30;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	72      (00000124) invoke-virtual       v3, v9, Lcom/jlboat/phone/activity/MapActivity;->toast(I)V
+	73      (0000012a) return-void          
+
+onClick-BB@0x12c : [ onClick-BB@0xf4 ]
+	74      (0000012c) goto                 -1ch
+
+onClick-BB@0x12e : [ onClick-BB@0x16e ]
+	75      (0000012e) iget-object          v3, v10, Lcom/jlboat/phone/activity/MapActivity$30;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	76      (00000132) iget-object          v4, v10, Lcom/jlboat/phone/activity/MapActivity$30;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	77      (00000136) invoke-static        v4, Lcom/jlboat/phone/activity/MapActivity;->access$000(Lcom/jlboat/phone/activity/MapActivity;)J
+	78      (0000013c) move-result-wide     v5
+	79      (0000013e) iget-object          v4, v10, Lcom/jlboat/phone/activity/MapActivity$30;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	80      (00000142) invoke-static        v4, Lcom/jlboat/phone/activity/MapActivity;->access$1500(Lcom/jlboat/phone/activity/MapActivity;)Lcom/boat/support/slam/entity/floors/Floors;
+	81      (00000148) move-result-object   v4
+	82      (0000014a) invoke-virtual       v4, Lcom/boat/support/slam/entity/floors/Floors;->getFloorName()Ljava/lang/String;
+	83      (00000150) move-result-object   v7
+	84      (00000152) iget-object          v4, v10, Lcom/jlboat/phone/activity/MapActivity$30;->val$editText Landroid/widget/EditText;
+	85      (00000156) invoke-virtual       v4, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+	86      (0000015c) move-result-object   v4
+	87      (0000015e) invoke-virtual       v4, Ljava/lang/Object;->toString()Ljava/lang/String;
+	88      (00000164) move-result-object   v8
+	89      (00000166) move                 v4, v2
+	90      (00000168) invoke-static/range  v3 ... v8, Lcom/jlboat/phone/activity/MapActivity;->access$4200(Lcom/jlboat/phone/activity/MapActivity; I J Ljava/lang/String; Ljava/lang/String;)V
+
+onClick-BB@0x16e : [ onClick-BB@0x174 onClick-BB@0x256 ]
+	91      (0000016e) const/4              v3, 1
+	92      (00000170) if-ne                v2, v3, +073h
+
+onClick-BB@0x174 : [ onClick-BB@0x1a6 ]
+	93      (00000174) iget-object          v3, v10, Lcom/jlboat/phone/activity/MapActivity$30;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	94      (00000178) invoke-static        v3, Lcom/jlboat/phone/activity/MapActivity;->access$1400(Lcom/jlboat/phone/activity/MapActivity;)Ljava/util/List;
+	95      (0000017e) move-result-object   v3
+	96      (00000180) iget-object          v4, v10, Lcom/jlboat/phone/activity/MapActivity$30;->val$selectFloorIndex [I
+	97      (00000184) const/4              v5, 0
+	98      (00000186) aget                 v4, v4, v5
+	99      (0000018a) invoke-interface     v3, v4, Ljava/util/List;->get(I)Ljava/lang/Object;
+	100     (00000190) move-result-object   v3
+	101     (00000192) check-cast           v3, Lcom/boat/support/slam/entity/floors/Floors;
+	102     (00000196) invoke-virtual       v3, Lcom/boat/support/slam/entity/floors/Floors;->getMaps()Ljava/util/List;
+	103     (0000019c) move-result-object   v3
+	104     (0000019e) invoke-interface     v3, Ljava/util/List;->iterator()Ljava/util/Iterator;
+	105     (000001a4) move-result-object   v3
+
+onClick-BB@0x1a6 : [ onClick-BB@0x1b2 onClick-BB@0x1e0 ]
+	106     (000001a6) invoke-interface     v3, Ljava/util/Iterator;->hasNext()Z
+	107     (000001ac) move-result          v4
+	108     (000001ae) if-eqz               v4, +019h
+
+onClick-BB@0x1b2 : [ onClick-BB@0x1d2 onClick-BB@0x1de ]
+	109     (000001b2) invoke-interface     v3, Ljava/util/Iterator;->next()Ljava/lang/Object;
+	110     (000001b8) move-result-object   v4
+	111     (000001ba) check-cast           v4, Lcom/boat/support/slam/entity/floors/Maps;
+	112     (000001be) invoke-virtual       v4, Lcom/boat/support/slam/entity/floors/Maps;->getMapName()Ljava/lang/String;
+	113     (000001c4) move-result-object   v6
+	114     (000001c6) invoke-virtual       v1, v6, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	115     (000001cc) move-result          v6
+	116     (000001ce) if-eqz               v6, +008h
+
+onClick-BB@0x1d2 : 
+	117     (000001d2) iget-object          v3, v10, Lcom/jlboat/phone/activity/MapActivity$30;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	118     (000001d6) invoke-virtual       v3, v9, Lcom/jlboat/phone/activity/MapActivity;->toast(I)V
+	119     (000001dc) return-void          
+
+onClick-BB@0x1de : [ onClick-BB@0x1a6 ]
+	120     (000001de) goto                 -1ch
+
+onClick-BB@0x1e0 : [ onClick-BB@0x256 ]
+	121     (000001e0) iget-object          v3, v10, Lcom/jlboat/phone/activity/MapActivity$30;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	122     (000001e4) iget-object          v4, v10, Lcom/jlboat/phone/activity/MapActivity$30;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	123     (000001e8) invoke-static        v4, Lcom/jlboat/phone/activity/MapActivity;->access$1400(Lcom/jlboat/phone/activity/MapActivity;)Ljava/util/List;
+	124     (000001ee) move-result-object   v4
+	125     (000001f0) iget-object          v6, v10, Lcom/jlboat/phone/activity/MapActivity$30;->val$selectFloorIndex [I
+	126     (000001f4) aget                 v6, v6, v5
+	127     (000001f8) invoke-interface     v4, v6, Ljava/util/List;->get(I)Ljava/lang/Object;
+	128     (000001fe) move-result-object   v4
+	129     (00000200) check-cast           v4, Lcom/boat/support/slam/entity/floors/Floors;
+	130     (00000204) invoke-virtual       v4, Lcom/boat/support/slam/entity/floors/Floors;->getFloorId()J
+	131     (0000020a) move-result-wide     v6
+	132     (0000020c) iget-object          v4, v10, Lcom/jlboat/phone/activity/MapActivity$30;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	133     (00000210) invoke-static        v4, Lcom/jlboat/phone/activity/MapActivity;->access$1400(Lcom/jlboat/phone/activity/MapActivity;)Ljava/util/List;
+	134     (00000216) move-result-object   v4
+	135     (00000218) iget-object          v8, v10, Lcom/jlboat/phone/activity/MapActivity$30;->val$selectFloorIndex [I
+	136     (0000021c) aget                 v5, v8, v5
+	137     (00000220) invoke-interface     v4, v5, Ljava/util/List;->get(I)Ljava/lang/Object;
+	138     (00000226) move-result-object   v4
+	139     (00000228) check-cast           v4, Lcom/boat/support/slam/entity/floors/Floors;
+	140     (0000022c) invoke-virtual       v4, Lcom/boat/support/slam/entity/floors/Floors;->getFloorName()Ljava/lang/String;
+	141     (00000232) move-result-object   v8
+	142     (00000234) iget-object          v4, v10, Lcom/jlboat/phone/activity/MapActivity$30;->val$editText Landroid/widget/EditText;
+	143     (00000238) invoke-virtual       v4, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+	144     (0000023e) move-result-object   v4
+	145     (00000240) invoke-virtual       v4, Ljava/lang/Object;->toString()Ljava/lang/String;
+	146     (00000246) move-result-object   v9
+	147     (00000248) move                 v4, v2
+	148     (0000024a) move-wide            v5, v6
+	149     (0000024c) move-object          v7, v8
+	150     (0000024e) move-object          v8, v9
+	151     (00000250) invoke-static/range  v3 ... v8, Lcom/jlboat/phone/activity/MapActivity;->access$4200(Lcom/jlboat/phone/activity/MapActivity; I J Ljava/lang/String; Ljava/lang/String;)V
+
+onClick-BB@0x256 : [ onClick-BB@0x25c onClick-BB@0x294 ]
+	152     (00000256) const/4              v3, 2
+	153     (00000258) if-ne                v2, v3, +01eh
+
+onClick-BB@0x25c : [ onClick-BB@0x294 ]
+	154     (0000025c) iget-object          v3, v10, Lcom/jlboat/phone/activity/MapActivity$30;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	155     (00000260) iget-object          v4, v10, Lcom/jlboat/phone/activity/MapActivity$30;->val$editFloorText Landroid/widget/EditText;
+	156     (00000264) invoke-virtual       v4, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+	157     (0000026a) move-result-object   v4
+	158     (0000026c) invoke-virtual       v4, Ljava/lang/Object;->toString()Ljava/lang/String;
+	159     (00000272) move-result-object   v7
+	160     (00000274) iget-object          v4, v10, Lcom/jlboat/phone/activity/MapActivity$30;->val$editText Landroid/widget/EditText;
+	161     (00000278) invoke-virtual       v4, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+	162     (0000027e) move-result-object   v4
+	163     (00000280) invoke-virtual       v4, Ljava/lang/Object;->toString()Ljava/lang/String;
+	164     (00000286) move-result-object   v8
+	165     (00000288) const-wide/16        v5, 0
+	166     (0000028c) move                 v4, v2
+	167     (0000028e) invoke-static/range  v3 ... v8, Lcom/jlboat/phone/activity/MapActivity;->access$4200(Lcom/jlboat/phone/activity/MapActivity; I J Ljava/lang/String; Ljava/lang/String;)V
+
+onClick-BB@0x294 : 
+	168     (00000294) iget-object          v3, v10, Lcom/jlboat/phone/activity/MapActivity$30;->val$alertDialog Landroid/app/AlertDialog;
+	169     (00000298) invoke-virtual       v3, Landroid/app/AlertDialog;->dismiss()V
+	170     (0000029e) return-void          
+

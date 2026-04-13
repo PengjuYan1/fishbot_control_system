@@ -1,0 +1,217 @@
+# Lcom/jlboat/phone/communication/MapListener;->updateMap(Lcom/boat/jrosbridge/message/nav_msgs/OccupancyGrid;)V [access_flags=private]
+#
+# Parameters:
+# - local registers: v0...v10
+# - v11:com.boat.jrosbridge.message.nav_msgs.OccupancyGrid
+#
+# - return:void
+
+updateMap-BB@0x0 : [ updateMap-BB@0xd6 ]
+	0       (00000000) invoke-virtual       v11, Lcom/boat/jrosbridge/message/nav_msgs/OccupancyGrid;->getInfo()Lcom/boat/jrosbridge/message/nav_msgs/MapMetaData;
+	1       (00000006) move-result-object   v0
+	2       (00000008) invoke-virtual       v0, Lcom/boat/jrosbridge/message/nav_msgs/MapMetaData;->getResolution()F
+	3       (0000000e) move-result          v0
+	4       (00000010) iput                 v0, v10, Lcom/jlboat/phone/communication/MapListener;->resolution F
+	5       (00000014) invoke-virtual       v11, Lcom/boat/jrosbridge/message/nav_msgs/OccupancyGrid;->getInfo()Lcom/boat/jrosbridge/message/nav_msgs/MapMetaData;
+	6       (0000001a) move-result-object   v0
+	7       (0000001c) invoke-virtual       v0, Lcom/boat/jrosbridge/message/nav_msgs/MapMetaData;->getWidth()I
+	8       (00000022) move-result          v0
+	9       (00000024) iput                 v0, v10, Lcom/jlboat/phone/communication/MapListener;->width I
+	10      (00000028) invoke-virtual       v11, Lcom/boat/jrosbridge/message/nav_msgs/OccupancyGrid;->getInfo()Lcom/boat/jrosbridge/message/nav_msgs/MapMetaData;
+	11      (0000002e) move-result-object   v0
+	12      (00000030) invoke-virtual       v0, Lcom/boat/jrosbridge/message/nav_msgs/MapMetaData;->getHeight()I
+	13      (00000036) move-result          v0
+	14      (00000038) iput                 v0, v10, Lcom/jlboat/phone/communication/MapListener;->height I
+	15      (0000003c) invoke-virtual       v11, Lcom/boat/jrosbridge/message/nav_msgs/OccupancyGrid;->getInfo()Lcom/boat/jrosbridge/message/nav_msgs/MapMetaData;
+	16      (00000042) move-result-object   v0
+	17      (00000044) invoke-virtual       v0, Lcom/boat/jrosbridge/message/nav_msgs/MapMetaData;->getOrigin()Lcom/boat/jrosbridge/message/geometry_msgs/Pose;
+	18      (0000004a) move-result-object   v0
+	19      (0000004c) invoke-virtual       v0, Lcom/boat/jrosbridge/message/geometry_msgs/Pose;->getPosition()Lcom/boat/jrosbridge/message/geometry_msgs/Point;
+	20      (00000052) move-result-object   v0
+	21      (00000054) invoke-virtual       v0, Lcom/boat/jrosbridge/message/geometry_msgs/Point;->getX()D
+	22      (0000005a) move-result-wide     v0
+	23      (0000005c) iput-wide            v0, v10, Lcom/jlboat/phone/communication/MapListener;->originX D
+	24      (00000060) invoke-virtual       v11, Lcom/boat/jrosbridge/message/nav_msgs/OccupancyGrid;->getInfo()Lcom/boat/jrosbridge/message/nav_msgs/MapMetaData;
+	25      (00000066) move-result-object   v0
+	26      (00000068) invoke-virtual       v0, Lcom/boat/jrosbridge/message/nav_msgs/MapMetaData;->getOrigin()Lcom/boat/jrosbridge/message/geometry_msgs/Pose;
+	27      (0000006e) move-result-object   v0
+	28      (00000070) invoke-virtual       v0, Lcom/boat/jrosbridge/message/geometry_msgs/Pose;->getPosition()Lcom/boat/jrosbridge/message/geometry_msgs/Point;
+	29      (00000076) move-result-object   v0
+	30      (00000078) invoke-virtual       v0, Lcom/boat/jrosbridge/message/geometry_msgs/Point;->getY()D
+	31      (0000007e) move-result-wide     v0
+	32      (00000080) iput-wide            v0, v10, Lcom/jlboat/phone/communication/MapListener;->originY D
+	33      (00000084) invoke-virtual       v11, Lcom/boat/jrosbridge/message/nav_msgs/OccupancyGrid;->getInfo()Lcom/boat/jrosbridge/message/nav_msgs/MapMetaData;
+	34      (0000008a) move-result-object   v0
+	35      (0000008c) invoke-virtual       v0, Lcom/boat/jrosbridge/message/nav_msgs/MapMetaData;->getOrigin()Lcom/boat/jrosbridge/message/geometry_msgs/Pose;
+	36      (00000092) move-result-object   v0
+	37      (00000094) invoke-virtual       v0, Lcom/boat/jrosbridge/message/geometry_msgs/Pose;->getPosition()Lcom/boat/jrosbridge/message/geometry_msgs/Point;
+	38      (0000009a) move-result-object   v0
+	39      (0000009c) invoke-virtual       v0, Lcom/boat/jrosbridge/message/geometry_msgs/Point;->getZ()D
+	40      (000000a2) move-result-wide     v0
+	41      (000000a4) iput-wide            v0, v10, Lcom/jlboat/phone/communication/MapListener;->originZ D
+	42      (000000a8) invoke-virtual       v11, Lcom/boat/jrosbridge/message/nav_msgs/OccupancyGrid;->getData()[B
+	43      (000000ae) move-result-object   v0
+	44      (000000b0) iput-object          v0, v10, Lcom/jlboat/phone/communication/MapListener;->channelBuffer [B
+	45      (000000b4) iget                 v0, v10, Lcom/jlboat/phone/communication/MapListener;->width I
+	46      (000000b8) iget                 v1, v10, Lcom/jlboat/phone/communication/MapListener;->height I
+	47      (000000bc) mul-int              v0, v0, v1
+	48      (000000c0) new-array            v0, v0, [I
+	49      (000000c4) iput-object          v0, v10, Lcom/jlboat/phone/communication/MapListener;->pixelBuffer [I
+	50      (000000c8) const/4              v0, 0
+	51      (000000ca) iput                 v0, v10, Lcom/jlboat/phone/communication/MapListener;->index I
+	52      (000000ce) iget-object          v1, v10, Lcom/jlboat/phone/communication/MapListener;->channelBuffer [B
+	53      (000000d2) array-length         v2, v1
+	54      (000000d4) const/4              v3, 0
+
+updateMap-BB@0xd6 : [ updateMap-BB@0xda updateMap-BB@0x11e ]
+	55      (000000d6) if-ge                v3, v2, +024h
+
+updateMap-BB@0xda : [ updateMap-BB@0xe4 updateMap-BB@0xf8 ]
+	56      (000000da) aget-byte            v4, v1, v3
+	57      (000000de) const/4              v5, -1
+	58      (000000e0) if-ne                v4, v5, +00ch
+
+updateMap-BB@0xe4 : [ updateMap-BB@0x10c ]
+	59      (000000e4) iget-object          v5, v10, Lcom/jlboat/phone/communication/MapListener;->pixelBuffer [I
+	60      (000000e8) iget                 v6, v10, Lcom/jlboat/phone/communication/MapListener;->index I
+	61      (000000ec) const                v7, -7829368
+	62      (000000f2) aput                 v7, v5, v6
+	63      (000000f6) goto                 +bh
+
+updateMap-BB@0xf8 : [ updateMap-BB@0x10c ]
+	64      (000000f8) iget-object          v5, v10, Lcom/jlboat/phone/communication/MapListener;->pixelBuffer [I
+	65      (000000fc) iget                 v6, v10, Lcom/jlboat/phone/communication/MapListener;->index I
+	66      (00000100) iget-object          v7, v10, Lcom/jlboat/phone/communication/MapListener;->colorMap [I
+	67      (00000104) aget                 v7, v7, v4
+	68      (00000108) aput                 v7, v5, v6
+
+updateMap-BB@0x10c : [ updateMap-BB@0xd6 ]
+	69      (0000010c) iget                 v5, v10, Lcom/jlboat/phone/communication/MapListener;->index I
+	70      (00000110) add-int/lit8         v5, v5, 1
+	71      (00000114) iput                 v5, v10, Lcom/jlboat/phone/communication/MapListener;->index I
+	72      (00000118) add-int/lit8         v3, v3, 1
+	73      (0000011c) goto                 -23h
+
+updateMap-BB@0x11e : [ updateMap-BB@0x136 ]
+	74      (0000011e) iget                 v1, v10, Lcom/jlboat/phone/communication/MapListener;->width I
+	75      (00000122) iget                 v2, v10, Lcom/jlboat/phone/communication/MapListener;->height I
+	76      (00000126) mul-int              v1, v1, v2
+	77      (0000012a) new-array            v1, v1, [I
+	78      (0000012e) iput-object          v1, v10, Lcom/jlboat/phone/communication/MapListener;->pixels [I
+	79      (00000132) const/4              v1, 0
+	80      (00000134) const/4              v2, 0
+
+updateMap-BB@0x136 : [ updateMap-BB@0x13e updateMap-BB@0x1a4 ]
+	81      (00000136) iget                 v3, v10, Lcom/jlboat/phone/communication/MapListener;->height I
+	82      (0000013a) if-ge                v1, v3, +035h
+
+updateMap-BB@0x13e : [ updateMap-BB@0x140 ]
+	83      (0000013e) const/4              v3, 0
+
+updateMap-BB@0x140 : [ updateMap-BB@0x148 updateMap-BB@0x19e ]
+	84      (00000140) iget                 v4, v10, Lcom/jlboat/phone/communication/MapListener;->width I
+	85      (00000144) if-ge                v3, v4, +02dh
+
+updateMap-BB@0x148 : [ updateMap-BB@0x152 updateMap-BB@0x178 ]
+	86      (00000148) iget-object          v4, v10, Lcom/jlboat/phone/communication/MapListener;->pixelBuffer [I
+	87      (0000014c) array-length         v4, v4
+	88      (0000014e) if-ge                v2, v4, +015h
+
+updateMap-BB@0x152 : [ updateMap-BB@0x194 ]
+	89      (00000152) iget-object          v4, v10, Lcom/jlboat/phone/communication/MapListener;->pixels [I
+	90      (00000156) iget                 v5, v10, Lcom/jlboat/phone/communication/MapListener;->height I
+	91      (0000015a) add-int/lit8         v5, v5, -1
+	92      (0000015e) sub-int/2addr        v5, v1
+	93      (00000160) iget                 v6, v10, Lcom/jlboat/phone/communication/MapListener;->width I
+	94      (00000164) mul-int              v5, v5, v6
+	95      (00000168) add-int/2addr        v5, v3
+	96      (0000016a) iget-object          v6, v10, Lcom/jlboat/phone/communication/MapListener;->pixelBuffer [I
+	97      (0000016e) aget                 v6, v6, v2
+	98      (00000172) aput                 v6, v4, v5
+	99      (00000176) goto                 +fh
+
+updateMap-BB@0x178 : [ updateMap-BB@0x194 ]
+	100     (00000178) iget-object          v4, v10, Lcom/jlboat/phone/communication/MapListener;->pixels [I
+	101     (0000017c) iget                 v5, v10, Lcom/jlboat/phone/communication/MapListener;->height I
+	102     (00000180) add-int/lit8         v5, v5, -1
+	103     (00000184) sub-int/2addr        v5, v1
+	104     (00000186) iget                 v6, v10, Lcom/jlboat/phone/communication/MapListener;->width I
+	105     (0000018a) mul-int              v5, v5, v6
+	106     (0000018e) add-int/2addr        v5, v3
+	107     (00000190) aput                 v0, v4, v5
+
+updateMap-BB@0x194 : [ updateMap-BB@0x140 ]
+	108     (00000194) add-int/lit8         v3, v3, 1
+	109     (00000198) add-int/lit8         v2, v2, 1
+	110     (0000019c) goto                 -2eh
+
+updateMap-BB@0x19e : [ updateMap-BB@0x136 ]
+	111     (0000019e) add-int/lit8         v1, v1, 1
+	112     (000001a2) goto                 -36h
+
+updateMap-BB@0x1a4 : [ updateMap-BB@0x20a ]
+	113     (000001a4) iget-object          v0, v10, Lcom/jlboat/phone/communication/MapListener;->TAG Ljava/lang/String;
+	114     (000001a8) new-instance         v1, Ljava/lang/StringBuilder;
+	115     (000001ac) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	116     (000001b2) const-string         v2, "updateMap: 收到底盘地图大小 "
+	117     (000001b6) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	118     (000001bc) move-result-object   v1
+	119     (000001be) iget-object          v2, v10, Lcom/jlboat/phone/communication/MapListener;->pixels [I
+	120     (000001c2) array-length         v2, v2
+	121     (000001c4) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	122     (000001ca) move-result-object   v1
+	123     (000001cc) const-string         v2, " , 宽 = "
+	124     (000001d0) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	125     (000001d6) move-result-object   v1
+	126     (000001d8) iget                 v2, v10, Lcom/jlboat/phone/communication/MapListener;->width I
+	127     (000001dc) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	128     (000001e2) move-result-object   v1
+	129     (000001e4) const-string         v2, " , 高 = "
+	130     (000001e8) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	131     (000001ee) move-result-object   v1
+	132     (000001f0) iget                 v2, v10, Lcom/jlboat/phone/communication/MapListener;->height I
+	133     (000001f4) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	134     (000001fa) move-result-object   v1
+	135     (000001fc) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	136     (00000202) move-result-object   v1
+	137     (00000204) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+
+updateMap-BB@0x20a : [ updateMap-BB@0x250 updateMap-BB@0x26e ]
+	138     (0000020a) iget-object          v0, v10, Lcom/jlboat/phone/communication/MapListener;->bitmapBack Landroid/graphics/Bitmap;
+	139     (0000020e) iget                 v1, v10, Lcom/jlboat/phone/communication/MapListener;->width I
+	140     (00000212) invoke-virtual       v0, v1, Landroid/graphics/Bitmap;->setWidth(I)V
+	141     (00000218) iget-object          v0, v10, Lcom/jlboat/phone/communication/MapListener;->bitmapBack Landroid/graphics/Bitmap;
+	142     (0000021c) iget                 v1, v10, Lcom/jlboat/phone/communication/MapListener;->height I
+	143     (00000220) invoke-virtual       v0, v1, Landroid/graphics/Bitmap;->setHeight(I)V
+	144     (00000226) iget-object          v2, v10, Lcom/jlboat/phone/communication/MapListener;->bitmapBack Landroid/graphics/Bitmap;
+	145     (0000022a) iget-object          v3, v10, Lcom/jlboat/phone/communication/MapListener;->pixels [I
+	146     (0000022e) iget                 v5, v10, Lcom/jlboat/phone/communication/MapListener;->width I
+	147     (00000232) iget                 v8, v10, Lcom/jlboat/phone/communication/MapListener;->width I
+	148     (00000236) iget                 v9, v10, Lcom/jlboat/phone/communication/MapListener;->height I
+	149     (0000023a) const/4              v4, 0
+	150     (0000023c) const/4              v6, 0
+	151     (0000023e) const/4              v7, 0
+	152     (00000240) invoke-virtual/range v2 ... v9, Landroid/graphics/Bitmap;->setPixels([I I I I I I I)V
+	153     (00000246) nop                  
+	154     (00000248) iget-object          v0, v10, Lcom/jlboat/phone/communication/MapListener;->onCallBack Lcom/jlboat/phone/communication/MapListener$onDataCallBack;
+	155     (0000024c) if-eqz               v0, +011h
+	20a:245
+	(Ljava/lang/Exception; -> 270 updateMap-BB@0x270)
+
+updateMap-BB@0x250 : [ updateMap-BB@0x26e ]
+	156     (00000250) iget-object          v1, v10, Lcom/jlboat/phone/communication/MapListener;->onCallBack Lcom/jlboat/phone/communication/MapListener$onDataCallBack;
+	157     (00000254) iget-object          v3, v10, Lcom/jlboat/phone/communication/MapListener;->bitmapBack Landroid/graphics/Bitmap;
+	158     (00000258) iget-wide            v4, v10, Lcom/jlboat/phone/communication/MapListener;->originX D
+	159     (0000025c) iget-wide            v6, v10, Lcom/jlboat/phone/communication/MapListener;->originY D
+	160     (00000260) iget                 v8, v10, Lcom/jlboat/phone/communication/MapListener;->resolution F
+	161     (00000264) const/16             v2, 1001
+	162     (00000268) invoke-interface/range v1 ... v8, Lcom/jlboat/phone/communication/MapListener$onDataCallBack;->onMapDataListener(I Landroid/graphics/Bitmap; D D F)V
+
+updateMap-BB@0x26e : 
+	163     (0000026e) return-void          
+
+updateMap-BB@0x270 : 
+	164     (00000270) move-exception       v0
+	165     (00000272) invoke-virtual       v0, Ljava/lang/Exception;->printStackTrace()V
+	166     (00000278) return-void          
+

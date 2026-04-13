@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/view/ErrorMsgAdapter;->access$000(Lcom/jlboat/phone/view/ErrorMsgAdapter;)Landroid/content/Context; [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.view.ErrorMsgAdapter
+#
+# - return:android.content.Context
+
+access$000-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/jlboat/phone/view/ErrorMsgAdapter;->mContext Landroid/content/Context;
+	1       (00000004) return-object        v0
+

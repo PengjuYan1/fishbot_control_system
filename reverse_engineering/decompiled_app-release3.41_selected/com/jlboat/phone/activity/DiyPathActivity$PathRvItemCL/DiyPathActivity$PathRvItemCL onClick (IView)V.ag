@@ -1,0 +1,87 @@
+# Lcom/jlboat/phone/activity/DiyPathActivity$PathRvItemCL;->onClick(I Landroid/view/View;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v4
+# - v5:int
+# - v6:android.view.View
+#
+# - return:void
+
+onClick-BB@0x0 : [ onClick-BB@0x52 onClick-BB@0xa2 ]
+	0       (00000000) iget-object          v0, v4, Lcom/jlboat/phone/activity/DiyPathActivity$PathRvItemCL;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	1       (00000004) invoke-static        v0, v5, Lcom/jlboat/phone/activity/DiyPathActivity;->access$602(Lcom/jlboat/phone/activity/DiyPathActivity; I)I
+	2       (0000000a) iget-object          v0, v4, Lcom/jlboat/phone/activity/DiyPathActivity$PathRvItemCL;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	3       (0000000e) invoke-static        v0, Lcom/jlboat/phone/activity/DiyPathActivity;->access$700(Lcom/jlboat/phone/activity/DiyPathActivity;)Lcom/jlboat/phone/adapter/DiyPathListAdapter;
+	4       (00000014) move-result-object   v0
+	5       (00000016) iget-object          v1, v4, Lcom/jlboat/phone/activity/DiyPathActivity$PathRvItemCL;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	6       (0000001a) invoke-static        v1, Lcom/jlboat/phone/activity/DiyPathActivity;->access$400(Lcom/jlboat/phone/activity/DiyPathActivity;)Ljava/util/List;
+	7       (00000020) move-result-object   v1
+	8       (00000022) invoke-virtual       v0, v1, v5, Lcom/jlboat/phone/adapter/DiyPathListAdapter;->setData(Ljava/util/List; I)V
+	9       (00000028) iget-object          v0, v4, Lcom/jlboat/phone/activity/DiyPathActivity$PathRvItemCL;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	10      (0000002c) invoke-static        v0, Lcom/jlboat/phone/activity/DiyPathActivity;->access$400(Lcom/jlboat/phone/activity/DiyPathActivity;)Ljava/util/List;
+	11      (00000032) move-result-object   v0
+	12      (00000034) invoke-interface     v0, v5, Ljava/util/List;->get(I)Ljava/lang/Object;
+	13      (0000003a) move-result-object   v0
+	14      (0000003c) check-cast           v0, Lcom/boat/support/slam/entity/floors/GlobalPlans;
+	15      (00000040) invoke-virtual       v0, Lcom/boat/support/slam/entity/floors/GlobalPlans;->getAddPoints()Ljava/util/List;
+	16      (00000046) move-result-object   v0
+	17      (00000048) const/16             v1, 8
+	18      (0000004c) const/4              v2, 0
+	19      (0000004e) if-eqz               v0, +02ah
+
+onClick-BB@0x52 : [ onClick-BB@0x5e onClick-BB@0xa2 ]
+	20      (00000052) invoke-interface     v0, Ljava/util/List;->size()I
+	21      (00000058) move-result          v3
+	22      (0000005a) if-lez               v3, +024h
+
+onClick-BB@0x5e : [ onClick-BB@0xc6 ]
+	23      (0000005e) iget-object          v3, v4, Lcom/jlboat/phone/activity/DiyPathActivity$PathRvItemCL;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	24      (00000062) invoke-static        v3, Lcom/jlboat/phone/activity/DiyPathActivity;->access$900(Lcom/jlboat/phone/activity/DiyPathActivity;)Landroid/widget/TextView;
+	25      (00000068) move-result-object   v3
+	26      (0000006a) invoke-virtual       v3, v1, Landroid/widget/TextView;->setVisibility(I)V
+	27      (00000070) iget-object          v1, v4, Lcom/jlboat/phone/activity/DiyPathActivity$PathRvItemCL;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	28      (00000074) invoke-static        v1, Lcom/jlboat/phone/activity/DiyPathActivity;->access$1000(Lcom/jlboat/phone/activity/DiyPathActivity;)Landroid/support/v7/widget/RecyclerView;
+	29      (0000007a) move-result-object   v1
+	30      (0000007c) invoke-virtual       v1, v2, Landroid/support/v7/widget/RecyclerView;->setVisibility(I)V
+	31      (00000082) iget-object          v1, v4, Lcom/jlboat/phone/activity/DiyPathActivity$PathRvItemCL;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	32      (00000086) invoke-static        v1, Lcom/jlboat/phone/activity/DiyPathActivity;->access$1200(Lcom/jlboat/phone/activity/DiyPathActivity;)Lcom/jlboat/phone/adapter/BindPointListAdapter;
+	33      (0000008c) move-result-object   v1
+	34      (0000008e) iget-object          v2, v4, Lcom/jlboat/phone/activity/DiyPathActivity$PathRvItemCL;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	35      (00000092) invoke-static        v2, Lcom/jlboat/phone/activity/DiyPathActivity;->access$1100(Lcom/jlboat/phone/activity/DiyPathActivity;)Ljava/util/List;
+	36      (00000098) move-result-object   v2
+	37      (0000009a) invoke-virtual       v1, v0, v2, Lcom/jlboat/phone/adapter/BindPointListAdapter;->setData(Ljava/util/List; Ljava/util/List;)V
+	38      (000000a0) goto                 +13h
+
+onClick-BB@0xa2 : [ onClick-BB@0xc6 ]
+	39      (000000a2) iget-object          v3, v4, Lcom/jlboat/phone/activity/DiyPathActivity$PathRvItemCL;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	40      (000000a6) invoke-static        v3, Lcom/jlboat/phone/activity/DiyPathActivity;->access$900(Lcom/jlboat/phone/activity/DiyPathActivity;)Landroid/widget/TextView;
+	41      (000000ac) move-result-object   v3
+	42      (000000ae) invoke-virtual       v3, v2, Landroid/widget/TextView;->setVisibility(I)V
+	43      (000000b4) iget-object          v2, v4, Lcom/jlboat/phone/activity/DiyPathActivity$PathRvItemCL;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	44      (000000b8) invoke-static        v2, Lcom/jlboat/phone/activity/DiyPathActivity;->access$1000(Lcom/jlboat/phone/activity/DiyPathActivity;)Landroid/support/v7/widget/RecyclerView;
+	45      (000000be) move-result-object   v2
+	46      (000000c0) invoke-virtual       v2, v1, Landroid/support/v7/widget/RecyclerView;->setVisibility(I)V
+
+onClick-BB@0xc6 : [ onClick-BB@0xd6 onClick-BB@0x108 ]
+	47      (000000c6) iget-object          v1, v4, Lcom/jlboat/phone/activity/DiyPathActivity$PathRvItemCL;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	48      (000000ca) invoke-static        v1, Lcom/jlboat/phone/activity/DiyPathActivity;->access$1800(Lcom/jlboat/phone/activity/DiyPathActivity;)Lcom/jlboat/phone/view/MapView;
+	49      (000000d0) move-result-object   v1
+	50      (000000d2) if-eqz               v1, +01bh
+
+onClick-BB@0xd6 : [ onClick-BB@0x108 ]
+	51      (000000d6) iget-object          v1, v4, Lcom/jlboat/phone/activity/DiyPathActivity$PathRvItemCL;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	52      (000000da) invoke-static        v1, Lcom/jlboat/phone/activity/DiyPathActivity;->access$1800(Lcom/jlboat/phone/activity/DiyPathActivity;)Lcom/jlboat/phone/view/MapView;
+	53      (000000e0) move-result-object   v1
+	54      (000000e2) iget-object          v2, v4, Lcom/jlboat/phone/activity/DiyPathActivity$PathRvItemCL;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	55      (000000e6) invoke-static        v2, Lcom/jlboat/phone/activity/DiyPathActivity;->access$400(Lcom/jlboat/phone/activity/DiyPathActivity;)Ljava/util/List;
+	56      (000000ec) move-result-object   v2
+	57      (000000ee) invoke-interface     v2, v5, Ljava/util/List;->get(I)Ljava/lang/Object;
+	58      (000000f4) move-result-object   v2
+	59      (000000f6) check-cast           v2, Lcom/boat/support/slam/entity/floors/GlobalPlans;
+	60      (000000fa) invoke-virtual       v2, Lcom/boat/support/slam/entity/floors/GlobalPlans;->getGlobalplanId()J
+	61      (00000100) move-result-wide     v2
+	62      (00000102) invoke-virtual       v1, v2, v3, Lcom/jlboat/phone/view/MapView;->setSelectedGlobalPlans(J)V
+
+onClick-BB@0x108 : 
+	63      (00000108) return-void          
+

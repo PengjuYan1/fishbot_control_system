@@ -1,0 +1,26 @@
+# Lcom/jlboat/phone/activity/SettingActivity$6$3;->run()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v2
+#
+# - return:void
+
+run-BB@0x0 : 
+	0       (00000000) iget-object          v0, v2, Lcom/jlboat/phone/activity/SettingActivity$6$3;->this$1 Lcom/jlboat/phone/activity/SettingActivity$6;
+	1       (00000004) iget-object          v0, v0, Lcom/jlboat/phone/activity/SettingActivity$6;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	2       (00000008) iget-object          v1, v2, Lcom/jlboat/phone/activity/SettingActivity$6$3;->val$config Lcom/jlboat/phone/message/map_msgs/Config;
+	3       (0000000c) invoke-virtual       v1, Lcom/jlboat/phone/message/map_msgs/Config;->getConfigValue()Ljava/lang/String;
+	4       (00000012) move-result-object   v1
+	5       (00000014) invoke-static        v1, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+	6       (0000001a) move-result          v1
+	7       (0000001c) invoke-static        v0, v1, Lcom/jlboat/phone/activity/SettingActivity;->access$802(Lcom/jlboat/phone/activity/SettingActivity; I)I
+	8       (00000022) iget-object          v0, v2, Lcom/jlboat/phone/activity/SettingActivity$6$3;->this$1 Lcom/jlboat/phone/activity/SettingActivity$6;
+	9       (00000026) iget-object          v0, v0, Lcom/jlboat/phone/activity/SettingActivity$6;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	10      (0000002a) invoke-static        v0, Lcom/jlboat/phone/activity/SettingActivity;->access$1000(Lcom/jlboat/phone/activity/SettingActivity;)Landroid/widget/EditText;
+	11      (00000030) move-result-object   v0
+	12      (00000032) iget-object          v1, v2, Lcom/jlboat/phone/activity/SettingActivity$6$3;->val$config Lcom/jlboat/phone/message/map_msgs/Config;
+	13      (00000036) invoke-virtual       v1, Lcom/jlboat/phone/message/map_msgs/Config;->getConfigValue()Ljava/lang/String;
+	14      (0000003c) move-result-object   v1
+	15      (0000003e) invoke-virtual       v0, v1, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+	16      (00000044) return-void          
+

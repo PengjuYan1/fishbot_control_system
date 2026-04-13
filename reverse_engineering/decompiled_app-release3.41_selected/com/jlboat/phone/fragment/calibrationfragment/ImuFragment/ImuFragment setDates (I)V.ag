@@ -1,0 +1,35 @@
+# Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment;->setDates(I)V [access_flags=private]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:int
+#
+# - return:void
+
+setDates-BB@0x0 : [ setDates-BB@0x38 setDates-BB@0x44 ]
+	0       (00000000) new-instance         v0, Ljava/lang/StringBuilder;
+	1       (00000004) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	2       (0000000a) const-string         v1, "set date:"
+	3       (0000000e) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	4       (00000014) move-result-object   v0
+	5       (00000016) invoke-virtual       v0, v3, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	6       (0000001c) move-result-object   v0
+	7       (0000001e) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	8       (00000024) move-result-object   v0
+	9       (00000026) const-string         v1, "ImuFragment"
+	10      (0000002a) invoke-static        v1, v0, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	11      (00000030) iget-object          v0, v2, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment;->statusServiceClient Lcom/jlboat/phone/communication/StatusServiceClient;
+	12      (00000034) if-nez               v0, +008h
+
+setDates-BB@0x38 : 
+	13      (00000038) const-string         v0, "setDates: statusServiceClient为null，无法调用setCalculateOdomService"
+	14      (0000003c) invoke-static        v1, v0, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	15      (00000042) return-void          
+
+setDates-BB@0x44 : 
+	16      (00000044) iget-object          v0, v2, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment;->statusServiceClient Lcom/jlboat/phone/communication/StatusServiceClient;
+	17      (00000048) new-instance         v1, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment$1;
+	18      (0000004c) invoke-direct        v1, v2, v3, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment$1;-><init>(Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment; I)V
+	19      (00000052) invoke-virtual       v0, v3, v1, Lcom/jlboat/phone/communication/StatusServiceClient;->setCalculateOdomService(I Lcom/boat/jrosbridge/MessageListener;)V
+	20      (00000058) return-void          
+

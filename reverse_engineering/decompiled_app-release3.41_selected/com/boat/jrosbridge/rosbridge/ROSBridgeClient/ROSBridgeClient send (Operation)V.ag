@@ -1,0 +1,13 @@
+# Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;->send(Lcom/boat/jrosbridge/rosbridge/operation/Operation;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:com.boat.jrosbridge.rosbridge.operation.Operation
+#
+# - return:void
+
+send-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;->client Lcom/boat/jrosbridge/rosbridge/implementation/ROSBridgeWebSocketClient;
+	1       (00000004) invoke-virtual       v0, v2, Lcom/boat/jrosbridge/rosbridge/implementation/ROSBridgeWebSocketClient;->send(Lcom/boat/jrosbridge/rosbridge/operation/Operation;)V
+	2       (0000000a) return-void          
+

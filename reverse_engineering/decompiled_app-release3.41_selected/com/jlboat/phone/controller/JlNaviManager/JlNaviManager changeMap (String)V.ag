@@ -1,0 +1,117 @@
+# Lcom/jlboat/phone/controller/JlNaviManager;->changeMap(Ljava/lang/String;)V [access_flags=private]
+#
+# Parameters:
+# - local registers: v0...v8
+# - v9:java.lang.String
+#
+# - return:void
+
+changeMap-BB@0x0 : [ changeMap-BB@0x8 changeMap-BB@0xf6 ]
+	0       (00000000) iget-boolean         v0, v8, Lcom/jlboat/phone/controller/JlNaviManager;->connectStatus Z
+	1       (00000004) if-eqz               v0, +079h
+
+changeMap-BB@0x8 : [ changeMap-BB@0x10 changeMap-BB@0x14 ]
+	2       (00000008) iget-boolean         v0, v8, Lcom/jlboat/phone/controller/JlNaviManager;->isNavigationInited Z
+	3       (0000000c) if-nez               v0, +004h
+
+changeMap-BB@0x10 : [ changeMap-BB@0xf6 ]
+	4       (00000010) goto/16              +073h
+
+changeMap-BB@0x14 : [ changeMap-BB@0x18 changeMap-BB@0xf4 ]
+	5       (00000014) if-eqz               v9, +070h
+
+changeMap-BB@0x18 : [ changeMap-BB@0x24 changeMap-BB@0x26 ]
+	6       (00000018) invoke-virtual       v9, Ljava/lang/String;->isEmpty()Z
+	7       (0000001e) move-result          v0
+	8       (00000020) if-eqz               v0, +003h
+
+changeMap-BB@0x24 : [ changeMap-BB@0xf4 ]
+	9       (00000024) goto                 +68h
+
+changeMap-BB@0x26 : [ changeMap-BB@0x2e changeMap-BB@0x30 ]
+	10      (00000026) iget-object          v0, v8, Lcom/jlboat/phone/controller/JlNaviManager;->floors Lcom/boat/support/slam/entity/floors/Floors;
+	11      (0000002a) if-nez               v0, +003h
+
+changeMap-BB@0x2e : 
+	12      (0000002e) return-void          
+
+changeMap-BB@0x30 : [ changeMap-BB@0x3c changeMap-BB@0x3e ]
+	13      (00000030) invoke-virtual       v8, Lcom/jlboat/phone/controller/JlNaviManager;->getMapList()Ljava/util/List;
+	14      (00000036) move-result-object   v0
+	15      (00000038) if-nez               v0, +003h
+
+changeMap-BB@0x3c : 
+	16      (0000003c) return-void          
+
+changeMap-BB@0x3e : [ changeMap-BB@0x4c ]
+	17      (0000003e) const/4              v1, 0
+	18      (00000040) const-string         v2, ""
+	19      (00000044) invoke-interface     v0, Ljava/util/List;->iterator()Ljava/util/Iterator;
+	20      (0000004a) move-result-object   v3
+
+changeMap-BB@0x4c : [ changeMap-BB@0x58 changeMap-BB@0xac ]
+	21      (0000004c) invoke-interface     v3, Ljava/util/Iterator;->hasNext()Z
+	22      (00000052) move-result          v4
+	23      (00000054) if-eqz               v4, +02ch
+
+changeMap-BB@0x58 : [ changeMap-BB@0x9e changeMap-BB@0xaa ]
+	24      (00000058) invoke-interface     v3, Ljava/util/Iterator;->next()Ljava/lang/Object;
+	25      (0000005e) move-result-object   v4
+	26      (00000060) check-cast           v4, Lcom/boat/support/slam/entity/floors/Maps;
+	27      (00000064) new-instance         v5, Ljava/lang/StringBuilder;
+	28      (00000068) invoke-direct        v5, Ljava/lang/StringBuilder;-><init>()V
+	29      (0000006e) invoke-virtual       v4, Lcom/boat/support/slam/entity/floors/Maps;->getMapId()J
+	30      (00000074) move-result-wide     v6
+	31      (00000076) invoke-virtual       v5, v6, v7, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+	32      (0000007c) move-result-object   v5
+	33      (0000007e) const-string         v6, ""
+	34      (00000082) invoke-virtual       v5, v6, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	35      (00000088) move-result-object   v5
+	36      (0000008a) invoke-virtual       v5, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	37      (00000090) move-result-object   v5
+	38      (00000092) invoke-virtual       v9, v5, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	39      (00000098) move-result          v5
+	40      (0000009a) if-eqz               v5, +008h
+
+changeMap-BB@0x9e : [ changeMap-BB@0xac ]
+	41      (0000009e) const/4              v1, 1
+	42      (000000a0) invoke-virtual       v4, Lcom/boat/support/slam/entity/floors/Maps;->getMapName()Ljava/lang/String;
+	43      (000000a6) move-result-object   v2
+	44      (000000a8) goto                 +2h
+
+changeMap-BB@0xaa : [ changeMap-BB@0x4c ]
+	45      (000000aa) goto                 -2fh
+
+changeMap-BB@0xac : [ changeMap-BB@0xb0 changeMap-BB@0xb2 ]
+	46      (000000ac) if-nez               v1, +003h
+
+changeMap-BB@0xb0 : 
+	47      (000000b0) return-void          
+
+changeMap-BB@0xb2 : 
+	48      (000000b2) new-instance         v3, Ljava/lang/StringBuilder;
+	49      (000000b6) invoke-direct        v3, Ljava/lang/StringBuilder;-><init>()V
+	50      (000000bc) const-string         v4, "updateMap: mapName: "
+	51      (000000c0) invoke-virtual       v3, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	52      (000000c6) move-result-object   v3
+	53      (000000c8) invoke-virtual       v3, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	54      (000000ce) move-result-object   v3
+	55      (000000d0) const-string         v4, ", MapId: "
+	56      (000000d4) invoke-virtual       v3, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	57      (000000da) move-result-object   v3
+	58      (000000dc) invoke-virtual       v3, v9, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	59      (000000e2) move-result-object   v3
+	60      (000000e4) invoke-virtual       v3, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	61      (000000ea) move-result-object   v3
+	62      (000000ec) invoke-virtual       v8, v3, Lcom/jlboat/phone/controller/JlNaviManager;->toast(Ljava/lang/String;)V
+	63      (000000f2) return-void          
+
+changeMap-BB@0xf4 : 
+	64      (000000f4) return-void          
+
+changeMap-BB@0xf6 : 
+	65      (000000f6) iget-object          v0, v8, Lcom/jlboat/phone/controller/JlNaviManager;->TAG Ljava/lang/String;
+	66      (000000fa) const-string         v1, "changeMap: 初始化未成功 不可以进行数据请求 changeMap"
+	67      (000000fe) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	68      (00000104) return-void          
+

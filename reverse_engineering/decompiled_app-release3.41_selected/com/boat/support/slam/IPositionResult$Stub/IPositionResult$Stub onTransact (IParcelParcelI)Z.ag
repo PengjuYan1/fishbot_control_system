@@ -1,0 +1,52 @@
+# Lcom/boat/support/slam/IPositionResult$Stub;->onTransact(I Landroid/os/Parcel; Landroid/os/Parcel; I)Z [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:int
+# - v5:android.os.Parcel
+# - v6:android.os.Parcel
+# - v7:int
+#
+# - return:boolean
+
+onTransact-BB@0x0 : [ onTransact-BB@0xa onTransact-BB@0x1a ]
+	0       (00000000) const-string         v0, "com.boat.support.slam.IPositionResult"
+	1       (00000004) const/4              v1, 1
+	2       (00000006) if-lt                v4, v1, +00ah
+
+onTransact-BB@0xa : [ onTransact-BB@0x14 onTransact-BB@0x1a ]
+	3       (0000000a) const                v2, 16777215
+	4       (00000010) if-gt                v4, v2, +005h
+
+onTransact-BB@0x14 : [ onTransact-BB@0x1a ]
+	5       (00000014) invoke-virtual       v5, v0, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+onTransact-BB@0x1a : [ D:onTransact-BB@0x20 1598968902:onTransact-BB@0x30 ]
+	6       (0000001a) packed-switch        v4, +000001fh
+
+onTransact-BB@0x20 : [ D:onTransact-BB@0x26 1:onTransact-BB@0x38 ]
+	7       (00000020) packed-switch        v4, +0000022h
+
+onTransact-BB@0x26 : 
+	8       (00000026) invoke-super         v3, v4, v5, v6, v7, Landroid/os/Binder;->onTransact(I Landroid/os/Parcel; Landroid/os/Parcel; I)Z
+	9       (0000002c) move-result          v1
+	10      (0000002e) return               v1
+
+onTransact-BB@0x30 : 
+	11      (00000030) invoke-virtual       v6, v0, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+	12      (00000036) return               v1
+
+onTransact-BB@0x38 : 
+	13      (00000038) sget-object          v2, Lcom/boat/support/slam/entity/floors/Points;->CREATOR Landroid/os/Parcelable$Creator;
+	14      (0000003c) invoke-static        v5, v2, Lcom/boat/support/slam/IPositionResult$_Parcel;->access$000(Landroid/os/Parcel; Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
+	15      (00000042) move-result-object   v2
+	16      (00000044) check-cast           v2, Lcom/boat/support/slam/entity/floors/Points;
+	17      (00000048) invoke-virtual       v3, v2, Lcom/boat/support/slam/IPositionResult$Stub;->onPosition(Lcom/boat/support/slam/entity/floors/Points;)V
+	18      (0000004e) invoke-virtual       v6, Landroid/os/Parcel;->writeNoException()V
+	19      (00000054) nop                  
+	20      (00000056) return               v1
+
+onTransact-BB@0x58 : 
+	21      (00000058) packed-switch-payload 5f4e5446
+	22      (00000064) packed-switch-payload 1
+

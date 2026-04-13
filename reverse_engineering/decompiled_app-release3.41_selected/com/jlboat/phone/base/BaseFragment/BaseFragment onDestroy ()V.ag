@@ -1,0 +1,14 @@
+# Lcom/jlboat/phone/base/BaseFragment;->onDestroy()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v2
+#
+# - return:void
+
+onDestroy-BB@0x0 : 
+	0       (00000000) iget-object          v0, v2, Lcom/jlboat/phone/base/BaseFragment;->handler Landroid/os/Handler;
+	1       (00000004) const/4              v1, 0
+	2       (00000006) invoke-virtual       v0, v1, Landroid/os/Handler;->removeCallbacksAndMessages(Ljava/lang/Object;)V
+	3       (0000000c) invoke-super         v2, Landroid/support/v4/app/Fragment;->onDestroy()V
+	4       (00000012) return-void          
+

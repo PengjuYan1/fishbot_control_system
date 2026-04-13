@@ -1,0 +1,13 @@
+# Lcom/jlboat/phone/activity/RobotMapActivity;->access$1202(Lcom/jlboat/phone/activity/RobotMapActivity; Ljava/util/List;)Ljava/util/List; [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v-1
+# - v0:com.jlboat.phone.activity.RobotMapActivity
+# - v1:java.util.List
+#
+# - return:java.util.List
+
+access$1202-BB@0x0 : 
+	0       (00000000) iput-object          v1, v0, Lcom/jlboat/phone/activity/RobotMapActivity;->currentMapSystmePosintList Ljava/util/List;
+	1       (00000004) return-object        v1
+

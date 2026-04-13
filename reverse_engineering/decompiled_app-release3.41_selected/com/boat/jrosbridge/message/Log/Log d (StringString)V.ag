@@ -1,0 +1,12 @@
+# Lcom/boat/jrosbridge/message/Log;->d(Ljava/lang/String; Ljava/lang/String;)V [access_flags=public static]
+#
+# Parameters:
+# - local registers: v0...v-1
+# - v0:java.lang.String
+# - v1:java.lang.String
+#
+# - return:void
+
+d-BB@0x0 : 
+	0       (00000000) return-void          
+

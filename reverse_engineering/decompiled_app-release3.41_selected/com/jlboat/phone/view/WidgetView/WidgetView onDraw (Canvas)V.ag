@@ -1,0 +1,33 @@
+# Lcom/jlboat/phone/view/WidgetView;->onDraw(Landroid/graphics/Canvas;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v7
+# - v8:android.graphics.Canvas
+#
+# - return:void
+
+onDraw-BB@0x0 : [ onDraw-BB@0xe onDraw-BB@0x3a ]
+	0       (00000000) invoke-super         v7, v8, Landroid/view/ViewGroup;->onDraw(Landroid/graphics/Canvas;)V
+	1       (00000006) iget-boolean         v0, v7, Lcom/jlboat/phone/view/WidgetView;->editMode Z
+	2       (0000000a) if-eqz               v0, +018h
+
+onDraw-BB@0xe : [ onDraw-BB@0x16 onDraw-BB@0x3a ]
+	3       (0000000e) iget-boolean         v0, v7, Lcom/jlboat/phone/view/WidgetView;->shouldHighlight Z
+	4       (00000012) if-eqz               v0, +014h
+
+onDraw-BB@0x16 : [ onDraw-BB@0x3a ]
+	5       (00000016) invoke-virtual       v7, Lcom/jlboat/phone/view/WidgetView;->getWidth()I
+	6       (0000001c) move-result          v0
+	7       (0000001e) int-to-float         v4, v0
+	8       (00000020) invoke-virtual       v7, Lcom/jlboat/phone/view/WidgetView;->getHeight()I
+	9       (00000026) move-result          v0
+	10      (00000028) int-to-float         v5, v0
+	11      (0000002a) iget-object          v6, v7, Lcom/jlboat/phone/view/WidgetView;->highlightPaint Landroid/graphics/Paint;
+	12      (0000002e) const/4              v2, 0
+	13      (00000030) const/4              v3, 0
+	14      (00000032) move-object          v1, v8
+	15      (00000034) invoke-virtual/range v1 ... v6, Landroid/graphics/Canvas;->drawRect(F F F F Landroid/graphics/Paint;)V
+
+onDraw-BB@0x3a : 
+	16      (0000003a) return-void          
+

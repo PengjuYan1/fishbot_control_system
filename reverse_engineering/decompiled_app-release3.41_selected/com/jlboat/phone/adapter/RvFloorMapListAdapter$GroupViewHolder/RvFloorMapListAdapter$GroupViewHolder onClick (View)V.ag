@@ -1,0 +1,126 @@
+# Lcom/jlboat/phone/adapter/RvFloorMapListAdapter$GroupViewHolder;->onClick(Landroid/view/View;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v10
+# - v11:android.view.View
+#
+# - return:void
+
+onClick-BB@0x0 : [ onClick-BB@0x18 onClick-BB@0x1a ]
+	0       (00000000) iget-object          v0, v10, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter$GroupViewHolder;->group Lcom/boat/support/slam/entity/floors/Floors;
+	1       (00000004) invoke-virtual       v0, Lcom/boat/support/slam/entity/floors/Floors;->getMaps()Ljava/util/List;
+	2       (0000000a) move-result-object   v0
+	3       (0000000c) invoke-interface     v0, Ljava/util/List;->isEmpty()Z
+	4       (00000012) move-result          v1
+	5       (00000014) if-eqz               v1, +003h
+
+onClick-BB@0x18 : 
+	6       (00000018) return-void          
+
+onClick-BB@0x1a : [ onClick-BB@0x3e onClick-BB@0x5c ]
+	7       (0000001a) invoke-virtual       v10, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter$GroupViewHolder;->getAdapterPosition()I
+	8       (00000020) move-result          v1
+	9       (00000022) const/4              v2, 1
+	10      (00000024) add-int/2addr        v1, v2
+	11      (00000026) iget-object          v3, v10, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter$GroupViewHolder;->this$0 Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;
+	12      (0000002a) invoke-static        v3, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;->access$800(Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;)Ljava/util/List;
+	13      (00000030) move-result-object   v3
+	14      (00000032) invoke-interface     v3, Ljava/util/List;->size()I
+	15      (00000038) move-result          v3
+	16      (0000003a) if-ge                v1, v3, +011h
+
+onClick-BB@0x3e : [ onClick-BB@0x5a onClick-BB@0x5c ]
+	17      (0000003e) iget-object          v3, v10, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter$GroupViewHolder;->this$0 Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;
+	18      (00000042) invoke-virtual       v3, v1, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;->getItemViewType(I)I
+	19      (00000048) move-result          v3
+	20      (0000004a) iget-object          v4, v10, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter$GroupViewHolder;->this$0 Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;
+	21      (0000004e) invoke-static        v4, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;->access$900(Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;)I
+	22      (00000054) move-result          v4
+	23      (00000056) if-ne                v3, v4, +003h
+
+onClick-BB@0x5a : [ onClick-BB@0x5e ]
+	24      (0000005a) goto                 +2h
+
+onClick-BB@0x5c : [ onClick-BB@0x5e ]
+	25      (0000005c) const/4              v2, 0
+
+onClick-BB@0x5e : [ onClick-BB@0x62 onClick-BB@0xf0 ]
+	26      (0000005e) if-nez               v2, +049h
+
+onClick-BB@0x62 : [ onClick-BB@0x80 ]
+	27      (00000062) iget-object          v3, v10, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter$GroupViewHolder;->this$0 Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;
+	28      (00000066) iget-object          v4, v10, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter$GroupViewHolder;->group Lcom/boat/support/slam/entity/floors/Floors;
+	29      (0000006a) invoke-virtual       v4, Lcom/boat/support/slam/entity/floors/Floors;->getFloorId()J
+	30      (00000070) move-result-wide     v4
+	31      (00000072) invoke-static        v3, v4, v5, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;->access$502(Lcom/jlboat/phone/adapter/RvFloorMapListAdapter; J)J
+	32      (00000078) invoke-interface     v0, Ljava/util/List;->iterator()Ljava/util/Iterator;
+	33      (0000007e) move-result-object   v3
+
+onClick-BB@0x80 : [ onClick-BB@0x8c onClick-BB@0xca ]
+	34      (00000080) invoke-interface     v3, Ljava/util/Iterator;->hasNext()Z
+	35      (00000086) move-result          v4
+	36      (00000088) if-eqz               v4, +021h
+
+onClick-BB@0x8c : [ onClick-BB@0xb4 onClick-BB@0xc8 ]
+	37      (0000008c) invoke-interface     v3, Ljava/util/Iterator;->next()Ljava/lang/Object;
+	38      (00000092) move-result-object   v4
+	39      (00000094) check-cast           v4, Lcom/boat/support/slam/entity/floors/Maps;
+	40      (00000098) invoke-virtual       v4, Lcom/boat/support/slam/entity/floors/Maps;->getMapId()J
+	41      (0000009e) move-result-wide     v5
+	42      (000000a0) iget-object          v7, v10, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter$GroupViewHolder;->group Lcom/boat/support/slam/entity/floors/Floors;
+	43      (000000a4) invoke-virtual       v7, Lcom/boat/support/slam/entity/floors/Floors;->getDefaultmap()J
+	44      (000000aa) move-result-wide     v7
+	45      (000000ac) cmp-long             v9, v5, v7
+	46      (000000b0) if-nez               v9, +00ch
+
+onClick-BB@0xb4 : [ onClick-BB@0xca ]
+	47      (000000b4) iget-object          v3, v10, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter$GroupViewHolder;->this$0 Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;
+	48      (000000b8) invoke-virtual       v4, Lcom/boat/support/slam/entity/floors/Maps;->getMapId()J
+	49      (000000be) move-result-wide     v5
+	50      (000000c0) invoke-static        v3, v5, v6, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;->access$1002(Lcom/jlboat/phone/adapter/RvFloorMapListAdapter; J)J
+	51      (000000c6) goto                 +2h
+
+onClick-BB@0xc8 : [ onClick-BB@0x80 ]
+	52      (000000c8) goto                 -24h
+
+onClick-BB@0xca : [ onClick-BB@0x140 ]
+	53      (000000ca) iget-object          v3, v10, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter$GroupViewHolder;->this$0 Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;
+	54      (000000ce) invoke-static        v3, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;->access$800(Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;)Ljava/util/List;
+	55      (000000d4) move-result-object   v3
+	56      (000000d6) invoke-interface     v3, v1, v0, Ljava/util/List;->addAll(I Ljava/util/Collection;)Z
+	57      (000000dc) iget-object          v3, v10, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter$GroupViewHolder;->this$0 Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;
+	58      (000000e0) invoke-interface     v0, Ljava/util/List;->size()I
+	59      (000000e6) move-result          v4
+	60      (000000e8) invoke-virtual       v3, v1, v4, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;->notifyItemRangeInserted(I I)V
+	61      (000000ee) goto                 +29h
+
+onClick-BB@0xf0 : [ onClick-BB@0x10a ]
+	62      (000000f0) iget-object          v3, v10, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter$GroupViewHolder;->this$0 Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;
+	63      (000000f4) const-wide/16        v4, -1
+	64      (000000f8) invoke-static        v3, v4, v5, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;->access$502(Lcom/jlboat/phone/adapter/RvFloorMapListAdapter; J)J
+	65      (000000fe) iget-object          v3, v10, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter$GroupViewHolder;->this$0 Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;
+	66      (00000102) invoke-static        v3, v4, v5, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;->access$1002(Lcom/jlboat/phone/adapter/RvFloorMapListAdapter; J)J
+	67      (00000108) const/4              v3, 0
+
+onClick-BB@0x10a : [ onClick-BB@0x116 onClick-BB@0x12e ]
+	68      (0000010a) invoke-interface     v0, Ljava/util/List;->size()I
+	69      (00000110) move-result          v4
+	70      (00000112) if-ge                v3, v4, +00eh
+
+onClick-BB@0x116 : [ onClick-BB@0x10a ]
+	71      (00000116) iget-object          v4, v10, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter$GroupViewHolder;->this$0 Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;
+	72      (0000011a) invoke-static        v4, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;->access$800(Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;)Ljava/util/List;
+	73      (00000120) move-result-object   v4
+	74      (00000122) invoke-interface     v4, v1, Ljava/util/List;->remove(I)Ljava/lang/Object;
+	75      (00000128) add-int/lit8         v3, v3, 1
+	76      (0000012c) goto                 -11h
+
+onClick-BB@0x12e : [ onClick-BB@0x140 ]
+	77      (0000012e) iget-object          v3, v10, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter$GroupViewHolder;->this$0 Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;
+	78      (00000132) invoke-interface     v0, Ljava/util/List;->size()I
+	79      (00000138) move-result          v4
+	80      (0000013a) invoke-virtual       v3, v1, v4, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;->notifyItemRangeRemoved(I I)V
+
+onClick-BB@0x140 : 
+	81      (00000140) return-void          
+

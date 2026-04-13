@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/base/BaseFullActivity;->access$300(Lcom/jlboat/phone/base/BaseFullActivity;)V [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v-1
+# - v0:com.jlboat.phone.base.BaseFullActivity
+#
+# - return:void
+
+access$300-BB@0x0 : 
+	0       (00000000) invoke-direct        v0, Lcom/jlboat/phone/base/BaseFullActivity;->updateTitleBar()V
+	1       (00000006) return-void          
+

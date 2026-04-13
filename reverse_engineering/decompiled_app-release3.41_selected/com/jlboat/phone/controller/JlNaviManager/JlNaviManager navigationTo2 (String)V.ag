@@ -1,0 +1,33 @@
+# Lcom/jlboat/phone/controller/JlNaviManager;->navigationTo2(Ljava/lang/String;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:java.lang.String
+#
+# - return:void
+
+navigationTo2-BB@0x0 : [ navigationTo2-BB@0x8 navigationTo2-BB@0x2e ]
+	0       (00000000) iget-boolean         v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->connectStatus Z
+	1       (00000004) if-eqz               v0, +015h
+
+navigationTo2-BB@0x8 : [ navigationTo2-BB@0x10 navigationTo2-BB@0x12 ]
+	2       (00000008) iget-boolean         v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->isNavigationInited Z
+	3       (0000000c) if-nez               v0, +003h
+
+navigationTo2-BB@0x10 : [ navigationTo2-BB@0x2e ]
+	4       (00000010) goto                 +fh
+
+navigationTo2-BB@0x12 : 
+	5       (00000012) new-instance         v0, Lcom/jlboat/phone/message/map_msgs/SetTargetGoal;
+	6       (00000016) invoke-direct        v0, Lcom/jlboat/phone/message/map_msgs/SetTargetGoal;-><init>()V
+	7       (0000001c) invoke-virtual       v0, v3, Lcom/jlboat/phone/message/map_msgs/SetTargetGoal;->setGoalName(Ljava/lang/String;)V
+	8       (00000022) iget-object          v1, v2, Lcom/jlboat/phone/controller/JlNaviManager;->setTargetGoalPublish Lcom/boat/jrosbridge/Topic;
+	9       (00000026) invoke-virtual       v1, v0, Lcom/boat/jrosbridge/Topic;->publish(Lcom/boat/jrosbridge/message/Message;)V
+	10      (0000002c) return-void          
+
+navigationTo2-BB@0x2e : 
+	11      (0000002e) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->TAG Ljava/lang/String;
+	12      (00000032) const-string         v1, "navigationTo2: 初始化未成功 不可以进行数据请求 navigationTo2"
+	13      (00000036) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	14      (0000003c) return-void          
+

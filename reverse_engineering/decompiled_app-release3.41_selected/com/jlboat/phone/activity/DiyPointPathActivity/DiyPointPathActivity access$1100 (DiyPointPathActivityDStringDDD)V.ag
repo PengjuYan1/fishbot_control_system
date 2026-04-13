@@ -1,0 +1,17 @@
+# Lcom/jlboat/phone/activity/DiyPointPathActivity;->access$1100(Lcom/jlboat/phone/activity/DiyPointPathActivity; D Ljava/lang/String; D D D)V [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:com.jlboat.phone.activity.DiyPointPathActivity
+# - v5:double
+# - v6:java.lang.String
+# - v7:double
+# - v8:double
+# - v9:double
+#
+# - return:void
+
+access$1100-BB@0x0 : 
+	0       (00000000) invoke-direct/range  v0 ... v9, Lcom/jlboat/phone/activity/DiyPointPathActivity;->updatePoint(D Ljava/lang/String; D D D)V
+	1       (00000006) return-void          
+

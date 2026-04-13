@@ -1,0 +1,28 @@
+# Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508$6$1;->run()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v4
+#
+# - return:void
+
+run-BB@0x0 : 
+	0       (00000000) iget-object          v0, v4, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508$6$1;->this$1 Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508$6;
+	1       (00000004) iget-object          v0, v0, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508$6;->this$0 Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;
+	2       (00000008) invoke-static        v0, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;->access$2200(Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;)Landroid/widget/EditText;
+	3       (0000000e) move-result-object   v0
+	4       (00000010) iget-object          v1, v4, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508$6$1;->val$config Lcom/jlboat/phone/message/map_msgs/Config;
+	5       (00000014) invoke-virtual       v1, Lcom/jlboat/phone/message/map_msgs/Config;->getConfigValue()Ljava/lang/String;
+	6       (0000001a) move-result-object   v1
+	7       (0000001c) invoke-virtual       v0, v1, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+	8       (00000022) iget-object          v0, v4, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508$6$1;->this$1 Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508$6;
+	9       (00000026) iget-object          v0, v0, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508$6;->this$0 Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;
+	10      (0000002a) iget-object          v1, v4, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508$6$1;->val$config Lcom/jlboat/phone/message/map_msgs/Config;
+	11      (0000002e) invoke-virtual       v1, Lcom/jlboat/phone/message/map_msgs/Config;->getConfigValue()Ljava/lang/String;
+	12      (00000034) move-result-object   v1
+	13      (00000036) const-string         v2, "'"
+	14      (0000003a) const-string         v3, ""
+	15      (0000003e) invoke-virtual       v1, v2, v3, Ljava/lang/String;->replace(Ljava/lang/CharSequence; Ljava/lang/CharSequence;)Ljava/lang/String;
+	16      (00000044) move-result-object   v1
+	17      (00000046) invoke-static        v0, v1, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;->access$902(Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508; Ljava/lang/String;)Ljava/lang/String;
+	18      (0000004c) return-void          
+

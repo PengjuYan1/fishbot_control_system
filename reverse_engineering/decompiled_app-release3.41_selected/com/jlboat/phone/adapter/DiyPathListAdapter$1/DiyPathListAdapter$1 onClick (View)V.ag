@@ -1,0 +1,31 @@
+# Lcom/jlboat/phone/adapter/DiyPathListAdapter$1;->onClick(Landroid/view/View;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:android.view.View
+#
+# - return:void
+
+onClick-BB@0x0 : [ onClick-BB@0x10 onClick-BB@0x3a ]
+	0       (00000000) iget-object          v0, v2, Lcom/jlboat/phone/adapter/DiyPathListAdapter$1;->this$0 Lcom/jlboat/phone/adapter/DiyPathListAdapter;
+	1       (00000004) invoke-static        v0, Lcom/jlboat/phone/adapter/DiyPathListAdapter;->access$000(Lcom/jlboat/phone/adapter/DiyPathListAdapter;)Lcom/jlboat/phone/adapter/DiyPathListAdapter$OnItemClickListener;
+	2       (0000000a) move-result-object   v0
+	3       (0000000c) if-eqz               v0, +017h
+
+onClick-BB@0x10 : [ onClick-BB@0x24 onClick-BB@0x3a ]
+	4       (00000010) iget-object          v0, v2, Lcom/jlboat/phone/adapter/DiyPathListAdapter$1;->this$0 Lcom/jlboat/phone/adapter/DiyPathListAdapter;
+	5       (00000014) invoke-static        v0, Lcom/jlboat/phone/adapter/DiyPathListAdapter;->access$100(Lcom/jlboat/phone/adapter/DiyPathListAdapter;)I
+	6       (0000001a) move-result          v0
+	7       (0000001c) iget                 v1, v2, Lcom/jlboat/phone/adapter/DiyPathListAdapter$1;->val$postion I
+	8       (00000020) if-eq                v0, v1, +00dh
+
+onClick-BB@0x24 : [ onClick-BB@0x3a ]
+	9       (00000024) iget-object          v0, v2, Lcom/jlboat/phone/adapter/DiyPathListAdapter$1;->this$0 Lcom/jlboat/phone/adapter/DiyPathListAdapter;
+	10      (00000028) invoke-static        v0, Lcom/jlboat/phone/adapter/DiyPathListAdapter;->access$000(Lcom/jlboat/phone/adapter/DiyPathListAdapter;)Lcom/jlboat/phone/adapter/DiyPathListAdapter$OnItemClickListener;
+	11      (0000002e) move-result-object   v0
+	12      (00000030) iget                 v1, v2, Lcom/jlboat/phone/adapter/DiyPathListAdapter$1;->val$postion I
+	13      (00000034) invoke-interface     v0, v1, v3, Lcom/jlboat/phone/adapter/DiyPathListAdapter$OnItemClickListener;->onClick(I Landroid/view/View;)V
+
+onClick-BB@0x3a : 
+	14      (0000003a) return-void          
+

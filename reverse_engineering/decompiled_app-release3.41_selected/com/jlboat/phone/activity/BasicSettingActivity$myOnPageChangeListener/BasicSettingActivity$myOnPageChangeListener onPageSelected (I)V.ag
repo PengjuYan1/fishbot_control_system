@@ -1,0 +1,76 @@
+# Lcom/jlboat/phone/activity/BasicSettingActivity$myOnPageChangeListener;->onPageSelected(I)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:int
+#
+# - return:void
+
+onPageSelected-BB@0x0 : [ D:onPageSelected-BB@0x6 0:onPageSelected-BB@0xa4 1:onPageSelected-BB@0x8a 2:onPageSelected-BB@0x70 3:onPageSelected-BB@0x56 4:onPageSelected-BB@0x3c 5:onPageSelected-BB@0x22 6:onPageSelected-BB@0x8 ]
+	0       (00000000) packed-switch        v3, +0000060h
+
+onPageSelected-BB@0x6 : [ onPageSelected-BB@0xbe ]
+	1       (00000006) goto                 +5ch
+
+onPageSelected-BB@0x8 : [ onPageSelected-BB@0xbe ]
+	2       (00000008) iget-object          v0, v2, Lcom/jlboat/phone/activity/BasicSettingActivity$myOnPageChangeListener;->this$0 Lcom/jlboat/phone/activity/BasicSettingActivity;
+	3       (0000000c) invoke-static        v0, Lcom/jlboat/phone/activity/BasicSettingActivity;->access$200(Lcom/jlboat/phone/activity/BasicSettingActivity;)Landroid/widget/RadioGroup;
+	4       (00000012) move-result-object   v0
+	5       (00000014) const                v1, 2131231138
+	6       (0000001a) invoke-virtual       v0, v1, Landroid/widget/RadioGroup;->check(I)V
+	7       (00000020) goto                 +4fh
+
+onPageSelected-BB@0x22 : [ onPageSelected-BB@0xbe ]
+	8       (00000022) iget-object          v0, v2, Lcom/jlboat/phone/activity/BasicSettingActivity$myOnPageChangeListener;->this$0 Lcom/jlboat/phone/activity/BasicSettingActivity;
+	9       (00000026) invoke-static        v0, Lcom/jlboat/phone/activity/BasicSettingActivity;->access$200(Lcom/jlboat/phone/activity/BasicSettingActivity;)Landroid/widget/RadioGroup;
+	10      (0000002c) move-result-object   v0
+	11      (0000002e) const                v1, 2131231137
+	12      (00000034) invoke-virtual       v0, v1, Landroid/widget/RadioGroup;->check(I)V
+	13      (0000003a) goto                 +42h
+
+onPageSelected-BB@0x3c : [ onPageSelected-BB@0xbe ]
+	14      (0000003c) iget-object          v0, v2, Lcom/jlboat/phone/activity/BasicSettingActivity$myOnPageChangeListener;->this$0 Lcom/jlboat/phone/activity/BasicSettingActivity;
+	15      (00000040) invoke-static        v0, Lcom/jlboat/phone/activity/BasicSettingActivity;->access$200(Lcom/jlboat/phone/activity/BasicSettingActivity;)Landroid/widget/RadioGroup;
+	16      (00000046) move-result-object   v0
+	17      (00000048) const                v1, 2131231136
+	18      (0000004e) invoke-virtual       v0, v1, Landroid/widget/RadioGroup;->check(I)V
+	19      (00000054) goto                 +35h
+
+onPageSelected-BB@0x56 : [ onPageSelected-BB@0xbe ]
+	20      (00000056) iget-object          v0, v2, Lcom/jlboat/phone/activity/BasicSettingActivity$myOnPageChangeListener;->this$0 Lcom/jlboat/phone/activity/BasicSettingActivity;
+	21      (0000005a) invoke-static        v0, Lcom/jlboat/phone/activity/BasicSettingActivity;->access$200(Lcom/jlboat/phone/activity/BasicSettingActivity;)Landroid/widget/RadioGroup;
+	22      (00000060) move-result-object   v0
+	23      (00000062) const                v1, 2131231135
+	24      (00000068) invoke-virtual       v0, v1, Landroid/widget/RadioGroup;->check(I)V
+	25      (0000006e) goto                 +28h
+
+onPageSelected-BB@0x70 : [ onPageSelected-BB@0xbe ]
+	26      (00000070) iget-object          v0, v2, Lcom/jlboat/phone/activity/BasicSettingActivity$myOnPageChangeListener;->this$0 Lcom/jlboat/phone/activity/BasicSettingActivity;
+	27      (00000074) invoke-static        v0, Lcom/jlboat/phone/activity/BasicSettingActivity;->access$200(Lcom/jlboat/phone/activity/BasicSettingActivity;)Landroid/widget/RadioGroup;
+	28      (0000007a) move-result-object   v0
+	29      (0000007c) const                v1, 2131231134
+	30      (00000082) invoke-virtual       v0, v1, Landroid/widget/RadioGroup;->check(I)V
+	31      (00000088) goto                 +1bh
+
+onPageSelected-BB@0x8a : [ onPageSelected-BB@0xbe ]
+	32      (0000008a) iget-object          v0, v2, Lcom/jlboat/phone/activity/BasicSettingActivity$myOnPageChangeListener;->this$0 Lcom/jlboat/phone/activity/BasicSettingActivity;
+	33      (0000008e) invoke-static        v0, Lcom/jlboat/phone/activity/BasicSettingActivity;->access$200(Lcom/jlboat/phone/activity/BasicSettingActivity;)Landroid/widget/RadioGroup;
+	34      (00000094) move-result-object   v0
+	35      (00000096) const                v1, 2131231133
+	36      (0000009c) invoke-virtual       v0, v1, Landroid/widget/RadioGroup;->check(I)V
+	37      (000000a2) goto                 +eh
+
+onPageSelected-BB@0xa4 : [ onPageSelected-BB@0xbe ]
+	38      (000000a4) iget-object          v0, v2, Lcom/jlboat/phone/activity/BasicSettingActivity$myOnPageChangeListener;->this$0 Lcom/jlboat/phone/activity/BasicSettingActivity;
+	39      (000000a8) invoke-static        v0, Lcom/jlboat/phone/activity/BasicSettingActivity;->access$200(Lcom/jlboat/phone/activity/BasicSettingActivity;)Landroid/widget/RadioGroup;
+	40      (000000ae) move-result-object   v0
+	41      (000000b0) const                v1, 2131231132
+	42      (000000b6) invoke-virtual       v0, v1, Landroid/widget/RadioGroup;->check(I)V
+	43      (000000bc) nop                  
+
+onPageSelected-BB@0xbe : 
+	44      (000000be) return-void          
+
+onPageSelected-BB@0xc0 : 
+	45      (000000c0) packed-switch-payload 0 1 2 3 4 5 6
+

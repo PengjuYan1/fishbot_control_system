@@ -1,0 +1,38 @@
+# Lcom/jlboat/phone/fragment/calibrationfragment/OmodFragment$3;->handleMessage(Landroid/os/Message;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:android.os.Message
+#
+# - return:void
+
+handleMessage-BB@0x0 : [ D:handleMessage-BB@0x10 1:handleMessage-BB@0x22 2:handleMessage-BB@0x12 ]
+	0       (00000000) invoke-super         v2, v3, Landroid/os/Handler;->handleMessage(Landroid/os/Message;)V
+	1       (00000006) iget                 v0, v3, Landroid/os/Message;->what I
+	2       (0000000a) packed-switch        v0, +000001dh
+
+handleMessage-BB@0x10 : [ handleMessage-BB@0x42 ]
+	3       (00000010) goto                 +19h
+
+handleMessage-BB@0x12 : [ handleMessage-BB@0x42 ]
+	4       (00000012) iget-object          v0, v2, Lcom/jlboat/phone/fragment/calibrationfragment/OmodFragment$3;->this$0 Lcom/jlboat/phone/fragment/calibrationfragment/OmodFragment;
+	5       (00000016) const-string         v1, "测试成功"
+	6       (0000001a) invoke-static        v0, v1, Lcom/jlboat/phone/fragment/calibrationfragment/OmodFragment;->access$300(Lcom/jlboat/phone/fragment/calibrationfragment/OmodFragment; Ljava/lang/CharSequence;)V
+	7       (00000020) goto                 +11h
+
+handleMessage-BB@0x22 : [ handleMessage-BB@0x42 ]
+	8       (00000022) iget-object          v0, v2, Lcom/jlboat/phone/fragment/calibrationfragment/OmodFragment$3;->this$0 Lcom/jlboat/phone/fragment/calibrationfragment/OmodFragment;
+	9       (00000026) invoke-static        v0, Lcom/jlboat/phone/fragment/calibrationfragment/OmodFragment;->access$200(Lcom/jlboat/phone/fragment/calibrationfragment/OmodFragment;)Lcom/jlboat/phone/adapter/OdomAdapter;
+	10      (0000002c) move-result-object   v0
+	11      (0000002e) iget-object          v1, v2, Lcom/jlboat/phone/fragment/calibrationfragment/OmodFragment$3;->this$0 Lcom/jlboat/phone/fragment/calibrationfragment/OmodFragment;
+	12      (00000032) invoke-static        v1, Lcom/jlboat/phone/fragment/calibrationfragment/OmodFragment;->access$000(Lcom/jlboat/phone/fragment/calibrationfragment/OmodFragment;)Ljava/util/List;
+	13      (00000038) move-result-object   v1
+	14      (0000003a) invoke-virtual       v0, v1, Lcom/jlboat/phone/adapter/OdomAdapter;->setMdata(Ljava/util/List;)V
+	15      (00000040) nop                  
+
+handleMessage-BB@0x42 : 
+	16      (00000042) return-void          
+
+handleMessage-BB@0x44 : 
+	17      (00000044) packed-switch-payload 1 2
+

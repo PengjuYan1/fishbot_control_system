@@ -1,0 +1,20 @@
+# Lcom/jlboat/phone/communication/SpiritServiceClient;->getMapsService(Lcom/boat/jrosbridge/MessageListener;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v5
+# - v6:com.boat.jrosbridge.MessageListener
+#
+# - return:void
+
+getMapsService-BB@0x0 : 
+	0       (00000000) new-instance         v0, Lcom/boat/jrosbridge/Service;
+	1       (00000004) sget-object          v1, Lcom/jlboat/phone/util/ServiceNames;->GetMaps Ljava/lang/String;
+	2       (00000008) const-class          v2, Lcom/boat/jrosbridge/message/std_srvs/Empty;
+	3       (0000000c) const-class          v3, Lcom/boat/jrosbridge/message/std_srvs/TriggerResponse;
+	4       (00000010) sget-object          v4, Lcom/jlboat/phone/application/BoatSlamApplication;->client Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;
+	5       (00000014) invoke-direct        v0, v1, v2, v3, v4, Lcom/boat/jrosbridge/Service;-><init>(Ljava/lang/String; Ljava/lang/Class; Ljava/lang/Class; Lcom/boat/jrosbridge/ROSClient;)V
+	6       (0000001a) new-instance         v1, Lcom/boat/jrosbridge/message/std_srvs/Empty;
+	7       (0000001e) invoke-direct        v1, Lcom/boat/jrosbridge/message/std_srvs/Empty;-><init>()V
+	8       (00000024) invoke-virtual       v0, v1, v6, Lcom/boat/jrosbridge/Service;->callWithHandler(Lcom/boat/jrosbridge/message/Message; Lcom/boat/jrosbridge/MessageListener;)V
+	9       (0000002a) return-void          
+

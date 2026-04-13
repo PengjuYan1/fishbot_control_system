@@ -1,0 +1,13 @@
+# Lcom/boat/support/slam/entity/floors/Points$1;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object; [access_flags=public bridge synthetic]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:android.os.Parcel
+#
+# - return:java.lang.Object
+
+createFromParcel-BB@0x0 : 
+	0       (00000000) invoke-virtual       v0, v1, Lcom/boat/support/slam/entity/floors/Points$1;->createFromParcel(Landroid/os/Parcel;)Lcom/boat/support/slam/entity/floors/Points;
+	1       (00000006) move-result-object   v1
+	2       (00000008) return-object        v1
+

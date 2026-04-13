@@ -1,0 +1,42 @@
+# Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment$5;->onNewMessage(Lcom/jlboat/phone/message/map_msgs/NaviTestResultEntrys;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:com.jlboat.phone.message.map_msgs.NaviTestResultEntrys
+#
+# - return:void
+
+onNewMessage-BB@0x0 : [ onNewMessage-BB@0x1e onNewMessage-BB@0x5c ]
+	0       (00000000) iget-object          v0, v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment$5;->this$0 Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment;
+	1       (00000004) invoke-static        v0, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment;->access$1200(Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment;)Lcom/boat/jrosbridge/Topic;
+	2       (0000000a) move-result-object   v0
+	3       (0000000c) invoke-virtual       v0, Lcom/boat/jrosbridge/Topic;->unsubscribe()V
+	4       (00000012) invoke-virtual       v4, Lcom/jlboat/phone/message/map_msgs/NaviTestResultEntrys;->getTestresults()Ljava/util/List;
+	5       (00000018) move-result-object   v0
+	6       (0000001a) if-eqz               v0, +021h
+
+onNewMessage-BB@0x1e : [ onNewMessage-BB@0x34 onNewMessage-BB@0x36 ]
+	7       (0000001e) invoke-virtual       v4, Lcom/jlboat/phone/message/map_msgs/NaviTestResultEntrys;->getTestresults()Ljava/util/List;
+	8       (00000024) move-result-object   v0
+	9       (00000026) invoke-interface     v0, Ljava/util/List;->size()I
+	10      (0000002c) move-result          v0
+	11      (0000002e) const/4              v1, 1
+	12      (00000030) if-ge                v0, v1, +003h
+
+onNewMessage-BB@0x34 : [ onNewMessage-BB@0x5c ]
+	13      (00000034) goto                 +14h
+
+onNewMessage-BB@0x36 : 
+	14      (00000036) new-instance         v0, Landroid/content/Intent;
+	15      (0000003a) iget-object          v1, v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment$5;->this$0 Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment;
+	16      (0000003e) invoke-virtual       v1, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+	17      (00000044) move-result-object   v1
+	18      (00000046) const-class          v2, Lcom/jlboat/phone/activity/TestResultActivity;
+	19      (0000004a) invoke-direct        v0, v1, v2, Landroid/content/Intent;-><init>(Landroid/content/Context; Ljava/lang/Class;)V
+	20      (00000050) iget-object          v1, v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment$5;->this$0 Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment;
+	21      (00000054) invoke-virtual       v1, v0, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment;->startActivity(Landroid/content/Intent;)V
+	22      (0000005a) return-void          
+
+onNewMessage-BB@0x5c : 
+	23      (0000005c) return-void          
+

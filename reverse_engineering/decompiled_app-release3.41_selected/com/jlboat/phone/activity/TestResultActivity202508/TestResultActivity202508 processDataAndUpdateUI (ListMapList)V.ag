@@ -1,0 +1,43 @@
+# Lcom/jlboat/phone/activity/TestResultActivity202508;->processDataAndUpdateUI(Ljava/util/List; Lcom/boat/support/slam/entity/floors/MapList;)V [access_flags=private]
+#
+# Parameters:
+# - local registers: v0...v5
+# - v6:java.util.List
+# - v7:com.boat.support.slam.entity.floors.MapList
+#
+# - return:void
+
+processDataAndUpdateUI-BB@0x0 : [ processDataAndUpdateUI-BB@0xa ]
+	0       (00000000) const/4              v0, 1
+	1       (00000002) invoke-interface     v6, Ljava/util/List;->iterator()Ljava/util/Iterator;
+	2       (00000008) move-result-object   v1
+
+processDataAndUpdateUI-BB@0xa : [ processDataAndUpdateUI-BB@0x16 processDataAndUpdateUI-BB@0x36 ]
+	3       (0000000a) invoke-interface     v1, Ljava/util/Iterator;->hasNext()Z
+	4       (00000010) move-result          v2
+	5       (00000012) if-eqz               v2, +012h
+
+processDataAndUpdateUI-BB@0x16 : [ processDataAndUpdateUI-BB@0x30 processDataAndUpdateUI-BB@0x34 ]
+	6       (00000016) invoke-interface     v1, Ljava/util/Iterator;->next()Ljava/lang/Object;
+	7       (0000001c) move-result-object   v2
+	8       (0000001e) check-cast           v2, Lcom/jlboat/phone/message/map_msgs/TargetGoalEntry;
+	9       (00000022) invoke-virtual       v2, Lcom/jlboat/phone/message/map_msgs/TargetGoalEntry;->getStatus()I
+	10      (00000028) move-result          v3
+	11      (0000002a) const/4              v4, 2
+	12      (0000002c) if-eq                v3, v4, +004h
+
+processDataAndUpdateUI-BB@0x30 : [ processDataAndUpdateUI-BB@0x36 ]
+	13      (00000030) const/4              v0, 0
+	14      (00000032) goto                 +2h
+
+processDataAndUpdateUI-BB@0x34 : [ processDataAndUpdateUI-BB@0xa ]
+	15      (00000034) goto                 -15h
+
+processDataAndUpdateUI-BB@0x36 : 
+	16      (00000036) move                 v1, v0
+	17      (00000038) iget-object          v2, v5, Lcom/jlboat/phone/activity/TestResultActivity202508;->testResRv Landroid/support/v7/widget/RecyclerView;
+	18      (0000003c) new-instance         v3, Lcom/jlboat/phone/activity/TestResultActivity202508$$ExternalSyntheticLambda0;
+	19      (00000040) invoke-direct        v3, v5, v7, v6, v1, Lcom/jlboat/phone/activity/TestResultActivity202508$$ExternalSyntheticLambda0;-><init>(Lcom/jlboat/phone/activity/TestResultActivity202508; Lcom/boat/support/slam/entity/floors/MapList; Ljava/util/List; Z)V
+	20      (00000046) invoke-virtual       v2, v3, Landroid/support/v7/widget/RecyclerView;->post(Ljava/lang/Runnable;)Z
+	21      (0000004c) return-void          
+

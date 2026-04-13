@@ -1,0 +1,137 @@
+# Lcom/boat/jrosbridge/rosbridge/implementation/Base64;->decode([B)[B [access_flags=public static final]
+#
+# Parameters:
+# - local registers: v0...v12
+# - v13:byte[]
+#
+# - return:byte[]
+
+decode-BB@0x0 : [ decode-BB@0x6 ]
+	0       (00000000) array-length         v0, v13
+	1       (00000002) const/4              v1, 0
+	2       (00000004) const/4              v2, 0
+
+decode-BB@0x6 : [ decode-BB@0xa decode-BB@0x28 ]
+	3       (00000006) if-ge                v2, v0, +011h
+
+decode-BB@0xa : [ decode-BB@0x1e decode-BB@0x22 ]
+	4       (0000000a) sget-object          v3, Lcom/boat/jrosbridge/rosbridge/implementation/Base64;->IA [I
+	5       (0000000e) aget-byte            v4, v13, v2
+	6       (00000012) and-int/lit16        v4, v4, 255
+	7       (00000016) aget                 v3, v3, v4
+	8       (0000001a) if-gez               v3, +004h
+
+decode-BB@0x1e : [ decode-BB@0x22 ]
+	9       (0000001e) add-int/lit8         v1, v1, 1
+
+decode-BB@0x22 : [ decode-BB@0x6 ]
+	10      (00000022) add-int/lit8         v2, v2, 1
+	11      (00000026) goto                 -10h
+
+decode-BB@0x28 : [ decode-BB@0x34 decode-BB@0x38 ]
+	12      (00000028) sub-int              v2, v0, v1
+	13      (0000002c) const/4              v3, 4
+	14      (0000002e) rem-int/2addr        v2, v3
+	15      (00000030) if-eqz               v2, +004h
+
+decode-BB@0x34 : 
+	16      (00000034) const/4              v2, 0
+	17      (00000036) return-object        v2
+
+decode-BB@0x38 : [ decode-BB@0x3c ]
+	18      (00000038) const/4              v2, 0
+	19      (0000003a) move                 v4, v0
+
+decode-BB@0x3c : [ decode-BB@0x42 decode-BB@0x6c ]
+	20      (0000003c) const/4              v5, 1
+	21      (0000003e) if-le                v4, v5, +017h
+
+decode-BB@0x42 : [ decode-BB@0x5a decode-BB@0x6c ]
+	22      (00000042) sget-object          v6, Lcom/boat/jrosbridge/rosbridge/implementation/Base64;->IA [I
+	23      (00000046) add-int/lit8         v4, v4, -1
+	24      (0000004a) aget-byte            v7, v13, v4
+	25      (0000004e) and-int/lit16        v7, v7, 255
+	26      (00000052) aget                 v6, v6, v7
+	27      (00000056) if-gtz               v6, +00bh
+
+decode-BB@0x5a : [ decode-BB@0x66 decode-BB@0x3c ]
+	28      (0000005a) aget-byte            v5, v13, v4
+	29      (0000005e) const/16             v6, 61
+	30      (00000062) if-ne                v5, v6, -013h
+
+decode-BB@0x66 : [ decode-BB@0x3c ]
+	31      (00000066) add-int/lit8         v2, v2, 1
+	32      (0000006a) goto                 -17h
+
+decode-BB@0x6c : [ decode-BB@0x82 ]
+	33      (0000006c) sub-int              v4, v0, v1
+	34      (00000070) mul-int/lit8         v4, v4, 6
+	35      (00000074) shr-int/lit8         v4, v4, 3
+	36      (00000078) sub-int/2addr        v4, v2
+	37      (0000007a) new-array            v6, v4, [B
+	38      (0000007e) const/4              v7, 0
+	39      (00000080) const/4              v8, 0
+
+decode-BB@0x82 : [ decode-BB@0x86 decode-BB@0xf6 ]
+	40      (00000082) if-ge                v8, v4, +03ah
+
+decode-BB@0x86 : [ decode-BB@0x8a ]
+	41      (00000086) const/4              v9, 0
+	42      (00000088) const/4              v10, 0
+
+decode-BB@0x8a : [ decode-BB@0x8e decode-BB@0xc0 ]
+	43      (0000008a) if-ge                v10, v3, +01bh
+
+decode-BB@0x8e : [ decode-BB@0xa6 decode-BB@0xb6 ]
+	44      (0000008e) sget-object          v11, Lcom/boat/jrosbridge/rosbridge/implementation/Base64;->IA [I
+	45      (00000092) add-int/lit8         v12, v7, 1
+	46      (00000096) aget-byte            v7, v13, v7
+	47      (0000009a) and-int/lit16        v7, v7, 255
+	48      (0000009e) aget                 v7, v11, v7
+	49      (000000a2) if-ltz               v7, +00ah
+
+decode-BB@0xa6 : [ decode-BB@0xba ]
+	50      (000000a6) mul-int/lit8         v11, v10, 6
+	51      (000000aa) rsub-int/lit8        v11, v11, 18
+	52      (000000ae) shl-int              v11, v7, v11
+	53      (000000b2) or-int/2addr         v9, v11
+	54      (000000b4) goto                 +3h
+
+decode-BB@0xb6 : [ decode-BB@0xba ]
+	55      (000000b6) add-int/lit8         v10, v10, -1
+
+decode-BB@0xba : [ decode-BB@0x8a ]
+	56      (000000ba) add-int/2addr        v10, v5
+	57      (000000bc) move                 v7, v12
+	58      (000000be) goto                 -1ah
+
+decode-BB@0xc0 : [ decode-BB@0xd2 decode-BB@0xf2 ]
+	59      (000000c0) add-int/lit8         v10, v8, 1
+	60      (000000c4) shr-int/lit8         v11, v9, 16
+	61      (000000c8) int-to-byte          v11, v11
+	62      (000000ca) aput-byte            v11, v6, v8
+	63      (000000ce) if-ge                v10, v4, +012h
+
+decode-BB@0xd2 : [ decode-BB@0xe4 decode-BB@0xf4 ]
+	64      (000000d2) add-int/lit8         v8, v10, 1
+	65      (000000d6) shr-int/lit8         v11, v9, 8
+	66      (000000da) int-to-byte          v11, v11
+	67      (000000dc) aput-byte            v11, v6, v10
+	68      (000000e0) if-ge                v8, v4, +00ah
+
+decode-BB@0xe4 : [ decode-BB@0xf4 ]
+	69      (000000e4) add-int/lit8         v10, v8, 1
+	70      (000000e8) int-to-byte          v11, v9
+	71      (000000ea) aput-byte            v11, v6, v8
+	72      (000000ee) move                 v8, v10
+	73      (000000f0) goto                 +2h
+
+decode-BB@0xf2 : [ decode-BB@0xf4 ]
+	74      (000000f2) move                 v8, v10
+
+decode-BB@0xf4 : [ decode-BB@0x82 ]
+	75      (000000f4) goto                 -39h
+
+decode-BB@0xf6 : 
+	76      (000000f6) return-object        v6
+

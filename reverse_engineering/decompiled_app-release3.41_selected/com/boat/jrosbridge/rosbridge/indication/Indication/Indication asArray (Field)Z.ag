@@ -1,0 +1,24 @@
+# Lcom/boat/jrosbridge/rosbridge/indication/Indication;->asArray(Ljava/lang/reflect/Field;)Z [access_flags=public static]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:java.lang.reflect.Field
+#
+# - return:boolean
+
+asArray-BB@0x0 : [ asArray-BB@0x10 asArray-BB@0x14 ]
+	0       (00000000) const-class          v0, Lcom/boat/jrosbridge/rosbridge/indication/AsArray;
+	1       (00000004) invoke-virtual       v1, v0, Ljava/lang/reflect/Field;->getAnnotation(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+	2       (0000000a) move-result-object   v0
+	3       (0000000c) if-eqz               v0, +004h
+
+asArray-BB@0x10 : [ asArray-BB@0x16 ]
+	4       (00000010) const/4              v0, 1
+	5       (00000012) goto                 +2h
+
+asArray-BB@0x14 : [ asArray-BB@0x16 ]
+	6       (00000014) const/4              v0, 0
+
+asArray-BB@0x16 : 
+	7       (00000016) return               v0
+

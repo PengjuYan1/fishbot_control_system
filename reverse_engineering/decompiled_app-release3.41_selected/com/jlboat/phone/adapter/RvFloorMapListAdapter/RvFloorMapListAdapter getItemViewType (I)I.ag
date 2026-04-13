@@ -1,0 +1,31 @@
+# Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;->getItemViewType(I)I [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:int
+#
+# - return:int
+
+getItemViewType-BB@0x0 : [ getItemViewType-BB@0x14 getItemViewType-BB@0x1a ]
+	0       (00000000) iget-object          v0, v2, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;->listData Ljava/util/List;
+	1       (00000004) invoke-interface     v0, v3, Ljava/util/List;->get(I)Ljava/lang/Object;
+	2       (0000000a) move-result-object   v0
+	3       (0000000c) instance-of          v1, v0, Lcom/boat/support/slam/entity/floors/Floors;
+	4       (00000010) if-eqz               v1, +005h
+
+getItemViewType-BB@0x14 : 
+	5       (00000014) iget                 v1, v2, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;->TYPE_GROUP I
+	6       (00000018) return               v1
+
+getItemViewType-BB@0x1a : [ getItemViewType-BB@0x22 getItemViewType-BB@0x28 ]
+	7       (0000001a) instance-of          v1, v0, Lcom/boat/support/slam/entity/floors/Maps;
+	8       (0000001e) if-eqz               v1, +005h
+
+getItemViewType-BB@0x22 : 
+	9       (00000022) iget                 v1, v2, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;->TYPE_FRIEND I
+	10      (00000026) return               v1
+
+getItemViewType-BB@0x28 : 
+	11      (00000028) const/4              v1, -1
+	12      (0000002a) return               v1
+

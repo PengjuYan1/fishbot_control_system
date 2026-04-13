@@ -1,0 +1,90 @@
+# Lcom/jlboat/phone/activity/TestResultActivity202508;->lambda$processDataAndUpdateUI$0$com-jlboat-phone-activity-TestResultActivity202508(Lcom/boat/support/slam/entity/floors/MapList; Ljava/util/List; Z)V [access_flags=synthetic]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:com.boat.support.slam.entity.floors.MapList
+# - v5:java.util.List
+# - v6:boolean
+#
+# - return:void
+
+lambda$processDataAndUpdateUI$0$com-jlboat-phone-activity-TestResultActivity202508-BB@0x0 : [ lambda$processDataAndUpdateUI$0$com-jlboat-phone-activity-TestResultActivity202508-BB@0xba lambda$processDataAndUpdateUI$0$com-jlboat-phone-activity-TestResultActivity202508-BB@0xca ]
+	0       (00000000) iget-object          v0, v3, Lcom/jlboat/phone/activity/TestResultActivity202508;->adapter Lcom/jlboat/phone/adapter/TestResultAdapter250816;
+	1       (00000004) invoke-virtual       v0, v4, Lcom/jlboat/phone/adapter/TestResultAdapter250816;->setData2(Lcom/boat/support/slam/entity/floors/MapList;)V
+	2       (0000000a) iget-object          v0, v3, Lcom/jlboat/phone/activity/TestResultActivity202508;->adapter Lcom/jlboat/phone/adapter/TestResultAdapter250816;
+	3       (0000000e) iget-boolean         v1, v3, Lcom/jlboat/phone/activity/TestResultActivity202508;->isCycle Z
+	4       (00000012) iget                 v2, v3, Lcom/jlboat/phone/activity/TestResultActivity202508;->cycleCount I
+	5       (00000016) invoke-virtual       v0, v1, v2, Lcom/jlboat/phone/adapter/TestResultAdapter250816;->setData3(Z I)V
+	6       (0000001c) iget-object          v0, v3, Lcom/jlboat/phone/activity/TestResultActivity202508;->adapter Lcom/jlboat/phone/adapter/TestResultAdapter250816;
+	7       (00000020) invoke-virtual       v0, v5, Lcom/jlboat/phone/adapter/TestResultAdapter250816;->setData(Ljava/util/List;)V
+	8       (00000026) new-instance         v0, Ljava/lang/StringBuilder;
+	9       (0000002a) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	10      (00000030) const-string         v1, "resultEntries:"
+	11      (00000034) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	12      (0000003a) move-result-object   v0
+	13      (0000003c) invoke-virtual       v0, v5, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+	14      (00000042) move-result-object   v0
+	15      (00000044) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	16      (0000004a) move-result-object   v0
+	17      (0000004c) const-string         v1, "TestResultActivity"
+	18      (00000050) invoke-static        v1, v0, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	19      (00000056) new-instance         v0, Ljava/lang/StringBuilder;
+	20      (0000005a) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	21      (00000060) const-string         v2, "isCycle:"
+	22      (00000064) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	23      (0000006a) move-result-object   v0
+	24      (0000006c) iget-boolean         v2, v3, Lcom/jlboat/phone/activity/TestResultActivity202508;->isCycle Z
+	25      (00000070) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+	26      (00000076) move-result-object   v0
+	27      (00000078) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	28      (0000007e) move-result-object   v0
+	29      (00000080) invoke-static        v1, v0, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	30      (00000086) new-instance         v0, Ljava/lang/StringBuilder;
+	31      (0000008a) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	32      (00000090) const-string         v2, "cycleCount:"
+	33      (00000094) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	34      (0000009a) move-result-object   v0
+	35      (0000009c) iget                 v2, v3, Lcom/jlboat/phone/activity/TestResultActivity202508;->cycleCount I
+	36      (000000a0) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	37      (000000a6) move-result-object   v0
+	38      (000000a8) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	39      (000000ae) move-result-object   v0
+	40      (000000b0) invoke-static        v1, v0, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	41      (000000b6) if-eqz               v6, +00ah
+
+lambda$processDataAndUpdateUI$0$com-jlboat-phone-activity-TestResultActivity202508-BB@0xba : [ lambda$processDataAndUpdateUI$0$com-jlboat-phone-activity-TestResultActivity202508-BB@0xd6 ]
+	42      (000000ba) iget-object          v0, v3, Lcom/jlboat/phone/activity/TestResultActivity202508;->resCancleBtn Landroid/widget/Button;
+	43      (000000be) const/16             v1, 8
+	44      (000000c2) invoke-virtual       v0, v1, Landroid/widget/Button;->setVisibility(I)V
+	45      (000000c8) goto                 +7h
+
+lambda$processDataAndUpdateUI$0$com-jlboat-phone-activity-TestResultActivity202508-BB@0xca : [ lambda$processDataAndUpdateUI$0$com-jlboat-phone-activity-TestResultActivity202508-BB@0xd6 ]
+	46      (000000ca) iget-object          v0, v3, Lcom/jlboat/phone/activity/TestResultActivity202508;->resCancleBtn Landroid/widget/Button;
+	47      (000000ce) const/4              v1, 0
+	48      (000000d0) invoke-virtual       v0, v1, Landroid/widget/Button;->setVisibility(I)V
+
+lambda$processDataAndUpdateUI$0$com-jlboat-phone-activity-TestResultActivity202508-BB@0xd6 : [ lambda$processDataAndUpdateUI$0$com-jlboat-phone-activity-TestResultActivity202508-BB@0xde lambda$processDataAndUpdateUI$0$com-jlboat-phone-activity-TestResultActivity202508-BB@0xf6 ]
+	49      (000000d6) iget-boolean         v0, v3, Lcom/jlboat/phone/activity/TestResultActivity202508;->isCycle Z
+	50      (000000da) if-eqz               v0, +00eh
+
+lambda$processDataAndUpdateUI$0$com-jlboat-phone-activity-TestResultActivity202508-BB@0xde : [ lambda$processDataAndUpdateUI$0$com-jlboat-phone-activity-TestResultActivity202508-BB@0x10e ]
+	51      (000000de) iget-object          v0, v3, Lcom/jlboat/phone/activity/TestResultActivity202508;->title_cycle Landroid/widget/TextView;
+	52      (000000e2) iget                 v1, v3, Lcom/jlboat/phone/activity/TestResultActivity202508;->cycleCount I
+	53      (000000e6) invoke-virtual       v3, v1, Lcom/jlboat/phone/activity/TestResultActivity202508;->getResString(I)Ljava/lang/String;
+	54      (000000ec) move-result-object   v1
+	55      (000000ee) invoke-virtual       v0, v1, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+	56      (000000f4) goto                 +dh
+
+lambda$processDataAndUpdateUI$0$com-jlboat-phone-activity-TestResultActivity202508-BB@0xf6 : [ lambda$processDataAndUpdateUI$0$com-jlboat-phone-activity-TestResultActivity202508-BB@0x10e ]
+	57      (000000f6) iget-object          v0, v3, Lcom/jlboat/phone/activity/TestResultActivity202508;->title_cycle Landroid/widget/TextView;
+	58      (000000fa) const                v1, 2131493230
+	59      (00000100) invoke-virtual       v3, v1, Lcom/jlboat/phone/activity/TestResultActivity202508;->getResString(I)Ljava/lang/String;
+	60      (00000106) move-result-object   v1
+	61      (00000108) invoke-virtual       v0, v1, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+lambda$processDataAndUpdateUI$0$com-jlboat-phone-activity-TestResultActivity202508-BB@0x10e : 
+	62      (0000010e) iget-object          v0, v3, Lcom/jlboat/phone/activity/TestResultActivity202508;->title_time Landroid/widget/TextView;
+	63      (00000112) iget-object          v1, v3, Lcom/jlboat/phone/activity/TestResultActivity202508;->time_title Ljava/lang/String;
+	64      (00000116) invoke-virtual       v0, v1, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+	65      (0000011c) return-void          
+

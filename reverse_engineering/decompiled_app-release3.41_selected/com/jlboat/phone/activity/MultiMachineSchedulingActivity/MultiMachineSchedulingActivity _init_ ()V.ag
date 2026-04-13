@@ -1,0 +1,25 @@
+# Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;-><init>()V [access_flags=public constructor]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) invoke-direct        v1, Lcom/jlboat/phone/base/BaseFullActivity;-><init>()V
+	1       (00000006) new-instance         v0, Lcom/jlboat/phone/communication/StatusServiceClient;
+	2       (0000000a) invoke-direct        v0, Lcom/jlboat/phone/communication/StatusServiceClient;-><init>()V
+	3       (00000010) iput-object          v0, v1, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;->statusServiceClient Lcom/jlboat/phone/communication/StatusServiceClient;
+	4       (00000014) new-instance         v0, Ljava/util/LinkedList;
+	5       (00000018) invoke-direct        v0, Ljava/util/LinkedList;-><init>()V
+	6       (0000001e) iput-object          v0, v1, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;->configList Ljava/util/List;
+	7       (00000022) new-instance         v0, Ljava/util/LinkedList;
+	8       (00000026) invoke-direct        v0, Ljava/util/LinkedList;-><init>()V
+	9       (0000002c) iput-object          v0, v1, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;->configList2 Ljava/util/List;
+	10      (00000030) const/4              v0, 0
+	11      (00000032) iput                 v0, v1, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;->anInt I
+	12      (00000036) new-instance         v0, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity$5;
+	13      (0000003a) invoke-direct        v0, v1, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity$5;-><init>(Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;)V
+	14      (00000040) iput-object          v0, v1, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;->handler Landroid/os/Handler;
+	15      (00000044) return-void          
+

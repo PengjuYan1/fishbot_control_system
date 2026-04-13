@@ -1,0 +1,11 @@
+# Lcom/boat/jrosbridge/message/sensor_msgs/LaserScan;->getTimeIncrement()F [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:float
+
+getTimeIncrement-BB@0x0 : 
+	0       (00000000) iget                 v0, v1, Lcom/boat/jrosbridge/message/sensor_msgs/LaserScan;->time_increment F
+	1       (00000004) return               v0
+

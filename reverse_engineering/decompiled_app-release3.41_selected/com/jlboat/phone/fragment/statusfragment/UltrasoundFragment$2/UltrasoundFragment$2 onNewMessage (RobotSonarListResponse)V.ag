@@ -1,0 +1,42 @@
+# Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment$2;->onNewMessage(Lcom/jlboat/phone/message/map_msgs/RobotSonarListResponse;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:com.jlboat.phone.message.map_msgs.RobotSonarListResponse
+#
+# - return:void
+
+onNewMessage-BB@0x0 : 
+	0       (00000000) iget-object          v0, v3, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment$2;->this$0 Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;
+	1       (00000004) invoke-virtual       v4, Lcom/jlboat/phone/message/map_msgs/RobotSonarListResponse;->getSonars()Ljava/util/List;
+	2       (0000000a) move-result-object   v1
+	3       (0000000c) invoke-static        v0, v1, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->access$902(Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment; Ljava/util/List;)Ljava/util/List;
+	4       (00000012) iget-object          v0, v3, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment$2;->this$0 Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;
+	5       (00000016) invoke-virtual       v4, Lcom/jlboat/phone/message/map_msgs/RobotSonarListResponse;->isUserSonar()Z
+	6       (0000001c) move-result          v1
+	7       (0000001e) invoke-static        v0, v1, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->access$1002(Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment; Z)Z
+	8       (00000024) iget-object          v0, v3, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment$2;->this$0 Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;
+	9       (00000028) invoke-static        v0, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->access$1100(Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;)Ljava/lang/String;
+	10      (0000002e) move-result-object   v0
+	11      (00000030) new-instance         v1, Ljava/lang/StringBuilder;
+	12      (00000034) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	13      (0000003a) const-string         v2, "onSuccess: getSonar: "
+	14      (0000003e) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	15      (00000044) move-result-object   v1
+	16      (00000046) iget-object          v2, v3, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment$2;->this$0 Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;
+	17      (0000004a) invoke-static        v2, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->access$900(Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;)Ljava/util/List;
+	18      (00000050) move-result-object   v2
+	19      (00000052) invoke-interface     v2, Ljava/util/List;->size()I
+	20      (00000058) move-result          v2
+	21      (0000005a) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	22      (00000060) move-result-object   v1
+	23      (00000062) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	24      (00000068) move-result-object   v1
+	25      (0000006a) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	26      (00000070) iget-object          v0, v3, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment$2;->this$0 Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;
+	27      (00000074) invoke-static        v0, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->access$1200(Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;)Landroid/os/Handler;
+	28      (0000007a) move-result-object   v0
+	29      (0000007c) const/4              v1, 3
+	30      (0000007e) invoke-virtual       v0, v1, Landroid/os/Handler;->sendEmptyMessage(I)Z
+	31      (00000084) return-void          
+

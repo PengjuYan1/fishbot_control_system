@@ -1,0 +1,42 @@
+# Lcom/jlboat/phone/view/SavaPathPopup$3;->onTouch(Landroid/view/View; Landroid/view/MotionEvent;)Z [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v4
+# - v5:android.view.View
+# - v6:android.view.MotionEvent
+#
+# - return:boolean
+
+onTouch-BB@0x0 : [ onTouch-BB@0x12 onTouch-BB@0x58 ]
+	0       (00000000) iget-object          v0, v4, Lcom/jlboat/phone/view/SavaPathPopup$3;->this$0 Lcom/jlboat/phone/view/SavaPathPopup;
+	1       (00000004) invoke-static        v0, Lcom/jlboat/phone/view/SavaPathPopup;->access$000(Lcom/jlboat/phone/view/SavaPathPopup;)Z
+	2       (0000000a) move-result          v0
+	3       (0000000c) const/4              v1, 1
+	4       (0000000e) if-eqz               v0, +025h
+
+onTouch-BB@0x12 : [ onTouch-BB@0x4a onTouch-BB@0x58 ]
+	5       (00000012) iget-object          v0, v4, Lcom/jlboat/phone/view/SavaPathPopup$3;->this$0 Lcom/jlboat/phone/view/SavaPathPopup;
+	6       (00000016) invoke-static        v0, Lcom/jlboat/phone/view/SavaPathPopup;->access$100(Lcom/jlboat/phone/view/SavaPathPopup;)Landroid/view/View;
+	7       (0000001c) move-result-object   v0
+	8       (0000001e) const                v2, 2131230972
+	9       (00000024) invoke-virtual       v0, v2, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	10      (0000002a) move-result-object   v0
+	11      (0000002c) invoke-virtual       v0, Landroid/view/View;->getTop()I
+	12      (00000032) move-result          v0
+	13      (00000034) invoke-virtual       v6, Landroid/view/MotionEvent;->getY()F
+	14      (0000003a) move-result          v2
+	15      (0000003c) float-to-int         v2, v2
+	16      (0000003e) invoke-virtual       v6, Landroid/view/MotionEvent;->getAction()I
+	17      (00000044) move-result          v3
+	18      (00000046) if-ne                v3, v1, +009h
+
+onTouch-BB@0x4a : [ onTouch-BB@0x4e onTouch-BB@0x58 ]
+	19      (0000004a) if-ge                v2, v0, +007h
+
+onTouch-BB@0x4e : [ onTouch-BB@0x58 ]
+	20      (0000004e) iget-object          v3, v4, Lcom/jlboat/phone/view/SavaPathPopup$3;->this$0 Lcom/jlboat/phone/view/SavaPathPopup;
+	21      (00000052) invoke-virtual       v3, Lcom/jlboat/phone/view/SavaPathPopup;->dismiss()V
+
+onTouch-BB@0x58 : 
+	22      (00000058) return               v1
+

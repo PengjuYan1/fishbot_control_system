@@ -1,0 +1,91 @@
+# Lcom/jlboat/phone/util/Utils;->isServiceRunning(Landroid/content/Context; Ljava/lang/String; I)Z [access_flags=public static]
+#
+# Parameters:
+# - local registers: v0...v5
+# - v6:android.content.Context
+# - v7:java.lang.String
+# - v8:int
+#
+# - return:boolean
+
+isServiceRunning-BB@0x0 : [ isServiceRunning-BB@0x12 isServiceRunning-BB@0xb8 ]
+	0       (00000000) const/4              v0, 0
+	1       (00000002) const-string         v1, ""
+	2       (00000006) invoke-virtual       v1, v7, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	3       (0000000c) move-result          v1
+	4       (0000000e) if-nez               v1, +055h
+
+isServiceRunning-BB@0x12 : [ isServiceRunning-BB@0x16 isServiceRunning-BB@0x18 ]
+	5       (00000012) if-nez               v7, +003h
+
+isServiceRunning-BB@0x16 : [ isServiceRunning-BB@0xb8 ]
+	6       (00000016) goto                 +51h
+
+isServiceRunning-BB@0x18 : [ isServiceRunning-BB@0x3e ]
+	7       (00000018) nop                  
+	8       (0000001a) const-string         v1, "activity"
+	9       (0000001e) invoke-virtual       v6, v1, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+	10      (00000024) move-result-object   v1
+	11      (00000026) check-cast           v1, Landroid/app/ActivityManager;
+	12      (0000002a) nop                  
+	13      (0000002c) const/16             v2, 30
+	14      (00000030) invoke-virtual       v1, v2, Landroid/app/ActivityManager;->getRunningServices(I)Ljava/util/List;
+	15      (00000036) move-result-object   v2
+	16      (00000038) check-cast           v2, Ljava/util/ArrayList;
+	17      (0000003c) const/4              v3, 0
+
+isServiceRunning-BB@0x3e : [ isServiceRunning-BB@0x4a isServiceRunning-BB@0xb6 ]
+	18      (0000003e) invoke-virtual       v2, Ljava/util/ArrayList;->size()I
+	19      (00000044) move-result          v4
+	20      (00000046) if-ge                v3, v4, +038h
+
+isServiceRunning-BB@0x4a : [ isServiceRunning-BB@0x76 isServiceRunning-BB@0xb0 ]
+	21      (0000004a) invoke-virtual       v2, v3, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+	22      (00000050) move-result-object   v4
+	23      (00000052) check-cast           v4, Landroid/app/ActivityManager$RunningServiceInfo;
+	24      (00000056) iget-object          v4, v4, Landroid/app/ActivityManager$RunningServiceInfo;->service Landroid/content/ComponentName;
+	25      (0000005a) invoke-virtual       v4, Landroid/content/ComponentName;->getClassName()Ljava/lang/String;
+	26      (00000060) move-result-object   v4
+	27      (00000062) invoke-virtual       v4, Ljava/lang/String;->toString()Ljava/lang/String;
+	28      (00000068) move-result-object   v4
+	29      (0000006a) invoke-virtual       v4, v7, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	30      (00000070) move-result          v4
+	31      (00000072) if-eqz               v4, +01fh
+
+isServiceRunning-BB@0x76 : [ isServiceRunning-BB@0x7c isServiceRunning-BB@0xae ]
+	32      (00000076) const/4              v4, 1
+	33      (00000078) if-ne                v8, v4, +01bh
+
+isServiceRunning-BB@0x7c : [ isServiceRunning-BB@0x80 isServiceRunning-BB@0x84 ]
+	34      (0000007c) if-nez               v0, +004h
+
+isServiceRunning-BB@0x80 : [ isServiceRunning-BB@0xb0 ]
+	35      (00000080) const/4              v0, 1
+	36      (00000082) goto                 +17h
+
+isServiceRunning-BB@0x84 : [ isServiceRunning-BB@0xb0 ]
+	37      (00000084) new-instance         v4, Landroid/content/Intent;
+	38      (00000088) invoke-virtual       v2, v3, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+	39      (0000008e) move-result-object   v5
+	40      (00000090) check-cast           v5, Landroid/app/ActivityManager$RunningServiceInfo;
+	41      (00000094) iget-object          v5, v5, Landroid/app/ActivityManager$RunningServiceInfo;->service Landroid/content/ComponentName;
+	42      (00000098) invoke-virtual       v5, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+	43      (0000009e) move-result-object   v5
+	44      (000000a0) invoke-direct        v4, v6, v5, Landroid/content/Intent;-><init>(Landroid/content/Context; Ljava/lang/Class;)V
+	45      (000000a6) invoke-virtual       v6, v4, Landroid/content/Context;->stopService(Landroid/content/Intent;)Z
+	46      (000000ac) goto                 +2h
+
+isServiceRunning-BB@0xae : 
+	47      (000000ae) return               v4
+
+isServiceRunning-BB@0xb0 : [ isServiceRunning-BB@0x3e ]
+	48      (000000b0) add-int/lit8         v3, v3, 1
+	49      (000000b4) goto                 -3bh
+
+isServiceRunning-BB@0xb6 : 
+	50      (000000b6) return               v0
+
+isServiceRunning-BB@0xb8 : 
+	51      (000000b8) const/4              v1, 0
+	52      (000000ba) return               v1
+

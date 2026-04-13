@@ -1,0 +1,11 @@
+# Lcom/boat/ros/geometry/Vector3;->yAxis()Lcom/boat/ros/geometry/Vector3; [access_flags=public static]
+#
+# Parameters:
+# local registers: v0...v0
+#
+# - return:com.boat.ros.geometry.Vector3
+
+yAxis-BB@0x0 : 
+	0       (00000000) sget-object          v0, Lcom/boat/ros/geometry/Vector3;->Y_AXIS Lcom/boat/ros/geometry/Vector3;
+	1       (00000004) return-object        v0
+

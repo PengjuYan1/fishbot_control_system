@@ -1,0 +1,17 @@
+# Lcom/jlboat/phone/adapter/ConfigListAdapter;->SetOrDelConfigsService(Ljava/util/List;)V [access_flags=private]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:java.util.List
+#
+# - return:void
+
+SetOrDelConfigsService-BB@0x0 : 
+	0       (00000000) iget-object          v0, v3, Lcom/jlboat/phone/adapter/ConfigListAdapter;->basicSettingActivity Lcom/jlboat/phone/activity/BasicSettingActivity;
+	1       (00000004) iget-object          v0, v0, Lcom/jlboat/phone/activity/BasicSettingActivity;->statusServiceClient Lcom/jlboat/phone/communication/StatusServiceClient;
+	2       (00000008) iget                 v1, v3, Lcom/jlboat/phone/adapter/ConfigListAdapter;->type I
+	3       (0000000c) new-instance         v2, Lcom/jlboat/phone/adapter/ConfigListAdapter$2;
+	4       (00000010) invoke-direct        v2, v3, Lcom/jlboat/phone/adapter/ConfigListAdapter$2;-><init>(Lcom/jlboat/phone/adapter/ConfigListAdapter;)V
+	5       (00000016) invoke-virtual       v0, v4, v1, v2, Lcom/jlboat/phone/communication/StatusServiceClient;->setOrDelConfigsService(Ljava/util/List; I Lcom/boat/jrosbridge/MessageListener;)V
+	6       (0000001c) return-void          
+

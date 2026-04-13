@@ -1,0 +1,13 @@
+# Lcom/jlboat/phone/activity/MapActivity;->access$4702(Lcom/jlboat/phone/activity/MapActivity; Lcom/boat/jrosbridge/Topic;)Lcom/boat/jrosbridge/Topic; [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v-1
+# - v0:com.jlboat.phone.activity.MapActivity
+# - v1:com.boat.jrosbridge.Topic
+#
+# - return:com.boat.jrosbridge.Topic
+
+access$4702-BB@0x0 : 
+	0       (00000000) iput-object          v1, v0, Lcom/jlboat/phone/activity/MapActivity;->locationStatus Lcom/boat/jrosbridge/Topic;
+	1       (00000004) return-object        v1
+

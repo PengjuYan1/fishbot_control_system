@@ -1,0 +1,15 @@
+# Lcom/jlboat/phone/activity/MapEditRegionActivity$4$1;-><init>(Lcom/jlboat/phone/activity/MapEditRegionActivity$4; Lcom/boat/support/slam/entity/floors/Region;)V [access_flags=constructor]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.activity.MapEditRegionActivity$4
+# - v2:com.boat.support.slam.entity.floors.Region
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) iput-object          v1, v0, Lcom/jlboat/phone/activity/MapEditRegionActivity$4$1;->this$1 Lcom/jlboat/phone/activity/MapEditRegionActivity$4;
+	1       (00000004) iput-object          v2, v0, Lcom/jlboat/phone/activity/MapEditRegionActivity$4$1;->val$region Lcom/boat/support/slam/entity/floors/Region;
+	2       (00000008) invoke-direct        v0, Ljava/lang/Object;-><init>()V
+	3       (0000000e) return-void          
+

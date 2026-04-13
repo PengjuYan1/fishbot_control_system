@@ -1,0 +1,51 @@
+# Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->initSpinner()V [access_flags=private]
+#
+# Parameters:
+# local registers: v0...v6
+#
+# - return:void
+
+initSpinner-BB@0x0 : [ initSpinner-BB@0x32 initSpinner-BB@0x7e ]
+	0       (00000000) new-instance         v0, Landroid/widget/ArrayAdapter;
+	1       (00000004) const                v1, 17367048
+	2       (0000000a) iget-object          v2, v6, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->floorNameList Ljava/util/List;
+	3       (0000000e) invoke-direct        v0, v6, v1, v2, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context; I Ljava/util/List;)V
+	4       (00000014) const                v1, 17367049
+	5       (0000001a) invoke-virtual       v0, v1, Landroid/widget/ArrayAdapter;->setDropDownViewResource(I)V
+	6       (00000020) iget-object          v1, v6, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->floorSpinner Landroid/widget/Spinner;
+	7       (00000024) invoke-virtual       v1, v0, Landroid/widget/Spinner;->setAdapter(Landroid/widget/SpinnerAdapter;)V
+	8       (0000002a) iget-object          v1, v6, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->localMapList Lcom/boat/support/slam/entity/floors/MapList;
+	9       (0000002e) if-eqz               v1, +028h
+
+initSpinner-BB@0x32 : [ initSpinner-BB@0x5a initSpinner-BB@0x7e ]
+	10      (00000032) iget-object          v1, v6, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->localMapList Lcom/boat/support/slam/entity/floors/MapList;
+	11      (00000036) invoke-virtual       v1, Lcom/boat/support/slam/entity/floors/MapList;->getDefaultFloor()J
+	12      (0000003c) move-result-wide     v1
+	13      (0000003e) iget-object          v3, v6, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->floorIdMap Ljava/util/Map;
+	14      (00000042) invoke-static        v1, v2, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+	15      (00000048) move-result-object   v4
+	16      (0000004a) invoke-interface     v3, v4, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+	17      (00000050) move-result-object   v3
+	18      (00000052) check-cast           v3, Lcom/boat/support/slam/entity/floors/Floors;
+	19      (00000056) if-eqz               v3, +014h
+
+initSpinner-BB@0x5a : [ initSpinner-BB@0x74 initSpinner-BB@0x7e ]
+	20      (0000005a) iget-object          v4, v6, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->floorNameList Ljava/util/List;
+	21      (0000005e) invoke-virtual       v3, Lcom/boat/support/slam/entity/floors/Floors;->getFloorName()Ljava/lang/String;
+	22      (00000064) move-result-object   v5
+	23      (00000066) invoke-interface     v4, v5, Ljava/util/List;->indexOf(Ljava/lang/Object;)I
+	24      (0000006c) move-result          v4
+	25      (0000006e) const/4              v5, -1
+	26      (00000070) if-eq                v4, v5, +007h
+
+initSpinner-BB@0x74 : [ initSpinner-BB@0x7e ]
+	27      (00000074) iget-object          v5, v6, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->floorSpinner Landroid/widget/Spinner;
+	28      (00000078) invoke-virtual       v5, v4, Landroid/widget/Spinner;->setSelection(I)V
+
+initSpinner-BB@0x7e : 
+	29      (0000007e) iget-object          v1, v6, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->floorSpinner Landroid/widget/Spinner;
+	30      (00000082) new-instance         v2, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift$6;
+	31      (00000086) invoke-direct        v2, v6, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift$6;-><init>(Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;)V
+	32      (0000008c) invoke-virtual       v1, v2, Landroid/widget/Spinner;->setOnItemSelectedListener(Landroid/widget/AdapterView$OnItemSelectedListener;)V
+	33      (00000092) return-void          
+

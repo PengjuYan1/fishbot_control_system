@@ -1,0 +1,102 @@
+# Lcom/jlboat/phone/activity/DiyPathActivity$6;->onNewMessage(Lcom/jlboat/phone/message/map_msgs/SetGlobalPlanResponse;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v5
+# - v6:com.jlboat.phone.message.map_msgs.SetGlobalPlanResponse
+#
+# - return:void
+
+onNewMessage-BB@0x0 : [ onNewMessage-BB@0x2a onNewMessage-BB@0x98 ]
+	0       (00000000) iget-object          v0, v5, Lcom/jlboat/phone/activity/DiyPathActivity$6;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	1       (00000004) invoke-virtual       v6, Lcom/jlboat/phone/message/map_msgs/SetGlobalPlanResponse;->isResult()Z
+	2       (0000000a) move-result          v1
+	3       (0000000c) invoke-static        v0, v1, Lcom/jlboat/phone/activity/DiyPathActivity;->access$2402(Lcom/jlboat/phone/activity/DiyPathActivity; Z)Z
+	4       (00000012) invoke-virtual       v6, Lcom/jlboat/phone/message/map_msgs/SetGlobalPlanResponse;->isResult()Z
+	5       (00000018) move-result          v0
+	6       (0000001a) const/16             v1, 1002
+	7       (0000001e) const/4              v2, 2
+	8       (00000020) const/16             v3, 1003
+	9       (00000024) const/4              v4, 1
+	10      (00000026) if-eqz               v0, +039h
+
+onNewMessage-BB@0x2a : [ onNewMessage-BB@0x32 onNewMessage-BB@0x46 ]
+	11      (0000002a) iget                 v0, v5, Lcom/jlboat/phone/activity/DiyPathActivity$6;->val$useType I
+	12      (0000002e) if-ne                v0, v4, +00ch
+
+onNewMessage-BB@0x32 : [ onNewMessage-BB@0x112 ]
+	13      (00000032) iget-object          v0, v5, Lcom/jlboat/phone/activity/DiyPathActivity$6;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	14      (00000036) invoke-static        v0, Lcom/jlboat/phone/activity/DiyPathActivity;->access$2000(Lcom/jlboat/phone/activity/DiyPathActivity;)Landroid/os/Handler;
+	15      (0000003c) move-result-object   v0
+	16      (0000003e) invoke-virtual       v0, v3, Landroid/os/Handler;->sendEmptyMessage(I)Z
+	17      (00000044) goto                 +67h
+
+onNewMessage-BB@0x46 : [ onNewMessage-BB@0x4e onNewMessage-BB@0x62 ]
+	18      (00000046) iget                 v0, v5, Lcom/jlboat/phone/activity/DiyPathActivity$6;->val$useType I
+	19      (0000004a) if-ne                v0, v2, +00ch
+
+onNewMessage-BB@0x4e : [ onNewMessage-BB@0x112 ]
+	20      (0000004e) iget-object          v0, v5, Lcom/jlboat/phone/activity/DiyPathActivity$6;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	21      (00000052) invoke-static        v0, Lcom/jlboat/phone/activity/DiyPathActivity;->access$2000(Lcom/jlboat/phone/activity/DiyPathActivity;)Landroid/os/Handler;
+	22      (00000058) move-result-object   v0
+	23      (0000005a) invoke-virtual       v0, v1, Landroid/os/Handler;->sendEmptyMessage(I)Z
+	24      (00000060) goto                 +59h
+
+onNewMessage-BB@0x62 : [ onNewMessage-BB@0x112 ]
+	25      (00000062) iget-object          v0, v5, Lcom/jlboat/phone/activity/DiyPathActivity$6;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	26      (00000066) const/4              v1, 0
+	27      (00000068) invoke-static        v0, v1, Lcom/jlboat/phone/activity/DiyPathActivity;->access$602(Lcom/jlboat/phone/activity/DiyPathActivity; I)I
+	28      (0000006e) iget-object          v0, v5, Lcom/jlboat/phone/activity/DiyPathActivity$6;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	29      (00000072) invoke-static        v0, Lcom/jlboat/phone/activity/DiyPathActivity;->access$2000(Lcom/jlboat/phone/activity/DiyPathActivity;)Landroid/os/Handler;
+	30      (00000078) move-result-object   v0
+	31      (0000007a) invoke-virtual       v0, v3, Landroid/os/Handler;->sendEmptyMessage(I)Z
+	32      (00000080) iget-object          v0, v5, Lcom/jlboat/phone/activity/DiyPathActivity$6;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	33      (00000084) invoke-static        v0, Lcom/jlboat/phone/activity/DiyPathActivity;->access$2000(Lcom/jlboat/phone/activity/DiyPathActivity;)Landroid/os/Handler;
+	34      (0000008a) move-result-object   v0
+	35      (0000008c) const/16             v1, 1004
+	36      (00000090) invoke-virtual       v0, v1, Landroid/os/Handler;->sendEmptyMessage(I)Z
+	37      (00000096) goto                 +3eh
+
+onNewMessage-BB@0x98 : [ onNewMessage-BB@0xa0 onNewMessage-BB@0xe4 ]
+	38      (00000098) iget                 v0, v5, Lcom/jlboat/phone/activity/DiyPathActivity$6;->val$useType I
+	39      (0000009c) if-ne                v0, v4, +024h
+
+onNewMessage-BB@0xa0 : [ onNewMessage-BB@0x112 ]
+	40      (000000a0) iget-object          v0, v5, Lcom/jlboat/phone/activity/DiyPathActivity$6;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	41      (000000a4) invoke-static        v0, Lcom/jlboat/phone/activity/DiyPathActivity;->access$2000(Lcom/jlboat/phone/activity/DiyPathActivity;)Landroid/os/Handler;
+	42      (000000aa) move-result-object   v0
+	43      (000000ac) invoke-virtual       v0, v3, Landroid/os/Handler;->sendEmptyMessage(I)Z
+	44      (000000b2) iget-object          v0, v5, Lcom/jlboat/phone/activity/DiyPathActivity$6;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	45      (000000b6) iget-object          v0, v0, Lcom/jlboat/phone/activity/DiyPathActivity;->linesList Ljava/util/List;
+	46      (000000ba) iget-object          v1, v5, Lcom/jlboat/phone/activity/DiyPathActivity$6;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	47      (000000be) iget-object          v1, v1, Lcom/jlboat/phone/activity/DiyPathActivity;->linesList Ljava/util/List;
+	48      (000000c2) invoke-interface     v1, Ljava/util/List;->size()I
+	49      (000000c8) move-result          v1
+	50      (000000ca) sub-int/2addr        v1, v4
+	51      (000000cc) invoke-interface     v0, v1, Ljava/util/List;->remove(I)Ljava/lang/Object;
+	52      (000000d2) iget-object          v0, v5, Lcom/jlboat/phone/activity/DiyPathActivity$6;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	53      (000000d6) const                v1, 2131493263
+	54      (000000dc) invoke-virtual       v0, v1, Lcom/jlboat/phone/activity/DiyPathActivity;->toast(I)V
+	55      (000000e2) goto                 +18h
+
+onNewMessage-BB@0xe4 : [ onNewMessage-BB@0xec onNewMessage-BB@0x100 ]
+	56      (000000e4) iget                 v0, v5, Lcom/jlboat/phone/activity/DiyPathActivity$6;->val$useType I
+	57      (000000e8) if-ne                v0, v2, +00ch
+
+onNewMessage-BB@0xec : [ onNewMessage-BB@0x112 ]
+	58      (000000ec) iget-object          v0, v5, Lcom/jlboat/phone/activity/DiyPathActivity$6;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	59      (000000f0) invoke-static        v0, Lcom/jlboat/phone/activity/DiyPathActivity;->access$2000(Lcom/jlboat/phone/activity/DiyPathActivity;)Landroid/os/Handler;
+	60      (000000f6) move-result-object   v0
+	61      (000000f8) invoke-virtual       v0, v1, Landroid/os/Handler;->sendEmptyMessage(I)Z
+	62      (000000fe) goto                 +ah
+
+onNewMessage-BB@0x100 : [ onNewMessage-BB@0x112 ]
+	63      (00000100) iget-object          v0, v5, Lcom/jlboat/phone/activity/DiyPathActivity$6;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	64      (00000104) invoke-static        v0, Lcom/jlboat/phone/activity/DiyPathActivity;->access$2000(Lcom/jlboat/phone/activity/DiyPathActivity;)Landroid/os/Handler;
+	65      (0000010a) move-result-object   v0
+	66      (0000010c) invoke-virtual       v0, v3, Landroid/os/Handler;->sendEmptyMessage(I)Z
+
+onNewMessage-BB@0x112 : 
+	67      (00000112) iget-object          v0, v5, Lcom/jlboat/phone/activity/DiyPathActivity$6;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	68      (00000116) invoke-static        v0, v4, Lcom/jlboat/phone/activity/DiyPathActivity;->access$2202(Lcom/jlboat/phone/activity/DiyPathActivity; Z)Z
+	69      (0000011c) return-void          
+

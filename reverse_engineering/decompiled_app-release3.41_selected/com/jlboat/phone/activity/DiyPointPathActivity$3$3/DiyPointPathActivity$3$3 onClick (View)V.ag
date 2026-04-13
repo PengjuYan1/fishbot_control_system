@@ -1,0 +1,17 @@
+# Lcom/jlboat/phone/activity/DiyPointPathActivity$3$3;->onClick(Landroid/view/View;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:android.view.View
+#
+# - return:void
+
+onClick-BB@0x0 : 
+	0       (00000000) iget-object          v0, v3, Lcom/jlboat/phone/activity/DiyPointPathActivity$3$3;->val$alertDialog Landroid/app/AlertDialog;
+	1       (00000004) invoke-virtual       v0, Landroid/app/AlertDialog;->dismiss()V
+	2       (0000000a) iget-object          v0, v3, Lcom/jlboat/phone/activity/DiyPointPathActivity$3$3;->this$1 Lcom/jlboat/phone/activity/DiyPointPathActivity$3;
+	3       (0000000e) iget-object          v0, v0, Lcom/jlboat/phone/activity/DiyPointPathActivity$3;->this$0 Lcom/jlboat/phone/activity/DiyPointPathActivity;
+	4       (00000012) iget-wide            v1, v3, Lcom/jlboat/phone/activity/DiyPointPathActivity$3$3;->val$shapeId J
+	5       (00000016) invoke-static        v0, v1, v2, Lcom/jlboat/phone/activity/DiyPointPathActivity;->access$600(Lcom/jlboat/phone/activity/DiyPointPathActivity; J)V
+	6       (0000001c) return-void          
+

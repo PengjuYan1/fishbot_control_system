@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/view/MapView;->setNavigationPathCallBack(Lcom/jlboat/phone/view/MapView$PathCallBack;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.view.MapView$PathCallBack
+#
+# - return:void
+
+setNavigationPathCallBack-BB@0x0 : 
+	0       (00000000) iput-object          v1, v0, Lcom/jlboat/phone/view/MapView;->navigationPathListen Lcom/jlboat/phone/view/MapView$PathCallBack;
+	1       (00000004) return-void          
+

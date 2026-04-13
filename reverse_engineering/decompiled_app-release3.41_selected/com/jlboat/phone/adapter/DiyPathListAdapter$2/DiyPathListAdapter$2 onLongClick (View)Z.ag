@@ -1,0 +1,25 @@
+# Lcom/jlboat/phone/adapter/DiyPathListAdapter$2;->onLongClick(Landroid/view/View;)Z [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:android.view.View
+#
+# - return:boolean
+
+onLongClick-BB@0x0 : [ onLongClick-BB@0x10 onLongClick-BB@0x26 ]
+	0       (00000000) iget-object          v0, v2, Lcom/jlboat/phone/adapter/DiyPathListAdapter$2;->this$0 Lcom/jlboat/phone/adapter/DiyPathListAdapter;
+	1       (00000004) invoke-static        v0, Lcom/jlboat/phone/adapter/DiyPathListAdapter;->access$200(Lcom/jlboat/phone/adapter/DiyPathListAdapter;)Lcom/jlboat/phone/adapter/DiyPathListAdapter$OnItemLongClickListener;
+	2       (0000000a) move-result-object   v0
+	3       (0000000c) if-eqz               v0, +00dh
+
+onLongClick-BB@0x10 : [ onLongClick-BB@0x26 ]
+	4       (00000010) iget-object          v0, v2, Lcom/jlboat/phone/adapter/DiyPathListAdapter$2;->this$0 Lcom/jlboat/phone/adapter/DiyPathListAdapter;
+	5       (00000014) invoke-static        v0, Lcom/jlboat/phone/adapter/DiyPathListAdapter;->access$200(Lcom/jlboat/phone/adapter/DiyPathListAdapter;)Lcom/jlboat/phone/adapter/DiyPathListAdapter$OnItemLongClickListener;
+	6       (0000001a) move-result-object   v0
+	7       (0000001c) iget                 v1, v2, Lcom/jlboat/phone/adapter/DiyPathListAdapter$2;->val$postion I
+	8       (00000020) invoke-interface     v0, v1, v3, Lcom/jlboat/phone/adapter/DiyPathListAdapter$OnItemLongClickListener;->onLongClick(I Landroid/view/View;)V
+
+onLongClick-BB@0x26 : 
+	9       (00000026) const/4              v0, 1
+	10      (00000028) return               v0
+

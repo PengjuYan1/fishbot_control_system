@@ -1,0 +1,16 @@
+# Lcom/boat/jrosbridge/rosbridge/operation/Operation;->initClass(Lcom/boat/jrosbridge/rosbridge/implementation/Registry; Ljava/lang/Class;)V [access_flags=private static]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:com.boat.jrosbridge.rosbridge.implementation.Registry
+# - v3:java.lang.Class
+#
+# - return:void
+
+initClass-BB@0x0 : 
+	0       (00000000) const-class          v0, Lcom/boat/jrosbridge/message/Message;
+	1       (00000004) invoke-static        v3, Lcom/boat/jrosbridge/message/Message;->getMessageType(Ljava/lang/Class;)Ljava/lang/String;
+	2       (0000000a) move-result-object   v1
+	3       (0000000c) invoke-virtual       v2, v0, v1, v3, Lcom/boat/jrosbridge/rosbridge/implementation/Registry;->register(Ljava/lang/Class; Ljava/lang/String; Ljava/lang/Object;)V
+	4       (00000012) return-void          
+

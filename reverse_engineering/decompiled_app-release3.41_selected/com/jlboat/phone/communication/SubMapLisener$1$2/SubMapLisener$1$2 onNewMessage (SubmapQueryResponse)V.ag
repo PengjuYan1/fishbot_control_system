@@ -1,0 +1,27 @@
+# Lcom/jlboat/phone/communication/SubMapLisener$1$2;->onNewMessage(Lcartographer_ros_msgs/SubmapQueryResponse;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v4
+# - v5:cartographer_ros_msgs.SubmapQueryResponse
+#
+# - return:void
+
+onNewMessage-BB@0x0 : [ onNewMessage-BB@0x14 onNewMessage-BB@0x30 ]
+	0       (00000000) invoke-virtual       v5, Lcartographer_ros_msgs/SubmapQueryResponse;->getStatus()Lcartographer_ros_msgs/StatusResponse;
+	1       (00000006) move-result-object   v0
+	2       (00000008) invoke-virtual       v0, Lcartographer_ros_msgs/StatusResponse;->getCode()B
+	3       (0000000e) move-result          v0
+	4       (00000010) if-nez               v0, +010h
+
+onNewMessage-BB@0x14 : [ onNewMessage-BB@0x30 ]
+	5       (00000014) iget-object          v0, v4, Lcom/jlboat/phone/communication/SubMapLisener$1$2;->this$1 Lcom/jlboat/phone/communication/SubMapLisener$1;
+	6       (00000018) iget-object          v0, v0, Lcom/jlboat/phone/communication/SubMapLisener$1;->this$0 Lcom/jlboat/phone/communication/SubMapLisener;
+	7       (0000001c) iget                 v1, v4, Lcom/jlboat/phone/communication/SubMapLisener$1$2;->val$index I
+	8       (00000020) invoke-virtual       v5, Lcartographer_ros_msgs/SubmapQueryResponse;->getTextures()Ljava/util/List;
+	9       (00000026) move-result-object   v2
+	10      (00000028) const/4              v3, 1
+	11      (0000002a) invoke-static        v0, v3, v1, v2, Lcom/jlboat/phone/communication/SubMapLisener;->access$200(Lcom/jlboat/phone/communication/SubMapLisener; I I Ljava/util/List;)V
+
+onNewMessage-BB@0x30 : 
+	12      (00000030) return-void          
+

@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/activity/DiyPathActivity;->access$1200(Lcom/jlboat/phone/activity/DiyPathActivity;)Lcom/jlboat/phone/adapter/BindPointListAdapter; [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.activity.DiyPathActivity
+#
+# - return:com.jlboat.phone.adapter.BindPointListAdapter
+
+access$1200-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/jlboat/phone/activity/DiyPathActivity;->bindPointListAdapter Lcom/jlboat/phone/adapter/BindPointListAdapter;
+	1       (00000004) return-object        v0
+

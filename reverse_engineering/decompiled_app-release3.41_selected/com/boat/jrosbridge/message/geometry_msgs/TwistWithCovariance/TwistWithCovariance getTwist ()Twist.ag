@@ -1,0 +1,11 @@
+# Lcom/boat/jrosbridge/message/geometry_msgs/TwistWithCovariance;->getTwist()Lcom/boat/jrosbridge/message/geometry_msgs/Twist; [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:com.boat.jrosbridge.message.geometry_msgs.Twist
+
+getTwist-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/boat/jrosbridge/message/geometry_msgs/TwistWithCovariance;->twist Lcom/boat/jrosbridge/message/geometry_msgs/Twist;
+	1       (00000004) return-object        v0
+

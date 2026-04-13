@@ -1,0 +1,15 @@
+# Lcom/jlboat/phone/adapter/DiyPathListAdapter;->setData(Ljava/util/List; I)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:java.util.List
+# - v2:int
+#
+# - return:void
+
+setData-BB@0x0 : 
+	0       (00000000) iput-object          v1, v0, Lcom/jlboat/phone/adapter/DiyPathListAdapter;->mPointList Ljava/util/List;
+	1       (00000004) iput                 v2, v0, Lcom/jlboat/phone/adapter/DiyPathListAdapter;->mId I
+	2       (00000008) invoke-virtual       v0, Lcom/jlboat/phone/adapter/DiyPathListAdapter;->notifyDataSetChanged()V
+	3       (0000000e) return-void          
+

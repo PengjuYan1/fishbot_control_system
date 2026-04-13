@@ -1,0 +1,70 @@
+package com.jlboat.deliverphone;
+public final class R$mipmap {
+    public static final int ab_back = 2131427328;
+    public static final int about_logo = 2131427329;
+    public static final int arrow = 2131427330;
+    public static final int background = 2131427331;
+    public static final int battery_charging = 2131427332;
+    public static final int battery_eating = 2131427333;
+    public static final int battery_silhouette = 2131427334;
+    public static final int black_background = 2131427335;
+    public static final int blue_round = 2131427336;
+    public static final int center_widget = 2131427337;
+    public static final int checked_point = 2131427338;
+    public static final int cjx_icoa = 2131427339;
+    public static final int cjx_icon = 2131427340;
+    public static final int createmapbn = 2131427341;
+    public static final int dir_false_one = 2131427342;
+    public static final int dir_false_two = 2131427343;
+    public static final int dir_true_one = 2131427344;
+    public static final int dir_true_two = 2131427345;
+    public static final int directional_arrow = 2131427346;
+    public static final int error = 2131427347;
+    public static final int fanhui = 2131427348;
+    public static final int gray_round = 2131427349;
+    public static final int green_round = 2131427350;
+    public static final int grey_ring_notched = 2131427351;
+    public static final int horizon_original = 2131427352;
+    public static final int intensity = 2131427355;
+    public static final int item_checked = 2131427356;
+    public static final int item_delete = 2131427357;
+    public static final int item_right = 2131427358;
+    public static final int js_icoa = 2131427359;
+    public static final int js_icon = 2131427360;
+    public static final int large_d_widget_3 = 2131427361;
+    public static final int large_pan_marker_3 = 2131427362;
+    public static final int large_tilt_marker_3 = 2131427363;
+    public static final int mid_angle_slice = 2131427364;
+    public static final int ok = 2131427365;
+    public static final int pan_tilt_controller = 2131427366;
+    public static final int path_img = 2131427367;
+    public static final int previous_velocity = 2131427368;
+    public static final int pt_bg = 2131427369;
+    public static final int pt_home_marker = 2131427370;
+    public static final int qingyun_icon = 2131427371;
+    public static final int read_round = 2131427372;
+    public static final int reboot = 2131427373;
+    public static final int ros_master = 2131427374;
+    public static final int sign = 2131427375;
+    public static final int small_d_widget_3 = 2131427376;
+    public static final int small_pan_marker_3 = 2131427377;
+    public static final int small_tilt_marker_3 = 2131427378;
+    public static final int stale = 2131427379;
+    public static final int switch_close = 2131427380;
+    public static final int switch_open = 2131427381;
+    public static final int top_angle_slice = 2131427382;
+    public static final int uncheck_point = 2131427383;
+    public static final int warn = 2131427384;
+    public static final int warning = 2131427385;
+    public static final int xiazai = 2131427386;
+    public static final int zoom_bar_lit = 2131427387;
+    public static final int zoom_bar_notlit = 2131427388;
+    public static final int zoom_bg = 2131427389;
+    public static final int zoom_in_normal = 2131427390;
+    public static final int zoom_out_normal = 2131427391;
+
+    private R$mipmap()
+    {
+        return;
+    }
+}

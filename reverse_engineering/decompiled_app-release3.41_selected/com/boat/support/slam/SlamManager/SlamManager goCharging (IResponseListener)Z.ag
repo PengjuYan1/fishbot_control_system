@@ -1,0 +1,40 @@
+# Lcom/boat/support/slam/SlamManager;->goCharging(Lcom/boat/support/slam/IResponseListener;)Z [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v4
+# - v5:com.boat.support.slam.IResponseListener
+#
+# - return:boolean
+
+goCharging-BB@0x0 : [ goCharging-BB@0xc goCharging-BB@0x10 ]
+	0       (00000000) invoke-virtual       v4, Lcom/boat/support/slam/SlamManager;->isNavigationInited()Z
+	1       (00000006) move-result          v0
+	2       (00000008) if-nez               v0, +004h
+
+goCharging-BB@0xc : 
+	3       (0000000c) const/4              v0, 0
+	4       (0000000e) return               v0
+
+goCharging-BB@0x10 : [ goCharging-BB@0x1a goCharging-BB@0x3a ]
+	5       (00000010) const/4              v0, 0
+	6       (00000012) iget-object          v1, v4, Lcom/boat/support/slam/SlamManager;->slamService Lcom/boat/support/slam/ISlamService;
+	7       (00000016) if-eqz               v1, +012h
+
+goCharging-BB@0x1a : [ goCharging-BB@0x3a ]
+	8       (0000001a) iget-object          v1, v4, Lcom/boat/support/slam/SlamManager;->slamService Lcom/boat/support/slam/ISlamService;
+	9       (0000001e) invoke-interface     v1, v5, Lcom/boat/support/slam/ISlamService;->goCharging(Lcom/boat/support/slam/IResponseListener;)Z
+	10      (00000024) move-result          v1
+	11      (00000026) move                 v0, v1
+	12      (00000028) goto                 +9h
+	1a:25
+	(Landroid/os/RemoteException; -> 2a goCharging-BB@0x2a)
+
+goCharging-BB@0x2a : [ goCharging-BB@0x3a ]
+	13      (0000002a) move-exception       v1
+	14      (0000002c) const-string         v2, "SlamManager"
+	15      (00000030) const-string         v3, "goCharging: "
+	16      (00000034) invoke-static        v2, v3, v1, Landroid/util/Log;->w(Ljava/lang/String; Ljava/lang/String; Ljava/lang/Throwable;)I
+
+goCharging-BB@0x3a : 
+	17      (0000003a) return               v0
+

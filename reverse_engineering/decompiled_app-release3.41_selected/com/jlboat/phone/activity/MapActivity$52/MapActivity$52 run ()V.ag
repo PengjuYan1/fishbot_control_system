@@ -1,0 +1,30 @@
+# Lcom/jlboat/phone/activity/MapActivity$52;->run()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v3
+#
+# - return:void
+
+run-BB@0x0 : [ run-BB@0x1c run-BB@0x42 ]
+	0       (00000000) iget-object          v0, v3, Lcom/jlboat/phone/activity/MapActivity$52;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	1       (00000004) invoke-static        v0, Lcom/jlboat/phone/activity/MapActivity;->access$2900(Lcom/jlboat/phone/activity/MapActivity;)Landroid/widget/LinearLayout;
+	2       (0000000a) move-result-object   v0
+	3       (0000000c) invoke-virtual       v0, Landroid/widget/LinearLayout;->getVisibility()I
+	4       (00000012) move-result          v0
+	5       (00000014) const/16             v1, 8
+	6       (00000018) if-ne                v1, v0, +015h
+
+run-BB@0x1c : [ run-BB@0x42 ]
+	7       (0000001c) iget-object          v0, v3, Lcom/jlboat/phone/activity/MapActivity$52;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	8       (00000020) invoke-static        v0, Lcom/jlboat/phone/activity/MapActivity;->access$2900(Lcom/jlboat/phone/activity/MapActivity;)Landroid/widget/LinearLayout;
+	9       (00000026) move-result-object   v0
+	10      (00000028) const/4              v2, 0
+	11      (0000002a) invoke-virtual       v0, v2, Landroid/widget/LinearLayout;->setVisibility(I)V
+	12      (00000030) iget-object          v0, v3, Lcom/jlboat/phone/activity/MapActivity$52;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	13      (00000034) invoke-static        v0, Lcom/jlboat/phone/activity/MapActivity;->access$3000(Lcom/jlboat/phone/activity/MapActivity;)Landroid/widget/LinearLayout;
+	14      (0000003a) move-result-object   v0
+	15      (0000003c) invoke-virtual       v0, v1, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+run-BB@0x42 : 
+	16      (00000042) return-void          
+

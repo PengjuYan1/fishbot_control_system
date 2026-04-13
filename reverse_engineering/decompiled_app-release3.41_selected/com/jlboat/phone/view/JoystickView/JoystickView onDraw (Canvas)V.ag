@@ -1,0 +1,37 @@
+# Lcom/jlboat/phone/view/JoystickView;->onDraw(Landroid/graphics/Canvas;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v7
+# - v8:android.graphics.Canvas
+#
+# - return:void
+
+onDraw-BB@0x0 : 
+	0       (00000000) invoke-super         v7, v8, Lcom/jlboat/phone/view/WidgetView;->onDraw(Landroid/graphics/Canvas;)V
+	1       (00000006) invoke-virtual       v7, Lcom/jlboat/phone/view/JoystickView;->getWidth()I
+	2       (0000000c) move-result          v0
+	3       (0000000e) int-to-float         v0, v0
+	4       (00000010) invoke-virtual       v7, Lcom/jlboat/phone/view/JoystickView;->getHeight()I
+	5       (00000016) move-result          v1
+	6       (00000018) int-to-float         v1, v1
+	7       (0000001a) iget                 v2, v7, Lcom/jlboat/phone/view/JoystickView;->posX F
+	8       (0000001e) iget                 v3, v7, Lcom/jlboat/phone/view/JoystickView;->posY F
+	9       (00000022) invoke-direct        v7, v2, v3, Lcom/jlboat/phone/view/JoystickView;->convertFromPolarToPx(F F)[F
+	10      (00000028) move-result-object   v2
+	11      (0000002a) const/high16         v3, 1073741824
+	12      (0000002e) div-float            v4, v0, v3
+	13      (00000032) div-float            v5, v1, v3
+	14      (00000036) div-float            v3, v0, v3
+	15      (0000003a) iget                 v6, v7, Lcom/jlboat/phone/view/JoystickView;->joystickRadius F
+	16      (0000003e) sub-float/2addr      v3, v6
+	17      (00000040) iget-object          v6, v7, Lcom/jlboat/phone/view/JoystickView;->outerPaint Landroid/graphics/Paint;
+	18      (00000044) invoke-virtual       v8, v4, v5, v3, v6, Landroid/graphics/Canvas;->drawCircle(F F F Landroid/graphics/Paint;)V
+	19      (0000004a) const/4              v3, 0
+	20      (0000004c) aget                 v3, v2, v3
+	21      (00000050) const/4              v4, 1
+	22      (00000052) aget                 v4, v2, v4
+	23      (00000056) iget                 v5, v7, Lcom/jlboat/phone/view/JoystickView;->joystickRadius F
+	24      (0000005a) iget-object          v6, v7, Lcom/jlboat/phone/view/JoystickView;->joystickPaint Landroid/graphics/Paint;
+	25      (0000005e) invoke-virtual       v8, v3, v4, v5, v6, Landroid/graphics/Canvas;->drawCircle(F F F Landroid/graphics/Paint;)V
+	26      (00000064) return-void          
+

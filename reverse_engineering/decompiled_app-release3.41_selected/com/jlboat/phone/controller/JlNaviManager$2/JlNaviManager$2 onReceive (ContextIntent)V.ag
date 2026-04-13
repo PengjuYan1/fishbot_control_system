@@ -1,0 +1,334 @@
+# Lcom/jlboat/phone/controller/JlNaviManager$2;->onReceive(Landroid/content/Context; Landroid/content/Intent;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v9
+# - v10:android.content.Context
+# - v11:android.content.Intent
+#
+# - return:void
+
+onReceive-BB@0x0 : [ onReceive-BB@0x4 onReceive-BB@0x37c ]
+	0       (00000000) if-eqz               v11, +1beh
+
+onReceive-BB@0x4 : [ onReceive-BB@0x10 onReceive-BB@0x14 ]
+	1       (00000004) invoke-virtual       v11, Landroid/content/Intent;->getAction()Ljava/lang/String;
+	2       (0000000a) move-result-object   v0
+	3       (0000000c) if-nez               v0, +004h
+
+onReceive-BB@0x10 : [ onReceive-BB@0x37c ]
+	4       (00000010) goto/16              +1b6h
+
+onReceive-BB@0x14 : [ D:onReceive-BB@0x2e -1172645946:onReceive-BB@0x80 -715721437:onReceive-BB@0x6c -100506299:onReceive-BB@0x58 472913819:onReceive-BB@0x44 717592887:onReceive-BB@0x30 ]
+	5       (00000014) invoke-virtual       v11, Landroid/content/Intent;->getAction()Ljava/lang/String;
+	6       (0000001a) move-result-object   v0
+	7       (0000001c) invoke-virtual       v0, Ljava/lang/String;->hashCode()I
+	8       (00000022) move-result          v1
+	9       (00000024) const/4              v2, 1
+	10      (00000026) const/4              v3, 0
+	11      (00000028) sparse-switch        v1, +00001ach
+
+onReceive-BB@0x2e : [ onReceive-BB@0x94 ]
+	12      (0000002e) goto                 +33h
+
+onReceive-BB@0x30 : [ onReceive-BB@0x40 onReceive-BB@0x2e ]
+	13      (00000030) const-string         v1, "com.boat.action.CocoNum"
+	14      (00000034) invoke-virtual       v0, v1, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	15      (0000003a) move-result          v0
+	16      (0000003c) if-eqz               v0, -007h
+
+onReceive-BB@0x40 : [ onReceive-BB@0x96 ]
+	17      (00000040) const/4              v0, 3
+	18      (00000042) goto                 +2ah
+
+onReceive-BB@0x44 : [ onReceive-BB@0x54 onReceive-BB@0x2e ]
+	19      (00000044) const-string         v1, "com.jboat.action.allmap_and_res"
+	20      (00000048) invoke-virtual       v0, v1, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	21      (0000004e) move-result          v0
+	22      (00000050) if-eqz               v0, -011h
+
+onReceive-BB@0x54 : [ onReceive-BB@0x96 ]
+	23      (00000054) const/4              v0, 4
+	24      (00000056) goto                 +20h
+
+onReceive-BB@0x58 : [ onReceive-BB@0x68 onReceive-BB@0x2e ]
+	25      (00000058) const-string         v1, "com.boat.action.WiFICONFIG_ROS"
+	26      (0000005c) invoke-virtual       v0, v1, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	27      (00000062) move-result          v0
+	28      (00000064) if-eqz               v0, -01bh
+
+onReceive-BB@0x68 : [ onReceive-BB@0x96 ]
+	29      (00000068) const/4              v0, 2
+	30      (0000006a) goto                 +16h
+
+onReceive-BB@0x6c : [ onReceive-BB@0x7c onReceive-BB@0x2e ]
+	31      (0000006c) const-string         v1, "com.boat.launcher.action.network"
+	32      (00000070) invoke-virtual       v0, v1, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	33      (00000076) move-result          v0
+	34      (00000078) if-eqz               v0, -025h
+
+onReceive-BB@0x7c : [ onReceive-BB@0x96 ]
+	35      (0000007c) const/4              v0, 1
+	36      (0000007e) goto                 +ch
+
+onReceive-BB@0x80 : [ onReceive-BB@0x90 onReceive-BB@0x2e ]
+	37      (00000080) const-string         v1, "android.net.conn.CONNECTIVITY_CHANGE"
+	38      (00000084) invoke-virtual       v0, v1, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	39      (0000008a) move-result          v0
+	40      (0000008c) if-eqz               v0, -02fh
+
+onReceive-BB@0x90 : [ onReceive-BB@0x96 ]
+	41      (00000090) const/4              v0, 0
+	42      (00000092) goto                 +2h
+
+onReceive-BB@0x94 : [ onReceive-BB@0x96 ]
+	43      (00000094) const/4              v0, -1
+
+onReceive-BB@0x96 : [ D:onReceive-BB@0x9c 0:onReceive-BB@0x36c 1:onReceive-BB@0x346 2:onReceive-BB@0x254 3:onReceive-BB@0x246 4:onReceive-BB@0xa0 ]
+	44      (00000096) packed-switch        v0, +000018bh
+
+onReceive-BB@0x9c : [ onReceive-BB@0x37a ]
+	45      (0000009c) goto/16              +16fh
+
+onReceive-BB@0xa0 : [ onReceive-BB@0xbc onReceive-BB@0x22c ]
+	46      (000000a0) const-string         v0, "allmaps"
+	47      (000000a4) invoke-virtual       v11, v0, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+	48      (000000aa) move-result-object   v0
+	49      (000000ac) const-string         v1, "isUploadMapFile"
+	50      (000000b0) invoke-virtual       v11, v1, v3, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String; Z)Z
+	51      (000000b6) move-result          v1
+	52      (000000b8) if-eqz               v0, +0bah
+
+onReceive-BB@0xbc : [ onReceive-BB@0xf8 ]
+	53      (000000bc) iget-object          v2, v9, Lcom/jlboat/phone/controller/JlNaviManager$2;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	54      (000000c0) new-instance         v3, Lcom/google/gson/Gson;
+	55      (000000c4) invoke-direct        v3, Lcom/google/gson/Gson;-><init>()V
+	56      (000000ca) new-instance         v4, Lcom/jlboat/phone/controller/JlNaviManager$2$1;
+	57      (000000ce) invoke-direct        v4, v9, Lcom/jlboat/phone/controller/JlNaviManager$2$1;-><init>(Lcom/jlboat/phone/controller/JlNaviManager$2;)V
+	58      (000000d4) invoke-virtual       v4, Lcom/jlboat/phone/controller/JlNaviManager$2$1;->getType()Ljava/lang/reflect/Type;
+	59      (000000da) move-result-object   v4
+	60      (000000dc) invoke-virtual       v3, v0, v4, Lcom/google/gson/Gson;->fromJson(Ljava/lang/String; Ljava/lang/reflect/Type;)Ljava/lang/Object;
+	61      (000000e2) move-result-object   v3
+	62      (000000e4) check-cast           v3, Lcom/boat/support/slam/entity/floors/MapList;
+	63      (000000e8) invoke-static        v2, v3, Lcom/jlboat/phone/controller/JlNaviManager;->access$3002(Lcom/jlboat/phone/controller/JlNaviManager; Lcom/boat/support/slam/entity/floors/MapList;)Lcom/boat/support/slam/entity/floors/MapList;
+	64      (000000ee) goto                 +5h
+	bc:ed
+	(Ljava/lang/Exception; -> f0 onReceive-BB@0xf0)
+
+onReceive-BB@0xf0 : [ onReceive-BB@0xf8 ]
+	65      (000000f0) move-exception       v2
+	66      (000000f2) invoke-virtual       v2, Ljava/lang/Exception;->printStackTrace()V
+
+onReceive-BB@0xf8 : [ onReceive-BB@0x108 onReceive-BB@0x22c ]
+	67      (000000f8) iget-object          v2, v9, Lcom/jlboat/phone/controller/JlNaviManager$2;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	68      (000000fc) invoke-static        v2, Lcom/jlboat/phone/controller/JlNaviManager;->access$3000(Lcom/jlboat/phone/controller/JlNaviManager;)Lcom/boat/support/slam/entity/floors/MapList;
+	69      (00000102) move-result-object   v2
+	70      (00000104) if-eqz               v2, +094h
+
+onReceive-BB@0x108 : [ onReceive-BB@0x120 onReceive-BB@0x22c ]
+	71      (00000108) iget-object          v2, v9, Lcom/jlboat/phone/controller/JlNaviManager$2;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	72      (0000010c) invoke-static        v2, Lcom/jlboat/phone/controller/JlNaviManager;->access$3000(Lcom/jlboat/phone/controller/JlNaviManager;)Lcom/boat/support/slam/entity/floors/MapList;
+	73      (00000112) move-result-object   v2
+	74      (00000114) invoke-virtual       v2, Lcom/boat/support/slam/entity/floors/MapList;->getFloors()Ljava/util/List;
+	75      (0000011a) move-result-object   v2
+	76      (0000011c) if-eqz               v2, +088h
+
+onReceive-BB@0x120 : [ onReceive-BB@0x140 onReceive-BB@0x22c ]
+	77      (00000120) iget-object          v2, v9, Lcom/jlboat/phone/controller/JlNaviManager$2;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	78      (00000124) invoke-static        v2, Lcom/jlboat/phone/controller/JlNaviManager;->access$3000(Lcom/jlboat/phone/controller/JlNaviManager;)Lcom/boat/support/slam/entity/floors/MapList;
+	79      (0000012a) move-result-object   v2
+	80      (0000012c) invoke-virtual       v2, Lcom/boat/support/slam/entity/floors/MapList;->getFloors()Ljava/util/List;
+	81      (00000132) move-result-object   v2
+	82      (00000134) invoke-interface     v2, Ljava/util/List;->isEmpty()Z
+	83      (0000013a) move-result          v2
+	84      (0000013c) if-nez               v2, +078h
+
+onReceive-BB@0x140 : [ onReceive-BB@0x144 onReceive-BB@0x18e ]
+	85      (00000140) if-eqz               v1, +027h
+
+onReceive-BB@0x144 : [ onReceive-BB@0x18e ]
+	86      (00000144) new-instance         v2, Landroid/content/Intent;
+	87      (00000148) invoke-direct        v2, Landroid/content/Intent;-><init>()V
+	88      (0000014e) const-string         v3, "com.jlboat.phone"
+	89      (00000152) const-string         v4, "com.jlboat.phone.service.DownloadFileService"
+	90      (00000156) invoke-virtual       v2, v3, v4, Landroid/content/Intent;->setClassName(Ljava/lang/String; Ljava/lang/String;)Landroid/content/Intent;
+	91      (0000015c) const-string         v3, "download_floor_maps"
+	92      (00000160) invoke-virtual       v2, v3, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
+	93      (00000166) iget-object          v3, v9, Lcom/jlboat/phone/controller/JlNaviManager$2;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	94      (0000016a) invoke-static        v3, Lcom/jlboat/phone/controller/JlNaviManager;->access$3000(Lcom/jlboat/phone/controller/JlNaviManager;)Lcom/boat/support/slam/entity/floors/MapList;
+	95      (00000170) move-result-object   v3
+	96      (00000172) const-string         v4, "floors"
+	97      (00000176) invoke-virtual       v2, v4, v3, Landroid/content/Intent;->putExtra(Ljava/lang/String; Landroid/os/Parcelable;)Landroid/content/Intent;
+	98      (0000017c) iget-object          v3, v9, Lcom/jlboat/phone/controller/JlNaviManager$2;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	99      (00000180) invoke-virtual       v3, Lcom/jlboat/phone/controller/JlNaviManager;->getApp()Lcom/boat/base/BaseApplication;
+	100     (00000186) move-result-object   v3
+	101     (00000188) invoke-virtual       v3, v2, Lcom/boat/base/BaseApplication;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
+
+onReceive-BB@0x18e : [ onReceive-BB@0x1aa ]
+	102     (0000018e) iget-object          v2, v9, Lcom/jlboat/phone/controller/JlNaviManager$2;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	103     (00000192) invoke-static        v2, Lcom/jlboat/phone/controller/JlNaviManager;->access$3000(Lcom/jlboat/phone/controller/JlNaviManager;)Lcom/boat/support/slam/entity/floors/MapList;
+	104     (00000198) move-result-object   v2
+	105     (0000019a) invoke-virtual       v2, Lcom/boat/support/slam/entity/floors/MapList;->getFloors()Ljava/util/List;
+	106     (000001a0) move-result-object   v2
+	107     (000001a2) invoke-interface     v2, Ljava/util/List;->iterator()Ljava/util/Iterator;
+	108     (000001a8) move-result-object   v2
+
+onReceive-BB@0x1aa : [ onReceive-BB@0x1b6 onReceive-BB@0x22c ]
+	109     (000001aa) invoke-interface     v2, Ljava/util/Iterator;->hasNext()Z
+	110     (000001b0) move-result          v3
+	111     (000001b2) if-eqz               v3, +03dh
+
+onReceive-BB@0x1b6 : [ onReceive-BB@0x1e6 onReceive-BB@0x22a ]
+	112     (000001b6) invoke-interface     v2, Ljava/util/Iterator;->next()Ljava/lang/Object;
+	113     (000001bc) move-result-object   v3
+	114     (000001be) check-cast           v3, Lcom/boat/support/slam/entity/floors/Floors;
+	115     (000001c2) iget-object          v4, v9, Lcom/jlboat/phone/controller/JlNaviManager$2;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	116     (000001c6) invoke-static        v4, Lcom/jlboat/phone/controller/JlNaviManager;->access$3000(Lcom/jlboat/phone/controller/JlNaviManager;)Lcom/boat/support/slam/entity/floors/MapList;
+	117     (000001cc) move-result-object   v4
+	118     (000001ce) invoke-virtual       v4, Lcom/boat/support/slam/entity/floors/MapList;->getDefaultFloor()J
+	119     (000001d4) move-result-wide     v4
+	120     (000001d6) invoke-virtual       v3, Lcom/boat/support/slam/entity/floors/Floors;->getFloorId()J
+	121     (000001dc) move-result-wide     v6
+	122     (000001de) cmp-long             v8, v4, v6
+	123     (000001e2) if-nez               v8, +024h
+
+onReceive-BB@0x1e6 : [ onReceive-BB@0x22c ]
+	124     (000001e6) iget-object          v2, v9, Lcom/jlboat/phone/controller/JlNaviManager$2;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	125     (000001ea) invoke-static        v2, Lcom/jlboat/phone/controller/JlNaviManager;->access$000(Lcom/jlboat/phone/controller/JlNaviManager;)Ljava/lang/String;
+	126     (000001f0) move-result-object   v2
+	127     (000001f2) new-instance         v4, Ljava/lang/StringBuilder;
+	128     (000001f6) invoke-direct        v4, Ljava/lang/StringBuilder;-><init>()V
+	129     (000001fc) const-string         v5, "onReceive: 后台处理后的map isUploadMapFile: "
+	130     (00000200) invoke-virtual       v4, v5, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	131     (00000206) move-result-object   v4
+	132     (00000208) invoke-virtual       v4, v1, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+	133     (0000020e) move-result-object   v4
+	134     (00000210) invoke-virtual       v4, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	135     (00000216) move-result-object   v4
+	136     (00000218) invoke-static        v2, v4, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	137     (0000021e) iget-object          v2, v9, Lcom/jlboat/phone/controller/JlNaviManager$2;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	138     (00000222) invoke-static        v2, v3, Lcom/jlboat/phone/controller/JlNaviManager;->access$3102(Lcom/jlboat/phone/controller/JlNaviManager; Lcom/boat/support/slam/entity/floors/Floors;)Lcom/boat/support/slam/entity/floors/Floors;
+	139     (00000228) goto                 +2h
+
+onReceive-BB@0x22a : [ onReceive-BB@0x1aa ]
+	140     (0000022a) goto                 -40h
+
+onReceive-BB@0x22c : [ onReceive-BB@0x238 onReceive-BB@0x37a ]
+	141     (0000022c) iget-object          v2, v9, Lcom/jlboat/phone/controller/JlNaviManager$2;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	142     (00000230) iget-boolean         v2, v2, Lcom/jlboat/phone/controller/JlNaviManager;->isMapUpdateEnd Z
+	143     (00000234) if-nez               v2, +0a3h
+
+onReceive-BB@0x238 : [ onReceive-BB@0x37a ]
+	144     (00000238) iget-object          v2, v9, Lcom/jlboat/phone/controller/JlNaviManager$2;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	145     (0000023c) invoke-static        v2, Lcom/jlboat/phone/controller/JlNaviManager;->access$2500(Lcom/jlboat/phone/controller/JlNaviManager;)V
+	146     (00000242) goto/16              +09ch
+
+onReceive-BB@0x246 : [ onReceive-BB@0x37a ]
+	147     (00000246) iget-object          v0, v9, Lcom/jlboat/phone/controller/JlNaviManager$2;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	148     (0000024a) invoke-static        v0, Lcom/jlboat/phone/controller/JlNaviManager;->access$2900(Lcom/jlboat/phone/controller/JlNaviManager;)V
+	149     (00000250) goto/16              +095h
+
+onReceive-BB@0x254 : [ onReceive-BB@0x264 onReceive-BB@0x266 ]
+	150     (00000254) const-string         v0, "ssid"
+	151     (00000258) invoke-virtual       v11, v0, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+	152     (0000025e) move-result-object   v0
+	153     (00000260) if-nez               v0, +003h
+
+onReceive-BB@0x264 : 
+	154     (00000264) return-void          
+
+onReceive-BB@0x266 : [ onReceive-BB@0x288 onReceive-BB@0x28a ]
+	155     (00000266) invoke-virtual       v0, Ljava/lang/String;->length()I
+	156     (0000026c) move-result          v1
+	157     (0000026e) sub-int/2addr        v1, v2
+	158     (00000270) invoke-virtual       v0, v2, v1, Ljava/lang/String;->substring(I I)Ljava/lang/String;
+	159     (00000276) move-result-object   v0
+	160     (00000278) const-string         v1, "passwd"
+	161     (0000027c) invoke-virtual       v11, v1, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+	162     (00000282) move-result-object   v1
+	163     (00000284) if-nez               v1, +003h
+
+onReceive-BB@0x288 : 
+	164     (00000288) return-void          
+
+onReceive-BB@0x28a : [ onReceive-BB@0x32a onReceive-BB@0x37a ]
+	165     (0000028a) iget-object          v2, v9, Lcom/jlboat/phone/controller/JlNaviManager$2;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	166     (0000028e) invoke-static        v2, Lcom/jlboat/phone/controller/JlNaviManager;->access$000(Lcom/jlboat/phone/controller/JlNaviManager;)Ljava/lang/String;
+	167     (00000294) move-result-object   v2
+	168     (00000296) new-instance         v3, Ljava/lang/StringBuilder;
+	169     (0000029a) invoke-direct        v3, Ljava/lang/StringBuilder;-><init>()V
+	170     (000002a0) const-string         v4, "onReceive: 发送消息给底盘"
+	171     (000002a4) invoke-virtual       v3, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	172     (000002aa) move-result-object   v3
+	173     (000002ac) invoke-virtual       v3, v0, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	174     (000002b2) move-result-object   v3
+	175     (000002b4) const-string         v4, "===="
+	176     (000002b8) invoke-virtual       v3, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	177     (000002be) move-result-object   v3
+	178     (000002c0) invoke-virtual       v3, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	179     (000002c6) move-result-object   v3
+	180     (000002c8) invoke-virtual       v3, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	181     (000002ce) move-result-object   v3
+	182     (000002d0) invoke-static        v2, v3, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	183     (000002d6) iget-object          v2, v9, Lcom/jlboat/phone/controller/JlNaviManager$2;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	184     (000002da) new-instance         v3, Ljava/lang/StringBuilder;
+	185     (000002de) invoke-direct        v3, Ljava/lang/StringBuilder;-><init>()V
+	186     (000002e4) const-string         v4, "onReceive: com.boat.action.WiFICONFIG_ROS ssid = "
+	187     (000002e8) invoke-virtual       v3, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	188     (000002ee) move-result-object   v3
+	189     (000002f0) invoke-virtual       v3, v0, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	190     (000002f6) move-result-object   v3
+	191     (000002f8) const-string         v4, " passwd: "
+	192     (000002fc) invoke-virtual       v3, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	193     (00000302) move-result-object   v3
+	194     (00000304) invoke-virtual       v3, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	195     (0000030a) move-result-object   v3
+	196     (0000030c) invoke-virtual       v3, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	197     (00000312) move-result-object   v3
+	198     (00000314) invoke-virtual       v2, v3, Lcom/jlboat/phone/controller/JlNaviManager;->toast(Ljava/lang/String;)V
+	199     (0000031a) iget-object          v2, v9, Lcom/jlboat/phone/controller/JlNaviManager$2;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	200     (0000031e) invoke-static        v2, Lcom/jlboat/phone/controller/JlNaviManager;->access$700(Lcom/jlboat/phone/controller/JlNaviManager;)Z
+	201     (00000324) move-result          v2
+	202     (00000326) if-eqz               v2, +02ah
+
+onReceive-BB@0x32a : [ onReceive-BB@0x33a onReceive-BB@0x37a ]
+	203     (0000032a) iget-object          v2, v9, Lcom/jlboat/phone/controller/JlNaviManager$2;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	204     (0000032e) invoke-static        v2, Lcom/jlboat/phone/controller/JlNaviManager;->access$900(Lcom/jlboat/phone/controller/JlNaviManager;)Z
+	205     (00000334) move-result          v2
+	206     (00000336) if-eqz               v2, +022h
+
+onReceive-BB@0x33a : [ onReceive-BB@0x37a ]
+	207     (0000033a) iget-object          v2, v9, Lcom/jlboat/phone/controller/JlNaviManager$2;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	208     (0000033e) invoke-virtual       v2, v0, v1, Lcom/jlboat/phone/controller/JlNaviManager;->setWifiConfig(Ljava/lang/String; Ljava/lang/String;)V
+	209     (00000344) goto                 +1bh
+
+onReceive-BB@0x346 : [ onReceive-BB@0x356 onReceive-BB@0x360 ]
+	210     (00000346) const-string         v0, "isConnect"
+	211     (0000034a) invoke-virtual       v11, v0, v3, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String; Z)Z
+	212     (00000350) move-result          v0
+	213     (00000352) if-eqz               v0, +007h
+
+onReceive-BB@0x356 : [ onReceive-BB@0x360 ]
+	214     (00000356) iget-object          v1, v9, Lcom/jlboat/phone/controller/JlNaviManager$2;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	215     (0000035a) invoke-static        v1, Lcom/jlboat/phone/controller/JlNaviManager;->access$2800(Lcom/jlboat/phone/controller/JlNaviManager;)V
+
+onReceive-BB@0x360 : [ onReceive-BB@0x37a ]
+	216     (00000360) iget-object          v1, v9, Lcom/jlboat/phone/controller/JlNaviManager$2;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	217     (00000364) invoke-static        v1, v0, Lcom/jlboat/phone/controller/JlNaviManager;->access$402(Lcom/jlboat/phone/controller/JlNaviManager; Z)Z
+	218     (0000036a) goto                 +8h
+
+onReceive-BB@0x36c : [ onReceive-BB@0x37a ]
+	219     (0000036c) invoke-static        Lcom/jlboat/phone/application/BoatSlamApplication;->clearDefaultNetwork()V
+	220     (00000372) invoke-static        Lcom/jlboat/phone/application/BoatSlamApplication;->setDefaultNetwork()V
+	221     (00000378) nop                  
+
+onReceive-BB@0x37a : 
+	222     (0000037a) return-void          
+
+onReceive-BB@0x37c : 
+	223     (0000037c) return-void          
+
+onReceive-BB@0x37e : 
+	224     (0000037e) nop                  
+	225     (00000380) sparse-switch-payload -45e5283a -2aa90add -5fd9abb 1c30179b 2ac59937
+	226     (000003ac) packed-switch-payload 0 1 2 3 4
+

@@ -1,0 +1,17 @@
+# Lcom/jlboat/phone/communication/SubMapLisener$1;-><init>(Lcom/jlboat/phone/communication/SubMapLisener; Lcom/boat/jrosbridge/Topic; Lcom/boat/jrosbridge/Service;)V [access_flags=constructor]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.communication.SubMapLisener
+# - v2:com.boat.jrosbridge.Topic
+# - v3:com.boat.jrosbridge.Service
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) iput-object          v1, v0, Lcom/jlboat/phone/communication/SubMapLisener$1;->this$0 Lcom/jlboat/phone/communication/SubMapLisener;
+	1       (00000004) iput-object          v2, v0, Lcom/jlboat/phone/communication/SubMapLisener$1;->val$submapListSubscriber Lcom/boat/jrosbridge/Topic;
+	2       (00000008) iput-object          v3, v0, Lcom/jlboat/phone/communication/SubMapLisener$1;->val$submapQueryServiceClient Lcom/boat/jrosbridge/Service;
+	3       (0000000c) invoke-direct        v0, Ljava/lang/Object;-><init>()V
+	4       (00000012) return-void          
+

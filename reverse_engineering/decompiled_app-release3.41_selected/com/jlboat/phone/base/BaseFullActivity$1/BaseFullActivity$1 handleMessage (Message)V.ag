@@ -1,0 +1,56 @@
+# Lcom/jlboat/phone/base/BaseFullActivity$1;->handleMessage(Landroid/os/Message;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:android.os.Message
+#
+# - return:void
+
+handleMessage-BB@0x0 : [ D:handleMessage-BB@0x10 100:handleMessage-BB@0x12 ]
+	0       (00000000) invoke-super         v2, v3, Landroid/os/Handler;->handleMessage(Landroid/os/Message;)V
+	1       (00000006) iget                 v0, v3, Landroid/os/Message;->what I
+	2       (0000000a) packed-switch        v0, +000003dh
+
+handleMessage-BB@0x10 : [ handleMessage-BB@0x82 ]
+	3       (00000010) goto                 +39h
+
+handleMessage-BB@0x12 : [ handleMessage-BB@0x22 handleMessage-BB@0x42 ]
+	4       (00000012) iget-object          v0, v2, Lcom/jlboat/phone/base/BaseFullActivity$1;->this$0 Lcom/jlboat/phone/base/BaseFullActivity;
+	5       (00000016) invoke-static        v0, Lcom/jlboat/phone/base/BaseFullActivity;->access$000(Lcom/jlboat/phone/base/BaseFullActivity;)Z
+	6       (0000001c) move-result          v0
+	7       (0000001e) if-eqz               v0, +012h
+
+handleMessage-BB@0x22 : [ handleMessage-BB@0x64 ]
+	8       (00000022) iget-object          v0, v2, Lcom/jlboat/phone/base/BaseFullActivity$1;->this$0 Lcom/jlboat/phone/base/BaseFullActivity;
+	9       (00000026) const/4              v1, 0
+	10      (00000028) invoke-static        v0, v1, Lcom/jlboat/phone/base/BaseFullActivity;->access$002(Lcom/jlboat/phone/base/BaseFullActivity; Z)Z
+	11      (0000002e) iget-object          v0, v2, Lcom/jlboat/phone/base/BaseFullActivity$1;->this$0 Lcom/jlboat/phone/base/BaseFullActivity;
+	12      (00000032) invoke-static        v0, Lcom/jlboat/phone/base/BaseFullActivity;->access$100(Lcom/jlboat/phone/base/BaseFullActivity;)Landroid/widget/ImageView;
+	13      (00000038) move-result-object   v0
+	14      (0000003a) invoke-virtual       v0, v1, Landroid/widget/ImageView;->setVisibility(I)V
+	15      (00000040) goto                 +12h
+
+handleMessage-BB@0x42 : [ handleMessage-BB@0x64 ]
+	16      (00000042) iget-object          v0, v2, Lcom/jlboat/phone/base/BaseFullActivity$1;->this$0 Lcom/jlboat/phone/base/BaseFullActivity;
+	17      (00000046) const/4              v1, 1
+	18      (00000048) invoke-static        v0, v1, Lcom/jlboat/phone/base/BaseFullActivity;->access$002(Lcom/jlboat/phone/base/BaseFullActivity; Z)Z
+	19      (0000004e) iget-object          v0, v2, Lcom/jlboat/phone/base/BaseFullActivity$1;->this$0 Lcom/jlboat/phone/base/BaseFullActivity;
+	20      (00000052) invoke-static        v0, Lcom/jlboat/phone/base/BaseFullActivity;->access$100(Lcom/jlboat/phone/base/BaseFullActivity;)Landroid/widget/ImageView;
+	21      (00000058) move-result-object   v0
+	22      (0000005a) const/16             v1, 8
+	23      (0000005e) invoke-virtual       v0, v1, Landroid/widget/ImageView;->setVisibility(I)V
+
+handleMessage-BB@0x64 : [ handleMessage-BB@0x82 ]
+	24      (00000064) new-instance         v0, Landroid/content/Intent;
+	25      (00000068) invoke-direct        v0, Landroid/content/Intent;-><init>()V
+	26      (0000006e) const-string         v1, "ERRMSG_UPDATE"
+	27      (00000072) invoke-virtual       v0, v1, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
+	28      (00000078) iget-object          v1, v2, Lcom/jlboat/phone/base/BaseFullActivity$1;->this$0 Lcom/jlboat/phone/base/BaseFullActivity;
+	29      (0000007c) invoke-virtual       v1, v0, Lcom/jlboat/phone/base/BaseFullActivity;->sendBroadcast(Landroid/content/Intent;)V
+
+handleMessage-BB@0x82 : 
+	30      (00000082) return-void          
+
+handleMessage-BB@0x84 : 
+	31      (00000084) packed-switch-payload 64
+

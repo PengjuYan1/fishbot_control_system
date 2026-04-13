@@ -1,0 +1,28 @@
+# Lcom/jlboat/phone/view/Err;->writeToParcel(Landroid/os/Parcel; I)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:android.os.Parcel
+# - v4:int
+#
+# - return:void
+
+writeToParcel-BB@0x0 : [ writeToParcel-BB@0x12 writeToParcel-BB@0x20 ]
+	0       (00000000) iget-object          v0, v2, Lcom/jlboat/phone/view/Err;->msg Ljava/lang/String;
+	1       (00000004) invoke-virtual       v3, v0, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+	2       (0000000a) iget-object          v0, v2, Lcom/jlboat/phone/view/Err;->da Ljava/util/Date;
+	3       (0000000e) if-eqz               v0, +009h
+
+writeToParcel-BB@0x12 : [ writeToParcel-BB@0x24 ]
+	4       (00000012) iget-object          v0, v2, Lcom/jlboat/phone/view/Err;->da Ljava/util/Date;
+	5       (00000016) invoke-virtual       v0, Ljava/util/Date;->getTime()J
+	6       (0000001c) move-result-wide     v0
+	7       (0000001e) goto                 +3h
+
+writeToParcel-BB@0x20 : [ writeToParcel-BB@0x24 ]
+	8       (00000020) const-wide/16        v0, -1
+
+writeToParcel-BB@0x24 : 
+	9       (00000024) invoke-virtual       v3, v0, v1, Landroid/os/Parcel;->writeLong(J)V
+	10      (0000002a) return-void          
+

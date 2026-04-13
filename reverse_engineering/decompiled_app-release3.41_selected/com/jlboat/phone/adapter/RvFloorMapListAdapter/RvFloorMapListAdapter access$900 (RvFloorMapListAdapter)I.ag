@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;->access$900(Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;)I [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.adapter.RvFloorMapListAdapter
+#
+# - return:int
+
+access$900-BB@0x0 : 
+	0       (00000000) iget                 v0, v1, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;->TYPE_FRIEND I
+	1       (00000004) return               v0
+

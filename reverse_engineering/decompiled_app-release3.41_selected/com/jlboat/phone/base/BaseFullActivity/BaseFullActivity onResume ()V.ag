@@ -1,0 +1,26 @@
+# Lcom/jlboat/phone/base/BaseFullActivity;->onResume()V [access_flags=protected]
+#
+# Parameters:
+# local registers: v0...v2
+#
+# - return:void
+
+onResume-BB@0x0 : 
+	0       (00000000) invoke-super         v2, Landroid/support/v7/app/AppCompatActivity;->onResume()V
+	1       (00000006) new-instance         v0, Landroid/content/IntentFilter;
+	2       (0000000a) invoke-direct        v0, Landroid/content/IntentFilter;-><init>()V
+	3       (00000010) const-string         v1, "power"
+	4       (00000014) invoke-virtual       v0, v1, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+	5       (0000001a) const-string         v1, "change"
+	6       (0000001e) invoke-virtual       v0, v1, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+	7       (00000024) const-string         v1, "ssid"
+	8       (00000028) invoke-virtual       v0, v1, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+	9       (0000002e) const-string         v1, "WIFICONNECTED_STATE"
+	10      (00000032) invoke-virtual       v0, v1, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+	11      (00000038) const-string         v1, "ERRMSG_UPDATE"
+	12      (0000003c) invoke-virtual       v0, v1, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+	13      (00000042) iget-object          v1, v2, Lcom/jlboat/phone/base/BaseFullActivity;->voiceReceiver Landroid/content/BroadcastReceiver;
+	14      (00000046) invoke-virtual       v2, v1, v0, Lcom/jlboat/phone/base/BaseFullActivity;->registerReceiver(Landroid/content/BroadcastReceiver; Landroid/content/IntentFilter;)Landroid/content/Intent;
+	15      (0000004c) invoke-direct        v2, Lcom/jlboat/phone/base/BaseFullActivity;->checkTitle()V
+	16      (00000052) return-void          
+

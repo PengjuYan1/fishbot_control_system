@@ -1,0 +1,17 @@
+# Lcom/jlboat/phone/adapter/BindPointListAdapter$1;-><init>(Lcom/jlboat/phone/adapter/BindPointListAdapter; I Lcom/jlboat/phone/adapter/BindPointListAdapter$MyHolder;)V [access_flags=constructor]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.adapter.BindPointListAdapter
+# - v2:int
+# - v3:com.jlboat.phone.adapter.BindPointListAdapter$MyHolder
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) iput-object          v1, v0, Lcom/jlboat/phone/adapter/BindPointListAdapter$1;->this$0 Lcom/jlboat/phone/adapter/BindPointListAdapter;
+	1       (00000004) iput                 v2, v0, Lcom/jlboat/phone/adapter/BindPointListAdapter$1;->val$postion I
+	2       (00000008) iput-object          v3, v0, Lcom/jlboat/phone/adapter/BindPointListAdapter$1;->val$myHolder Lcom/jlboat/phone/adapter/BindPointListAdapter$MyHolder;
+	3       (0000000c) invoke-direct        v0, Ljava/lang/Object;-><init>()V
+	4       (00000012) return-void          
+

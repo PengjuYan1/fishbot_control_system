@@ -1,0 +1,53 @@
+# Lcom/jlboat/phone/communication/SpiritServiceClient;->setNaviTestService(Ljava/util/List; J Lcom/boat/jrosbridge/MessageListener;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v6
+# - v7:java.util.List
+# - v8:long
+# - v9:com.boat.jrosbridge.MessageListener
+#
+# - return:void
+
+setNaviTestService-BB@0x0 : [ setNaviTestService-BB@0x2e setNaviTestService-BB@0x72 ]
+	0       (00000000) new-instance         v0, Lcom/boat/jrosbridge/Service;
+	1       (00000004) sget-object          v1, Lcom/jlboat/phone/util/ServiceNames;->NaviTest Ljava/lang/String;
+	2       (00000008) const-class          v2, Lcom/jlboat/phone/message/map_msgs/SetNaviTestRequest;
+	3       (0000000c) const-class          v3, Lcom/jlboat/phone/message/map_msgs/SetNaviTestResponse;
+	4       (00000010) sget-object          v4, Lcom/jlboat/phone/application/BoatSlamApplication;->client Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;
+	5       (00000014) invoke-direct        v0, v1, v2, v3, v4, Lcom/boat/jrosbridge/Service;-><init>(Ljava/lang/String; Ljava/lang/Class; Ljava/lang/Class; Lcom/boat/jrosbridge/ROSClient;)V
+	6       (0000001a) new-instance         v1, Lcom/jlboat/phone/message/map_msgs/SetNaviTestRequest;
+	7       (0000001e) invoke-direct        v1, Lcom/jlboat/phone/message/map_msgs/SetNaviTestRequest;-><init>()V
+	8       (00000024) invoke-virtual       v1, v7, v8, Lcom/jlboat/phone/message/map_msgs/SetNaviTestRequest;->setType(J)V
+	9       (0000002a) if-eqz               v6, +024h
+
+setNaviTestService-BB@0x2e : [ setNaviTestService-BB@0x3a setNaviTestService-BB@0x72 ]
+	10      (0000002e) invoke-interface     v6, Ljava/util/List;->isEmpty()Z
+	11      (00000034) move-result          v2
+	12      (00000036) if-nez               v2, +01eh
+
+setNaviTestService-BB@0x3a : [ setNaviTestService-BB@0x4c setNaviTestService-BB@0x54 ]
+	13      (0000003a) const/4              v2, 0
+	14      (0000003c) invoke-interface     v6, v2, Ljava/util/List;->get(I)Ljava/lang/Object;
+	15      (00000042) move-result-object   v3
+	16      (00000044) instance-of          v4, v3, Ljava/lang/String;
+	17      (00000048) if-eqz               v4, +006h
+
+setNaviTestService-BB@0x4c : [ setNaviTestService-BB@0x72 ]
+	18      (0000004c) invoke-virtual       v1, v6, Lcom/jlboat/phone/message/map_msgs/SetNaviTestRequest;->setGoalNames(Ljava/util/List;)V
+	19      (00000052) goto                 +10h
+
+setNaviTestService-BB@0x54 : [ setNaviTestService-BB@0x5c setNaviTestService-BB@0x72 ]
+	20      (00000054) instance-of          v4, v3, Lcom/boat/support/slam/entity/floors/NaviTest;
+	21      (00000058) if-eqz               v4, +00dh
+
+setNaviTestService-BB@0x5c : [ setNaviTestService-BB@0x72 ]
+	22      (0000005c) new-array            v2, v2, [Lcom/boat/support/slam/entity/floors/NaviTest;
+	23      (00000060) invoke-interface     v6, v2, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+	24      (00000066) move-result-object   v2
+	25      (00000068) check-cast           v2, [Lcom/boat/support/slam/entity/floors/NaviTest;
+	26      (0000006c) invoke-virtual       v1, v2, Lcom/jlboat/phone/message/map_msgs/SetNaviTestRequest;->setNaviTests([Lcom/boat/support/slam/entity/floors/NaviTest;)V
+
+setNaviTestService-BB@0x72 : 
+	27      (00000072) invoke-virtual       v0, v1, v9, Lcom/boat/jrosbridge/Service;->callWithHandler(Lcom/boat/jrosbridge/message/Message; Lcom/boat/jrosbridge/MessageListener;)V
+	28      (00000078) return-void          
+

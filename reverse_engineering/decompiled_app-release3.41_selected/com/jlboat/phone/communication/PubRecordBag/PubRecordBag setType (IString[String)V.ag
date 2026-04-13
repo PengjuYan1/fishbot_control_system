@@ -1,0 +1,35 @@
+# Lcom/jlboat/phone/communication/PubRecordBag;->setType(I Ljava/lang/String; [Ljava/lang/String;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:int
+# - v4:java.lang.String
+# - v5:java.lang.String[]
+#
+# - return:void
+
+setType-BB@0x0 : [ setType-BB@0x8 setType-BB@0x12 ]
+	0       (00000000) iget-object          v0, v2, Lcom/jlboat/phone/communication/PubRecordBag;->grabagPublisher Lcom/boat/jrosbridge/Topic;
+	1       (00000004) if-nez               v0, +007h
+
+setType-BB@0x8 : [ setType-BB@0x10 setType-BB@0x12 ]
+	2       (00000008) iget-object          v0, v2, Lcom/jlboat/phone/communication/PubRecordBag;->grabaglocal Lcom/jlboat/phone/message/map_msgs/RecordBag;
+	3       (0000000c) if-nez               v0, +003h
+
+setType-BB@0x10 : 
+	4       (00000010) return-void          
+
+setType-BB@0x12 : 
+	5       (00000012) iget-object          v0, v2, Lcom/jlboat/phone/communication/PubRecordBag;->grabaglocal Lcom/jlboat/phone/message/map_msgs/RecordBag;
+	6       (00000016) invoke-virtual       v0, v3, Lcom/jlboat/phone/message/map_msgs/RecordBag;->setType(I)V
+	7       (0000001c) iget-object          v0, v2, Lcom/jlboat/phone/communication/PubRecordBag;->grabaglocal Lcom/jlboat/phone/message/map_msgs/RecordBag;
+	8       (00000020) invoke-virtual       v0, v4, Lcom/jlboat/phone/message/map_msgs/RecordBag;->setBagName(Ljava/lang/String;)V
+	9       (00000026) iget-object          v0, v2, Lcom/jlboat/phone/communication/PubRecordBag;->grabaglocal Lcom/jlboat/phone/message/map_msgs/RecordBag;
+	10      (0000002a) invoke-static        v5, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+	11      (00000030) move-result-object   v1
+	12      (00000032) invoke-virtual       v0, v1, Lcom/jlboat/phone/message/map_msgs/RecordBag;->setTopicList(Ljava/util/List;)V
+	13      (00000038) iget-object          v0, v2, Lcom/jlboat/phone/communication/PubRecordBag;->grabagPublisher Lcom/boat/jrosbridge/Topic;
+	14      (0000003c) iget-object          v1, v2, Lcom/jlboat/phone/communication/PubRecordBag;->grabaglocal Lcom/jlboat/phone/message/map_msgs/RecordBag;
+	15      (00000040) invoke-virtual       v0, v1, Lcom/boat/jrosbridge/Topic;->publish(Lcom/boat/jrosbridge/message/Message;)V
+	16      (00000046) return-void          
+

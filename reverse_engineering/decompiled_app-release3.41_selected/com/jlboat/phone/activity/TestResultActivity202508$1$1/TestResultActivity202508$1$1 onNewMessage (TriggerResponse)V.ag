@@ -1,0 +1,71 @@
+# Lcom/jlboat/phone/activity/TestResultActivity202508$1$1;->onNewMessage(Lcom/boat/jrosbridge/message/std_srvs/TriggerResponse;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v5
+# - v6:com.boat.jrosbridge.message.std_srvs.TriggerResponse
+#
+# - return:void
+
+onNewMessage-BB@0x0 : [ onNewMessage-BB@0xc onNewMessage-BB@0xb8 ]
+	0       (00000000) invoke-virtual       v6, Lcom/boat/jrosbridge/message/std_srvs/TriggerResponse;->getSuccess()Z
+	1       (00000006) move-result          v0
+	2       (00000008) if-eqz               v0, +058h
+
+onNewMessage-BB@0xc : [ onNewMessage-BB@0x20 onNewMessage-BB@0x22 ]
+	3       (0000000c) invoke-virtual       v6, Lcom/boat/jrosbridge/message/std_srvs/TriggerResponse;->getMessage()Ljava/lang/String;
+	4       (00000012) move-result-object   v0
+	5       (00000014) invoke-virtual       v0, Ljava/lang/String;->isEmpty()Z
+	6       (0000001a) move-result          v0
+	7       (0000001c) if-eqz               v0, +003h
+
+onNewMessage-BB@0x20 : 
+	8       (00000020) return-void          
+
+onNewMessage-BB@0x22 : [ onNewMessage-BB@0x3a ]
+	9       (00000022) iget-object          v0, v5, Lcom/jlboat/phone/activity/TestResultActivity202508$1$1;->this$1 Lcom/jlboat/phone/activity/TestResultActivity202508$1;
+	10      (00000026) iget-object          v0, v0, Lcom/jlboat/phone/activity/TestResultActivity202508$1;->this$0 Lcom/jlboat/phone/activity/TestResultActivity202508;
+	11      (0000002a) new-instance         v1, Lcom/boat/support/slam/entity/floors/MapList;
+	12      (0000002e) invoke-direct        v1, Lcom/boat/support/slam/entity/floors/MapList;-><init>()V
+	13      (00000034) invoke-static        v0, v1, Lcom/jlboat/phone/activity/TestResultActivity202508;->access$202(Lcom/jlboat/phone/activity/TestResultActivity202508; Lcom/boat/support/slam/entity/floors/MapList;)Lcom/boat/support/slam/entity/floors/MapList;
+
+onNewMessage-BB@0x3a : [ onNewMessage-BB@0x96 ]
+	14      (0000003a) new-instance         v0, Lorg/json/JSONObject;
+	15      (0000003e) invoke-virtual       v6, Lcom/boat/jrosbridge/message/std_srvs/TriggerResponse;->getMessage()Ljava/lang/String;
+	16      (00000044) move-result-object   v1
+	17      (00000046) invoke-direct        v0, v1, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
+	18      (0000004c) iget-object          v1, v5, Lcom/jlboat/phone/activity/TestResultActivity202508$1$1;->this$1 Lcom/jlboat/phone/activity/TestResultActivity202508$1;
+	19      (00000050) iget-object          v1, v1, Lcom/jlboat/phone/activity/TestResultActivity202508$1;->this$0 Lcom/jlboat/phone/activity/TestResultActivity202508;
+	20      (00000054) new-instance         v2, Lcom/google/gson/Gson;
+	21      (00000058) invoke-direct        v2, Lcom/google/gson/Gson;-><init>()V
+	22      (0000005e) invoke-virtual       v0, Lorg/json/JSONObject;->toString()Ljava/lang/String;
+	23      (00000064) move-result-object   v3
+	24      (00000066) new-instance         v4, Lcom/jlboat/phone/activity/TestResultActivity202508$1$1$1;
+	25      (0000006a) invoke-direct        v4, v5, Lcom/jlboat/phone/activity/TestResultActivity202508$1$1$1;-><init>(Lcom/jlboat/phone/activity/TestResultActivity202508$1$1;)V
+	26      (00000070) invoke-virtual       v4, Lcom/jlboat/phone/activity/TestResultActivity202508$1$1$1;->getType()Ljava/lang/reflect/Type;
+	27      (00000076) move-result-object   v4
+	28      (00000078) invoke-virtual       v2, v3, v4, Lcom/google/gson/Gson;->fromJson(Ljava/lang/String; Ljava/lang/reflect/Type;)Ljava/lang/Object;
+	29      (0000007e) move-result-object   v2
+	30      (00000080) check-cast           v2, Lcom/boat/support/slam/entity/floors/MapList;
+	31      (00000084) invoke-static        v1, v2, Lcom/jlboat/phone/activity/TestResultActivity202508;->access$202(Lcom/jlboat/phone/activity/TestResultActivity202508; Lcom/boat/support/slam/entity/floors/MapList;)Lcom/boat/support/slam/entity/floors/MapList;
+	32      (0000008a) nop                  
+	33      (0000008c) goto                 +5h
+	3a:89
+	(Lorg/json/JSONException; -> 8e onNewMessage-BB@0x8e)
+
+onNewMessage-BB@0x8e : [ onNewMessage-BB@0x96 ]
+	34      (0000008e) move-exception       v0
+	35      (00000090) invoke-virtual       v0, Lorg/json/JSONException;->printStackTrace()V
+
+onNewMessage-BB@0x96 : [ onNewMessage-BB@0xb8 ]
+	36      (00000096) iget-object          v0, v5, Lcom/jlboat/phone/activity/TestResultActivity202508$1$1;->this$1 Lcom/jlboat/phone/activity/TestResultActivity202508$1;
+	37      (0000009a) iget-object          v0, v0, Lcom/jlboat/phone/activity/TestResultActivity202508$1;->this$0 Lcom/jlboat/phone/activity/TestResultActivity202508;
+	38      (0000009e) iget-object          v1, v5, Lcom/jlboat/phone/activity/TestResultActivity202508$1$1;->val$resultEntries Ljava/util/List;
+	39      (000000a2) iget-object          v2, v5, Lcom/jlboat/phone/activity/TestResultActivity202508$1$1;->this$1 Lcom/jlboat/phone/activity/TestResultActivity202508$1;
+	40      (000000a6) iget-object          v2, v2, Lcom/jlboat/phone/activity/TestResultActivity202508$1;->this$0 Lcom/jlboat/phone/activity/TestResultActivity202508;
+	41      (000000aa) invoke-static        v2, Lcom/jlboat/phone/activity/TestResultActivity202508;->access$200(Lcom/jlboat/phone/activity/TestResultActivity202508;)Lcom/boat/support/slam/entity/floors/MapList;
+	42      (000000b0) move-result-object   v2
+	43      (000000b2) invoke-static        v0, v1, v2, Lcom/jlboat/phone/activity/TestResultActivity202508;->access$300(Lcom/jlboat/phone/activity/TestResultActivity202508; Ljava/util/List; Lcom/boat/support/slam/entity/floors/MapList;)V
+
+onNewMessage-BB@0xb8 : 
+	44      (000000b8) return-void          
+

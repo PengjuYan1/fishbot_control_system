@@ -1,0 +1,52 @@
+# Lcom/boat/utils/ReportExceptionInformationUtils;->showWarnMsg(Landroid/content/Context; I I Ljava/lang/String;)V [access_flags=public static]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:android.content.Context
+# - v3:int
+# - v4:int
+# - v5:java.lang.String
+#
+# - return:void
+
+showWarnMsg-BB@0x0 : [ showWarnMsg-BB@0x38 showWarnMsg-BB@0xa0 ]
+	0       (00000000) new-instance         v0, Ljava/lang/StringBuilder;
+	1       (00000004) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	2       (0000000a) const-string         v1, "msg:"
+	3       (0000000e) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	4       (00000014) move-result-object   v0
+	5       (00000016) invoke-virtual       v0, v5, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	6       (0000001c) move-result-object   v0
+	7       (0000001e) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	8       (00000024) move-result-object   v0
+	9       (00000026) const-string         v1, "showWarn"
+	10      (0000002a) invoke-static        v1, v0, Landroid/util/Log;->e(Ljava/lang/String; Ljava/lang/String;)I
+	11      (00000030) rem-int/lit8         v0, v3, 2
+	12      (00000034) if-eqz               v0, +036h
+
+showWarnMsg-BB@0x38 : [ showWarnMsg-BB@0xa0 ]
+	13      (00000038) new-instance         v0, Lcom/jlboat/phone/view/Err;
+	14      (0000003c) invoke-direct        v0, Lcom/jlboat/phone/view/Err;-><init>()V
+	15      (00000042) sput-object          v0, Lcom/boat/utils/ReportExceptionInformationUtils;->err Lcom/jlboat/phone/view/Err;
+	16      (00000046) sget-object          v0, Lcom/boat/utils/ReportExceptionInformationUtils;->err Lcom/jlboat/phone/view/Err;
+	17      (0000004a) invoke-virtual       v0, v5, Lcom/jlboat/phone/view/Err;->setMsg(Ljava/lang/String;)V
+	18      (00000050) sget-object          v0, Lcom/boat/utils/ReportExceptionInformationUtils;->err Lcom/jlboat/phone/view/Err;
+	19      (00000054) new-instance         v1, Ljava/util/Date;
+	20      (00000058) invoke-direct        v1, Ljava/util/Date;-><init>()V
+	21      (0000005e) invoke-virtual       v0, v1, Lcom/jlboat/phone/view/Err;->setDa(Ljava/util/Date;)V
+	22      (00000064) sget-object          v0, Lcom/boat/utils/ReportExceptionInformationUtils;->err Lcom/jlboat/phone/view/Err;
+	23      (00000068) invoke-virtual       v0, v3, Lcom/jlboat/phone/view/Err;->setType(I)V
+	24      (0000006e) sget-object          v0, Lcom/boat/utils/ReportExceptionInformationUtils;->err Lcom/jlboat/phone/view/Err;
+	25      (00000072) invoke-virtual       v0, v4, Lcom/jlboat/phone/view/Err;->setFlag(I)V
+	26      (00000078) sget-object          v0, Lcom/jlboat/phone/application/BoatSlamApplication;->errList Ljava/util/List;
+	27      (0000007c) sget-object          v1, Lcom/boat/utils/ReportExceptionInformationUtils;->err Lcom/jlboat/phone/view/Err;
+	28      (00000080) invoke-interface     v0, v1, Ljava/util/List;->add(Ljava/lang/Object;)Z
+	29      (00000086) new-instance         v0, Landroid/content/Intent;
+	30      (0000008a) invoke-direct        v0, Landroid/content/Intent;-><init>()V
+	31      (00000090) const-string         v1, "ERRMSG_UPDATE"
+	32      (00000094) invoke-virtual       v0, v1, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
+	33      (0000009a) invoke-virtual       v2, v0, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+
+showWarnMsg-BB@0xa0 : 
+	34      (000000a0) return-void          
+

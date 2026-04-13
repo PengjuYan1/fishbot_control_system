@@ -1,0 +1,28 @@
+# Lcom/boat/support/slam/SlamManager;->deleteMap(Ljava/lang/String;)Z [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:java.lang.String
+#
+# - return:boolean
+
+deleteMap-BB@0x0 : [ deleteMap-BB@0x8 deleteMap-BB@0x1e ]
+	0       (00000000) iget-object          v0, v1, Lcom/boat/support/slam/SlamManager;->slamService Lcom/boat/support/slam/ISlamService;
+	1       (00000004) if-eqz               v0, +00dh
+
+deleteMap-BB@0x8 : 
+	2       (00000008) iget-object          v0, v1, Lcom/boat/support/slam/SlamManager;->slamService Lcom/boat/support/slam/ISlamService;
+	3       (0000000c) invoke-interface     v0, v2, Lcom/boat/support/slam/ISlamService;->deleteMap(Ljava/lang/String;)Z
+	4       (00000012) move-result          v0
+	5       (00000014) return               v0
+	8:13
+	(Landroid/os/RemoteException; -> 16 deleteMap-BB@0x16)
+
+deleteMap-BB@0x16 : [ deleteMap-BB@0x1e ]
+	6       (00000016) move-exception       v0
+	7       (00000018) invoke-virtual       v0, Landroid/os/RemoteException;->printStackTrace()V
+
+deleteMap-BB@0x1e : 
+	8       (0000001e) const/4              v0, 0
+	9       (00000020) return               v0
+

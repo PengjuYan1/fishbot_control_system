@@ -1,0 +1,28 @@
+# Lcom/jlboat/phone/activity/PointBindPathActivity;-><init>()V [access_flags=public constructor]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) invoke-direct        v1, Lcom/jlboat/phone/base/BaseFullActivity;-><init>()V
+	1       (00000006) new-instance         v0, Ljava/util/ArrayList;
+	2       (0000000a) invoke-direct        v0, Ljava/util/ArrayList;-><init>()V
+	3       (00000010) iput-object          v0, v1, Lcom/jlboat/phone/activity/PointBindPathActivity;->newAddPos Ljava/util/List;
+	4       (00000014) const/4              v0, 0
+	5       (00000016) iput                 v0, v1, Lcom/jlboat/phone/activity/PointBindPathActivity;->flag I
+	6       (0000001a) const/16             v0, 1001
+	7       (0000001e) iput                 v0, v1, Lcom/jlboat/phone/activity/PointBindPathActivity;->START_REQ I
+	8       (00000022) const/16             v0, 1002
+	9       (00000026) iput                 v0, v1, Lcom/jlboat/phone/activity/PointBindPathActivity;->REQ_END I
+	10      (0000002a) const/16             v0, 1003
+	11      (0000002e) iput                 v0, v1, Lcom/jlboat/phone/activity/PointBindPathActivity;->UPDATE_UI I
+	12      (00000032) new-instance         v0, Lcom/jlboat/phone/activity/PointBindPathActivity$1;
+	13      (00000036) invoke-direct        v0, v1, Lcom/jlboat/phone/activity/PointBindPathActivity$1;-><init>(Lcom/jlboat/phone/activity/PointBindPathActivity;)V
+	14      (0000003c) iput-object          v0, v1, Lcom/jlboat/phone/activity/PointBindPathActivity;->handler Landroid/os/Handler;
+	15      (00000040) new-instance         v0, Ljava/util/LinkedList;
+	16      (00000044) invoke-direct        v0, Ljava/util/LinkedList;-><init>()V
+	17      (0000004a) iput-object          v0, v1, Lcom/jlboat/phone/activity/PointBindPathActivity;->points Ljava/util/List;
+	18      (0000004e) return-void          
+

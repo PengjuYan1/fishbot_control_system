@@ -1,0 +1,58 @@
+# Lcom/boat/jrosbridge/rosbridge/implementation/JSON;->convertJSONObjectToMessage(Lorg/json/simple/JSONObject; Ljava/lang/Class; Lcom/boat/jrosbridge/rosbridge/implementation/Registry;)Lcom/boat/jrosbridge/message/Message; [access_flags=private static]
+#
+# Parameters:
+# - local registers: v0...v7
+# - v8:org.json.simple.JSONObject
+# - v9:java.lang.Class
+# - v10:com.boat.jrosbridge.rosbridge.implementation.Registry
+#
+# - return:com.boat.jrosbridge.message.Message
+
+convertJSONObjectToMessage-BB@0x0 : [ convertJSONObjectToMessage-BB@0x18 ]
+	0       (00000000) invoke-virtual       v9, Ljava/lang/Class;->newInstance()Ljava/lang/Object;
+	1       (00000006) move-result-object   v0
+	2       (00000008) check-cast           v0, Lcom/boat/jrosbridge/message/Message;
+	3       (0000000c) invoke-virtual       v9, Ljava/lang/Class;->getFields()[Ljava/lang/reflect/Field;
+	4       (00000012) move-result-object   v1
+	5       (00000014) array-length         v2, v1
+	6       (00000016) const/4              v3, 0
+	0:49
+	(Ljava/lang/Exception; -> 52 convertJSONObjectToMessage-BB@0x52)
+
+convertJSONObjectToMessage-BB@0x18 : [ convertJSONObjectToMessage-BB@0x1c convertJSONObjectToMessage-BB@0x50 ]
+	7       (00000018) if-ge                v3, v2, +01ch
+	0:49
+	(Ljava/lang/Exception; -> 52 convertJSONObjectToMessage-BB@0x52)
+
+convertJSONObjectToMessage-BB@0x1c : [ convertJSONObjectToMessage-BB@0x3c convertJSONObjectToMessage-BB@0x4a ]
+	8       (0000001c) aget-object          v4, v1, v3
+	9       (00000020) invoke-static        v0, v8, v4, v10, Lcom/boat/jrosbridge/rosbridge/implementation/JSON;->getFieldClass(Lcom/boat/jrosbridge/message/Message; Lorg/json/simple/JSONObject; Ljava/lang/reflect/Field; Lcom/boat/jrosbridge/rosbridge/implementation/Registry;)Ljava/lang/Class;
+	10      (00000026) move-result-object   v5
+	11      (00000028) invoke-virtual       v4, Ljava/lang/reflect/Field;->getName()Ljava/lang/String;
+	12      (0000002e) move-result-object   v6
+	13      (00000030) invoke-virtual       v8, v6, Lorg/json/simple/JSONObject;->get(Ljava/lang/Object;)Ljava/lang/Object;
+	14      (00000036) move-result-object   v6
+	15      (00000038) if-eqz               v6, +009h
+	0:49
+	(Ljava/lang/Exception; -> 52 convertJSONObjectToMessage-BB@0x52)
+
+convertJSONObjectToMessage-BB@0x3c : [ convertJSONObjectToMessage-BB@0x4a ]
+	16      (0000003c) invoke-static        v6, v5, v4, v10, Lcom/boat/jrosbridge/rosbridge/implementation/JSON;->convertElementToField(Ljava/lang/Object; Ljava/lang/Class; Ljava/lang/reflect/Field; Lcom/boat/jrosbridge/rosbridge/implementation/Registry;)Ljava/lang/Object;
+	17      (00000042) move-result-object   v7
+	18      (00000044) invoke-virtual       v4, v0, v7, Ljava/lang/reflect/Field;->set(Ljava/lang/Object; Ljava/lang/Object;)V
+	0:49
+	(Ljava/lang/Exception; -> 52 convertJSONObjectToMessage-BB@0x52)
+
+convertJSONObjectToMessage-BB@0x4a : [ convertJSONObjectToMessage-BB@0x18 ]
+	19      (0000004a) add-int/lit8         v3, v3, 1
+	20      (0000004e) goto                 -1bh
+
+convertJSONObjectToMessage-BB@0x50 : 
+	21      (00000050) return-object        v0
+
+convertJSONObjectToMessage-BB@0x52 : 
+	22      (00000052) move-exception       v0
+	23      (00000054) invoke-virtual       v0, Ljava/lang/Exception;->printStackTrace()V
+	24      (0000005a) const/4              v1, 0
+	25      (0000005c) return-object        v1
+

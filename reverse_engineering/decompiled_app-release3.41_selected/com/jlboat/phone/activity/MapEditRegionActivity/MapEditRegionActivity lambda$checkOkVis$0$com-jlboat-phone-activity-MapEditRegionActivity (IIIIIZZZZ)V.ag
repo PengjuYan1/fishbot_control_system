@@ -1,0 +1,113 @@
+# Lcom/jlboat/phone/activity/MapEditRegionActivity;->lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity(I I I I I Z Z Z Z)V [access_flags=synthetic]
+#
+# Parameters:
+# - local registers: v0...v5
+# - v6:int
+# - v7:int
+# - v8:int
+# - v9:int
+# - v10:int
+# - v11:boolean
+# - v12:boolean
+# - v13:boolean
+# - v14:boolean
+#
+# - return:void
+
+lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0x0 : [ lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0x10 lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0x1a ]
+	0       (00000000) iget-object          v0, v5, Lcom/jlboat/phone/activity/MapEditRegionActivity;->mark_two_ll Landroid/widget/LinearLayout;
+	1       (00000004) invoke-virtual       v0, Landroid/widget/LinearLayout;->getVisibility()I
+	2       (0000000a) move-result          v0
+	3       (0000000c) if-eq                v0, v6, +007h
+
+lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0x10 : [ lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0x1a ]
+	4       (00000010) iget-object          v0, v5, Lcom/jlboat/phone/activity/MapEditRegionActivity;->mark_two_ll Landroid/widget/LinearLayout;
+	5       (00000014) invoke-virtual       v0, v6, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0x1a : [ lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0x2a lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0x34 ]
+	6       (0000001a) iget-object          v0, v5, Lcom/jlboat/phone/activity/MapEditRegionActivity;->mark_one_ll Landroid/widget/LinearLayout;
+	7       (0000001e) invoke-virtual       v0, Landroid/widget/LinearLayout;->getVisibility()I
+	8       (00000024) move-result          v0
+	9       (00000026) if-eq                v0, v7, +007h
+
+lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0x2a : [ lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0x34 ]
+	10      (0000002a) iget-object          v0, v5, Lcom/jlboat/phone/activity/MapEditRegionActivity;->mark_one_ll Landroid/widget/LinearLayout;
+	11      (0000002e) invoke-virtual       v0, v7, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0x34 : [ lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0x44 lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0x4e ]
+	12      (00000034) iget-object          v0, v5, Lcom/jlboat/phone/activity/MapEditRegionActivity;->start_rid_ll Landroid/widget/LinearLayout;
+	13      (00000038) invoke-virtual       v0, Landroid/widget/LinearLayout;->getVisibility()I
+	14      (0000003e) move-result          v0
+	15      (00000040) if-eq                v0, v8, +007h
+
+lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0x44 : [ lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0x4e ]
+	16      (00000044) iget-object          v0, v5, Lcom/jlboat/phone/activity/MapEditRegionActivity;->start_rid_ll Landroid/widget/LinearLayout;
+	17      (00000048) invoke-virtual       v0, v8, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0x4e : [ lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0x5e lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0x68 ]
+	18      (0000004e) iget-object          v0, v5, Lcom/jlboat/phone/activity/MapEditRegionActivity;->end_rid_ll Landroid/widget/LinearLayout;
+	19      (00000052) invoke-virtual       v0, Landroid/widget/LinearLayout;->getVisibility()I
+	20      (00000058) move-result          v0
+	21      (0000005a) if-eq                v0, v9, +007h
+
+lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0x5e : [ lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0x68 ]
+	22      (0000005e) iget-object          v0, v5, Lcom/jlboat/phone/activity/MapEditRegionActivity;->end_rid_ll Landroid/widget/LinearLayout;
+	23      (00000062) invoke-virtual       v0, v9, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0x68 : [ lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0x78 lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0x82 ]
+	24      (00000068) iget-object          v0, v5, Lcom/jlboat/phone/activity/MapEditRegionActivity;->wait_rid_ll Landroid/widget/LinearLayout;
+	25      (0000006c) invoke-virtual       v0, Landroid/widget/LinearLayout;->getVisibility()I
+	26      (00000072) move-result          v0
+	27      (00000074) if-eq                v0, v10, +007h
+
+lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0x78 : [ lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0x82 ]
+	28      (00000078) iget-object          v0, v5, Lcom/jlboat/phone/activity/MapEditRegionActivity;->wait_rid_ll Landroid/widget/LinearLayout;
+	29      (0000007c) invoke-virtual       v0, v10, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0x82 : [ lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0x92 lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0xce ]
+	30      (00000082) iget-wide            v0, v5, Lcom/jlboat/phone/activity/MapEditRegionActivity;->startRId J
+	31      (00000086) const-wide/16        v2, 0
+	32      (0000008a) cmp-long             v4, v0, v2
+	33      (0000008e) if-eqz               v4, +020h
+
+lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0x92 : [ lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0x9e lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0xa2 ]
+	34      (00000092) iget-wide            v0, v5, Lcom/jlboat/phone/activity/MapEditRegionActivity;->endRid J
+	35      (00000096) cmp-long             v4, v0, v2
+	36      (0000009a) if-nez               v4, +004h
+
+lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0x9e : [ lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0xa2 lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0xce ]
+	37      (0000009e) if-nez               v11, +018h
+
+lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0xa2 : [ lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0xae lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0xb2 ]
+	38      (000000a2) iget-wide            v0, v5, Lcom/jlboat/phone/activity/MapEditRegionActivity;->waitRid J
+	39      (000000a6) cmp-long             v4, v0, v2
+	40      (000000aa) if-nez               v4, +004h
+
+lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0xae : [ lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0xb2 lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0xce ]
+	41      (000000ae) if-nez               v12, +010h
+
+lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0xb2 : [ lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0xba lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0xbe ]
+	42      (000000b2) iget                 v0, v5, Lcom/jlboat/phone/activity/MapEditRegionActivity;->regionProperty1 I
+	43      (000000b6) if-nez               v0, +004h
+
+lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0xba : [ lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0xbe lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0xce ]
+	44      (000000ba) if-nez               v13, +00ah
+
+lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0xbe : [ lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0xc6 lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0xca ]
+	45      (000000be) iget                 v0, v5, Lcom/jlboat/phone/activity/MapEditRegionActivity;->regionProperty2 I
+	46      (000000c2) if-nez               v0, +004h
+
+lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0xc6 : [ lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0xca lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0xce ]
+	47      (000000c6) if-nez               v14, +004h
+
+lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0xca : [ lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0xd0 ]
+	48      (000000ca) const/4              v0, 1
+	49      (000000cc) goto                 +2h
+
+lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0xce : [ lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0xd0 ]
+	50      (000000ce) const/4              v0, 0
+
+lambda$checkOkVis$0$com-jlboat-phone-activity-MapEditRegionActivity-BB@0xd0 : 
+	51      (000000d0) iput-boolean         v0, v5, Lcom/jlboat/phone/activity/MapEditRegionActivity;->isOk Z
+	52      (000000d4) return-void          
+

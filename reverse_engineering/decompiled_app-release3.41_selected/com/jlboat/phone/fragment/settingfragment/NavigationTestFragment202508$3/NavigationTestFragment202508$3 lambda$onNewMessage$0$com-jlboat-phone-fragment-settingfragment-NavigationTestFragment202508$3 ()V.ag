@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508$3;->lambda$onNewMessage$0$com-jlboat-phone-fragment-settingfragment-NavigationTestFragment202508$3()V [access_flags=synthetic]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:void
+
+lambda$onNewMessage$0$com-jlboat-phone-fragment-settingfragment-NavigationTestFragment202508$3-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508$3;->this$0 Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;
+	1       (00000004) invoke-static        v0, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;->access$1200(Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;)V
+	2       (0000000a) return-void          
+

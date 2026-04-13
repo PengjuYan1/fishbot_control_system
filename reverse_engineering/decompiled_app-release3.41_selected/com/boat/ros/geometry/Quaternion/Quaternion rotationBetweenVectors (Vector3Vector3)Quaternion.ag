@@ -1,0 +1,77 @@
+# Lcom/boat/ros/geometry/Quaternion;->rotationBetweenVectors(Lcom/boat/ros/geometry/Vector3; Lcom/boat/ros/geometry/Vector3;)Lcom/boat/ros/geometry/Quaternion; [access_flags=public static]
+#
+# Parameters:
+# - local registers: v0...v15
+# - v16:com.boat.ros.geometry.Vector3
+# - v17:com.boat.ros.geometry.Vector3
+#
+# - return:com.boat.ros.geometry.Quaternion
+
+rotationBetweenVectors-BB@0x0 : [ rotationBetweenVectors-BB@0x1c rotationBetweenVectors-BB@0x26 ]
+	0       (00000000) invoke-virtual/range v16, Lcom/boat/ros/geometry/Vector3;->normalize()Lcom/boat/ros/geometry/Vector3;
+	1       (00000006) move-result-object   v0
+	2       (00000008) invoke-virtual/range v17, Lcom/boat/ros/geometry/Vector3;->normalize()Lcom/boat/ros/geometry/Vector3;
+	3       (0000000e) move-result-object   v1
+	4       (00000010) invoke-virtual       v0, v1, Lcom/boat/ros/geometry/Vector3;->equals(Ljava/lang/Object;)Z
+	5       (00000016) move-result          v0
+	6       (00000018) if-eqz               v0, +007h
+
+rotationBetweenVectors-BB@0x1c : 
+	7       (0000001c) invoke-static        Lcom/boat/ros/geometry/Quaternion;->identity()Lcom/boat/ros/geometry/Quaternion;
+	8       (00000022) move-result-object   v0
+	9       (00000024) return-object        v0
+
+rotationBetweenVectors-BB@0x26 : 
+	10      (00000026) invoke-virtual/range v16 ... v17, Lcom/boat/ros/geometry/Vector3;->dotProduct(Lcom/boat/ros/geometry/Vector3;)D
+	11      (0000002c) move-result-wide     v0
+	12      (0000002e) invoke-virtual/range v16, Lcom/boat/ros/geometry/Vector3;->getMagnitude()D
+	13      (00000034) move-result-wide     v2
+	14      (00000036) invoke-virtual/range v17, Lcom/boat/ros/geometry/Vector3;->getMagnitude()D
+	15      (0000003c) move-result-wide     v4
+	16      (0000003e) mul-double           v2, v2, v4
+	17      (00000042) div-double/2addr     v0, v2
+	18      (00000044) invoke-static        v0, v1, Ljava/lang/Math;->acos(D)D
+	19      (0000004a) move-result-wide     v0
+	20      (0000004c) invoke-virtual/range v16, Lcom/boat/ros/geometry/Vector3;->getY()D
+	21      (00000052) move-result-wide     v2
+	22      (00000054) invoke-virtual/range v17, Lcom/boat/ros/geometry/Vector3;->getZ()D
+	23      (0000005a) move-result-wide     v4
+	24      (0000005c) mul-double           v2, v2, v4
+	25      (00000060) invoke-virtual/range v16, Lcom/boat/ros/geometry/Vector3;->getZ()D
+	26      (00000066) move-result-wide     v4
+	27      (00000068) invoke-virtual/range v17, Lcom/boat/ros/geometry/Vector3;->getY()D
+	28      (0000006e) move-result-wide     v6
+	29      (00000070) mul-double           v4, v4, v6
+	30      (00000074) sub-double/2addr     v2, v4
+	31      (00000076) invoke-virtual/range v16, Lcom/boat/ros/geometry/Vector3;->getZ()D
+	32      (0000007c) move-result-wide     v4
+	33      (0000007e) invoke-virtual/range v17, Lcom/boat/ros/geometry/Vector3;->getX()D
+	34      (00000084) move-result-wide     v6
+	35      (00000086) mul-double           v4, v4, v6
+	36      (0000008a) invoke-virtual/range v16, Lcom/boat/ros/geometry/Vector3;->getX()D
+	37      (00000090) move-result-wide     v6
+	38      (00000092) invoke-virtual/range v17, Lcom/boat/ros/geometry/Vector3;->getZ()D
+	39      (00000098) move-result-wide     v8
+	40      (0000009a) mul-double           v6, v6, v8
+	41      (0000009e) sub-double/2addr     v4, v6
+	42      (000000a0) invoke-virtual/range v16, Lcom/boat/ros/geometry/Vector3;->getX()D
+	43      (000000a6) move-result-wide     v6
+	44      (000000a8) invoke-virtual/range v17, Lcom/boat/ros/geometry/Vector3;->getY()D
+	45      (000000ae) move-result-wide     v8
+	46      (000000b0) mul-double           v6, v6, v8
+	47      (000000b4) invoke-virtual/range v16, Lcom/boat/ros/geometry/Vector3;->getY()D
+	48      (000000ba) move-result-wide     v8
+	49      (000000bc) invoke-virtual/range v17, Lcom/boat/ros/geometry/Vector3;->getX()D
+	50      (000000c2) move-result-wide     v10
+	51      (000000c4) mul-double           v8, v8, v10
+	52      (000000c8) sub-double           v13, v6, v8
+	53      (000000cc) new-instance         v15, Lcom/boat/ros/geometry/Vector3;
+	54      (000000d0) move-object          v6, v15
+	55      (000000d2) move-wide            v7, v2
+	56      (000000d4) move-wide            v9, v4
+	57      (000000d6) move-wide            v11, v13
+	58      (000000d8) invoke-direct/range  v6 ... v12, Lcom/boat/ros/geometry/Vector3;-><init>(D D D)V
+	59      (000000de) invoke-static        v15, v0, v1, Lcom/boat/ros/geometry/Quaternion;->fromAxisAngle(Lcom/boat/ros/geometry/Vector3; D)Lcom/boat/ros/geometry/Quaternion;
+	60      (000000e4) move-result-object   v6
+	61      (000000e6) return-object        v6
+

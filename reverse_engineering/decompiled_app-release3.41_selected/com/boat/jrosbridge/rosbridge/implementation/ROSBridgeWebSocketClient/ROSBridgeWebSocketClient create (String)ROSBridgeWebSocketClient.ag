@@ -1,0 +1,28 @@
+# Lcom/boat/jrosbridge/rosbridge/implementation/ROSBridgeWebSocketClient;->create(Ljava/lang/String;)Lcom/boat/jrosbridge/rosbridge/implementation/ROSBridgeWebSocketClient; [access_flags=public static]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:java.lang.String
+#
+# - return:com.boat.jrosbridge.rosbridge.implementation.ROSBridgeWebSocketClient
+
+create-BB@0x0 : [ create-BB@0x2 ]
+	0       (00000000) const/4              v0, 0
+
+create-BB@0x2 : [ create-BB@0x22 ]
+	1       (00000002) new-instance         v1, Ljava/net/URI;
+	2       (00000006) invoke-direct        v1, v3, Ljava/net/URI;-><init>(Ljava/lang/String;)V
+	3       (0000000c) new-instance         v2, Lcom/boat/jrosbridge/rosbridge/implementation/ROSBridgeWebSocketClient;
+	4       (00000010) invoke-direct        v2, v1, Lcom/boat/jrosbridge/rosbridge/implementation/ROSBridgeWebSocketClient;-><init>(Ljava/net/URI;)V
+	5       (00000016) move-object          v0, v2
+	6       (00000018) goto                 +5h
+	2:15
+	(Ljava/net/URISyntaxException; -> 1a create-BB@0x1a)
+
+create-BB@0x1a : [ create-BB@0x22 ]
+	7       (0000001a) move-exception       v1
+	8       (0000001c) invoke-virtual       v1, Ljava/net/URISyntaxException;->printStackTrace()V
+
+create-BB@0x22 : 
+	9       (00000022) return-object        v0
+

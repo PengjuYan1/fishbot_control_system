@@ -1,0 +1,13 @@
+# Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->access$1400(Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment; Ljava/lang/CharSequence;)V [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v-1
+# - v0:com.jlboat.phone.fragment.statusfragment.UltrasoundFragment
+# - v1:java.lang.CharSequence
+#
+# - return:void
+
+access$1400-BB@0x0 : 
+	0       (00000000) invoke-virtual       v0, v1, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->showToast(Ljava/lang/CharSequence;)V
+	1       (00000006) return-void          
+

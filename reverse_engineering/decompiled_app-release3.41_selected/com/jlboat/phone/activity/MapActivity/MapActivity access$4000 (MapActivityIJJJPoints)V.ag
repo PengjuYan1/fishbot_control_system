@@ -1,0 +1,17 @@
+# Lcom/jlboat/phone/activity/MapActivity;->access$4000(Lcom/jlboat/phone/activity/MapActivity; I J J J Lcom/boat/support/slam/entity/floors/Points;)V [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:com.jlboat.phone.activity.MapActivity
+# - v4:int
+# - v5:long
+# - v6:long
+# - v7:long
+# - v8:com.boat.support.slam.entity.floors.Points
+#
+# - return:void
+
+access$4000-BB@0x0 : 
+	0       (00000000) invoke-direct/range  v0 ... v8, Lcom/jlboat/phone/activity/MapActivity;->pointUpdate(I J J J Lcom/boat/support/slam/entity/floors/Points;)V
+	1       (00000006) return-void          
+

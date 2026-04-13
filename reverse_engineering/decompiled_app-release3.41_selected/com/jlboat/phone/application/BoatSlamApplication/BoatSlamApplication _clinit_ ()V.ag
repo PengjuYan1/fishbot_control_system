@@ -1,0 +1,162 @@
+# Lcom/jlboat/phone/application/BoatSlamApplication;-><clinit>()V [access_flags=static constructor]
+#
+# Parameters:
+# local registers: v0...v4
+#
+# - return:void
+
+<clinit>-BB@0x0 : 
+	0       (00000000) const-string         v0, "10.7.5"
+	1       (00000004) sput-object          v0, Lcom/jlboat/phone/application/BoatSlamApplication;->route_ip Ljava/lang/String;
+	2       (00000008) new-instance         v0, Ljava/lang/StringBuilder;
+	3       (0000000c) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	4       (00000012) sget-object          v1, Lcom/jlboat/phone/application/BoatSlamApplication;->route_ip Ljava/lang/String;
+	5       (00000016) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	6       (0000001c) move-result-object   v0
+	7       (0000001e) const-string         v1, ".1"
+	8       (00000022) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	9       (00000028) move-result-object   v0
+	10      (0000002a) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	11      (00000030) move-result-object   v0
+	12      (00000032) sput-object          v0, Lcom/jlboat/phone/application/BoatSlamApplication;->gateway_ip Ljava/lang/String;
+	13      (00000036) const-string         v0, ".88"
+	14      (0000003a) sput-object          v0, Lcom/jlboat/phone/application/BoatSlamApplication;->end_ip Ljava/lang/String;
+	15      (0000003e) new-instance         v0, Ljava/lang/StringBuilder;
+	16      (00000042) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	17      (00000048) sget-object          v1, Lcom/jlboat/phone/application/BoatSlamApplication;->route_ip Ljava/lang/String;
+	18      (0000004c) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	19      (00000052) move-result-object   v0
+	20      (00000054) sget-object          v1, Lcom/jlboat/phone/application/BoatSlamApplication;->end_ip Ljava/lang/String;
+	21      (00000058) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	22      (0000005e) move-result-object   v0
+	23      (00000060) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	24      (00000066) move-result-object   v0
+	25      (00000068) sput-object          v0, Lcom/jlboat/phone/application/BoatSlamApplication;->ros_ip Ljava/lang/String;
+	26      (0000006c) new-instance         v0, Ljava/lang/StringBuilder;
+	27      (00000070) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	28      (00000076) sget-object          v1, Lcom/jlboat/phone/application/BoatSlamApplication;->route_ip Ljava/lang/String;
+	29      (0000007a) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	30      (00000080) move-result-object   v0
+	31      (00000082) const-string         v1, ".80"
+	32      (00000086) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	33      (0000008c) move-result-object   v0
+	34      (0000008e) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	35      (00000094) move-result-object   v0
+	36      (00000096) sput-object          v0, Lcom/jlboat/phone/application/BoatSlamApplication;->ros2_ip Ljava/lang/String;
+	37      (0000009a) new-instance         v0, Ljava/lang/StringBuilder;
+	38      (0000009e) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	39      (000000a4) const-string         v1, "ws://"
+	40      (000000a8) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	41      (000000ae) move-result-object   v0
+	42      (000000b0) sget-object          v1, Lcom/jlboat/phone/application/BoatSlamApplication;->ros_ip Ljava/lang/String;
+	43      (000000b4) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	44      (000000ba) move-result-object   v0
+	45      (000000bc) const-string         v1, ":9090/"
+	46      (000000c0) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	47      (000000c6) move-result-object   v0
+	48      (000000c8) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	49      (000000ce) move-result-object   v0
+	50      (000000d0) sput-object          v0, Lcom/jlboat/phone/application/BoatSlamApplication;->wsros_uri Ljava/lang/String;
+	51      (000000d4) new-instance         v0, Ljava/lang/StringBuilder;
+	52      (000000d8) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	53      (000000de) const-string         v1, "http://"
+	54      (000000e2) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	55      (000000e8) move-result-object   v0
+	56      (000000ea) sget-object          v2, Lcom/jlboat/phone/application/BoatSlamApplication;->ros_ip Ljava/lang/String;
+	57      (000000ee) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	58      (000000f4) move-result-object   v0
+	59      (000000f6) const-string         v2, ":5000/"
+	60      (000000fa) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	61      (00000100) move-result-object   v0
+	62      (00000102) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	63      (00000108) move-result-object   v0
+	64      (0000010a) sput-object          v0, Lcom/jlboat/phone/application/BoatSlamApplication;->ros_url Ljava/lang/String;
+	65      (0000010e) new-instance         v0, Ljava/lang/StringBuilder;
+	66      (00000112) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	67      (00000118) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	68      (0000011e) move-result-object   v0
+	69      (00000120) sget-object          v2, Lcom/jlboat/phone/application/BoatSlamApplication;->ros_ip Ljava/lang/String;
+	70      (00000124) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	71      (0000012a) move-result-object   v0
+	72      (0000012c) const-string         v2, ":11311/"
+	73      (00000130) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	74      (00000136) move-result-object   v0
+	75      (00000138) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	76      (0000013e) move-result-object   v0
+	77      (00000140) sput-object          v0, Lcom/jlboat/phone/application/BoatSlamApplication;->ros_uri Ljava/lang/String;
+	78      (00000144) new-instance         v0, Ljava/lang/StringBuilder;
+	79      (00000148) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	80      (0000014e) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	81      (00000154) move-result-object   v0
+	82      (00000156) sget-object          v1, Lcom/jlboat/phone/application/BoatSlamApplication;->ros_ip Ljava/lang/String;
+	83      (0000015a) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	84      (00000160) move-result-object   v0
+	85      (00000162) const-string         v1, ":9999/"
+	86      (00000166) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	87      (0000016c) move-result-object   v0
+	88      (0000016e) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	89      (00000174) move-result-object   v0
+	90      (00000176) sput-object          v0, Lcom/jlboat/phone/application/BoatSlamApplication;->download_uri Ljava/lang/String;
+	91      (0000017a) new-instance         v0, Ljava/lang/StringBuilder;
+	92      (0000017e) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	93      (00000184) sget-object          v1, Lcom/jlboat/phone/application/BoatSlamApplication;->ros_url Ljava/lang/String;
+	94      (00000188) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	95      (0000018e) move-result-object   v0
+	96      (00000190) const-string         v1, "spirit/api/get_map_img"
+	97      (00000194) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	98      (0000019a) move-result-object   v0
+	99      (0000019c) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	100     (000001a2) move-result-object   v0
+	101     (000001a4) sput-object          v0, Lcom/jlboat/phone/application/BoatSlamApplication;->mapApiGetMap Ljava/lang/String;
+	102     (000001a8) new-instance         v0, Ljava/lang/StringBuilder;
+	103     (000001ac) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	104     (000001b2) sget-object          v1, Lcom/jlboat/phone/application/BoatSlamApplication;->ros_url Ljava/lang/String;
+	105     (000001b6) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	106     (000001bc) move-result-object   v0
+	107     (000001be) const-string         v1, "spirit/api/get_scan_img"
+	108     (000001c2) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	109     (000001c8) move-result-object   v0
+	110     (000001ca) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	111     (000001d0) move-result-object   v0
+	112     (000001d2) sput-object          v0, Lcom/jlboat/phone/application/BoatSlamApplication;->mapApiGetScan Ljava/lang/String;
+	113     (000001d6) const-string         v0, ""
+	114     (000001da) sput-object          v0, Lcom/jlboat/phone/application/BoatSlamApplication;->displayName Ljava/lang/String;
+	115     (000001de) sput-object          v0, Lcom/jlboat/phone/application/BoatSlamApplication;->hostAddress Ljava/lang/String;
+	116     (000001e2) const/4              v1, 0
+	117     (000001e4) sput                 v1, Lcom/jlboat/phone/application/BoatSlamApplication;->classis_version_code I
+	118     (000001e8) sput-object          v0, Lcom/jlboat/phone/application/BoatSlamApplication;->classis_version_name Ljava/lang/String;
+	119     (000001ec) sput                 v1, Lcom/jlboat/phone/application/BoatSlamApplication;->classis_numero I
+	120     (000001f0) sput-object          v0, Lcom/jlboat/phone/application/BoatSlamApplication;->classis_channel Ljava/lang/String;
+	121     (000001f4) sput-object          v0, Lcom/jlboat/phone/application/BoatSlamApplication;->classis_driver_version_name Ljava/lang/String;
+	122     (000001f8) sput-object          v0, Lcom/jlboat/phone/application/BoatSlamApplication;->classis_carto_version_name Ljava/lang/String;
+	123     (000001fc) sput                 v1, Lcom/jlboat/phone/application/BoatSlamApplication;->coco_num I
+	124     (00000200) sput                 v1, Lcom/jlboat/phone/application/BoatSlamApplication;->coco_num_pc I
+	125     (00000204) sput                 v1, Lcom/jlboat/phone/application/BoatSlamApplication;->power I
+	126     (00000208) const/4              v2, -1
+	127     (0000020a) sput                 v2, Lcom/jlboat/phone/application/BoatSlamApplication;->change I
+	128     (0000020e) const/4              v2, 1
+	129     (00000210) sput-boolean         v2, Lcom/jlboat/phone/application/BoatSlamApplication;->hasHeart Z
+	130     (00000214) sput-boolean         v1, Lcom/jlboat/phone/application/BoatSlamApplication;->isShutDown Z
+	131     (00000218) sput-object          v0, Lcom/jlboat/phone/application/BoatSlamApplication;->ssid Ljava/lang/String;
+	132     (0000021c) new-instance         v0, Ljava/util/ArrayList;
+	133     (00000220) invoke-direct        v0, Ljava/util/ArrayList;-><init>()V
+	134     (00000226) sput-object          v0, Lcom/jlboat/phone/application/BoatSlamApplication;->errList Ljava/util/List;
+	135     (0000022a) new-instance         v0, Ljava/util/ArrayList;
+	136     (0000022e) invoke-direct        v0, Ljava/util/ArrayList;-><init>()V
+	137     (00000234) sput-object          v0, Lcom/jlboat/phone/application/BoatSlamApplication;->activities Ljava/util/List;
+	138     (00000238) const-string         v0, "/tf"
+	139     (0000023c) const-string         v1, "/tf_static"
+	140     (00000240) const-string         v2, "/imu/data"
+	141     (00000244) const-string         v3, "/scan"
+	142     (00000248) const-string         v4, "/raw_odom"
+	143     (0000024c) filled-new-array     v2, v3, v4, v0, v1, [Ljava/lang/String;
+	144     (00000252) move-result-object   v0
+	145     (00000254) sput-object          v0, Lcom/jlboat/phone/application/BoatSlamApplication;->bugTopic [Ljava/lang/String;
+	146     (00000258) new-instance         v0, Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;
+	147     (0000025c) sget-object          v1, Lcom/jlboat/phone/application/BoatSlamApplication;->wsros_uri Ljava/lang/String;
+	148     (00000260) invoke-direct        v0, v1, Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;-><init>(Ljava/lang/String;)V
+	149     (00000266) sput-object          v0, Lcom/jlboat/phone/application/BoatSlamApplication;->client Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;
+	150     (0000026a) const-string         v0, "c_j_x_line_point"
+	151     (0000026e) sput-object          v0, Lcom/jlboat/phone/application/BoatSlamApplication;->CANCLEPOINTNAME Ljava/lang/String;
+	152     (00000272) return-void          
+

@@ -1,0 +1,24 @@
+# Lcom/boat/support/slam/SlamManager;->rotateAngle(I)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:int
+#
+# - return:void
+
+rotateAngle-BB@0x0 : [ rotateAngle-BB@0x8 rotateAngle-BB@0xc ]
+	0       (00000000) const/16             v0, 180
+	1       (00000004) if-ge                v4, v0, +004h
+
+rotateAngle-BB@0x8 : [ rotateAngle-BB@0x10 ]
+	2       (00000008) move                 v0, v4
+	3       (0000000a) goto                 +3h
+
+rotateAngle-BB@0xc : [ rotateAngle-BB@0x10 ]
+	4       (0000000c) add-int/lit16        v0, v4, -360
+
+rotateAngle-BB@0x10 : 
+	5       (00000010) const-wide           v1, 4600877379321698714
+	6       (0000001a) invoke-direct        v3, v0, v1, v2, Lcom/boat/support/slam/SlamManager;->rotateTo(I D)V
+	7       (00000020) return-void          
+

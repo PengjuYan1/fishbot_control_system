@@ -1,0 +1,11 @@
+# Lcom/boat/support/slam/ISlamService$Default;->getCurrentPositionInfo(Lcom/boat/support/slam/IPositionResult;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.boat.support.slam.IPositionResult
+#
+# - return:void
+
+getCurrentPositionInfo-BB@0x0 : 
+	0       (00000000) return-void          
+

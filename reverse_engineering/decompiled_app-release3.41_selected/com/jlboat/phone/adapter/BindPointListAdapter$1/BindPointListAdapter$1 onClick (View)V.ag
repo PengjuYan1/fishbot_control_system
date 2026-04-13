@@ -1,0 +1,30 @@
+# Lcom/jlboat/phone/adapter/BindPointListAdapter$1;->onClick(Landroid/view/View;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:android.view.View
+#
+# - return:void
+
+onClick-BB@0x0 : [ onClick-BB@0x10 onClick-BB@0x3e ]
+	0       (00000000) iget-object          v0, v3, Lcom/jlboat/phone/adapter/BindPointListAdapter$1;->this$0 Lcom/jlboat/phone/adapter/BindPointListAdapter;
+	1       (00000004) invoke-static        v0, Lcom/jlboat/phone/adapter/BindPointListAdapter;->access$000(Lcom/jlboat/phone/adapter/BindPointListAdapter;)Lcom/jlboat/phone/adapter/BindPointListAdapter$OnItemClickListener;
+	2       (0000000a) move-result-object   v0
+	3       (0000000c) if-eqz               v0, +019h
+
+onClick-BB@0x10 : [ onClick-BB@0x3e ]
+	4       (00000010) iget-object          v0, v3, Lcom/jlboat/phone/adapter/BindPointListAdapter$1;->this$0 Lcom/jlboat/phone/adapter/BindPointListAdapter;
+	5       (00000014) invoke-static        v0, Lcom/jlboat/phone/adapter/BindPointListAdapter;->access$000(Lcom/jlboat/phone/adapter/BindPointListAdapter;)Lcom/jlboat/phone/adapter/BindPointListAdapter$OnItemClickListener;
+	6       (0000001a) move-result-object   v0
+	7       (0000001c) iget                 v1, v3, Lcom/jlboat/phone/adapter/BindPointListAdapter$1;->val$postion I
+	8       (00000020) iget-object          v2, v3, Lcom/jlboat/phone/adapter/BindPointListAdapter$1;->val$myHolder Lcom/jlboat/phone/adapter/BindPointListAdapter$MyHolder;
+	9       (00000024) iget-object          v2, v2, Lcom/jlboat/phone/adapter/BindPointListAdapter$MyHolder;->tv Landroid/widget/TextView;
+	10      (00000028) invoke-virtual       v2, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
+	11      (0000002e) move-result-object   v2
+	12      (00000030) invoke-interface     v2, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+	13      (00000036) move-result-object   v2
+	14      (00000038) invoke-interface     v0, v1, v2, Lcom/jlboat/phone/adapter/BindPointListAdapter$OnItemClickListener;->onClick(I Ljava/lang/String;)V
+
+onClick-BB@0x3e : 
+	15      (0000003e) return-void          
+

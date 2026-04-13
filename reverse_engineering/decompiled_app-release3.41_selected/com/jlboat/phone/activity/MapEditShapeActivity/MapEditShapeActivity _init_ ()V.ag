@@ -1,0 +1,18 @@
+# Lcom/jlboat/phone/activity/MapEditShapeActivity;-><init>()V [access_flags=public constructor]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) invoke-direct        v1, Lcom/jlboat/phone/base/BaseFullActivity;-><init>()V
+	1       (00000006) const/high16         v0, -1082130432
+	2       (0000000a) iput                 v0, v1, Lcom/jlboat/phone/activity/MapEditShapeActivity;->mPrimaryLastX F
+	3       (0000000e) iput                 v0, v1, Lcom/jlboat/phone/activity/MapEditShapeActivity;->mPrimaryLastY F
+	4       (00000012) iput                 v0, v1, Lcom/jlboat/phone/activity/MapEditShapeActivity;->mSecondaryLastX F
+	5       (00000016) iput                 v0, v1, Lcom/jlboat/phone/activity/MapEditShapeActivity;->mSecondaryLastY F
+	6       (0000001a) iput                 v0, v1, Lcom/jlboat/phone/activity/MapEditShapeActivity;->movingx F
+	7       (0000001e) iput                 v0, v1, Lcom/jlboat/phone/activity/MapEditShapeActivity;->movingy F
+	8       (00000022) return-void          
+

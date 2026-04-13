@@ -1,0 +1,45 @@
+# Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;->onBindViewHolder(Landroid/support/v7/widget/RecyclerView$ViewHolder; I)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:android.support.v7.widget.RecyclerView$ViewHolder
+# - v5:int
+#
+# - return:void
+
+onBindViewHolder-BB@0x0 : [ onBindViewHolder-BB@0x8 onBindViewHolder-BB@0x26 ]
+	0       (00000000) instance-of          v0, v4, Lcom/jlboat/phone/adapter/RvFloorPointListAdapter$GroupViewHolder;
+	1       (00000004) if-eqz               v0, +011h
+
+onBindViewHolder-BB@0x8 : [ onBindViewHolder-BB@0x54 ]
+	2       (00000008) iget-object          v0, v3, Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;->listData Ljava/util/List;
+	3       (0000000c) invoke-interface     v0, v5, Ljava/util/List;->get(I)Ljava/lang/Object;
+	4       (00000012) move-result-object   v0
+	5       (00000014) check-cast           v0, Lcom/boat/support/slam/entity/floors/Floors;
+	6       (00000018) move-object          v1, v4
+	7       (0000001a) check-cast           v1, Lcom/jlboat/phone/adapter/RvFloorPointListAdapter$GroupViewHolder;
+	8       (0000001e) invoke-virtual       v1, v0, Lcom/jlboat/phone/adapter/RvFloorPointListAdapter$GroupViewHolder;->setData(Lcom/boat/support/slam/entity/floors/Floors;)V
+	9       (00000024) goto                 +18h
+
+onBindViewHolder-BB@0x26 : [ onBindViewHolder-BB@0x2e onBindViewHolder-BB@0x54 ]
+	10      (00000026) instance-of          v0, v4, Lcom/jlboat/phone/adapter/RvFloorPointListAdapter$FrdViewHolder;
+	11      (0000002a) if-eqz               v0, +015h
+
+onBindViewHolder-BB@0x2e : [ onBindViewHolder-BB@0x56 ]
+	12      (0000002e) iget-object          v0, v3, Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;->listData Ljava/util/List;
+	13      (00000032) invoke-interface     v0, v5, Ljava/util/List;->get(I)Ljava/lang/Object;
+	14      (00000038) move-result-object   v0
+	15      (0000003a) check-cast           v0, Lcom/boat/support/slam/entity/floors/Points;
+	16      (0000003e) invoke-direct        v3, v5, Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;->findParentFloorOfPoint(I)Lcom/boat/support/slam/entity/floors/Floors;
+	17      (00000044) move-result-object   v1
+	18      (00000046) move-object          v2, v4
+	19      (00000048) check-cast           v2, Lcom/jlboat/phone/adapter/RvFloorPointListAdapter$FrdViewHolder;
+	20      (0000004c) invoke-static        v2, v0, v1, Lcom/jlboat/phone/adapter/RvFloorPointListAdapter$FrdViewHolder;->access$200(Lcom/jlboat/phone/adapter/RvFloorPointListAdapter$FrdViewHolder; Lcom/boat/support/slam/entity/floors/Points; Lcom/boat/support/slam/entity/floors/Floors;)V
+	21      (00000052) goto                 +2h
+
+onBindViewHolder-BB@0x54 : [ onBindViewHolder-BB@0x56 ]
+	22      (00000054) nop                  
+
+onBindViewHolder-BB@0x56 : 
+	23      (00000056) return-void          
+

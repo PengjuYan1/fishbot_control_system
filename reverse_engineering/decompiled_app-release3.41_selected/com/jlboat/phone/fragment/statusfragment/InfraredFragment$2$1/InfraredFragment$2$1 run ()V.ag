@@ -1,0 +1,54 @@
+# Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment$2$1;->run()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v11
+#
+# - return:void
+
+run-BB@0x0 : [ run-BB@0x14 run-BB@0x64 ]
+	0       (00000000) iget-object          v0, v11, Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment$2$1;->this$1 Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment$2;
+	1       (00000004) iget-object          v0, v0, Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment$2;->this$0 Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment;
+	2       (00000008) invoke-static        v0, Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment;->access$100(Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment;)Z
+	3       (0000000e) move-result          v0
+	4       (00000010) if-eqz               v0, +02ah
+
+run-BB@0x14 : [ run-BB@0x8a ]
+	5       (00000014) iget-object          v0, v11, Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment$2$1;->this$1 Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment$2;
+	6       (00000018) iget-object          v0, v0, Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment$2;->this$0 Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment;
+	7       (0000001c) invoke-static        v0, Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment;->access$200(Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment;)Landroid/widget/Switch;
+	8       (00000022) move-result-object   v0
+	9       (00000024) const/4              v1, 0
+	10      (00000026) invoke-virtual       v0, v1, Landroid/widget/Switch;->setChecked(Z)V
+	11      (0000002c) iget-object          v0, v11, Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment$2$1;->this$1 Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment$2;
+	12      (00000030) iget-object          v0, v0, Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment$2;->this$0 Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment;
+	13      (00000034) invoke-static        v0, v1, Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment;->access$102(Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment; Z)Z
+	14      (0000003a) iget-object          v0, v11, Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment$2$1;->this$1 Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment$2;
+	15      (0000003e) iget-object          v0, v0, Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment$2;->this$0 Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment;
+	16      (00000042) invoke-static        v0, Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment;->access$000(Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment;)Lcom/jlboat/phone/view/CustomProgress;
+	17      (00000048) move-result-object   v1
+	18      (0000004a) const/4              v9, 0
+	19      (0000004c) const/4              v10, 0
+	20      (0000004e) const/4              v2, 0
+	21      (00000050) const/4              v3, 0
+	22      (00000052) const/4              v4, 0
+	23      (00000054) const/4              v5, 0
+	24      (00000056) const/4              v6, 0
+	25      (00000058) const/4              v7, 0
+	26      (0000005a) const/4              v8, 0
+	27      (0000005c) invoke-virtual/range v1 ... v10, Lcom/jlboat/phone/view/CustomProgress;->setColors(Z Z Z Z Z Z Z Z Z)V
+	28      (00000062) goto                 +14h
+
+run-BB@0x64 : [ run-BB@0x8a ]
+	29      (00000064) iget-object          v0, v11, Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment$2$1;->this$1 Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment$2;
+	30      (00000068) iget-object          v0, v0, Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment$2;->this$0 Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment;
+	31      (0000006c) invoke-static        v0, Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment;->access$200(Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment;)Landroid/widget/Switch;
+	32      (00000072) move-result-object   v0
+	33      (00000074) const/4              v1, 1
+	34      (00000076) invoke-virtual       v0, v1, Landroid/widget/Switch;->setChecked(Z)V
+	35      (0000007c) iget-object          v0, v11, Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment$2$1;->this$1 Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment$2;
+	36      (00000080) iget-object          v0, v0, Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment$2;->this$0 Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment;
+	37      (00000084) invoke-static        v0, v1, Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment;->access$102(Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment; Z)Z
+
+run-BB@0x8a : 
+	38      (0000008a) return-void          
+

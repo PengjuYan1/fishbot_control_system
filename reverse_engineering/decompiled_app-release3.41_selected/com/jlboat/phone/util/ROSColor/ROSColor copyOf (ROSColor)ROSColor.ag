@@ -1,0 +1,17 @@
+# Lcom/jlboat/phone/util/ROSColor;->copyOf(Lcom/jlboat/phone/util/ROSColor;)Lcom/jlboat/phone/util/ROSColor; [access_flags=public static]
+#
+# Parameters:
+# - local registers: v0...v4
+# - v5:com.jlboat.phone.util.ROSColor
+#
+# - return:com.jlboat.phone.util.ROSColor
+
+copyOf-BB@0x0 : 
+	0       (00000000) new-instance         v0, Lcom/jlboat/phone/util/ROSColor;
+	1       (00000004) iget                 v1, v5, Lcom/jlboat/phone/util/ROSColor;->red F
+	2       (00000008) iget                 v2, v5, Lcom/jlboat/phone/util/ROSColor;->green F
+	3       (0000000c) iget                 v3, v5, Lcom/jlboat/phone/util/ROSColor;->blue F
+	4       (00000010) iget                 v4, v5, Lcom/jlboat/phone/util/ROSColor;->alpha F
+	5       (00000014) invoke-direct        v0, v1, v2, v3, v4, Lcom/jlboat/phone/util/ROSColor;-><init>(F F F F)V
+	6       (0000001a) return-object        v0
+

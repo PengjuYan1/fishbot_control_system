@@ -1,0 +1,26 @@
+# Lcom/boat/support/slam/ISlamService$_Parcel;->writeTypedObject(Landroid/os/Parcel; Landroid/os/Parcelable; I)V [access_flags=private static]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:android.os.Parcel
+# - v2:android.os.Parcelable
+# - v3:int
+#
+# - return:void
+
+writeTypedObject-BB@0x0 : [ writeTypedObject-BB@0x4 writeTypedObject-BB@0x14 ]
+	0       (00000000) if-eqz               v2, +00ah
+
+writeTypedObject-BB@0x4 : [ writeTypedObject-BB@0x1c ]
+	1       (00000004) const/4              v0, 1
+	2       (00000006) invoke-virtual       v1, v0, Landroid/os/Parcel;->writeInt(I)V
+	3       (0000000c) invoke-interface     v2, v1, v3, Landroid/os/Parcelable;->writeToParcel(Landroid/os/Parcel; I)V
+	4       (00000012) goto                 +5h
+
+writeTypedObject-BB@0x14 : [ writeTypedObject-BB@0x1c ]
+	5       (00000014) const/4              v0, 0
+	6       (00000016) invoke-virtual       v1, v0, Landroid/os/Parcel;->writeInt(I)V
+
+writeTypedObject-BB@0x1c : 
+	7       (0000001c) return-void          
+

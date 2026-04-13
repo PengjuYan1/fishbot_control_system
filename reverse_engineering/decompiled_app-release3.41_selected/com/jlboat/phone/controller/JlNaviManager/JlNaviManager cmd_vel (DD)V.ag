@@ -1,0 +1,25 @@
+# Lcom/jlboat/phone/controller/JlNaviManager;->cmd_vel(D D)V [access_flags=private]
+#
+# Parameters:
+# - local registers: v0...v7
+# - v8:double
+# - v9:double
+#
+# - return:void
+
+cmd_vel-BB@0x0 : 
+	0       (00000000) new-instance         v0, Lcom/boat/jrosbridge/message/geometry_msgs/Twist;
+	1       (00000004) invoke-direct        v0, Lcom/boat/jrosbridge/message/geometry_msgs/Twist;-><init>()V
+	2       (0000000a) new-instance         v1, Lcom/boat/jrosbridge/message/geometry_msgs/Vector3;
+	3       (0000000e) invoke-direct        v1, Lcom/boat/jrosbridge/message/geometry_msgs/Vector3;-><init>()V
+	4       (00000014) new-instance         v2, Lcom/boat/jrosbridge/message/geometry_msgs/Vector3;
+	5       (00000018) invoke-direct        v2, Lcom/boat/jrosbridge/message/geometry_msgs/Vector3;-><init>()V
+	6       (0000001e) invoke-virtual       v1, v6, v7, Lcom/boat/jrosbridge/message/geometry_msgs/Vector3;->setX(D)V
+	7       (00000024) neg-double           v3, v8
+	8       (00000026) invoke-virtual       v2, v3, v4, Lcom/boat/jrosbridge/message/geometry_msgs/Vector3;->setZ(D)V
+	9       (0000002c) invoke-virtual       v0, v1, Lcom/boat/jrosbridge/message/geometry_msgs/Twist;->setLinear(Lcom/boat/jrosbridge/message/geometry_msgs/Vector3;)V
+	10      (00000032) invoke-virtual       v0, v2, Lcom/boat/jrosbridge/message/geometry_msgs/Twist;->setAngular(Lcom/boat/jrosbridge/message/geometry_msgs/Vector3;)V
+	11      (00000038) iget-object          v3, v5, Lcom/jlboat/phone/controller/JlNaviManager;->pubCmdListener Lcom/boat/jrosbridge/Topic;
+	12      (0000003c) invoke-virtual       v3, v0, Lcom/boat/jrosbridge/Topic;->publish(Lcom/boat/jrosbridge/message/Message;)V
+	13      (00000042) return-void          
+

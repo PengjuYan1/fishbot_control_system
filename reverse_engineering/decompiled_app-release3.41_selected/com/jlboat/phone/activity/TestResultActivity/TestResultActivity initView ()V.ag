@@ -1,0 +1,37 @@
+# Lcom/jlboat/phone/activity/TestResultActivity;->initView()V [access_flags=private]
+#
+# Parameters:
+# local registers: v0...v2
+#
+# - return:void
+
+initView-BB@0x0 : 
+	0       (00000000) const                v0, 2131231288
+	1       (00000006) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/TestResultActivity;->findViewById(I)Landroid/view/View;
+	2       (0000000c) move-result-object   v0
+	3       (0000000e) check-cast           v0, Landroid/support/v7/widget/RecyclerView;
+	4       (00000012) iput-object          v0, v2, Lcom/jlboat/phone/activity/TestResultActivity;->testResRv Landroid/support/v7/widget/RecyclerView;
+	5       (00000016) const                v0, 2131231319
+	6       (0000001c) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/TestResultActivity;->findViewById(I)Landroid/view/View;
+	7       (00000022) move-result-object   v0
+	8       (00000024) check-cast           v0, Landroid/widget/TextView;
+	9       (00000028) iput-object          v0, v2, Lcom/jlboat/phone/activity/TestResultActivity;->title_time Landroid/widget/TextView;
+	10      (0000002c) const                v0, 2131231149
+	11      (00000032) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/TestResultActivity;->findViewById(I)Landroid/view/View;
+	12      (00000038) move-result-object   v0
+	13      (0000003a) check-cast           v0, Landroid/widget/Button;
+	14      (0000003e) iput-object          v0, v2, Lcom/jlboat/phone/activity/TestResultActivity;->resCancleBtn Landroid/widget/Button;
+	15      (00000042) iget-object          v0, v2, Lcom/jlboat/phone/activity/TestResultActivity;->resCancleBtn Landroid/widget/Button;
+	16      (00000046) invoke-virtual       v0, v2, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	17      (0000004c) new-instance         v0, Lcom/jlboat/phone/adapter/TestResultAdapter;
+	18      (00000050) invoke-direct        v0, v2, Lcom/jlboat/phone/adapter/TestResultAdapter;-><init>(Landroid/content/Context;)V
+	19      (00000056) iput-object          v0, v2, Lcom/jlboat/phone/activity/TestResultActivity;->adapter Lcom/jlboat/phone/adapter/TestResultAdapter;
+	20      (0000005a) iget-object          v0, v2, Lcom/jlboat/phone/activity/TestResultActivity;->testResRv Landroid/support/v7/widget/RecyclerView;
+	21      (0000005e) new-instance         v1, Landroid/support/v7/widget/LinearLayoutManager;
+	22      (00000062) invoke-direct        v1, v2, Landroid/support/v7/widget/LinearLayoutManager;-><init>(Landroid/content/Context;)V
+	23      (00000068) invoke-virtual       v0, v1, Landroid/support/v7/widget/RecyclerView;->setLayoutManager(Landroid/support/v7/widget/RecyclerView$LayoutManager;)V
+	24      (0000006e) iget-object          v0, v2, Lcom/jlboat/phone/activity/TestResultActivity;->testResRv Landroid/support/v7/widget/RecyclerView;
+	25      (00000072) iget-object          v1, v2, Lcom/jlboat/phone/activity/TestResultActivity;->adapter Lcom/jlboat/phone/adapter/TestResultAdapter;
+	26      (00000076) invoke-virtual       v0, v1, Landroid/support/v7/widget/RecyclerView;->setAdapter(Landroid/support/v7/widget/RecyclerView$Adapter;)V
+	27      (0000007c) return-void          
+

@@ -1,0 +1,35 @@
+# Lcom/jlboat/phone/activity/MapActivity$19;-><init>(Lcom/jlboat/phone/activity/MapActivity; [I [Ljava/lang/String; Landroid/widget/Spinner; Landroid/widget/ArrayAdapter; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Lcom/boat/support/slam/entity/floors/Points; Lcom/boat/support/slam/entity/floors/Floors; Lcom/boat/support/slam/entity/floors/Maps; Landroid/widget/Spinner;)V [access_flags=constructor]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.activity.MapActivity
+# - v2:int[]
+# - v3:java.lang.String[]
+# - v4:android.widget.Spinner
+# - v5:android.widget.ArrayAdapter
+# - v6:java.lang.String
+# - v7:java.lang.String
+# - v8:java.lang.String
+# - v9:com.boat.support.slam.entity.floors.Points
+# - v10:com.boat.support.slam.entity.floors.Floors
+# - v11:com.boat.support.slam.entity.floors.Maps
+# - v12:android.widget.Spinner
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) iput-object          v1, v0, Lcom/jlboat/phone/activity/MapActivity$19;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	1       (00000004) iput-object          v2, v0, Lcom/jlboat/phone/activity/MapActivity$19;->val$selectIndex [I
+	2       (00000008) iput-object          v3, v0, Lcom/jlboat/phone/activity/MapActivity$19;->val$bind_floors [Ljava/lang/String;
+	3       (0000000c) iput-object          v4, v0, Lcom/jlboat/phone/activity/MapActivity$19;->val$floors_bind Landroid/widget/Spinner;
+	4       (00000010) iput-object          v5, v0, Lcom/jlboat/phone/activity/MapActivity$19;->val$adapter2 Landroid/widget/ArrayAdapter;
+	5       (00000014) iput-object          v6, v0, Lcom/jlboat/phone/activity/MapActivity$19;->val$chargePoint Ljava/lang/String;
+	6       (00000018) iput-object          v7, v0, Lcom/jlboat/phone/activity/MapActivity$19;->val$startPoint Ljava/lang/String;
+	7       (0000001c) iput-object          v8, v0, Lcom/jlboat/phone/activity/MapActivity$19;->val$pointLocation Ljava/lang/String;
+	8       (00000020) iput-object          v9, v0, Lcom/jlboat/phone/activity/MapActivity$19;->val$frd Lcom/boat/support/slam/entity/floors/Points;
+	9       (00000024) iput-object          v10, v0, Lcom/jlboat/phone/activity/MapActivity$19;->val$localDataFloor Lcom/boat/support/slam/entity/floors/Floors;
+	10      (00000028) iput-object          v11, v0, Lcom/jlboat/phone/activity/MapActivity$19;->val$localMap Lcom/boat/support/slam/entity/floors/Maps;
+	11      (0000002c) iput-object          v12, v0, Lcom/jlboat/phone/activity/MapActivity$19;->val$point_bind Landroid/widget/Spinner;
+	12      (00000030) invoke-direct        v0, Ljava/lang/Object;-><init>()V
+	13      (00000036) return-void          
+

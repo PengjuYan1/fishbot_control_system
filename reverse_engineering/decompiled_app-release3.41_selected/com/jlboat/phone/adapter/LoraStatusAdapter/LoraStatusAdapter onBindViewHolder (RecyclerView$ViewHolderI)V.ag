@@ -1,0 +1,14 @@
+# Lcom/jlboat/phone/adapter/LoraStatusAdapter;->onBindViewHolder(Landroid/support/v7/widget/RecyclerView$ViewHolder; I)V [access_flags=public bridge synthetic]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:android.support.v7.widget.RecyclerView$ViewHolder
+# - v2:int
+#
+# - return:void
+
+onBindViewHolder-BB@0x0 : 
+	0       (00000000) check-cast           v1, Lcom/jlboat/phone/adapter/LoraStatusAdapter$MyResHolder;
+	1       (00000004) invoke-virtual       v0, v1, v2, Lcom/jlboat/phone/adapter/LoraStatusAdapter;->onBindViewHolder(Lcom/jlboat/phone/adapter/LoraStatusAdapter$MyResHolder; I)V
+	2       (0000000a) return-void          
+

@@ -1,0 +1,13 @@
+# Lcom/jlboat/phone/view/MapView;->access$902(Lcom/jlboat/phone/view/MapView; Lcom/boat/ros/geometry/Vector3;)Lcom/boat/ros/geometry/Vector3; [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v-1
+# - v0:com.jlboat.phone.view.MapView
+# - v1:com.boat.ros.geometry.Vector3
+#
+# - return:com.boat.ros.geometry.Vector3
+
+access$902-BB@0x0 : 
+	0       (00000000) iput-object          v1, v0, Lcom/jlboat/phone/view/MapView;->robotPose Lcom/boat/ros/geometry/Vector3;
+	1       (00000004) return-object        v1
+

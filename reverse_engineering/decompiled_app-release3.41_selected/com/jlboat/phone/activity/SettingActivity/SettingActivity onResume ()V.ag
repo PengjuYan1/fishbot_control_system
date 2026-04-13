@@ -1,0 +1,27 @@
+# Lcom/jlboat/phone/activity/SettingActivity;->onResume()V [access_flags=protected]
+#
+# Parameters:
+# local registers: v0...v4
+#
+# - return:void
+
+onResume-BB@0x0 : 
+	0       (00000000) invoke-super         v4, Lcom/jlboat/phone/base/BaseFullActivity;->onResume()V
+	1       (00000006) iget-object          v0, v4, Lcom/jlboat/phone/activity/SettingActivity;->robotUpdateSw Landroid/widget/Switch;
+	2       (0000000a) const/4              v1, 0
+	3       (0000000c) invoke-virtual       v0, v1, Landroid/widget/Switch;->setEnabled(Z)V
+	4       (00000012) const/16             v0, 9
+	5       (00000016) invoke-virtual       v4, v0, Lcom/jlboat/phone/activity/SettingActivity;->getConfigs(I)V
+	6       (0000001c) invoke-direct        v4, Lcom/jlboat/phone/activity/SettingActivity;->updateSpeed()V
+	7       (00000022) invoke-direct        v4, Lcom/jlboat/phone/activity/SettingActivity;->updateSafe()V
+	8       (00000028) invoke-direct        v4, Lcom/jlboat/phone/activity/SettingActivity;->updateCream()V
+	9       (0000002e) new-instance         v0, Lcom/boat/jrosbridge/Topic;
+	10      (00000032) const-class          v1, Lcom/boat/jrosbridge/message/std_msgs/Int16;
+	11      (00000036) sget-object          v2, Lcom/jlboat/phone/application/BoatSlamApplication;->client Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;
+	12      (0000003a) const-string         v3, "reset_params"
+	13      (0000003e) invoke-direct        v0, v3, v1, v2, Lcom/boat/jrosbridge/Topic;-><init>(Ljava/lang/String; Ljava/lang/Class; Lcom/boat/jrosbridge/ROSClient;)V
+	14      (00000044) iput-object          v0, v4, Lcom/jlboat/phone/activity/SettingActivity;->resetParamsPublish Lcom/boat/jrosbridge/Topic;
+	15      (00000048) iget-object          v0, v4, Lcom/jlboat/phone/activity/SettingActivity;->resetParamsPublish Lcom/boat/jrosbridge/Topic;
+	16      (0000004c) invoke-virtual       v0, Lcom/boat/jrosbridge/Topic;->advertise()V
+	17      (00000052) return-void          
+

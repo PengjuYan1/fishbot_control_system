@@ -1,0 +1,55 @@
+# Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;-><init>()V [access_flags=public constructor]
+#
+# Parameters:
+# local registers: v0...v2
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) invoke-direct        v2, Lcom/jlboat/phone/base/BaseFullActivity;-><init>()V
+	1       (00000006) const-string         v0, "NavigationTestFragment2025lift"
+	2       (0000000a) iput-object          v0, v2, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->TAG Ljava/lang/String;
+	3       (0000000e) new-instance         v0, Ljava/util/ArrayList;
+	4       (00000012) invoke-direct        v0, Ljava/util/ArrayList;-><init>()V
+	5       (00000018) iput-object          v0, v2, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->mapList Ljava/util/List;
+	6       (0000001c) const-wide/16        v0, -1
+	7       (00000020) iput-wide            v0, v2, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->mapId J
+	8       (00000024) new-instance         v0, Lcom/jlboat/phone/message/map_msgs/NaviQueueList;
+	9       (00000028) invoke-direct        v0, Lcom/jlboat/phone/message/map_msgs/NaviQueueList;-><init>()V
+	10      (0000002e) iput-object          v0, v2, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->naviQueueListEntrys Lcom/jlboat/phone/message/map_msgs/NaviQueueList;
+	11      (00000032) new-instance         v0, Lcom/jlboat/phone/message/map_msgs/CargoAtoBEntry;
+	12      (00000036) invoke-direct        v0, Lcom/jlboat/phone/message/map_msgs/CargoAtoBEntry;-><init>()V
+	13      (0000003c) iput-object          v0, v2, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->cargoAtoBEntry Lcom/jlboat/phone/message/map_msgs/CargoAtoBEntry;
+	14      (00000040) const-wide/16        v0, 0
+	15      (00000044) iput-wide            v0, v2, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->floorId J
+	16      (00000048) const/4              v0, 0
+	17      (0000004a) iput-object          v0, v2, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->floorName Ljava/lang/String;
+	18      (0000004e) new-instance         v1, Ljava/util/ArrayList;
+	19      (00000052) invoke-direct        v1, Ljava/util/ArrayList;-><init>()V
+	20      (00000058) iput-object          v1, v2, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->selectedTestPoint Ljava/util/List;
+	21      (0000005c) new-instance         v1, Ljava/util/ArrayList;
+	22      (00000060) invoke-direct        v1, Ljava/util/ArrayList;-><init>()V
+	23      (00000066) iput-object          v1, v2, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->mapPointList Ljava/util/List;
+	24      (0000006a) new-instance         v1, Ljava/util/ArrayList;
+	25      (0000006e) invoke-direct        v1, Ljava/util/ArrayList;-><init>()V
+	26      (00000074) iput-object          v1, v2, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->selectedPointList Ljava/util/List;
+	27      (00000078) iput-object          v0, v2, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->currentMapName Ljava/lang/String;
+	28      (0000007c) new-instance         v0, Ljava/util/HashMap;
+	29      (00000080) invoke-direct        v0, Ljava/util/HashMap;-><init>()V
+	30      (00000086) iput-object          v0, v2, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->floorDefaultMaps Ljava/util/Map;
+	31      (0000008a) new-instance         v0, Ljava/util/ArrayList;
+	32      (0000008e) invoke-direct        v0, Ljava/util/ArrayList;-><init>()V
+	33      (00000094) iput-object          v0, v2, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->floorNameList Ljava/util/List;
+	34      (00000098) new-instance         v0, Ljava/util/HashMap;
+	35      (0000009c) invoke-direct        v0, Ljava/util/HashMap;-><init>()V
+	36      (000000a2) iput-object          v0, v2, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->floorIdMap Ljava/util/Map;
+	37      (000000a6) const/4              v0, 0
+	38      (000000a8) iput                 v0, v2, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->delFlag I
+	39      (000000ac) new-instance         v0, Lcom/boat/jrosbridge/message/std_msgs/Int32;
+	40      (000000b0) invoke-direct        v0, Lcom/boat/jrosbridge/message/std_msgs/Int32;-><init>()V
+	41      (000000b6) iput-object          v0, v2, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->int32 Lcom/boat/jrosbridge/message/std_msgs/Int32;
+	42      (000000ba) new-instance         v0, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift$1;
+	43      (000000be) invoke-direct        v0, v2, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift$1;-><init>(Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;)V
+	44      (000000c4) iput-object          v0, v2, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->mHandler Landroid/os/Handler;
+	45      (000000c8) return-void          
+

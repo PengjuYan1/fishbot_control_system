@@ -1,0 +1,161 @@
+# Lcom/jlboat/phone/adapter/TargetGoalAdapter;->onBindViewHolder(Lcom/jlboat/phone/adapter/TargetGoalAdapter$MyResHolder; I)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:com.jlboat.phone.adapter.TargetGoalAdapter$MyResHolder
+# - v5:int
+#
+# - return:void
+
+onBindViewHolder-BB@0x0 : [ onBindViewHolder-BB@0x14 onBindViewHolder-BB@0x22 ]
+	0       (00000000) iget-object          v0, v3, Lcom/jlboat/phone/adapter/TargetGoalAdapter;->mList Ljava/util/List;
+	1       (00000004) invoke-interface     v0, Ljava/util/List;->size()I
+	2       (0000000a) move-result          v0
+	3       (0000000c) add-int/lit8         v0, v0, -1
+	4       (00000010) if-ne                v5, v0, +009h
+
+onBindViewHolder-BB@0x14 : [ onBindViewHolder-BB@0x22 ]
+	5       (00000014) iget-object          v0, v4, Lcom/jlboat/phone/adapter/TargetGoalAdapter$MyResHolder;->line Landroid/view/View;
+	6       (00000018) const/16             v1, 8
+	7       (0000001c) invoke-virtual       v0, v1, Landroid/view/View;->setVisibility(I)V
+
+onBindViewHolder-BB@0x22 : [ D:onBindViewHolder-BB@0x8c 0:onBindViewHolder-BB@0x1a8 1:onBindViewHolder-BB@0x17a 2:onBindViewHolder-BB@0x14c 3:onBindViewHolder-BB@0x11e 4:onBindViewHolder-BB@0xf0 5:onBindViewHolder-BB@0x8c 6:onBindViewHolder-BB@0x8c 7:onBindViewHolder-BB@0x8c 8:onBindViewHolder-BB@0x8c 9:onBindViewHolder-BB@0x8c 10:onBindViewHolder-BB@0xc2 ]
+	8       (00000022) iget-object          v0, v3, Lcom/jlboat/phone/adapter/TargetGoalAdapter;->mList Ljava/util/List;
+	9       (00000026) invoke-interface     v0, v5, Ljava/util/List;->get(I)Ljava/lang/Object;
+	10      (0000002c) move-result-object   v0
+	11      (0000002e) check-cast           v0, Lcom/jlboat/phone/message/map_msgs/TargetGoalEntry;
+	12      (00000032) iput-object          v0, v3, Lcom/jlboat/phone/adapter/TargetGoalAdapter;->navi Lcom/jlboat/phone/message/map_msgs/TargetGoalEntry;
+	13      (00000036) iget-object          v0, v4, Lcom/jlboat/phone/adapter/TargetGoalAdapter$MyResHolder;->floorsTv Landroid/widget/TextView;
+	14      (0000003a) iget-object          v1, v3, Lcom/jlboat/phone/adapter/TargetGoalAdapter;->navi Lcom/jlboat/phone/message/map_msgs/TargetGoalEntry;
+	15      (0000003e) invoke-virtual       v1, Lcom/jlboat/phone/message/map_msgs/TargetGoalEntry;->getFloorName()Ljava/lang/String;
+	16      (00000044) move-result-object   v1
+	17      (00000046) invoke-virtual       v0, v1, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+	18      (0000004c) iget-object          v0, v4, Lcom/jlboat/phone/adapter/TargetGoalAdapter$MyResHolder;->nameTv Landroid/widget/TextView;
+	19      (00000050) iget-object          v1, v3, Lcom/jlboat/phone/adapter/TargetGoalAdapter;->navi Lcom/jlboat/phone/message/map_msgs/TargetGoalEntry;
+	20      (00000054) invoke-virtual       v1, Lcom/jlboat/phone/message/map_msgs/TargetGoalEntry;->getPointName()Ljava/lang/String;
+	21      (0000005a) move-result-object   v1
+	22      (0000005c) invoke-virtual       v0, v1, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+	23      (00000062) iget-object          v0, v4, Lcom/jlboat/phone/adapter/TargetGoalAdapter$MyResHolder;->notesTv Landroid/widget/TextView;
+	24      (00000066) iget-object          v1, v3, Lcom/jlboat/phone/adapter/TargetGoalAdapter;->navi Lcom/jlboat/phone/message/map_msgs/TargetGoalEntry;
+	25      (0000006a) invoke-virtual       v1, Lcom/jlboat/phone/message/map_msgs/TargetGoalEntry;->getNotes()Ljava/lang/String;
+	26      (00000070) move-result-object   v1
+	27      (00000072) invoke-virtual       v0, v1, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+	28      (00000078) iget-object          v0, v3, Lcom/jlboat/phone/adapter/TargetGoalAdapter;->navi Lcom/jlboat/phone/message/map_msgs/TargetGoalEntry;
+	29      (0000007c) iget                 v0, v0, Lcom/jlboat/phone/message/map_msgs/TargetGoalEntry;->status I
+	30      (00000080) const                v1, 2131034214
+	31      (00000086) packed-switch        v0, +00000bbh
+
+onBindViewHolder-BB@0x8c : [ onBindViewHolder-BB@0x1d6 ]
+	32      (0000008c) iget-object          v0, v4, Lcom/jlboat/phone/adapter/TargetGoalAdapter$MyResHolder;->stateTv Landroid/widget/TextView;
+	33      (00000090) const-string         v1, "运行异常"
+	34      (00000094) invoke-virtual       v0, v1, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+	35      (0000009a) iget-object          v0, v4, Lcom/jlboat/phone/adapter/TargetGoalAdapter$MyResHolder;->stateTv Landroid/widget/TextView;
+	36      (0000009e) iget-object          v1, v3, Lcom/jlboat/phone/adapter/TargetGoalAdapter;->mContext Landroid/content/Context;
+	37      (000000a2) invoke-virtual       v1, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+	38      (000000a8) move-result-object   v1
+	39      (000000aa) const                v2, 2131034149
+	40      (000000b0) invoke-virtual       v1, v2, Landroid/content/res/Resources;->getColor(I)I
+	41      (000000b6) move-result          v1
+	42      (000000b8) invoke-virtual       v0, v1, Landroid/widget/TextView;->setTextColor(I)V
+	43      (000000be) goto/16              +08ch
+
+onBindViewHolder-BB@0xc2 : [ onBindViewHolder-BB@0x1d6 ]
+	44      (000000c2) iget-object          v0, v4, Lcom/jlboat/phone/adapter/TargetGoalAdapter$MyResHolder;->stateTv Landroid/widget/TextView;
+	45      (000000c6) const-string         v2, "运行失败"
+	46      (000000ca) invoke-virtual       v0, v2, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+	47      (000000d0) iget-object          v0, v4, Lcom/jlboat/phone/adapter/TargetGoalAdapter$MyResHolder;->stateTv Landroid/widget/TextView;
+	48      (000000d4) iget-object          v2, v3, Lcom/jlboat/phone/adapter/TargetGoalAdapter;->mContext Landroid/content/Context;
+	49      (000000d8) invoke-virtual       v2, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+	50      (000000de) move-result-object   v2
+	51      (000000e0) invoke-virtual       v2, v1, Landroid/content/res/Resources;->getColor(I)I
+	52      (000000e6) move-result          v1
+	53      (000000e8) invoke-virtual       v0, v1, Landroid/widget/TextView;->setTextColor(I)V
+	54      (000000ee) goto                 +74h
+
+onBindViewHolder-BB@0xf0 : [ onBindViewHolder-BB@0x1d6 ]
+	55      (000000f0) iget-object          v0, v4, Lcom/jlboat/phone/adapter/TargetGoalAdapter$MyResHolder;->stateTv Landroid/widget/TextView;
+	56      (000000f4) const-string         v2, "放运行中"
+	57      (000000f8) invoke-virtual       v0, v2, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+	58      (000000fe) iget-object          v0, v4, Lcom/jlboat/phone/adapter/TargetGoalAdapter$MyResHolder;->stateTv Landroid/widget/TextView;
+	59      (00000102) iget-object          v2, v3, Lcom/jlboat/phone/adapter/TargetGoalAdapter;->mContext Landroid/content/Context;
+	60      (00000106) invoke-virtual       v2, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+	61      (0000010c) move-result-object   v2
+	62      (0000010e) invoke-virtual       v2, v1, Landroid/content/res/Resources;->getColor(I)I
+	63      (00000114) move-result          v1
+	64      (00000116) invoke-virtual       v0, v1, Landroid/widget/TextView;->setTextColor(I)V
+	65      (0000011c) goto                 +5dh
+
+onBindViewHolder-BB@0x11e : [ onBindViewHolder-BB@0x1d6 ]
+	66      (0000011e) iget-object          v0, v4, Lcom/jlboat/phone/adapter/TargetGoalAdapter$MyResHolder;->stateTv Landroid/widget/TextView;
+	67      (00000122) const-string         v2, "顶运行中"
+	68      (00000126) invoke-virtual       v0, v2, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+	69      (0000012c) iget-object          v0, v4, Lcom/jlboat/phone/adapter/TargetGoalAdapter$MyResHolder;->stateTv Landroid/widget/TextView;
+	70      (00000130) iget-object          v2, v3, Lcom/jlboat/phone/adapter/TargetGoalAdapter;->mContext Landroid/content/Context;
+	71      (00000134) invoke-virtual       v2, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+	72      (0000013a) move-result-object   v2
+	73      (0000013c) invoke-virtual       v2, v1, Landroid/content/res/Resources;->getColor(I)I
+	74      (00000142) move-result          v1
+	75      (00000144) invoke-virtual       v0, v1, Landroid/widget/TextView;->setTextColor(I)V
+	76      (0000014a) goto                 +46h
+
+onBindViewHolder-BB@0x14c : [ onBindViewHolder-BB@0x1d6 ]
+	77      (0000014c) iget-object          v0, v4, Lcom/jlboat/phone/adapter/TargetGoalAdapter$MyResHolder;->stateTv Landroid/widget/TextView;
+	78      (00000150) const-string         v2, "运行结束"
+	79      (00000154) invoke-virtual       v0, v2, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+	80      (0000015a) iget-object          v0, v4, Lcom/jlboat/phone/adapter/TargetGoalAdapter$MyResHolder;->stateTv Landroid/widget/TextView;
+	81      (0000015e) iget-object          v2, v3, Lcom/jlboat/phone/adapter/TargetGoalAdapter;->mContext Landroid/content/Context;
+	82      (00000162) invoke-virtual       v2, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+	83      (00000168) move-result-object   v2
+	84      (0000016a) invoke-virtual       v2, v1, Landroid/content/res/Resources;->getColor(I)I
+	85      (00000170) move-result          v1
+	86      (00000172) invoke-virtual       v0, v1, Landroid/widget/TextView;->setTextColor(I)V
+	87      (00000178) goto                 +2fh
+
+onBindViewHolder-BB@0x17a : [ onBindViewHolder-BB@0x1d6 ]
+	88      (0000017a) iget-object          v0, v4, Lcom/jlboat/phone/adapter/TargetGoalAdapter$MyResHolder;->stateTv Landroid/widget/TextView;
+	89      (0000017e) const-string         v2, "运行中"
+	90      (00000182) invoke-virtual       v0, v2, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+	91      (00000188) iget-object          v0, v4, Lcom/jlboat/phone/adapter/TargetGoalAdapter$MyResHolder;->stateTv Landroid/widget/TextView;
+	92      (0000018c) iget-object          v2, v3, Lcom/jlboat/phone/adapter/TargetGoalAdapter;->mContext Landroid/content/Context;
+	93      (00000190) invoke-virtual       v2, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+	94      (00000196) move-result-object   v2
+	95      (00000198) invoke-virtual       v2, v1, Landroid/content/res/Resources;->getColor(I)I
+	96      (0000019e) move-result          v1
+	97      (000001a0) invoke-virtual       v0, v1, Landroid/widget/TextView;->setTextColor(I)V
+	98      (000001a6) goto                 +18h
+
+onBindViewHolder-BB@0x1a8 : [ onBindViewHolder-BB@0x1d6 ]
+	99      (000001a8) iget-object          v0, v4, Lcom/jlboat/phone/adapter/TargetGoalAdapter$MyResHolder;->stateTv Landroid/widget/TextView;
+	100     (000001ac) const-string         v2, "未运行"
+	101     (000001b0) invoke-virtual       v0, v2, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+	102     (000001b6) iget-object          v0, v4, Lcom/jlboat/phone/adapter/TargetGoalAdapter$MyResHolder;->stateTv Landroid/widget/TextView;
+	103     (000001ba) iget-object          v2, v3, Lcom/jlboat/phone/adapter/TargetGoalAdapter;->mContext Landroid/content/Context;
+	104     (000001be) invoke-virtual       v2, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+	105     (000001c4) move-result-object   v2
+	106     (000001c6) invoke-virtual       v2, v1, Landroid/content/res/Resources;->getColor(I)I
+	107     (000001cc) move-result          v1
+	108     (000001ce) invoke-virtual       v0, v1, Landroid/widget/TextView;->setTextColor(I)V
+	109     (000001d4) nop                  
+
+onBindViewHolder-BB@0x1d6 : [ D:onBindViewHolder-BB@0x1e8 0:onBindViewHolder-BB@0x1ea ]
+	110     (000001d6) iget-object          v0, v3, Lcom/jlboat/phone/adapter/TargetGoalAdapter;->navi Lcom/jlboat/phone/message/map_msgs/TargetGoalEntry;
+	111     (000001da) invoke-virtual       v0, Lcom/jlboat/phone/message/map_msgs/TargetGoalEntry;->getType()I
+	112     (000001e0) move-result          v0
+	113     (000001e2) packed-switch        v0, +0000027h
+
+onBindViewHolder-BB@0x1e8 : [ onBindViewHolder-BB@0x1f8 ]
+	114     (000001e8) goto                 +8h
+
+onBindViewHolder-BB@0x1ea : [ onBindViewHolder-BB@0x1f8 ]
+	115     (000001ea) iget-object          v0, v4, Lcom/jlboat/phone/adapter/TargetGoalAdapter$MyResHolder;->typeTv Landroid/widget/TextView;
+	116     (000001ee) const-string         v1, "导航点"
+	117     (000001f2) invoke-virtual       v0, v1, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+onBindViewHolder-BB@0x1f8 : 
+	118     (000001f8) return-void          
+
+onBindViewHolder-BB@0x1fa : 
+	119     (000001fa) nop                  
+	120     (000001fc) packed-switch-payload 0 1 2 3 4 5 6 7 8 9 a
+	121     (00000230) packed-switch-payload 0
+

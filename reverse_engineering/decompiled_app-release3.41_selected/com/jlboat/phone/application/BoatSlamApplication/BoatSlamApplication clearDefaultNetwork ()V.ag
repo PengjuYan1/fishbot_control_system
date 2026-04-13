@@ -1,0 +1,24 @@
+# Lcom/jlboat/phone/application/BoatSlamApplication;->clearDefaultNetwork()V [access_flags=public static]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:void
+
+clearDefaultNetwork-BB@0x0 : [ clearDefaultNetwork-BB@0xc clearDefaultNetwork-BB@0x28 ]
+	0       (00000000) sget                 v0, Landroid/os/Build$VERSION;->SDK_INT I
+	1       (00000004) const/16             v1, 23
+	2       (00000008) if-lt                v0, v1, +010h
+
+clearDefaultNetwork-BB@0xc : [ clearDefaultNetwork-BB@0x28 ]
+	3       (0000000c) sget-object          v0, Lcom/jlboat/phone/application/BoatSlamApplication;->mApplication Lcom/jlboat/phone/application/BoatSlamApplication;
+	4       (00000010) const-string         v1, "connectivity"
+	5       (00000014) invoke-virtual       v0, v1, Lcom/jlboat/phone/application/BoatSlamApplication;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+	6       (0000001a) move-result-object   v0
+	7       (0000001c) check-cast           v0, Landroid/net/ConnectivityManager;
+	8       (00000020) const/4              v1, 0
+	9       (00000022) invoke-virtual       v0, v1, Landroid/net/ConnectivityManager;->bindProcessToNetwork(Landroid/net/Network;)Z
+
+clearDefaultNetwork-BB@0x28 : 
+	10      (00000028) return-void          
+

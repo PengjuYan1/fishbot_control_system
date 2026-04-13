@@ -1,0 +1,58 @@
+# Lcom/jlboat/phone/controller/JlNaviManager;->setShapArea(Lcom/boat/support/slam/entity/floors/ShapeAreas; Lcom/boat/support/slam/IResponseListener;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:com.boat.support.slam.entity.floors.ShapeAreas
+# - v5:com.boat.support.slam.IResponseListener
+#
+# - return:void
+
+setShapArea-BB@0x0 : [ setShapArea-BB@0x8 setShapArea-BB@0x86 ]
+	0       (00000000) iget-boolean         v0, v3, Lcom/jlboat/phone/controller/JlNaviManager;->connectStatus Z
+	1       (00000004) if-eqz               v0, +041h
+
+setShapArea-BB@0x8 : [ setShapArea-BB@0x10 setShapArea-BB@0x12 ]
+	2       (00000008) iget-boolean         v0, v3, Lcom/jlboat/phone/controller/JlNaviManager;->isNavigationInited Z
+	3       (0000000c) if-nez               v0, +003h
+
+setShapArea-BB@0x10 : [ setShapArea-BB@0x86 ]
+	4       (00000010) goto                 +3bh
+
+setShapArea-BB@0x12 : [ setShapArea-BB@0x16 setShapArea-BB@0x84 ]
+	5       (00000012) if-eqz               v4, +039h
+
+setShapArea-BB@0x16 : [ setShapArea-BB@0x84 ]
+	6       (00000016) new-instance         v0, Lworld_canvas_msgs18/SetShapeRequestEnty;
+	7       (0000001a) invoke-direct        v0, Lworld_canvas_msgs18/SetShapeRequestEnty;-><init>()V
+	8       (00000020) invoke-virtual       v4, Lcom/boat/support/slam/entity/floors/ShapeAreas;->getShapeId()J
+	9       (00000026) move-result-wide     v1
+	10      (00000028) invoke-virtual       v0, v1, v2, Lworld_canvas_msgs18/SetShapeRequestEnty;->setShapeId(J)V
+	11      (0000002e) invoke-virtual       v4, Lcom/boat/support/slam/entity/floors/ShapeAreas;->getClosed()Z
+	12      (00000034) move-result          v1
+	13      (00000036) invoke-virtual       v0, v1, Lworld_canvas_msgs18/SetShapeRequestEnty;->setClosed(Z)V
+	14      (0000003c) invoke-virtual       v4, Lcom/boat/support/slam/entity/floors/ShapeAreas;->getType()Ljava/lang/String;
+	15      (00000042) move-result-object   v1
+	16      (00000044) invoke-virtual       v0, v1, Lworld_canvas_msgs18/SetShapeRequestEnty;->setType(Ljava/lang/String;)V
+	17      (0000004a) invoke-virtual       v4, Lcom/boat/support/slam/entity/floors/ShapeAreas;->getLines()Ljava/util/List;
+	18      (00000050) move-result-object   v1
+	19      (00000052) invoke-virtual       v0, v1, Lworld_canvas_msgs18/SetShapeRequestEnty;->setPoints(Ljava/util/List;)V
+	20      (00000058) invoke-virtual       v4, Lcom/boat/support/slam/entity/floors/ShapeAreas;->getCircle()Lcom/boat/support/slam/entity/floors/Circle;
+	21      (0000005e) move-result-object   v1
+	22      (00000060) invoke-virtual       v1, Lcom/boat/support/slam/entity/floors/Circle;->getRadius()D
+	23      (00000066) move-result-wide     v1
+	24      (00000068) double-to-float      v1, v1
+	25      (0000006a) invoke-virtual       v0, v1, Lworld_canvas_msgs18/SetShapeRequestEnty;->setRadius(F)V
+	26      (00000070) iget-object          v1, v3, Lcom/jlboat/phone/controller/JlNaviManager;->spiritServiceClient Lcom/jlboat/phone/communication/SpiritServiceClient;
+	27      (00000074) new-instance         v2, Lcom/jlboat/phone/controller/JlNaviManager$21;
+	28      (00000078) invoke-direct        v2, v3, v4, v5, Lcom/jlboat/phone/controller/JlNaviManager$21;-><init>(Lcom/jlboat/phone/controller/JlNaviManager; Lcom/boat/support/slam/entity/floors/ShapeAreas; Lcom/boat/support/slam/IResponseListener;)V
+	29      (0000007e) invoke-virtual       v1, v0, v2, Lcom/jlboat/phone/communication/SpiritServiceClient;->addOrDelShapeServer(Lworld_canvas_msgs18/SetShapeRequestEnty; Lcom/boat/jrosbridge/MessageListener;)V
+
+setShapArea-BB@0x84 : 
+	30      (00000084) return-void          
+
+setShapArea-BB@0x86 : 
+	31      (00000086) iget-object          v0, v3, Lcom/jlboat/phone/controller/JlNaviManager;->TAG Ljava/lang/String;
+	32      (0000008a) const-string         v1, "setShapArea: 初始化未成功 不可以进行数据请求 setShapArea"
+	33      (0000008e) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	34      (00000094) return-void          
+

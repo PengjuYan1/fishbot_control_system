@@ -1,0 +1,37 @@
+# Lcom/boat/jrosbridge/rosbridge/indication/Indication;->getName(Ljava/lang/Class; Ljava/lang/Class;)Ljava/lang/String; [access_flags=private static]
+#
+# Parameters:
+# - local registers: v0...v5
+# - v6:java.lang.Class
+# - v7:java.lang.Class
+#
+# - return:java.lang.String
+
+getName-BB@0x0 : [ getName-BB@0xe ]
+	0       (00000000) const/4              v0, 0
+	1       (00000002) invoke-virtual       v6, Ljava/lang/Class;->getFields()[Ljava/lang/reflect/Field;
+	2       (00000008) move-result-object   v1
+	3       (0000000a) array-length         v2, v1
+	4       (0000000c) const/4              v3, 0
+
+getName-BB@0xe : [ getName-BB@0x12 getName-BB@0x32 ]
+	5       (0000000e) if-ge                v3, v2, +012h
+
+getName-BB@0x12 : [ getName-BB@0x22 getName-BB@0x2c ]
+	6       (00000012) aget-object          v4, v1, v3
+	7       (00000016) invoke-virtual       v4, v7, Ljava/lang/reflect/Field;->getAnnotation(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+	8       (0000001c) move-result-object   v5
+	9       (0000001e) if-eqz               v5, +007h
+
+getName-BB@0x22 : [ getName-BB@0x32 ]
+	10      (00000022) invoke-virtual       v4, Ljava/lang/reflect/Field;->getName()Ljava/lang/String;
+	11      (00000028) move-result-object   v0
+	12      (0000002a) goto                 +4h
+
+getName-BB@0x2c : [ getName-BB@0xe ]
+	13      (0000002c) add-int/lit8         v3, v3, 1
+	14      (00000030) goto                 -11h
+
+getName-BB@0x32 : 
+	15      (00000032) return-object        v0
+

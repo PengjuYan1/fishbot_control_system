@@ -1,0 +1,14 @@
+# Lcom/jlboat/phone/activity/ErrorMessageActivity;->toast(Ljava/lang/String;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:java.lang.String
+#
+# - return:void
+
+toast-BB@0x0 : 
+	0       (00000000) new-instance         v0, Lcom/jlboat/phone/activity/ErrorMessageActivity$2;
+	1       (00000004) invoke-direct        v0, v1, v2, Lcom/jlboat/phone/activity/ErrorMessageActivity$2;-><init>(Lcom/jlboat/phone/activity/ErrorMessageActivity; Ljava/lang/String;)V
+	2       (0000000a) invoke-virtual       v1, v0, Lcom/jlboat/phone/activity/ErrorMessageActivity;->runOnUiThread(Ljava/lang/Runnable;)V
+	3       (00000010) return-void          
+

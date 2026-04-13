@@ -1,0 +1,68 @@
+# Lcom/jlboat/phone/view/BatteryView;->onDraw(Landroid/graphics/Canvas;)V [access_flags=protected]
+#
+# Parameters:
+# - local registers: v0...v4
+# - v5:android.graphics.Canvas
+#
+# - return:void
+
+onDraw-BB@0x0 : [ onDraw-BB@0x80 onDraw-BB@0x92 ]
+	0       (00000000) invoke-super         v4, v5, Landroid/view/View;->onDraw(Landroid/graphics/Canvas;)V
+	1       (00000006) invoke-virtual       v5, Landroid/graphics/Canvas;->save()I
+	2       (0000000c) iget-object          v0, v4, Lcom/jlboat/phone/view/BatteryView;->mBatteryRect Landroid/graphics/RectF;
+	3       (00000010) iget                 v1, v4, Lcom/jlboat/phone/view/BatteryView;->mRound F
+	4       (00000014) invoke-virtual       v4, Lcom/jlboat/phone/view/BatteryView;->getWidth()I
+	5       (0000001a) move-result          v2
+	6       (0000001c) int-to-float         v2, v2
+	7       (0000001e) mul-float            v1, v1, v2
+	8       (00000022) iget                 v2, v4, Lcom/jlboat/phone/view/BatteryView;->mRound F
+	9       (00000026) invoke-virtual       v4, Lcom/jlboat/phone/view/BatteryView;->getHeight()I
+	10      (0000002c) move-result          v3
+	11      (0000002e) int-to-float         v3, v3
+	12      (00000030) mul-float            v2, v2, v3
+	13      (00000034) iget-object          v3, v4, Lcom/jlboat/phone/view/BatteryView;->mBatteryPaint Landroid/graphics/Paint;
+	14      (00000038) invoke-virtual       v5, v0, v1, v2, v3, Landroid/graphics/Canvas;->drawRoundRect(Landroid/graphics/RectF; F F Landroid/graphics/Paint;)V
+	15      (0000003e) iget-object          v0, v4, Lcom/jlboat/phone/view/BatteryView;->mCapRect Landroid/graphics/RectF;
+	16      (00000042) iget                 v1, v4, Lcom/jlboat/phone/view/BatteryView;->mRound F
+	17      (00000046) invoke-virtual       v4, Lcom/jlboat/phone/view/BatteryView;->getWidth()I
+	18      (0000004c) move-result          v2
+	19      (0000004e) int-to-float         v2, v2
+	20      (00000050) mul-float            v1, v1, v2
+	21      (00000054) iget                 v2, v4, Lcom/jlboat/phone/view/BatteryView;->mRound F
+	22      (00000058) invoke-virtual       v4, Lcom/jlboat/phone/view/BatteryView;->getHeight()I
+	23      (0000005e) move-result          v3
+	24      (00000060) int-to-float         v3, v3
+	25      (00000062) mul-float            v2, v2, v3
+	26      (00000066) iget-object          v3, v4, Lcom/jlboat/phone/view/BatteryView;->mCapPaint Landroid/graphics/Paint;
+	27      (0000006a) invoke-virtual       v5, v0, v1, v2, v3, Landroid/graphics/Canvas;->drawRoundRect(Landroid/graphics/RectF; F F Landroid/graphics/Paint;)V
+	28      (00000070) iget                 v0, v4, Lcom/jlboat/phone/view/BatteryView;->mPower F
+	29      (00000074) const/high16         v1, 1101004800
+	30      (00000078) cmpl-float           v0, v0, v1
+	31      (0000007c) if-lez               v0, +00bh
+
+onDraw-BB@0x80 : [ onDraw-BB@0xa0 ]
+	32      (00000080) iget-object          v0, v4, Lcom/jlboat/phone/view/BatteryView;->mPowerPaint Landroid/graphics/Paint;
+	33      (00000084) const                v1, -16711936
+	34      (0000008a) invoke-virtual       v0, v1, Landroid/graphics/Paint;->setColor(I)V
+	35      (00000090) goto                 +8h
+
+onDraw-BB@0x92 : [ onDraw-BB@0xa0 ]
+	36      (00000092) iget-object          v0, v4, Lcom/jlboat/phone/view/BatteryView;->mPowerPaint Landroid/graphics/Paint;
+	37      (00000096) const/high16         v1, -65536
+	38      (0000009a) invoke-virtual       v0, v1, Landroid/graphics/Paint;->setColor(I)V
+
+onDraw-BB@0xa0 : [ onDraw-BB@0xb0 onDraw-BB@0xbe ]
+	39      (000000a0) iget                 v0, v4, Lcom/jlboat/phone/view/BatteryView;->mPower F
+	40      (000000a4) const/high16         v1, 1082130432
+	41      (000000a8) cmpl-float           v0, v0, v1
+	42      (000000ac) if-lez               v0, +009h
+
+onDraw-BB@0xb0 : [ onDraw-BB@0xbe ]
+	43      (000000b0) iget-object          v0, v4, Lcom/jlboat/phone/view/BatteryView;->mPowerRect Landroid/graphics/RectF;
+	44      (000000b4) iget-object          v1, v4, Lcom/jlboat/phone/view/BatteryView;->mPowerPaint Landroid/graphics/Paint;
+	45      (000000b8) invoke-virtual       v5, v0, v1, Landroid/graphics/Canvas;->drawRect(Landroid/graphics/RectF; Landroid/graphics/Paint;)V
+
+onDraw-BB@0xbe : 
+	46      (000000be) invoke-virtual       v5, Landroid/graphics/Canvas;->restore()V
+	47      (000000c4) return-void          
+

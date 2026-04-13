@@ -1,0 +1,14 @@
+# Lcom/boat/jrosbridge/rosbridge/operation/Operation;-><clinit>()V [access_flags=static constructor]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:void
+
+<clinit>-BB@0x0 : 
+	0       (00000000) const-wide/16        v0, 0
+	1       (00000004) invoke-static        v0, v1, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+	2       (0000000a) move-result-object   v0
+	3       (0000000c) sput-object          v0, Lcom/boat/jrosbridge/rosbridge/operation/Operation;->uid Ljava/lang/Long;
+	4       (00000010) return-void          
+

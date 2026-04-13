@@ -1,0 +1,38 @@
+# Lcom/boat/support/slam/SlamManager;->rotateTo(I D)V [access_flags=private]
+#
+# Parameters:
+# - local registers: v0...v4
+# - v5:int
+# - v6:double
+#
+# - return:void
+
+rotateTo-BB@0x0 : [ rotateTo-BB@0xc rotateTo-BB@0xe ]
+	0       (00000000) invoke-virtual       v3, Lcom/boat/support/slam/SlamManager;->isNavigationInited()Z
+	1       (00000006) move-result          v0
+	2       (00000008) if-nez               v0, +003h
+
+rotateTo-BB@0xc : 
+	3       (0000000c) return-void          
+
+rotateTo-BB@0xe : [ rotateTo-BB@0x16 rotateTo-BB@0x3c ]
+	4       (0000000e) iget-object          v0, v3, Lcom/boat/support/slam/SlamManager;->slamService Lcom/boat/support/slam/ISlamService;
+	5       (00000012) if-eqz               v0, +015h
+
+rotateTo-BB@0x16 : [ rotateTo-BB@0x3c ]
+	6       (00000016) iget-object          v0, v3, Lcom/boat/support/slam/SlamManager;->slamService Lcom/boat/support/slam/ISlamService;
+	7       (0000001a) const-wide           v1, 4600877379321698714
+	8       (00000024) invoke-interface     v0, v4, v1, v2, Lcom/boat/support/slam/ISlamService;->rotateTo(I D)V
+	9       (0000002a) goto                 +9h
+	16:29
+	(Landroid/os/RemoteException; -> 2c rotateTo-BB@0x2c)
+
+rotateTo-BB@0x2c : [ rotateTo-BB@0x3c ]
+	10      (0000002c) move-exception       v0
+	11      (0000002e) const-string         v1, "SlamManager"
+	12      (00000032) const-string         v2, "rotateTo: "
+	13      (00000036) invoke-static        v1, v2, v0, Landroid/util/Log;->w(Ljava/lang/String; Ljava/lang/String; Ljava/lang/Throwable;)I
+
+rotateTo-BB@0x3c : 
+	14      (0000003c) return-void          
+

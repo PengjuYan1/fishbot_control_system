@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment;->onResume()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v0
+#
+# - return:void
+
+onResume-BB@0x0 : 
+	0       (00000000) invoke-super         v0, Lcom/jlboat/phone/base/BaseFragment;->onResume()V
+	1       (00000006) invoke-direct        v0, Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment;->init()V
+	2       (0000000c) return-void          
+

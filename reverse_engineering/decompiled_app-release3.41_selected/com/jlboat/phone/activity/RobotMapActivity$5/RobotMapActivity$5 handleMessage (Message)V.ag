@@ -1,0 +1,113 @@
+# Lcom/jlboat/phone/activity/RobotMapActivity$5;->handleMessage(Landroid/os/Message;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v4
+# - v5:android.os.Message
+#
+# - return:void
+
+handleMessage-BB@0x0 : [ D:handleMessage-BB@0x10 1:handleMessage-BB@0xd6 2:handleMessage-BB@0x70 3:handleMessage-BB@0x64 4:handleMessage-BB@0x62 31:handleMessage-BB@0x46 ]
+	0       (00000000) invoke-super         v4, v5, Landroid/os/Handler;->handleMessage(Landroid/os/Message;)V
+	1       (00000006) iget                 v0, v5, Landroid/os/Message;->what I
+	2       (0000000a) sparse-switch        v0, +0000093h
+
+handleMessage-BB@0x10 : 
+	3       (00000010) new-instance         v0, Ljava/lang/IllegalStateException;
+	4       (00000014) new-instance         v1, Ljava/lang/StringBuilder;
+	5       (00000018) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	6       (0000001e) const-string         v2, "Unexpected value: "
+	7       (00000022) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	8       (00000028) move-result-object   v1
+	9       (0000002a) iget                 v2, v5, Landroid/os/Message;->what I
+	10      (0000002e) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	11      (00000034) move-result-object   v1
+	12      (00000036) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	13      (0000003c) move-result-object   v1
+	14      (0000003e) invoke-direct        v0, v1, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+	15      (00000044) throw                v0
+
+handleMessage-BB@0x46 : [ handleMessage-BB@0x12e ]
+	16      (00000046) iget-object          v0, v4, Lcom/jlboat/phone/activity/RobotMapActivity$5;->this$0 Lcom/jlboat/phone/activity/RobotMapActivity;
+	17      (0000004a) const                v1, 2131493304
+	18      (00000050) invoke-virtual       v0, v1, Lcom/jlboat/phone/activity/RobotMapActivity;->toast(I)V
+	19      (00000056) iget-object          v0, v4, Lcom/jlboat/phone/activity/RobotMapActivity$5;->this$0 Lcom/jlboat/phone/activity/RobotMapActivity;
+	20      (0000005a) invoke-static        v0, Lcom/jlboat/phone/activity/RobotMapActivity;->access$400(Lcom/jlboat/phone/activity/RobotMapActivity;)V
+	21      (00000060) goto                 +67h
+
+handleMessage-BB@0x62 : [ handleMessage-BB@0x12e ]
+	22      (00000062) goto                 +66h
+
+handleMessage-BB@0x64 : [ handleMessage-BB@0x12e ]
+	23      (00000064) iget-object          v0, v4, Lcom/jlboat/phone/activity/RobotMapActivity$5;->this$0 Lcom/jlboat/phone/activity/RobotMapActivity;
+	24      (00000068) invoke-static        v0, Lcom/jlboat/phone/activity/RobotMapActivity;->access$400(Lcom/jlboat/phone/activity/RobotMapActivity;)V
+	25      (0000006e) goto                 +60h
+
+handleMessage-BB@0x70 : [ handleMessage-BB@0x7c handleMessage-BB@0xba ]
+	26      (00000070) iget-object          v0, v5, Landroid/os/Message;->obj Ljava/lang/Object;
+	27      (00000074) instance-of          v0, v0, [Ljava/lang/Object;
+	28      (00000078) if-eqz               v0, +021h
+
+handleMessage-BB@0x7c : [ handleMessage-BB@0x92 handleMessage-BB@0xba ]
+	29      (0000007c) iget-object          v0, v5, Landroid/os/Message;->obj Ljava/lang/Object;
+	30      (00000080) check-cast           v0, [Ljava/lang/Object;
+	31      (00000084) const/4              v1, 0
+	32      (00000086) aget-object          v2, v0, v1
+	33      (0000008a) instance-of          v2, v2, Ljava/lang/CharSequence;
+	34      (0000008e) if-eqz               v2, +016h
+
+handleMessage-BB@0x92 : [ handleMessage-BB@0xa0 handleMessage-BB@0xba ]
+	35      (00000092) const/4              v2, 1
+	36      (00000094) aget-object          v3, v0, v2
+	37      (00000098) instance-of          v3, v3, Ljava/lang/CharSequence;
+	38      (0000009c) if-eqz               v3, +00fh
+
+handleMessage-BB@0xa0 : [ handleMessage-BB@0xba ]
+	39      (000000a0) iget-object          v3, v4, Lcom/jlboat/phone/activity/RobotMapActivity$5;->this$0 Lcom/jlboat/phone/activity/RobotMapActivity;
+	40      (000000a4) aget-object          v1, v0, v1
+	41      (000000a8) check-cast           v1, Ljava/lang/CharSequence;
+	42      (000000ac) aget-object          v2, v0, v2
+	43      (000000b0) check-cast           v2, Ljava/lang/CharSequence;
+	44      (000000b4) invoke-static        v3, v1, v2, Lcom/jlboat/phone/activity/RobotMapActivity;->access$2000(Lcom/jlboat/phone/activity/RobotMapActivity; Ljava/lang/CharSequence; Ljava/lang/CharSequence;)V
+
+handleMessage-BB@0xba : [ handleMessage-BB@0x12e ]
+	45      (000000ba) iget-object          v0, v4, Lcom/jlboat/phone/activity/RobotMapActivity$5;->this$0 Lcom/jlboat/phone/activity/RobotMapActivity;
+	46      (000000be) invoke-static        v0, Lcom/jlboat/phone/activity/RobotMapActivity;->access$1300(Lcom/jlboat/phone/activity/RobotMapActivity;)Landroid/os/Handler;
+	47      (000000c4) move-result-object   v0
+	48      (000000c6) const/16             v1, 31
+	49      (000000ca) const-wide/16        v2, 30000
+	50      (000000ce) invoke-virtual       v0, v1, v2, v3, Landroid/os/Handler;->sendEmptyMessageDelayed(I J)Z
+	51      (000000d4) goto                 +2dh
+
+handleMessage-BB@0xd6 : [ handleMessage-BB@0x104 handleMessage-BB@0x12e ]
+	52      (000000d6) iget-object          v0, v4, Lcom/jlboat/phone/activity/RobotMapActivity$5;->this$0 Lcom/jlboat/phone/activity/RobotMapActivity;
+	53      (000000da) invoke-static        v0, Lcom/jlboat/phone/activity/RobotMapActivity;->access$1900(Lcom/jlboat/phone/activity/RobotMapActivity;)Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;
+	54      (000000e0) move-result-object   v0
+	55      (000000e2) iget-object          v1, v4, Lcom/jlboat/phone/activity/RobotMapActivity$5;->this$0 Lcom/jlboat/phone/activity/RobotMapActivity;
+	56      (000000e6) invoke-static        v1, Lcom/jlboat/phone/activity/RobotMapActivity;->access$600(Lcom/jlboat/phone/activity/RobotMapActivity;)Lcom/boat/support/slam/entity/floors/MapList;
+	57      (000000ec) move-result-object   v1
+	58      (000000ee) invoke-virtual       v0, v1, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;->setListData(Lcom/boat/support/slam/entity/floors/MapList;)V
+	59      (000000f4) iget-object          v0, v4, Lcom/jlboat/phone/activity/RobotMapActivity$5;->this$0 Lcom/jlboat/phone/activity/RobotMapActivity;
+	60      (000000f8) invoke-static        v0, Lcom/jlboat/phone/activity/RobotMapActivity;->access$500(Lcom/jlboat/phone/activity/RobotMapActivity;)Lcom/jlboat/phone/view/MapView;
+	61      (000000fe) move-result-object   v0
+	62      (00000100) if-eqz               v0, +017h
+
+handleMessage-BB@0x104 : [ handleMessage-BB@0x110 handleMessage-BB@0x12e ]
+	63      (00000104) invoke-static        Lcom/jlboat/phone/activity/RobotMapActivity;->access$900()I
+	64      (0000010a) move-result          v0
+	65      (0000010c) if-nez               v0, +011h
+
+handleMessage-BB@0x110 : [ handleMessage-BB@0x12e ]
+	66      (00000110) iget-object          v0, v4, Lcom/jlboat/phone/activity/RobotMapActivity$5;->this$0 Lcom/jlboat/phone/activity/RobotMapActivity;
+	67      (00000114) invoke-static        v0, Lcom/jlboat/phone/activity/RobotMapActivity;->access$500(Lcom/jlboat/phone/activity/RobotMapActivity;)Lcom/jlboat/phone/view/MapView;
+	68      (0000011a) move-result-object   v0
+	69      (0000011c) iget-object          v1, v4, Lcom/jlboat/phone/activity/RobotMapActivity$5;->this$0 Lcom/jlboat/phone/activity/RobotMapActivity;
+	70      (00000120) invoke-static        v1, Lcom/jlboat/phone/activity/RobotMapActivity;->access$1100(Lcom/jlboat/phone/activity/RobotMapActivity;)Ljava/util/List;
+	71      (00000126) move-result-object   v1
+	72      (00000128) invoke-virtual       v0, v1, Lcom/jlboat/phone/view/MapView;->setPoints(Ljava/util/List;)V
+
+handleMessage-BB@0x12e : 
+	73      (0000012e) return-void          
+
+handleMessage-BB@0x130 : 
+	74      (00000130) sparse-switch-payload 1 2 3 4 1f
+

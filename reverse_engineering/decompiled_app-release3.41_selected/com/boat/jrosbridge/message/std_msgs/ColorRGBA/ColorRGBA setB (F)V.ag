@@ -1,0 +1,12 @@
+# Lcom/boat/jrosbridge/message/std_msgs/ColorRGBA;->setB(F)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:float
+#
+# - return:void
+
+setB-BB@0x0 : 
+	0       (00000000) iput                 v1, v0, Lcom/boat/jrosbridge/message/std_msgs/ColorRGBA;->b F
+	1       (00000004) return-void          
+

@@ -1,0 +1,11 @@
+# Lcom/jlboat/phone/activity/DiyPointPathActivity$Point;->getLineId()J [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v2
+#
+# - return:long
+
+getLineId-BB@0x0 : 
+	0       (00000000) iget-wide            v0, v2, Lcom/jlboat/phone/activity/DiyPointPathActivity$Point;->lineId J
+	1       (00000004) return-wide          v0
+

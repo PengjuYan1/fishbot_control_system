@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->access$2200(Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;)Landroid/widget/EditText; [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.fragment.statusfragment.UltrasoundFragment
+#
+# - return:android.widget.EditText
+
+access$2200-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->min_leftm_et Landroid/widget/EditText;
+	1       (00000004) return-object        v0
+

@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;->access$2000(Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;)Lcom/boat/jrosbridge/Topic; [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.fragment.settingfragment.NavigationTestFragment202508
+#
+# - return:com.boat.jrosbridge.Topic
+
+access$2000-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;->getTestMsg Lcom/boat/jrosbridge/Topic;
+	1       (00000004) return-object        v0
+

@@ -1,0 +1,111 @@
+# Lcom/jlboat/phone/base/BaseFullActivity$3;->onReceive(Landroid/content/Context; Landroid/content/Intent;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:android.content.Context
+# - v4:android.content.Intent
+#
+# - return:void
+
+onReceive-BB@0x0 : [ onReceive-BB@0x4 onReceive-BB@0x6 ]
+	0       (00000000) if-nez               v4, +003h
+
+onReceive-BB@0x4 : 
+	1       (00000004) return-void          
+
+onReceive-BB@0x6 : [ onReceive-BB@0x12 onReceive-BB@0x14 ]
+	2       (00000006) invoke-virtual       v4, Landroid/content/Intent;->getAction()Ljava/lang/String;
+	3       (0000000c) move-result-object   v0
+	4       (0000000e) if-nez               v0, +003h
+
+onReceive-BB@0x12 : 
+	5       (00000012) return-void          
+
+onReceive-BB@0x14 : [ D:onReceive-BB@0x22 -1361636432:onReceive-BB@0x74 -92976154:onReceive-BB@0x60 3539835:onReceive-BB@0x4c 70687340:onReceive-BB@0x38 106858757:onReceive-BB@0x24 ]
+	6       (00000014) invoke-virtual       v0, Ljava/lang/String;->hashCode()I
+	7       (0000001a) move-result          v1
+	8       (0000001c) sparse-switch        v1, +000004ah
+
+onReceive-BB@0x22 : [ onReceive-BB@0x88 ]
+	9       (00000022) goto                 +33h
+
+onReceive-BB@0x24 : [ onReceive-BB@0x34 onReceive-BB@0x22 ]
+	10      (00000024) const-string         v1, "power"
+	11      (00000028) invoke-virtual       v0, v1, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	12      (0000002e) move-result          v1
+	13      (00000030) if-eqz               v1, -007h
+
+onReceive-BB@0x34 : [ onReceive-BB@0x8a ]
+	14      (00000034) const/4              v1, 0
+	15      (00000036) goto                 +2ah
+
+onReceive-BB@0x38 : [ onReceive-BB@0x48 onReceive-BB@0x22 ]
+	16      (00000038) const-string         v1, "ERRMSG_UPDATE"
+	17      (0000003c) invoke-virtual       v0, v1, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	18      (00000042) move-result          v1
+	19      (00000044) if-eqz               v1, -011h
+
+onReceive-BB@0x48 : [ onReceive-BB@0x8a ]
+	20      (00000048) const/4              v1, 4
+	21      (0000004a) goto                 +20h
+
+onReceive-BB@0x4c : [ onReceive-BB@0x5c onReceive-BB@0x22 ]
+	22      (0000004c) const-string         v1, "ssid"
+	23      (00000050) invoke-virtual       v0, v1, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	24      (00000056) move-result          v1
+	25      (00000058) if-eqz               v1, -01bh
+
+onReceive-BB@0x5c : [ onReceive-BB@0x8a ]
+	26      (0000005c) const/4              v1, 2
+	27      (0000005e) goto                 +16h
+
+onReceive-BB@0x60 : [ onReceive-BB@0x70 onReceive-BB@0x22 ]
+	28      (00000060) const-string         v1, "WIFICONNECTED_STATE"
+	29      (00000064) invoke-virtual       v0, v1, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	30      (0000006a) move-result          v1
+	31      (0000006c) if-eqz               v1, -025h
+
+onReceive-BB@0x70 : [ onReceive-BB@0x8a ]
+	32      (00000070) const/4              v1, 3
+	33      (00000072) goto                 +ch
+
+onReceive-BB@0x74 : [ onReceive-BB@0x84 onReceive-BB@0x22 ]
+	34      (00000074) const-string         v1, "change"
+	35      (00000078) invoke-virtual       v0, v1, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	36      (0000007e) move-result          v1
+	37      (00000080) if-eqz               v1, -02fh
+
+onReceive-BB@0x84 : [ onReceive-BB@0x8a ]
+	38      (00000084) const/4              v1, 1
+	39      (00000086) goto                 +2h
+
+onReceive-BB@0x88 : [ onReceive-BB@0x8a ]
+	40      (00000088) const/4              v1, -1
+
+onReceive-BB@0x8a : [ D:onReceive-BB@0x90 0:onReceive-BB@0xa0 1:onReceive-BB@0xa0 2:onReceive-BB@0xa0 3:onReceive-BB@0x9e 4:onReceive-BB@0x92 ]
+	41      (0000008a) packed-switch        v1, +0000029h
+
+onReceive-BB@0x90 : [ onReceive-BB@0xac ]
+	42      (00000090) goto                 +eh
+
+onReceive-BB@0x92 : [ onReceive-BB@0xac ]
+	43      (00000092) iget-object          v1, v2, Lcom/jlboat/phone/base/BaseFullActivity$3;->this$0 Lcom/jlboat/phone/base/BaseFullActivity;
+	44      (00000096) invoke-static        v1, Lcom/jlboat/phone/base/BaseFullActivity;->access$300(Lcom/jlboat/phone/base/BaseFullActivity;)V
+	45      (0000009c) goto                 +8h
+
+onReceive-BB@0x9e : [ onReceive-BB@0xac ]
+	46      (0000009e) goto                 +7h
+
+onReceive-BB@0xa0 : [ onReceive-BB@0xac ]
+	47      (000000a0) iget-object          v1, v2, Lcom/jlboat/phone/base/BaseFullActivity$3;->this$0 Lcom/jlboat/phone/base/BaseFullActivity;
+	48      (000000a4) invoke-static        v1, Lcom/jlboat/phone/base/BaseFullActivity;->access$200(Lcom/jlboat/phone/base/BaseFullActivity;)V
+	49      (000000aa) nop                  
+
+onReceive-BB@0xac : 
+	50      (000000ac) return-void          
+
+onReceive-BB@0xae : 
+	51      (000000ae) nop                  
+	52      (000000b0) sparse-switch-payload -5128ec50 -58ab41a 36037b 4369a6c 65e8905
+	53      (000000dc) packed-switch-payload 0 1 2 3 4
+

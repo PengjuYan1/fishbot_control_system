@@ -1,0 +1,14 @@
+# Lcom/boat/support/slam/SlamManager;->rotateRightTo(I)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:int
+#
+# - return:void
+
+rotateRightTo-BB@0x0 : 
+	0       (00000000) neg-int              v0, v4
+	1       (00000002) const-wide           v1, 4600877379321698714
+	2       (0000000c) invoke-direct        v3, v0, v1, v2, Lcom/boat/support/slam/SlamManager;->rotateTo(I D)V
+	3       (00000012) return-void          
+

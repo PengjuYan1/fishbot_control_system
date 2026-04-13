@@ -1,0 +1,12 @@
+# Lcom/boat/jrosbridge/message/visualization_msgs/Marker;->setCUBE_LIST(B)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:byte
+#
+# - return:void
+
+setCUBE_LIST-BB@0x0 : 
+	0       (00000000) iput-byte            v1, v0, Lcom/boat/jrosbridge/message/visualization_msgs/Marker;->CUBE_LIST B
+	1       (00000004) return-void          
+

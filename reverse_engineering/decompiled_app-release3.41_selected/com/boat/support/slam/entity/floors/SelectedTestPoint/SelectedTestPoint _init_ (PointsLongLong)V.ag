@@ -1,0 +1,17 @@
+# Lcom/boat/support/slam/entity/floors/SelectedTestPoint;-><init>(Lcom/boat/support/slam/entity/floors/Points; Ljava/lang/Long; Ljava/lang/Long;)V [access_flags=public constructor]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.boat.support.slam.entity.floors.Points
+# - v2:java.lang.Long
+# - v3:java.lang.Long
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) invoke-direct        v0, Ljava/lang/Object;-><init>()V
+	1       (00000006) iput-object          v1, v0, Lcom/boat/support/slam/entity/floors/SelectedTestPoint;->point Lcom/boat/support/slam/entity/floors/Points;
+	2       (0000000a) iput-object          v2, v0, Lcom/boat/support/slam/entity/floors/SelectedTestPoint;->floorId Ljava/lang/Long;
+	3       (0000000e) iput-object          v3, v0, Lcom/boat/support/slam/entity/floors/SelectedTestPoint;->mapId Ljava/lang/Long;
+	4       (00000012) return-void          
+

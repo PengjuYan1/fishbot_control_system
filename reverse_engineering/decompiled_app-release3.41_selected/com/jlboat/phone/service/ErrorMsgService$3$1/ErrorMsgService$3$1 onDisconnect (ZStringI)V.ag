@@ -1,0 +1,58 @@
+# Lcom/jlboat/phone/service/ErrorMsgService$3$1;->onDisconnect(Z Ljava/lang/String; I)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:boolean
+# - v4:java.lang.String
+# - v5:int
+#
+# - return:void
+
+onDisconnect-BB@0x0 : [ onDisconnect-BB@0x34 onDisconnect-BB@0x50 ]
+	0       (00000000) new-instance         v0, Ljava/lang/StringBuilder;
+	1       (00000004) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	2       (0000000a) const-string         v1, "ROSBridgeClient onDisconnect: code "
+	3       (0000000e) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	4       (00000014) move-result-object   v0
+	5       (00000016) invoke-virtual       v0, v5, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	6       (0000001c) move-result-object   v0
+	7       (0000001e) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	8       (00000024) move-result-object   v0
+	9       (00000026) const-string         v1, "ErrorMsgService"
+	10      (0000002a) invoke-static        v1, v0, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	11      (00000030) if-gez               v5, +010h
+
+onDisconnect-BB@0x34 : [ onDisconnect-BB@0x78 ]
+	12      (00000034) iget-object          v0, v2, Lcom/jlboat/phone/service/ErrorMsgService$3$1;->this$1 Lcom/jlboat/phone/service/ErrorMsgService$3;
+	13      (00000038) iget-object          v0, v0, Lcom/jlboat/phone/service/ErrorMsgService$3;->this$0 Lcom/jlboat/phone/service/ErrorMsgService;
+	14      (0000003c) invoke-static        v0, Lcom/jlboat/phone/service/ErrorMsgService;->access$000(Lcom/jlboat/phone/service/ErrorMsgService;)Landroid/os/Handler;
+	15      (00000042) move-result-object   v0
+	16      (00000044) const/16             v1, 104
+	17      (00000048) invoke-virtual       v0, v1, Landroid/os/Handler;->sendEmptyMessage(I)Z
+	18      (0000004e) goto                 +15h
+
+onDisconnect-BB@0x50 : [ onDisconnect-BB@0x58 onDisconnect-BB@0x5a ]
+	19      (00000050) const/16             v0, 1000
+	20      (00000054) if-ne                v5, v0, +003h
+
+onDisconnect-BB@0x58 : [ onDisconnect-BB@0x78 ]
+	21      (00000058) goto                 +10h
+
+onDisconnect-BB@0x5a : [ onDisconnect-BB@0x5e onDisconnect-BB@0x78 ]
+	22      (0000005a) if-le                v5, v0, +00fh
+
+onDisconnect-BB@0x5e : [ onDisconnect-BB@0x78 ]
+	23      (0000005e) iget-object          v0, v2, Lcom/jlboat/phone/service/ErrorMsgService$3$1;->this$1 Lcom/jlboat/phone/service/ErrorMsgService$3;
+	24      (00000062) iget-object          v0, v0, Lcom/jlboat/phone/service/ErrorMsgService$3;->this$0 Lcom/jlboat/phone/service/ErrorMsgService;
+	25      (00000066) invoke-static        v0, Lcom/jlboat/phone/service/ErrorMsgService;->access$000(Lcom/jlboat/phone/service/ErrorMsgService;)Landroid/os/Handler;
+	26      (0000006c) move-result-object   v0
+	27      (0000006e) const/16             v1, 103
+	28      (00000072) invoke-virtual       v0, v1, Landroid/os/Handler;->sendEmptyMessage(I)Z
+
+onDisconnect-BB@0x78 : 
+	29      (00000078) iget-object          v0, v2, Lcom/jlboat/phone/service/ErrorMsgService$3$1;->this$1 Lcom/jlboat/phone/service/ErrorMsgService$3;
+	30      (0000007c) iget-object          v0, v0, Lcom/jlboat/phone/service/ErrorMsgService$3;->val$end [Z
+	31      (00000080) const/4              v1, 0
+	32      (00000082) aput-boolean         v1, v0, v1
+	33      (00000086) return-void          
+

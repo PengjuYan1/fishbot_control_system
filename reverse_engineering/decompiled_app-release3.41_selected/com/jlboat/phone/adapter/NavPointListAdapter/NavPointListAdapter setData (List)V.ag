@@ -1,0 +1,13 @@
+# Lcom/jlboat/phone/adapter/NavPointListAdapter;->setData(Ljava/util/List;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:java.util.List
+#
+# - return:void
+
+setData-BB@0x0 : 
+	0       (00000000) iput-object          v1, v0, Lcom/jlboat/phone/adapter/NavPointListAdapter;->mPointList Ljava/util/List;
+	1       (00000004) invoke-virtual       v0, Lcom/jlboat/phone/adapter/NavPointListAdapter;->notifyDataSetChanged()V
+	2       (0000000a) return-void          
+

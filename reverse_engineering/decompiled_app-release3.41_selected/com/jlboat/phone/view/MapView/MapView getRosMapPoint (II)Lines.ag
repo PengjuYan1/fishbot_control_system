@@ -1,0 +1,73 @@
+# Lcom/jlboat/phone/view/MapView;->getRosMapPoint(I I)Lcom/boat/support/slam/entity/floors/Lines; [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v5
+# - v6:int
+# - v7:int
+#
+# - return:com.boat.support.slam.entity.floors.Lines
+
+getRosMapPoint-BB@0x0 : [ getRosMapPoint-BB@0x14 getRosMapPoint-BB@0x9e ]
+	0       (00000000) new-instance         v0, Lcom/boat/support/slam/entity/floors/Lines;
+	1       (00000004) invoke-direct        v0, Lcom/boat/support/slam/entity/floors/Lines;-><init>()V
+	2       (0000000a) iget-object          v1, v5, Lcom/jlboat/phone/view/MapView;->touchEvenHandler Lcom/jlboat/phone/view/TouchEvenHandler;
+	3       (0000000e) const/4              v2, 0
+	4       (00000010) if-eqz               v1, +047h
+
+getRosMapPoint-BB@0x14 : [ getRosMapPoint-BB@0x32 getRosMapPoint-BB@0x9c ]
+	5       (00000014) iget-object          v1, v5, Lcom/jlboat/phone/view/MapView;->touchEvenHandler Lcom/jlboat/phone/view/TouchEvenHandler;
+	6       (00000018) int-to-float         v3, v6
+	7       (0000001a) int-to-float         v4, v7
+	8       (0000001c) invoke-virtual       v1, v3, v4, Lcom/jlboat/phone/view/TouchEvenHandler;->coordinatesToImage(F F)Landroid/graphics/PointF;
+	9       (00000022) move-result-object   v1
+	10      (00000024) iget                 v3, v1, Landroid/graphics/PointF;->x F
+	11      (00000028) const/4              v4, 0
+	12      (0000002a) cmpg-float           v3, v3, v4
+	13      (0000002e) if-ltz               v3, +037h
+
+getRosMapPoint-BB@0x32 : [ getRosMapPoint-BB@0x3e getRosMapPoint-BB@0x9c ]
+	14      (00000032) iget                 v3, v1, Landroid/graphics/PointF;->y F
+	15      (00000036) cmpg-float           v3, v3, v4
+	16      (0000003a) if-ltz               v3, +031h
+
+getRosMapPoint-BB@0x3e : [ getRosMapPoint-BB@0x50 getRosMapPoint-BB@0x9c ]
+	17      (0000003e) iget                 v3, v1, Landroid/graphics/PointF;->x F
+	18      (00000042) iget                 v4, v5, Lcom/jlboat/phone/view/MapView;->bitmap_width I
+	19      (00000046) int-to-float         v4, v4
+	20      (00000048) cmpl-float           v3, v3, v4
+	21      (0000004c) if-gtz               v3, +028h
+
+getRosMapPoint-BB@0x50 : [ getRosMapPoint-BB@0x62 getRosMapPoint-BB@0x64 ]
+	22      (00000050) iget                 v3, v1, Landroid/graphics/PointF;->y F
+	23      (00000054) iget                 v4, v5, Lcom/jlboat/phone/view/MapView;->bitmap_height I
+	24      (00000058) int-to-float         v4, v4
+	25      (0000005a) cmpl-float           v3, v3, v4
+	26      (0000005e) if-lez               v3, +003h
+
+getRosMapPoint-BB@0x62 : [ getRosMapPoint-BB@0x9c ]
+	27      (00000062) goto                 +1dh
+
+getRosMapPoint-BB@0x64 : 
+	28      (00000064) iget                 v2, v1, Landroid/graphics/PointF;->x F
+	29      (00000068) iget                 v3, v5, Lcom/jlboat/phone/view/MapView;->origin_for_pixe_x F
+	30      (0000006c) sub-float/2addr      v2, v3
+	31      (0000006e) iget                 v3, v5, Lcom/jlboat/phone/view/MapView;->resolution F
+	32      (00000072) mul-float            v2, v2, v3
+	33      (00000076) float-to-double      v2, v2
+	34      (00000078) invoke-virtual       v0, v2, v3, Lcom/boat/support/slam/entity/floors/Lines;->setX(D)V
+	35      (0000007e) iget                 v2, v1, Landroid/graphics/PointF;->y F
+	36      (00000082) iget                 v3, v5, Lcom/jlboat/phone/view/MapView;->origin_for_pixe_y F
+	37      (00000086) sub-float/2addr      v2, v3
+	38      (00000088) neg-float            v2, v2
+	39      (0000008a) iget                 v3, v5, Lcom/jlboat/phone/view/MapView;->resolution F
+	40      (0000008e) mul-float            v2, v2, v3
+	41      (00000092) float-to-double      v2, v2
+	42      (00000094) invoke-virtual       v0, v2, v3, Lcom/boat/support/slam/entity/floors/Lines;->setY(D)V
+	43      (0000009a) return-object        v0
+
+getRosMapPoint-BB@0x9c : 
+	44      (0000009c) return-object        v2
+
+getRosMapPoint-BB@0x9e : 
+	45      (0000009e) return-object        v2
+

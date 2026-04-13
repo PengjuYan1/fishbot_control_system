@@ -1,0 +1,46 @@
+# Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity$3$3;->run()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v4
+#
+# - return:void
+
+run-BB@0x0 : 
+	0       (00000000) iget-object          v0, v4, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity$3$3;->this$1 Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity$3;
+	1       (00000004) iget-object          v0, v0, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity$3;->this$0 Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;
+	2       (00000008) iget-object          v1, v4, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity$3$3;->val$config Lcom/jlboat/phone/message/map_msgs/Config;
+	3       (0000000c) invoke-virtual       v1, Lcom/jlboat/phone/message/map_msgs/Config;->getConfigValue()Ljava/lang/String;
+	4       (00000012) move-result-object   v1
+	5       (00000014) invoke-static        v1, Ljava/lang/Double;->parseDouble(Ljava/lang/String;)D
+	6       (0000001a) move-result-wide     v1
+	7       (0000001c) double-to-int        v1, v1
+	8       (0000001e) invoke-static        v0, v1, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;->access$802(Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity; I)I
+	9       (00000024) new-instance         v0, Ljava/lang/StringBuilder;
+	10      (00000028) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	11      (0000002e) const-string         v1, "priority_level:"
+	12      (00000032) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	13      (00000038) move-result-object   v0
+	14      (0000003a) iget-object          v1, v4, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity$3$3;->this$1 Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity$3;
+	15      (0000003e) iget-object          v1, v1, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity$3;->this$0 Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;
+	16      (00000042) invoke-static        v1, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;->access$800(Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;)I
+	17      (00000048) move-result          v1
+	18      (0000004a) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	19      (00000050) move-result-object   v0
+	20      (00000052) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	21      (00000058) move-result-object   v0
+	22      (0000005a) const-string         v1, "MultiMachineSchedulingActivity"
+	23      (0000005e) invoke-static        v1, v0, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	24      (00000064) iget-object          v0, v4, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity$3$3;->this$1 Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity$3;
+	25      (00000068) iget-object          v0, v0, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity$3;->this$0 Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;
+	26      (0000006c) invoke-static        v0, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;->access$900(Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;)Landroid/widget/EditText;
+	27      (00000072) move-result-object   v0
+	28      (00000074) iget-object          v1, v4, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity$3$3;->val$config Lcom/jlboat/phone/message/map_msgs/Config;
+	29      (00000078) invoke-virtual       v1, Lcom/jlboat/phone/message/map_msgs/Config;->getConfigValue()Ljava/lang/String;
+	30      (0000007e) move-result-object   v1
+	31      (00000080) const-string         v2, "\.0+"
+	32      (00000084) const-string         v3, ""
+	33      (00000088) invoke-virtual       v1, v2, v3, Ljava/lang/String;->replaceAll(Ljava/lang/String; Ljava/lang/String;)Ljava/lang/String;
+	34      (0000008e) move-result-object   v1
+	35      (00000090) invoke-virtual       v0, v1, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+	36      (00000096) return-void          
+

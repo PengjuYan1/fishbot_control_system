@@ -1,0 +1,69 @@
+# Lcom/jlboat/phone/activity/MapActivity;->deleteFloorWithMaps(J)V [access_flags=private]
+#
+# Parameters:
+# - local registers: v0...v10
+# - v11:long
+#
+# - return:void
+
+deleteFloorWithMaps-BB@0x0 : [ deleteFloorWithMaps-BB@0x16 ]
+	0       (00000000) new-instance         v0, Ljava/util/ArrayList;
+	1       (00000004) invoke-direct        v0, Ljava/util/ArrayList;-><init>()V
+	2       (0000000a) iget-object          v1, v9, Lcom/jlboat/phone/activity/MapActivity;->currentFloors Ljava/util/List;
+	3       (0000000e) invoke-interface     v1, Ljava/util/List;->iterator()Ljava/util/Iterator;
+	4       (00000014) move-result-object   v1
+
+deleteFloorWithMaps-BB@0x16 : [ deleteFloorWithMaps-BB@0x22 deleteFloorWithMaps-BB@0x50 ]
+	5       (00000016) invoke-interface     v1, Ljava/util/Iterator;->hasNext()Z
+	6       (0000001c) move-result          v2
+	7       (0000001e) if-eqz               v2, +019h
+
+deleteFloorWithMaps-BB@0x22 : [ deleteFloorWithMaps-BB@0x3e deleteFloorWithMaps-BB@0x4e ]
+	8       (00000022) invoke-interface     v1, Ljava/util/Iterator;->next()Ljava/lang/Object;
+	9       (00000028) move-result-object   v2
+	10      (0000002a) check-cast           v2, Lcom/boat/support/slam/entity/floors/Floors;
+	11      (0000002e) invoke-virtual       v2, Lcom/boat/support/slam/entity/floors/Floors;->getFloorId()J
+	12      (00000034) move-result-wide     v3
+	13      (00000036) cmp-long             v5, v3, v10
+	14      (0000003a) if-nez               v5, +00ah
+
+deleteFloorWithMaps-BB@0x3e : [ deleteFloorWithMaps-BB@0x50 ]
+	15      (0000003e) invoke-virtual       v2, Lcom/boat/support/slam/entity/floors/Floors;->getMaps()Ljava/util/List;
+	16      (00000044) move-result-object   v1
+	17      (00000046) invoke-interface     v0, v1, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
+	18      (0000004c) goto                 +2h
+
+deleteFloorWithMaps-BB@0x4e : [ deleteFloorWithMaps-BB@0x16 ]
+	19      (0000004e) goto                 -1ch
+
+deleteFloorWithMaps-BB@0x50 : [ deleteFloorWithMaps-BB@0x5c deleteFloorWithMaps-BB@0x9c ]
+	20      (00000050) invoke-interface     v0, Ljava/util/List;->isEmpty()Z
+	21      (00000056) move-result          v1
+	22      (00000058) if-nez               v1, +022h
+
+deleteFloorWithMaps-BB@0x5c : [ deleteFloorWithMaps-BB@0x64 ]
+	23      (0000005c) invoke-interface     v0, Ljava/util/List;->iterator()Ljava/util/Iterator;
+	24      (00000062) move-result-object   v1
+
+deleteFloorWithMaps-BB@0x64 : [ deleteFloorWithMaps-BB@0x70 deleteFloorWithMaps-BB@0x9c ]
+	25      (00000064) invoke-interface     v1, Ljava/util/Iterator;->hasNext()Z
+	26      (0000006a) move-result          v2
+	27      (0000006c) if-eqz               v2, +018h
+
+deleteFloorWithMaps-BB@0x70 : [ deleteFloorWithMaps-BB@0x64 ]
+	28      (00000070) invoke-interface     v1, Ljava/util/Iterator;->next()Ljava/lang/Object;
+	29      (00000076) move-result-object   v2
+	30      (00000078) check-cast           v2, Lcom/boat/support/slam/entity/floors/Maps;
+	31      (0000007c) iget-object          v3, v9, Lcom/jlboat/phone/activity/MapActivity;->spiritServiceClient Lcom/jlboat/phone/communication/SpiritServiceClient;
+	32      (00000080) invoke-virtual       v2, Lcom/boat/support/slam/entity/floors/Maps;->getMapId()J
+	33      (00000086) move-result-wide     v6
+	34      (00000088) new-instance         v8, Lcom/jlboat/phone/activity/MapActivity$40;
+	35      (0000008c) invoke-direct        v8, v9, v2, Lcom/jlboat/phone/activity/MapActivity$40;-><init>(Lcom/jlboat/phone/activity/MapActivity; Lcom/boat/support/slam/entity/floors/Maps;)V
+	36      (00000092) move-wide            v4, v10
+	37      (00000094) invoke-virtual/range v3 ... v8, Lcom/jlboat/phone/communication/SpiritServiceClient;->deleteMapService(J J Lcom/boat/jrosbridge/MessageListener;)V
+	38      (0000009a) goto                 -1bh
+
+deleteFloorWithMaps-BB@0x9c : 
+	39      (0000009c) invoke-virtual       v9, v10, v11, Lcom/jlboat/phone/activity/MapActivity;->deleteFloor(J)V
+	40      (000000a2) return-void          
+

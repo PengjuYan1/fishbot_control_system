@@ -1,0 +1,62 @@
+# Lcom/jlboat/phone/activity/MapActivity;->calculateTrajectoryLength(Ljava/util/List;)D [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v13
+# - v14:java.util.List
+#
+# - return:double
+
+calculateTrajectoryLength-BB@0x0 : [ calculateTrajectoryLength-BB@0x12 calculateTrajectoryLength-BB@0x14 ]
+	0       (00000000) const-wide/16        v0, 0
+	1       (00000004) invoke-interface     v14, Ljava/util/List;->size()I
+	2       (0000000a) move-result          v2
+	3       (0000000c) const/4              v3, 2
+	4       (0000000e) if-ge                v2, v3, +003h
+
+calculateTrajectoryLength-BB@0x12 : 
+	5       (00000012) return-wide          v0
+
+calculateTrajectoryLength-BB@0x14 : [ calculateTrajectoryLength-BB@0x16 ]
+	6       (00000014) const/4              v2, 0
+
+calculateTrajectoryLength-BB@0x16 : [ calculateTrajectoryLength-BB@0x26 calculateTrajectoryLength-BB@0x90 ]
+	7       (00000016) invoke-interface     v14, Ljava/util/List;->size()I
+	8       (0000001c) move-result          v3
+	9       (0000001e) add-int/lit8         v3, v3, -1
+	10      (00000022) if-ge                v2, v3, +037h
+
+calculateTrajectoryLength-BB@0x26 : [ calculateTrajectoryLength-BB@0x16 ]
+	11      (00000026) invoke-interface     v14, v2, Ljava/util/List;->get(I)Ljava/lang/Object;
+	12      (0000002c) move-result-object   v3
+	13      (0000002e) check-cast           v3, Lcom/boat/jrosbridge/message/geometry_msgs/Point;
+	14      (00000032) add-int/lit8         v4, v2, 1
+	15      (00000036) invoke-interface     v14, v4, Ljava/util/List;->get(I)Ljava/lang/Object;
+	16      (0000003c) move-result-object   v4
+	17      (0000003e) check-cast           v4, Lcom/boat/jrosbridge/message/geometry_msgs/Point;
+	18      (00000042) iget-wide            v5, v4, Lcom/boat/jrosbridge/message/geometry_msgs/Point;->x D
+	19      (00000046) iget-wide            v7, v3, Lcom/boat/jrosbridge/message/geometry_msgs/Point;->x D
+	20      (0000004a) sub-double/2addr     v5, v7
+	21      (0000004c) const-wide/high16    v7, 4611686018427387904
+	22      (00000050) invoke-static        v5, v6, v7, v8, Ljava/lang/Math;->pow(D D)D
+	23      (00000056) move-result-wide     v5
+	24      (00000058) iget-wide            v9, v4, Lcom/boat/jrosbridge/message/geometry_msgs/Point;->y D
+	25      (0000005c) iget-wide            v11, v3, Lcom/boat/jrosbridge/message/geometry_msgs/Point;->y D
+	26      (00000060) sub-double/2addr     v9, v11
+	27      (00000062) invoke-static        v9, v10, v7, v8, Ljava/lang/Math;->pow(D D)D
+	28      (00000068) move-result-wide     v9
+	29      (0000006a) add-double/2addr     v5, v9
+	30      (0000006c) iget-wide            v9, v4, Lcom/boat/jrosbridge/message/geometry_msgs/Point;->z D
+	31      (00000070) iget-wide            v11, v3, Lcom/boat/jrosbridge/message/geometry_msgs/Point;->z D
+	32      (00000074) sub-double/2addr     v9, v11
+	33      (00000076) invoke-static        v9, v10, v7, v8, Ljava/lang/Math;->pow(D D)D
+	34      (0000007c) move-result-wide     v7
+	35      (0000007e) add-double/2addr     v5, v7
+	36      (00000080) invoke-static        v5, v6, Ljava/lang/Math;->sqrt(D)D
+	37      (00000086) move-result-wide     v5
+	38      (00000088) add-double/2addr     v0, v5
+	39      (0000008a) add-int/lit8         v2, v2, 1
+	40      (0000008e) goto                 -3ch
+
+calculateTrajectoryLength-BB@0x90 : 
+	41      (00000090) return-wide          v0
+

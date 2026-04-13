@@ -1,0 +1,31 @@
+# Lcom/boat/manager/NetWorkManager;->get(Landroid/content/Context; Ljava/lang/String; Ljava/lang/Class; Lcom/boat/manager/NetWorkManager$CallBack;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:android.content.Context
+# - v3:java.lang.String
+# - v4:java.lang.Class
+# - v5:com.boat.manager.NetWorkManager$CallBack
+#
+# - return:void
+
+get-BB@0x0 : [ get-BB@0xc get-BB@0x1e ]
+	0       (00000000) invoke-static        v2, Lcom/boat/utils/NetworkUtils;->isConnected(Landroid/content/Context;)Z
+	1       (00000006) move-result          v0
+	2       (00000008) if-eqz               v0, +00bh
+
+get-BB@0xc : [ get-BB@0x28 ]
+	3       (0000000c) new-instance         v0, Lcom/boat/manager/NetWorkManager$3;
+	4       (00000010) invoke-direct        v0, v1, v5, v4, Lcom/boat/manager/NetWorkManager$3;-><init>(Lcom/boat/manager/NetWorkManager; Lcom/boat/manager/NetWorkManager$CallBack; Ljava/lang/Class;)V
+	5       (00000016) invoke-direct        v1, v3, v0, Lcom/boat/manager/NetWorkManager;->get(Ljava/lang/String; Lokhttp3/Callback;)V
+	6       (0000001c) goto                 +6h
+
+get-BB@0x1e : [ get-BB@0x22 get-BB@0x28 ]
+	7       (0000001e) if-eqz               v5, +005h
+
+get-BB@0x22 : [ get-BB@0x28 ]
+	8       (00000022) invoke-interface     v5, Lcom/boat/manager/NetWorkManager$CallBack;->onNetworkDisconnected()V
+
+get-BB@0x28 : 
+	9       (00000028) return-void          
+

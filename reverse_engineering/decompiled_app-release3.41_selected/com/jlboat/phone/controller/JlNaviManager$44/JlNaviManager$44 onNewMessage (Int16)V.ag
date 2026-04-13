@@ -1,0 +1,35 @@
+# Lcom/jlboat/phone/controller/JlNaviManager$44;->onNewMessage(Lcom/boat/jrosbridge/message/std_msgs/Int16;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:com.boat.jrosbridge.message.std_msgs.Int16
+#
+# - return:void
+
+onNewMessage-BB@0x0 : [ onNewMessage-BB@0x28 onNewMessage-BB@0x2a ]
+	0       (00000000) iget-object          v0, v3, Lcom/jlboat/phone/controller/JlNaviManager$44;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	1       (00000004) invoke-static        v0, Lcom/jlboat/phone/controller/JlNaviManager;->access$000(Lcom/jlboat/phone/controller/JlNaviManager;)Ljava/lang/String;
+	2       (0000000a) move-result-object   v0
+	3       (0000000c) const-string         v1, "outMachineSignal"
+	4       (00000010) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	5       (00000016) iget-object          v0, v3, Lcom/jlboat/phone/controller/JlNaviManager$44;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	6       (0000001a) invoke-virtual       v4, Lcom/boat/jrosbridge/message/std_msgs/Int16;->getData()S
+	7       (00000020) move-result          v1
+	8       (00000022) const/4              v2, 1
+	9       (00000024) if-ne                v1, v2, +003h
+
+onNewMessage-BB@0x28 : [ onNewMessage-BB@0x2c ]
+	10      (00000028) goto                 +2h
+
+onNewMessage-BB@0x2a : [ onNewMessage-BB@0x2c ]
+	11      (0000002a) const/4              v2, 0
+
+onNewMessage-BB@0x2c : 
+	12      (0000002c) invoke-static        v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->access$2202(Lcom/jlboat/phone/controller/JlNaviManager; Z)Z
+	13      (00000032) iget-object          v0, v3, Lcom/jlboat/phone/controller/JlNaviManager$44;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	14      (00000036) invoke-static        v0, Lcom/jlboat/phone/controller/JlNaviManager;->access$100(Lcom/jlboat/phone/controller/JlNaviManager;)Landroid/os/Handler;
+	15      (0000003c) move-result-object   v0
+	16      (0000003e) const/16             v1, 17
+	17      (00000042) invoke-virtual       v0, v1, Landroid/os/Handler;->sendEmptyMessage(I)Z
+	18      (00000048) return-void          
+

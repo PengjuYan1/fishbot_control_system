@@ -1,0 +1,55 @@
+# Lcom/jlboat/phone/viewgroupe/AntoLineUtil;->onMeasure(I I)V [access_flags=protected]
+#
+# Parameters:
+# - local registers: v0...v5
+# - v6:int
+# - v7:int
+#
+# - return:void
+
+onMeasure-BB@0x0 : [ onMeasure-BB@0x12 ]
+	0       (00000000) invoke-static        v6, Landroid/view/View$MeasureSpec;->getSize(I)I
+	1       (00000006) move-result          v0
+	2       (00000008) invoke-virtual       v5, Lcom/jlboat/phone/viewgroupe/AntoLineUtil;->getChildCount()I
+	3       (0000000e) move-result          v1
+	4       (00000010) const/4              v2, 0
+
+onMeasure-BB@0x12 : [ onMeasure-BB@0x16 onMeasure-BB@0x2a ]
+	5       (00000012) if-ge                v2, v1, +00ch
+
+onMeasure-BB@0x16 : [ onMeasure-BB@0x12 ]
+	6       (00000016) invoke-virtual       v5, v2, Lcom/jlboat/phone/viewgroupe/AntoLineUtil;->getChildAt(I)Landroid/view/View;
+	7       (0000001c) move-result-object   v3
+	8       (0000001e) invoke-virtual       v5, v3, v6, v7, Lcom/jlboat/phone/viewgroupe/AntoLineUtil;->measureChild(Landroid/view/View; I I)V
+	9       (00000024) add-int/lit8         v2, v2, 1
+	10      (00000028) goto                 -bh
+
+onMeasure-BB@0x2a : [ onMeasure-BB@0x3a onMeasure-BB@0x4c ]
+	11      (0000002a) invoke-static        v6, Landroid/view/View$MeasureSpec;->getMode(I)I
+	12      (00000030) move-result          v2
+	13      (00000032) const/high16         v3, 1073741824
+	14      (00000036) if-eq                v2, v3, +00bh
+
+onMeasure-BB@0x3a : [ onMeasure-BB@0x4c ]
+	15      (0000003a) nop                  
+	16      (0000003c) invoke-direct        v5, v0, Lcom/jlboat/phone/viewgroupe/AntoLineUtil;->getAutoLinefeedWidth(I)I
+	17      (00000042) move-result          v4
+	18      (00000044) invoke-static        v4, v2, Landroid/view/View$MeasureSpec;->makeMeasureSpec(I I)I
+	19      (0000004a) move-result          v6
+
+onMeasure-BB@0x4c : [ onMeasure-BB@0x58 onMeasure-BB@0x6a ]
+	20      (0000004c) invoke-static        v7, Landroid/view/View$MeasureSpec;->getMode(I)I
+	21      (00000052) move-result          v4
+	22      (00000054) if-eq                v4, v3, +00bh
+
+onMeasure-BB@0x58 : [ onMeasure-BB@0x6a ]
+	23      (00000058) nop                  
+	24      (0000005a) invoke-direct        v5, v0, Lcom/jlboat/phone/viewgroupe/AntoLineUtil;->getAutoLinefeedHeight(I)I
+	25      (00000060) move-result          v3
+	26      (00000062) invoke-static        v3, v4, Landroid/view/View$MeasureSpec;->makeMeasureSpec(I I)I
+	27      (00000068) move-result          v7
+
+onMeasure-BB@0x6a : 
+	28      (0000006a) invoke-super         v5, v6, v7, Landroid/view/ViewGroup;->onMeasure(I I)V
+	29      (00000070) return-void          
+

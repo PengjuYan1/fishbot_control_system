@@ -1,0 +1,28 @@
+# Lcom/jlboat/phone/view/MapView;->getRosRobotPoint()Lcom/boat/support/slam/entity/floors/Lines; [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v3
+#
+# - return:com.boat.support.slam.entity.floors.Lines
+
+getRosRobotPoint-BB@0x0 : [ getRosRobotPoint-BB@0xa getRosRobotPoint-BB@0x3a ]
+	0       (00000000) const/4              v0, 0
+	1       (00000002) iget-boolean         v1, v3, Lcom/jlboat/phone/view/MapView;->hasPose Z
+	2       (00000006) if-eqz               v1, +01ah
+
+getRosRobotPoint-BB@0xa : [ getRosRobotPoint-BB@0x3a ]
+	3       (0000000a) new-instance         v1, Lcom/boat/support/slam/entity/floors/Lines;
+	4       (0000000e) invoke-direct        v1, Lcom/boat/support/slam/entity/floors/Lines;-><init>()V
+	5       (00000014) move-object          v0, v1
+	6       (00000016) iget-object          v1, v3, Lcom/jlboat/phone/view/MapView;->rotatedP1 Lcom/boat/ros/geometry/Vector3;
+	7       (0000001a) invoke-virtual       v1, Lcom/boat/ros/geometry/Vector3;->getX()D
+	8       (00000020) move-result-wide     v1
+	9       (00000022) invoke-virtual       v0, v1, v2, Lcom/boat/support/slam/entity/floors/Lines;->setX(D)V
+	10      (00000028) iget-object          v1, v3, Lcom/jlboat/phone/view/MapView;->rotatedP1 Lcom/boat/ros/geometry/Vector3;
+	11      (0000002c) invoke-virtual       v1, Lcom/boat/ros/geometry/Vector3;->getY()D
+	12      (00000032) move-result-wide     v1
+	13      (00000034) invoke-virtual       v0, v1, v2, Lcom/boat/support/slam/entity/floors/Lines;->setY(D)V
+
+getRosRobotPoint-BB@0x3a : 
+	14      (0000003a) return-object        v0
+

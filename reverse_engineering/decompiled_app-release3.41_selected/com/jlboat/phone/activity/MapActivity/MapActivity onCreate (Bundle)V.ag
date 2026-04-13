@@ -1,0 +1,199 @@
+# Lcom/jlboat/phone/activity/MapActivity;->onCreate(Landroid/os/Bundle;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:android.os.Bundle
+#
+# - return:void
+
+onCreate-BB@0x0 : 
+	0       (00000000) invoke-super         v2, v3, Lcom/jlboat/phone/base/BaseFullActivity;->onCreate(Landroid/os/Bundle;)V
+	1       (00000006) const                v0, 2131361889
+	2       (0000000c) const                v1, 2131493093
+	3       (00000012) invoke-virtual       v2, v0, v1, Lcom/jlboat/phone/activity/MapActivity;->initTitleBar(I I)V
+	4       (00000018) const                v0, 2131231144
+	5       (0000001e) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/MapActivity;->findViewById(I)Landroid/view/View;
+	6       (00000024) move-result-object   v0
+	7       (00000026) check-cast           v0, Landroid/widget/Button;
+	8       (0000002a) iput-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity;->rebootRobot Landroid/widget/Button;
+	9       (0000002e) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity;->rebootRobot Landroid/widget/Button;
+	10      (00000032) invoke-virtual       v0, v2, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	11      (00000038) const                v0, 2131231359
+	12      (0000003e) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/MapActivity;->findViewById(I)Landroid/view/View;
+	13      (00000044) move-result-object   v0
+	14      (00000046) check-cast           v0, Lcom/jlboat/phone/view/JoystickView;
+	15      (0000004a) iput-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity;->virtualJoystickView Lcom/jlboat/phone/view/JoystickView;
+	16      (0000004e) const                v0, 2131231185
+	17      (00000054) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/MapActivity;->findViewById(I)Landroid/view/View;
+	18      (0000005a) move-result-object   v0
+	19      (0000005c) check-cast           v0, Landroid/widget/LinearLayout;
+	20      (00000060) iput-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity;->rlTipsNavigation Landroid/widget/LinearLayout;
+	21      (00000064) const                v0, 2131231340
+	22      (0000006a) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/MapActivity;->findViewById(I)Landroid/view/View;
+	23      (00000070) move-result-object   v0
+	24      (00000072) check-cast           v0, Landroid/widget/TextView;
+	25      (00000076) iput-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity;->tvNavigationName Landroid/widget/TextView;
+	26      (0000007a) const                v0, 2131231341
+	27      (00000080) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/MapActivity;->findViewById(I)Landroid/view/View;
+	28      (00000086) move-result-object   v0
+	29      (00000088) check-cast           v0, Landroid/widget/TextView;
+	30      (0000008c) iput-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity;->tvNavigationStatus Landroid/widget/TextView;
+	31      (00000090) const                v0, 2131231339
+	32      (00000096) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/MapActivity;->findViewById(I)Landroid/view/View;
+	33      (0000009c) move-result-object   v0
+	34      (0000009e) check-cast           v0, Landroid/widget/TextView;
+	35      (000000a2) iput-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity;->tvNavigationLength Landroid/widget/TextView;
+	36      (000000a6) const                v0, 2131230926
+	37      (000000ac) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/MapActivity;->findViewById(I)Landroid/view/View;
+	38      (000000b2) move-result-object   v0
+	39      (000000b4) check-cast           v0, Landroid/widget/TextView;
+	40      (000000b8) iput-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity;->hardcodedValue Landroid/widget/TextView;
+	41      (000000bc) const                v0, 2131230927
+	42      (000000c2) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/MapActivity;->findViewById(I)Landroid/view/View;
+	43      (000000c8) move-result-object   v0
+	44      (000000ca) check-cast           v0, Landroid/widget/TextView;
+	45      (000000ce) iput-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity;->hardcodedValue2 Landroid/widget/TextView;
+	46      (000000d2) const                v0, 2131231184
+	47      (000000d8) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/MapActivity;->findViewById(I)Landroid/view/View;
+	48      (000000de) move-result-object   v0
+	49      (000000e0) check-cast           v0, Landroid/widget/LinearLayout;
+	50      (000000e4) iput-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity;->rlTipsLocation Landroid/widget/LinearLayout;
+	51      (000000e8) const                v0, 2131231332
+	52      (000000ee) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/MapActivity;->findViewById(I)Landroid/view/View;
+	53      (000000f4) move-result-object   v0
+	54      (000000f6) check-cast           v0, Landroid/widget/TextView;
+	55      (000000fa) iput-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity;->tvLocationAutoLocation Landroid/widget/TextView;
+	56      (000000fe) const                v0, 2131231334
+	57      (00000104) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/MapActivity;->findViewById(I)Landroid/view/View;
+	58      (0000010a) move-result-object   v0
+	59      (0000010c) check-cast           v0, Landroid/widget/TextView;
+	60      (00000110) iput-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity;->tvLocationReLocation Landroid/widget/TextView;
+	61      (00000114) const                v0, 2131231333
+	62      (0000011a) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/MapActivity;->findViewById(I)Landroid/view/View;
+	63      (00000120) move-result-object   v0
+	64      (00000122) check-cast           v0, Landroid/widget/TextView;
+	65      (00000126) iput-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity;->tvLocationQr Landroid/widget/TextView;
+	66      (0000012a) const                v0, 2131231274
+	67      (00000130) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/MapActivity;->findViewById(I)Landroid/view/View;
+	68      (00000136) move-result-object   v0
+	69      (00000138) check-cast           v0, Landroid/widget/Button;
+	70      (0000013c) iput-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity;->status_bt Landroid/widget/Button;
+	71      (00000140) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity;->status_bt Landroid/widget/Button;
+	72      (00000144) const/16             v1, 8
+	73      (00000148) invoke-virtual       v0, v1, Landroid/widget/Button;->setVisibility(I)V
+	74      (0000014e) const                v0, 2131230754
+	75      (00000154) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/MapActivity;->findViewById(I)Landroid/view/View;
+	76      (0000015a) move-result-object   v0
+	77      (0000015c) check-cast           v0, Landroid/widget/Button;
+	78      (00000160) iput-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity;->addactionposi_button Landroid/widget/Button;
+	79      (00000164) const                v0, 2131231247
+	80      (0000016a) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/MapActivity;->findViewById(I)Landroid/view/View;
+	81      (00000170) move-result-object   v0
+	82      (00000172) check-cast           v0, Landroid/widget/Button;
+	83      (00000176) iput-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity;->set_move_mode_change Landroid/widget/Button;
+	84      (0000017a) const                v0, 2131231248
+	85      (00000180) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/MapActivity;->findViewById(I)Landroid/view/View;
+	86      (00000186) move-result-object   v0
+	87      (00000188) check-cast           v0, Landroid/widget/Button;
+	88      (0000018c) iput-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity;->set_navi_cmd_stop Landroid/widget/Button;
+	89      (00000190) const                v0, 2131230755
+	90      (00000196) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/MapActivity;->findViewById(I)Landroid/view/View;
+	91      (0000019c) move-result-object   v0
+	92      (0000019e) check-cast           v0, Landroid/widget/Button;
+	93      (000001a2) iput-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity;->addchong_button Landroid/widget/Button;
+	94      (000001a6) const                v0, 2131230757
+	95      (000001ac) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/MapActivity;->findViewById(I)Landroid/view/View;
+	96      (000001b2) move-result-object   v0
+	97      (000001b4) check-cast           v0, Landroid/widget/Button;
+	98      (000001b8) iput-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity;->addposin_button Landroid/widget/Button;
+	99      (000001bc) const                v0, 2131230753
+	100     (000001c2) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/MapActivity;->findViewById(I)Landroid/view/View;
+	101     (000001c8) move-result-object   v0
+	102     (000001ca) check-cast           v0, Landroid/widget/Button;
+	103     (000001ce) iput-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity;->add_virtual_wall_position_button Landroid/widget/Button;
+	104     (000001d2) const                v0, 2131230853
+	105     (000001d8) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/MapActivity;->findViewById(I)Landroid/view/View;
+	106     (000001de) move-result-object   v0
+	107     (000001e0) check-cast           v0, Landroid/widget/Button;
+	108     (000001e4) iput-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity;->clean_manager_button Landroid/widget/Button;
+	109     (000001e8) const                v0, 2131230869
+	110     (000001ee) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/MapActivity;->findViewById(I)Landroid/view/View;
+	111     (000001f4) move-result-object   v0
+	112     (000001f6) check-cast           v0, Landroid/widget/Button;
+	113     (000001fa) iput-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity;->deleteAllMap Landroid/widget/Button;
+	114     (000001fe) const                v0, 2131230986
+	115     (00000204) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/MapActivity;->findViewById(I)Landroid/view/View;
+	116     (0000020a) move-result-object   v0
+	117     (0000020c) check-cast           v0, Lcom/jlboat/phone/view/MapView;
+	118     (00000210) iput-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity;->mapView Lcom/jlboat/phone/view/MapView;
+	119     (00000214) const                v0, 2131231331
+	120     (0000021a) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/MapActivity;->findViewById(I)Landroid/view/View;
+	121     (00000220) move-result-object   v0
+	122     (00000222) check-cast           v0, Landroid/widget/TextView;
+	123     (00000226) iput-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity;->tvInitStatus Landroid/widget/TextView;
+	124     (0000022a) const                v0, 2131230985
+	125     (00000230) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/MapActivity;->findViewById(I)Landroid/view/View;
+	126     (00000236) move-result-object   v0
+	127     (00000238) check-cast           v0, Landroid/support/v7/widget/RecyclerView;
+	128     (0000023c) iput-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity;->map_list_ry Landroid/support/v7/widget/RecyclerView;
+	129     (00000240) const                v0, 2131231039
+	130     (00000246) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/MapActivity;->findViewById(I)Landroid/view/View;
+	131     (0000024c) move-result-object   v0
+	132     (0000024e) check-cast           v0, Landroid/support/v7/widget/RecyclerView;
+	133     (00000252) iput-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity;->navi_list_ry Landroid/support/v7/widget/RecyclerView;
+	134     (00000256) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity;->map_list_ry Landroid/support/v7/widget/RecyclerView;
+	135     (0000025a) new-instance         v1, Landroid/support/v7/widget/LinearLayoutManager;
+	136     (0000025e) invoke-direct        v1, v2, Landroid/support/v7/widget/LinearLayoutManager;-><init>(Landroid/content/Context;)V
+	137     (00000264) invoke-virtual       v0, v1, Landroid/support/v7/widget/RecyclerView;->setLayoutManager(Landroid/support/v7/widget/RecyclerView$LayoutManager;)V
+	138     (0000026a) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity;->navi_list_ry Landroid/support/v7/widget/RecyclerView;
+	139     (0000026e) new-instance         v1, Landroid/support/v7/widget/LinearLayoutManager;
+	140     (00000272) invoke-direct        v1, v2, Landroid/support/v7/widget/LinearLayoutManager;-><init>(Landroid/content/Context;)V
+	141     (00000278) invoke-virtual       v0, v1, Landroid/support/v7/widget/RecyclerView;->setLayoutManager(Landroid/support/v7/widget/RecyclerView$LayoutManager;)V
+	142     (0000027e) new-instance         v0, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;
+	143     (00000282) invoke-direct        v0, v2, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;-><init>(Landroid/content/Context;)V
+	144     (00000288) iput-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity;->mapListAdapter Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;
+	145     (0000028c) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity;->map_list_ry Landroid/support/v7/widget/RecyclerView;
+	146     (00000290) iget-object          v1, v2, Lcom/jlboat/phone/activity/MapActivity;->mapListAdapter Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;
+	147     (00000294) invoke-virtual       v0, v1, Landroid/support/v7/widget/RecyclerView;->setAdapter(Landroid/support/v7/widget/RecyclerView$Adapter;)V
+	148     (0000029a) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity;->mapListAdapter Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;
+	149     (0000029e) new-instance         v1, Lcom/jlboat/phone/activity/MapActivity$1;
+	150     (000002a2) invoke-direct        v1, v2, Lcom/jlboat/phone/activity/MapActivity$1;-><init>(Lcom/jlboat/phone/activity/MapActivity;)V
+	151     (000002a8) invoke-virtual       v0, v1, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;->setOnclickItem(Lcom/jlboat/phone/adapter/RvFloorMapListAdapter$OnClick;)V
+	152     (000002ae) new-instance         v0, Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;
+	153     (000002b2) invoke-direct        v0, v2, Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;-><init>(Landroid/content/Context;)V
+	154     (000002b8) iput-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity;->naviListAdapter Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;
+	155     (000002bc) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity;->navi_list_ry Landroid/support/v7/widget/RecyclerView;
+	156     (000002c0) iget-object          v1, v2, Lcom/jlboat/phone/activity/MapActivity;->naviListAdapter Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;
+	157     (000002c4) invoke-virtual       v0, v1, Landroid/support/v7/widget/RecyclerView;->setAdapter(Landroid/support/v7/widget/RecyclerView$Adapter;)V
+	158     (000002ca) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity;->naviListAdapter Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;
+	159     (000002ce) new-instance         v1, Lcom/jlboat/phone/activity/MapActivity$2;
+	160     (000002d2) invoke-direct        v1, v2, Lcom/jlboat/phone/activity/MapActivity$2;-><init>(Lcom/jlboat/phone/activity/MapActivity;)V
+	161     (000002d8) invoke-virtual       v0, v1, Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;->setOnclickItem(Lcom/jlboat/phone/adapter/RvFloorPointListAdapter$OnClick;)V
+	162     (000002de) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity;->set_move_mode_change Landroid/widget/Button;
+	163     (000002e2) invoke-virtual       v0, v2, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	164     (000002e8) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity;->set_navi_cmd_stop Landroid/widget/Button;
+	165     (000002ec) invoke-virtual       v0, v2, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	166     (000002f2) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity;->addactionposi_button Landroid/widget/Button;
+	167     (000002f6) invoke-virtual       v0, v2, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	168     (000002fc) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity;->addchong_button Landroid/widget/Button;
+	169     (00000300) invoke-virtual       v0, v2, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	170     (00000306) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity;->addchong_button Landroid/widget/Button;
+	171     (0000030a) invoke-virtual       v0, v2, Landroid/widget/Button;->setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
+	172     (00000310) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity;->deleteAllMap Landroid/widget/Button;
+	173     (00000314) invoke-virtual       v0, v2, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	174     (0000031a) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity;->tvLocationAutoLocation Landroid/widget/TextView;
+	175     (0000031e) invoke-virtual       v0, v2, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	176     (00000324) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity;->tvLocationReLocation Landroid/widget/TextView;
+	177     (00000328) invoke-virtual       v0, v2, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	178     (0000032e) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity;->tvLocationQr Landroid/widget/TextView;
+	179     (00000332) invoke-virtual       v0, v2, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	180     (00000338) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity;->status_bt Landroid/widget/Button;
+	181     (0000033c) invoke-virtual       v0, v2, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	182     (00000342) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity;->add_virtual_wall_position_button Landroid/widget/Button;
+	183     (00000346) invoke-virtual       v0, v2, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	184     (0000034c) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity;->clean_manager_button Landroid/widget/Button;
+	185     (00000350) invoke-virtual       v0, v2, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	186     (00000356) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity;->addposin_button Landroid/widget/Button;
+	187     (0000035a) invoke-virtual       v0, v2, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	188     (00000360) return-void          
+

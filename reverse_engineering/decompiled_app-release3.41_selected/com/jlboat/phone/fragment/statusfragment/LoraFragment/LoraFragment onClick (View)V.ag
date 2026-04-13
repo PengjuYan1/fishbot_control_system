@@ -1,0 +1,72 @@
+# Lcom/jlboat/phone/fragment/statusfragment/LoraFragment;->onClick(Landroid/view/View;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v4
+# - v5:android.view.View
+#
+# - return:void
+
+onClick-BB@0x0 : [ D:onClick-BB@0xe 2131230813:onClick-BB@0x10 ]
+	0       (00000000) invoke-virtual       v5, Landroid/view/View;->getId()I
+	1       (00000006) move-result          v0
+	2       (00000008) packed-switch        v0, +000005eh
+
+onClick-BB@0xe : [ onClick-BB@0xc0 ]
+	3       (0000000e) goto                 +59h
+
+onClick-BB@0x10 : [ onClick-BB@0x6a onClick-BB@0x90 ]
+	4       (00000010) const/16             v0, 9
+	5       (00000014) invoke-virtual       v4, v0, Lcom/jlboat/phone/fragment/statusfragment/LoraFragment;->getConfigs(I)V
+	6       (0000001a) const-string         v1, "LoraFragment"
+	7       (0000001e) const-string         v2, "onNewMessage: aaa "
+	8       (00000022) invoke-static        v1, v2, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	9       (00000028) iget-object          v1, v4, Lcom/jlboat/phone/fragment/statusfragment/LoraFragment;->configList Ljava/util/List;
+	10      (0000002c) const/4              v2, 0
+	11      (0000002e) invoke-interface     v1, v2, Ljava/util/List;->get(I)Ljava/lang/Object;
+	12      (00000034) move-result-object   v1
+	13      (00000036) check-cast           v1, Lcom/jlboat/phone/message/map_msgs/Config;
+	14      (0000003a) const-string         v3, "startLora"
+	15      (0000003e) invoke-virtual       v1, v3, Lcom/jlboat/phone/message/map_msgs/Config;->setConfigName(Ljava/lang/String;)V
+	16      (00000044) iget-object          v1, v4, Lcom/jlboat/phone/fragment/statusfragment/LoraFragment;->LoraBt Landroid/widget/Button;
+	17      (00000048) invoke-virtual       v1, Landroid/widget/Button;->getText()Ljava/lang/CharSequence;
+	18      (0000004e) move-result-object   v1
+	19      (00000050) const                v3, 2131492939
+	20      (00000056) invoke-virtual       v4, v3, Lcom/jlboat/phone/fragment/statusfragment/LoraFragment;->getString(I)Ljava/lang/String;
+	21      (0000005c) move-result-object   v3
+	22      (0000005e) invoke-virtual       v1, v3, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+	23      (00000064) move-result          v1
+	24      (00000066) if-eqz               v1, +015h
+
+onClick-BB@0x6a : [ onClick-BB@0xb6 ]
+	25      (0000006a) iget-object          v1, v4, Lcom/jlboat/phone/fragment/statusfragment/LoraFragment;->configList Ljava/util/List;
+	26      (0000006e) invoke-interface     v1, v2, Ljava/util/List;->get(I)Ljava/lang/Object;
+	27      (00000074) move-result-object   v1
+	28      (00000076) check-cast           v1, Lcom/jlboat/phone/message/map_msgs/Config;
+	29      (0000007a) const-string         v3, "True"
+	30      (0000007e) invoke-virtual       v1, v3, Lcom/jlboat/phone/message/map_msgs/Config;->setConfigValue(Ljava/lang/String;)V
+	31      (00000084) iget-object          v1, v4, Lcom/jlboat/phone/fragment/statusfragment/LoraFragment;->LoraLL Landroid/widget/LinearLayout;
+	32      (00000088) invoke-virtual       v1, v2, Landroid/widget/LinearLayout;->setVisibility(I)V
+	33      (0000008e) goto                 +14h
+
+onClick-BB@0x90 : [ onClick-BB@0xb6 ]
+	34      (00000090) iget-object          v1, v4, Lcom/jlboat/phone/fragment/statusfragment/LoraFragment;->configList Ljava/util/List;
+	35      (00000094) invoke-interface     v1, v2, Ljava/util/List;->get(I)Ljava/lang/Object;
+	36      (0000009a) move-result-object   v1
+	37      (0000009c) check-cast           v1, Lcom/jlboat/phone/message/map_msgs/Config;
+	38      (000000a0) const-string         v2, "False"
+	39      (000000a4) invoke-virtual       v1, v2, Lcom/jlboat/phone/message/map_msgs/Config;->setConfigValue(Ljava/lang/String;)V
+	40      (000000aa) iget-object          v1, v4, Lcom/jlboat/phone/fragment/statusfragment/LoraFragment;->LoraLL Landroid/widget/LinearLayout;
+	41      (000000ae) const/4              v2, 4
+	42      (000000b0) invoke-virtual       v1, v2, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+onClick-BB@0xb6 : [ onClick-BB@0xc0 ]
+	43      (000000b6) iget-object          v1, v4, Lcom/jlboat/phone/fragment/statusfragment/LoraFragment;->configList Ljava/util/List;
+	44      (000000ba) invoke-direct        v4, v1, v0, Lcom/jlboat/phone/fragment/statusfragment/LoraFragment;->setConfig(Ljava/util/List; I)V
+
+onClick-BB@0xc0 : 
+	45      (000000c0) return-void          
+
+onClick-BB@0xc2 : 
+	46      (000000c2) nop                  
+	47      (000000c4) packed-switch-payload 7f08005d
+

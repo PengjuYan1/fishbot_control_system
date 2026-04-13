@@ -1,0 +1,45 @@
+# Lcom/boat/support/slam/SlamManager;->dance(I Lcom/boat/support/slam/IResponseListener;)Z [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:int
+# - v3:com.boat.support.slam.IResponseListener
+#
+# - return:boolean
+
+dance-BB@0x0 : [ dance-BB@0xc dance-BB@0x3a ]
+	0       (00000000) invoke-virtual       v1, Lcom/boat/support/slam/SlamManager;->isNavigationInited()Z
+	1       (00000006) move-result          v0
+	2       (00000008) if-eqz               v0, +019h
+
+dance-BB@0xc : [ dance-BB@0x18 dance-BB@0x1a ]
+	3       (0000000c) invoke-virtual       v1, Lcom/boat/support/slam/SlamManager;->isInNavigation()Z
+	4       (00000012) move-result          v0
+	5       (00000014) if-eqz               v0, +003h
+
+dance-BB@0x18 : [ dance-BB@0x3a ]
+	6       (00000018) goto                 +11h
+
+dance-BB@0x1a : [ dance-BB@0x22 dance-BB@0x36 ]
+	7       (0000001a) iget-object          v0, v1, Lcom/boat/support/slam/SlamManager;->slamService Lcom/boat/support/slam/ISlamService;
+	8       (0000001e) if-eqz               v0, +00ch
+
+dance-BB@0x22 : [ dance-BB@0x36 ]
+	9       (00000022) iget-object          v0, v1, Lcom/boat/support/slam/SlamManager;->slamService Lcom/boat/support/slam/ISlamService;
+	10      (00000026) invoke-interface     v0, v2, v3, Lcom/boat/support/slam/ISlamService;->dance(I Lcom/boat/support/slam/IResponseListener;)V
+	11      (0000002c) goto                 +5h
+	22:2b
+	(Landroid/os/RemoteException; -> 2e dance-BB@0x2e)
+
+dance-BB@0x2e : [ dance-BB@0x36 ]
+	12      (0000002e) move-exception       v0
+	13      (00000030) invoke-virtual       v0, Landroid/os/RemoteException;->printStackTrace()V
+
+dance-BB@0x36 : 
+	14      (00000036) const/4              v0, 1
+	15      (00000038) return               v0
+
+dance-BB@0x3a : 
+	16      (0000003a) const/4              v0, 0
+	17      (0000003c) return               v0
+

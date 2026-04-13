@@ -1,0 +1,35 @@
+# Lcom/boat/jrosbridge/rosbridge/implementation/JSON;->convertArrayToJSONArray(Ljava/lang/Object;)Lorg/json/simple/JSONArray; [access_flags=private static]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:java.lang.Object
+#
+# - return:org.json.simple.JSONArray
+
+convertArrayToJSONArray-BB@0x0 : [ convertArrayToJSONArray-BB@0xc ]
+	0       (00000000) new-instance         v0, Lorg/json/simple/JSONArray;
+	1       (00000004) invoke-direct        v0, Lorg/json/simple/JSONArray;-><init>()V
+	2       (0000000a) const/4              v1, 0
+
+convertArrayToJSONArray-BB@0xc : [ convertArrayToJSONArray-BB@0x18 convertArrayToJSONArray-BB@0x38 ]
+	3       (0000000c) invoke-static        v4, Ljava/lang/reflect/Array;->getLength(Ljava/lang/Object;)I
+	4       (00000012) move-result          v2
+	5       (00000014) if-ge                v1, v2, +012h
+
+convertArrayToJSONArray-BB@0x18 : [ convertArrayToJSONArray-BB@0x24 convertArrayToJSONArray-BB@0x32 ]
+	6       (00000018) invoke-static        v4, v1, Ljava/lang/reflect/Array;->get(Ljava/lang/Object; I)Ljava/lang/Object;
+	7       (0000001e) move-result-object   v2
+	8       (00000020) if-eqz               v2, +009h
+
+convertArrayToJSONArray-BB@0x24 : [ convertArrayToJSONArray-BB@0x32 ]
+	9       (00000024) invoke-static        v2, Lcom/boat/jrosbridge/rosbridge/implementation/JSON;->convertElementToJSON(Ljava/lang/Object;)Ljava/lang/Object;
+	10      (0000002a) move-result-object   v3
+	11      (0000002c) invoke-virtual       v0, v3, Lorg/json/simple/JSONArray;->add(Ljava/lang/Object;)Z
+
+convertArrayToJSONArray-BB@0x32 : [ convertArrayToJSONArray-BB@0xc ]
+	12      (00000032) add-int/lit8         v1, v1, 1
+	13      (00000036) goto                 -15h
+
+convertArrayToJSONArray-BB@0x38 : 
+	14      (00000038) return-object        v0
+

@@ -1,0 +1,112 @@
+# Lcom/jlboat/phone/activity/MapEditActivity;->onClick(Landroid/view/View;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:android.view.View
+#
+# - return:void
+
+onClick-BB@0x0 : [ D:onClick-BB@0xe 2131230877:onClick-BB@0x12a 2131230878:onClick-BB@0x114 2131230879:onClick-BB@0xfe 2131230881:onClick-BB@0x92 2131230883:onClick-BB@0x7c 2131230884:onClick-BB@0x66 2131230914:onClick-BB@0x50 2131231042:onClick-BB@0x2a 2131231146:onClick-BB@0x12 ]
+	0       (00000000) invoke-virtual       v4, Landroid/view/View;->getId()I
+	1       (00000006) move-result          v0
+	2       (00000008) sparse-switch        v0, +000009ch
+
+onClick-BB@0xe : [ onClick-BB@0x13e ]
+	3       (0000000e) goto/16              +098h
+
+onClick-BB@0x12 : [ onClick-BB@0x13e ]
+	4       (00000012) new-instance         v0, Landroid/content/Intent;
+	5       (00000016) const-class          v1, Lcom/jlboat/phone/activity/MapRepositionActivity;
+	6       (0000001a) invoke-direct        v0, v3, v1, Landroid/content/Intent;-><init>(Landroid/content/Context; Ljava/lang/Class;)V
+	7       (00000020) invoke-virtual       v3, v0, Lcom/jlboat/phone/activity/MapEditActivity;->startActivity(Landroid/content/Intent;)V
+	8       (00000026) goto/16              +08ch
+
+onClick-BB@0x2a : [ onClick-BB@0x13e ]
+	9       (0000002a) new-instance         v0, Landroid/content/Intent;
+	10      (0000002e) const-class          v1, Lcom/jlboat/phone/activity/MapActivity;
+	11      (00000032) invoke-direct        v0, v3, v1, Landroid/content/Intent;-><init>(Landroid/content/Context; Ljava/lang/Class;)V
+	12      (00000038) const-string         v1, "isCreate"
+	13      (0000003c) const/4              v2, 1
+	14      (0000003e) invoke-virtual       v0, v1, v2, Landroid/content/Intent;->putExtra(Ljava/lang/String; Z)Landroid/content/Intent;
+	15      (00000044) move-result-object   v0
+	16      (00000046) invoke-virtual       v3, v0, Lcom/jlboat/phone/activity/MapEditActivity;->startActivity(Landroid/content/Intent;)V
+	17      (0000004c) goto/16              +079h
+
+onClick-BB@0x50 : [ onClick-BB@0x13e ]
+	18      (00000050) new-instance         v0, Landroid/content/Intent;
+	19      (00000054) const-class          v1, Lcom/jlboat/phone/activity/MapExpansionActivity;
+	20      (00000058) invoke-direct        v0, v3, v1, Landroid/content/Intent;-><init>(Landroid/content/Context; Ljava/lang/Class;)V
+	21      (0000005e) invoke-virtual       v3, v0, Lcom/jlboat/phone/activity/MapEditActivity;->startActivity(Landroid/content/Intent;)V
+	22      (00000064) goto                 +6dh
+
+onClick-BB@0x66 : [ onClick-BB@0x13e ]
+	23      (00000066) new-instance         v0, Landroid/content/Intent;
+	24      (0000006a) const-class          v1, Lcom/jlboat/phone/activity/MapEditShapeActivity;
+	25      (0000006e) invoke-direct        v0, v3, v1, Landroid/content/Intent;-><init>(Landroid/content/Context; Ljava/lang/Class;)V
+	26      (00000074) invoke-virtual       v3, v0, Lcom/jlboat/phone/activity/MapEditActivity;->startActivity(Landroid/content/Intent;)V
+	27      (0000007a) goto                 +62h
+
+onClick-BB@0x7c : [ onClick-BB@0x13e ]
+	28      (0000007c) new-instance         v0, Landroid/content/Intent;
+	29      (00000080) const-class          v1, Lcom/jlboat/phone/activity/MapEditRegionActivity;
+	30      (00000084) invoke-direct        v0, v3, v1, Landroid/content/Intent;-><init>(Landroid/content/Context; Ljava/lang/Class;)V
+	31      (0000008a) invoke-virtual       v3, v0, Lcom/jlboat/phone/activity/MapEditActivity;->startActivity(Landroid/content/Intent;)V
+	32      (00000090) goto                 +57h
+
+onClick-BB@0x92 : [ onClick-BB@0xd2 onClick-BB@0xe8 ]
+	33      (00000092) new-instance         v0, Ljava/lang/StringBuilder;
+	34      (00000096) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	35      (0000009c) const-string         v1, "onClick: aaaaa "
+	36      (000000a0) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	37      (000000a6) move-result-object   v0
+	38      (000000a8) sget                 v1, Lcom/jlboat/phone/application/BoatSlamApplication;->classis_version_code I
+	39      (000000ac) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	40      (000000b2) move-result-object   v0
+	41      (000000b4) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	42      (000000ba) move-result-object   v0
+	43      (000000bc) const-string         v1, "MapEditActivity"
+	44      (000000c0) invoke-static        v1, v0, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	45      (000000c6) sget                 v0, Lcom/jlboat/phone/application/BoatSlamApplication;->classis_version_code I
+	46      (000000ca) const/16             v1, 428
+	47      (000000ce) if-le                v0, v1, +00dh
+
+onClick-BB@0xd2 : [ onClick-BB@0x13e ]
+	48      (000000d2) new-instance         v0, Landroid/content/Intent;
+	49      (000000d6) const-class          v1, Lcom/jlboat/phone/activity/MapEditMapActivity2025;
+	50      (000000da) invoke-direct        v0, v3, v1, Landroid/content/Intent;-><init>(Landroid/content/Context; Ljava/lang/Class;)V
+	51      (000000e0) invoke-virtual       v3, v0, Lcom/jlboat/phone/activity/MapEditActivity;->startActivity(Landroid/content/Intent;)V
+	52      (000000e6) goto                 +2ch
+
+onClick-BB@0xe8 : [ onClick-BB@0x13e ]
+	53      (000000e8) new-instance         v0, Landroid/content/Intent;
+	54      (000000ec) const-class          v1, Lcom/jlboat/phone/activity/MapEditMapActivity;
+	55      (000000f0) invoke-direct        v0, v3, v1, Landroid/content/Intent;-><init>(Landroid/content/Context; Ljava/lang/Class;)V
+	56      (000000f6) invoke-virtual       v3, v0, Lcom/jlboat/phone/activity/MapEditActivity;->startActivity(Landroid/content/Intent;)V
+	57      (000000fc) goto                 +21h
+
+onClick-BB@0xfe : [ onClick-BB@0x13e ]
+	58      (000000fe) new-instance         v0, Landroid/content/Intent;
+	59      (00000102) const-class          v1, Lcom/jlboat/phone/activity/DiyPointPathActivity;
+	60      (00000106) invoke-direct        v0, v3, v1, Landroid/content/Intent;-><init>(Landroid/content/Context; Ljava/lang/Class;)V
+	61      (0000010c) invoke-virtual       v3, v0, Lcom/jlboat/phone/activity/MapEditActivity;->startActivity(Landroid/content/Intent;)V
+	62      (00000112) goto                 +16h
+
+onClick-BB@0x114 : [ onClick-BB@0x13e ]
+	63      (00000114) new-instance         v0, Landroid/content/Intent;
+	64      (00000118) const-class          v1, Lcom/jlboat/phone/activity/DiyPathActivity;
+	65      (0000011c) invoke-direct        v0, v3, v1, Landroid/content/Intent;-><init>(Landroid/content/Context; Ljava/lang/Class;)V
+	66      (00000122) invoke-virtual       v3, v0, Lcom/jlboat/phone/activity/MapEditActivity;->startActivity(Landroid/content/Intent;)V
+	67      (00000128) goto                 +bh
+
+onClick-BB@0x12a : [ onClick-BB@0x13e ]
+	68      (0000012a) new-instance         v0, Landroid/content/Intent;
+	69      (0000012e) const-class          v1, Lcom/jlboat/phone/activity/MapEditChargeActivity;
+	70      (00000132) invoke-direct        v0, v3, v1, Landroid/content/Intent;-><init>(Landroid/content/Context; Ljava/lang/Class;)V
+	71      (00000138) invoke-virtual       v3, v0, Lcom/jlboat/phone/activity/MapEditActivity;->startActivity(Landroid/content/Intent;)V
+
+onClick-BB@0x13e : 
+	72      (0000013e) return-void          
+
+onClick-BB@0x140 : 
+	73      (00000140) sparse-switch-payload 7f08009d 7f08009e 7f08009f 7f0800a1 7f0800a3 7f0800a4 7f0800c2 7f080142 7f0801aa
+

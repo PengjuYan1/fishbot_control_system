@@ -1,0 +1,28 @@
+# Lcom/jlboat/phone/activity/RobotMapActivity$15;->onNewMessage(Lcom/jlboat/phone/message/map_msgs/SaveMapResponse;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:com.jlboat.phone.message.map_msgs.SaveMapResponse
+#
+# - return:void
+
+onNewMessage-BB@0x0 : [ onNewMessage-BB@0xc onNewMessage-BB@0x2a ]
+	0       (00000000) invoke-virtual       v3, Lcom/jlboat/phone/message/map_msgs/SaveMapResponse;->getStatus()I
+	1       (00000006) move-result          v0
+	2       (00000008) if-eqz               v0, +011h
+
+onNewMessage-BB@0xc : 
+	3       (0000000c) iget-object          v0, v2, Lcom/jlboat/phone/activity/RobotMapActivity$15;->this$0 Lcom/jlboat/phone/activity/RobotMapActivity;
+	4       (00000010) invoke-static        v0, Lcom/jlboat/phone/activity/RobotMapActivity;->access$2300(Lcom/jlboat/phone/activity/RobotMapActivity;)V
+	5       (00000016) iget-object          v0, v2, Lcom/jlboat/phone/activity/RobotMapActivity$15;->this$0 Lcom/jlboat/phone/activity/RobotMapActivity;
+	6       (0000001a) invoke-virtual       v3, Lcom/jlboat/phone/message/map_msgs/SaveMapResponse;->getMessage()Ljava/lang/String;
+	7       (00000020) move-result-object   v1
+	8       (00000022) invoke-virtual       v0, v1, Lcom/jlboat/phone/activity/RobotMapActivity;->toast(Ljava/lang/CharSequence;)V
+	9       (00000028) return-void          
+
+onNewMessage-BB@0x2a : 
+	10      (0000002a) iget-object          v0, v2, Lcom/jlboat/phone/activity/RobotMapActivity$15;->this$0 Lcom/jlboat/phone/activity/RobotMapActivity;
+	11      (0000002e) const/4              v1, 1
+	12      (00000030) invoke-static        v0, v1, Lcom/jlboat/phone/activity/RobotMapActivity;->access$302(Lcom/jlboat/phone/activity/RobotMapActivity; Z)Z
+	13      (00000036) return-void          
+

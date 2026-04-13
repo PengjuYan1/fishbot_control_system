@@ -1,0 +1,77 @@
+# Lcom/jlboat/phone/controller/JlNaviManager$65;->onNewMessage(Lcom/boat/jrosbridge/message/std_msgs/Int16;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v4
+# - v5:com.boat.jrosbridge.message.std_msgs.Int16
+#
+# - return:void
+
+onNewMessage-BB@0x0 : [ onNewMessage-BB@0x44 onNewMessage-BB@0x46 ]
+	0       (00000000) invoke-virtual       v5, Lcom/boat/jrosbridge/message/std_msgs/Int16;->getData()S
+	1       (00000006) move-result          v0
+	2       (00000008) iget-object          v1, v4, Lcom/jlboat/phone/controller/JlNaviManager$65;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	3       (0000000c) invoke-static        v1, Lcom/jlboat/phone/controller/JlNaviManager;->access$000(Lcom/jlboat/phone/controller/JlNaviManager;)Ljava/lang/String;
+	4       (00000012) move-result-object   v1
+	5       (00000014) new-instance         v2, Ljava/lang/StringBuilder;
+	6       (00000018) invoke-direct        v2, Ljava/lang/StringBuilder;-><init>()V
+	7       (0000001e) const-string         v3, "topic getLeftMotorMsg: "
+	8       (00000022) invoke-virtual       v2, v3, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	9       (00000028) move-result-object   v2
+	10      (0000002a) invoke-virtual       v2, v0, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	11      (00000030) move-result-object   v2
+	12      (00000032) invoke-virtual       v2, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	13      (00000038) move-result-object   v2
+	14      (0000003a) invoke-static        v1, v2, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	15      (00000040) if-nez               v0, +003h
+
+onNewMessage-BB@0x44 : 
+	16      (00000044) return-void          
+
+onNewMessage-BB@0x46 : [ onNewMessage-BB@0x4e onNewMessage-BB@0x7a ]
+	17      (00000046) const/16             v1, 108
+	18      (0000004a) if-ne                v0, v1, +018h
+
+onNewMessage-BB@0x4e : [ onNewMessage-BB@0x7a ]
+	19      (0000004e) iget-object          v1, v4, Lcom/jlboat/phone/controller/JlNaviManager$65;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	20      (00000052) const-string         v2, "机器人左电机正常"
+	21      (00000056) invoke-static        v1, v2, Lcom/jlboat/phone/controller/JlNaviManager;->access$8102(Lcom/jlboat/phone/controller/JlNaviManager; Ljava/lang/String;)Ljava/lang/String;
+	22      (0000005c) iget-object          v1, v4, Lcom/jlboat/phone/controller/JlNaviManager$65;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	23      (00000060) invoke-virtual       v1, Lcom/jlboat/phone/controller/JlNaviManager;->getApp()Lcom/boat/base/BaseApplication;
+	24      (00000066) move-result-object   v1
+	25      (00000068) iget-object          v2, v4, Lcom/jlboat/phone/controller/JlNaviManager$65;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	26      (0000006c) invoke-static        v2, Lcom/jlboat/phone/controller/JlNaviManager;->access$8100(Lcom/jlboat/phone/controller/JlNaviManager;)Ljava/lang/String;
+	27      (00000072) move-result-object   v2
+	28      (00000074) invoke-static        v1, v0, v2, Lcom/boat/utils/ReportExceptionInformationUtils;->uploadWarn(Landroid/content/Context; I Ljava/lang/String;)V
+
+onNewMessage-BB@0x7a : [ onNewMessage-BB@0x82 onNewMessage-BB@0xae ]
+	29      (0000007a) const/16             v1, 107
+	30      (0000007e) if-ne                v0, v1, +018h
+
+onNewMessage-BB@0x82 : [ onNewMessage-BB@0xae ]
+	31      (00000082) iget-object          v1, v4, Lcom/jlboat/phone/controller/JlNaviManager$65;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	32      (00000086) const-string         v2, "机器人左电机出现故障，请检查左电机"
+	33      (0000008a) invoke-static        v1, v2, Lcom/jlboat/phone/controller/JlNaviManager;->access$8102(Lcom/jlboat/phone/controller/JlNaviManager; Ljava/lang/String;)Ljava/lang/String;
+	34      (00000090) iget-object          v1, v4, Lcom/jlboat/phone/controller/JlNaviManager$65;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	35      (00000094) invoke-virtual       v1, Lcom/jlboat/phone/controller/JlNaviManager;->getApp()Lcom/boat/base/BaseApplication;
+	36      (0000009a) move-result-object   v1
+	37      (0000009c) iget-object          v2, v4, Lcom/jlboat/phone/controller/JlNaviManager$65;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	38      (000000a0) invoke-static        v2, Lcom/jlboat/phone/controller/JlNaviManager;->access$8100(Lcom/jlboat/phone/controller/JlNaviManager;)Ljava/lang/String;
+	39      (000000a6) move-result-object   v2
+	40      (000000a8) invoke-static        v1, v0, v2, Lcom/boat/utils/ReportExceptionInformationUtils;->uploadWarn(Landroid/content/Context; I Ljava/lang/String;)V
+
+onNewMessage-BB@0xae : [ onNewMessage-BB@0xc8 onNewMessage-BB@0xd4 ]
+	41      (000000ae) iget-object          v1, v4, Lcom/jlboat/phone/controller/JlNaviManager$65;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	42      (000000b2) invoke-static        v1, v0, Lcom/jlboat/phone/controller/JlNaviManager;->access$8202(Lcom/jlboat/phone/controller/JlNaviManager; I)I
+	43      (000000b8) iget-object          v1, v4, Lcom/jlboat/phone/controller/JlNaviManager$65;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	44      (000000bc) invoke-static        v1, Lcom/jlboat/phone/controller/JlNaviManager;->access$400(Lcom/jlboat/phone/controller/JlNaviManager;)Z
+	45      (000000c2) move-result          v1
+	46      (000000c4) if-nez               v1, +008h
+
+onNewMessage-BB@0xc8 : [ onNewMessage-BB@0xd4 ]
+	47      (000000c8) iget-object          v1, v4, Lcom/jlboat/phone/controller/JlNaviManager$65;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	48      (000000cc) const/4              v2, 1
+	49      (000000ce) invoke-static        v1, v2, Lcom/jlboat/phone/controller/JlNaviManager;->access$8302(Lcom/jlboat/phone/controller/JlNaviManager; Z)Z
+
+onNewMessage-BB@0xd4 : 
+	50      (000000d4) return-void          
+

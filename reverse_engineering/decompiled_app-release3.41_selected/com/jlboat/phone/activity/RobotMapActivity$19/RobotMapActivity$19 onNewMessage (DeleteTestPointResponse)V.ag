@@ -1,0 +1,44 @@
+# Lcom/jlboat/phone/activity/RobotMapActivity$19;->onNewMessage(Lcom/jlboat/phone/message/map_msgs/DeleteTestPointResponse;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v5
+# - v6:com.jlboat.phone.message.map_msgs.DeleteTestPointResponse
+#
+# - return:void
+
+onNewMessage-BB@0x0 : [ onNewMessage-BB@0x1e onNewMessage-BB@0x30 ]
+	0       (00000000) iget-object          v0, v5, Lcom/jlboat/phone/activity/RobotMapActivity$19;->this$0 Lcom/jlboat/phone/activity/RobotMapActivity;
+	1       (00000004) invoke-static        v0, Lcom/jlboat/phone/activity/RobotMapActivity;->access$2300(Lcom/jlboat/phone/activity/RobotMapActivity;)V
+	2       (0000000a) invoke-virtual       v6, Lcom/jlboat/phone/message/map_msgs/DeleteTestPointResponse;->getResult()J
+	3       (00000010) move-result-wide     v0
+	4       (00000012) const-wide/16        v2, 0
+	5       (00000016) cmp-long             v4, v0, v2
+	6       (0000001a) if-nez               v4, +00bh
+
+onNewMessage-BB@0x1e : [ onNewMessage-BB@0x66 ]
+	7       (0000001e) iget-object          v0, v5, Lcom/jlboat/phone/activity/RobotMapActivity$19;->this$0 Lcom/jlboat/phone/activity/RobotMapActivity;
+	8       (00000022) const                v1, 2131493252
+	9       (00000028) invoke-virtual       v0, v1, Lcom/jlboat/phone/activity/RobotMapActivity;->toast(I)V
+	10      (0000002e) goto                 +1ch
+
+onNewMessage-BB@0x30 : [ onNewMessage-BB@0x44 onNewMessage-BB@0x56 ]
+	11      (00000030) invoke-virtual       v6, Lcom/jlboat/phone/message/map_msgs/DeleteTestPointResponse;->getResult()J
+	12      (00000036) move-result-wide     v0
+	13      (00000038) const-wide/16        v2, 4
+	14      (0000003c) cmp-long             v4, v0, v2
+	15      (00000040) if-nez               v4, +00bh
+
+onNewMessage-BB@0x44 : [ onNewMessage-BB@0x66 ]
+	16      (00000044) iget-object          v0, v5, Lcom/jlboat/phone/activity/RobotMapActivity$19;->this$0 Lcom/jlboat/phone/activity/RobotMapActivity;
+	17      (00000048) const                v1, 2131493277
+	18      (0000004e) invoke-virtual       v0, v1, Lcom/jlboat/phone/activity/RobotMapActivity;->toast(I)V
+	19      (00000054) goto                 +9h
+
+onNewMessage-BB@0x56 : [ onNewMessage-BB@0x66 ]
+	20      (00000056) iget-object          v0, v5, Lcom/jlboat/phone/activity/RobotMapActivity$19;->this$0 Lcom/jlboat/phone/activity/RobotMapActivity;
+	21      (0000005a) const                v1, 2131493241
+	22      (00000060) invoke-virtual       v0, v1, Lcom/jlboat/phone/activity/RobotMapActivity;->toast(I)V
+
+onNewMessage-BB@0x66 : 
+	23      (00000066) return-void          
+

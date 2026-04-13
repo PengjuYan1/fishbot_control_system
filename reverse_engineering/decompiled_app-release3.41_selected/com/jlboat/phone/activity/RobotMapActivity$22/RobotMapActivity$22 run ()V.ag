@@ -1,0 +1,63 @@
+# Lcom/jlboat/phone/activity/RobotMapActivity$22;->run()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v3
+#
+# - return:void
+
+run-BB@0x0 : [ run-BB@0xe run-BB@0x46 ]
+	0       (00000000) invoke-static        Lcom/jlboat/phone/activity/RobotMapActivity;->access$900()I
+	1       (00000006) move-result          v0
+	2       (00000008) const/4              v1, 0
+	3       (0000000a) if-nez               v0, +01eh
+
+run-BB@0xe : [ run-BB@0xaa ]
+	4       (0000000e) iget-object          v0, v3, Lcom/jlboat/phone/activity/RobotMapActivity$22;->this$0 Lcom/jlboat/phone/activity/RobotMapActivity;
+	5       (00000012) invoke-static        v0, Lcom/jlboat/phone/activity/RobotMapActivity;->access$2500(Lcom/jlboat/phone/activity/RobotMapActivity;)Landroid/widget/Button;
+	6       (00000018) move-result-object   v0
+	7       (0000001a) invoke-virtual       v0, v1, Landroid/widget/Button;->setVisibility(I)V
+	8       (00000020) iget-object          v0, v3, Lcom/jlboat/phone/activity/RobotMapActivity$22;->this$0 Lcom/jlboat/phone/activity/RobotMapActivity;
+	9       (00000024) invoke-static        v0, Lcom/jlboat/phone/activity/RobotMapActivity;->access$2500(Lcom/jlboat/phone/activity/RobotMapActivity;)Landroid/widget/Button;
+	10      (0000002a) move-result-object   v0
+	11      (0000002c) iget-object          v1, v3, Lcom/jlboat/phone/activity/RobotMapActivity$22;->this$0 Lcom/jlboat/phone/activity/RobotMapActivity;
+	12      (00000030) const                v2, 2131492946
+	13      (00000036) invoke-virtual       v1, v2, Lcom/jlboat/phone/activity/RobotMapActivity;->getResString(I)Ljava/lang/String;
+	14      (0000003c) move-result-object   v1
+	15      (0000003e) invoke-virtual       v0, v1, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
+	16      (00000044) goto                 +33h
+
+run-BB@0x46 : [ run-BB@0x54 run-BB@0x8c ]
+	17      (00000046) invoke-static        Lcom/jlboat/phone/activity/RobotMapActivity;->access$900()I
+	18      (0000004c) move-result          v0
+	19      (0000004e) const/4              v2, 1
+	20      (00000050) if-ne                v0, v2, +01eh
+
+run-BB@0x54 : [ run-BB@0xaa ]
+	21      (00000054) iget-object          v0, v3, Lcom/jlboat/phone/activity/RobotMapActivity$22;->this$0 Lcom/jlboat/phone/activity/RobotMapActivity;
+	22      (00000058) invoke-static        v0, Lcom/jlboat/phone/activity/RobotMapActivity;->access$2500(Lcom/jlboat/phone/activity/RobotMapActivity;)Landroid/widget/Button;
+	23      (0000005e) move-result-object   v0
+	24      (00000060) invoke-virtual       v0, v1, Landroid/widget/Button;->setVisibility(I)V
+	25      (00000066) iget-object          v0, v3, Lcom/jlboat/phone/activity/RobotMapActivity$22;->this$0 Lcom/jlboat/phone/activity/RobotMapActivity;
+	26      (0000006a) invoke-static        v0, Lcom/jlboat/phone/activity/RobotMapActivity;->access$2500(Lcom/jlboat/phone/activity/RobotMapActivity;)Landroid/widget/Button;
+	27      (00000070) move-result-object   v0
+	28      (00000072) iget-object          v1, v3, Lcom/jlboat/phone/activity/RobotMapActivity$22;->this$0 Lcom/jlboat/phone/activity/RobotMapActivity;
+	29      (00000076) const                v2, 2131492952
+	30      (0000007c) invoke-virtual       v1, v2, Lcom/jlboat/phone/activity/RobotMapActivity;->getResString(I)Ljava/lang/String;
+	31      (00000082) move-result-object   v1
+	32      (00000084) invoke-virtual       v0, v1, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
+	33      (0000008a) goto                 +10h
+
+run-BB@0x8c : [ run-BB@0x9a run-BB@0xaa ]
+	34      (0000008c) invoke-static        Lcom/jlboat/phone/activity/RobotMapActivity;->access$900()I
+	35      (00000092) move-result          v0
+	36      (00000094) const/4              v1, 2
+	37      (00000096) if-ne                v0, v1, +00ah
+
+run-BB@0x9a : [ run-BB@0xaa ]
+	38      (0000009a) iget-object          v0, v3, Lcom/jlboat/phone/activity/RobotMapActivity$22;->this$0 Lcom/jlboat/phone/activity/RobotMapActivity;
+	39      (0000009e) const                v1, 2131493282
+	40      (000000a4) invoke-virtual       v0, v1, Lcom/jlboat/phone/activity/RobotMapActivity;->toast(I)V
+
+run-BB@0xaa : 
+	41      (000000aa) return-void          
+

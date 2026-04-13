@@ -1,0 +1,28 @@
+# Lcom/jlboat/phone/manager/BoatNaviManager;->naviTargetGoalPlan(J J J I Lcom/boat/support/slam/IResponseListener;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v14
+# - v15:long
+# - v16:long
+# - v17:long
+# - v18:int
+# - v19:com.boat.support.slam.IResponseListener
+#
+# - return:void
+
+naviTargetGoalPlan-BB@0x0 : 
+	0       (00000000) move-object          v0, v11
+	1       (00000002) iget-object          v1, v0, Lcom/jlboat/phone/manager/BoatNaviManager;->mApp Lcom/jlboat/phone/application/BoatSlamApplication;
+	2       (00000006) invoke-virtual       v1, Lcom/jlboat/phone/application/BoatSlamApplication;->getAppController()Lcom/boat/controller/AppController;
+	3       (0000000c) move-result-object   v1
+	4       (0000000e) check-cast           v1, Lcom/jlboat/phone/controller/SlamAppController;
+	5       (00000012) invoke-virtual       v1, Lcom/jlboat/phone/controller/SlamAppController;->getJlNaviManager()Lcom/jlboat/phone/controller/JlNaviManager;
+	6       (00000018) move-result-object   v2
+	7       (0000001a) move-wide            v3, v12
+	8       (0000001c) move-wide            v5, v14
+	9       (0000001e) move-wide/from16     v7, v16
+	10      (00000022) move/from16          v9, v18
+	11      (00000026) move-object/from16   v10, v19
+	12      (0000002a) invoke-virtual/range v2 ... v10, Lcom/jlboat/phone/controller/JlNaviManager;->naviTargetGoalPlan(J J J I Lcom/boat/support/slam/IResponseListener;)V
+	13      (00000030) return-void          
+

@@ -1,0 +1,17 @@
+# Lcom/jlboat/phone/adapter/RvFloorPointListAdapter$FrdViewHolder$2;-><init>(Lcom/jlboat/phone/adapter/RvFloorPointListAdapter$FrdViewHolder; Lcom/boat/support/slam/entity/floors/Floors; Lcom/boat/support/slam/entity/floors/Points;)V [access_flags=constructor]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.adapter.RvFloorPointListAdapter$FrdViewHolder
+# - v2:com.boat.support.slam.entity.floors.Floors
+# - v3:com.boat.support.slam.entity.floors.Points
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) iput-object          v1, v0, Lcom/jlboat/phone/adapter/RvFloorPointListAdapter$FrdViewHolder$2;->this$1 Lcom/jlboat/phone/adapter/RvFloorPointListAdapter$FrdViewHolder;
+	1       (00000004) iput-object          v2, v0, Lcom/jlboat/phone/adapter/RvFloorPointListAdapter$FrdViewHolder$2;->val$localDataFloor Lcom/boat/support/slam/entity/floors/Floors;
+	2       (00000008) iput-object          v3, v0, Lcom/jlboat/phone/adapter/RvFloorPointListAdapter$FrdViewHolder$2;->val$frd Lcom/boat/support/slam/entity/floors/Points;
+	3       (0000000c) invoke-direct        v0, Ljava/lang/Object;-><init>()V
+	4       (00000012) return-void          
+

@@ -1,0 +1,21 @@
+# Lcom/jlboat/phone/activity/MapActivity$17;-><init>(Lcom/jlboat/phone/activity/MapActivity; Landroid/widget/EditText; Lcom/boat/support/slam/entity/floors/Floors; Lcom/boat/support/slam/entity/floors/Maps; Landroid/app/AlertDialog;)V [access_flags=constructor]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.activity.MapActivity
+# - v2:android.widget.EditText
+# - v3:com.boat.support.slam.entity.floors.Floors
+# - v4:com.boat.support.slam.entity.floors.Maps
+# - v5:android.app.AlertDialog
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) iput-object          v1, v0, Lcom/jlboat/phone/activity/MapActivity$17;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	1       (00000004) iput-object          v2, v0, Lcom/jlboat/phone/activity/MapActivity$17;->val$editTextcler Landroid/widget/EditText;
+	2       (00000008) iput-object          v3, v0, Lcom/jlboat/phone/activity/MapActivity$17;->val$floors Lcom/boat/support/slam/entity/floors/Floors;
+	3       (0000000c) iput-object          v4, v0, Lcom/jlboat/phone/activity/MapActivity$17;->val$maps Lcom/boat/support/slam/entity/floors/Maps;
+	4       (00000010) iput-object          v5, v0, Lcom/jlboat/phone/activity/MapActivity$17;->val$alertDialog Landroid/app/AlertDialog;
+	5       (00000014) invoke-direct        v0, Ljava/lang/Object;-><init>()V
+	6       (0000001a) return-void          
+

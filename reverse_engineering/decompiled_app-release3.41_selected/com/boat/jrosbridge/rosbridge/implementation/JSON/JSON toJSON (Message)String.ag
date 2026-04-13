@@ -1,0 +1,15 @@
+# Lcom/boat/jrosbridge/rosbridge/implementation/JSON;->toJSON(Lcom/boat/jrosbridge/message/Message;)Ljava/lang/String; [access_flags=public static]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:com.boat.jrosbridge.message.Message
+#
+# - return:java.lang.String
+
+toJSON-BB@0x0 : 
+	0       (00000000) invoke-static        v2, Lcom/boat/jrosbridge/rosbridge/implementation/JSON;->convertObjectToJSONObject(Ljava/lang/Object;)Lorg/json/simple/JSONObject;
+	1       (00000006) move-result-object   v0
+	2       (00000008) invoke-virtual       v0, Lorg/json/simple/JSONObject;->toJSONString()Ljava/lang/String;
+	3       (0000000e) move-result-object   v1
+	4       (00000010) return-object        v1
+

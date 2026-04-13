@@ -1,0 +1,85 @@
+# Lcom/jlboat/phone/adapter/LoraStatusAdapter;->onBindViewHolder(Lcom/jlboat/phone/adapter/LoraStatusAdapter$MyResHolder; I)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v5
+# - v6:com.jlboat.phone.adapter.LoraStatusAdapter$MyResHolder
+# - v7:int
+#
+# - return:void
+
+onBindViewHolder-BB@0x0 : [ onBindViewHolder-BB@0x18 onBindViewHolder-BB@0x42 ]
+	0       (00000000) iget-object          v0, v5, Lcom/jlboat/phone/adapter/LoraStatusAdapter;->mList Ljava/util/List;
+	1       (00000004) invoke-interface     v0, v7, Ljava/util/List;->get(I)Ljava/lang/Object;
+	2       (0000000a) move-result-object   v0
+	3       (0000000c) check-cast           v0, Lcom/boat/support/slam/entity/floors/LoraInfo;
+	4       (00000010) const-string         v1, ""
+	5       (00000014) if-nez               v0, +017h
+
+onBindViewHolder-BB@0x18 : 
+	6       (00000018) iget-object          v2, v6, Lcom/jlboat/phone/adapter/LoraStatusAdapter$MyResHolder;->loraTv Landroid/widget/TextView;
+	7       (0000001c) invoke-virtual       v2, v1, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+	8       (00000022) iget-object          v2, v6, Lcom/jlboat/phone/adapter/LoraStatusAdapter$MyResHolder;->floorTv Landroid/widget/TextView;
+	9       (00000026) invoke-virtual       v2, v1, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+	10      (0000002c) iget-object          v2, v6, Lcom/jlboat/phone/adapter/LoraStatusAdapter$MyResHolder;->pointTv Landroid/widget/TextView;
+	11      (00000030) invoke-virtual       v2, v1, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+	12      (00000036) iget-object          v2, v6, Lcom/jlboat/phone/adapter/LoraStatusAdapter$MyResHolder;->typeTv Landroid/widget/TextView;
+	13      (0000003a) invoke-virtual       v2, v1, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+	14      (00000040) return-void          
+
+onBindViewHolder-BB@0x42 : [ onBindViewHolder-BB@0xbc onBindViewHolder-BB@0xd6 ]
+	15      (00000042) iget-object          v2, v6, Lcom/jlboat/phone/adapter/LoraStatusAdapter$MyResHolder;->indexTv Landroid/widget/TextView;
+	16      (00000046) new-instance         v3, Ljava/lang/StringBuilder;
+	17      (0000004a) invoke-direct        v3, Ljava/lang/StringBuilder;-><init>()V
+	18      (00000050) add-int/lit8         v4, v7, 1
+	19      (00000054) invoke-virtual       v3, v4, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	20      (0000005a) move-result-object   v3
+	21      (0000005c) invoke-virtual       v3, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	22      (00000062) move-result-object   v1
+	23      (00000064) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	24      (0000006a) move-result-object   v1
+	25      (0000006c) invoke-virtual       v2, v1, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+	26      (00000072) iget-object          v1, v6, Lcom/jlboat/phone/adapter/LoraStatusAdapter$MyResHolder;->loraTv Landroid/widget/TextView;
+	27      (00000076) invoke-virtual       v0, Lcom/boat/support/slam/entity/floors/LoraInfo;->getDeviceID()Ljava/lang/String;
+	28      (0000007c) move-result-object   v2
+	29      (0000007e) invoke-virtual       v1, v2, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+	30      (00000084) iget-object          v1, v6, Lcom/jlboat/phone/adapter/LoraStatusAdapter$MyResHolder;->floorTv Landroid/widget/TextView;
+	31      (00000088) invoke-virtual       v0, Lcom/boat/support/slam/entity/floors/LoraInfo;->getFloorName()Ljava/lang/String;
+	32      (0000008e) move-result-object   v2
+	33      (00000090) invoke-virtual       v1, v2, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+	34      (00000096) iget-object          v1, v6, Lcom/jlboat/phone/adapter/LoraStatusAdapter$MyResHolder;->pointTv Landroid/widget/TextView;
+	35      (0000009a) invoke-virtual       v0, Lcom/boat/support/slam/entity/floors/LoraInfo;->getPointName()Ljava/lang/String;
+	36      (000000a0) move-result-object   v2
+	37      (000000a2) invoke-virtual       v1, v2, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+	38      (000000a8) const-string         v1, ""
+	39      (000000ac) invoke-virtual       v0, Lcom/boat/support/slam/entity/floors/LoraInfo;->getDeviceType()I
+	40      (000000b2) move-result          v2
+	41      (000000b4) const/16             v3, 21
+	42      (000000b8) if-ne                v2, v3, +00fh
+
+onBindViewHolder-BB@0xbc : [ onBindViewHolder-BB@0xd6 ]
+	43      (000000bc) iget-object          v2, v5, Lcom/jlboat/phone/adapter/LoraStatusAdapter;->mContext Landroid/content/Context;
+	44      (000000c0) invoke-virtual       v2, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+	45      (000000c6) move-result-object   v2
+	46      (000000c8) const                v3, 2131493013
+	47      (000000ce) invoke-virtual       v2, v3, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+	48      (000000d4) move-result-object   v1
+
+onBindViewHolder-BB@0xd6 : [ onBindViewHolder-BB@0xe6 onBindViewHolder-BB@0x100 ]
+	49      (000000d6) invoke-virtual       v0, Lcom/boat/support/slam/entity/floors/LoraInfo;->getDeviceType()I
+	50      (000000dc) move-result          v2
+	51      (000000de) const/16             v3, 22
+	52      (000000e2) if-ne                v2, v3, +00fh
+
+onBindViewHolder-BB@0xe6 : [ onBindViewHolder-BB@0x100 ]
+	53      (000000e6) iget-object          v2, v5, Lcom/jlboat/phone/adapter/LoraStatusAdapter;->mContext Landroid/content/Context;
+	54      (000000ea) invoke-virtual       v2, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+	55      (000000f0) move-result-object   v2
+	56      (000000f2) const                v3, 2131493014
+	57      (000000f8) invoke-virtual       v2, v3, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+	58      (000000fe) move-result-object   v1
+
+onBindViewHolder-BB@0x100 : 
+	59      (00000100) iget-object          v2, v6, Lcom/jlboat/phone/adapter/LoraStatusAdapter$MyResHolder;->typeTv Landroid/widget/TextView;
+	60      (00000104) invoke-virtual       v2, v1, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+	61      (0000010a) return-void          
+

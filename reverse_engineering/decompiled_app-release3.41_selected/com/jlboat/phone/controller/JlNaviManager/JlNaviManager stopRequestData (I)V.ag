@@ -1,0 +1,115 @@
+# Lcom/jlboat/phone/controller/JlNaviManager;->stopRequestData(I)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:int
+#
+# - return:void
+
+stopRequestData-BB@0x0 : [ stopRequestData-BB@0x8 stopRequestData-BB@0xd8 ]
+	0       (00000000) iget-boolean         v0, v3, Lcom/jlboat/phone/controller/JlNaviManager;->connectStatus Z
+	1       (00000004) if-eqz               v0, +06ah
+
+stopRequestData-BB@0x8 : [ stopRequestData-BB@0x10 stopRequestData-BB@0x12 ]
+	2       (00000008) iget-boolean         v0, v3, Lcom/jlboat/phone/controller/JlNaviManager;->isNavigationInited Z
+	3       (0000000c) if-nez               v0, +003h
+
+stopRequestData-BB@0x10 : [ stopRequestData-BB@0xd8 ]
+	4       (00000010) goto                 +64h
+
+stopRequestData-BB@0x12 : [ stopRequestData-BB@0x52 stopRequestData-BB@0x5c ]
+	5       (00000012) iget-object          v0, v3, Lcom/jlboat/phone/controller/JlNaviManager;->TAG Ljava/lang/String;
+	6       (00000016) new-instance         v1, Ljava/lang/StringBuilder;
+	7       (0000001a) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	8       (00000020) const-string         v2, "stopRequestData: 主动停止发布数据 "
+	9       (00000024) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	10      (0000002a) move-result-object   v1
+	11      (0000002c) invoke-virtual       v1, v4, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	12      (00000032) move-result-object   v1
+	13      (00000034) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	14      (0000003a) move-result-object   v1
+	15      (0000003c) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	16      (00000042) iget-object          v0, v3, Lcom/jlboat/phone/controller/JlNaviManager;->mHandler Landroid/os/Handler;
+	17      (00000046) invoke-virtual       v0, v4, Landroid/os/Handler;->hasMessages(I)Z
+	18      (0000004c) move-result          v0
+	19      (0000004e) if-eqz               v0, +007h
+
+stopRequestData-BB@0x52 : [ stopRequestData-BB@0x5c ]
+	20      (00000052) iget-object          v0, v3, Lcom/jlboat/phone/controller/JlNaviManager;->mHandler Landroid/os/Handler;
+	21      (00000056) invoke-virtual       v0, v4, Landroid/os/Handler;->removeMessages(I)V
+
+stopRequestData-BB@0x5c : [ D:stopRequestData-BB@0x64 1000:stopRequestData-BB@0xc6 1001:stopRequestData-BB@0xb6 1002:stopRequestData-BB@0xa6 1003:stopRequestData-BB@0xa0 1004:stopRequestData-BB@0x90 1011:stopRequestData-BB@0x8a 1012:stopRequestData-BB@0x84 1013:stopRequestData-BB@0x7e 1015:stopRequestData-BB@0x78 1021:stopRequestData-BB@0x72 1022:stopRequestData-BB@0x6c 1031:stopRequestData-BB@0x66 ]
+	22      (0000005c) const/4              v0, 1
+	23      (0000005e) sparse-switch        v4, +0000045h
+
+stopRequestData-BB@0x64 : [ stopRequestData-BB@0xd6 ]
+	24      (00000064) goto                 +39h
+
+stopRequestData-BB@0x66 : [ stopRequestData-BB@0xd6 ]
+	25      (00000066) iput-boolean         v0, v3, Lcom/jlboat/phone/controller/JlNaviManager;->isPowerUpdateEnd Z
+	26      (0000006a) goto                 +36h
+
+stopRequestData-BB@0x6c : [ stopRequestData-BB@0xd6 ]
+	27      (0000006c) iput-boolean         v0, v3, Lcom/jlboat/phone/controller/JlNaviManager;->isNaviToPointUpdateEnd Z
+	28      (00000070) goto                 +33h
+
+stopRequestData-BB@0x72 : [ stopRequestData-BB@0xd6 ]
+	29      (00000072) iput-boolean         v0, v3, Lcom/jlboat/phone/controller/JlNaviManager;->isNaviStatusUpdateEnd Z
+	30      (00000076) goto                 +30h
+
+stopRequestData-BB@0x78 : [ stopRequestData-BB@0xd6 ]
+	31      (00000078) iput-boolean         v0, v3, Lcom/jlboat/phone/controller/JlNaviManager;->islocalPointUpdateEnd Z
+	32      (0000007c) goto                 +2dh
+
+stopRequestData-BB@0x7e : [ stopRequestData-BB@0xd6 ]
+	33      (0000007e) iput-boolean         v0, v3, Lcom/jlboat/phone/controller/JlNaviManager;->isMapUpdateEnd Z
+	34      (00000082) goto                 +2ah
+
+stopRequestData-BB@0x84 : [ stopRequestData-BB@0xd6 ]
+	35      (00000084) iput-boolean         v0, v3, Lcom/jlboat/phone/controller/JlNaviManager;->isMapStatusEnd Z
+	36      (00000088) goto                 +27h
+
+stopRequestData-BB@0x8a : [ stopRequestData-BB@0xd6 ]
+	37      (0000008a) iput-boolean         v0, v3, Lcom/jlboat/phone/controller/JlNaviManager;->isInitEnd Z
+	38      (0000008e) goto                 +24h
+
+stopRequestData-BB@0x90 : [ stopRequestData-BB@0xd6 ]
+	39      (00000090) iget-object          v1, v3, Lcom/jlboat/phone/controller/JlNaviManager;->pathLayerLisener Lcom/jlboat/phone/communication/PathLayerLisener;
+	40      (00000094) invoke-virtual       v1, Lcom/jlboat/phone/communication/PathLayerLisener;->onStop()V
+	41      (0000009a) iput-boolean         v0, v3, Lcom/jlboat/phone/controller/JlNaviManager;->isGPlanEnd Z
+	42      (0000009e) goto                 +1ch
+
+stopRequestData-BB@0xa0 : [ stopRequestData-BB@0xd6 ]
+	43      (000000a0) iput-boolean         v0, v3, Lcom/jlboat/phone/controller/JlNaviManager;->isScanEnd Z
+	44      (000000a4) goto                 +19h
+
+stopRequestData-BB@0xa6 : [ stopRequestData-BB@0xd6 ]
+	45      (000000a6) iget-object          v1, v3, Lcom/jlboat/phone/controller/JlNaviManager;->tfPoseListener Lcom/jlboat/phone/communication/TFPoseListener;
+	46      (000000aa) invoke-virtual       v1, Lcom/jlboat/phone/communication/TFPoseListener;->onStop()V
+	47      (000000b0) iput-boolean         v0, v3, Lcom/jlboat/phone/controller/JlNaviManager;->isPoseEnd Z
+	48      (000000b4) goto                 +11h
+
+stopRequestData-BB@0xb6 : [ stopRequestData-BB@0xd6 ]
+	49      (000000b6) iget-object          v1, v3, Lcom/jlboat/phone/controller/JlNaviManager;->mapLisener Lcom/jlboat/phone/communication/MapListener;
+	50      (000000ba) invoke-virtual       v1, Lcom/jlboat/phone/communication/MapListener;->onStop()V
+	51      (000000c0) iput-boolean         v0, v3, Lcom/jlboat/phone/controller/JlNaviManager;->isMapDataEnd Z
+	52      (000000c4) goto                 +9h
+
+stopRequestData-BB@0xc6 : [ stopRequestData-BB@0xd6 ]
+	53      (000000c6) iget-object          v1, v3, Lcom/jlboat/phone/controller/JlNaviManager;->mapLisener Lcom/jlboat/phone/communication/MapListener;
+	54      (000000ca) invoke-virtual       v1, Lcom/jlboat/phone/communication/MapListener;->onStop()V
+	55      (000000d0) iput-boolean         v0, v3, Lcom/jlboat/phone/controller/JlNaviManager;->isAllMapDataEnd Z
+	56      (000000d4) nop                  
+
+stopRequestData-BB@0xd6 : 
+	57      (000000d6) return-void          
+
+stopRequestData-BB@0xd8 : 
+	58      (000000d8) iget-object          v0, v3, Lcom/jlboat/phone/controller/JlNaviManager;->TAG Ljava/lang/String;
+	59      (000000dc) const-string         v1, "stopRequestData: 初始化未成功 不可以进行数据请求 stopRequestData"
+	60      (000000e0) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	61      (000000e6) return-void          
+
+stopRequestData-BB@0xe8 : 
+	62      (000000e8) sparse-switch-payload 3e8 3e9 3ea 3eb 3ec 3f3 3f4 3f5 3f7 3fd 3fe 407
+

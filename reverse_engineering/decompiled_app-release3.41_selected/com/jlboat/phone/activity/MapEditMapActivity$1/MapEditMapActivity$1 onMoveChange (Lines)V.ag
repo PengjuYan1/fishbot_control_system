@@ -1,0 +1,34 @@
+# Lcom/jlboat/phone/activity/MapEditMapActivity$1;->onMoveChange(Lcom/boat/support/slam/entity/floors/Lines;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:com.boat.support.slam.entity.floors.Lines
+#
+# - return:void
+
+onMoveChange-BB@0x0 : [ onMoveChange-BB@0x4 onMoveChange-BB@0x4c ]
+	0       (00000000) if-eqz               v4, +026h
+
+onMoveChange-BB@0x4 : [ onMoveChange-BB@0x14 onMoveChange-BB@0x4c ]
+	1       (00000004) iget-object          v0, v3, Lcom/jlboat/phone/activity/MapEditMapActivity$1;->this$0 Lcom/jlboat/phone/activity/MapEditMapActivity;
+	2       (00000008) invoke-static        v0, Lcom/jlboat/phone/activity/MapEditMapActivity;->access$000(Lcom/jlboat/phone/activity/MapEditMapActivity;)Lcom/boat/jrosbridge/Topic;
+	3       (0000000e) move-result-object   v0
+	4       (00000010) if-eqz               v0, +01eh
+
+onMoveChange-BB@0x14 : [ onMoveChange-BB@0x4c ]
+	5       (00000014) new-instance         v0, Lcom/jlboat/phone/message/map_msgs/ErasePose;
+	6       (00000018) invoke-direct        v0, Lcom/jlboat/phone/message/map_msgs/ErasePose;-><init>()V
+	7       (0000001e) invoke-virtual       v4, Lcom/boat/support/slam/entity/floors/Lines;->getX()D
+	8       (00000024) move-result-wide     v1
+	9       (00000026) invoke-virtual       v0, v1, v2, Lcom/jlboat/phone/message/map_msgs/ErasePose;->setX(D)V
+	10      (0000002c) invoke-virtual       v4, Lcom/boat/support/slam/entity/floors/Lines;->getY()D
+	11      (00000032) move-result-wide     v1
+	12      (00000034) invoke-virtual       v0, v1, v2, Lcom/jlboat/phone/message/map_msgs/ErasePose;->setY(D)V
+	13      (0000003a) iget-object          v1, v3, Lcom/jlboat/phone/activity/MapEditMapActivity$1;->this$0 Lcom/jlboat/phone/activity/MapEditMapActivity;
+	14      (0000003e) invoke-static        v1, Lcom/jlboat/phone/activity/MapEditMapActivity;->access$000(Lcom/jlboat/phone/activity/MapEditMapActivity;)Lcom/boat/jrosbridge/Topic;
+	15      (00000044) move-result-object   v1
+	16      (00000046) invoke-virtual       v1, v0, Lcom/boat/jrosbridge/Topic;->publish(Lcom/boat/jrosbridge/message/Message;)V
+
+onMoveChange-BB@0x4c : 
+	17      (0000004c) return-void          
+

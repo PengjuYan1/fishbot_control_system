@@ -1,0 +1,14 @@
+# Lcom/jlboat/phone/view/loading/MyLoading;->setOnDismissListener(Landroid/widget/PopupWindow$OnDismissListener;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:android.widget.PopupWindow$OnDismissListener
+#
+# - return:void
+
+setOnDismissListener-BB@0x0 : 
+	0       (00000000) invoke-super         v1, v2, Landroid/widget/PopupWindow;->setOnDismissListener(Landroid/widget/PopupWindow$OnDismissListener;)V
+	1       (00000006) iget-object          v0, v1, Lcom/jlboat/phone/view/loading/MyLoading;->loading Lcom/jlboat/phone/view/loading/LoadingView;
+	2       (0000000a) invoke-virtual       v0, Lcom/jlboat/phone/view/loading/LoadingView;->stopAnim()V
+	3       (00000010) return-void          
+

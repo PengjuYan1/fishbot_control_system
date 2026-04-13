@@ -1,0 +1,199 @@
+# Lcom/jlboat/phone/activity/DiyPathActivity$1;->handleMessage(Landroid/os/Message;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v5
+# - v6:android.os.Message
+#
+# - return:void
+
+handleMessage-BB@0x0 : [ D:handleMessage-BB@0x16 1001:handleMessage-BB@0x27e 1002:handleMessage-BB@0x1ea 1003:handleMessage-BB@0x1c6 1004:handleMessage-BB@0x3e 1005:handleMessage-BB@0x1a ]
+	0       (00000000) invoke-super         v5, v6, Landroid/os/Handler;->handleMessage(Landroid/os/Message;)V
+	1       (00000006) iget                 v0, v6, Landroid/os/Message;->what I
+	2       (0000000a) const/16             v1, 8
+	3       (0000000e) const/4              v2, 0
+	4       (00000010) packed-switch        v0, +000013ah
+
+handleMessage-BB@0x16 : [ handleMessage-BB@0x280 ]
+	5       (00000016) goto/16              +135h
+
+handleMessage-BB@0x1a : [ handleMessage-BB@0x280 ]
+	6       (0000001a) iget-object          v0, v5, Lcom/jlboat/phone/activity/DiyPathActivity$1;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	7       (0000001e) iget-object          v0, v0, Lcom/jlboat/phone/activity/DiyPathActivity;->bt_add_start Landroid/widget/Button;
+	8       (00000022) invoke-virtual       v0, v2, Landroid/widget/Button;->setVisibility(I)V
+	9       (00000028) iget-object          v0, v5, Lcom/jlboat/phone/activity/DiyPathActivity$1;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	10      (0000002c) invoke-static        v0, Lcom/jlboat/phone/activity/DiyPathActivity;->access$1300(Lcom/jlboat/phone/activity/DiyPathActivity;)Landroid/widget/Button;
+	11      (00000032) move-result-object   v0
+	12      (00000034) invoke-virtual       v0, v1, Landroid/widget/Button;->setVisibility(I)V
+	13      (0000003a) goto/16              +123h
+
+handleMessage-BB@0x3e : [ handleMessage-BB@0x56 handleMessage-BB@0x17c ]
+	14      (0000003e) iget-object          v0, v5, Lcom/jlboat/phone/activity/DiyPathActivity$1;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	15      (00000042) invoke-static        v0, Lcom/jlboat/phone/activity/DiyPathActivity;->access$400(Lcom/jlboat/phone/activity/DiyPathActivity;)Ljava/util/List;
+	16      (00000048) move-result-object   v0
+	17      (0000004a) invoke-interface     v0, Ljava/util/List;->size()I
+	18      (00000050) move-result          v0
+	19      (00000052) if-lez               v0, +095h
+
+handleMessage-BB@0x56 : [ handleMessage-BB@0xea handleMessage-BB@0x154 ]
+	20      (00000056) iget-object          v0, v5, Lcom/jlboat/phone/activity/DiyPathActivity$1;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	21      (0000005a) invoke-static        v0, Lcom/jlboat/phone/activity/DiyPathActivity;->access$200(Lcom/jlboat/phone/activity/DiyPathActivity;)Landroid/support/v7/widget/RecyclerView;
+	22      (00000060) move-result-object   v0
+	23      (00000062) invoke-virtual       v0, v2, Landroid/support/v7/widget/RecyclerView;->setVisibility(I)V
+	24      (00000068) iget-object          v0, v5, Lcom/jlboat/phone/activity/DiyPathActivity$1;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	25      (0000006c) invoke-static        v0, Lcom/jlboat/phone/activity/DiyPathActivity;->access$500(Lcom/jlboat/phone/activity/DiyPathActivity;)Landroid/widget/TextView;
+	26      (00000072) move-result-object   v0
+	27      (00000074) invoke-virtual       v0, v1, Landroid/widget/TextView;->setVisibility(I)V
+	28      (0000007a) iget-object          v0, v5, Lcom/jlboat/phone/activity/DiyPathActivity$1;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	29      (0000007e) invoke-static        v0, Lcom/jlboat/phone/activity/DiyPathActivity;->access$700(Lcom/jlboat/phone/activity/DiyPathActivity;)Lcom/jlboat/phone/adapter/DiyPathListAdapter;
+	30      (00000084) move-result-object   v0
+	31      (00000086) iget-object          v3, v5, Lcom/jlboat/phone/activity/DiyPathActivity$1;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	32      (0000008a) invoke-static        v3, Lcom/jlboat/phone/activity/DiyPathActivity;->access$400(Lcom/jlboat/phone/activity/DiyPathActivity;)Ljava/util/List;
+	33      (00000090) move-result-object   v3
+	34      (00000092) iget-object          v4, v5, Lcom/jlboat/phone/activity/DiyPathActivity$1;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	35      (00000096) invoke-static        v4, Lcom/jlboat/phone/activity/DiyPathActivity;->access$600(Lcom/jlboat/phone/activity/DiyPathActivity;)I
+	36      (0000009c) move-result          v4
+	37      (0000009e) invoke-virtual       v0, v3, v4, Lcom/jlboat/phone/adapter/DiyPathListAdapter;->setData(Ljava/util/List; I)V
+	38      (000000a4) iget-object          v0, v5, Lcom/jlboat/phone/activity/DiyPathActivity$1;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	39      (000000a8) iget-object          v3, v5, Lcom/jlboat/phone/activity/DiyPathActivity$1;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	40      (000000ac) invoke-static        v3, Lcom/jlboat/phone/activity/DiyPathActivity;->access$400(Lcom/jlboat/phone/activity/DiyPathActivity;)Ljava/util/List;
+	41      (000000b2) move-result-object   v3
+	42      (000000b4) iget-object          v4, v5, Lcom/jlboat/phone/activity/DiyPathActivity$1;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	43      (000000b8) invoke-static        v4, Lcom/jlboat/phone/activity/DiyPathActivity;->access$600(Lcom/jlboat/phone/activity/DiyPathActivity;)I
+	44      (000000be) move-result          v4
+	45      (000000c0) invoke-interface     v3, v4, Ljava/util/List;->get(I)Ljava/lang/Object;
+	46      (000000c6) move-result-object   v3
+	47      (000000c8) check-cast           v3, Lcom/boat/support/slam/entity/floors/GlobalPlans;
+	48      (000000cc) invoke-virtual       v3, Lcom/boat/support/slam/entity/floors/GlobalPlans;->getAddPoints()Ljava/util/List;
+	49      (000000d2) move-result-object   v3
+	50      (000000d4) invoke-static        v0, v3, Lcom/jlboat/phone/activity/DiyPathActivity;->access$802(Lcom/jlboat/phone/activity/DiyPathActivity; Ljava/util/List;)Ljava/util/List;
+	51      (000000da) iget-object          v0, v5, Lcom/jlboat/phone/activity/DiyPathActivity$1;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	52      (000000de) invoke-static        v0, Lcom/jlboat/phone/activity/DiyPathActivity;->access$800(Lcom/jlboat/phone/activity/DiyPathActivity;)Ljava/util/List;
+	53      (000000e4) move-result-object   v0
+	54      (000000e6) if-eqz               v0, +037h
+
+handleMessage-BB@0xea : [ handleMessage-BB@0x102 handleMessage-BB@0x154 ]
+	55      (000000ea) iget-object          v0, v5, Lcom/jlboat/phone/activity/DiyPathActivity$1;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	56      (000000ee) invoke-static        v0, Lcom/jlboat/phone/activity/DiyPathActivity;->access$800(Lcom/jlboat/phone/activity/DiyPathActivity;)Ljava/util/List;
+	57      (000000f4) move-result-object   v0
+	58      (000000f6) invoke-interface     v0, Ljava/util/List;->size()I
+	59      (000000fc) move-result          v0
+	60      (000000fe) if-lez               v0, +02bh
+
+handleMessage-BB@0x102 : [ handleMessage-BB@0x280 ]
+	61      (00000102) iget-object          v0, v5, Lcom/jlboat/phone/activity/DiyPathActivity$1;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	62      (00000106) invoke-static        v0, Lcom/jlboat/phone/activity/DiyPathActivity;->access$900(Lcom/jlboat/phone/activity/DiyPathActivity;)Landroid/widget/TextView;
+	63      (0000010c) move-result-object   v0
+	64      (0000010e) invoke-virtual       v0, v1, Landroid/widget/TextView;->setVisibility(I)V
+	65      (00000114) iget-object          v0, v5, Lcom/jlboat/phone/activity/DiyPathActivity$1;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	66      (00000118) invoke-static        v0, Lcom/jlboat/phone/activity/DiyPathActivity;->access$1000(Lcom/jlboat/phone/activity/DiyPathActivity;)Landroid/support/v7/widget/RecyclerView;
+	67      (0000011e) move-result-object   v0
+	68      (00000120) invoke-virtual       v0, v2, Landroid/support/v7/widget/RecyclerView;->setVisibility(I)V
+	69      (00000126) iget-object          v0, v5, Lcom/jlboat/phone/activity/DiyPathActivity$1;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	70      (0000012a) invoke-static        v0, Lcom/jlboat/phone/activity/DiyPathActivity;->access$1200(Lcom/jlboat/phone/activity/DiyPathActivity;)Lcom/jlboat/phone/adapter/BindPointListAdapter;
+	71      (00000130) move-result-object   v0
+	72      (00000132) iget-object          v1, v5, Lcom/jlboat/phone/activity/DiyPathActivity$1;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	73      (00000136) invoke-static        v1, Lcom/jlboat/phone/activity/DiyPathActivity;->access$800(Lcom/jlboat/phone/activity/DiyPathActivity;)Ljava/util/List;
+	74      (0000013c) move-result-object   v1
+	75      (0000013e) iget-object          v2, v5, Lcom/jlboat/phone/activity/DiyPathActivity$1;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	76      (00000142) invoke-static        v2, Lcom/jlboat/phone/activity/DiyPathActivity;->access$1100(Lcom/jlboat/phone/activity/DiyPathActivity;)Ljava/util/List;
+	77      (00000148) move-result-object   v2
+	78      (0000014a) invoke-virtual       v0, v1, v2, Lcom/jlboat/phone/adapter/BindPointListAdapter;->setData(Ljava/util/List; Ljava/util/List;)V
+	79      (00000150) goto/16              +098h
+
+handleMessage-BB@0x154 : [ handleMessage-BB@0x280 ]
+	80      (00000154) iget-object          v0, v5, Lcom/jlboat/phone/activity/DiyPathActivity$1;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	81      (00000158) invoke-static        v0, Lcom/jlboat/phone/activity/DiyPathActivity;->access$900(Lcom/jlboat/phone/activity/DiyPathActivity;)Landroid/widget/TextView;
+	82      (0000015e) move-result-object   v0
+	83      (00000160) invoke-virtual       v0, v2, Landroid/widget/TextView;->setVisibility(I)V
+	84      (00000166) iget-object          v0, v5, Lcom/jlboat/phone/activity/DiyPathActivity$1;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	85      (0000016a) invoke-static        v0, Lcom/jlboat/phone/activity/DiyPathActivity;->access$1000(Lcom/jlboat/phone/activity/DiyPathActivity;)Landroid/support/v7/widget/RecyclerView;
+	86      (00000170) move-result-object   v0
+	87      (00000172) invoke-virtual       v0, v1, Landroid/support/v7/widget/RecyclerView;->setVisibility(I)V
+	88      (00000178) goto/16              +084h
+
+handleMessage-BB@0x17c : [ handleMessage-BB@0x280 ]
+	89      (0000017c) iget-object          v0, v5, Lcom/jlboat/phone/activity/DiyPathActivity$1;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	90      (00000180) invoke-static        v0, Lcom/jlboat/phone/activity/DiyPathActivity;->access$200(Lcom/jlboat/phone/activity/DiyPathActivity;)Landroid/support/v7/widget/RecyclerView;
+	91      (00000186) move-result-object   v0
+	92      (00000188) invoke-virtual       v0, v1, Landroid/support/v7/widget/RecyclerView;->setVisibility(I)V
+	93      (0000018e) iget-object          v0, v5, Lcom/jlboat/phone/activity/DiyPathActivity$1;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	94      (00000192) invoke-static        v0, Lcom/jlboat/phone/activity/DiyPathActivity;->access$500(Lcom/jlboat/phone/activity/DiyPathActivity;)Landroid/widget/TextView;
+	95      (00000198) move-result-object   v0
+	96      (0000019a) invoke-virtual       v0, v2, Landroid/widget/TextView;->setVisibility(I)V
+	97      (000001a0) iget-object          v0, v5, Lcom/jlboat/phone/activity/DiyPathActivity$1;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	98      (000001a4) invoke-static        v0, Lcom/jlboat/phone/activity/DiyPathActivity;->access$900(Lcom/jlboat/phone/activity/DiyPathActivity;)Landroid/widget/TextView;
+	99      (000001aa) move-result-object   v0
+	100     (000001ac) invoke-virtual       v0, v2, Landroid/widget/TextView;->setVisibility(I)V
+	101     (000001b2) iget-object          v0, v5, Lcom/jlboat/phone/activity/DiyPathActivity$1;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	102     (000001b6) invoke-static        v0, Lcom/jlboat/phone/activity/DiyPathActivity;->access$1000(Lcom/jlboat/phone/activity/DiyPathActivity;)Landroid/support/v7/widget/RecyclerView;
+	103     (000001bc) move-result-object   v0
+	104     (000001be) invoke-virtual       v0, v1, Landroid/support/v7/widget/RecyclerView;->setVisibility(I)V
+	105     (000001c4) goto                 +5eh
+
+handleMessage-BB@0x1c6 : [ handleMessage-BB@0x1d6 handleMessage-BB@0x280 ]
+	106     (000001c6) iget-object          v0, v5, Lcom/jlboat/phone/activity/DiyPathActivity$1;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	107     (000001ca) invoke-static        v0, Lcom/jlboat/phone/activity/DiyPathActivity;->access$100(Lcom/jlboat/phone/activity/DiyPathActivity;)Lcom/jlboat/phone/view/loading/MyLoading;
+	108     (000001d0) move-result-object   v0
+	109     (000001d2) if-eqz               v0, +057h
+
+handleMessage-BB@0x1d6 : [ handleMessage-BB@0x280 ]
+	110     (000001d6) iget-object          v0, v5, Lcom/jlboat/phone/activity/DiyPathActivity$1;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	111     (000001da) invoke-static        v0, Lcom/jlboat/phone/activity/DiyPathActivity;->access$100(Lcom/jlboat/phone/activity/DiyPathActivity;)Lcom/jlboat/phone/view/loading/MyLoading;
+	112     (000001e0) move-result-object   v0
+	113     (000001e2) invoke-virtual       v0, Lcom/jlboat/phone/view/loading/MyLoading;->dismiss()V
+	114     (000001e8) goto                 +4ch
+
+handleMessage-BB@0x1ea : [ handleMessage-BB@0x1fa handleMessage-BB@0x20c ]
+	115     (000001ea) iget-object          v0, v5, Lcom/jlboat/phone/activity/DiyPathActivity$1;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	116     (000001ee) invoke-static        v0, Lcom/jlboat/phone/activity/DiyPathActivity;->access$000(Lcom/jlboat/phone/activity/DiyPathActivity;)Lcom/jlboat/phone/view/SavaPathPopup;
+	117     (000001f4) move-result-object   v0
+	118     (000001f6) if-eqz               v0, +00bh
+
+handleMessage-BB@0x1fa : [ handleMessage-BB@0x20c ]
+	119     (000001fa) iget-object          v0, v5, Lcom/jlboat/phone/activity/DiyPathActivity$1;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	120     (000001fe) invoke-static        v0, Lcom/jlboat/phone/activity/DiyPathActivity;->access$000(Lcom/jlboat/phone/activity/DiyPathActivity;)Lcom/jlboat/phone/view/SavaPathPopup;
+	121     (00000204) move-result-object   v0
+	122     (00000206) invoke-virtual       v0, Lcom/jlboat/phone/view/SavaPathPopup;->dismiss()V
+
+handleMessage-BB@0x20c : [ handleMessage-BB@0x21c handleMessage-BB@0x22e ]
+	123     (0000020c) iget-object          v0, v5, Lcom/jlboat/phone/activity/DiyPathActivity$1;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	124     (00000210) invoke-static        v0, Lcom/jlboat/phone/activity/DiyPathActivity;->access$100(Lcom/jlboat/phone/activity/DiyPathActivity;)Lcom/jlboat/phone/view/loading/MyLoading;
+	125     (00000216) move-result-object   v0
+	126     (00000218) if-eqz               v0, +00bh
+
+handleMessage-BB@0x21c : [ handleMessage-BB@0x22e ]
+	127     (0000021c) iget-object          v0, v5, Lcom/jlboat/phone/activity/DiyPathActivity$1;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	128     (00000220) invoke-static        v0, Lcom/jlboat/phone/activity/DiyPathActivity;->access$100(Lcom/jlboat/phone/activity/DiyPathActivity;)Lcom/jlboat/phone/view/loading/MyLoading;
+	129     (00000226) move-result-object   v0
+	130     (00000228) invoke-virtual       v0, Lcom/jlboat/phone/view/loading/MyLoading;->dismiss()V
+
+handleMessage-BB@0x22e : [ handleMessage-BB@0x280 ]
+	131     (0000022e) iget-object          v0, v5, Lcom/jlboat/phone/activity/DiyPathActivity$1;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	132     (00000232) iget-object          v0, v0, Lcom/jlboat/phone/activity/DiyPathActivity;->ll_bt_cs Landroid/widget/LinearLayout;
+	133     (00000236) invoke-virtual       v0, v1, Landroid/widget/LinearLayout;->setVisibility(I)V
+	134     (0000023c) iget-object          v0, v5, Lcom/jlboat/phone/activity/DiyPathActivity$1;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	135     (00000240) iget-object          v0, v0, Lcom/jlboat/phone/activity/DiyPathActivity;->bt_add_start Landroid/widget/Button;
+	136     (00000244) invoke-virtual       v0, v2, Landroid/widget/Button;->setVisibility(I)V
+	137     (0000024a) iget-object          v0, v5, Lcom/jlboat/phone/activity/DiyPathActivity$1;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	138     (0000024e) iget-object          v0, v0, Lcom/jlboat/phone/activity/DiyPathActivity;->linesList Ljava/util/List;
+	139     (00000252) invoke-interface     v0, Ljava/util/List;->clear()V
+	140     (00000258) iget-object          v0, v5, Lcom/jlboat/phone/activity/DiyPathActivity$1;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	141     (0000025c) invoke-static        v0, Lcom/jlboat/phone/activity/DiyPathActivity;->access$200(Lcom/jlboat/phone/activity/DiyPathActivity;)Landroid/support/v7/widget/RecyclerView;
+	142     (00000262) move-result-object   v0
+	143     (00000264) invoke-virtual       v0, v2, Landroid/support/v7/widget/RecyclerView;->setVisibility(I)V
+	144     (0000026a) iget-object          v0, v5, Lcom/jlboat/phone/activity/DiyPathActivity$1;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	145     (0000026e) invoke-static        v0, Lcom/jlboat/phone/activity/DiyPathActivity;->access$300(Lcom/jlboat/phone/activity/DiyPathActivity;)Landroid/widget/LinearLayout;
+	146     (00000274) move-result-object   v0
+	147     (00000276) invoke-virtual       v0, v2, Landroid/widget/LinearLayout;->setVisibility(I)V
+	148     (0000027c) goto                 +2h
+
+handleMessage-BB@0x27e : [ handleMessage-BB@0x280 ]
+	149     (0000027e) nop                  
+
+handleMessage-BB@0x280 : 
+	150     (00000280) return-void          
+
+handleMessage-BB@0x282 : 
+	151     (00000282) nop                  
+	152     (00000284) packed-switch-payload 3e9 3ea 3eb 3ec 3ed
+

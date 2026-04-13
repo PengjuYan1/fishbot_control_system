@@ -1,0 +1,173 @@
+# Lcom/jlboat/phone/activity/MapActivity$7;->onNewMessage(Lcom/boat/jrosbridge/message/std_msgs/Int16;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v6
+# - v7:com.boat.jrosbridge.message.std_msgs.Int16
+#
+# - return:void
+
+onNewMessage-BB@0x0 : [ D:onNewMessage-BB@0x44 1:onNewMessage-BB@0x13e 2:onNewMessage-BB@0x12e 3:onNewMessage-BB@0x128 4:onNewMessage-BB@0x126 5:onNewMessage-BB@0x126 6:onNewMessage-BB@0x120 7:onNewMessage-BB@0x11a 8:onNewMessage-BB@0xee 51:onNewMessage-BB@0xe8 52:onNewMessage-BB@0xe2 72:onNewMessage-BB@0xdc 81:onNewMessage-BB@0xda 82:onNewMessage-BB@0xd8 83:onNewMessage-BB@0xbc 84:onNewMessage-BB@0xb6 85:onNewMessage-BB@0xb0 86:onNewMessage-BB@0xaa 87:onNewMessage-BB@0xa4 88:onNewMessage-BB@0x9e 89:onNewMessage-BB@0x98 90:onNewMessage-BB@0x90 91:onNewMessage-BB@0x88 92:onNewMessage-BB@0x80 93:onNewMessage-BB@0x78 94:onNewMessage-BB@0x70 95:onNewMessage-BB@0x68 96:onNewMessage-BB@0x60 98:onNewMessage-BB@0x58 99:onNewMessage-BB@0x50 100:onNewMessage-BB@0x48 ]
+	0       (00000000) invoke-virtual       v7, Lcom/boat/jrosbridge/message/std_msgs/Int16;->getData()S
+	1       (00000006) move-result          v0
+	2       (00000008) new-instance         v1, Ljava/lang/StringBuilder;
+	3       (0000000c) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	4       (00000012) const-string         v2, "topic 导航状态: status = "
+	5       (00000016) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	6       (0000001c) move-result-object   v1
+	7       (0000001e) invoke-virtual       v1, v0, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	8       (00000024) move-result-object   v1
+	9       (00000026) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	10      (0000002c) move-result-object   v1
+	11      (0000002e) const-string         v2, "MapActivity"
+	12      (00000032) invoke-static        v2, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	13      (00000038) const-string         v1, ""
+	14      (0000003c) const/4              v2, 1
+	15      (0000003e) sparse-switch        v0, +000008fh
+
+onNewMessage-BB@0x44 : [ onNewMessage-BB@0x144 ]
+	16      (00000044) goto/16              +080h
+
+onNewMessage-BB@0x48 : [ onNewMessage-BB@0x144 ]
+	17      (00000048) const-string         v1, "呼叫电梯失败"
+	18      (0000004c) goto/16              +07ch
+
+onNewMessage-BB@0x50 : [ onNewMessage-BB@0x144 ]
+	19      (00000050) const-string         v1, "进电梯中"
+	20      (00000054) goto/16              +078h
+
+onNewMessage-BB@0x58 : [ onNewMessage-BB@0x144 ]
+	21      (00000058) const-string         v1, "呼叫电梯中"
+	22      (0000005c) goto/16              +074h
+
+onNewMessage-BB@0x60 : [ onNewMessage-BB@0x144 ]
+	23      (00000060) const-string         v1, "出电梯中"
+	24      (00000064) goto/16              +070h
+
+onNewMessage-BB@0x68 : [ onNewMessage-BB@0x144 ]
+	25      (00000068) const-string         v1, "开门失败"
+	26      (0000006c) goto/16              +06ch
+
+onNewMessage-BB@0x70 : [ onNewMessage-BB@0x144 ]
+	27      (00000070) const-string         v1, "开始开门"
+	28      (00000074) goto/16              +068h
+
+onNewMessage-BB@0x78 : [ onNewMessage-BB@0x144 ]
+	29      (00000078) const-string         v1, "卸货完成"
+	30      (0000007c) goto/16              +064h
+
+onNewMessage-BB@0x80 : [ onNewMessage-BB@0x144 ]
+	31      (00000080) const-string         v1, "卸货失败"
+	32      (00000084) goto/16              +060h
+
+onNewMessage-BB@0x88 : [ onNewMessage-BB@0x144 ]
+	33      (00000088) const-string         v1, "开始卸货"
+	34      (0000008c) goto/16              +05ch
+
+onNewMessage-BB@0x90 : [ onNewMessage-BB@0x144 ]
+	35      (00000090) const-string         v1, "顶升完成"
+	36      (00000094) goto/16              +058h
+
+onNewMessage-BB@0x98 : [ onNewMessage-BB@0x144 ]
+	37      (00000098) const-string         v1, "顶升失败"
+	38      (0000009c) goto                 +54h
+
+onNewMessage-BB@0x9e : [ onNewMessage-BB@0x144 ]
+	39      (0000009e) const-string         v1, "开始顶升"
+	40      (000000a2) goto                 +51h
+
+onNewMessage-BB@0xa4 : [ onNewMessage-BB@0x144 ]
+	41      (000000a4) const-string         v1, "对桩失败"
+	42      (000000a8) goto                 +4eh
+
+onNewMessage-BB@0xaa : [ onNewMessage-BB@0x144 ]
+	43      (000000aa) const-string         v1, "对桩成功"
+	44      (000000ae) goto                 +4bh
+
+onNewMessage-BB@0xb0 : [ onNewMessage-BB@0x144 ]
+	45      (000000b0) const-string         v1, "到达充电桩"
+	46      (000000b4) goto                 +48h
+
+onNewMessage-BB@0xb6 : [ onNewMessage-BB@0x144 ]
+	47      (000000b6) const-string         v1, "位置丢失"
+	48      (000000ba) goto                 +45h
+
+onNewMessage-BB@0xbc : [ onNewMessage-BB@0xcc onNewMessage-BB@0xd2 ]
+	49      (000000bc) iget-object          v2, v6, Lcom/jlboat/phone/activity/MapActivity$7;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	50      (000000c0) invoke-static        v2, Lcom/jlboat/phone/activity/MapActivity;->access$2500(Lcom/jlboat/phone/activity/MapActivity;)Z
+	51      (000000c6) move-result          v2
+	52      (000000c8) if-eqz               v2, +005h
+
+onNewMessage-BB@0xcc : [ onNewMessage-BB@0x144 ]
+	53      (000000cc) const-string         v1, "到达目的地"
+	54      (000000d0) goto                 +3ah
+
+onNewMessage-BB@0xd2 : [ onNewMessage-BB@0x144 ]
+	55      (000000d2) const-string         v1, "导航取消"
+	56      (000000d6) goto                 +37h
+
+onNewMessage-BB@0xd8 : [ onNewMessage-BB@0x144 ]
+	57      (000000d8) goto                 +36h
+
+onNewMessage-BB@0xda : [ onNewMessage-BB@0x144 ]
+	58      (000000da) goto                 +35h
+
+onNewMessage-BB@0xdc : [ onNewMessage-BB@0x144 ]
+	59      (000000dc) const-string         v1, "正在前往"
+	60      (000000e0) goto                 +32h
+
+onNewMessage-BB@0xe2 : [ onNewMessage-BB@0x144 ]
+	61      (000000e2) const-string         v1, "没设置充电桩"
+	62      (000000e6) goto                 +2fh
+
+onNewMessage-BB@0xe8 : [ onNewMessage-BB@0x144 ]
+	63      (000000e8) const-string         v1, "充电导航失败"
+	64      (000000ec) goto                 +2ch
+
+onNewMessage-BB@0xee : [ onNewMessage-BB@0x144 ]
+	65      (000000ee) const-string         v1, "碰到障碍物"
+	66      (000000f2) iget-object          v3, v6, Lcom/jlboat/phone/activity/MapActivity$7;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	67      (000000f6) invoke-static        Ljava/lang/System;->currentTimeMillis()J
+	68      (000000fc) move-result-wide     v4
+	69      (000000fe) invoke-static        v3, v4, v5, Lcom/jlboat/phone/activity/MapActivity;->access$2602(Lcom/jlboat/phone/activity/MapActivity; J)J
+	70      (00000104) iget-object          v3, v6, Lcom/jlboat/phone/activity/MapActivity$7;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	71      (00000108) invoke-static        v3, v2, Lcom/jlboat/phone/activity/MapActivity;->access$2702(Lcom/jlboat/phone/activity/MapActivity; Z)Z
+	72      (0000010e) iget-object          v2, v6, Lcom/jlboat/phone/activity/MapActivity$7;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	73      (00000112) invoke-static        v2, Lcom/jlboat/phone/activity/MapActivity;->access$2800(Lcom/jlboat/phone/activity/MapActivity;)V
+	74      (00000118) goto                 +16h
+
+onNewMessage-BB@0x11a : [ onNewMessage-BB@0x144 ]
+	75      (0000011a) const-string         v1, "停止导航"
+	76      (0000011e) goto                 +13h
+
+onNewMessage-BB@0x120 : [ onNewMessage-BB@0x144 ]
+	77      (00000120) const-string         v1, "找不到导航点"
+	78      (00000124) goto                 +10h
+
+onNewMessage-BB@0x126 : [ onNewMessage-BB@0x144 ]
+	79      (00000126) goto                 +fh
+
+onNewMessage-BB@0x128 : [ onNewMessage-BB@0x144 ]
+	80      (00000128) const-string         v1, "导航失败"
+	81      (0000012c) goto                 +ch
+
+onNewMessage-BB@0x12e : [ onNewMessage-BB@0x144 ]
+	82      (0000012e) const-string         v1, "到达目的地"
+	83      (00000132) iget-object          v3, v6, Lcom/jlboat/phone/activity/MapActivity$7;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	84      (00000136) invoke-static        v3, v2, Lcom/jlboat/phone/activity/MapActivity;->access$2502(Lcom/jlboat/phone/activity/MapActivity; Z)Z
+	85      (0000013c) goto                 +4h
+
+onNewMessage-BB@0x13e : [ onNewMessage-BB@0x144 ]
+	86      (0000013e) const-string         v1, "正在前往"
+	87      (00000142) nop                  
+
+onNewMessage-BB@0x144 : 
+	88      (00000144) move-object          v2, v1
+	89      (00000146) iget-object          v3, v6, Lcom/jlboat/phone/activity/MapActivity$7;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	90      (0000014a) new-instance         v4, Lcom/jlboat/phone/activity/MapActivity$7$1;
+	91      (0000014e) invoke-direct        v4, v6, v0, v2, Lcom/jlboat/phone/activity/MapActivity$7$1;-><init>(Lcom/jlboat/phone/activity/MapActivity$7; I Ljava/lang/String;)V
+	92      (00000154) invoke-virtual       v3, v4, Lcom/jlboat/phone/activity/MapActivity;->runOnUiThread(Ljava/lang/Runnable;)V
+	93      (0000015a) return-void          
+
+onNewMessage-BB@0x15c : 
+	94      (0000015c) sparse-switch-payload 1 2 3 4 5 6 7 8 33 34 48 51 52 53 54 55 56 57 58 59 5a 5b 5c 5d 5e 5f 60 62 63 64
+

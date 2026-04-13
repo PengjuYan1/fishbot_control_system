@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/application/BoatSlamApplication;->cancelNetWorkManager()V [access_flags=public static]
+#
+# Parameters:
+# local registers: v0...v0
+#
+# - return:void
+
+cancelNetWorkManager-BB@0x0 : 
+	0       (00000000) const/4              v0, 0
+	1       (00000002) invoke-static        v0, Landroid/net/ConnectivityManager;->setProcessDefaultNetwork(Landroid/net/Network;)Z
+	2       (00000008) return-void          
+

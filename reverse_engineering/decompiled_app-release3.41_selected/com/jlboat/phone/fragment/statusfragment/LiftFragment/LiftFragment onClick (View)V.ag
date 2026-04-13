@@ -1,0 +1,29 @@
+# Lcom/jlboat/phone/fragment/statusfragment/LiftFragment;->onClick(Landroid/view/View;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:android.view.View
+#
+# - return:void
+
+onClick-BB@0x0 : [ D:onClick-BB@0xe 2131230880:onClick-BB@0x18 2131230949:onClick-BB@0x10 ]
+	0       (00000000) invoke-virtual       v2, Landroid/view/View;->getId()I
+	1       (00000006) move-result          v0
+	2       (00000008) sparse-switch        v0, +000000ch
+
+onClick-BB@0xe : [ onClick-BB@0x1e ]
+	3       (0000000e) goto                 +8h
+
+onClick-BB@0x10 : [ onClick-BB@0x1e ]
+	4       (00000010) invoke-direct        v1, Lcom/jlboat/phone/fragment/statusfragment/LiftFragment;->handleJackingButtonClick()V
+	5       (00000016) goto                 +4h
+
+onClick-BB@0x18 : [ onClick-BB@0x1e ]
+	6       (00000018) invoke-direct        v1, Lcom/jlboat/phone/fragment/statusfragment/LiftFragment;->handleDropButtonClick()V
+
+onClick-BB@0x1e : 
+	7       (0000001e) return-void          
+
+onClick-BB@0x20 : 
+	8       (00000020) sparse-switch-payload 7f0800a0 7f0800e5
+

@@ -1,0 +1,49 @@
+# Lcom/jlboat/phone/activity/MapExpansionActivity$4;->onNewMessage(Lcom/boat/jrosbridge/message/std_msgs/Int32;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:com.boat.jrosbridge.message.std_msgs.Int32
+#
+# - return:void
+
+onNewMessage-BB@0x0 : [ onNewMessage-BB@0x10 onNewMessage-BB@0x64 ]
+	0       (00000000) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapExpansionActivity$4;->this$0 Lcom/jlboat/phone/activity/MapExpansionActivity;
+	1       (00000004) invoke-static        v0, Lcom/jlboat/phone/activity/MapExpansionActivity;->access$500(Lcom/jlboat/phone/activity/MapExpansionActivity;)Lcom/jlboat/phone/view/MapView;
+	2       (0000000a) move-result-object   v0
+	3       (0000000c) if-eqz               v0, +02ch
+
+onNewMessage-BB@0x10 : [ onNewMessage-BB@0x64 ]
+	4       (00000010) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapExpansionActivity$4;->this$0 Lcom/jlboat/phone/activity/MapExpansionActivity;
+	5       (00000014) invoke-static        v0, Lcom/jlboat/phone/activity/MapExpansionActivity;->access$500(Lcom/jlboat/phone/activity/MapExpansionActivity;)Lcom/jlboat/phone/view/MapView;
+	6       (0000001a) move-result-object   v0
+	7       (0000001c) new-instance         v1, Ljava/util/LinkedList;
+	8       (00000020) invoke-direct        v1, Ljava/util/LinkedList;-><init>()V
+	9       (00000026) invoke-virtual       v0, v1, Lcom/jlboat/phone/view/MapView;->setProhibition(Ljava/util/List;)V
+	10      (0000002c) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapExpansionActivity$4;->this$0 Lcom/jlboat/phone/activity/MapExpansionActivity;
+	11      (00000030) invoke-static        v0, Lcom/jlboat/phone/activity/MapExpansionActivity;->access$500(Lcom/jlboat/phone/activity/MapExpansionActivity;)Lcom/jlboat/phone/view/MapView;
+	12      (00000036) move-result-object   v0
+	13      (00000038) new-instance         v1, Ljava/util/LinkedList;
+	14      (0000003c) invoke-direct        v1, Ljava/util/LinkedList;-><init>()V
+	15      (00000042) invoke-virtual       v0, v1, Lcom/jlboat/phone/view/MapView;->setPoints(Ljava/util/List;)V
+	16      (00000048) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapExpansionActivity$4;->this$0 Lcom/jlboat/phone/activity/MapExpansionActivity;
+	17      (0000004c) invoke-static        v0, Lcom/jlboat/phone/activity/MapExpansionActivity;->access$500(Lcom/jlboat/phone/activity/MapExpansionActivity;)Lcom/jlboat/phone/view/MapView;
+	18      (00000052) move-result-object   v0
+	19      (00000054) new-instance         v1, Ljava/util/LinkedList;
+	20      (00000058) invoke-direct        v1, Ljava/util/LinkedList;-><init>()V
+	21      (0000005e) invoke-virtual       v0, v1, Lcom/jlboat/phone/view/MapView;->setGlobalPlans(Ljava/util/List;)V
+
+onNewMessage-BB@0x64 : 
+	22      (00000064) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapExpansionActivity$4;->this$0 Lcom/jlboat/phone/activity/MapExpansionActivity;
+	23      (00000068) invoke-static        v0, Lcom/jlboat/phone/activity/MapExpansionActivity;->access$1400(Lcom/jlboat/phone/activity/MapExpansionActivity;)Lcom/jlboat/phone/communication/SpiritServiceClient;
+	24      (0000006e) move-result-object   v0
+	25      (00000070) new-instance         v1, Lcom/jlboat/phone/activity/MapExpansionActivity$4$1;
+	26      (00000074) invoke-direct        v1, v2, Lcom/jlboat/phone/activity/MapExpansionActivity$4$1;-><init>(Lcom/jlboat/phone/activity/MapExpansionActivity$4;)V
+	27      (0000007a) invoke-virtual       v0, v1, Lcom/jlboat/phone/communication/SpiritServiceClient;->getMapsService(Lcom/boat/jrosbridge/MessageListener;)V
+	28      (00000080) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapExpansionActivity$4;->this$0 Lcom/jlboat/phone/activity/MapExpansionActivity;
+	29      (00000084) invoke-static        v0, Lcom/jlboat/phone/activity/MapExpansionActivity;->access$1400(Lcom/jlboat/phone/activity/MapExpansionActivity;)Lcom/jlboat/phone/communication/SpiritServiceClient;
+	30      (0000008a) move-result-object   v0
+	31      (0000008c) new-instance         v1, Lcom/jlboat/phone/activity/MapExpansionActivity$4$2;
+	32      (00000090) invoke-direct        v1, v2, Lcom/jlboat/phone/activity/MapExpansionActivity$4$2;-><init>(Lcom/jlboat/phone/activity/MapExpansionActivity$4;)V
+	33      (00000096) invoke-virtual       v0, v1, Lcom/jlboat/phone/communication/SpiritServiceClient;->getBuildPointsService(Lcom/boat/jrosbridge/MessageListener;)V
+	34      (0000009c) return-void          
+

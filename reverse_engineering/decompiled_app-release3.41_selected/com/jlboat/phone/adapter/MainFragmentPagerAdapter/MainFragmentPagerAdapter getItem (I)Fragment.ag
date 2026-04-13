@@ -1,0 +1,15 @@
+# Lcom/jlboat/phone/adapter/MainFragmentPagerAdapter;->getItem(I)Landroid/support/v4/app/Fragment; [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:int
+#
+# - return:android.support.v4.app.Fragment
+
+getItem-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/jlboat/phone/adapter/MainFragmentPagerAdapter;->list Ljava/util/ArrayList;
+	1       (00000004) invoke-virtual       v0, v2, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+	2       (0000000a) move-result-object   v0
+	3       (0000000c) check-cast           v0, Landroid/support/v4/app/Fragment;
+	4       (00000010) return-object        v0
+

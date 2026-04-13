@@ -1,0 +1,44 @@
+# Lcom/jlboat/phone/controller/JlNaviManager;->onNaviStatusListener()V [access_flags=private]
+#
+# Parameters:
+# local registers: v0...v4
+#
+# - return:void
+
+onNaviStatusListener-BB@0x0 : [ onNaviStatusListener-BB@0x8 onNaviStatusListener-BB@0xa ]
+	0       (00000000) iget-boolean         v0, v4, Lcom/jlboat/phone/controller/JlNaviManager;->isNaviStatusUpdateEnd Z
+	1       (00000004) if-eqz               v0, +003h
+
+onNaviStatusListener-BB@0x8 : 
+	2       (00000008) return-void          
+
+onNaviStatusListener-BB@0xa : 
+	3       (0000000a) new-instance         v0, Landroid/os/Message;
+	4       (0000000e) invoke-direct        v0, Landroid/os/Message;-><init>()V
+	5       (00000014) const/16             v1, 100
+	6       (00000018) iput                 v1, v0, Landroid/os/Message;->what I
+	7       (0000001c) new-instance         v1, Landroid/os/Bundle;
+	8       (00000020) invoke-direct        v1, Landroid/os/Bundle;-><init>()V
+	9       (00000026) const-string         v2, "code"
+	10      (0000002a) const/16             v3, 1021
+	11      (0000002e) invoke-virtual       v1, v2, v3, Landroid/os/Bundle;->putInt(Ljava/lang/String; I)V
+	12      (00000034) new-instance         v2, Ljava/lang/StringBuilder;
+	13      (00000038) invoke-direct        v2, Ljava/lang/StringBuilder;-><init>()V
+	14      (0000003e) const-string         v3, "{"naviStatus":""
+	15      (00000042) invoke-virtual       v2, v3, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	16      (00000048) move-result-object   v2
+	17      (0000004a) iget-object          v3, v4, Lcom/jlboat/phone/controller/JlNaviManager;->naviStatus Ljava/lang/String;
+	18      (0000004e) invoke-virtual       v2, v3, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	19      (00000054) move-result-object   v2
+	20      (00000056) const-string         v3, ""}"
+	21      (0000005a) invoke-virtual       v2, v3, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	22      (00000060) move-result-object   v2
+	23      (00000062) invoke-virtual       v2, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	24      (00000068) move-result-object   v2
+	25      (0000006a) const-string         v3, "data"
+	26      (0000006e) invoke-virtual       v1, v3, v2, Landroid/os/Bundle;->putString(Ljava/lang/String; Ljava/lang/String;)V
+	27      (00000074) invoke-virtual       v0, v1, Landroid/os/Message;->setData(Landroid/os/Bundle;)V
+	28      (0000007a) iget-object          v3, v4, Lcom/jlboat/phone/controller/JlNaviManager;->mHandler Landroid/os/Handler;
+	29      (0000007e) invoke-virtual       v3, v0, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
+	30      (00000084) return-void          
+

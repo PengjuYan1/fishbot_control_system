@@ -1,0 +1,16 @@
+# Lcom/jlboat/phone/activity/MapActivity$56;->onClick(Landroid/content/DialogInterface; I)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:android.content.DialogInterface
+# - v4:int
+#
+# - return:void
+
+onClick-BB@0x0 : 
+	0       (00000000) invoke-interface     v3, Landroid/content/DialogInterface;->dismiss()V
+	1       (00000006) const-string         v0, "reboot"
+	2       (0000000a) iget-object          v1, v2, Lcom/jlboat/phone/activity/MapActivity$56;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	3       (0000000e) invoke-static        v1, v0, Lcom/jlboat/phone/activity/MapActivity;->access$5000(Lcom/jlboat/phone/activity/MapActivity; Ljava/lang/String;)V
+	4       (00000014) return-void          
+

@@ -1,0 +1,151 @@
+# Lcom/jlboat/phone/activity/PointBindPathActivity$1;->handleMessage(Landroid/os/Message;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v5
+# - v6:android.os.Message
+#
+# - return:void
+
+handleMessage-BB@0x0 : [ D:handleMessage-BB@0x12 1001:handleMessage-BB@0x1a8 1002:handleMessage-BB@0x17a 1003:handleMessage-BB@0x16 ]
+	0       (00000000) invoke-super         v5, v6, Landroid/os/Handler;->handleMessage(Landroid/os/Message;)V
+	1       (00000006) iget                 v0, v6, Landroid/os/Message;->what I
+	2       (0000000a) const/4              v1, 0
+	3       (0000000c) packed-switch        v0, +00000eeh
+
+handleMessage-BB@0x12 : [ handleMessage-BB@0x1e6 ]
+	4       (00000012) goto/16              +0eah
+
+handleMessage-BB@0x16 : [ handleMessage-BB@0x40 handleMessage-BB@0x1e6 ]
+	5       (00000016) iget-object          v0, v5, Lcom/jlboat/phone/activity/PointBindPathActivity$1;->this$0 Lcom/jlboat/phone/activity/PointBindPathActivity;
+	6       (0000001a) invoke-static        v0, Lcom/jlboat/phone/activity/PointBindPathActivity;->access$100(Lcom/jlboat/phone/activity/PointBindPathActivity;)Lcom/jlboat/phone/adapter/NewBindPointListAdapter;
+	7       (00000020) move-result-object   v0
+	8       (00000022) iget-object          v2, v5, Lcom/jlboat/phone/activity/PointBindPathActivity$1;->this$0 Lcom/jlboat/phone/activity/PointBindPathActivity;
+	9       (00000026) iget-object          v2, v2, Lcom/jlboat/phone/activity/PointBindPathActivity;->newAddPos Ljava/util/List;
+	10      (0000002a) invoke-virtual       v0, v2, Lcom/jlboat/phone/adapter/NewBindPointListAdapter;->setData(Ljava/util/List;)V
+	11      (00000030) iget-object          v0, v5, Lcom/jlboat/phone/activity/PointBindPathActivity$1;->this$0 Lcom/jlboat/phone/activity/PointBindPathActivity;
+	12      (00000034) invoke-static        v0, Lcom/jlboat/phone/activity/PointBindPathActivity;->access$200(Lcom/jlboat/phone/activity/PointBindPathActivity;)Lcom/boat/support/slam/entity/floors/GlobalPlans;
+	13      (0000003a) move-result-object   v0
+	14      (0000003c) if-eqz               v0, +0d5h
+
+handleMessage-BB@0x40 : [ handleMessage-BB@0xec handleMessage-BB@0x162 ]
+	15      (00000040) iget-object          v0, v5, Lcom/jlboat/phone/activity/PointBindPathActivity$1;->this$0 Lcom/jlboat/phone/activity/PointBindPathActivity;
+	16      (00000044) invoke-static        v0, Lcom/jlboat/phone/activity/PointBindPathActivity;->access$300(Lcom/jlboat/phone/activity/PointBindPathActivity;)Landroid/support/v7/widget/RecyclerView;
+	17      (0000004a) move-result-object   v0
+	18      (0000004c) const/4              v2, 0
+	19      (0000004e) invoke-virtual       v0, v2, Landroid/support/v7/widget/RecyclerView;->setVisibility(I)V
+	20      (00000054) iget-object          v0, v5, Lcom/jlboat/phone/activity/PointBindPathActivity$1;->this$0 Lcom/jlboat/phone/activity/PointBindPathActivity;
+	21      (00000058) invoke-static        v0, Lcom/jlboat/phone/activity/PointBindPathActivity;->access$500(Lcom/jlboat/phone/activity/PointBindPathActivity;)Lcom/jlboat/phone/adapter/NavPointListAdapter;
+	22      (0000005e) move-result-object   v0
+	23      (00000060) iget-object          v3, v5, Lcom/jlboat/phone/activity/PointBindPathActivity$1;->this$0 Lcom/jlboat/phone/activity/PointBindPathActivity;
+	24      (00000064) invoke-static        v3, Lcom/jlboat/phone/activity/PointBindPathActivity;->access$400(Lcom/jlboat/phone/activity/PointBindPathActivity;)Ljava/util/List;
+	25      (0000006a) move-result-object   v3
+	26      (0000006c) invoke-virtual       v0, v3, Lcom/jlboat/phone/adapter/NavPointListAdapter;->setData(Ljava/util/List;)V
+	27      (00000072) iget-object          v0, v5, Lcom/jlboat/phone/activity/PointBindPathActivity$1;->this$0 Lcom/jlboat/phone/activity/PointBindPathActivity;
+	28      (00000076) iget-object          v3, v5, Lcom/jlboat/phone/activity/PointBindPathActivity$1;->this$0 Lcom/jlboat/phone/activity/PointBindPathActivity;
+	29      (0000007a) invoke-static        v3, Lcom/jlboat/phone/activity/PointBindPathActivity;->access$200(Lcom/jlboat/phone/activity/PointBindPathActivity;)Lcom/boat/support/slam/entity/floors/GlobalPlans;
+	30      (00000080) move-result-object   v3
+	31      (00000082) invoke-virtual       v3, Lcom/boat/support/slam/entity/floors/GlobalPlans;->getAddPoints()Ljava/util/List;
+	32      (00000088) move-result-object   v3
+	33      (0000008a) invoke-static        v0, v3, Lcom/jlboat/phone/activity/PointBindPathActivity;->access$602(Lcom/jlboat/phone/activity/PointBindPathActivity; Ljava/util/List;)Ljava/util/List;
+	34      (00000090) iget-object          v0, v5, Lcom/jlboat/phone/activity/PointBindPathActivity$1;->this$0 Lcom/jlboat/phone/activity/PointBindPathActivity;
+	35      (00000094) invoke-static        v0, Lcom/jlboat/phone/activity/PointBindPathActivity;->access$700(Lcom/jlboat/phone/activity/PointBindPathActivity;)Landroid/widget/TextView;
+	36      (0000009a) move-result-object   v0
+	37      (0000009c) new-instance         v3, Ljava/lang/StringBuilder;
+	38      (000000a0) invoke-direct        v3, Ljava/lang/StringBuilder;-><init>()V
+	39      (000000a6) const-string         v4, "路线:"
+	40      (000000aa) invoke-virtual       v3, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	41      (000000b0) move-result-object   v3
+	42      (000000b2) iget-object          v4, v5, Lcom/jlboat/phone/activity/PointBindPathActivity$1;->this$0 Lcom/jlboat/phone/activity/PointBindPathActivity;
+	43      (000000b6) invoke-static        v4, Lcom/jlboat/phone/activity/PointBindPathActivity;->access$200(Lcom/jlboat/phone/activity/PointBindPathActivity;)Lcom/boat/support/slam/entity/floors/GlobalPlans;
+	44      (000000bc) move-result-object   v4
+	45      (000000be) invoke-virtual       v4, Lcom/boat/support/slam/entity/floors/GlobalPlans;->getGlobalplanName()Ljava/lang/String;
+	46      (000000c4) move-result-object   v4
+	47      (000000c6) invoke-virtual       v3, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	48      (000000cc) move-result-object   v3
+	49      (000000ce) invoke-virtual       v3, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	50      (000000d4) move-result-object   v3
+	51      (000000d6) invoke-virtual       v0, v3, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+	52      (000000dc) iget-object          v0, v5, Lcom/jlboat/phone/activity/PointBindPathActivity$1;->this$0 Lcom/jlboat/phone/activity/PointBindPathActivity;
+	53      (000000e0) invoke-static        v0, Lcom/jlboat/phone/activity/PointBindPathActivity;->access$600(Lcom/jlboat/phone/activity/PointBindPathActivity;)Ljava/util/List;
+	54      (000000e6) move-result-object   v0
+	55      (000000e8) if-eqz               v0, +03dh
+
+handleMessage-BB@0xec : [ handleMessage-BB@0x104 handleMessage-BB@0x162 ]
+	56      (000000ec) iget-object          v0, v5, Lcom/jlboat/phone/activity/PointBindPathActivity$1;->this$0 Lcom/jlboat/phone/activity/PointBindPathActivity;
+	57      (000000f0) invoke-static        v0, Lcom/jlboat/phone/activity/PointBindPathActivity;->access$600(Lcom/jlboat/phone/activity/PointBindPathActivity;)Ljava/util/List;
+	58      (000000f6) move-result-object   v0
+	59      (000000f8) invoke-interface     v0, Ljava/util/List;->size()I
+	60      (000000fe) move-result          v0
+	61      (00000100) if-lez               v0, +031h
+
+handleMessage-BB@0x104 : [ handleMessage-BB@0x1e6 ]
+	62      (00000104) iget-object          v0, v5, Lcom/jlboat/phone/activity/PointBindPathActivity$1;->this$0 Lcom/jlboat/phone/activity/PointBindPathActivity;
+	63      (00000108) invoke-static        v0, Lcom/jlboat/phone/activity/PointBindPathActivity;->access$800(Lcom/jlboat/phone/activity/PointBindPathActivity;)Landroid/support/v7/widget/RecyclerView;
+	64      (0000010e) move-result-object   v0
+	65      (00000110) invoke-virtual       v0, v2, Landroid/support/v7/widget/RecyclerView;->setVisibility(I)V
+	66      (00000116) iget-object          v0, v5, Lcom/jlboat/phone/activity/PointBindPathActivity$1;->this$0 Lcom/jlboat/phone/activity/PointBindPathActivity;
+	67      (0000011a) invoke-static        v0, Lcom/jlboat/phone/activity/PointBindPathActivity;->access$900(Lcom/jlboat/phone/activity/PointBindPathActivity;)Lcom/jlboat/phone/adapter/BindPointListAdapter;
+	68      (00000120) move-result-object   v0
+	69      (00000122) iget-object          v2, v5, Lcom/jlboat/phone/activity/PointBindPathActivity$1;->this$0 Lcom/jlboat/phone/activity/PointBindPathActivity;
+	70      (00000126) invoke-static        v2, Lcom/jlboat/phone/activity/PointBindPathActivity;->access$600(Lcom/jlboat/phone/activity/PointBindPathActivity;)Ljava/util/List;
+	71      (0000012c) move-result-object   v2
+	72      (0000012e) iget-object          v3, v5, Lcom/jlboat/phone/activity/PointBindPathActivity$1;->this$0 Lcom/jlboat/phone/activity/PointBindPathActivity;
+	73      (00000132) invoke-static        v3, Lcom/jlboat/phone/activity/PointBindPathActivity;->access$400(Lcom/jlboat/phone/activity/PointBindPathActivity;)Ljava/util/List;
+	74      (00000138) move-result-object   v3
+	75      (0000013a) invoke-virtual       v0, v2, v3, Lcom/jlboat/phone/adapter/BindPointListAdapter;->setData(Ljava/util/List; Ljava/util/List;)V
+	76      (00000140) iget-object          v0, v5, Lcom/jlboat/phone/activity/PointBindPathActivity$1;->this$0 Lcom/jlboat/phone/activity/PointBindPathActivity;
+	77      (00000144) invoke-static        v0, Lcom/jlboat/phone/activity/PointBindPathActivity;->access$900(Lcom/jlboat/phone/activity/PointBindPathActivity;)Lcom/jlboat/phone/adapter/BindPointListAdapter;
+	78      (0000014a) move-result-object   v0
+	79      (0000014c) new-instance         v2, Lcom/jlboat/phone/activity/PointBindPathActivity$BindPointItemCL;
+	80      (00000150) iget-object          v3, v5, Lcom/jlboat/phone/activity/PointBindPathActivity$1;->this$0 Lcom/jlboat/phone/activity/PointBindPathActivity;
+	81      (00000154) invoke-direct        v2, v3, v1, Lcom/jlboat/phone/activity/PointBindPathActivity$BindPointItemCL;-><init>(Lcom/jlboat/phone/activity/PointBindPathActivity; Lcom/jlboat/phone/activity/PointBindPathActivity$1;)V
+	82      (0000015a) invoke-virtual       v0, v2, Lcom/jlboat/phone/adapter/BindPointListAdapter;->setOnItemClickListener(Lcom/jlboat/phone/adapter/BindPointListAdapter$OnItemClickListener;)V
+	83      (00000160) goto                 +43h
+
+handleMessage-BB@0x162 : [ handleMessage-BB@0x1e6 ]
+	84      (00000162) iget-object          v0, v5, Lcom/jlboat/phone/activity/PointBindPathActivity$1;->this$0 Lcom/jlboat/phone/activity/PointBindPathActivity;
+	85      (00000166) invoke-static        v0, Lcom/jlboat/phone/activity/PointBindPathActivity;->access$800(Lcom/jlboat/phone/activity/PointBindPathActivity;)Landroid/support/v7/widget/RecyclerView;
+	86      (0000016c) move-result-object   v0
+	87      (0000016e) const/16             v1, 8
+	88      (00000172) invoke-virtual       v0, v1, Landroid/support/v7/widget/RecyclerView;->setVisibility(I)V
+	89      (00000178) goto                 +37h
+
+handleMessage-BB@0x17a : [ handleMessage-BB@0x18a handleMessage-BB@0x1e6 ]
+	90      (0000017a) iget-object          v0, v5, Lcom/jlboat/phone/activity/PointBindPathActivity$1;->this$0 Lcom/jlboat/phone/activity/PointBindPathActivity;
+	91      (0000017e) invoke-static        v0, Lcom/jlboat/phone/activity/PointBindPathActivity;->access$000(Lcom/jlboat/phone/activity/PointBindPathActivity;)Lcom/jlboat/phone/view/loading/MyLoading;
+	92      (00000184) move-result-object   v0
+	93      (00000186) if-eqz               v0, +030h
+
+handleMessage-BB@0x18a : [ handleMessage-BB@0x1e6 ]
+	94      (0000018a) iget-object          v0, v5, Lcom/jlboat/phone/activity/PointBindPathActivity$1;->this$0 Lcom/jlboat/phone/activity/PointBindPathActivity;
+	95      (0000018e) invoke-static        v0, Lcom/jlboat/phone/activity/PointBindPathActivity;->access$000(Lcom/jlboat/phone/activity/PointBindPathActivity;)Lcom/jlboat/phone/view/loading/MyLoading;
+	96      (00000194) move-result-object   v0
+	97      (00000196) invoke-virtual       v0, Lcom/jlboat/phone/view/loading/MyLoading;->dismiss()V
+	98      (0000019c) iget-object          v0, v5, Lcom/jlboat/phone/activity/PointBindPathActivity$1;->this$0 Lcom/jlboat/phone/activity/PointBindPathActivity;
+	99      (000001a0) invoke-static        v0, v1, Lcom/jlboat/phone/activity/PointBindPathActivity;->access$002(Lcom/jlboat/phone/activity/PointBindPathActivity; Lcom/jlboat/phone/view/loading/MyLoading;)Lcom/jlboat/phone/view/loading/MyLoading;
+	100     (000001a6) goto                 +20h
+
+handleMessage-BB@0x1a8 : [ handleMessage-BB@0x1b8 handleMessage-BB@0x1e6 ]
+	101     (000001a8) iget-object          v0, v5, Lcom/jlboat/phone/activity/PointBindPathActivity$1;->this$0 Lcom/jlboat/phone/activity/PointBindPathActivity;
+	102     (000001ac) invoke-static        v0, Lcom/jlboat/phone/activity/PointBindPathActivity;->access$000(Lcom/jlboat/phone/activity/PointBindPathActivity;)Lcom/jlboat/phone/view/loading/MyLoading;
+	103     (000001b2) move-result-object   v0
+	104     (000001b4) if-nez               v0, +019h
+
+handleMessage-BB@0x1b8 : [ handleMessage-BB@0x1e6 ]
+	105     (000001b8) iget-object          v0, v5, Lcom/jlboat/phone/activity/PointBindPathActivity$1;->this$0 Lcom/jlboat/phone/activity/PointBindPathActivity;
+	106     (000001bc) iget-object          v1, v5, Lcom/jlboat/phone/activity/PointBindPathActivity$1;->this$0 Lcom/jlboat/phone/activity/PointBindPathActivity;
+	107     (000001c0) iget-object          v2, v5, Lcom/jlboat/phone/activity/PointBindPathActivity$1;->this$0 Lcom/jlboat/phone/activity/PointBindPathActivity;
+	108     (000001c4) const                v3, 2131493126
+	109     (000001ca) invoke-virtual       v2, v3, Lcom/jlboat/phone/activity/PointBindPathActivity;->getResString(I)Ljava/lang/String;
+	110     (000001d0) move-result-object   v2
+	111     (000001d2) const                v3, 2131361892
+	112     (000001d8) invoke-static        v1, v3, v2, Lcom/jlboat/phone/util/Utils;->showLoading(Landroid/content/Context; I Ljava/lang/String;)Lcom/jlboat/phone/view/loading/MyLoading;
+	113     (000001de) move-result-object   v1
+	114     (000001e0) invoke-static        v0, v1, Lcom/jlboat/phone/activity/PointBindPathActivity;->access$002(Lcom/jlboat/phone/activity/PointBindPathActivity; Lcom/jlboat/phone/view/loading/MyLoading;)Lcom/jlboat/phone/view/loading/MyLoading;
+
+handleMessage-BB@0x1e6 : 
+	115     (000001e6) return-void          
+
+handleMessage-BB@0x1e8 : 
+	116     (000001e8) packed-switch-payload 3e9 3ea 3eb
+

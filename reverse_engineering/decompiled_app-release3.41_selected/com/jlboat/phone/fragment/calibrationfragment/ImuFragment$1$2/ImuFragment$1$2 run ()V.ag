@@ -1,0 +1,47 @@
+# Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment$1$2;->run()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v2
+#
+# - return:void
+
+run-BB@0x0 : 
+	0       (00000000) new-instance         v0, Ljava/lang/StringBuilder;
+	1       (00000004) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	2       (0000000a) const-string         v1, "onNewMessage: 收到返回消息="
+	3       (0000000e) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	4       (00000014) move-result-object   v0
+	5       (00000016) iget-object          v1, v2, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment$1$2;->val$c Lcom/jlboat/phone/message/map_msgs/CalculateOdomResponse;
+	6       (0000001a) invoke-virtual       v1, Lcom/jlboat/phone/message/map_msgs/CalculateOdomResponse;->toString()Ljava/lang/String;
+	7       (00000020) move-result-object   v1
+	8       (00000022) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	9       (00000028) move-result-object   v0
+	10      (0000002a) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	11      (00000030) move-result-object   v0
+	12      (00000032) const-string         v1, "ImuFragment"
+	13      (00000036) invoke-static        v1, v0, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	14      (0000003c) iget-object          v0, v2, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment$1$2;->this$1 Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment$1;
+	15      (00000040) iget-object          v0, v0, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment$1;->this$0 Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment;
+	16      (00000044) invoke-static        v0, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment;->access$000(Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment;)Landroid/content/Context;
+	17      (0000004a) move-result-object   v0
+	18      (0000004c) const                v1, 2131493289
+	19      (00000052) invoke-virtual       v0, v1, Landroid/content/Context;->getString(I)Ljava/lang/String;
+	20      (00000058) move-result-object   v0
+	21      (0000005a) invoke-static        v0, Lcom/jlboat/phone/util/Utils;->toast(Ljava/lang/String;)V
+	22      (00000060) iget-object          v0, v2, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment$1$2;->this$1 Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment$1;
+	23      (00000064) iget-object          v0, v0, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment$1;->this$0 Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment;
+	24      (00000068) invoke-static        v0, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment;->access$100(Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment;)Ljava/util/List;
+	25      (0000006e) move-result-object   v0
+	26      (00000070) iget-object          v1, v2, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment$1$2;->this$1 Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment$1;
+	27      (00000074) iget-object          v1, v1, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment$1;->this$0 Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment;
+	28      (00000078) invoke-static        v1, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment;->access$100(Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment;)Ljava/util/List;
+	29      (0000007e) move-result-object   v1
+	30      (00000080) invoke-interface     v1, Ljava/util/List;->size()I
+	31      (00000086) move-result          v1
+	32      (00000088) add-int/lit8         v1, v1, -1
+	33      (0000008c) invoke-interface     v0, v1, Ljava/util/List;->remove(I)Ljava/lang/Object;
+	34      (00000092) iget-object          v0, v2, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment$1$2;->this$1 Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment$1;
+	35      (00000096) iget-object          v0, v0, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment$1;->this$0 Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment;
+	36      (0000009a) invoke-static        v0, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment;->access$210(Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment;)I
+	37      (000000a0) return-void          
+

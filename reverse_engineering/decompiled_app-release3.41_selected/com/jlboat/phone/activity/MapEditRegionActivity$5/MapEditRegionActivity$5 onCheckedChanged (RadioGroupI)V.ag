@@ -1,0 +1,79 @@
+# Lcom/jlboat/phone/activity/MapEditRegionActivity$5;->onCheckedChanged(Landroid/widget/RadioGroup; I)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:android.widget.RadioGroup
+# - v5:int
+#
+# - return:void
+
+onCheckedChanged-BB@0x0 : [ D:onCheckedChanged-BB@0x6 2131231116:onCheckedChanged-BB@0x4e 2131231117:onCheckedChanged-BB@0x40 2131231127:onCheckedChanged-BB@0x32 2131231128:onCheckedChanged-BB@0x24 2131231140:onCheckedChanged-BB@0x16 2131231143:onCheckedChanged-BB@0x8 ]
+	0       (00000000) sparse-switch        v5, +0000062h
+
+onCheckedChanged-BB@0x6 : [ onCheckedChanged-BB@0x5c ]
+	1       (00000006) goto                 +2bh
+
+onCheckedChanged-BB@0x8 : [ onCheckedChanged-BB@0x5c ]
+	2       (00000008) iget-object          v0, v3, Lcom/jlboat/phone/activity/MapEditRegionActivity$5;->this$0 Lcom/jlboat/phone/activity/MapEditRegionActivity;
+	3       (0000000c) const/4              v1, 3
+	4       (0000000e) invoke-static        v0, v1, Lcom/jlboat/phone/activity/MapEditRegionActivity;->access$702(Lcom/jlboat/phone/activity/MapEditRegionActivity; I)I
+	5       (00000014) goto                 +24h
+
+onCheckedChanged-BB@0x16 : [ onCheckedChanged-BB@0x5c ]
+	6       (00000016) iget-object          v0, v3, Lcom/jlboat/phone/activity/MapEditRegionActivity$5;->this$0 Lcom/jlboat/phone/activity/MapEditRegionActivity;
+	7       (0000001a) const/4              v1, 2
+	8       (0000001c) invoke-static        v0, v1, Lcom/jlboat/phone/activity/MapEditRegionActivity;->access$702(Lcom/jlboat/phone/activity/MapEditRegionActivity; I)I
+	9       (00000022) goto                 +1dh
+
+onCheckedChanged-BB@0x24 : [ onCheckedChanged-BB@0x5c ]
+	10      (00000024) iget-object          v0, v3, Lcom/jlboat/phone/activity/MapEditRegionActivity$5;->this$0 Lcom/jlboat/phone/activity/MapEditRegionActivity;
+	11      (00000028) const/4              v1, 5
+	12      (0000002a) invoke-static        v0, v1, Lcom/jlboat/phone/activity/MapEditRegionActivity;->access$702(Lcom/jlboat/phone/activity/MapEditRegionActivity; I)I
+	13      (00000030) goto                 +16h
+
+onCheckedChanged-BB@0x32 : [ onCheckedChanged-BB@0x5c ]
+	14      (00000032) iget-object          v0, v3, Lcom/jlboat/phone/activity/MapEditRegionActivity$5;->this$0 Lcom/jlboat/phone/activity/MapEditRegionActivity;
+	15      (00000036) const/4              v1, 1
+	16      (00000038) invoke-static        v0, v1, Lcom/jlboat/phone/activity/MapEditRegionActivity;->access$702(Lcom/jlboat/phone/activity/MapEditRegionActivity; I)I
+	17      (0000003e) goto                 +fh
+
+onCheckedChanged-BB@0x40 : [ onCheckedChanged-BB@0x5c ]
+	18      (00000040) iget-object          v0, v3, Lcom/jlboat/phone/activity/MapEditRegionActivity$5;->this$0 Lcom/jlboat/phone/activity/MapEditRegionActivity;
+	19      (00000044) const/4              v1, 6
+	20      (00000046) invoke-static        v0, v1, Lcom/jlboat/phone/activity/MapEditRegionActivity;->access$702(Lcom/jlboat/phone/activity/MapEditRegionActivity; I)I
+	21      (0000004c) goto                 +8h
+
+onCheckedChanged-BB@0x4e : [ onCheckedChanged-BB@0x5c ]
+	22      (0000004e) iget-object          v0, v3, Lcom/jlboat/phone/activity/MapEditRegionActivity$5;->this$0 Lcom/jlboat/phone/activity/MapEditRegionActivity;
+	23      (00000052) const/4              v1, 4
+	24      (00000054) invoke-static        v0, v1, Lcom/jlboat/phone/activity/MapEditRegionActivity;->access$702(Lcom/jlboat/phone/activity/MapEditRegionActivity; I)I
+	25      (0000005a) nop                  
+
+onCheckedChanged-BB@0x5c : 
+	26      (0000005c) iget-object          v0, v3, Lcom/jlboat/phone/activity/MapEditRegionActivity$5;->this$0 Lcom/jlboat/phone/activity/MapEditRegionActivity;
+	27      (00000060) const-wide/16        v1, 0
+	28      (00000064) invoke-static        v0, v1, v2, Lcom/jlboat/phone/activity/MapEditRegionActivity;->access$802(Lcom/jlboat/phone/activity/MapEditRegionActivity; J)J
+	29      (0000006a) iget-object          v0, v3, Lcom/jlboat/phone/activity/MapEditRegionActivity$5;->this$0 Lcom/jlboat/phone/activity/MapEditRegionActivity;
+	30      (0000006e) invoke-static        v0, v1, v2, Lcom/jlboat/phone/activity/MapEditRegionActivity;->access$902(Lcom/jlboat/phone/activity/MapEditRegionActivity; J)J
+	31      (00000074) iget-object          v0, v3, Lcom/jlboat/phone/activity/MapEditRegionActivity$5;->this$0 Lcom/jlboat/phone/activity/MapEditRegionActivity;
+	32      (00000078) invoke-static        v0, v1, v2, Lcom/jlboat/phone/activity/MapEditRegionActivity;->access$1002(Lcom/jlboat/phone/activity/MapEditRegionActivity; J)J
+	33      (0000007e) iget-object          v0, v3, Lcom/jlboat/phone/activity/MapEditRegionActivity$5;->this$0 Lcom/jlboat/phone/activity/MapEditRegionActivity;
+	34      (00000082) invoke-static        v0, Lcom/jlboat/phone/activity/MapEditRegionActivity;->access$1100(Lcom/jlboat/phone/activity/MapEditRegionActivity;)V
+	35      (00000088) iget-object          v0, v3, Lcom/jlboat/phone/activity/MapEditRegionActivity$5;->this$0 Lcom/jlboat/phone/activity/MapEditRegionActivity;
+	36      (0000008c) iget-object          v0, v0, Lcom/jlboat/phone/activity/MapEditRegionActivity;->ok Landroid/widget/Button;
+	37      (00000090) const/16             v1, 8
+	38      (00000094) invoke-virtual       v0, v1, Landroid/widget/Button;->setVisibility(I)V
+	39      (0000009a) iget-object          v0, v3, Lcom/jlboat/phone/activity/MapEditRegionActivity$5;->this$0 Lcom/jlboat/phone/activity/MapEditRegionActivity;
+	40      (0000009e) iget-object          v0, v0, Lcom/jlboat/phone/activity/MapEditRegionActivity;->add Landroid/widget/Button;
+	41      (000000a2) const/4              v2, 0
+	42      (000000a4) invoke-virtual       v0, v2, Landroid/widget/Button;->setVisibility(I)V
+	43      (000000aa) iget-object          v0, v3, Lcom/jlboat/phone/activity/MapEditRegionActivity$5;->this$0 Lcom/jlboat/phone/activity/MapEditRegionActivity;
+	44      (000000ae) iget-object          v0, v0, Lcom/jlboat/phone/activity/MapEditRegionActivity;->ivRectangle Landroid/widget/ImageView;
+	45      (000000b2) invoke-virtual       v0, v1, Landroid/widget/ImageView;->setVisibility(I)V
+	46      (000000b8) iget-object          v0, v3, Lcom/jlboat/phone/activity/MapEditRegionActivity$5;->this$0 Lcom/jlboat/phone/activity/MapEditRegionActivity;
+	47      (000000bc) invoke-static        v0, Lcom/jlboat/phone/activity/MapEditRegionActivity;->access$100(Lcom/jlboat/phone/activity/MapEditRegionActivity;)V
+	48      (000000c2) return-void          
+
+onCheckedChanged-BB@0xc4 : 
+	49      (000000c4) sparse-switch-payload 7f08018c 7f08018d 7f080197 7f080198 7f0801a4 7f0801a7
+

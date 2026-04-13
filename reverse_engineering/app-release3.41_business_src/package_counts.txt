@@ -1,0 +1,12 @@
+app/com/jlboat/phone: 966
+core/com/boat/base: 3
+core/com/boat/controller: 1
+core/com/boat/manager: 6
+core/com/boat/support/slam: 75
+core/com/boat/jrosbridge: 85
+core/com/boat/ros: 6
+core/com/boat/utils: 4
+ros_msgs/world_canvas_msgs18: 4
+ros_msgs/cartographer_ros_msgs: 6
+ros_deps/org/ros: 3
+TOTAL_JAVA: 1159

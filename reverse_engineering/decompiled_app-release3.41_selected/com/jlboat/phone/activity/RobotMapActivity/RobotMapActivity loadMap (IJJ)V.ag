@@ -1,0 +1,32 @@
+# Lcom/jlboat/phone/activity/RobotMapActivity;->loadMap(I J J)V [access_flags=private]
+#
+# Parameters:
+# - local registers: v0...v11
+# - v12:int
+# - v13:long
+# - v14:long
+#
+# - return:void
+
+loadMap-BB@0x0 : [ loadMap-BB@0x4 loadMap-BB@0x26 ]
+	0       (00000000) if-nez               v10, +013h
+
+loadMap-BB@0x4 : [ loadMap-BB@0x26 ]
+	1       (00000004) const                v0, 2131493115
+	2       (0000000a) invoke-virtual       v9, v0, Lcom/jlboat/phone/activity/RobotMapActivity;->getResString(I)Ljava/lang/String;
+	3       (00000010) move-result-object   v0
+	4       (00000012) const                v1, 2131493114
+	5       (00000018) invoke-virtual       v9, v1, Lcom/jlboat/phone/activity/RobotMapActivity;->getResString(I)Ljava/lang/String;
+	6       (0000001e) move-result-object   v1
+	7       (00000020) invoke-direct        v9, v0, v1, Lcom/jlboat/phone/activity/RobotMapActivity;->safeShowWaitingDialog(Ljava/lang/CharSequence; Ljava/lang/CharSequence;)V
+
+loadMap-BB@0x26 : 
+	8       (00000026) iget-object          v2, v9, Lcom/jlboat/phone/activity/RobotMapActivity;->spiritServiceClient Lcom/jlboat/phone/communication/SpiritServiceClient;
+	9       (0000002a) new-instance         v8, Lcom/jlboat/phone/activity/RobotMapActivity$7;
+	10      (0000002e) invoke-direct        v8, v9, v10, Lcom/jlboat/phone/activity/RobotMapActivity$7;-><init>(Lcom/jlboat/phone/activity/RobotMapActivity; I)V
+	11      (00000034) move                 v3, v10
+	12      (00000036) move-wide            v4, v11
+	13      (00000038) move-wide            v6, v13
+	14      (0000003a) invoke-virtual/range v2 ... v8, Lcom/jlboat/phone/communication/SpiritServiceClient;->setPublishService(I J J Lcom/boat/jrosbridge/MessageListener;)V
+	15      (00000040) return-void          
+

@@ -1,0 +1,22 @@
+# Lcom/jlboat/phone/controller/SlamAppController;->getJlNaviManager()Lcom/jlboat/phone/controller/JlNaviManager; [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v2
+#
+# - return:com.jlboat.phone.controller.JlNaviManager
+
+getJlNaviManager-BB@0x0 : [ getJlNaviManager-BB@0x8 getJlNaviManager-BB@0x1e ]
+	0       (00000000) iget-object          v0, v2, Lcom/jlboat/phone/controller/SlamAppController;->jlNaviManager Lcom/jlboat/phone/controller/JlNaviManager;
+	1       (00000004) if-nez               v0, +00dh
+
+getJlNaviManager-BB@0x8 : [ getJlNaviManager-BB@0x1e ]
+	2       (00000008) new-instance         v0, Lcom/jlboat/phone/controller/JlNaviManager;
+	3       (0000000c) invoke-virtual       v2, Lcom/jlboat/phone/controller/SlamAppController;->getApp()Lcom/boat/base/BaseApplication;
+	4       (00000012) move-result-object   v1
+	5       (00000014) invoke-direct        v0, v1, Lcom/jlboat/phone/controller/JlNaviManager;-><init>(Lcom/boat/base/BaseApplication;)V
+	6       (0000001a) iput-object          v0, v2, Lcom/jlboat/phone/controller/SlamAppController;->jlNaviManager Lcom/jlboat/phone/controller/JlNaviManager;
+
+getJlNaviManager-BB@0x1e : 
+	7       (0000001e) iget-object          v0, v2, Lcom/jlboat/phone/controller/SlamAppController;->jlNaviManager Lcom/jlboat/phone/controller/JlNaviManager;
+	8       (00000022) return-object        v0
+

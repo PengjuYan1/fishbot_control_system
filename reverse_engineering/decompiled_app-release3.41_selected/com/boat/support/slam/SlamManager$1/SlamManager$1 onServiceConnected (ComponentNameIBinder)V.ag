@@ -1,0 +1,33 @@
+# Lcom/boat/support/slam/SlamManager$1;->onServiceConnected(Landroid/content/ComponentName; Landroid/os/IBinder;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:android.content.ComponentName
+# - v4:android.os.IBinder
+#
+# - return:void
+
+onServiceConnected-BB@0x0 : [ onServiceConnected-BB@0x3a onServiceConnected-BB@0x4c ]
+	0       (00000000) const-string         v0, "SlamManager"
+	1       (00000004) const-string         v1, " SlamManager onServiceConnected "
+	2       (00000008) invoke-static        v0, v1, Landroid/util/Log;->v(Ljava/lang/String; Ljava/lang/String;)I
+	3       (0000000e) iget-object          v0, v2, Lcom/boat/support/slam/SlamManager$1;->this$0 Lcom/boat/support/slam/SlamManager;
+	4       (00000012) invoke-static        v4, Lcom/boat/support/slam/ISlamService$Stub;->asInterface(Landroid/os/IBinder;)Lcom/boat/support/slam/ISlamService;
+	5       (00000018) move-result-object   v1
+	6       (0000001a) invoke-static        v0, v1, Lcom/boat/support/slam/SlamManager;->access$002(Lcom/boat/support/slam/SlamManager; Lcom/boat/support/slam/ISlamService;)Lcom/boat/support/slam/ISlamService;
+	7       (00000020) iget-object          v0, v2, Lcom/boat/support/slam/SlamManager$1;->this$0 Lcom/boat/support/slam/SlamManager;
+	8       (00000024) invoke-virtual       v0, Lcom/boat/support/slam/SlamManager;->regist()V
+	9       (0000002a) iget-object          v0, v2, Lcom/boat/support/slam/SlamManager$1;->this$0 Lcom/boat/support/slam/SlamManager;
+	10      (0000002e) invoke-static        v0, Lcom/boat/support/slam/SlamManager;->access$100(Lcom/boat/support/slam/SlamManager;)Lcom/boat/support/slam/callback/IInitCallback;
+	11      (00000034) move-result-object   v0
+	12      (00000036) if-eqz               v0, +00bh
+
+onServiceConnected-BB@0x3a : [ onServiceConnected-BB@0x4c ]
+	13      (0000003a) iget-object          v0, v2, Lcom/boat/support/slam/SlamManager$1;->this$0 Lcom/boat/support/slam/SlamManager;
+	14      (0000003e) invoke-static        v0, Lcom/boat/support/slam/SlamManager;->access$100(Lcom/boat/support/slam/SlamManager;)Lcom/boat/support/slam/callback/IInitCallback;
+	15      (00000044) move-result-object   v0
+	16      (00000046) invoke-interface     v0, Lcom/boat/support/slam/callback/IInitCallback;->onSuccess()V
+
+onServiceConnected-BB@0x4c : 
+	17      (0000004c) return-void          
+

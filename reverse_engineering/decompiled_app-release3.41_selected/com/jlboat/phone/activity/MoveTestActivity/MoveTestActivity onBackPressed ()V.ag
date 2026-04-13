@@ -1,0 +1,20 @@
+# Lcom/jlboat/phone/activity/MoveTestActivity;->onBackPressed()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:void
+
+onBackPressed-BB@0x0 : [ onBackPressed-BB@0x8 onBackPressed-BB@0x14 ]
+	0       (00000000) iget-boolean         v0, v1, Lcom/jlboat/phone/activity/MoveTestActivity;->isMoveRun Z
+	1       (00000004) if-eqz               v0, +008h
+
+onBackPressed-BB@0x8 : 
+	2       (00000008) const-string         v0, "测试运行中，请取消测试"
+	3       (0000000c) invoke-static        v0, Lcom/jlboat/phone/util/Utils;->toast(Ljava/lang/String;)V
+	4       (00000012) return-void          
+
+onBackPressed-BB@0x14 : 
+	5       (00000014) invoke-virtual       v1, Lcom/jlboat/phone/activity/MoveTestActivity;->finish()V
+	6       (0000001a) return-void          
+

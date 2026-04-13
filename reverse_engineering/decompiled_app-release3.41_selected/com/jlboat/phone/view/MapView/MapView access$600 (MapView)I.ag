@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/view/MapView;->access$600(Lcom/jlboat/phone/view/MapView;)I [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.view.MapView
+#
+# - return:int
+
+access$600-BB@0x0 : 
+	0       (00000000) iget                 v0, v1, Lcom/jlboat/phone/view/MapView;->stride I
+	1       (00000004) return               v0
+

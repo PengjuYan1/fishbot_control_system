@@ -1,0 +1,11 @@
+# Lcom/jlboat/phone/view/TouchEvenHandler;->getMatrix()Landroid/graphics/Matrix; [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:android.graphics.Matrix
+
+getMatrix-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/jlboat/phone/view/TouchEvenHandler;->matrix Landroid/graphics/Matrix;
+	1       (00000004) return-object        v0
+

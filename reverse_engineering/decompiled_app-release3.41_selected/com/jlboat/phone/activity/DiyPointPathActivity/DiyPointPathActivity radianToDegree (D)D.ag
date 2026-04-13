@@ -1,0 +1,15 @@
+# Lcom/jlboat/phone/activity/DiyPointPathActivity;->radianToDegree(D)D [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v5
+# - v6:double
+#
+# - return:double
+
+radianToDegree-BB@0x0 : 
+	0       (00000000) const-wide           v0, 4640537203540230144
+	1       (0000000a) mul-double           v0, v0, v5
+	2       (0000000e) const-wide           v2, 4614256656552045848
+	3       (00000018) div-double/2addr     v0, v2
+	4       (0000001a) return-wide          v0
+

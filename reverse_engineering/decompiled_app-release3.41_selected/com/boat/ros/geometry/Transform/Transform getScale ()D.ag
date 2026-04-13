@@ -1,0 +1,13 @@
+# Lcom/boat/ros/geometry/Transform;->getScale()D [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v2
+#
+# - return:double
+
+getScale-BB@0x0 : 
+	0       (00000000) iget-object          v0, v2, Lcom/boat/ros/geometry/Transform;->rotationAndScale Lcom/boat/ros/geometry/Quaternion;
+	1       (00000004) invoke-virtual       v0, Lcom/boat/ros/geometry/Quaternion;->getMagnitudeSquared()D
+	2       (0000000a) move-result-wide     v0
+	3       (0000000c) return-wide          v0
+

@@ -1,0 +1,35 @@
+# Lcom/boat/support/slam/IResponseListener$Stub;->asInterface(Landroid/os/IBinder;)Lcom/boat/support/slam/IResponseListener; [access_flags=public static]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:android.os.IBinder
+#
+# - return:com.boat.support.slam.IResponseListener
+
+asInterface-BB@0x0 : [ asInterface-BB@0x4 asInterface-BB@0x8 ]
+	0       (00000000) if-nez               v2, +004h
+
+asInterface-BB@0x4 : 
+	1       (00000004) const/4              v0, 0
+	2       (00000006) return-object        v0
+
+asInterface-BB@0x8 : [ asInterface-BB@0x18 asInterface-BB@0x28 ]
+	3       (00000008) const-string         v0, "com.boat.support.slam.IResponseListener"
+	4       (0000000c) invoke-interface     v2, v0, Landroid/os/IBinder;->queryLocalInterface(Ljava/lang/String;)Landroid/os/IInterface;
+	5       (00000012) move-result-object   v0
+	6       (00000014) if-eqz               v0, +00ah
+
+asInterface-BB@0x18 : [ asInterface-BB@0x20 asInterface-BB@0x28 ]
+	7       (00000018) instance-of          v1, v0, Lcom/boat/support/slam/IResponseListener;
+	8       (0000001c) if-eqz               v1, +006h
+
+asInterface-BB@0x20 : 
+	9       (00000020) move-object          v1, v0
+	10      (00000022) check-cast           v1, Lcom/boat/support/slam/IResponseListener;
+	11      (00000026) return-object        v1
+
+asInterface-BB@0x28 : 
+	12      (00000028) new-instance         v1, Lcom/boat/support/slam/IResponseListener$Stub$Proxy;
+	13      (0000002c) invoke-direct        v1, v2, Lcom/boat/support/slam/IResponseListener$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
+	14      (00000032) return-object        v1
+

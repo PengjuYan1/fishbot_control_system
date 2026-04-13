@@ -1,0 +1,15 @@
+# Lcom/jlboat/phone/controller/JlNaviManager;-><clinit>()V [access_flags=static constructor]
+#
+# Parameters:
+# local registers: v0...v0
+#
+# - return:void
+
+<clinit>-BB@0x0 : 
+	0       (00000000) new-instance         v0, Landroid/os/RemoteCallbackList;
+	1       (00000004) invoke-direct        v0, Landroid/os/RemoteCallbackList;-><init>()V
+	2       (0000000a) sput-object          v0, Lcom/jlboat/phone/controller/JlNaviManager;->mCallBack Landroid/os/RemoteCallbackList;
+	3       (0000000e) const-string         v0, ""
+	4       (00000012) sput-object          v0, Lcom/jlboat/phone/controller/JlNaviManager;->HOSTNAME Ljava/lang/String;
+	5       (00000016) return-void          
+

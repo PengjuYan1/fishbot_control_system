@@ -1,0 +1,72 @@
+# Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;->onClick(Landroid/view/View;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v4
+# - v5:android.view.View
+#
+# - return:void
+
+onClick-BB@0x0 : [ onClick-BB@0x12 onClick-BB@0xce ]
+	0       (00000000) invoke-virtual       v5, Landroid/view/View;->getId()I
+	1       (00000006) move-result          v0
+	2       (00000008) const                v1, 2131231204
+	3       (0000000e) if-ne                v0, v1, +060h
+
+onClick-BB@0x12 : [ onClick-BB@0x22 onClick-BB@0xce ]
+	4       (00000012) iget-object          v1, v4, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;->configList Ljava/util/List;
+	5       (00000016) invoke-interface     v1, Ljava/util/List;->size()I
+	6       (0000001c) move-result          v1
+	7       (0000001e) if-lez               v1, +058h
+
+onClick-BB@0x22 : [ onClick-BB@0x8a onClick-BB@0xa6 ]
+	8       (00000022) iget-object          v1, v4, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;->configList Ljava/util/List;
+	9       (00000026) const/4              v2, 0
+	10      (00000028) invoke-interface     v1, v2, Ljava/util/List;->get(I)Ljava/lang/Object;
+	11      (0000002e) move-result-object   v1
+	12      (00000030) check-cast           v1, Lcom/jlboat/phone/message/map_msgs/Config;
+	13      (00000034) const-string         v3, "startRobotOA"
+	14      (00000038) invoke-virtual       v1, v3, Lcom/jlboat/phone/message/map_msgs/Config;->setConfigName(Ljava/lang/String;)V
+	15      (0000003e) new-instance         v1, Ljava/lang/StringBuilder;
+	16      (00000042) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	17      (00000048) const-string         v3, "robotMultiOpenSw.isChecked():"
+	18      (0000004c) invoke-virtual       v1, v3, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	19      (00000052) move-result-object   v1
+	20      (00000054) iget-object          v3, v4, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;->robotMultiOpenSw Landroid/widget/Switch;
+	21      (00000058) invoke-virtual       v3, Landroid/widget/Switch;->isChecked()Z
+	22      (0000005e) move-result          v3
+	23      (00000060) invoke-virtual       v1, v3, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+	24      (00000066) move-result-object   v1
+	25      (00000068) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	26      (0000006e) move-result-object   v1
+	27      (00000070) const-string         v3, "MultiMachineSchedulingActivity"
+	28      (00000074) invoke-static        v3, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	29      (0000007a) iget-object          v1, v4, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;->robotMultiOpenSw Landroid/widget/Switch;
+	30      (0000007e) invoke-virtual       v1, Landroid/widget/Switch;->isChecked()Z
+	31      (00000084) move-result          v1
+	32      (00000086) if-eqz               v1, +010h
+
+onClick-BB@0x8a : [ onClick-BB@0xc0 ]
+	33      (0000008a) iget-object          v1, v4, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;->configList Ljava/util/List;
+	34      (0000008e) invoke-interface     v1, v2, Ljava/util/List;->get(I)Ljava/lang/Object;
+	35      (00000094) move-result-object   v1
+	36      (00000096) check-cast           v1, Lcom/jlboat/phone/message/map_msgs/Config;
+	37      (0000009a) const-string         v2, "1"
+	38      (0000009e) invoke-virtual       v1, v2, Lcom/jlboat/phone/message/map_msgs/Config;->setConfigValue(Ljava/lang/String;)V
+	39      (000000a4) goto                 +eh
+
+onClick-BB@0xa6 : [ onClick-BB@0xc0 ]
+	40      (000000a6) iget-object          v1, v4, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;->configList Ljava/util/List;
+	41      (000000aa) invoke-interface     v1, v2, Ljava/util/List;->get(I)Ljava/lang/Object;
+	42      (000000b0) move-result-object   v1
+	43      (000000b2) check-cast           v1, Lcom/jlboat/phone/message/map_msgs/Config;
+	44      (000000b6) const-string         v2, "0"
+	45      (000000ba) invoke-virtual       v1, v2, Lcom/jlboat/phone/message/map_msgs/Config;->setConfigValue(Ljava/lang/String;)V
+
+onClick-BB@0xc0 : [ onClick-BB@0xce ]
+	46      (000000c0) iget-object          v1, v4, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;->configList Ljava/util/List;
+	47      (000000c4) const/16             v2, 9
+	48      (000000c8) invoke-direct        v4, v1, v2, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;->setConfig(Ljava/util/List; I)V
+
+onClick-BB@0xce : 
+	49      (000000ce) return-void          
+

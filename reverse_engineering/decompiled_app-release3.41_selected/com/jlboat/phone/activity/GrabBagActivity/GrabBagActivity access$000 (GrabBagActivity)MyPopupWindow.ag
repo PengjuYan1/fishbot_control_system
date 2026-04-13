@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/activity/GrabBagActivity;->access$000(Lcom/jlboat/phone/activity/GrabBagActivity;)Lcom/jlboat/phone/view/MyPopupWindow; [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.activity.GrabBagActivity
+#
+# - return:com.jlboat.phone.view.MyPopupWindow
+
+access$000-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/jlboat/phone/activity/GrabBagActivity;->popupWindow Lcom/jlboat/phone/view/MyPopupWindow;
+	1       (00000004) return-object        v0
+

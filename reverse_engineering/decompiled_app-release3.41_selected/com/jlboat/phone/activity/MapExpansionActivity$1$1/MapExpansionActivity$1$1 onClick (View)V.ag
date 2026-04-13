@@ -1,0 +1,34 @@
+# Lcom/jlboat/phone/activity/MapExpansionActivity$1$1;->onClick(Landroid/view/View;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v7
+# - v8:android.view.View
+#
+# - return:void
+
+onClick-BB@0x0 : [ onClick-BB@0x18 onClick-BB@0x1a ]
+	0       (00000000) const/4              v0, 0
+	1       (00000002) iget-object          v1, v7, Lcom/jlboat/phone/activity/MapExpansionActivity$1$1;->val$radioGroup Landroid/widget/RadioGroup;
+	2       (00000006) invoke-virtual       v1, Landroid/widget/RadioGroup;->getCheckedRadioButtonId()I
+	3       (0000000c) move-result          v1
+	4       (0000000e) const                v2, 2131231120
+	5       (00000014) if-ne                v1, v2, +003h
+
+onClick-BB@0x18 : [ onClick-BB@0x1a ]
+	6       (00000018) const/4              v0, 1
+
+onClick-BB@0x1a : 
+	7       (0000001a) iget-object          v1, v7, Lcom/jlboat/phone/activity/MapExpansionActivity$1$1;->this$1 Lcom/jlboat/phone/activity/MapExpansionActivity$1;
+	8       (0000001e) iget-object          v1, v1, Lcom/jlboat/phone/activity/MapExpansionActivity$1;->this$0 Lcom/jlboat/phone/activity/MapExpansionActivity;
+	9       (00000022) iget-object          v2, v7, Lcom/jlboat/phone/activity/MapExpansionActivity$1$1;->val$localDataFloor Lcom/boat/support/slam/entity/floors/Floors;
+	10      (00000026) invoke-virtual       v2, Lcom/boat/support/slam/entity/floors/Floors;->getFloorId()J
+	11      (0000002c) move-result-wide     v3
+	12      (0000002e) iget-object          v2, v7, Lcom/jlboat/phone/activity/MapExpansionActivity$1$1;->val$frd Lcom/boat/support/slam/entity/floors/Maps;
+	13      (00000032) invoke-virtual       v2, Lcom/boat/support/slam/entity/floors/Maps;->getMapId()J
+	14      (00000038) move-result-wide     v5
+	15      (0000003a) move                 v2, v0
+	16      (0000003c) invoke-static/range  v1 ... v6, Lcom/jlboat/phone/activity/MapExpansionActivity;->access$200(Lcom/jlboat/phone/activity/MapExpansionActivity; I J J)V
+	17      (00000042) iget-object          v1, v7, Lcom/jlboat/phone/activity/MapExpansionActivity$1$1;->val$alertDialog Landroid/app/AlertDialog;
+	18      (00000046) invoke-virtual       v1, Landroid/app/AlertDialog;->dismiss()V
+	19      (0000004c) return-void          
+

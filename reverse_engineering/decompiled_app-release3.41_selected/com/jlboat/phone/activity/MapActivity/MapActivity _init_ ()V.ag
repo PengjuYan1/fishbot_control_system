@@ -1,0 +1,71 @@
+# Lcom/jlboat/phone/activity/MapActivity;-><init>()V [access_flags=public constructor]
+#
+# Parameters:
+# local registers: v0...v4
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) invoke-direct        v4, Lcom/jlboat/phone/base/BaseFullActivity;-><init>()V
+	1       (00000006) const/4              v0, -1
+	2       (00000008) iput                 v0, v4, Lcom/jlboat/phone/activity/MapActivity;->mapStatus I
+	3       (0000000c) new-instance         v0, Ljava/util/LinkedList;
+	4       (00000010) invoke-direct        v0, Ljava/util/LinkedList;-><init>()V
+	5       (00000016) iput-object          v0, v4, Lcom/jlboat/phone/activity/MapActivity;->chargingPrioritys Ljava/util/List;
+	6       (0000001a) new-instance         v0, Ljava/util/ArrayList;
+	7       (0000001e) invoke-direct        v0, Ljava/util/ArrayList;-><init>()V
+	8       (00000024) iput-object          v0, v4, Lcom/jlboat/phone/activity/MapActivity;->currentFloors Ljava/util/List;
+	9       (00000028) const-wide/16        v0, 0
+	10      (0000002c) iput-wide            v0, v4, Lcom/jlboat/phone/activity/MapActivity;->currentFloorId J
+	11      (00000030) new-instance         v2, Ljava/util/ArrayList;
+	12      (00000034) invoke-direct        v2, Ljava/util/ArrayList;-><init>()V
+	13      (0000003a) iput-object          v2, v4, Lcom/jlboat/phone/activity/MapActivity;->currentMapList Ljava/util/List;
+	14      (0000003e) iput-wide            v0, v4, Lcom/jlboat/phone/activity/MapActivity;->currentMapId J
+	15      (00000042) new-instance         v2, Ljava/util/ArrayList;
+	16      (00000046) invoke-direct        v2, Ljava/util/ArrayList;-><init>()V
+	17      (0000004c) iput-object          v2, v4, Lcom/jlboat/phone/activity/MapActivity;->currentMapPosintList Ljava/util/List;
+	18      (00000050) new-instance         v2, Ljava/util/ArrayList;
+	19      (00000054) invoke-direct        v2, Ljava/util/ArrayList;-><init>()V
+	20      (0000005a) iput-object          v2, v4, Lcom/jlboat/phone/activity/MapActivity;->currentMapSystmePosintList Ljava/util/List;
+	21      (0000005e) new-instance         v2, Ljava/util/LinkedList;
+	22      (00000062) invoke-direct        v2, Ljava/util/LinkedList;-><init>()V
+	23      (00000068) iput-object          v2, v4, Lcom/jlboat/phone/activity/MapActivity;->buildMapLocalAllPoint Ljava/util/List;
+	24      (0000006c) new-instance         v2, Ljava/util/LinkedList;
+	25      (00000070) invoke-direct        v2, Ljava/util/LinkedList;-><init>()V
+	26      (00000076) iput-object          v2, v4, Lcom/jlboat/phone/activity/MapActivity;->buildMapLocalNaviPoints Ljava/util/List;
+	27      (0000007a) new-instance         v2, Ljava/util/LinkedList;
+	28      (0000007e) invoke-direct        v2, Ljava/util/LinkedList;-><init>()V
+	29      (00000084) iput-object          v2, v4, Lcom/jlboat/phone/activity/MapActivity;->buildMapLocalSystemPoint Ljava/util/List;
+	30      (00000088) const/4              v2, 0
+	31      (0000008a) iput-boolean         v2, v4, Lcom/jlboat/phone/activity/MapActivity;->isDialoging Z
+	32      (0000008e) new-instance         v3, Lcom/jlboat/phone/communication/SpiritServiceClient;
+	33      (00000092) invoke-direct        v3, Lcom/jlboat/phone/communication/SpiritServiceClient;-><init>()V
+	34      (00000098) iput-object          v3, v4, Lcom/jlboat/phone/activity/MapActivity;->spiritServiceClient Lcom/jlboat/phone/communication/SpiritServiceClient;
+	35      (0000009c) new-instance         v3, Lcom/jlboat/phone/communication/SpiritTopicListener;
+	36      (000000a0) invoke-direct        v3, Lcom/jlboat/phone/communication/SpiritTopicListener;-><init>()V
+	37      (000000a6) iput-object          v3, v4, Lcom/jlboat/phone/activity/MapActivity;->spiritTopicListener Lcom/jlboat/phone/communication/SpiritTopicListener;
+	38      (000000aa) const/4              v3, 1
+	39      (000000ac) iput                 v3, v4, Lcom/jlboat/phone/activity/MapActivity;->handlerShowMapListDialog I
+	40      (000000b0) const/4              v3, 2
+	41      (000000b2) iput                 v3, v4, Lcom/jlboat/phone/activity/MapActivity;->handlerShowWaitingDialog I
+	42      (000000b6) const/4              v3, 3
+	43      (000000b8) iput                 v3, v4, Lcom/jlboat/phone/activity/MapActivity;->handlerDismissWaitingDialog I
+	44      (000000bc) const/16             v3, 31
+	45      (000000c0) iput                 v3, v4, Lcom/jlboat/phone/activity/MapActivity;->handlerDismissWaitingDialogTimeOut I
+	46      (000000c4) const/4              v3, 4
+	47      (000000c6) iput                 v3, v4, Lcom/jlboat/phone/activity/MapActivity;->handlerShowPosintListDialog I
+	48      (000000ca) const/4              v3, 5
+	49      (000000cc) iput                 v3, v4, Lcom/jlboat/phone/activity/MapActivity;->handlerOneSecondTimer I
+	50      (000000d0) const/16             v3, 11
+	51      (000000d4) iput                 v3, v4, Lcom/jlboat/phone/activity/MapActivity;->handlerGetMapImg I
+	52      (000000d8) const/16             v3, 12
+	53      (000000dc) iput                 v3, v4, Lcom/jlboat/phone/activity/MapActivity;->handlerGetScanImg I
+	54      (000000e0) iput-boolean         v2, v4, Lcom/jlboat/phone/activity/MapActivity;->isMsg8 Z
+	55      (000000e4) iput-boolean         v2, v4, Lcom/jlboat/phone/activity/MapActivity;->isMSg2 Z
+	56      (000000e8) iput-boolean         v2, v4, Lcom/jlboat/phone/activity/MapActivity;->isClearMap Z
+	57      (000000ec) new-instance         v2, Lcom/jlboat/phone/activity/MapActivity$10;
+	58      (000000f0) invoke-direct        v2, v4, Lcom/jlboat/phone/activity/MapActivity$10;-><init>(Lcom/jlboat/phone/activity/MapActivity;)V
+	59      (000000f6) iput-object          v2, v4, Lcom/jlboat/phone/activity/MapActivity;->handler Landroid/os/Handler;
+	60      (000000fa) iput-wide            v0, v4, Lcom/jlboat/phone/activity/MapActivity;->firstTime J
+	61      (000000fe) return-void          
+

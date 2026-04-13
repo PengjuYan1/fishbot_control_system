@@ -1,0 +1,14 @@
+# Lcom/jlboat/phone/controller/JlNaviManager$3;->onNewMessage(Lcom/jlboat/phone/message/map_msgs/SetCocoNumResponse;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:com.jlboat.phone.message.map_msgs.SetCocoNumResponse
+#
+# - return:void
+
+onNewMessage-BB@0x0 : 
+	0       (00000000) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager$3;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	1       (00000004) const-string         v1, "onSuccess: SetCocoNumResponse"
+	2       (00000008) invoke-virtual       v0, v1, Lcom/jlboat/phone/controller/JlNaviManager;->toast(Ljava/lang/String;)V
+	3       (0000000e) return-void          
+

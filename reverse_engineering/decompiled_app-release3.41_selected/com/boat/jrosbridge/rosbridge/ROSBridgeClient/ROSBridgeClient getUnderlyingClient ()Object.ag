@@ -1,0 +1,11 @@
+# Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;->getUnderlyingClient()Ljava/lang/Object; [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:java.lang.Object
+
+getUnderlyingClient-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;->client Lcom/boat/jrosbridge/rosbridge/implementation/ROSBridgeWebSocketClient;
+	1       (00000004) return-object        v0
+

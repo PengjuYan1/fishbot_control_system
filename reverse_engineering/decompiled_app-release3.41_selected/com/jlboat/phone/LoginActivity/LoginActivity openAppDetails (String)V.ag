@@ -1,0 +1,23 @@
+# Lcom/jlboat/phone/LoginActivity;->openAppDetails(Ljava/lang/String;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:java.lang.String
+#
+# - return:void
+
+openAppDetails-BB@0x0 : 
+	0       (00000000) new-instance         v0, Landroid/app/AlertDialog$Builder;
+	1       (00000004) invoke-direct        v0, v3, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+	2       (0000000a) const-string         v1, "申请失败: 您已拒绝权限, 需要定位权限，请到 “应用信息 -> 权限” 中授予！"
+	3       (0000000e) invoke-virtual       v0, v1, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+	4       (00000014) new-instance         v1, Lcom/jlboat/phone/LoginActivity$6;
+	5       (00000018) invoke-direct        v1, v3, Lcom/jlboat/phone/LoginActivity$6;-><init>(Lcom/jlboat/phone/LoginActivity;)V
+	6       (0000001e) const-string         v2, "去手动授权"
+	7       (00000022) invoke-virtual       v0, v2, v1, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence; Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+	8       (00000028) const-string         v1, "取消"
+	9       (0000002c) const/4              v2, 0
+	10      (0000002e) invoke-virtual       v0, v1, v2, Landroid/app/AlertDialog$Builder;->setNegativeButton(Ljava/lang/CharSequence; Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+	11      (00000034) invoke-virtual       v0, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
+	12      (0000003a) return-void          
+

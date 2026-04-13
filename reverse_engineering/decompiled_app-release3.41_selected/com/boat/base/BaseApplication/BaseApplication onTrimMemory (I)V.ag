@@ -1,0 +1,12 @@
+# Lcom/boat/base/BaseApplication;->onTrimMemory(I)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:int
+#
+# - return:void
+
+onTrimMemory-BB@0x0 : 
+	0       (00000000) invoke-super         v0, v1, Landroid/app/Application;->onTrimMemory(I)V
+	1       (00000006) return-void          
+

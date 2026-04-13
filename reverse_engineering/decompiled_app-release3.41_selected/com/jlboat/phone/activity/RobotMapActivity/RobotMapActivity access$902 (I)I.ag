@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/activity/RobotMapActivity;->access$902(I)I [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v-1
+# - v0:int
+#
+# - return:int
+
+access$902-BB@0x0 : 
+	0       (00000000) sput                 v0, Lcom/jlboat/phone/activity/RobotMapActivity;->mapStatus I
+	1       (00000004) return               v0
+

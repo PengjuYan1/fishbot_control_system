@@ -1,0 +1,31 @@
+# Lcom/jlboat/phone/controller/JlNaviManager;->setLocationCorrect(I)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v4
+# - v5:int
+#
+# - return:void
+
+setLocationCorrect-BB@0x0 : [ setLocationCorrect-BB@0x8 setLocationCorrect-BB@0x2c ]
+	0       (00000000) iget-object          v0, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentposeLocationmiss Lcom/boat/jrosbridge/Topic;
+	1       (00000004) if-nez               v0, +014h
+
+setLocationCorrect-BB@0x8 : [ setLocationCorrect-BB@0x2c ]
+	2       (00000008) new-instance         v0, Lcom/boat/jrosbridge/Topic;
+	3       (0000000c) sget-object          v1, Lcom/jlboat/phone/util/TopicNames;->CurrentposeLocationmiss Ljava/lang/String;
+	4       (00000010) const-class          v2, Lcom/boat/jrosbridge/message/std_msgs/Int16;
+	5       (00000014) sget-object          v3, Lcom/jlboat/phone/application/BoatSlamApplication;->client Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;
+	6       (00000018) invoke-direct        v0, v1, v2, v3, Lcom/boat/jrosbridge/Topic;-><init>(Ljava/lang/String; Ljava/lang/Class; Lcom/boat/jrosbridge/ROSClient;)V
+	7       (0000001e) iput-object          v0, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentposeLocationmiss Lcom/boat/jrosbridge/Topic;
+	8       (00000022) iget-object          v0, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentposeLocationmiss Lcom/boat/jrosbridge/Topic;
+	9       (00000026) invoke-virtual       v0, Lcom/boat/jrosbridge/Topic;->advertise()V
+
+setLocationCorrect-BB@0x2c : 
+	10      (0000002c) new-instance         v0, Lcom/boat/jrosbridge/message/std_msgs/Int16;
+	11      (00000030) invoke-direct        v0, Lcom/boat/jrosbridge/message/std_msgs/Int16;-><init>()V
+	12      (00000036) int-to-short         v1, v5
+	13      (00000038) invoke-virtual       v0, v1, Lcom/boat/jrosbridge/message/std_msgs/Int16;->setData(S)V
+	14      (0000003e) iget-object          v1, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentposeLocationmiss Lcom/boat/jrosbridge/Topic;
+	15      (00000042) invoke-virtual       v1, v0, Lcom/boat/jrosbridge/Topic;->publish(Lcom/boat/jrosbridge/message/Message;)V
+	16      (00000048) return-void          
+

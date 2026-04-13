@@ -1,0 +1,69 @@
+# Lcom/jlboat/phone/fragment/settingfragment/NavigationQueueFragment;->getCargoAtoBEntry(Lcom/boat/support/slam/entity/floors/SelectedTestPoint;)V [access_flags=private]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:com.boat.support.slam.entity.floors.SelectedTestPoint
+#
+# - return:void
+
+getCargoAtoBEntry-BB@0x0 : [ getCargoAtoBEntry-BB@0xc getCargoAtoBEntry-BB@0x56 ]
+	0       (00000000) iget                 v0, v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationQueueFragment;->delFlag I
+	1       (00000004) const-string         v1, "cargoAtoBEntry2:"
+	2       (00000008) if-eqz               v0, +027h
+
+getCargoAtoBEntry-BB@0xc : 
+	3       (0000000c) iget                 v0, v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationQueueFragment;->delFlag I
+	4       (00000010) invoke-direct        v3, v4, v0, Lcom/jlboat/phone/fragment/settingfragment/NavigationQueueFragment;->setCargoAtoBEntry(Lcom/boat/support/slam/entity/floors/SelectedTestPoint; I)V
+	5       (00000016) iget-object          v0, v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationQueueFragment;->TAG Ljava/lang/String;
+	6       (0000001a) const-string         v2, "已清除点位"
+	7       (0000001e) invoke-static        v0, v2, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	8       (00000024) iget-object          v0, v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationQueueFragment;->TAG Ljava/lang/String;
+	9       (00000028) new-instance         v2, Ljava/lang/StringBuilder;
+	10      (0000002c) invoke-direct        v2, Ljava/lang/StringBuilder;-><init>()V
+	11      (00000032) invoke-virtual       v2, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	12      (00000038) move-result-object   v1
+	13      (0000003a) iget-object          v2, v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationQueueFragment;->cargoAtoBEntry Lcom/jlboat/phone/message/map_msgs/CargoAtoBEntry;
+	14      (0000003e) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+	15      (00000044) move-result-object   v1
+	16      (00000046) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	17      (0000004c) move-result-object   v1
+	18      (0000004e) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	19      (00000054) return-void          
+
+getCargoAtoBEntry-BB@0x56 : 
+	20      (00000056) const/4              v0, 0
+	21      (00000058) iput                 v0, v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationQueueFragment;->delFlag I
+	22      (0000005c) iget-object          v0, v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationQueueFragment;->selectedPointList Ljava/util/List;
+	23      (00000060) invoke-interface     v0, Ljava/util/List;->size()I
+	24      (00000066) move-result          v0
+	25      (00000068) invoke-direct        v3, v4, v0, Lcom/jlboat/phone/fragment/settingfragment/NavigationQueueFragment;->setCargoAtoBEntry(Lcom/boat/support/slam/entity/floors/SelectedTestPoint; I)V
+	26      (0000006e) iget-object          v0, v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationQueueFragment;->TAG Ljava/lang/String;
+	27      (00000072) const-string         v2, "增加点位"
+	28      (00000076) invoke-static        v0, v2, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	29      (0000007c) iget-object          v0, v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationQueueFragment;->TAG Ljava/lang/String;
+	30      (00000080) new-instance         v2, Ljava/lang/StringBuilder;
+	31      (00000084) invoke-direct        v2, Ljava/lang/StringBuilder;-><init>()V
+	32      (0000008a) invoke-virtual       v2, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	33      (00000090) move-result-object   v1
+	34      (00000092) iget-object          v2, v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationQueueFragment;->cargoAtoBEntry Lcom/jlboat/phone/message/map_msgs/CargoAtoBEntry;
+	35      (00000096) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+	36      (0000009c) move-result-object   v1
+	37      (0000009e) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	38      (000000a4) move-result-object   v1
+	39      (000000a6) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	40      (000000ac) iget-object          v0, v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationQueueFragment;->TAG Ljava/lang/String;
+	41      (000000b0) new-instance         v1, Ljava/lang/StringBuilder;
+	42      (000000b4) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	43      (000000ba) const-string         v2, "selectedPointList.size():"
+	44      (000000be) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	45      (000000c4) move-result-object   v1
+	46      (000000c6) iget-object          v2, v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationQueueFragment;->selectedPointList Ljava/util/List;
+	47      (000000ca) invoke-interface     v2, Ljava/util/List;->size()I
+	48      (000000d0) move-result          v2
+	49      (000000d2) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	50      (000000d8) move-result-object   v1
+	51      (000000da) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	52      (000000e0) move-result-object   v1
+	53      (000000e2) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	54      (000000e8) return-void          
+

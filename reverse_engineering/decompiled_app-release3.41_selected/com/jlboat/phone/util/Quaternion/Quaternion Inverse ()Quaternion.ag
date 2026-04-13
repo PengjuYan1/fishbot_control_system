@@ -1,0 +1,21 @@
+# Lcom/jlboat/phone/util/Quaternion;->Inverse()Lcom/jlboat/phone/util/Quaternion; [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v5
+#
+# - return:com.jlboat.phone.util.Quaternion
+
+Inverse-BB@0x0 : 
+	0       (00000000) move-object          v0, v5
+	1       (00000002) iget-wide            v1, v0, Lcom/jlboat/phone/util/Quaternion;->x D
+	2       (00000006) const-wide/high16    v3, -4616189618054758400
+	3       (0000000a) mul-double           v1, v1, v3
+	4       (0000000e) iput-wide            v1, v0, Lcom/jlboat/phone/util/Quaternion;->x D
+	5       (00000012) iget-wide            v1, v0, Lcom/jlboat/phone/util/Quaternion;->y D
+	6       (00000016) mul-double           v1, v1, v3
+	7       (0000001a) iput-wide            v1, v0, Lcom/jlboat/phone/util/Quaternion;->y D
+	8       (0000001e) iget-wide            v1, v0, Lcom/jlboat/phone/util/Quaternion;->z D
+	9       (00000022) mul-double           v1, v1, v3
+	10      (00000026) iput-wide            v1, v0, Lcom/jlboat/phone/util/Quaternion;->z D
+	11      (0000002a) return-object        v0
+

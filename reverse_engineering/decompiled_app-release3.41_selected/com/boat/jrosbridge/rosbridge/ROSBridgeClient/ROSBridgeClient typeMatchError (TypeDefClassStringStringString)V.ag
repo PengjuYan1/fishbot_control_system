@@ -1,0 +1,52 @@
+# Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;->typeMatchError(Lcom/boat/jrosbridge/message/rosapi/TypeDef; Ljava/lang/Class; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String;)V [access_flags=private]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:com.boat.jrosbridge.message.rosapi.TypeDef
+# - v5:java.lang.Class
+# - v6:java.lang.String
+# - v7:java.lang.String
+# - v8:java.lang.String
+#
+# - return:void
+
+typeMatchError-BB@0x0 : 
+	0       (00000000) new-instance         v0, Ljava/lang/RuntimeException;
+	1       (00000004) new-instance         v1, Ljava/lang/StringBuilder;
+	2       (00000008) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	3       (0000000e) const-string         v2, "Type match error between "
+	4       (00000012) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	5       (00000018) move-result-object   v1
+	6       (0000001a) iget-object          v2, v4, Lcom/boat/jrosbridge/message/rosapi/TypeDef;->type Ljava/lang/String;
+	7       (0000001e) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	8       (00000024) move-result-object   v1
+	9       (00000026) const-string         v2, " and "
+	10      (0000002a) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	11      (00000030) move-result-object   v1
+	12      (00000032) invoke-virtual       v5, Ljava/lang/Class;->getName()Ljava/lang/String;
+	13      (00000038) move-result-object   v2
+	14      (0000003a) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	15      (00000040) move-result-object   v1
+	16      (00000042) const-string         v2, ": "
+	17      (00000046) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	18      (0000004c) move-result-object   v1
+	19      (0000004e) invoke-virtual       v1, v6, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	20      (00000054) move-result-object   v1
+	21      (00000056) const-string         v2, ": '"
+	22      (0000005a) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	23      (00000060) move-result-object   v1
+	24      (00000062) invoke-virtual       v1, v7, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	25      (00000068) move-result-object   v1
+	26      (0000006a) const-string         v2, "' does not match '"
+	27      (0000006e) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	28      (00000074) move-result-object   v1
+	29      (00000076) invoke-virtual       v1, v8, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	30      (0000007c) move-result-object   v1
+	31      (0000007e) const-string         v2, "'."
+	32      (00000082) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	33      (00000088) move-result-object   v1
+	34      (0000008a) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	35      (00000090) move-result-object   v1
+	36      (00000092) invoke-direct        v0, v1, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+	37      (00000098) throw                v0
+

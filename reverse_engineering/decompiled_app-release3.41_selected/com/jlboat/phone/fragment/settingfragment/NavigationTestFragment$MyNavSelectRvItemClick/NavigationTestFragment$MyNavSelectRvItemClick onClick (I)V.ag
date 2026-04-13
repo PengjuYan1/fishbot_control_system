@@ -1,0 +1,20 @@
+# Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment$MyNavSelectRvItemClick;->onClick(I)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:int
+#
+# - return:void
+
+onClick-BB@0x0 : 
+	0       (00000000) iget-object          v0, v2, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment$MyNavSelectRvItemClick;->this$0 Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment;
+	1       (00000004) invoke-static        v0, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment;->access$300(Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment;)Ljava/util/List;
+	2       (0000000a) move-result-object   v0
+	3       (0000000c) invoke-interface     v0, v3, Ljava/util/List;->remove(I)Ljava/lang/Object;
+	4       (00000012) iget-object          v0, v2, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment$MyNavSelectRvItemClick;->this$0 Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment;
+	5       (00000016) invoke-static        v0, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment;->access$1100(Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment;)Landroid/os/Handler;
+	6       (0000001c) move-result-object   v0
+	7       (0000001e) const/16             v1, 101
+	8       (00000022) invoke-virtual       v0, v1, Landroid/os/Handler;->sendEmptyMessage(I)Z
+	9       (00000028) return-void          
+

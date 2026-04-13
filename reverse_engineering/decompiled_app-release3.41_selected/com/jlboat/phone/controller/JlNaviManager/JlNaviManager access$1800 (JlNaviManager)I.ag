@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/controller/JlNaviManager;->access$1800(Lcom/jlboat/phone/controller/JlNaviManager;)I [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.controller.JlNaviManager
+#
+# - return:int
+
+access$1800-BB@0x0 : 
+	0       (00000000) iget                 v0, v1, Lcom/jlboat/phone/controller/JlNaviManager;->currentLocationStatus I
+	1       (00000004) return               v0
+

@@ -1,0 +1,24 @@
+# Lcom/jlboat/phone/activity/MapEditMapActivity2025$4;->onNewMessage(Lcom/jlboat/phone/message/map_msgs/SaveMapStringResponse;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:com.jlboat.phone.message.map_msgs.SaveMapStringResponse
+#
+# - return:void
+
+onNewMessage-BB@0x0 : 
+	0       (00000000) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapEditMapActivity2025$4;->this$0 Lcom/jlboat/phone/activity/MapEditMapActivity2025;
+	1       (00000004) const                v1, 2131493306
+	2       (0000000a) invoke-virtual       v0, v1, Lcom/jlboat/phone/activity/MapEditMapActivity2025;->toast(I)V
+	3       (00000010) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapEditMapActivity2025$4;->this$0 Lcom/jlboat/phone/activity/MapEditMapActivity2025;
+	4       (00000014) invoke-static        v0, Lcom/jlboat/phone/activity/MapEditMapActivity2025;->access$200(Lcom/jlboat/phone/activity/MapEditMapActivity2025;)V
+	5       (0000001a) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapEditMapActivity2025$4;->this$0 Lcom/jlboat/phone/activity/MapEditMapActivity2025;
+	6       (0000001e) invoke-static        v0, Lcom/jlboat/phone/activity/MapEditMapActivity2025;->access$100(Lcom/jlboat/phone/activity/MapEditMapActivity2025;)Landroid/os/Handler;
+	7       (00000024) move-result-object   v0
+	8       (00000026) new-instance         v1, Lcom/jlboat/phone/activity/MapEditMapActivity2025$4$1;
+	9       (0000002a) invoke-direct        v1, v2, Lcom/jlboat/phone/activity/MapEditMapActivity2025$4$1;-><init>(Lcom/jlboat/phone/activity/MapEditMapActivity2025$4;)V
+	10      (00000030) invoke-virtual       v0, v1, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+	11      (00000036) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapEditMapActivity2025$4;->this$0 Lcom/jlboat/phone/activity/MapEditMapActivity2025;
+	12      (0000003a) invoke-static        v0, Lcom/jlboat/phone/activity/MapEditMapActivity2025;->access$500(Lcom/jlboat/phone/activity/MapEditMapActivity2025;)V
+	13      (00000040) return-void          
+

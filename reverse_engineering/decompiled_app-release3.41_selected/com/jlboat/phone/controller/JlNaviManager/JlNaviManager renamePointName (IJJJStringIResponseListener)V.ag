@@ -1,0 +1,51 @@
+# Lcom/jlboat/phone/controller/JlNaviManager;->renamePointName(I J J J Ljava/lang/String; Lcom/boat/support/slam/IResponseListener;)V [access_flags=private]
+#
+# Parameters:
+# - local registers: v0...v16
+# - v17:int
+# - v18:long
+# - v19:long
+# - v20:long
+# - v21:java.lang.String
+# - v22:com.boat.support.slam.IResponseListener
+#
+# - return:void
+
+renamePointName-BB@0x0 : [ renamePointName-BB@0xa renamePointName-BB@0x4a ]
+	0       (00000000) move-object          v0, v13
+	1       (00000002) iget-boolean         v1, v0, Lcom/jlboat/phone/controller/JlNaviManager;->connectStatus Z
+	2       (00000006) if-eqz               v1, +022h
+
+renamePointName-BB@0xa : [ renamePointName-BB@0x12 renamePointName-BB@0x1c ]
+	3       (0000000a) iget-boolean         v1, v0, Lcom/jlboat/phone/controller/JlNaviManager;->isNavigationInited Z
+	4       (0000000e) if-nez               v1, +007h
+
+renamePointName-BB@0x12 : [ renamePointName-BB@0x52 ]
+	5       (00000012) move-object/from16   v1, v21
+	6       (00000016) move-object/from16   v12, v22
+	7       (0000001a) goto                 +1ch
+
+renamePointName-BB@0x1c : 
+	8       (0000001c) iget-object          v2, v0, Lcom/jlboat/phone/controller/JlNaviManager;->spiritServiceClient Lcom/jlboat/phone/communication/SpiritServiceClient;
+	9       (00000020) new-instance         v11, Lcom/jlboat/phone/controller/JlNaviManager$26;
+	10      (00000024) move-object/from16   v1, v21
+	11      (00000028) move-object/from16   v12, v22
+	12      (0000002c) invoke-direct        v11, v13, v12, v1, Lcom/jlboat/phone/controller/JlNaviManager$26;-><init>(Lcom/jlboat/phone/controller/JlNaviManager; Lcom/boat/support/slam/IResponseListener; Ljava/lang/String;)V
+	13      (00000032) move                 v3, v14
+	14      (00000034) move-wide            v4, v15
+	15      (00000036) move-wide/from16     v6, v17
+	16      (0000003a) move-wide/from16     v8, v19
+	17      (0000003e) move-object/from16   v10, v21
+	18      (00000042) invoke-virtual/range v2 ... v11, Lcom/jlboat/phone/communication/SpiritServiceClient;->renamePosintService(I J J J Ljava/lang/String; Lcom/boat/jrosbridge/MessageListener;)V
+	19      (00000048) return-void          
+
+renamePointName-BB@0x4a : [ renamePointName-BB@0x52 ]
+	20      (0000004a) move-object/from16   v1, v21
+	21      (0000004e) move-object/from16   v12, v22
+
+renamePointName-BB@0x52 : 
+	22      (00000052) iget-object          v2, v0, Lcom/jlboat/phone/controller/JlNaviManager;->TAG Ljava/lang/String;
+	23      (00000056) const-string         v3, "renamePointName: 初始化未成功 不能进行数据请求 renamePointName"
+	24      (0000005a) invoke-static        v2, v3, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	25      (00000060) return-void          
+

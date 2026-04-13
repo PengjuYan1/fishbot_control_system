@@ -1,0 +1,196 @@
+# Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;->typeMatch(Lcom/boat/jrosbridge/message/rosapi/TypeDef; Ljava/lang/Class;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v17
+# - v18:com.boat.jrosbridge.message.rosapi.TypeDef
+# - v19:java.lang.Class
+#
+# - return:void
+
+typeMatch-BB@0x0 : [ typeMatch-BB@0xc typeMatch-BB@0x1d6 ]
+	0       (00000000) move-object/from16   v6, v17
+	1       (00000004) move-object/from16   v7, v18
+	2       (00000008) if-eqz               v19, +0e7h
+
+typeMatch-BB@0xc : [ typeMatch-BB@0x18 ]
+	3       (0000000c) invoke-virtual/range v19, Ljava/lang/Class;->getFields()[Ljava/lang/reflect/Field;
+	4       (00000012) move-result-object   v8
+	5       (00000014) const/4              v0, 0
+	6       (00000016) move                 v9, v0
+
+typeMatch-BB@0x18 : [ typeMatch-BB@0x22 typeMatch-BB@0x1d4 ]
+	7       (00000018) iget-object          v0, v7, Lcom/boat/jrosbridge/message/rosapi/TypeDef;->fieldnames [Ljava/lang/String;
+	8       (0000001c) array-length         v0, v0
+	9       (0000001e) if-ge                v9, v0, +0dbh
+
+typeMatch-BB@0x22 : [ typeMatch-BB@0x42 typeMatch-BB@0x5c ]
+	10      (00000022) aget-object          v0, v8, v9
+	11      (00000026) invoke-virtual       v0, Ljava/lang/reflect/Field;->getName()Ljava/lang/String;
+	12      (0000002c) move-result-object   v10
+	13      (0000002e) iget-object          v0, v7, Lcom/boat/jrosbridge/message/rosapi/TypeDef;->fieldnames [Ljava/lang/String;
+	14      (00000032) aget-object          v11, v0, v9
+	15      (00000036) invoke-virtual       v10, v11, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	16      (0000003c) move-result          v0
+	17      (0000003e) if-nez               v0, +00fh
+
+typeMatch-BB@0x42 : [ typeMatch-BB@0x5c ]
+	18      (00000042) const-string         v3, "field name"
+	19      (00000046) move-object/from16   v0, v17
+	20      (0000004a) move-object/from16   v1, v18
+	21      (0000004e) move-object/from16   v2, v19
+	22      (00000052) move-object          v4, v11
+	23      (00000054) move-object          v5, v10
+	24      (00000056) invoke-direct/range  v0 ... v5, Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;->typeMatchError(Lcom/boat/jrosbridge/message/rosapi/TypeDef; Ljava/lang/Class; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String;)V
+
+typeMatch-BB@0x5c : [ typeMatch-BB@0x68 typeMatch-BB@0x6c ]
+	25      (0000005c) iget-object          v0, v7, Lcom/boat/jrosbridge/message/rosapi/TypeDef;->fieldarraylen [I
+	26      (00000060) aget                 v0, v0, v9
+	27      (00000064) if-ltz               v0, +004h
+
+typeMatch-BB@0x68 : [ typeMatch-BB@0x6e ]
+	28      (00000068) const/4              v0, 1
+	29      (0000006a) goto                 +2h
+
+typeMatch-BB@0x6c : [ typeMatch-BB@0x6e ]
+	30      (0000006c) const/4              v0, 0
+
+typeMatch-BB@0x6e : [ typeMatch-BB@0x88 typeMatch-BB@0xa2 ]
+	31      (0000006e) move                 v12, v0
+	32      (00000070) aget-object          v0, v8, v9
+	33      (00000074) invoke-virtual       v0, Ljava/lang/reflect/Field;->getType()Ljava/lang/Class;
+	34      (0000007a) move-result-object   v0
+	35      (0000007c) invoke-virtual       v0, Ljava/lang/Class;->isArray()Z
+	36      (00000082) move-result          v13
+	37      (00000084) if-eq                v12, v13, +00fh
+
+typeMatch-BB@0x88 : [ typeMatch-BB@0xa2 ]
+	38      (00000088) const-string         v3, "array mismatch"
+	39      (0000008c) move-object/from16   v0, v17
+	40      (00000090) move-object/from16   v1, v18
+	41      (00000094) move-object/from16   v2, v19
+	42      (00000098) move-object          v4, v11
+	43      (0000009a) move-object          v5, v10
+	44      (0000009c) invoke-direct/range  v0 ... v5, Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;->typeMatchError(Lcom/boat/jrosbridge/message/rosapi/TypeDef; Ljava/lang/Class; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String;)V
+
+typeMatch-BB@0xa2 : [ typeMatch-BB@0xb2 typeMatch-BB@0xca ]
+	45      (000000a2) aget-object          v0, v8, v9
+	46      (000000a6) invoke-virtual       v0, Ljava/lang/reflect/Field;->getType()Ljava/lang/Class;
+	47      (000000ac) move-result-object   v0
+	48      (000000ae) if-eqz               v13, +00eh
+
+typeMatch-BB@0xb2 : [ typeMatch-BB@0xcc ]
+	49      (000000b2) aget-object          v1, v8, v9
+	50      (000000b6) invoke-virtual       v1, Ljava/lang/reflect/Field;->getType()Ljava/lang/Class;
+	51      (000000bc) move-result-object   v1
+	52      (000000be) invoke-virtual       v1, Ljava/lang/Class;->getComponentType()Ljava/lang/Class;
+	53      (000000c4) move-result-object   v0
+	54      (000000c6) move-object          v14, v0
+	55      (000000c8) goto                 +2h
+
+typeMatch-BB@0xca : [ typeMatch-BB@0xcc ]
+	56      (000000ca) move-object          v14, v0
+
+typeMatch-BB@0xcc : [ typeMatch-BB@0xe0 typeMatch-BB@0x10e ]
+	57      (000000cc) iget-object          v0, v7, Lcom/boat/jrosbridge/message/rosapi/TypeDef;->fieldtypes [Ljava/lang/String;
+	58      (000000d0) aget-object          v15, v0, v9
+	59      (000000d4) invoke-static        v14, Lcom/boat/jrosbridge/message/Message;->isPrimitive(Ljava/lang/Class;)Z
+	60      (000000da) move-result          v0
+	61      (000000dc) if-eqz               v0, +019h
+
+typeMatch-BB@0xe0 : [ typeMatch-BB@0xec typeMatch-BB@0x172 ]
+	62      (000000e0) invoke-static        v15, v14, Lcom/boat/jrosbridge/message/rosapi/TypeDef;->match(Ljava/lang/String; Ljava/lang/Class;)Z
+	63      (000000e6) move-result          v0
+	64      (000000e8) if-nez               v0, +045h
+
+typeMatch-BB@0xec : [ typeMatch-BB@0x172 ]
+	65      (000000ec) const-string         v3, "type mismatch"
+	66      (000000f0) invoke-virtual       v14, Ljava/lang/Class;->getName()Ljava/lang/String;
+	67      (000000f6) move-result-object   v5
+	68      (000000f8) move-object/from16   v0, v17
+	69      (000000fc) move-object/from16   v1, v18
+	70      (00000100) move-object/from16   v2, v19
+	71      (00000104) move-object          v4, v15
+	72      (00000106) invoke-direct/range  v0 ... v5, Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;->typeMatchError(Lcom/boat/jrosbridge/message/rosapi/TypeDef; Ljava/lang/Class; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String;)V
+	73      (0000010c) goto                 +33h
+
+typeMatch-BB@0x10e : [ typeMatch-BB@0x11e typeMatch-BB@0x17a ]
+	74      (0000010e) const-class          v0, Lcom/boat/jrosbridge/message/Message;
+	75      (00000112) invoke-virtual       v0, v14, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
+	76      (00000118) move-result          v0
+	77      (0000011a) if-eqz               v0, +030h
+
+typeMatch-BB@0x11e : [ typeMatch-BB@0x142 typeMatch-BB@0x160 ]
+	78      (0000011e) const-class          v0, Lcom/boat/jrosbridge/message/MessageType;
+	79      (00000122) invoke-virtual       v14, v0, Ljava/lang/Class;->getAnnotation(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
+	80      (00000128) move-result-object   v0
+	81      (0000012a) check-cast           v0, Lcom/boat/jrosbridge/message/MessageType;
+	82      (0000012e) invoke-interface     v0, Lcom/boat/jrosbridge/message/MessageType;->string()Ljava/lang/String;
+	83      (00000134) move-result-object   v5
+	84      (00000136) invoke-virtual       v15, v5, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	85      (0000013c) move-result          v0
+	86      (0000013e) if-nez               v0, +011h
+
+typeMatch-BB@0x142 : [ typeMatch-BB@0x164 ]
+	87      (00000142) const-string         v3, "message type mismatch"
+	88      (00000146) move-object/from16   v0, v17
+	89      (0000014a) move-object/from16   v1, v18
+	90      (0000014e) move-object/from16   v2, v19
+	91      (00000152) move-object          v4, v15
+	92      (00000154) move-object/from16   v16, v5
+	93      (00000158) invoke-direct/range  v0 ... v5, Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;->typeMatchError(Lcom/boat/jrosbridge/message/rosapi/TypeDef; Ljava/lang/Class; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String;)V
+	94      (0000015e) goto                 +3h
+
+typeMatch-BB@0x160 : [ typeMatch-BB@0x164 ]
+	95      (00000160) move-object/from16   v16, v5
+
+typeMatch-BB@0x164 : [ typeMatch-BB@0x172 ]
+	96      (00000164) invoke-virtual       v6, v15, Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;->getTypeDetails(Ljava/lang/String;)Lcom/boat/jrosbridge/message/rosapi/TypeDef;
+	97      (0000016a) move-result-object   v0
+	98      (0000016c) invoke-virtual       v6, v0, v14, Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;->typeMatch(Lcom/boat/jrosbridge/message/rosapi/TypeDef; Ljava/lang/Class;)V
+
+typeMatch-BB@0x172 : [ typeMatch-BB@0x18 ]
+	99      (00000172) add-int/lit8         v9, v9, 1
+	100     (00000176) goto/16              -0afh
+
+typeMatch-BB@0x17a : 
+	101     (0000017a) new-instance         v0, Ljava/lang/RuntimeException;
+	102     (0000017e) new-instance         v1, Ljava/lang/StringBuilder;
+	103     (00000182) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	104     (00000188) const-string         v2, "Member "
+	105     (0000018c) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	106     (00000192) move-result-object   v1
+	107     (00000194) invoke-virtual       v1, v10, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	108     (0000019a) move-result-object   v1
+	109     (0000019c) const-string         v2, " of class "
+	110     (000001a0) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	111     (000001a6) move-result-object   v1
+	112     (000001a8) invoke-virtual       v14, Ljava/lang/Class;->getName()Ljava/lang/String;
+	113     (000001ae) move-result-object   v2
+	114     (000001b0) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	115     (000001b6) move-result-object   v1
+	116     (000001b8) const-string         v2, " does not extend Message."
+	117     (000001bc) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	118     (000001c2) move-result-object   v1
+	119     (000001c4) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	120     (000001ca) move-result-object   v1
+	121     (000001cc) invoke-direct        v0, v1, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+	122     (000001d2) throw                v0
+
+typeMatch-BB@0x1d4 : 
+	123     (000001d4) return-void          
+
+typeMatch-BB@0x1d6 : 
+	124     (000001d6) new-instance         v0, Ljava/lang/RuntimeException;
+	125     (000001da) new-instance         v1, Ljava/lang/StringBuilder;
+	126     (000001de) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	127     (000001e4) const-string         v2, "No registered message type found for: "
+	128     (000001e8) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	129     (000001ee) move-result-object   v1
+	130     (000001f0) iget-object          v2, v7, Lcom/boat/jrosbridge/message/rosapi/TypeDef;->type Ljava/lang/String;
+	131     (000001f4) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	132     (000001fa) move-result-object   v1
+	133     (000001fc) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	134     (00000202) move-result-object   v1
+	135     (00000204) invoke-direct        v0, v1, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+	136     (0000020a) throw                v0
+

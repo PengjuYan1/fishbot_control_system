@@ -1,0 +1,25 @@
+# Lcom/boat/support/slam/entity/floors/Floors;-><init>(Landroid/os/Parcel;)V [access_flags=protected constructor]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:android.os.Parcel
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) invoke-direct        v2, Ljava/lang/Object;-><init>()V
+	1       (00000006) invoke-virtual       v3, Landroid/os/Parcel;->readString()Ljava/lang/String;
+	2       (0000000c) move-result-object   v0
+	3       (0000000e) iput-object          v0, v2, Lcom/boat/support/slam/entity/floors/Floors;->floorName Ljava/lang/String;
+	4       (00000012) invoke-virtual       v3, Landroid/os/Parcel;->readLong()J
+	5       (00000018) move-result-wide     v0
+	6       (0000001a) iput-wide            v0, v2, Lcom/boat/support/slam/entity/floors/Floors;->floorId J
+	7       (0000001e) invoke-virtual       v3, Landroid/os/Parcel;->readLong()J
+	8       (00000024) move-result-wide     v0
+	9       (00000026) iput-wide            v0, v2, Lcom/boat/support/slam/entity/floors/Floors;->defaultmap J
+	10      (0000002a) sget-object          v0, Lcom/boat/support/slam/entity/floors/Maps;->CREATOR Landroid/os/Parcelable$Creator;
+	11      (0000002e) invoke-virtual       v3, v0, Landroid/os/Parcel;->createTypedArrayList(Landroid/os/Parcelable$Creator;)Ljava/util/ArrayList;
+	12      (00000034) move-result-object   v0
+	13      (00000036) iput-object          v0, v2, Lcom/boat/support/slam/entity/floors/Floors;->maps Ljava/util/List;
+	14      (0000003a) return-void          
+

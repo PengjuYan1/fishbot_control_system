@@ -1,0 +1,40 @@
+# Lcom/jlboat/phone/view/LaserCameraView;->onStart()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v4
+#
+# - return:void
+
+onStart-BB@0x0 : 
+	0       (00000000) new-instance         v0, Lcom/boat/jrosbridge/Topic;
+	1       (00000004) const-class          v1, Lcom/boat/jrosbridge/message/sensor_msgs/LaserScan;
+	2       (00000008) sget-object          v2, Lcom/jlboat/phone/application/BoatSlamApplication;->client Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;
+	3       (0000000c) const-string         v3, "/camera_01/scan"
+	4       (00000010) invoke-direct        v0, v3, v1, v2, Lcom/boat/jrosbridge/Topic;-><init>(Ljava/lang/String; Ljava/lang/Class; Lcom/boat/jrosbridge/ROSClient;)V
+	5       (00000016) iput-object          v0, v4, Lcom/jlboat/phone/view/LaserCameraView;->subscriber01 Lcom/boat/jrosbridge/Topic;
+	6       (0000001a) iget-object          v0, v4, Lcom/jlboat/phone/view/LaserCameraView;->subscriber01 Lcom/boat/jrosbridge/Topic;
+	7       (0000001e) new-instance         v1, Lcom/jlboat/phone/view/LaserCameraView$1;
+	8       (00000022) invoke-direct        v1, v4, Lcom/jlboat/phone/view/LaserCameraView$1;-><init>(Lcom/jlboat/phone/view/LaserCameraView;)V
+	9       (00000028) invoke-virtual       v0, v1, Lcom/boat/jrosbridge/Topic;->subscribe(Lcom/boat/jrosbridge/MessageListener;)V
+	10      (0000002e) new-instance         v0, Lcom/boat/jrosbridge/Topic;
+	11      (00000032) const-class          v1, Lcom/boat/jrosbridge/message/sensor_msgs/LaserScan;
+	12      (00000036) sget-object          v2, Lcom/jlboat/phone/application/BoatSlamApplication;->client Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;
+	13      (0000003a) const-string         v3, "/camera_02/scan"
+	14      (0000003e) invoke-direct        v0, v3, v1, v2, Lcom/boat/jrosbridge/Topic;-><init>(Ljava/lang/String; Ljava/lang/Class; Lcom/boat/jrosbridge/ROSClient;)V
+	15      (00000044) iput-object          v0, v4, Lcom/jlboat/phone/view/LaserCameraView;->subscriber02 Lcom/boat/jrosbridge/Topic;
+	16      (00000048) iget-object          v0, v4, Lcom/jlboat/phone/view/LaserCameraView;->subscriber02 Lcom/boat/jrosbridge/Topic;
+	17      (0000004c) new-instance         v1, Lcom/jlboat/phone/view/LaserCameraView$2;
+	18      (00000050) invoke-direct        v1, v4, Lcom/jlboat/phone/view/LaserCameraView$2;-><init>(Lcom/jlboat/phone/view/LaserCameraView;)V
+	19      (00000056) invoke-virtual       v0, v1, Lcom/boat/jrosbridge/Topic;->subscribe(Lcom/boat/jrosbridge/MessageListener;)V
+	20      (0000005c) new-instance         v0, Lcom/boat/jrosbridge/Topic;
+	21      (00000060) const-class          v1, Lcom/boat/jrosbridge/message/sensor_msgs/LaserScan;
+	22      (00000064) sget-object          v2, Lcom/jlboat/phone/application/BoatSlamApplication;->client Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;
+	23      (00000068) const-string         v3, "/camera_03/scan"
+	24      (0000006c) invoke-direct        v0, v3, v1, v2, Lcom/boat/jrosbridge/Topic;-><init>(Ljava/lang/String; Ljava/lang/Class; Lcom/boat/jrosbridge/ROSClient;)V
+	25      (00000072) iput-object          v0, v4, Lcom/jlboat/phone/view/LaserCameraView;->subscriber03 Lcom/boat/jrosbridge/Topic;
+	26      (00000076) iget-object          v0, v4, Lcom/jlboat/phone/view/LaserCameraView;->subscriber03 Lcom/boat/jrosbridge/Topic;
+	27      (0000007a) new-instance         v1, Lcom/jlboat/phone/view/LaserCameraView$3;
+	28      (0000007e) invoke-direct        v1, v4, Lcom/jlboat/phone/view/LaserCameraView$3;-><init>(Lcom/jlboat/phone/view/LaserCameraView;)V
+	29      (00000084) invoke-virtual       v0, v1, Lcom/boat/jrosbridge/Topic;->subscribe(Lcom/boat/jrosbridge/MessageListener;)V
+	30      (0000008a) return-void          
+

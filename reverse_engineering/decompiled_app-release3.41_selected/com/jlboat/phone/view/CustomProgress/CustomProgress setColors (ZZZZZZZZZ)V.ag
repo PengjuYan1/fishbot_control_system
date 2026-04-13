@@ -1,0 +1,184 @@
+# Lcom/jlboat/phone/view/CustomProgress;->setColors(Z Z Z Z Z Z Z Z Z)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v6
+# - v7:boolean
+# - v8:boolean
+# - v9:boolean
+# - v10:boolean
+# - v11:boolean
+# - v12:boolean
+# - v13:boolean
+# - v14:boolean
+# - v15:boolean
+#
+# - return:void
+
+setColors-BB@0x0 : [ setColors-BB@0x1e setColors-BB@0x26 ]
+	0       (00000000) const/4              v0, 1
+	1       (00000002) iput-boolean         v0, v6, Lcom/jlboat/phone/view/CustomProgress;->reui Z
+	2       (00000006) invoke-virtual       v6, Lcom/jlboat/phone/view/CustomProgress;->getContext()Landroid/content/Context;
+	3       (0000000c) move-result-object   v0
+	4       (0000000e) const                v1, 2131427372
+	5       (00000014) const                v2, 2131427349
+	6       (0000001a) if-eqz               v7, +006h
+
+setColors-BB@0x1e : [ setColors-BB@0x2c ]
+	7       (0000001e) const                v3, 2131427372
+	8       (00000024) goto                 +4h
+
+setColors-BB@0x26 : [ setColors-BB@0x2c ]
+	9       (00000026) const                v3, 2131427349
+
+setColors-BB@0x2c : [ setColors-BB@0x4a setColors-BB@0x52 ]
+	10      (0000002c) invoke-static        v0, v3, Landroid/support/v4/content/ContextCompat;->getDrawable(Landroid/content/Context; I)Landroid/graphics/drawable/Drawable;
+	11      (00000032) move-result-object   v0
+	12      (00000034) iput-object          v0, v6, Lcom/jlboat/phone/view/CustomProgress;->mIcon0 Landroid/graphics/drawable/Drawable;
+	13      (00000038) invoke-virtual       v6, Lcom/jlboat/phone/view/CustomProgress;->getContext()Landroid/content/Context;
+	14      (0000003e) move-result-object   v0
+	15      (00000040) const                v3, 2131427350
+	16      (00000046) if-eqz               v8, +006h
+
+setColors-BB@0x4a : [ setColors-BB@0x58 ]
+	17      (0000004a) const                v4, 2131427350
+	18      (00000050) goto                 +4h
+
+setColors-BB@0x52 : [ setColors-BB@0x58 ]
+	19      (00000052) const                v4, 2131427349
+
+setColors-BB@0x58 : [ setColors-BB@0x76 setColors-BB@0x7e ]
+	20      (00000058) invoke-static        v0, v4, Landroid/support/v4/content/ContextCompat;->getDrawable(Landroid/content/Context; I)Landroid/graphics/drawable/Drawable;
+	21      (0000005e) move-result-object   v0
+	22      (00000060) iput-object          v0, v6, Lcom/jlboat/phone/view/CustomProgress;->mIcon1 Landroid/graphics/drawable/Drawable;
+	23      (00000064) invoke-virtual       v6, Lcom/jlboat/phone/view/CustomProgress;->getContext()Landroid/content/Context;
+	24      (0000006a) move-result-object   v0
+	25      (0000006c) const                v4, 2131427336
+	26      (00000072) if-eqz               v9, +006h
+
+setColors-BB@0x76 : [ setColors-BB@0x84 ]
+	27      (00000076) const                v5, 2131427336
+	28      (0000007c) goto                 +4h
+
+setColors-BB@0x7e : [ setColors-BB@0x84 ]
+	29      (0000007e) const                v5, 2131427349
+
+setColors-BB@0x84 : [ setColors-BB@0x9c setColors-BB@0xa4 ]
+	30      (00000084) invoke-static        v0, v5, Landroid/support/v4/content/ContextCompat;->getDrawable(Landroid/content/Context; I)Landroid/graphics/drawable/Drawable;
+	31      (0000008a) move-result-object   v0
+	32      (0000008c) iput-object          v0, v6, Lcom/jlboat/phone/view/CustomProgress;->mIcon2 Landroid/graphics/drawable/Drawable;
+	33      (00000090) invoke-virtual       v6, Lcom/jlboat/phone/view/CustomProgress;->getContext()Landroid/content/Context;
+	34      (00000096) move-result-object   v0
+	35      (00000098) if-eqz               v10, +006h
+
+setColors-BB@0x9c : [ setColors-BB@0xaa ]
+	36      (0000009c) const                v5, 2131427372
+	37      (000000a2) goto                 +4h
+
+setColors-BB@0xa4 : [ setColors-BB@0xaa ]
+	38      (000000a4) const                v5, 2131427349
+
+setColors-BB@0xaa : [ setColors-BB@0xc2 setColors-BB@0xca ]
+	39      (000000aa) invoke-static        v0, v5, Landroid/support/v4/content/ContextCompat;->getDrawable(Landroid/content/Context; I)Landroid/graphics/drawable/Drawable;
+	40      (000000b0) move-result-object   v0
+	41      (000000b2) iput-object          v0, v6, Lcom/jlboat/phone/view/CustomProgress;->mIcon3 Landroid/graphics/drawable/Drawable;
+	42      (000000b6) invoke-virtual       v6, Lcom/jlboat/phone/view/CustomProgress;->getContext()Landroid/content/Context;
+	43      (000000bc) move-result-object   v0
+	44      (000000be) if-eqz               v11, +006h
+
+setColors-BB@0xc2 : [ setColors-BB@0xd0 ]
+	45      (000000c2) const                v5, 2131427350
+	46      (000000c8) goto                 +4h
+
+setColors-BB@0xca : [ setColors-BB@0xd0 ]
+	47      (000000ca) const                v5, 2131427349
+
+setColors-BB@0xd0 : [ setColors-BB@0xe8 setColors-BB@0xf0 ]
+	48      (000000d0) invoke-static        v0, v5, Landroid/support/v4/content/ContextCompat;->getDrawable(Landroid/content/Context; I)Landroid/graphics/drawable/Drawable;
+	49      (000000d6) move-result-object   v0
+	50      (000000d8) iput-object          v0, v6, Lcom/jlboat/phone/view/CustomProgress;->mIcon4 Landroid/graphics/drawable/Drawable;
+	51      (000000dc) invoke-virtual       v6, Lcom/jlboat/phone/view/CustomProgress;->getContext()Landroid/content/Context;
+	52      (000000e2) move-result-object   v0
+	53      (000000e4) if-eqz               v12, +006h
+
+setColors-BB@0xe8 : [ setColors-BB@0xf6 ]
+	54      (000000e8) const                v5, 2131427336
+	55      (000000ee) goto                 +4h
+
+setColors-BB@0xf0 : [ setColors-BB@0xf6 ]
+	56      (000000f0) const                v5, 2131427349
+
+setColors-BB@0xf6 : [ setColors-BB@0x10e setColors-BB@0x110 ]
+	57      (000000f6) invoke-static        v0, v5, Landroid/support/v4/content/ContextCompat;->getDrawable(Landroid/content/Context; I)Landroid/graphics/drawable/Drawable;
+	58      (000000fc) move-result-object   v0
+	59      (000000fe) iput-object          v0, v6, Lcom/jlboat/phone/view/CustomProgress;->mIcon5 Landroid/graphics/drawable/Drawable;
+	60      (00000102) invoke-virtual       v6, Lcom/jlboat/phone/view/CustomProgress;->getContext()Landroid/content/Context;
+	61      (00000108) move-result-object   v0
+	62      (0000010a) if-eqz               v13, +003h
+
+setColors-BB@0x10e : [ setColors-BB@0x116 ]
+	63      (0000010e) goto                 +4h
+
+setColors-BB@0x110 : [ setColors-BB@0x116 ]
+	64      (00000110) const                v1, 2131427349
+
+setColors-BB@0x116 : [ setColors-BB@0x12e setColors-BB@0x130 ]
+	65      (00000116) invoke-static        v0, v1, Landroid/support/v4/content/ContextCompat;->getDrawable(Landroid/content/Context; I)Landroid/graphics/drawable/Drawable;
+	66      (0000011c) move-result-object   v0
+	67      (0000011e) iput-object          v0, v6, Lcom/jlboat/phone/view/CustomProgress;->mIcon6 Landroid/graphics/drawable/Drawable;
+	68      (00000122) invoke-virtual       v6, Lcom/jlboat/phone/view/CustomProgress;->getContext()Landroid/content/Context;
+	69      (00000128) move-result-object   v0
+	70      (0000012a) if-eqz               v14, +003h
+
+setColors-BB@0x12e : [ setColors-BB@0x136 ]
+	71      (0000012e) goto                 +4h
+
+setColors-BB@0x130 : [ setColors-BB@0x136 ]
+	72      (00000130) const                v3, 2131427349
+
+setColors-BB@0x136 : [ setColors-BB@0x14e setColors-BB@0x154 ]
+	73      (00000136) invoke-static        v0, v3, Landroid/support/v4/content/ContextCompat;->getDrawable(Landroid/content/Context; I)Landroid/graphics/drawable/Drawable;
+	74      (0000013c) move-result-object   v0
+	75      (0000013e) iput-object          v0, v6, Lcom/jlboat/phone/view/CustomProgress;->mIcon7 Landroid/graphics/drawable/Drawable;
+	76      (00000142) invoke-virtual       v6, Lcom/jlboat/phone/view/CustomProgress;->getContext()Landroid/content/Context;
+	77      (00000148) move-result-object   v0
+	78      (0000014a) if-eqz               v15, +005h
+
+setColors-BB@0x14e : [ setColors-BB@0x154 ]
+	79      (0000014e) const                v2, 2131427336
+
+setColors-BB@0x154 : 
+	80      (00000154) invoke-static        v0, v2, Landroid/support/v4/content/ContextCompat;->getDrawable(Landroid/content/Context; I)Landroid/graphics/drawable/Drawable;
+	81      (0000015a) move-result-object   v0
+	82      (0000015c) iput-object          v0, v6, Lcom/jlboat/phone/view/CustomProgress;->mIcon8 Landroid/graphics/drawable/Drawable;
+	83      (00000160) iget-object          v0, v6, Lcom/jlboat/phone/view/CustomProgress;->mIcon0 Landroid/graphics/drawable/Drawable;
+	84      (00000164) iget-object          v1, v6, Lcom/jlboat/phone/view/CustomProgress;->rect0 Landroid/graphics/Rect;
+	85      (00000168) invoke-virtual       v0, v1, Landroid/graphics/drawable/Drawable;->setBounds(Landroid/graphics/Rect;)V
+	86      (0000016e) iget-object          v0, v6, Lcom/jlboat/phone/view/CustomProgress;->mIcon1 Landroid/graphics/drawable/Drawable;
+	87      (00000172) iget-object          v1, v6, Lcom/jlboat/phone/view/CustomProgress;->rect1 Landroid/graphics/Rect;
+	88      (00000176) invoke-virtual       v0, v1, Landroid/graphics/drawable/Drawable;->setBounds(Landroid/graphics/Rect;)V
+	89      (0000017c) iget-object          v0, v6, Lcom/jlboat/phone/view/CustomProgress;->mIcon2 Landroid/graphics/drawable/Drawable;
+	90      (00000180) iget-object          v1, v6, Lcom/jlboat/phone/view/CustomProgress;->rect2 Landroid/graphics/Rect;
+	91      (00000184) invoke-virtual       v0, v1, Landroid/graphics/drawable/Drawable;->setBounds(Landroid/graphics/Rect;)V
+	92      (0000018a) iget-object          v0, v6, Lcom/jlboat/phone/view/CustomProgress;->mIcon3 Landroid/graphics/drawable/Drawable;
+	93      (0000018e) iget-object          v1, v6, Lcom/jlboat/phone/view/CustomProgress;->rect3 Landroid/graphics/Rect;
+	94      (00000192) invoke-virtual       v0, v1, Landroid/graphics/drawable/Drawable;->setBounds(Landroid/graphics/Rect;)V
+	95      (00000198) iget-object          v0, v6, Lcom/jlboat/phone/view/CustomProgress;->mIcon4 Landroid/graphics/drawable/Drawable;
+	96      (0000019c) iget-object          v1, v6, Lcom/jlboat/phone/view/CustomProgress;->rect4 Landroid/graphics/Rect;
+	97      (000001a0) invoke-virtual       v0, v1, Landroid/graphics/drawable/Drawable;->setBounds(Landroid/graphics/Rect;)V
+	98      (000001a6) iget-object          v0, v6, Lcom/jlboat/phone/view/CustomProgress;->mIcon5 Landroid/graphics/drawable/Drawable;
+	99      (000001aa) iget-object          v1, v6, Lcom/jlboat/phone/view/CustomProgress;->rect5 Landroid/graphics/Rect;
+	100     (000001ae) invoke-virtual       v0, v1, Landroid/graphics/drawable/Drawable;->setBounds(Landroid/graphics/Rect;)V
+	101     (000001b4) iget-object          v0, v6, Lcom/jlboat/phone/view/CustomProgress;->mIcon6 Landroid/graphics/drawable/Drawable;
+	102     (000001b8) iget-object          v1, v6, Lcom/jlboat/phone/view/CustomProgress;->rect6 Landroid/graphics/Rect;
+	103     (000001bc) invoke-virtual       v0, v1, Landroid/graphics/drawable/Drawable;->setBounds(Landroid/graphics/Rect;)V
+	104     (000001c2) iget-object          v0, v6, Lcom/jlboat/phone/view/CustomProgress;->mIcon7 Landroid/graphics/drawable/Drawable;
+	105     (000001c6) iget-object          v1, v6, Lcom/jlboat/phone/view/CustomProgress;->rect7 Landroid/graphics/Rect;
+	106     (000001ca) invoke-virtual       v0, v1, Landroid/graphics/drawable/Drawable;->setBounds(Landroid/graphics/Rect;)V
+	107     (000001d0) iget-object          v0, v6, Lcom/jlboat/phone/view/CustomProgress;->mIcon8 Landroid/graphics/drawable/Drawable;
+	108     (000001d4) iget-object          v1, v6, Lcom/jlboat/phone/view/CustomProgress;->rect8 Landroid/graphics/Rect;
+	109     (000001d8) invoke-virtual       v0, v1, Landroid/graphics/drawable/Drawable;->setBounds(Landroid/graphics/Rect;)V
+	110     (000001de) const/4              v0, 0
+	111     (000001e0) iput-boolean         v0, v6, Lcom/jlboat/phone/view/CustomProgress;->reui Z
+	112     (000001e4) invoke-virtual       v6, Lcom/jlboat/phone/view/CustomProgress;->invalidate()V
+	113     (000001ea) return-void          
+

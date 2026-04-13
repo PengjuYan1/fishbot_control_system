@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/activity/DiyPointPathActivity;->access$2200(Lcom/jlboat/phone/activity/DiyPointPathActivity;)V [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v-1
+# - v0:com.jlboat.phone.activity.DiyPointPathActivity
+#
+# - return:void
+
+access$2200-BB@0x0 : 
+	0       (00000000) invoke-direct        v0, Lcom/jlboat/phone/activity/DiyPointPathActivity;->getDefConfig()V
+	1       (00000006) return-void          
+

@@ -1,0 +1,34 @@
+# Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;->findParentFloorOfPoint(I)Lcom/boat/support/slam/entity/floors/Floors; [access_flags=private]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:int
+#
+# - return:com.boat.support.slam.entity.floors.Floors
+
+findParentFloorOfPoint-BB@0x0 : [ findParentFloorOfPoint-BB@0x4 ]
+	0       (00000000) add-int/lit8         v0, v4, -1
+
+findParentFloorOfPoint-BB@0x4 : [ findParentFloorOfPoint-BB@0x8 findParentFloorOfPoint-BB@0x2a ]
+	1       (00000004) if-ltz               v0, +013h
+
+findParentFloorOfPoint-BB@0x8 : [ findParentFloorOfPoint-BB@0x1c findParentFloorOfPoint-BB@0x24 ]
+	2       (00000008) iget-object          v1, v3, Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;->listData Ljava/util/List;
+	3       (0000000c) invoke-interface     v1, v0, Ljava/util/List;->get(I)Ljava/lang/Object;
+	4       (00000012) move-result-object   v1
+	5       (00000014) instance-of          v2, v1, Lcom/boat/support/slam/entity/floors/Floors;
+	6       (00000018) if-eqz               v2, +006h
+
+findParentFloorOfPoint-BB@0x1c : 
+	7       (0000001c) move-object          v2, v1
+	8       (0000001e) check-cast           v2, Lcom/boat/support/slam/entity/floors/Floors;
+	9       (00000022) return-object        v2
+
+findParentFloorOfPoint-BB@0x24 : [ findParentFloorOfPoint-BB@0x4 ]
+	10      (00000024) add-int/lit8         v0, v0, -1
+	11      (00000028) goto                 -12h
+
+findParentFloorOfPoint-BB@0x2a : 
+	12      (0000002a) const/4              v0, 0
+	13      (0000002c) return-object        v0
+

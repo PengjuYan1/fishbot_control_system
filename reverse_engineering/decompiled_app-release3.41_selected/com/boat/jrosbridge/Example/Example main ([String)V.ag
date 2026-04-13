@@ -1,0 +1,44 @@
+# Lcom/boat/jrosbridge/Example;->main([Ljava/lang/String;)V [access_flags=public static]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:java.lang.String[]
+#
+# - return:void
+
+main-BB@0x0 : [ main-BB@0x14 ]
+	0       (00000000) new-instance         v0, Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;
+	1       (00000004) const-string         v1, "ws://162.243.238.80:9090"
+	2       (00000008) invoke-direct        v0, v1, Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;-><init>(Ljava/lang/String;)V
+	3       (0000000e) invoke-virtual       v0, Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;->connect()Z
+
+main-BB@0x14 : [ main-BB@0x1a ]
+	4       (00000014) invoke-static        v0, Lcom/boat/jrosbridge/Example;->testService(Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;)V
+	14:19
+	(Ljava/lang/RuntimeException; -> 26 main-BB@0x26)
+	(Ljava/lang/Throwable; -> 22 main-BB@0x22)
+
+main-BB@0x1a : [ main-BB@0x30 ]
+	5       (0000001a) invoke-virtual       v0, Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;->disconnect()V
+	6       (00000020) goto                 +8h
+
+main-BB@0x22 : [ main-BB@0x32 ]
+	7       (00000022) move-exception       v1
+	8       (00000024) goto                 +7h
+
+main-BB@0x26 : [ main-BB@0x28 ]
+	9       (00000026) move-exception       v1
+
+main-BB@0x28 : [ main-BB@0x1a ]
+	10      (00000028) invoke-virtual       v1, Ljava/lang/RuntimeException;->printStackTrace()V
+	11      (0000002e) goto                 -ah
+	28:2d
+	(Ljava/lang/Throwable; -> 22 main-BB@0x22)
+
+main-BB@0x30 : 
+	12      (00000030) return-void          
+
+main-BB@0x32 : 
+	13      (00000032) invoke-virtual       v0, Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;->disconnect()V
+	14      (00000038) throw                v1
+

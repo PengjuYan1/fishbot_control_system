@@ -1,0 +1,11 @@
+# Lcom/boat/support/slam/entity/floors/ShapeAreas;->getCircle()Lcom/boat/support/slam/entity/floors/Circle; [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:com.boat.support.slam.entity.floors.Circle
+
+getCircle-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/boat/support/slam/entity/floors/ShapeAreas;->circle Lcom/boat/support/slam/entity/floors/Circle;
+	1       (00000004) return-object        v0
+

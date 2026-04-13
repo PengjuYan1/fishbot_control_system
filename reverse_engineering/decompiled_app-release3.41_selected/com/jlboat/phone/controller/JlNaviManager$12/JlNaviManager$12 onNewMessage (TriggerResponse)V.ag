@@ -1,0 +1,167 @@
+# Lcom/jlboat/phone/controller/JlNaviManager$12;->onNewMessage(Lcom/boat/jrosbridge/message/std_srvs/TriggerResponse;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v7
+# - v8:com.boat.jrosbridge.message.std_srvs.TriggerResponse
+#
+# - return:void
+
+onNewMessage-BB@0x0 : [ onNewMessage-BB@0xc onNewMessage-BB@0x186 ]
+	0       (00000000) invoke-virtual       v8, Lcom/boat/jrosbridge/message/std_srvs/TriggerResponse;->getSuccess()Z
+	1       (00000006) move-result          v0
+	2       (00000008) if-eqz               v0, +0bfh
+
+onNewMessage-BB@0xc : [ onNewMessage-BB@0x20 onNewMessage-BB@0x22 ]
+	3       (0000000c) invoke-virtual       v8, Lcom/boat/jrosbridge/message/std_srvs/TriggerResponse;->getMessage()Ljava/lang/String;
+	4       (00000012) move-result-object   v0
+	5       (00000014) invoke-virtual       v0, Ljava/lang/String;->isEmpty()Z
+	6       (0000001a) move-result          v0
+	7       (0000001c) if-eqz               v0, +003h
+
+onNewMessage-BB@0x20 : 
+	8       (00000020) return-void          
+
+onNewMessage-BB@0x22 : [ onNewMessage-BB@0x2a onNewMessage-BB@0x46 ]
+	9       (00000022) iget-object          v0, v7, Lcom/jlboat/phone/controller/JlNaviManager$12;->val$responseListener Lcom/boat/support/slam/IResponseListener;
+	10      (00000026) if-eqz               v0, +010h
+
+onNewMessage-BB@0x2a : [ onNewMessage-BB@0x46 ]
+	11      (0000002a) iget-object          v0, v7, Lcom/jlboat/phone/controller/JlNaviManager$12;->val$responseListener Lcom/boat/support/slam/IResponseListener;
+	12      (0000002e) invoke-virtual       v8, Lcom/boat/jrosbridge/message/std_srvs/TriggerResponse;->getMessage()Ljava/lang/String;
+	13      (00000034) move-result-object   v1
+	14      (00000036) invoke-interface     v0, v1, Lcom/boat/support/slam/IResponseListener;->onSuccess(Ljava/lang/String;)V
+	15      (0000003c) goto                 +5h
+	2a:3b
+	(Landroid/os/RemoteException; -> 3e onNewMessage-BB@0x3e)
+
+onNewMessage-BB@0x3e : [ onNewMessage-BB@0x46 ]
+	16      (0000003e) move-exception       v0
+	17      (00000040) invoke-virtual       v0, Landroid/os/RemoteException;->printStackTrace()V
+
+onNewMessage-BB@0x46 : [ onNewMessage-BB@0x5a ]
+	18      (00000046) iget-object          v0, v7, Lcom/jlboat/phone/controller/JlNaviManager$12;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	19      (0000004a) new-instance         v1, Lcom/boat/support/slam/entity/floors/MapList;
+	20      (0000004e) invoke-direct        v1, Lcom/boat/support/slam/entity/floors/MapList;-><init>()V
+	21      (00000054) invoke-static        v0, v1, Lcom/jlboat/phone/controller/JlNaviManager;->access$3002(Lcom/jlboat/phone/controller/JlNaviManager; Lcom/boat/support/slam/entity/floors/MapList;)Lcom/boat/support/slam/entity/floors/MapList;
+
+onNewMessage-BB@0x5a : [ onNewMessage-BB@0x9e ]
+	22      (0000005a) iget-object          v0, v7, Lcom/jlboat/phone/controller/JlNaviManager$12;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	23      (0000005e) new-instance         v1, Lcom/google/gson/Gson;
+	24      (00000062) invoke-direct        v1, Lcom/google/gson/Gson;-><init>()V
+	25      (00000068) invoke-virtual       v8, Lcom/boat/jrosbridge/message/std_srvs/TriggerResponse;->getMessage()Ljava/lang/String;
+	26      (0000006e) move-result-object   v2
+	27      (00000070) new-instance         v3, Lcom/jlboat/phone/controller/JlNaviManager$12$1;
+	28      (00000074) invoke-direct        v3, v7, Lcom/jlboat/phone/controller/JlNaviManager$12$1;-><init>(Lcom/jlboat/phone/controller/JlNaviManager$12;)V
+	29      (0000007a) invoke-virtual       v3, Lcom/jlboat/phone/controller/JlNaviManager$12$1;->getType()Ljava/lang/reflect/Type;
+	30      (00000080) move-result-object   v3
+	31      (00000082) invoke-virtual       v1, v2, v3, Lcom/google/gson/Gson;->fromJson(Ljava/lang/String; Ljava/lang/reflect/Type;)Ljava/lang/Object;
+	32      (00000088) move-result-object   v1
+	33      (0000008a) check-cast           v1, Lcom/boat/support/slam/entity/floors/MapList;
+	34      (0000008e) invoke-static        v0, v1, Lcom/jlboat/phone/controller/JlNaviManager;->access$3002(Lcom/jlboat/phone/controller/JlNaviManager; Lcom/boat/support/slam/entity/floors/MapList;)Lcom/boat/support/slam/entity/floors/MapList;
+	35      (00000094) goto                 +5h
+	5a:93
+	(Ljava/lang/Exception; -> 96 onNewMessage-BB@0x96)
+
+onNewMessage-BB@0x96 : [ onNewMessage-BB@0x9e ]
+	36      (00000096) move-exception       v0
+	37      (00000098) invoke-virtual       v0, Ljava/lang/Exception;->printStackTrace()V
+
+onNewMessage-BB@0x9e : [ onNewMessage-BB@0xae onNewMessage-BB@0x14e ]
+	38      (0000009e) iget-object          v0, v7, Lcom/jlboat/phone/controller/JlNaviManager$12;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	39      (000000a2) invoke-static        v0, Lcom/jlboat/phone/controller/JlNaviManager;->access$3000(Lcom/jlboat/phone/controller/JlNaviManager;)Lcom/boat/support/slam/entity/floors/MapList;
+	40      (000000a8) move-result-object   v0
+	41      (000000aa) if-eqz               v0, +052h
+
+onNewMessage-BB@0xae : [ onNewMessage-BB@0xc6 onNewMessage-BB@0x14e ]
+	42      (000000ae) iget-object          v0, v7, Lcom/jlboat/phone/controller/JlNaviManager$12;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	43      (000000b2) invoke-static        v0, Lcom/jlboat/phone/controller/JlNaviManager;->access$3000(Lcom/jlboat/phone/controller/JlNaviManager;)Lcom/boat/support/slam/entity/floors/MapList;
+	44      (000000b8) move-result-object   v0
+	45      (000000ba) invoke-virtual       v0, Lcom/boat/support/slam/entity/floors/MapList;->getFloors()Ljava/util/List;
+	46      (000000c0) move-result-object   v0
+	47      (000000c2) if-eqz               v0, +046h
+
+onNewMessage-BB@0xc6 : [ onNewMessage-BB@0xe6 onNewMessage-BB@0x14e ]
+	48      (000000c6) iget-object          v0, v7, Lcom/jlboat/phone/controller/JlNaviManager$12;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	49      (000000ca) invoke-static        v0, Lcom/jlboat/phone/controller/JlNaviManager;->access$3000(Lcom/jlboat/phone/controller/JlNaviManager;)Lcom/boat/support/slam/entity/floors/MapList;
+	50      (000000d0) move-result-object   v0
+	51      (000000d2) invoke-virtual       v0, Lcom/boat/support/slam/entity/floors/MapList;->getFloors()Ljava/util/List;
+	52      (000000d8) move-result-object   v0
+	53      (000000da) invoke-interface     v0, Ljava/util/List;->isEmpty()Z
+	54      (000000e0) move-result          v0
+	55      (000000e2) if-nez               v0, +036h
+
+onNewMessage-BB@0xe6 : [ onNewMessage-BB@0x102 ]
+	56      (000000e6) iget-object          v0, v7, Lcom/jlboat/phone/controller/JlNaviManager$12;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	57      (000000ea) invoke-static        v0, Lcom/jlboat/phone/controller/JlNaviManager;->access$3000(Lcom/jlboat/phone/controller/JlNaviManager;)Lcom/boat/support/slam/entity/floors/MapList;
+	58      (000000f0) move-result-object   v0
+	59      (000000f2) invoke-virtual       v0, Lcom/boat/support/slam/entity/floors/MapList;->getFloors()Ljava/util/List;
+	60      (000000f8) move-result-object   v0
+	61      (000000fa) invoke-interface     v0, Ljava/util/List;->iterator()Ljava/util/Iterator;
+	62      (00000100) move-result-object   v0
+
+onNewMessage-BB@0x102 : [ onNewMessage-BB@0x10e onNewMessage-BB@0x14c ]
+	63      (00000102) invoke-interface     v0, Ljava/util/Iterator;->hasNext()Z
+	64      (00000108) move-result          v1
+	65      (0000010a) if-eqz               v1, +021h
+
+onNewMessage-BB@0x10e : [ onNewMessage-BB@0x13e onNewMessage-BB@0x14a ]
+	66      (0000010e) invoke-interface     v0, Ljava/util/Iterator;->next()Ljava/lang/Object;
+	67      (00000114) move-result-object   v1
+	68      (00000116) check-cast           v1, Lcom/boat/support/slam/entity/floors/Floors;
+	69      (0000011a) iget-object          v2, v7, Lcom/jlboat/phone/controller/JlNaviManager$12;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	70      (0000011e) invoke-static        v2, Lcom/jlboat/phone/controller/JlNaviManager;->access$3000(Lcom/jlboat/phone/controller/JlNaviManager;)Lcom/boat/support/slam/entity/floors/MapList;
+	71      (00000124) move-result-object   v2
+	72      (00000126) invoke-virtual       v2, Lcom/boat/support/slam/entity/floors/MapList;->getDefaultFloor()J
+	73      (0000012c) move-result-wide     v2
+	74      (0000012e) invoke-virtual       v1, Lcom/boat/support/slam/entity/floors/Floors;->getFloorId()J
+	75      (00000134) move-result-wide     v4
+	76      (00000136) cmp-long             v6, v2, v4
+	77      (0000013a) if-nez               v6, +008h
+
+onNewMessage-BB@0x13e : [ onNewMessage-BB@0x14c ]
+	78      (0000013e) iget-object          v0, v7, Lcom/jlboat/phone/controller/JlNaviManager$12;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	79      (00000142) invoke-static        v0, v1, Lcom/jlboat/phone/controller/JlNaviManager;->access$3102(Lcom/jlboat/phone/controller/JlNaviManager; Lcom/boat/support/slam/entity/floors/Floors;)Lcom/boat/support/slam/entity/floors/Floors;
+	80      (00000148) goto                 +2h
+
+onNewMessage-BB@0x14a : [ onNewMessage-BB@0x102 ]
+	81      (0000014a) goto                 -24h
+
+onNewMessage-BB@0x14c : [ onNewMessage-BB@0x15c ]
+	82      (0000014c) goto                 +8h
+
+onNewMessage-BB@0x14e : [ onNewMessage-BB@0x15c ]
+	83      (0000014e) iget-object          v0, v7, Lcom/jlboat/phone/controller/JlNaviManager$12;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	84      (00000152) const-string         v1, "获取地图成功为空"
+	85      (00000156) invoke-virtual       v0, v1, Lcom/jlboat/phone/controller/JlNaviManager;->toast(Ljava/lang/String;)V
+
+onNewMessage-BB@0x15c : [ onNewMessage-BB@0x1a4 ]
+	86      (0000015c) iget-object          v0, v7, Lcom/jlboat/phone/controller/JlNaviManager$12;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	87      (00000160) invoke-static        v0, Lcom/jlboat/phone/controller/JlNaviManager;->access$100(Lcom/jlboat/phone/controller/JlNaviManager;)Landroid/os/Handler;
+	88      (00000166) move-result-object   v0
+	89      (00000168) const/16             v1, 12
+	90      (0000016c) invoke-virtual       v0, v1, Landroid/os/Handler;->sendEmptyMessage(I)Z
+	91      (00000172) iget-object          v0, v7, Lcom/jlboat/phone/controller/JlNaviManager$12;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	92      (00000176) invoke-virtual       v8, Lcom/boat/jrosbridge/message/std_srvs/TriggerResponse;->getMessage()Ljava/lang/String;
+	93      (0000017c) move-result-object   v1
+	94      (0000017e) invoke-virtual       v0, v1, Lcom/jlboat/phone/controller/JlNaviManager;->startBootHTTPService(Ljava/lang/String;)V
+	95      (00000184) goto                 +10h
+
+onNewMessage-BB@0x186 : [ onNewMessage-BB@0x18e onNewMessage-BB@0x1a4 ]
+	96      (00000186) iget-object          v0, v7, Lcom/jlboat/phone/controller/JlNaviManager$12;->val$responseListener Lcom/boat/support/slam/IResponseListener;
+	97      (0000018a) if-eqz               v0, +00dh
+
+onNewMessage-BB@0x18e : [ onNewMessage-BB@0x1a4 ]
+	98      (0000018e) iget-object          v0, v7, Lcom/jlboat/phone/controller/JlNaviManager$12;->val$responseListener Lcom/boat/support/slam/IResponseListener;
+	99      (00000192) const/4              v1, 0
+	100     (00000194) invoke-interface     v0, v1, Lcom/boat/support/slam/IResponseListener;->onFailed(Ljava/lang/String;)V
+	101     (0000019a) goto                 +5h
+	18e:199
+	(Landroid/os/RemoteException; -> 19c onNewMessage-BB@0x19c)
+
+onNewMessage-BB@0x19c : [ onNewMessage-BB@0x1a4 ]
+	102     (0000019c) move-exception       v0
+	103     (0000019e) invoke-virtual       v0, Landroid/os/RemoteException;->printStackTrace()V
+
+onNewMessage-BB@0x1a4 : 
+	104     (000001a4) return-void          
+

@@ -1,0 +1,47 @@
+# Lcom/jlboat/phone/controller/JlNaviManager;->clearMap()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v2
+#
+# - return:void
+
+clearMap-BB@0x0 : [ clearMap-BB@0x8 clearMap-BB@0x70 ]
+	0       (00000000) iget-boolean         v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->connectStatus Z
+	1       (00000004) if-eqz               v0, +036h
+
+clearMap-BB@0x8 : [ clearMap-BB@0x10 clearMap-BB@0x12 ]
+	2       (00000008) iget-boolean         v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->isNavigationInited Z
+	3       (0000000c) if-nez               v0, +003h
+
+clearMap-BB@0x10 : [ clearMap-BB@0x70 ]
+	4       (00000010) goto                 +30h
+
+clearMap-BB@0x12 : 
+	5       (00000012) invoke-virtual       v2, Lcom/jlboat/phone/controller/JlNaviManager;->getApp()Lcom/boat/base/BaseApplication;
+	6       (00000018) move-result-object   v0
+	7       (0000001a) invoke-virtual       v0, Lcom/boat/base/BaseApplication;->getResources()Landroid/content/res/Resources;
+	8       (00000020) move-result-object   v0
+	9       (00000022) const                v1, 2131493116
+	10      (00000028) invoke-virtual       v0, v1, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+	11      (0000002e) move-result-object   v0
+	12      (00000030) invoke-virtual       v2, v0, Lcom/jlboat/phone/controller/JlNaviManager;->toast(Ljava/lang/String;)V
+	13      (00000036) invoke-virtual       v2, Lcom/jlboat/phone/controller/JlNaviManager;->getApp()Lcom/boat/base/BaseApplication;
+	14      (0000003c) move-result-object   v0
+	15      (0000003e) invoke-virtual       v0, Lcom/boat/base/BaseApplication;->getResources()Landroid/content/res/Resources;
+	16      (00000044) move-result-object   v0
+	17      (00000046) const                v1, 2131493117
+	18      (0000004c) invoke-virtual       v0, v1, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+	19      (00000052) move-result-object   v0
+	20      (00000054) invoke-virtual       v2, v0, Lcom/jlboat/phone/controller/JlNaviManager;->toast(Ljava/lang/String;)V
+	21      (0000005a) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->spiritServiceClient Lcom/jlboat/phone/communication/SpiritServiceClient;
+	22      (0000005e) new-instance         v1, Lcom/jlboat/phone/controller/JlNaviManager$16;
+	23      (00000062) invoke-direct        v1, v2, Lcom/jlboat/phone/controller/JlNaviManager$16;-><init>(Lcom/jlboat/phone/controller/JlNaviManager;)V
+	24      (00000068) invoke-virtual       v0, v1, Lcom/jlboat/phone/communication/SpiritServiceClient;->clearMapService(Lcom/boat/jrosbridge/MessageListener;)V
+	25      (0000006e) return-void          
+
+clearMap-BB@0x70 : 
+	26      (00000070) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->TAG Ljava/lang/String;
+	27      (00000074) const-string         v1, "clearMap: 初始化未成功 不可以进行数据请求 clearMap"
+	28      (00000078) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	29      (0000007e) return-void          
+

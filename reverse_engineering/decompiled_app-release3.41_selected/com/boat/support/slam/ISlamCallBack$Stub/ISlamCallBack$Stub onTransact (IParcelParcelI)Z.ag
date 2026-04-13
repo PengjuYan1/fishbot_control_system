@@ -1,0 +1,216 @@
+# Lcom/boat/support/slam/ISlamCallBack$Stub;->onTransact(I Landroid/os/Parcel; Landroid/os/Parcel; I)Z [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v19
+# - v20:int
+# - v21:android.os.Parcel
+# - v22:android.os.Parcel
+# - v23:int
+#
+# - return:boolean
+
+onTransact-BB@0x0 : [ onTransact-BB@0x12 onTransact-BB@0x28 ]
+	0       (00000000) move-object/from16   v7, v19
+	1       (00000004) move/from16          v8, v20
+	2       (00000008) const-string         v9, "com.boat.support.slam.ISlamCallBack"
+	3       (0000000c) const/4              v10, 1
+	4       (0000000e) if-lt                v8, v10, +00dh
+
+onTransact-BB@0x12 : [ onTransact-BB@0x1c onTransact-BB@0x28 ]
+	5       (00000012) const                v0, 16777215
+	6       (00000018) if-gt                v8, v0, +008h
+
+onTransact-BB@0x1c : [ onTransact-BB@0x2c ]
+	7       (0000001c) move-object/from16   v11, v21
+	8       (00000020) invoke-virtual       v11, v9, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+	9       (00000026) goto                 +3h
+
+onTransact-BB@0x28 : [ onTransact-BB@0x2c ]
+	10      (00000028) move-object/from16   v11, v21
+
+onTransact-BB@0x2c : [ D:onTransact-BB@0x32 1598968902:onTransact-BB@0x48 ]
+	11      (0000002c) packed-switch        v8, +00000fah
+
+onTransact-BB@0x32 : [ D:onTransact-BB@0x3e 1:onTransact-BB@0x200 2:onTransact-BB@0x1e4 3:onTransact-BB@0x1ce 4:onTransact-BB@0x1b8 5:onTransact-BB@0x1aa 6:onTransact-BB@0x18c 7:onTransact-BB@0x17e 8:onTransact-BB@0x168 9:onTransact-BB@0x136 10:onTransact-BB@0x118 11:onTransact-BB@0x108 12:onTransact-BB@0xe8 13:onTransact-BB@0xca 14:onTransact-BB@0xba 15:onTransact-BB@0xa2 16:onTransact-BB@0x8a 17:onTransact-BB@0x72 18:onTransact-BB@0x54 ]
+	12      (00000032) move-object/from16   v12, v22
+	13      (00000036) const/4              v0, 0
+	14      (00000038) packed-switch        v8, +00000fah
+
+onTransact-BB@0x3e : 
+	15      (0000003e) invoke-super/range   v19 ... v23, Landroid/os/Binder;->onTransact(I Landroid/os/Parcel; Landroid/os/Parcel; I)Z
+	16      (00000044) move-result          v0
+	17      (00000046) return               v0
+
+onTransact-BB@0x48 : 
+	18      (00000048) move-object/from16   v12, v22
+	19      (0000004c) invoke-virtual       v12, v9, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+	20      (00000052) return               v10
+
+onTransact-BB@0x54 : [ onTransact-BB@0x60 onTransact-BB@0x62 ]
+	21      (00000054) invoke-virtual/range v21, Landroid/os/Parcel;->readInt()I
+	22      (0000005a) move-result          v1
+	23      (0000005c) if-eqz               v1, +003h
+
+onTransact-BB@0x60 : [ onTransact-BB@0x62 ]
+	24      (00000060) const/4              v0, 1
+
+onTransact-BB@0x62 : [ onTransact-BB@0x21c ]
+	25      (00000062) invoke-virtual       v7, v0, Lcom/boat/support/slam/ISlamCallBack$Stub;->onMachineSignal(Z)V
+	26      (00000068) invoke-virtual/range v22, Landroid/os/Parcel;->writeNoException()V
+	27      (0000006e) goto/16              +0d7h
+
+onTransact-BB@0x72 : [ onTransact-BB@0x21c ]
+	28      (00000072) invoke-virtual/range v21, Landroid/os/Parcel;->readInt()I
+	29      (00000078) move-result          v0
+	30      (0000007a) invoke-virtual       v7, v0, Lcom/boat/support/slam/ISlamCallBack$Stub;->onOutChangeStatus(I)V
+	31      (00000080) invoke-virtual/range v22, Landroid/os/Parcel;->writeNoException()V
+	32      (00000086) goto/16              +0cbh
+
+onTransact-BB@0x8a : [ onTransact-BB@0x21c ]
+	33      (0000008a) invoke-virtual/range v21, Landroid/os/Parcel;->readInt()I
+	34      (00000090) move-result          v0
+	35      (00000092) invoke-virtual       v7, v0, Lcom/boat/support/slam/ISlamCallBack$Stub;->onChangeMotionMode(I)V
+	36      (00000098) invoke-virtual/range v22, Landroid/os/Parcel;->writeNoException()V
+	37      (0000009e) goto/16              +0bfh
+
+onTransact-BB@0xa2 : [ onTransact-BB@0x21c ]
+	38      (000000a2) invoke-virtual/range v21, Landroid/os/Parcel;->readInt()I
+	39      (000000a8) move-result          v0
+	40      (000000aa) invoke-virtual       v7, v0, Lcom/boat/support/slam/ISlamCallBack$Stub;->onLocalizationStatus(I)V
+	41      (000000b0) invoke-virtual/range v22, Landroid/os/Parcel;->writeNoException()V
+	42      (000000b6) goto/16              +0b3h
+
+onTransact-BB@0xba : [ onTransact-BB@0x21c ]
+	43      (000000ba) invoke-virtual/range v19, Lcom/boat/support/slam/ISlamCallBack$Stub;->onMapUpdate()V
+	44      (000000c0) invoke-virtual/range v22, Landroid/os/Parcel;->writeNoException()V
+	45      (000000c6) goto/16              +0abh
+
+onTransact-BB@0xca : [ onTransact-BB@0xd6 onTransact-BB@0xd8 ]
+	46      (000000ca) invoke-virtual/range v21, Landroid/os/Parcel;->readInt()I
+	47      (000000d0) move-result          v1
+	48      (000000d2) if-eqz               v1, +003h
+
+onTransact-BB@0xd6 : [ onTransact-BB@0xd8 ]
+	49      (000000d6) const/4              v0, 1
+
+onTransact-BB@0xd8 : [ onTransact-BB@0x21c ]
+	50      (000000d8) invoke-virtual       v7, v0, Lcom/boat/support/slam/ISlamCallBack$Stub;->onMotorLock(Z)V
+	51      (000000de) invoke-virtual/range v22, Landroid/os/Parcel;->writeNoException()V
+	52      (000000e4) goto/16              +09ch
+
+onTransact-BB@0xe8 : [ onTransact-BB@0x21c ]
+	53      (000000e8) invoke-virtual/range v21, Landroid/os/Parcel;->readString()Ljava/lang/String;
+	54      (000000ee) move-result-object   v0
+	55      (000000f0) invoke-virtual/range v21, Landroid/os/Parcel;->readString()Ljava/lang/String;
+	56      (000000f6) move-result-object   v1
+	57      (000000f8) invoke-virtual       v7, v0, v1, Lcom/boat/support/slam/ISlamCallBack$Stub;->onResponseString(Ljava/lang/String; Ljava/lang/String;)V
+	58      (000000fe) invoke-virtual/range v22, Landroid/os/Parcel;->writeNoException()V
+	59      (00000104) goto/16              +08ch
+
+onTransact-BB@0x108 : [ onTransact-BB@0x21c ]
+	60      (00000108) invoke-virtual/range v19, Lcom/boat/support/slam/ISlamCallBack$Stub;->onSlamDownMapSucc()V
+	61      (0000010e) invoke-virtual/range v22, Landroid/os/Parcel;->writeNoException()V
+	62      (00000114) goto/16              +084h
+
+onTransact-BB@0x118 : [ onTransact-BB@0x124 onTransact-BB@0x126 ]
+	63      (00000118) invoke-virtual/range v21, Landroid/os/Parcel;->readInt()I
+	64      (0000011e) move-result          v1
+	65      (00000120) if-eqz               v1, +003h
+
+onTransact-BB@0x124 : [ onTransact-BB@0x126 ]
+	66      (00000124) const/4              v0, 1
+
+onTransact-BB@0x126 : [ onTransact-BB@0x21c ]
+	67      (00000126) invoke-virtual       v7, v0, Lcom/boat/support/slam/ISlamCallBack$Stub;->onNaviNetWorkStatus(Z)V
+	68      (0000012c) invoke-virtual/range v22, Landroid/os/Parcel;->writeNoException()V
+	69      (00000132) goto/16              +075h
+
+onTransact-BB@0x136 : [ onTransact-BB@0x21c ]
+	70      (00000136) invoke-virtual/range v21, Landroid/os/Parcel;->readLong()J
+	71      (0000013c) move-result-wide     v13
+	72      (0000013e) invoke-virtual/range v21, Landroid/os/Parcel;->readLong()J
+	73      (00000144) move-result-wide     v15
+	74      (00000146) invoke-virtual/range v21, Landroid/os/Parcel;->readLong()J
+	75      (0000014c) move-result-wide     v17
+	76      (0000014e) move-object/from16   v0, v19
+	77      (00000152) move-wide            v1, v13
+	78      (00000154) move-wide            v3, v15
+	79      (00000156) move-wide/from16     v5, v17
+	80      (0000015a) invoke-virtual/range v0 ... v6, Lcom/boat/support/slam/ISlamCallBack$Stub;->onNaviGoalCallback(J J J)V
+	81      (00000160) invoke-virtual/range v22, Landroid/os/Parcel;->writeNoException()V
+	82      (00000166) goto                 +5bh
+
+onTransact-BB@0x168 : [ onTransact-BB@0x21c ]
+	83      (00000168) invoke-virtual/range v21, Landroid/os/Parcel;->readString()Ljava/lang/String;
+	84      (0000016e) move-result-object   v0
+	85      (00000170) invoke-virtual       v7, v0, Lcom/boat/support/slam/ISlamCallBack$Stub;->onNaviToNameCallback(Ljava/lang/String;)V
+	86      (00000176) invoke-virtual/range v22, Landroid/os/Parcel;->writeNoException()V
+	87      (0000017c) goto                 +50h
+
+onTransact-BB@0x17e : [ onTransact-BB@0x21c ]
+	88      (0000017e) invoke-virtual/range v19, Lcom/boat/support/slam/ISlamCallBack$Stub;->onSlamInit()V
+	89      (00000184) invoke-virtual/range v22, Landroid/os/Parcel;->writeNoException()V
+	90      (0000018a) goto                 +49h
+
+onTransact-BB@0x18c : [ onTransact-BB@0x21c ]
+	91      (0000018c) invoke-virtual/range v21, Landroid/os/Parcel;->readInt()I
+	92      (00000192) move-result          v0
+	93      (00000194) invoke-virtual/range v21, Landroid/os/Parcel;->readString()Ljava/lang/String;
+	94      (0000019a) move-result-object   v1
+	95      (0000019c) invoke-virtual       v7, v0, v1, Lcom/boat/support/slam/ISlamCallBack$Stub;->onResponseDatas(I Ljava/lang/String;)V
+	96      (000001a2) invoke-virtual/range v22, Landroid/os/Parcel;->writeNoException()V
+	97      (000001a8) goto                 +3ah
+
+onTransact-BB@0x1aa : [ onTransact-BB@0x21c ]
+	98      (000001aa) invoke-virtual/range v19, Lcom/boat/support/slam/ISlamCallBack$Stub;->onLocalizationLost()V
+	99      (000001b0) invoke-virtual/range v22, Landroid/os/Parcel;->writeNoException()V
+	100     (000001b6) goto                 +33h
+
+onTransact-BB@0x1b8 : [ onTransact-BB@0x21c ]
+	101     (000001b8) invoke-virtual/range v21, Landroid/os/Parcel;->readInt()I
+	102     (000001be) move-result          v0
+	103     (000001c0) invoke-virtual       v7, v0, Lcom/boat/support/slam/ISlamCallBack$Stub;->onBatteryChange(I)V
+	104     (000001c6) invoke-virtual/range v22, Landroid/os/Parcel;->writeNoException()V
+	105     (000001cc) goto                 +28h
+
+onTransact-BB@0x1ce : [ onTransact-BB@0x21c ]
+	106     (000001ce) invoke-virtual/range v21, Landroid/os/Parcel;->readString()Ljava/lang/String;
+	107     (000001d4) move-result-object   v0
+	108     (000001d6) invoke-virtual       v7, v0, Lcom/boat/support/slam/ISlamCallBack$Stub;->onMoveStatusChange(Ljava/lang/String;)V
+	109     (000001dc) invoke-virtual/range v22, Landroid/os/Parcel;->writeNoException()V
+	110     (000001e2) goto                 +1dh
+
+onTransact-BB@0x1e4 : [ onTransact-BB@0x1f0 onTransact-BB@0x1f2 ]
+	111     (000001e4) invoke-virtual/range v21, Landroid/os/Parcel;->readInt()I
+	112     (000001ea) move-result          v1
+	113     (000001ec) if-eqz               v1, +003h
+
+onTransact-BB@0x1f0 : [ onTransact-BB@0x1f2 ]
+	114     (000001f0) const/4              v0, 1
+
+onTransact-BB@0x1f2 : [ onTransact-BB@0x21c ]
+	115     (000001f2) invoke-virtual       v7, v0, Lcom/boat/support/slam/ISlamCallBack$Stub;->onEmergencyStop(Z)V
+	116     (000001f8) invoke-virtual/range v22, Landroid/os/Parcel;->writeNoException()V
+	117     (000001fe) goto                 +fh
+
+onTransact-BB@0x200 : [ onTransact-BB@0x20c onTransact-BB@0x20e ]
+	118     (00000200) invoke-virtual/range v21, Landroid/os/Parcel;->readInt()I
+	119     (00000206) move-result          v1
+	120     (00000208) if-eqz               v1, +003h
+
+onTransact-BB@0x20c : [ onTransact-BB@0x20e ]
+	121     (0000020c) const/4              v0, 1
+
+onTransact-BB@0x20e : [ onTransact-BB@0x21c ]
+	122     (0000020e) invoke-virtual       v7, v0, Lcom/boat/support/slam/ISlamCallBack$Stub;->onChargeChanged(Z)V
+	123     (00000214) invoke-virtual/range v22, Landroid/os/Parcel;->writeNoException()V
+	124     (0000021a) nop                  
+
+onTransact-BB@0x21c : 
+	125     (0000021c) return               v10
+
+onTransact-BB@0x21e : 
+	126     (0000021e) nop                  
+	127     (00000220) packed-switch-payload 5f4e5446
+	128     (0000022c) packed-switch-payload 1 2 3 4 5 6 7 8 9 a b c d e f 10 11 12
+

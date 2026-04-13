@@ -1,0 +1,36 @@
+# Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508$MyNavSelectRvItemClick;->onClick(I)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:int
+#
+# - return:void
+
+onClick-BB@0x0 : 
+	0       (00000000) iget-object          v0, v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508$MyNavSelectRvItemClick;->this$0 Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;
+	1       (00000004) invoke-static        v0, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;->access$600(Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;)Ljava/util/List;
+	2       (0000000a) move-result-object   v0
+	3       (0000000c) invoke-interface     v0, v4, Ljava/util/List;->remove(I)Ljava/lang/Object;
+	4       (00000012) iget-object          v0, v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508$MyNavSelectRvItemClick;->this$0 Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;
+	5       (00000016) iget-object          v1, v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508$MyNavSelectRvItemClick;->this$0 Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;
+	6       (0000001a) invoke-static        v1, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;->access$600(Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;)Ljava/util/List;
+	7       (00000020) move-result-object   v1
+	8       (00000022) invoke-interface     v1, Ljava/util/List;->stream()Ljava/util/stream/Stream;
+	9       (00000028) move-result-object   v1
+	10      (0000002a) new-instance         v2, Lcom/jlboat/phone/fragment/settingfragment/NavigationQueueFragment$MyNavRvItemClick$$ExternalSyntheticLambda0;
+	11      (0000002e) invoke-direct        v2, Lcom/jlboat/phone/fragment/settingfragment/NavigationQueueFragment$MyNavRvItemClick$$ExternalSyntheticLambda0;-><init>()V
+	12      (00000034) invoke-interface     v1, v2, Ljava/util/stream/Stream;->map(Ljava/util/function/Function;)Ljava/util/stream/Stream;
+	13      (0000003a) move-result-object   v1
+	14      (0000003c) invoke-static        Ljava/util/stream/Collectors;->toList()Ljava/util/stream/Collector;
+	15      (00000042) move-result-object   v2
+	16      (00000044) invoke-interface     v1, v2, Ljava/util/stream/Stream;->collect(Ljava/util/stream/Collector;)Ljava/lang/Object;
+	17      (0000004a) move-result-object   v1
+	18      (0000004c) check-cast           v1, Ljava/util/List;
+	19      (00000050) invoke-static        v0, v1, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;->access$302(Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508; Ljava/util/List;)Ljava/util/List;
+	20      (00000056) iget-object          v0, v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508$MyNavSelectRvItemClick;->this$0 Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;
+	21      (0000005a) invoke-static        v0, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;->access$1900(Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;)Landroid/os/Handler;
+	22      (00000060) move-result-object   v0
+	23      (00000062) const/16             v1, 101
+	24      (00000066) invoke-virtual       v0, v1, Landroid/os/Handler;->sendEmptyMessage(I)Z
+	25      (0000006c) return-void          
+

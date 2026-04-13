@@ -1,0 +1,17 @@
+# Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;->onResume()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v2
+#
+# - return:void
+
+onResume-BB@0x0 : 
+	0       (00000000) invoke-super         v2, Lcom/jlboat/phone/base/BaseFragment;->onResume()V
+	1       (00000006) invoke-virtual       v2, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;->getMaps()V
+	2       (0000000c) iget-object          v0, v2, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;->testTypeLooperCb Landroid/widget/CheckBox;
+	3       (00000010) const/4              v1, 0
+	4       (00000012) invoke-virtual       v0, v1, Landroid/widget/CheckBox;->setChecked(Z)V
+	5       (00000018) const/16             v0, 9
+	6       (0000001c) invoke-virtual       v2, v0, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;->getConfigs(I)V
+	7       (00000022) return-void          
+

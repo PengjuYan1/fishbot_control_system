@@ -1,0 +1,21 @@
+# Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;-><init>()V [access_flags=public constructor]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) invoke-direct        v1, Lcom/jlboat/phone/base/BaseFragment;-><init>()V
+	1       (00000006) const-string         v0, "UltrasoundActivity"
+	2       (0000000a) iput-object          v0, v1, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->TAG Ljava/lang/String;
+	3       (0000000e) const/4              v0, 3
+	4       (00000010) iput                 v0, v1, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->handlerReflashSonal I
+	5       (00000014) new-instance         v0, Ljava/util/ArrayList;
+	6       (00000018) invoke-direct        v0, Ljava/util/ArrayList;-><init>()V
+	7       (0000001e) iput-object          v0, v1, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->sonarEntryList Ljava/util/List;
+	8       (00000022) new-instance         v0, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment$4;
+	9       (00000026) invoke-direct        v0, v1, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment$4;-><init>(Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;)V
+	10      (0000002c) iput-object          v0, v1, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->mhandler Landroid/os/Handler;
+	11      (00000030) return-void          
+

@@ -1,0 +1,61 @@
+# Lcom/boat/manager/NetWorkManager$2;->onResponse(Lokhttp3/Call; Lokhttp3/Response;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:okhttp3.Call
+# - v5:okhttp3.Response
+#
+# - return:void
+
+onResponse-BB@0x0 : [ onResponse-BB@0x8 onResponse-BB@0x80 ]
+	0       (00000000) iget-object          v0, v3, Lcom/boat/manager/NetWorkManager$2;->val$callback Lcom/boat/manager/NetWorkManager$CallBack;
+	1       (00000004) if-eqz               v0, +03eh
+
+onResponse-BB@0x8 : [ onResponse-BB@0x18 onResponse-BB@0x76 ]
+	2       (00000008) invoke-virtual       v5, Lokhttp3/Response;->code()I
+	3       (0000000e) move-result          v0
+	4       (00000010) const/16             v1, 200
+	5       (00000014) if-ne                v0, v1, +031h
+
+onResponse-BB@0x18 : [ onResponse-BB@0x34 onResponse-BB@0x40 ]
+	6       (00000018) invoke-virtual       v5, Lokhttp3/Response;->body()Lokhttp3/ResponseBody;
+	7       (0000001e) move-result-object   v0
+	8       (00000020) invoke-virtual       v0, Lokhttp3/ResponseBody;->string()Ljava/lang/String;
+	9       (00000026) move-result-object   v0
+	10      (00000028) iget-object          v1, v3, Lcom/boat/manager/NetWorkManager$2;->val$resultClass Ljava/lang/Class;
+	11      (0000002c) const-class          v2, Ljava/lang/String;
+	12      (00000030) if-ne                v1, v2, +008h
+
+onResponse-BB@0x34 : [ onResponse-BB@0x74 ]
+	13      (00000034) iget-object          v1, v3, Lcom/boat/manager/NetWorkManager$2;->val$callback Lcom/boat/manager/NetWorkManager$CallBack;
+	14      (00000038) invoke-interface     v1, v0, Lcom/boat/manager/NetWorkManager$CallBack;->onSuccess(Ljava/lang/Object;)V
+	15      (0000003e) goto                 +1bh
+
+onResponse-BB@0x40 : [ onResponse-BB@0x74 ]
+	16      (00000040) new-instance         v1, Lcom/google/gson/Gson;
+	17      (00000044) invoke-direct        v1, Lcom/google/gson/Gson;-><init>()V
+	18      (0000004a) iget-object          v2, v3, Lcom/boat/manager/NetWorkManager$2;->val$resultClass Ljava/lang/Class;
+	19      (0000004e) invoke-virtual       v1, v0, v2, Lcom/google/gson/Gson;->fromJson(Ljava/lang/String; Ljava/lang/Class;)Ljava/lang/Object;
+	20      (00000054) move-result-object   v1
+	21      (00000056) iget-object          v2, v3, Lcom/boat/manager/NetWorkManager$2;->val$callback Lcom/boat/manager/NetWorkManager$CallBack;
+	22      (0000005a) invoke-interface     v2, v1, Lcom/boat/manager/NetWorkManager$CallBack;->onSuccess(Ljava/lang/Object;)V
+	23      (00000060) goto                 +ah
+	40:5f
+	(Ljava/lang/Exception; -> 62 onResponse-BB@0x62)
+
+onResponse-BB@0x62 : [ onResponse-BB@0x74 ]
+	24      (00000062) move-exception       v1
+	25      (00000064) invoke-virtual       v1, Ljava/lang/Exception;->printStackTrace()V
+	26      (0000006a) iget-object          v2, v3, Lcom/boat/manager/NetWorkManager$2;->val$callback Lcom/boat/manager/NetWorkManager$CallBack;
+	27      (0000006e) invoke-interface     v2, Lcom/boat/manager/NetWorkManager$CallBack;->onError()V
+
+onResponse-BB@0x74 : [ onResponse-BB@0x80 ]
+	28      (00000074) goto                 +6h
+
+onResponse-BB@0x76 : [ onResponse-BB@0x80 ]
+	29      (00000076) iget-object          v0, v3, Lcom/boat/manager/NetWorkManager$2;->val$callback Lcom/boat/manager/NetWorkManager$CallBack;
+	30      (0000007a) invoke-interface     v0, Lcom/boat/manager/NetWorkManager$CallBack;->onError()V
+
+onResponse-BB@0x80 : 
+	31      (00000080) return-void          
+

@@ -1,0 +1,74 @@
+# Lcom/jlboat/phone/activity/MapRepositionActivity;->setPose()V [access_flags=private]
+#
+# Parameters:
+# local registers: v0...v26
+#
+# - return:void
+
+setPose-BB@0x0 : [ setPose-BB@0x4a setPose-BB@0xda ]
+	0       (00000000) move-object/from16   v0, v26
+	1       (00000004) iget-object          v1, v0, Lcom/jlboat/phone/activity/MapRepositionActivity;->mapView Lcom/jlboat/phone/view/MapView;
+	2       (00000008) invoke-virtual       v1, Lcom/jlboat/phone/view/MapView;->getRosMapPoint()Lcom/boat/support/slam/entity/floors/Lines;
+	3       (0000000e) move-result-object   v1
+	4       (00000010) iget-object          v2, v0, Lcom/jlboat/phone/activity/MapRepositionActivity;->mapView Lcom/jlboat/phone/view/MapView;
+	5       (00000014) iget-object          v3, v0, Lcom/jlboat/phone/activity/MapRepositionActivity;->iv_arrow Landroid/widget/ImageView;
+	6       (00000018) invoke-virtual       v3, Landroid/widget/ImageView;->getLeft()I
+	7       (0000001e) move-result          v3
+	8       (00000020) iget-object          v4, v0, Lcom/jlboat/phone/activity/MapRepositionActivity;->iv_arrow Landroid/widget/ImageView;
+	9       (00000024) invoke-virtual       v4, Landroid/widget/ImageView;->getWidth()I
+	10      (0000002a) move-result          v4
+	11      (0000002c) div-int/lit8         v4, v4, 2
+	12      (00000030) add-int/2addr        v3, v4
+	13      (00000032) iget-object          v4, v0, Lcom/jlboat/phone/activity/MapRepositionActivity;->iv_arrow Landroid/widget/ImageView;
+	14      (00000036) invoke-virtual       v4, Landroid/widget/ImageView;->getTop()I
+	15      (0000003c) move-result          v4
+	16      (0000003e) invoke-virtual       v2, v3, v4, Lcom/jlboat/phone/view/MapView;->getRosMapPoint(I I)Lcom/boat/support/slam/entity/floors/Lines;
+	17      (00000044) move-result-object   v2
+	18      (00000046) if-eqz               v1, +04ah
+
+setPose-BB@0x4a : [ setPose-BB@0x4e setPose-BB@0x50 ]
+	19      (0000004a) if-nez               v2, +003h
+
+setPose-BB@0x4e : [ setPose-BB@0xda ]
+	20      (0000004e) goto                 +46h
+
+setPose-BB@0x50 : 
+	21      (00000050) invoke-virtual       v2, Lcom/boat/support/slam/entity/floors/Lines;->getY()D
+	22      (00000056) move-result-wide     v3
+	23      (00000058) invoke-virtual       v1, Lcom/boat/support/slam/entity/floors/Lines;->getY()D
+	24      (0000005e) move-result-wide     v5
+	25      (00000060) sub-double/2addr     v3, v5
+	26      (00000062) invoke-virtual       v2, Lcom/boat/support/slam/entity/floors/Lines;->getX()D
+	27      (00000068) move-result-wide     v5
+	28      (0000006a) invoke-virtual       v1, Lcom/boat/support/slam/entity/floors/Lines;->getX()D
+	29      (00000070) move-result-wide     v7
+	30      (00000072) sub-double/2addr     v5, v7
+	31      (00000074) invoke-static        v3, v4, v5, v6, Ljava/lang/Math;->atan2(D D)D
+	32      (0000007a) move-result-wide     v14
+	33      (0000007c) new-instance         v16, Lcom/jlboat/phone/util/EulerAngles;
+	34      (00000080) const-wide/16        v8, 0
+	35      (00000084) const-wide/16        v12, 0
+	36      (00000088) move-object/from16   v7, v16
+	37      (0000008c) move-wide            v10, v14
+	38      (0000008e) invoke-direct/range  v7 ... v13, Lcom/jlboat/phone/util/EulerAngles;-><init>(D D D)V
+	39      (00000094) invoke-virtual/range v16, Lcom/jlboat/phone/util/EulerAngles;->ToQuaternion()Lcom/jlboat/phone/util/Quaternion;
+	40      (0000009a) move-result-object   v7
+	41      (0000009c) iget-object          v8, v0, Lcom/jlboat/phone/activity/MapRepositionActivity;->spiritServiceClient Lcom/jlboat/phone/communication/SpiritServiceClient;
+	42      (000000a0) invoke-virtual       v1, Lcom/boat/support/slam/entity/floors/Lines;->getX()D
+	43      (000000a6) move-result-wide     v17
+	44      (000000a8) invoke-virtual       v1, Lcom/boat/support/slam/entity/floors/Lines;->getY()D
+	45      (000000ae) move-result-wide     v19
+	46      (000000b0) iget-wide            v9, v7, Lcom/jlboat/phone/util/Quaternion;->z D
+	47      (000000b4) iget-wide            v11, v7, Lcom/jlboat/phone/util/Quaternion;->w D
+	48      (000000b8) new-instance         v13, Lcom/jlboat/phone/activity/MapRepositionActivity$2;
+	49      (000000bc) invoke-direct        v13, v0, Lcom/jlboat/phone/activity/MapRepositionActivity$2;-><init>(Lcom/jlboat/phone/activity/MapRepositionActivity;)V
+	50      (000000c2) move-object/from16   v16, v8
+	51      (000000c6) move-wide/from16     v21, v9
+	52      (000000ca) move-wide/from16     v23, v11
+	53      (000000ce) move-object/from16   v25, v13
+	54      (000000d2) invoke-virtual/range v16 ... v25, Lcom/jlboat/phone/communication/SpiritServiceClient;->relocation(D D D D Lcom/boat/jrosbridge/MessageListener;)V
+	55      (000000d8) return-void          
+
+setPose-BB@0xda : 
+	56      (000000da) return-void          
+

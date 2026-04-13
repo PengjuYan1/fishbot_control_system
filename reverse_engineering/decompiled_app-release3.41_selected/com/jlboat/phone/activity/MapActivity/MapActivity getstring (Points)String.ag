@@ -1,0 +1,44 @@
+# Lcom/jlboat/phone/activity/MapActivity;->getstring(Lcom/boat/support/slam/entity/floors/Points;)Ljava/lang/String; [access_flags=private]
+#
+# Parameters:
+# - local registers: v0...v4
+# - v5:com.boat.support.slam.entity.floors.Points
+#
+# - return:java.lang.String
+
+getstring-BB@0x0 : [ getstring-BB@0x16 getstring-BB@0x5e ]
+	0       (00000000) new-instance         v0, Ljava/util/LinkedList;
+	1       (00000004) invoke-direct        v0, Ljava/util/LinkedList;-><init>()V
+	2       (0000000a) invoke-virtual       v5, Lcom/boat/support/slam/entity/floors/Points;->getWaitPoints()Ljava/util/List;
+	3       (00000010) move-result-object   v1
+	4       (00000012) if-eqz               v1, +026h
+
+getstring-BB@0x16 : [ getstring-BB@0x18 ]
+	5       (00000016) const/4              v1, 1
+
+getstring-BB@0x18 : [ getstring-BB@0x2c getstring-BB@0x5e ]
+	6       (00000018) invoke-virtual       v5, Lcom/boat/support/slam/entity/floors/Points;->getWaitPoints()Ljava/util/List;
+	7       (0000001e) move-result-object   v2
+	8       (00000020) invoke-interface     v2, Ljava/util/List;->size()I
+	9       (00000026) move-result          v2
+	10      (00000028) if-gt                v1, v2, +01bh
+
+getstring-BB@0x2c : [ getstring-BB@0x18 ]
+	11      (0000002c) new-instance         v2, Ljava/lang/StringBuilder;
+	12      (00000030) invoke-direct        v2, Ljava/lang/StringBuilder;-><init>()V
+	13      (00000036) invoke-virtual       v2, v1, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	14      (0000003c) move-result-object   v2
+	15      (0000003e) const-string         v3, ""
+	16      (00000042) invoke-virtual       v2, v3, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	17      (00000048) move-result-object   v2
+	18      (0000004a) invoke-virtual       v2, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	19      (00000050) move-result-object   v2
+	20      (00000052) invoke-interface     v0, v2, Ljava/util/List;->add(Ljava/lang/Object;)Z
+	21      (00000058) add-int/lit8         v1, v1, 1
+	22      (0000005c) goto                 -22h
+
+getstring-BB@0x5e : 
+	23      (0000005e) invoke-virtual       v0, Ljava/lang/Object;->toString()Ljava/lang/String;
+	24      (00000064) move-result-object   v1
+	25      (00000066) return-object        v1
+

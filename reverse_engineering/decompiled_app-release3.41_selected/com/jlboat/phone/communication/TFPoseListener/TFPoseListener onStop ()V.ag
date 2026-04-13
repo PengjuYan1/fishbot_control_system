@@ -1,0 +1,20 @@
+# Lcom/jlboat/phone/communication/TFPoseListener;->onStop()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:void
+
+onStop-BB@0x0 : [ onStop-BB@0xe onStop-BB@0x18 ]
+	0       (00000000) const/4              v0, 0
+	1       (00000002) iput-boolean         v0, v1, Lcom/jlboat/phone/communication/TFPoseListener;->isStart Z
+	2       (00000006) iget-object          v0, v1, Lcom/jlboat/phone/communication/TFPoseListener;->tfSubscriber Lcom/boat/jrosbridge/Topic;
+	3       (0000000a) if-eqz               v0, +007h
+
+onStop-BB@0xe : [ onStop-BB@0x18 ]
+	4       (0000000e) iget-object          v0, v1, Lcom/jlboat/phone/communication/TFPoseListener;->tfSubscriber Lcom/boat/jrosbridge/Topic;
+	5       (00000012) invoke-virtual       v0, Lcom/boat/jrosbridge/Topic;->unsubscribe()V
+
+onStop-BB@0x18 : 
+	6       (00000018) return-void          
+

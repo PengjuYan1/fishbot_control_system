@@ -1,0 +1,34 @@
+# Lcom/jlboat/phone/base/BaseFullActivity;->getResString(I)Ljava/lang/String; [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:int
+#
+# - return:java.lang.String
+
+getResString-BB@0x0 : [ getResString-BB@0x26 ]
+	0       (00000000) new-instance         v0, Ljava/lang/StringBuilder;
+	1       (00000004) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	2       (0000000a) invoke-virtual       v0, v3, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	3       (00000010) move-result-object   v0
+	4       (00000012) const-string         v1, ""
+	5       (00000016) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	6       (0000001c) move-result-object   v0
+	7       (0000001e) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	8       (00000024) move-result-object   v0
+
+getResString-BB@0x26 : 
+	9       (00000026) invoke-virtual       v2, Lcom/jlboat/phone/base/BaseFullActivity;->getResources()Landroid/content/res/Resources;
+	10      (0000002c) move-result-object   v1
+	11      (0000002e) invoke-virtual       v1, v3, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+	12      (00000034) move-result-object   v1
+	13      (00000036) move-object          v0, v1
+	14      (00000038) nop                  
+	15      (0000003a) return-object        v0
+	26:35
+	(Ljava/lang/Exception; -> 3c getResString-BB@0x3c)
+
+getResString-BB@0x3c : 
+	16      (0000003c) move-exception       v1
+	17      (0000003e) return-object        v0
+

@@ -1,0 +1,11 @@
+# Lcom/boat/jrosbridge/message/std_msgs/Int64;->getData()J [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v2
+#
+# - return:long
+
+getData-BB@0x0 : 
+	0       (00000000) iget-wide            v0, v2, Lcom/boat/jrosbridge/message/std_msgs/Int64;->data J
+	1       (00000004) return-wide          v0
+

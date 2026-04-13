@@ -1,0 +1,30 @@
+# Lcom/boat/support/slam/SlamManager;->isInNavigation()Z [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v4
+#
+# - return:boolean
+
+isInNavigation-BB@0x0 : [ isInNavigation-BB@0xa isInNavigation-BB@0x2a ]
+	0       (00000000) const/4              v0, 0
+	1       (00000002) iget-object          v1, v4, Lcom/boat/support/slam/SlamManager;->slamService Lcom/boat/support/slam/ISlamService;
+	2       (00000006) if-eqz               v1, +012h
+
+isInNavigation-BB@0xa : [ isInNavigation-BB@0x2a ]
+	3       (0000000a) iget-object          v1, v4, Lcom/boat/support/slam/SlamManager;->slamService Lcom/boat/support/slam/ISlamService;
+	4       (0000000e) invoke-interface     v1, Lcom/boat/support/slam/ISlamService;->isInNavigation()Z
+	5       (00000014) move-result          v1
+	6       (00000016) move                 v0, v1
+	7       (00000018) goto                 +9h
+	a:15
+	(Landroid/os/RemoteException; -> 1a isInNavigation-BB@0x1a)
+
+isInNavigation-BB@0x1a : [ isInNavigation-BB@0x2a ]
+	8       (0000001a) move-exception       v1
+	9       (0000001c) const-string         v2, "SlamManager"
+	10      (00000020) const-string         v3, "isInNavigation: "
+	11      (00000024) invoke-static        v2, v3, v1, Landroid/util/Log;->w(Ljava/lang/String; Ljava/lang/String; Ljava/lang/Throwable;)I
+
+isInNavigation-BB@0x2a : 
+	12      (0000002a) return               v0
+

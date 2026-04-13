@@ -1,0 +1,28 @@
+# Lcom/jlboat/phone/adapter/RvFloorMapListAdapter$FrdViewHolder$2;->onLongClick(Landroid/view/View;)Z [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:android.view.View
+#
+# - return:boolean
+
+onLongClick-BB@0x0 : [ onLongClick-BB@0x14 onLongClick-BB@0x32 ]
+	0       (00000000) iget-object          v0, v3, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter$FrdViewHolder$2;->this$1 Lcom/jlboat/phone/adapter/RvFloorMapListAdapter$FrdViewHolder;
+	1       (00000004) iget-object          v0, v0, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter$FrdViewHolder;->this$0 Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;
+	2       (00000008) invoke-static        v0, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;->access$300(Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;)Lcom/jlboat/phone/adapter/RvFloorMapListAdapter$OnClick;
+	3       (0000000e) move-result-object   v0
+	4       (00000010) if-eqz               v0, +011h
+
+onLongClick-BB@0x14 : [ onLongClick-BB@0x32 ]
+	5       (00000014) iget-object          v0, v3, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter$FrdViewHolder$2;->this$1 Lcom/jlboat/phone/adapter/RvFloorMapListAdapter$FrdViewHolder;
+	6       (00000018) iget-object          v0, v0, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter$FrdViewHolder;->this$0 Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;
+	7       (0000001c) invoke-static        v0, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;->access$300(Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;)Lcom/jlboat/phone/adapter/RvFloorMapListAdapter$OnClick;
+	8       (00000022) move-result-object   v0
+	9       (00000024) iget-object          v1, v3, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter$FrdViewHolder$2;->val$mapBelongFloor Lcom/boat/support/slam/entity/floors/Floors;
+	10      (00000028) iget-object          v2, v3, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter$FrdViewHolder$2;->val$currentMap Lcom/boat/support/slam/entity/floors/Maps;
+	11      (0000002c) invoke-interface     v0, v4, v1, v2, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter$OnClick;->longlick(Landroid/view/View; Lcom/boat/support/slam/entity/floors/Floors; Lcom/boat/support/slam/entity/floors/Maps;)V
+
+onLongClick-BB@0x32 : 
+	12      (00000032) const/4              v0, 0
+	13      (00000034) return               v0
+

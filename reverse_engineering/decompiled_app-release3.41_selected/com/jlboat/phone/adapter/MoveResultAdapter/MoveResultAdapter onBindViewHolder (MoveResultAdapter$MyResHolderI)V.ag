@@ -1,0 +1,146 @@
+# Lcom/jlboat/phone/adapter/MoveResultAdapter;->onBindViewHolder(Lcom/jlboat/phone/adapter/MoveResultAdapter$MyResHolder; I)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v5
+# - v6:com.jlboat.phone.adapter.MoveResultAdapter$MyResHolder
+# - v7:int
+#
+# - return:void
+
+onBindViewHolder-BB@0x0 : [ onBindViewHolder-BB@0x34 onBindViewHolder-BB@0x7a ]
+	0       (00000000) iget-object          v0, v5, Lcom/jlboat/phone/adapter/MoveResultAdapter;->mList Ljava/util/List;
+	1       (00000004) invoke-interface     v0, v7, Ljava/util/List;->get(I)Ljava/lang/Object;
+	2       (0000000a) move-result-object   v0
+	3       (0000000c) check-cast           v0, Lcom/jlboat/phone/bean/MoveRes;
+	4       (00000010) iput-object          v0, v5, Lcom/jlboat/phone/adapter/MoveResultAdapter;->res Lcom/jlboat/phone/bean/MoveRes;
+	5       (00000014) iget-object          v0, v5, Lcom/jlboat/phone/adapter/MoveResultAdapter;->res Lcom/jlboat/phone/bean/MoveRes;
+	6       (00000018) invoke-virtual       v0, Lcom/jlboat/phone/bean/MoveRes;->getValue()F
+	7       (0000001e) move-result          v0
+	8       (00000020) const                v1, 1176255488
+	9       (00000026) const/4              v2, 0
+	10      (00000028) const/16             v3, 8
+	11      (0000002c) cmpl-float           v0, v0, v1
+	12      (00000030) if-nez               v0, +025h
+
+onBindViewHolder-BB@0x34 : [ onBindViewHolder-BB@0x1e0 ]
+	13      (00000034) iget-object          v0, v6, Lcom/jlboat/phone/adapter/MoveResultAdapter$MyResHolder;->timeTv Landroid/widget/TextView;
+	14      (00000038) invoke-virtual       v0, v3, Landroid/widget/TextView;->setVisibility(I)V
+	15      (0000003e) iget-object          v0, v6, Lcom/jlboat/phone/adapter/MoveResultAdapter$MyResHolder;->valueTv Landroid/widget/TextView;
+	16      (00000042) invoke-virtual       v0, v3, Landroid/widget/TextView;->setVisibility(I)V
+	17      (00000048) iget-object          v0, v6, Lcom/jlboat/phone/adapter/MoveResultAdapter$MyResHolder;->endTv Landroid/widget/TextView;
+	18      (0000004c) invoke-virtual       v0, v2, Landroid/widget/TextView;->setVisibility(I)V
+	19      (00000052) iget-object          v0, v6, Lcom/jlboat/phone/adapter/MoveResultAdapter$MyResHolder;->endTv Landroid/widget/TextView;
+	20      (00000056) const-string         v1, "测试完成"
+	21      (0000005a) invoke-virtual       v0, v1, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+	22      (00000060) iget-object          v0, v6, Lcom/jlboat/phone/adapter/MoveResultAdapter$MyResHolder;->endTv Landroid/widget/TextView;
+	23      (00000064) const-string         v1, "#6ccc4b"
+	24      (00000068) invoke-static        v1, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I
+	25      (0000006e) move-result          v1
+	26      (00000070) invoke-virtual       v0, v1, Landroid/widget/TextView;->setTextColor(I)V
+	27      (00000076) goto/16              +0b5h
+
+onBindViewHolder-BB@0x7a : [ onBindViewHolder-BB@0x94 onBindViewHolder-BB@0xda ]
+	28      (0000007a) iget-object          v0, v5, Lcom/jlboat/phone/adapter/MoveResultAdapter;->res Lcom/jlboat/phone/bean/MoveRes;
+	29      (0000007e) invoke-virtual       v0, Lcom/jlboat/phone/bean/MoveRes;->getValue()F
+	30      (00000084) move-result          v0
+	31      (00000086) const                v1, 1176256512
+	32      (0000008c) cmpl-float           v0, v0, v1
+	33      (00000090) if-nez               v0, +025h
+
+onBindViewHolder-BB@0x94 : [ onBindViewHolder-BB@0x1e0 ]
+	34      (00000094) iget-object          v0, v6, Lcom/jlboat/phone/adapter/MoveResultAdapter$MyResHolder;->timeTv Landroid/widget/TextView;
+	35      (00000098) invoke-virtual       v0, v3, Landroid/widget/TextView;->setVisibility(I)V
+	36      (0000009e) iget-object          v0, v6, Lcom/jlboat/phone/adapter/MoveResultAdapter$MyResHolder;->endTv Landroid/widget/TextView;
+	37      (000000a2) invoke-virtual       v0, v2, Landroid/widget/TextView;->setVisibility(I)V
+	38      (000000a8) iget-object          v0, v6, Lcom/jlboat/phone/adapter/MoveResultAdapter$MyResHolder;->valueTv Landroid/widget/TextView;
+	39      (000000ac) invoke-virtual       v0, v3, Landroid/widget/TextView;->setVisibility(I)V
+	40      (000000b2) iget-object          v0, v6, Lcom/jlboat/phone/adapter/MoveResultAdapter$MyResHolder;->endTv Landroid/widget/TextView;
+	41      (000000b6) const-string         v1, "测试取消"
+	42      (000000ba) invoke-virtual       v0, v1, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+	43      (000000c0) iget-object          v0, v6, Lcom/jlboat/phone/adapter/MoveResultAdapter$MyResHolder;->endTv Landroid/widget/TextView;
+	44      (000000c4) const-string         v1, "#eeb300"
+	45      (000000c8) invoke-static        v1, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I
+	46      (000000ce) move-result          v1
+	47      (000000d0) invoke-virtual       v0, v1, Landroid/widget/TextView;->setTextColor(I)V
+	48      (000000d6) goto/16              +085h
+
+onBindViewHolder-BB@0xda : [ onBindViewHolder-BB@0x132 onBindViewHolder-BB@0x186 ]
+	49      (000000da) iget-object          v0, v6, Lcom/jlboat/phone/adapter/MoveResultAdapter$MyResHolder;->timeTv Landroid/widget/TextView;
+	50      (000000de) new-instance         v1, Ljava/lang/StringBuilder;
+	51      (000000e2) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	52      (000000e8) iget-object          v4, v5, Lcom/jlboat/phone/adapter/MoveResultAdapter;->res Lcom/jlboat/phone/bean/MoveRes;
+	53      (000000ec) invoke-virtual       v4, Lcom/jlboat/phone/bean/MoveRes;->getTime()Ljava/lang/String;
+	54      (000000f2) move-result-object   v4
+	55      (000000f4) invoke-virtual       v1, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	56      (000000fa) move-result-object   v1
+	57      (000000fc) const-string         v4, "___"
+	58      (00000100) invoke-virtual       v1, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	59      (00000106) move-result-object   v1
+	60      (00000108) invoke-virtual       v1, v7, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	61      (0000010e) move-result-object   v1
+	62      (00000110) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	63      (00000116) move-result-object   v1
+	64      (00000118) invoke-virtual       v0, v1, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+	65      (0000011e) iget-object          v0, v6, Lcom/jlboat/phone/adapter/MoveResultAdapter$MyResHolder;->endTv Landroid/widget/TextView;
+	66      (00000122) invoke-virtual       v0, v3, Landroid/widget/TextView;->setVisibility(I)V
+	67      (00000128) iget                 v0, v5, Lcom/jlboat/phone/adapter/MoveResultAdapter;->mType I
+	68      (0000012c) const/4              v1, 2
+	69      (0000012e) if-eq                v0, v1, +02ch
+
+onBindViewHolder-BB@0x132 : [ onBindViewHolder-BB@0x13c onBindViewHolder-BB@0x186 ]
+	70      (00000132) iget                 v0, v5, Lcom/jlboat/phone/adapter/MoveResultAdapter;->mType I
+	71      (00000136) const/4              v1, 4
+	72      (00000138) if-eq                v0, v1, +027h
+
+onBindViewHolder-BB@0x13c : [ onBindViewHolder-BB@0x146 onBindViewHolder-BB@0x148 ]
+	73      (0000013c) iget                 v0, v5, Lcom/jlboat/phone/adapter/MoveResultAdapter;->mType I
+	74      (00000140) const/4              v1, 5
+	75      (00000142) if-ne                v0, v1, +003h
+
+onBindViewHolder-BB@0x146 : [ onBindViewHolder-BB@0x186 ]
+	76      (00000146) goto                 +20h
+
+onBindViewHolder-BB@0x148 : [ onBindViewHolder-BB@0x1e0 ]
+	77      (00000148) iget-object          v0, v6, Lcom/jlboat/phone/adapter/MoveResultAdapter$MyResHolder;->valueTv Landroid/widget/TextView;
+	78      (0000014c) new-instance         v1, Ljava/lang/StringBuilder;
+	79      (00000150) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	80      (00000156) iget-object          v2, v5, Lcom/jlboat/phone/adapter/MoveResultAdapter;->res Lcom/jlboat/phone/bean/MoveRes;
+	81      (0000015a) invoke-virtual       v2, Lcom/jlboat/phone/bean/MoveRes;->getValue()F
+	82      (00000160) move-result          v2
+	83      (00000162) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+	84      (00000168) move-result-object   v1
+	85      (0000016a) const-string         v2, "°"
+	86      (0000016e) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	87      (00000174) move-result-object   v1
+	88      (00000176) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	89      (0000017c) move-result-object   v1
+	90      (0000017e) invoke-virtual       v0, v1, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+	91      (00000184) goto                 +2eh
+
+onBindViewHolder-BB@0x186 : [ onBindViewHolder-BB@0x1e0 ]
+	92      (00000186) iget-object          v0, v6, Lcom/jlboat/phone/adapter/MoveResultAdapter$MyResHolder;->valueTv Landroid/widget/TextView;
+	93      (0000018a) new-instance         v1, Ljava/lang/StringBuilder;
+	94      (0000018e) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	95      (00000194) iget-object          v3, v5, Lcom/jlboat/phone/adapter/MoveResultAdapter;->res Lcom/jlboat/phone/bean/MoveRes;
+	96      (00000198) invoke-virtual       v3, Lcom/jlboat/phone/bean/MoveRes;->getValue()F
+	97      (0000019e) move-result          v3
+	98      (000001a0) invoke-static        v3, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+	99      (000001a6) move-result-object   v3
+	100     (000001a8) const/4              v4, 1
+	101     (000001aa) new-array            v4, v4, [Ljava/lang/Object;
+	102     (000001ae) aput-object          v3, v4, v2
+	103     (000001b2) const-string         v2, "%.2f"
+	104     (000001b6) invoke-static        v2, v4, Ljava/lang/String;->format(Ljava/lang/String; [Ljava/lang/Object;)Ljava/lang/String;
+	105     (000001bc) move-result-object   v2
+	106     (000001be) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	107     (000001c4) move-result-object   v1
+	108     (000001c6) const-string         v2, "m"
+	109     (000001ca) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	110     (000001d0) move-result-object   v1
+	111     (000001d2) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	112     (000001d8) move-result-object   v1
+	113     (000001da) invoke-virtual       v0, v1, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+onBindViewHolder-BB@0x1e0 : 
+	114     (000001e0) return-void          
+

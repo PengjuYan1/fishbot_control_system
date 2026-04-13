@@ -1,0 +1,107 @@
+# Lcom/jlboat/phone/adapter/DiyPathListAdapter;->onBindViewHolder(Lcom/jlboat/phone/adapter/DiyPathListAdapter$MyHolder; I)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:com.jlboat.phone.adapter.DiyPathListAdapter$MyHolder
+# - v5:int
+#
+# - return:void
+
+onBindViewHolder-BB@0x0 : [ onBindViewHolder-BB@0x1e onBindViewHolder-BB@0x68 ]
+	0       (00000000) iget-object          v0, v3, Lcom/jlboat/phone/adapter/DiyPathListAdapter;->mPointList Ljava/util/List;
+	1       (00000004) invoke-interface     v0, v5, Ljava/util/List;->get(I)Ljava/lang/Object;
+	2       (0000000a) move-result-object   v0
+	3       (0000000c) check-cast           v0, Lcom/boat/support/slam/entity/floors/GlobalPlans;
+	4       (00000010) iput-object          v0, v3, Lcom/jlboat/phone/adapter/DiyPathListAdapter;->globalPlan Lcom/boat/support/slam/entity/floors/GlobalPlans;
+	5       (00000014) iget                 v0, v3, Lcom/jlboat/phone/adapter/DiyPathListAdapter;->mId I
+	6       (00000018) const/4              v1, 1
+	7       (0000001a) if-ne                v0, v5, +027h
+
+onBindViewHolder-BB@0x1e : [ onBindViewHolder-BB@0x44 onBindViewHolder-BB@0x56 ]
+	8       (0000001e) iget-object          v0, v4, Lcom/jlboat/phone/adapter/DiyPathListAdapter$MyHolder;->tv Landroid/widget/TextView;
+	9       (00000022) const-string         v2, "#ff8700"
+	10      (00000026) invoke-static        v2, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I
+	11      (0000002c) move-result          v2
+	12      (0000002e) invoke-virtual       v0, v2, Landroid/widget/TextView;->setTextColor(I)V
+	13      (00000034) iget-object          v0, v3, Lcom/jlboat/phone/adapter/DiyPathListAdapter;->globalPlan Lcom/boat/support/slam/entity/floors/GlobalPlans;
+	14      (00000038) invoke-virtual       v0, Lcom/boat/support/slam/entity/floors/GlobalPlans;->getDir()I
+	15      (0000003e) move-result          v0
+	16      (00000040) if-ne                v0, v1, +00bh
+
+onBindViewHolder-BB@0x44 : [ onBindViewHolder-BB@0xb0 ]
+	17      (00000044) iget-object          v0, v4, Lcom/jlboat/phone/adapter/DiyPathListAdapter$MyHolder;->iv Landroid/widget/ImageView;
+	18      (00000048) const                v1, 2131427344
+	19      (0000004e) invoke-virtual       v0, v1, Landroid/widget/ImageView;->setBackgroundResource(I)V
+	20      (00000054) goto                 +2eh
+
+onBindViewHolder-BB@0x56 : [ onBindViewHolder-BB@0xb0 ]
+	21      (00000056) iget-object          v0, v4, Lcom/jlboat/phone/adapter/DiyPathListAdapter$MyHolder;->iv Landroid/widget/ImageView;
+	22      (0000005a) const                v1, 2131427345
+	23      (00000060) invoke-virtual       v0, v1, Landroid/widget/ImageView;->setBackgroundResource(I)V
+	24      (00000066) goto                 +25h
+
+onBindViewHolder-BB@0x68 : [ onBindViewHolder-BB@0x8e onBindViewHolder-BB@0xa0 ]
+	25      (00000068) iget-object          v0, v4, Lcom/jlboat/phone/adapter/DiyPathListAdapter$MyHolder;->tv Landroid/widget/TextView;
+	26      (0000006c) const-string         v2, "#333333"
+	27      (00000070) invoke-static        v2, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I
+	28      (00000076) move-result          v2
+	29      (00000078) invoke-virtual       v0, v2, Landroid/widget/TextView;->setTextColor(I)V
+	30      (0000007e) iget-object          v0, v3, Lcom/jlboat/phone/adapter/DiyPathListAdapter;->globalPlan Lcom/boat/support/slam/entity/floors/GlobalPlans;
+	31      (00000082) invoke-virtual       v0, Lcom/boat/support/slam/entity/floors/GlobalPlans;->getDir()I
+	32      (00000088) move-result          v0
+	33      (0000008a) if-ne                v0, v1, +00bh
+
+onBindViewHolder-BB@0x8e : [ onBindViewHolder-BB@0xb0 ]
+	34      (0000008e) iget-object          v0, v4, Lcom/jlboat/phone/adapter/DiyPathListAdapter$MyHolder;->iv Landroid/widget/ImageView;
+	35      (00000092) const                v1, 2131427342
+	36      (00000098) invoke-virtual       v0, v1, Landroid/widget/ImageView;->setBackgroundResource(I)V
+	37      (0000009e) goto                 +9h
+
+onBindViewHolder-BB@0xa0 : [ onBindViewHolder-BB@0xb0 ]
+	38      (000000a0) iget-object          v0, v4, Lcom/jlboat/phone/adapter/DiyPathListAdapter$MyHolder;->iv Landroid/widget/ImageView;
+	39      (000000a4) const                v1, 2131427343
+	40      (000000aa) invoke-virtual       v0, v1, Landroid/widget/ImageView;->setBackgroundResource(I)V
+
+onBindViewHolder-BB@0xb0 : [ onBindViewHolder-BB@0xd4 onBindViewHolder-BB@0x106 ]
+	41      (000000b0) iget-object          v0, v3, Lcom/jlboat/phone/adapter/DiyPathListAdapter;->globalPlan Lcom/boat/support/slam/entity/floors/GlobalPlans;
+	42      (000000b4) invoke-virtual       v0, Lcom/boat/support/slam/entity/floors/GlobalPlans;->getGlobalplanName()Ljava/lang/String;
+	43      (000000ba) move-result-object   v0
+	44      (000000bc) invoke-virtual       v0, Ljava/lang/String;->trim()Ljava/lang/String;
+	45      (000000c2) move-result-object   v0
+	46      (000000c4) const-string         v1, ""
+	47      (000000c8) invoke-virtual       v0, v1, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	48      (000000ce) move-result          v0
+	49      (000000d0) if-eqz               v0, +01bh
+
+onBindViewHolder-BB@0xd4 : [ onBindViewHolder-BB@0x11c ]
+	50      (000000d4) iget-object          v0, v4, Lcom/jlboat/phone/adapter/DiyPathListAdapter$MyHolder;->tv Landroid/widget/TextView;
+	51      (000000d8) new-instance         v1, Ljava/lang/StringBuilder;
+	52      (000000dc) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	53      (000000e2) const-string         v2, "未命名路线"
+	54      (000000e6) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	55      (000000ec) move-result-object   v1
+	56      (000000ee) invoke-virtual       v1, v5, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	57      (000000f4) move-result-object   v1
+	58      (000000f6) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	59      (000000fc) move-result-object   v1
+	60      (000000fe) invoke-virtual       v0, v1, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+	61      (00000104) goto                 +ch
+
+onBindViewHolder-BB@0x106 : [ onBindViewHolder-BB@0x11c ]
+	62      (00000106) iget-object          v0, v4, Lcom/jlboat/phone/adapter/DiyPathListAdapter$MyHolder;->tv Landroid/widget/TextView;
+	63      (0000010a) iget-object          v1, v3, Lcom/jlboat/phone/adapter/DiyPathListAdapter;->globalPlan Lcom/boat/support/slam/entity/floors/GlobalPlans;
+	64      (0000010e) invoke-virtual       v1, Lcom/boat/support/slam/entity/floors/GlobalPlans;->getGlobalplanName()Ljava/lang/String;
+	65      (00000114) move-result-object   v1
+	66      (00000116) invoke-virtual       v0, v1, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+onBindViewHolder-BB@0x11c : 
+	67      (0000011c) iget-object          v0, v4, Lcom/jlboat/phone/adapter/DiyPathListAdapter$MyHolder;->itemView Landroid/view/View;
+	68      (00000120) new-instance         v1, Lcom/jlboat/phone/adapter/DiyPathListAdapter$1;
+	69      (00000124) invoke-direct        v1, v3, v5, Lcom/jlboat/phone/adapter/DiyPathListAdapter$1;-><init>(Lcom/jlboat/phone/adapter/DiyPathListAdapter; I)V
+	70      (0000012a) invoke-virtual       v0, v1, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	71      (00000130) iget-object          v0, v4, Lcom/jlboat/phone/adapter/DiyPathListAdapter$MyHolder;->itemView Landroid/view/View;
+	72      (00000134) new-instance         v1, Lcom/jlboat/phone/adapter/DiyPathListAdapter$2;
+	73      (00000138) invoke-direct        v1, v3, v5, Lcom/jlboat/phone/adapter/DiyPathListAdapter$2;-><init>(Lcom/jlboat/phone/adapter/DiyPathListAdapter; I)V
+	74      (0000013e) invoke-virtual       v0, v1, Landroid/view/View;->setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
+	75      (00000144) return-void          
+

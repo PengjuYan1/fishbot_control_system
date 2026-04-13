@@ -1,0 +1,31 @@
+# Lcom/jlboat/phone/adapter/RegionListAdapter$1;->onClick(Landroid/view/View;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:android.view.View
+#
+# - return:void
+
+onClick-BB@0x0 : [ onClick-BB@0x10 onClick-BB@0x42 ]
+	0       (00000000) iget-object          v0, v3, Lcom/jlboat/phone/adapter/RegionListAdapter$1;->this$0 Lcom/jlboat/phone/adapter/RegionListAdapter;
+	1       (00000004) invoke-static        v0, Lcom/jlboat/phone/adapter/RegionListAdapter;->access$100(Lcom/jlboat/phone/adapter/RegionListAdapter;)Lcom/jlboat/phone/adapter/RegionListAdapter$OnClick;
+	2       (0000000a) move-result-object   v0
+	3       (0000000c) if-eqz               v0, +01bh
+
+onClick-BB@0x10 : [ onClick-BB@0x42 ]
+	4       (00000010) iget-object          v0, v3, Lcom/jlboat/phone/adapter/RegionListAdapter$1;->this$0 Lcom/jlboat/phone/adapter/RegionListAdapter;
+	5       (00000014) invoke-static        v0, Lcom/jlboat/phone/adapter/RegionListAdapter;->access$100(Lcom/jlboat/phone/adapter/RegionListAdapter;)Lcom/jlboat/phone/adapter/RegionListAdapter$OnClick;
+	6       (0000001a) move-result-object   v0
+	7       (0000001c) iget-object          v1, v3, Lcom/jlboat/phone/adapter/RegionListAdapter$1;->this$0 Lcom/jlboat/phone/adapter/RegionListAdapter;
+	8       (00000020) invoke-static        v1, Lcom/jlboat/phone/adapter/RegionListAdapter;->access$200(Lcom/jlboat/phone/adapter/RegionListAdapter;)Ljava/util/List;
+	9       (00000026) move-result-object   v1
+	10      (00000028) iget                 v2, v3, Lcom/jlboat/phone/adapter/RegionListAdapter$1;->val$position I
+	11      (0000002c) invoke-interface     v1, v2, Ljava/util/List;->get(I)Ljava/lang/Object;
+	12      (00000032) move-result-object   v1
+	13      (00000034) check-cast           v1, Lcom/boat/support/slam/entity/floors/Region;
+	14      (00000038) iget                 v2, v3, Lcom/jlboat/phone/adapter/RegionListAdapter$1;->val$oederNum I
+	15      (0000003c) invoke-interface     v0, v1, v2, Lcom/jlboat/phone/adapter/RegionListAdapter$OnClick;->click(Lcom/boat/support/slam/entity/floors/Region; I)V
+
+onClick-BB@0x42 : 
+	16      (00000042) return-void          
+

@@ -1,0 +1,55 @@
+# Lcom/jlboat/phone/activity/MapActivity$28;->onCheckedChanged(Landroid/widget/RadioGroup; I)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:android.widget.RadioGroup
+# - v5:int
+#
+# - return:void
+
+onCheckedChanged-BB@0x0 : [ onCheckedChanged-BB@0x3e onCheckedChanged-BB@0x52 ]
+	0       (00000000) new-instance         v0, Ljava/lang/StringBuilder;
+	1       (00000004) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	2       (0000000a) const-string         v1, "mapAdd Dialog onCheckedChanged: i "
+	3       (0000000e) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	4       (00000014) move-result-object   v0
+	5       (00000016) invoke-virtual       v0, v5, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	6       (0000001c) move-result-object   v0
+	7       (0000001e) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	8       (00000024) move-result-object   v0
+	9       (00000026) const-string         v1, "MapActivity"
+	10      (0000002a) invoke-static        v1, v0, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	11      (00000030) const                v0, 2131231121
+	12      (00000036) const/16             v1, 8
+	13      (0000003a) if-ne                v5, v0, +00ch
+
+onCheckedChanged-BB@0x3e : [ onCheckedChanged-BB@0x52 ]
+	14      (0000003e) iget-object          v0, v3, Lcom/jlboat/phone/activity/MapActivity$28;->val$spinner_floors Landroid/widget/Spinner;
+	15      (00000042) invoke-virtual       v0, v1, Landroid/widget/Spinner;->setVisibility(I)V
+	16      (00000048) iget-object          v0, v3, Lcom/jlboat/phone/activity/MapActivity$28;->val$editFloorText Landroid/widget/EditText;
+	17      (0000004c) invoke-virtual       v0, v1, Landroid/widget/EditText;->setVisibility(I)V
+
+onCheckedChanged-BB@0x52 : [ onCheckedChanged-BB@0x5e onCheckedChanged-BB@0x72 ]
+	18      (00000052) const                v0, 2131231122
+	19      (00000058) const/4              v2, 0
+	20      (0000005a) if-ne                v5, v0, +00ch
+
+onCheckedChanged-BB@0x5e : [ onCheckedChanged-BB@0x72 ]
+	21      (0000005e) iget-object          v0, v3, Lcom/jlboat/phone/activity/MapActivity$28;->val$spinner_floors Landroid/widget/Spinner;
+	22      (00000062) invoke-virtual       v0, v2, Landroid/widget/Spinner;->setVisibility(I)V
+	23      (00000068) iget-object          v0, v3, Lcom/jlboat/phone/activity/MapActivity$28;->val$editFloorText Landroid/widget/EditText;
+	24      (0000006c) invoke-virtual       v0, v1, Landroid/widget/EditText;->setVisibility(I)V
+
+onCheckedChanged-BB@0x72 : [ onCheckedChanged-BB@0x7c onCheckedChanged-BB@0x90 ]
+	25      (00000072) const                v0, 2131231123
+	26      (00000078) if-ne                v5, v0, +00ch
+
+onCheckedChanged-BB@0x7c : [ onCheckedChanged-BB@0x90 ]
+	27      (0000007c) iget-object          v0, v3, Lcom/jlboat/phone/activity/MapActivity$28;->val$spinner_floors Landroid/widget/Spinner;
+	28      (00000080) invoke-virtual       v0, v1, Landroid/widget/Spinner;->setVisibility(I)V
+	29      (00000086) iget-object          v0, v3, Lcom/jlboat/phone/activity/MapActivity$28;->val$editFloorText Landroid/widget/EditText;
+	30      (0000008a) invoke-virtual       v0, v2, Landroid/widget/EditText;->setVisibility(I)V
+
+onCheckedChanged-BB@0x90 : 
+	31      (00000090) return-void          
+

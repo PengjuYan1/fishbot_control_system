@@ -1,0 +1,13 @@
+# Lcom/jlboat/phone/controller/JlNaviManager;->access$702(Lcom/jlboat/phone/controller/JlNaviManager; Z)Z [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v-1
+# - v0:com.jlboat.phone.controller.JlNaviManager
+# - v1:boolean
+#
+# - return:boolean
+
+access$702-BB@0x0 : 
+	0       (00000000) iput-boolean         v1, v0, Lcom/jlboat/phone/controller/JlNaviManager;->connectStatus Z
+	1       (00000004) return               v1
+

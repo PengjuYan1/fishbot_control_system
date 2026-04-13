@@ -1,0 +1,57 @@
+# Lcom/boat/jrosbridge/rosbridge/operation/Operation;->initialize(Lcom/boat/jrosbridge/rosbridge/implementation/Registry;)V [access_flags=public static]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:com.boat.jrosbridge.rosbridge.implementation.Registry
+#
+# - return:void
+
+initialize-BB@0x0 : 
+	0       (00000000) const-class          v0, Lcom/boat/jrosbridge/rosbridge/operation/Advertise;
+	1       (00000004) invoke-static        v3, v0, Lcom/boat/jrosbridge/rosbridge/operation/Operation;->initClass(Lcom/boat/jrosbridge/rosbridge/implementation/Registry; Ljava/lang/Class;)V
+	2       (0000000a) const-class          v0, Lcom/boat/jrosbridge/rosbridge/operation/Authenticate;
+	3       (0000000e) invoke-static        v3, v0, Lcom/boat/jrosbridge/rosbridge/operation/Operation;->initClass(Lcom/boat/jrosbridge/rosbridge/implementation/Registry; Ljava/lang/Class;)V
+	4       (00000014) const-class          v0, Lcom/boat/jrosbridge/rosbridge/operation/CallService;
+	5       (00000018) invoke-static        v3, v0, Lcom/boat/jrosbridge/rosbridge/operation/Operation;->initClass(Lcom/boat/jrosbridge/rosbridge/implementation/Registry; Ljava/lang/Class;)V
+	6       (0000001e) const-class          v0, Lcom/boat/jrosbridge/rosbridge/operation/Fragment;
+	7       (00000022) invoke-static        v3, v0, Lcom/boat/jrosbridge/rosbridge/operation/Operation;->initClass(Lcom/boat/jrosbridge/rosbridge/implementation/Registry; Ljava/lang/Class;)V
+	8       (00000028) const-class          v0, Lcom/boat/jrosbridge/rosbridge/operation/Operation;
+	9       (0000002c) invoke-static        v3, v0, Lcom/boat/jrosbridge/rosbridge/operation/Operation;->initClass(Lcom/boat/jrosbridge/rosbridge/implementation/Registry; Ljava/lang/Class;)V
+	10      (00000032) const-class          v0, Lcom/boat/jrosbridge/rosbridge/operation/PNG;
+	11      (00000036) invoke-static        v3, v0, Lcom/boat/jrosbridge/rosbridge/operation/Operation;->initClass(Lcom/boat/jrosbridge/rosbridge/implementation/Registry; Ljava/lang/Class;)V
+	12      (0000003c) const-class          v0, Lcom/boat/jrosbridge/rosbridge/operation/Publish;
+	13      (00000040) invoke-static        v3, v0, Lcom/boat/jrosbridge/rosbridge/operation/Operation;->initClass(Lcom/boat/jrosbridge/rosbridge/implementation/Registry; Ljava/lang/Class;)V
+	14      (00000046) const-class          v0, Lcom/boat/jrosbridge/rosbridge/operation/ServiceResponse;
+	15      (0000004a) invoke-static        v3, v0, Lcom/boat/jrosbridge/rosbridge/operation/Operation;->initClass(Lcom/boat/jrosbridge/rosbridge/implementation/Registry; Ljava/lang/Class;)V
+	16      (00000050) const-class          v0, Lcom/boat/jrosbridge/rosbridge/operation/SetStatusLevel;
+	17      (00000054) invoke-static        v3, v0, Lcom/boat/jrosbridge/rosbridge/operation/Operation;->initClass(Lcom/boat/jrosbridge/rosbridge/implementation/Registry; Ljava/lang/Class;)V
+	18      (0000005a) const-class          v0, Lcom/boat/jrosbridge/rosbridge/operation/Status;
+	19      (0000005e) invoke-static        v3, v0, Lcom/boat/jrosbridge/rosbridge/operation/Operation;->initClass(Lcom/boat/jrosbridge/rosbridge/implementation/Registry; Ljava/lang/Class;)V
+	20      (00000064) const-class          v0, Lcom/boat/jrosbridge/rosbridge/operation/Subscribe;
+	21      (00000068) invoke-static        v3, v0, Lcom/boat/jrosbridge/rosbridge/operation/Operation;->initClass(Lcom/boat/jrosbridge/rosbridge/implementation/Registry; Ljava/lang/Class;)V
+	22      (0000006e) const-class          v0, Lcom/boat/jrosbridge/rosbridge/operation/Unadvertise;
+	23      (00000072) invoke-static        v3, v0, Lcom/boat/jrosbridge/rosbridge/operation/Operation;->initClass(Lcom/boat/jrosbridge/rosbridge/implementation/Registry; Ljava/lang/Class;)V
+	24      (00000078) const-class          v0, Lcom/boat/jrosbridge/rosbridge/operation/Unsubscribe;
+	25      (0000007c) invoke-static        v3, v0, Lcom/boat/jrosbridge/rosbridge/operation/Operation;->initClass(Lcom/boat/jrosbridge/rosbridge/implementation/Registry; Ljava/lang/Class;)V
+	26      (00000082) const-class          v0, Lcom/boat/jrosbridge/rosbridge/operation/Wrapper;
+	27      (00000086) invoke-static        v3, v0, Lcom/boat/jrosbridge/rosbridge/operation/Operation;->initClass(Lcom/boat/jrosbridge/rosbridge/implementation/Registry; Ljava/lang/Class;)V
+	28      (0000008c) const-class          v0, Lcom/boat/jrosbridge/rosbridge/operation/Wrapper;
+	29      (00000090) const-class          v1, Lcom/boat/jrosbridge/rosbridge/operation/Publish;
+	30      (00000094) invoke-static        v1, Lcom/boat/jrosbridge/message/Message;->getMessageType(Ljava/lang/Class;)Ljava/lang/String;
+	31      (0000009a) move-result-object   v1
+	32      (0000009c) const-class          v2, Lcom/boat/jrosbridge/rosbridge/operation/Publish;
+	33      (000000a0) invoke-virtual       v3, v0, v1, v2, Lcom/boat/jrosbridge/rosbridge/implementation/Registry;->register(Ljava/lang/Class; Ljava/lang/String; Ljava/lang/Object;)V
+	34      (000000a6) const-class          v0, Lcom/boat/jrosbridge/rosbridge/operation/Wrapper;
+	35      (000000aa) const-class          v1, Lcom/boat/jrosbridge/rosbridge/operation/CallService;
+	36      (000000ae) invoke-static        v1, Lcom/boat/jrosbridge/message/Message;->getMessageType(Ljava/lang/Class;)Ljava/lang/String;
+	37      (000000b4) move-result-object   v1
+	38      (000000b6) const-class          v2, Lcom/boat/jrosbridge/rosbridge/operation/CallService;
+	39      (000000ba) invoke-virtual       v3, v0, v1, v2, Lcom/boat/jrosbridge/rosbridge/implementation/Registry;->register(Ljava/lang/Class; Ljava/lang/String; Ljava/lang/Object;)V
+	40      (000000c0) const-class          v0, Lcom/boat/jrosbridge/rosbridge/operation/Wrapper;
+	41      (000000c4) const-class          v1, Lcom/boat/jrosbridge/rosbridge/operation/ServiceResponse;
+	42      (000000c8) invoke-static        v1, Lcom/boat/jrosbridge/message/Message;->getMessageType(Ljava/lang/Class;)Ljava/lang/String;
+	43      (000000ce) move-result-object   v1
+	44      (000000d0) const-class          v2, Lcom/boat/jrosbridge/rosbridge/operation/ServiceResponse;
+	45      (000000d4) invoke-virtual       v3, v0, v1, v2, Lcom/boat/jrosbridge/rosbridge/implementation/Registry;->register(Ljava/lang/Class; Ljava/lang/String; Ljava/lang/Object;)V
+	46      (000000da) return-void          
+

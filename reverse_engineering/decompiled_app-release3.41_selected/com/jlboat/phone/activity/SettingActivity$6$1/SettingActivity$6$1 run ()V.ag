@@ -1,0 +1,41 @@
+# Lcom/jlboat/phone/activity/SettingActivity$6$1;->run()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v3
+#
+# - return:void
+
+run-BB@0x0 : [ run-BB@0x1e run-BB@0x36 ]
+	0       (00000000) iget-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity$6$1;->val$config Lcom/jlboat/phone/message/map_msgs/Config;
+	1       (00000004) invoke-virtual       v0, Lcom/jlboat/phone/message/map_msgs/Config;->getConfigValue()Ljava/lang/String;
+	2       (0000000a) move-result-object   v0
+	3       (0000000c) const-string         v1, "True"
+	4       (00000010) invoke-virtual       v0, v1, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	5       (00000016) move-result          v0
+	6       (00000018) const/4              v1, 1
+	7       (0000001a) if-eqz               v0, +00eh
+
+run-BB@0x1e : [ run-BB@0x4e ]
+	8       (0000001e) iget-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity$6$1;->this$1 Lcom/jlboat/phone/activity/SettingActivity$6;
+	9       (00000022) iget-object          v0, v0, Lcom/jlboat/phone/activity/SettingActivity$6;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	10      (00000026) invoke-static        v0, Lcom/jlboat/phone/activity/SettingActivity;->access$700(Lcom/jlboat/phone/activity/SettingActivity;)Landroid/widget/Switch;
+	11      (0000002c) move-result-object   v0
+	12      (0000002e) invoke-virtual       v0, v1, Landroid/widget/Switch;->setChecked(Z)V
+	13      (00000034) goto                 +dh
+
+run-BB@0x36 : [ run-BB@0x4e ]
+	14      (00000036) iget-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity$6$1;->this$1 Lcom/jlboat/phone/activity/SettingActivity$6;
+	15      (0000003a) iget-object          v0, v0, Lcom/jlboat/phone/activity/SettingActivity$6;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	16      (0000003e) invoke-static        v0, Lcom/jlboat/phone/activity/SettingActivity;->access$700(Lcom/jlboat/phone/activity/SettingActivity;)Landroid/widget/Switch;
+	17      (00000044) move-result-object   v0
+	18      (00000046) const/4              v2, 0
+	19      (00000048) invoke-virtual       v0, v2, Landroid/widget/Switch;->setChecked(Z)V
+
+run-BB@0x4e : 
+	20      (0000004e) iget-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity$6$1;->this$1 Lcom/jlboat/phone/activity/SettingActivity$6;
+	21      (00000052) iget-object          v0, v0, Lcom/jlboat/phone/activity/SettingActivity$6;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	22      (00000056) invoke-static        v0, Lcom/jlboat/phone/activity/SettingActivity;->access$700(Lcom/jlboat/phone/activity/SettingActivity;)Landroid/widget/Switch;
+	23      (0000005c) move-result-object   v0
+	24      (0000005e) invoke-virtual       v0, v1, Landroid/widget/Switch;->setEnabled(Z)V
+	25      (00000064) return-void          
+

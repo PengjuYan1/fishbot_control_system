@@ -1,0 +1,39 @@
+# Lcom/boat/jrosbridge/message/visualization_msgs/Marker;-><init>()V [access_flags=public constructor]
+#
+# Parameters:
+# local registers: v0...v4
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) invoke-direct        v4, Lcom/boat/jrosbridge/message/Message;-><init>()V
+	1       (00000006) const/4              v0, 0
+	2       (00000008) iput-byte            v0, v4, Lcom/boat/jrosbridge/message/visualization_msgs/Marker;->ARROW B
+	3       (0000000c) const/4              v1, 1
+	4       (0000000e) iput-byte            v1, v4, Lcom/boat/jrosbridge/message/visualization_msgs/Marker;->CUBE B
+	5       (00000012) const/4              v1, 2
+	6       (00000014) iput-byte            v1, v4, Lcom/boat/jrosbridge/message/visualization_msgs/Marker;->SPHERE B
+	7       (00000018) const/4              v2, 3
+	8       (0000001a) iput-byte            v2, v4, Lcom/boat/jrosbridge/message/visualization_msgs/Marker;->CYLINDER B
+	9       (0000001e) const/4              v3, 4
+	10      (00000020) iput-byte            v3, v4, Lcom/boat/jrosbridge/message/visualization_msgs/Marker;->LINE_STRIP B
+	11      (00000024) const/4              v3, 5
+	12      (00000026) iput-byte            v3, v4, Lcom/boat/jrosbridge/message/visualization_msgs/Marker;->LINE_LIST B
+	13      (0000002a) const/4              v3, 6
+	14      (0000002c) iput-byte            v3, v4, Lcom/boat/jrosbridge/message/visualization_msgs/Marker;->CUBE_LIST B
+	15      (00000030) const/4              v3, 7
+	16      (00000032) iput-byte            v3, v4, Lcom/boat/jrosbridge/message/visualization_msgs/Marker;->SPHERE_LIST B
+	17      (00000036) const/16             v3, 8
+	18      (0000003a) iput-byte            v3, v4, Lcom/boat/jrosbridge/message/visualization_msgs/Marker;->POINTS B
+	19      (0000003e) const/16             v3, 9
+	20      (00000042) iput-byte            v3, v4, Lcom/boat/jrosbridge/message/visualization_msgs/Marker;->TEXT_VIEW_FACING B
+	21      (00000046) const/16             v3, 10
+	22      (0000004a) iput-byte            v3, v4, Lcom/boat/jrosbridge/message/visualization_msgs/Marker;->MESH_RESOURCE B
+	23      (0000004e) const/16             v3, 11
+	24      (00000052) iput-byte            v3, v4, Lcom/boat/jrosbridge/message/visualization_msgs/Marker;->TRIANGLE_LIST B
+	25      (00000056) iput-byte            v0, v4, Lcom/boat/jrosbridge/message/visualization_msgs/Marker;->ADD B
+	26      (0000005a) iput-byte            v0, v4, Lcom/boat/jrosbridge/message/visualization_msgs/Marker;->MODIFY B
+	27      (0000005e) iput-byte            v1, v4, Lcom/boat/jrosbridge/message/visualization_msgs/Marker;->DELETE B
+	28      (00000062) iput-byte            v2, v4, Lcom/boat/jrosbridge/message/visualization_msgs/Marker;->DELETEALL B
+	29      (00000066) return-void          
+

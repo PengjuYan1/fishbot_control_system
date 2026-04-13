@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/view/PathItemchangeNamePopup;->access$100(Lcom/jlboat/phone/view/PathItemchangeNamePopup;)Landroid/view/View; [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.view.PathItemchangeNamePopup
+#
+# - return:android.view.View
+
+access$100-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/jlboat/phone/view/PathItemchangeNamePopup;->mView Landroid/view/View;
+	1       (00000004) return-object        v0
+

@@ -1,0 +1,36 @@
+# Lcom/jlboat/phone/activity/ErrorMessageActivity;->onCreate(Landroid/os/Bundle;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:android.os.Bundle
+#
+# - return:void
+
+onCreate-BB@0x0 : 
+	0       (00000000) invoke-super         v2, v3, Lcom/jlboat/phone/base/BaseFullActivity;->onCreate(Landroid/os/Bundle;)V
+	1       (00000006) const                v0, 2131361823
+	2       (0000000c) const                v1, 2131493037
+	3       (00000012) invoke-virtual       v2, v0, v1, Lcom/jlboat/phone/activity/ErrorMessageActivity;->initTitleBar(I I)V
+	4       (00000018) const                v0, 2131231363
+	5       (0000001e) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/ErrorMessageActivity;->findViewById(I)Landroid/view/View;
+	6       (00000024) move-result-object   v0
+	7       (00000026) check-cast           v0, Landroid/widget/TextView;
+	8       (0000002a) iput-object          v0, v2, Lcom/jlboat/phone/activity/ErrorMessageActivity;->wasj Landroid/widget/TextView;
+	9       (0000002e) const                v0, 2131231214
+	10      (00000034) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/ErrorMessageActivity;->findViewById(I)Landroid/view/View;
+	11      (0000003a) move-result-object   v0
+	12      (0000003c) check-cast           v0, Landroid/support/v7/widget/RecyclerView;
+	13      (00000040) iput-object          v0, v2, Lcom/jlboat/phone/activity/ErrorMessageActivity;->rv Landroid/support/v7/widget/RecyclerView;
+	14      (00000044) new-instance         v0, Lcom/jlboat/phone/view/ErrorMsgAdapter;
+	15      (00000048) invoke-direct        v0, v2, Lcom/jlboat/phone/view/ErrorMsgAdapter;-><init>(Landroid/content/Context;)V
+	16      (0000004e) iput-object          v0, v2, Lcom/jlboat/phone/activity/ErrorMessageActivity;->adapter Lcom/jlboat/phone/view/ErrorMsgAdapter;
+	17      (00000052) iget-object          v0, v2, Lcom/jlboat/phone/activity/ErrorMessageActivity;->rv Landroid/support/v7/widget/RecyclerView;
+	18      (00000056) new-instance         v1, Landroid/support/v7/widget/LinearLayoutManager;
+	19      (0000005a) invoke-direct        v1, v2, Landroid/support/v7/widget/LinearLayoutManager;-><init>(Landroid/content/Context;)V
+	20      (00000060) invoke-virtual       v0, v1, Landroid/support/v7/widget/RecyclerView;->setLayoutManager(Landroid/support/v7/widget/RecyclerView$LayoutManager;)V
+	21      (00000066) iget-object          v0, v2, Lcom/jlboat/phone/activity/ErrorMessageActivity;->rv Landroid/support/v7/widget/RecyclerView;
+	22      (0000006a) iget-object          v1, v2, Lcom/jlboat/phone/activity/ErrorMessageActivity;->adapter Lcom/jlboat/phone/view/ErrorMsgAdapter;
+	23      (0000006e) invoke-virtual       v0, v1, Landroid/support/v7/widget/RecyclerView;->setAdapter(Landroid/support/v7/widget/RecyclerView$Adapter;)V
+	24      (00000074) invoke-direct        v2, Lcom/jlboat/phone/activity/ErrorMessageActivity;->sj()V
+	25      (0000007a) return-void          
+

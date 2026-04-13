@@ -1,0 +1,27 @@
+# Lcom/jlboat/phone/controller/JlNaviManager$26;->onNewMessage(Lcom/jlboat/phone/message/map_msgs/PointRenameResponse;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:com.jlboat.phone.message.map_msgs.PointRenameResponse
+#
+# - return:void
+
+onNewMessage-BB@0x0 : [ onNewMessage-BB@0x8 onNewMessage-BB@0x20 ]
+	0       (00000000) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager$26;->val$responseListener Lcom/boat/support/slam/IResponseListener;
+	1       (00000004) if-eqz               v0, +00eh
+
+onNewMessage-BB@0x8 : [ onNewMessage-BB@0x20 ]
+	2       (00000008) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager$26;->val$responseListener Lcom/boat/support/slam/IResponseListener;
+	3       (0000000c) iget-object          v1, v2, Lcom/jlboat/phone/controller/JlNaviManager$26;->val$newname Ljava/lang/String;
+	4       (00000010) invoke-interface     v0, v1, Lcom/boat/support/slam/IResponseListener;->onSuccess(Ljava/lang/String;)V
+	5       (00000016) goto                 +5h
+	8:15
+	(Landroid/os/RemoteException; -> 18 onNewMessage-BB@0x18)
+
+onNewMessage-BB@0x18 : [ onNewMessage-BB@0x20 ]
+	6       (00000018) move-exception       v0
+	7       (0000001a) invoke-virtual       v0, Landroid/os/RemoteException;->printStackTrace()V
+
+onNewMessage-BB@0x20 : 
+	8       (00000020) return-void          
+

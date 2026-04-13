@@ -1,0 +1,27 @@
+# Lcom/jlboat/phone/MainActivity;->onOptionsItemSelected(Landroid/view/MenuItem;)Z [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:android.view.MenuItem
+#
+# - return:boolean
+
+onOptionsItemSelected-BB@0x0 : [ D:onOptionsItemSelected-BB@0x14 0:onOptionsItemSelected-BB@0x16 ]
+	0       (00000000) invoke-super         v1, v2, Lcom/jlboat/phone/base/BaseFullActivity;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
+	1       (00000006) invoke-interface     v2, Landroid/view/MenuItem;->getItemId()I
+	2       (0000000c) move-result          v0
+	3       (0000000e) packed-switch        v0, +0000009h
+
+onOptionsItemSelected-BB@0x14 : [ onOptionsItemSelected-BB@0x1c ]
+	4       (00000014) goto                 +4h
+
+onOptionsItemSelected-BB@0x16 : [ onOptionsItemSelected-BB@0x1c ]
+	5       (00000016) invoke-virtual       v1, Lcom/jlboat/phone/MainActivity;->onDestroy()V
+
+onOptionsItemSelected-BB@0x1c : 
+	6       (0000001c) const/4              v0, 1
+	7       (0000001e) return               v0
+
+onOptionsItemSelected-BB@0x20 : 
+	8       (00000020) packed-switch-payload 0
+

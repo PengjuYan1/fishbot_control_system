@@ -1,0 +1,17 @@
+# Lcom/boat/manager/NetWorkManager$3;-><init>(Lcom/boat/manager/NetWorkManager; Lcom/boat/manager/NetWorkManager$CallBack; Ljava/lang/Class;)V [access_flags=constructor]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.boat.manager.NetWorkManager
+# - v2:com.boat.manager.NetWorkManager$CallBack
+# - v3:java.lang.Class
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) iput-object          v1, v0, Lcom/boat/manager/NetWorkManager$3;->this$0 Lcom/boat/manager/NetWorkManager;
+	1       (00000004) iput-object          v2, v0, Lcom/boat/manager/NetWorkManager$3;->val$callback Lcom/boat/manager/NetWorkManager$CallBack;
+	2       (00000008) iput-object          v3, v0, Lcom/boat/manager/NetWorkManager$3;->val$resultClass Ljava/lang/Class;
+	3       (0000000c) invoke-direct        v0, Ljava/lang/Object;-><init>()V
+	4       (00000012) return-void          
+

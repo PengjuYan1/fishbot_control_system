@@ -1,0 +1,18 @@
+# Lcom/jlboat/phone/application/BoatSlamApplication$1;->onAvailable(Landroid/net/Network;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:android.net.Network
+#
+# - return:void
+
+onAvailable-BB@0x0 : 
+	0       (00000000) invoke-super         v2, v3, Landroid/net/ConnectivityManager$NetworkCallback;->onAvailable(Landroid/net/Network;)V
+	1       (00000006) const-string         v0, "test"
+	2       (0000000a) const-string         v1, "已根据功能和传输类型找到合适的网络"
+	3       (0000000e) invoke-static        v0, v1, Landroid/util/Log;->i(Ljava/lang/String; Ljava/lang/String;)I
+	4       (00000014) invoke-static        v3, Landroid/net/ConnectivityManager;->setProcessDefaultNetwork(Landroid/net/Network;)Z
+	5       (0000001a) iget-object          v0, v2, Lcom/jlboat/phone/application/BoatSlamApplication$1;->val$connectivityManager Landroid/net/ConnectivityManager;
+	6       (0000001e) invoke-virtual       v0, v2, Landroid/net/ConnectivityManager;->unregisterNetworkCallback(Landroid/net/ConnectivityManager$NetworkCallback;)V
+	7       (00000024) return-void          
+

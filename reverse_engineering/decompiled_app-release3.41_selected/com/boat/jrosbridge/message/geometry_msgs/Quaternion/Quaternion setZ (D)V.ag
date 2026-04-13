@@ -1,0 +1,12 @@
+# Lcom/boat/jrosbridge/message/geometry_msgs/Quaternion;->setZ(D)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:double
+#
+# - return:void
+
+setZ-BB@0x0 : 
+	0       (00000000) iput-wide            v1, v0, Lcom/boat/jrosbridge/message/geometry_msgs/Quaternion;->z D
+	1       (00000004) return-void          
+

@@ -1,0 +1,26 @@
+# Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$1;->onData()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v3
+#
+# - return:void
+
+onData-BB@0x0 : 
+	0       (00000000) iget-object          v0, v3, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$1;->this$0 Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;
+	1       (00000004) iget-object          v0, v0, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;->scan_no_tv Landroid/widget/TextView;
+	2       (00000008) iget-object          v1, v3, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$1;->this$0 Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;
+	3       (0000000c) invoke-virtual       v1, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;->getResources()Landroid/content/res/Resources;
+	4       (00000012) move-result-object   v1
+	5       (00000014) const                v2, 2131034237
+	6       (0000001a) invoke-virtual       v1, v2, Landroid/content/res/Resources;->getColor(I)I
+	7       (00000020) move-result          v1
+	8       (00000022) invoke-virtual       v0, v1, Landroid/widget/TextView;->setTextColor(I)V
+	9       (00000028) iget-object          v0, v3, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$1;->this$0 Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;
+	10      (0000002c) iget-object          v0, v0, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;->scan_no_tv Landroid/widget/TextView;
+	11      (00000030) iget-object          v1, v3, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$1;->this$0 Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;
+	12      (00000034) const                v2, 2131493358
+	13      (0000003a) invoke-virtual       v1, v2, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;->getString(I)Ljava/lang/String;
+	14      (00000040) move-result-object   v1
+	15      (00000042) invoke-virtual       v0, v1, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+	16      (00000048) return-void          
+

@@ -1,0 +1,69 @@
+# Lcom/jlboat/phone/activity/MapActivity;->FloorAndDeleteorRename(Lcom/boat/support/slam/entity/floors/Floors;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v9
+# - v10:com.boat.support.slam.entity.floors.Floors
+#
+# - return:void
+
+FloorAndDeleteorRename-BB@0x0 : [ FloorAndDeleteorRename-BB@0x4 FloorAndDeleteorRename-BB@0x6 ]
+	0       (00000000) if-nez               v10, +003h
+
+FloorAndDeleteorRename-BB@0x4 : 
+	1       (00000004) return-void          
+
+FloorAndDeleteorRename-BB@0x6 : 
+	2       (00000006) invoke-virtual       v9, Lcom/jlboat/phone/activity/MapActivity;->getLayoutInflater()Landroid/view/LayoutInflater;
+	3       (0000000c) move-result-object   v0
+	4       (0000000e) const                v1, 2131361848
+	5       (00000014) const/4              v2, 0
+	6       (00000016) invoke-virtual       v0, v1, v2, Landroid/view/LayoutInflater;->inflate(I Landroid/view/ViewGroup;)Landroid/view/View;
+	7       (0000001c) move-result-object   v0
+	8       (0000001e) const                v1, 2131231328
+	9       (00000024) invoke-virtual       v0, v1, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	10      (0000002a) move-result-object   v1
+	11      (0000002c) check-cast           v1, Landroid/widget/TextView;
+	12      (00000030) const                v2, 2131230901
+	13      (00000036) invoke-virtual       v0, v2, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	14      (0000003c) move-result-object   v2
+	15      (0000003e) check-cast           v2, Landroid/widget/EditText;
+	16      (00000042) const                v3, 2131230801
+	17      (00000048) invoke-virtual       v0, v3, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	18      (0000004e) move-result-object   v3
+	19      (00000050) check-cast           v3, Landroid/widget/Button;
+	20      (00000054) const                v4, 2131230803
+	21      (0000005a) invoke-virtual       v0, v4, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	22      (00000060) move-result-object   v4
+	23      (00000062) check-cast           v4, Landroid/widget/Button;
+	24      (00000066) const                v5, 2131230799
+	25      (0000006c) invoke-virtual       v0, v5, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	26      (00000072) move-result-object   v5
+	27      (00000074) check-cast           v5, Landroid/widget/Button;
+	28      (00000078) const                v6, 2131492989
+	29      (0000007e) invoke-virtual       v9, v6, Lcom/jlboat/phone/activity/MapActivity;->getResString(I)Ljava/lang/String;
+	30      (00000084) move-result-object   v6
+	31      (00000086) invoke-virtual       v3, v6, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
+	32      (0000008c) invoke-virtual       v10, Lcom/boat/support/slam/entity/floors/Floors;->getFloorName()Ljava/lang/String;
+	33      (00000092) move-result-object   v6
+	34      (00000094) invoke-virtual       v1, v6, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+	35      (0000009a) const                v6, 2131493039
+	36      (000000a0) invoke-virtual       v9, v6, Lcom/jlboat/phone/activity/MapActivity;->getResString(I)Ljava/lang/String;
+	37      (000000a6) move-result-object   v6
+	38      (000000a8) invoke-virtual       v2, v6, Landroid/widget/EditText;->setHint(Ljava/lang/CharSequence;)V
+	39      (000000ae) new-instance         v6, Landroid/app/AlertDialog$Builder;
+	40      (000000b2) invoke-direct        v6, v9, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+	41      (000000b8) invoke-virtual       v6, v0, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
+	42      (000000be) invoke-virtual       v6, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+	43      (000000c4) move-result-object   v7
+	44      (000000c6) new-instance         v8, Lcom/jlboat/phone/activity/MapActivity$13;
+	45      (000000ca) invoke-direct        v8, v9, v10, v7, Lcom/jlboat/phone/activity/MapActivity$13;-><init>(Lcom/jlboat/phone/activity/MapActivity; Lcom/boat/support/slam/entity/floors/Floors; Landroid/app/AlertDialog;)V
+	46      (000000d0) invoke-virtual       v3, v8, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	47      (000000d6) new-instance         v8, Lcom/jlboat/phone/activity/MapActivity$14;
+	48      (000000da) invoke-direct        v8, v9, v2, v10, v7, Lcom/jlboat/phone/activity/MapActivity$14;-><init>(Lcom/jlboat/phone/activity/MapActivity; Landroid/widget/EditText; Lcom/boat/support/slam/entity/floors/Floors; Landroid/app/AlertDialog;)V
+	49      (000000e0) invoke-virtual       v4, v8, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	50      (000000e6) new-instance         v8, Lcom/jlboat/phone/activity/MapActivity$15;
+	51      (000000ea) invoke-direct        v8, v9, v7, Lcom/jlboat/phone/activity/MapActivity$15;-><init>(Lcom/jlboat/phone/activity/MapActivity; Landroid/app/AlertDialog;)V
+	52      (000000f0) invoke-virtual       v5, v8, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	53      (000000f6) invoke-virtual       v7, Landroid/app/AlertDialog;->show()V
+	54      (000000fc) return-void          
+

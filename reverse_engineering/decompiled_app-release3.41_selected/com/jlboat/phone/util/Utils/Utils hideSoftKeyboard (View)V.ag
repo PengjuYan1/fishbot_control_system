@@ -1,0 +1,26 @@
+# Lcom/jlboat/phone/util/Utils;->hideSoftKeyboard(Landroid/view/View;)V [access_flags=public static]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:android.view.View
+#
+# - return:void
+
+hideSoftKeyboard-BB@0x0 : [ hideSoftKeyboard-BB@0x1c hideSoftKeyboard-BB@0x2c ]
+	0       (00000000) invoke-virtual       v3, Landroid/view/View;->getContext()Landroid/content/Context;
+	1       (00000006) move-result-object   v0
+	2       (00000008) const-string         v1, "input_method"
+	3       (0000000c) invoke-virtual       v0, v1, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+	4       (00000012) move-result-object   v0
+	5       (00000014) check-cast           v0, Landroid/view/inputmethod/InputMethodManager;
+	6       (00000018) if-eqz               v0, +00ah
+
+hideSoftKeyboard-BB@0x1c : [ hideSoftKeyboard-BB@0x2c ]
+	7       (0000001c) invoke-virtual       v3, Landroid/view/View;->getWindowToken()Landroid/os/IBinder;
+	8       (00000022) move-result-object   v1
+	9       (00000024) const/4              v2, 0
+	10      (00000026) invoke-virtual       v0, v1, v2, Landroid/view/inputmethod/InputMethodManager;->hideSoftInputFromWindow(Landroid/os/IBinder; I)Z
+
+hideSoftKeyboard-BB@0x2c : 
+	11      (0000002c) return-void          
+

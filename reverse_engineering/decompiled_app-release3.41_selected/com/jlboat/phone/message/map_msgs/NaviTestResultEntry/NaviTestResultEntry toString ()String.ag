@@ -1,0 +1,62 @@
+# Lcom/jlboat/phone/message/map_msgs/NaviTestResultEntry;->toString()Ljava/lang/String; [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v3
+#
+# - return:java.lang.String
+
+toString-BB@0x0 : 
+	0       (00000000) new-instance         v0, Ljava/lang/StringBuilder;
+	1       (00000004) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	2       (0000000a) const-string         v1, "NaviTestResultEntry{floor_id="
+	3       (0000000e) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	4       (00000014) move-result-object   v0
+	5       (00000016) iget-object          v1, v3, Lcom/jlboat/phone/message/map_msgs/NaviTestResultEntry;->floor_id Ljava/lang/Long;
+	6       (0000001a) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+	7       (00000020) move-result-object   v0
+	8       (00000022) const-string         v1, ", map_id="
+	9       (00000026) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	10      (0000002c) move-result-object   v0
+	11      (0000002e) iget-object          v1, v3, Lcom/jlboat/phone/message/map_msgs/NaviTestResultEntry;->map_id Ljava/lang/Long;
+	12      (00000032) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+	13      (00000038) move-result-object   v0
+	14      (0000003a) const-string         v1, ", point_id="
+	15      (0000003e) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	16      (00000044) move-result-object   v0
+	17      (00000046) iget-object          v1, v3, Lcom/jlboat/phone/message/map_msgs/NaviTestResultEntry;->point_id Ljava/lang/Long;
+	18      (0000004a) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+	19      (00000050) move-result-object   v0
+	20      (00000052) const-string         v1, ", goal_name='"
+	21      (00000056) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	22      (0000005c) move-result-object   v0
+	23      (0000005e) iget-object          v1, v3, Lcom/jlboat/phone/message/map_msgs/NaviTestResultEntry;->goal_name Ljava/lang/String;
+	24      (00000062) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	25      (00000068) move-result-object   v0
+	26      (0000006a) const/16             v1, 39
+	27      (0000006e) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+	28      (00000074) move-result-object   v0
+	29      (00000076) const-string         v1, ", goal_result="
+	30      (0000007a) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	31      (00000080) move-result-object   v0
+	32      (00000082) iget-wide            v1, v3, Lcom/jlboat/phone/message/map_msgs/NaviTestResultEntry;->goal_result J
+	33      (00000086) invoke-virtual       v0, v1, v2, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+	34      (0000008c) move-result-object   v0
+	35      (0000008e) const-string         v1, ", charge_result="
+	36      (00000092) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	37      (00000098) move-result-object   v0
+	38      (0000009a) iget-wide            v1, v3, Lcom/jlboat/phone/message/map_msgs/NaviTestResultEntry;->charge_result J
+	39      (0000009e) invoke-virtual       v0, v1, v2, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+	40      (000000a4) move-result-object   v0
+	41      (000000a6) const-string         v1, ", test_type="
+	42      (000000aa) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	43      (000000b0) move-result-object   v0
+	44      (000000b2) iget-wide            v1, v3, Lcom/jlboat/phone/message/map_msgs/NaviTestResultEntry;->test_type J
+	45      (000000b6) invoke-virtual       v0, v1, v2, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+	46      (000000bc) move-result-object   v0
+	47      (000000be) const/16             v1, 125
+	48      (000000c2) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+	49      (000000c8) move-result-object   v0
+	50      (000000ca) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	51      (000000d0) move-result-object   v0
+	52      (000000d2) return-object        v0
+

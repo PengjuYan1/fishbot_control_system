@@ -1,0 +1,17 @@
+# Lcom/boat/jrosbridge/message/Duration;->totalNsecs()J [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v4
+#
+# - return:long
+
+totalNsecs-BB@0x0 : 
+	0       (00000000) iget                 v0, v4, Lcom/boat/jrosbridge/message/Duration;->secs I
+	1       (00000004) int-to-long          v0, v0
+	2       (00000006) const-wide/32        v2, 1000000000
+	3       (0000000c) mul-long             v0, v0, v2
+	4       (00000010) iget                 v2, v4, Lcom/boat/jrosbridge/message/Duration;->nsecs I
+	5       (00000014) int-to-long          v2, v2
+	6       (00000016) add-long/2addr       v0, v2
+	7       (00000018) return-wide          v0
+

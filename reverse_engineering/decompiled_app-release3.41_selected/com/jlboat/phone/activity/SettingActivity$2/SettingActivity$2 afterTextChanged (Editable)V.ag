@@ -1,0 +1,56 @@
+# Lcom/jlboat/phone/activity/SettingActivity$2;->afterTextChanged(Landroid/text/Editable;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v5
+# - v6:android.text.Editable
+#
+# - return:void
+
+afterTextChanged-BB@0x0 : [ afterTextChanged-BB@0x24 afterTextChanged-BB@0x32 ]
+	0       (00000000) iget-object          v0, v5, Lcom/jlboat/phone/activity/SettingActivity$2;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	1       (00000004) invoke-static        v0, Lcom/jlboat/phone/activity/SettingActivity;->access$000(Lcom/jlboat/phone/activity/SettingActivity;)Ljava/lang/String;
+	2       (0000000a) move-result-object   v0
+	3       (0000000c) const-string         v1, "robotAutoWorkPowerBt"
+	4       (00000010) invoke-static        v0, v1, Landroid/util/Log;->e(Ljava/lang/String; Ljava/lang/String;)I
+	5       (00000016) invoke-interface     v6, Landroid/text/Editable;->length()I
+	6       (0000001c) move-result          v0
+	7       (0000001e) const/4              v1, 2
+	8       (00000020) if-le                v0, v1, +009h
+
+afterTextChanged-BB@0x24 : [ afterTextChanged-BB@0x32 ]
+	9       (00000024) invoke-interface     v6, Landroid/text/Editable;->length()I
+	10      (0000002a) move-result          v0
+	11      (0000002c) invoke-interface     v6, v1, v0, Landroid/text/Editable;->delete(I I)Landroid/text/Editable;
+
+afterTextChanged-BB@0x32 : [ afterTextChanged-BB@0x4a afterTextChanged-BB@0x58 ]
+	12      (00000032) invoke-virtual       v6, Ljava/lang/Object;->toString()Ljava/lang/String;
+	13      (00000038) move-result-object   v0
+	14      (0000003a) invoke-virtual       v0, Ljava/lang/String;->isEmpty()Z
+	15      (00000040) move-result          v1
+	16      (00000042) const/16             v2, 9
+	17      (00000046) if-eqz               v1, +009h
+
+afterTextChanged-BB@0x4a : [ afterTextChanged-BB@0x58 ]
+	18      (0000004a) const-string         v0, "60"
+	19      (0000004e) iget-object          v1, v5, Lcom/jlboat/phone/activity/SettingActivity$2;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	20      (00000052) invoke-virtual       v1, v2, Lcom/jlboat/phone/activity/SettingActivity;->getConfigs(I)V
+
+afterTextChanged-BB@0x58 : 
+	21      (00000058) iget-object          v1, v5, Lcom/jlboat/phone/activity/SettingActivity$2;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	22      (0000005c) invoke-static        v1, Lcom/jlboat/phone/activity/SettingActivity;->access$100(Lcom/jlboat/phone/activity/SettingActivity;)Ljava/util/List;
+	23      (00000062) move-result-object   v1
+	24      (00000064) const/4              v3, 1
+	25      (00000066) invoke-interface     v1, v3, Ljava/util/List;->get(I)Ljava/lang/Object;
+	26      (0000006c) move-result-object   v1
+	27      (0000006e) check-cast           v1, Lcom/jlboat/phone/message/map_msgs/Config;
+	28      (00000072) invoke-virtual       v1, v0, Lcom/jlboat/phone/message/map_msgs/Config;->setConfigValue(Ljava/lang/String;)V
+	29      (00000078) iget-object          v1, v5, Lcom/jlboat/phone/activity/SettingActivity$2;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	30      (0000007c) iget-object          v1, v1, Lcom/jlboat/phone/activity/SettingActivity;->statusServiceClient Lcom/jlboat/phone/communication/StatusServiceClient;
+	31      (00000080) iget-object          v3, v5, Lcom/jlboat/phone/activity/SettingActivity$2;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	32      (00000084) invoke-static        v3, Lcom/jlboat/phone/activity/SettingActivity;->access$100(Lcom/jlboat/phone/activity/SettingActivity;)Ljava/util/List;
+	33      (0000008a) move-result-object   v3
+	34      (0000008c) new-instance         v4, Lcom/jlboat/phone/activity/SettingActivity$2$1;
+	35      (00000090) invoke-direct        v4, v5, Lcom/jlboat/phone/activity/SettingActivity$2$1;-><init>(Lcom/jlboat/phone/activity/SettingActivity$2;)V
+	36      (00000096) invoke-virtual       v1, v3, v2, v4, Lcom/jlboat/phone/communication/StatusServiceClient;->setOrDelConfigsService(Ljava/util/List; I Lcom/boat/jrosbridge/MessageListener;)V
+	37      (0000009c) return-void          
+

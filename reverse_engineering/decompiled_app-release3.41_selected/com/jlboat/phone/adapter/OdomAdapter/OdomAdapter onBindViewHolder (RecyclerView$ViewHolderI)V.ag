@@ -1,0 +1,26 @@
+# Lcom/jlboat/phone/adapter/OdomAdapter;->onBindViewHolder(Landroid/support/v7/widget/RecyclerView$ViewHolder; I)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:android.support.v7.widget.RecyclerView$ViewHolder
+# - v4:int
+#
+# - return:void
+
+onBindViewHolder-BB@0x0 : 
+	0       (00000000) move-object          v0, v3
+	1       (00000002) check-cast           v0, Lcom/jlboat/phone/adapter/OdomAdapter$MsgViewHolder;
+	2       (00000006) iget-object          v1, v2, Lcom/jlboat/phone/adapter/OdomAdapter;->listData Ljava/util/List;
+	3       (0000000a) invoke-interface     v1, v4, Ljava/util/List;->get(I)Ljava/lang/Object;
+	4       (00000010) move-result-object   v1
+	5       (00000012) check-cast           v1, Lcom/jlboat/phone/message/map_msgs/Config;
+	6       (00000016) invoke-virtual       v0, v1, Lcom/jlboat/phone/adapter/OdomAdapter$MsgViewHolder;->setData(Lcom/jlboat/phone/message/map_msgs/Config;)V
+	7       (0000001c) move-object          v0, v3
+	8       (0000001e) check-cast           v0, Lcom/jlboat/phone/adapter/OdomAdapter$MsgViewHolder;
+	9       (00000022) invoke-static        v0, Lcom/jlboat/phone/adapter/OdomAdapter$MsgViewHolder;->access$600(Lcom/jlboat/phone/adapter/OdomAdapter$MsgViewHolder;)Landroid/widget/LinearLayout;
+	10      (00000028) move-result-object   v0
+	11      (0000002a) new-instance         v1, Lcom/jlboat/phone/adapter/OdomAdapter$1;
+	12      (0000002e) invoke-direct        v1, v2, v3, v4, Lcom/jlboat/phone/adapter/OdomAdapter$1;-><init>(Lcom/jlboat/phone/adapter/OdomAdapter; Landroid/support/v7/widget/RecyclerView$ViewHolder; I)V
+	13      (00000034) invoke-virtual       v0, v1, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	14      (0000003a) return-void          
+

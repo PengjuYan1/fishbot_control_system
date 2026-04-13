@@ -1,0 +1,11 @@
+# Lcom/boat/support/slam/entity/floors/Points;->getWaitTime()I [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:int
+
+getWaitTime-BB@0x0 : 
+	0       (00000000) iget                 v0, v1, Lcom/boat/support/slam/entity/floors/Points;->waitTime I
+	1       (00000004) return               v0
+

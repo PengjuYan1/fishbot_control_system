@@ -1,0 +1,156 @@
+# Lcom/jlboat/phone/fragment/statusfragment/ImuFragment$1;->onNewMessage(Lcom/boat/jrosbridge/message/sensor_msgs/Imu;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v16
+# - v17:com.boat.jrosbridge.message.sensor_msgs.Imu
+#
+# - return:void
+
+onNewMessage-BB@0x0 : [ onNewMessage-BB@0x92 onNewMessage-BB@0x10c ]
+	0       (00000000) move-object/from16   v0, v16
+	1       (00000004) const/4              v1, 0
+	2       (00000006) new-instance         v11, Lcom/jlboat/phone/util/EulerAngles;
+	3       (0000000a) invoke-virtual/range v17, Lcom/boat/jrosbridge/message/sensor_msgs/Imu;->getOrientation()Lcom/boat/jrosbridge/message/geometry_msgs/Quaternion;
+	4       (00000010) move-result-object   v2
+	5       (00000012) invoke-virtual       v2, Lcom/boat/jrosbridge/message/geometry_msgs/Quaternion;->getW()D
+	6       (00000018) move-result-wide     v3
+	7       (0000001a) invoke-virtual/range v17, Lcom/boat/jrosbridge/message/sensor_msgs/Imu;->getOrientation()Lcom/boat/jrosbridge/message/geometry_msgs/Quaternion;
+	8       (00000020) move-result-object   v2
+	9       (00000022) invoke-virtual       v2, Lcom/boat/jrosbridge/message/geometry_msgs/Quaternion;->getX()D
+	10      (00000028) move-result-wide     v5
+	11      (0000002a) invoke-virtual/range v17, Lcom/boat/jrosbridge/message/sensor_msgs/Imu;->getOrientation()Lcom/boat/jrosbridge/message/geometry_msgs/Quaternion;
+	12      (00000030) move-result-object   v2
+	13      (00000032) invoke-virtual       v2, Lcom/boat/jrosbridge/message/geometry_msgs/Quaternion;->getY()D
+	14      (00000038) move-result-wide     v7
+	15      (0000003a) invoke-virtual/range v17, Lcom/boat/jrosbridge/message/sensor_msgs/Imu;->getOrientation()Lcom/boat/jrosbridge/message/geometry_msgs/Quaternion;
+	16      (00000040) move-result-object   v2
+	17      (00000042) invoke-virtual       v2, Lcom/boat/jrosbridge/message/geometry_msgs/Quaternion;->getZ()D
+	18      (00000048) move-result-wide     v9
+	19      (0000004a) move-object          v2, v11
+	20      (0000004c) invoke-direct/range  v2 ... v10, Lcom/jlboat/phone/util/EulerAngles;-><init>(D D D D)V
+	21      (00000052) iget-wide            v2, v11, Lcom/jlboat/phone/util/EulerAngles;->yaw D
+	22      (00000056) invoke-static        v2, v3, Ljava/lang/Math;->toDegrees(D)D
+	23      (0000005c) move-result-wide     v2
+	24      (0000005e) invoke-static        v2, v3, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
+	25      (00000064) move-result-object   v2
+	26      (00000066) const/4              v3, 1
+	27      (00000068) new-array            v4, v3, [Ljava/lang/Object;
+	28      (0000006c) const/4              v5, 0
+	29      (0000006e) aput-object          v2, v4, v5
+	30      (00000072) const-string         v2, "%.0f°"
+	31      (00000076) invoke-static        v2, v4, Ljava/lang/String;->format(Ljava/lang/String; [Ljava/lang/Object;)Ljava/lang/String;
+	32      (0000007c) move-result-object   v4
+	33      (0000007e) iget-object          v6, v0, Lcom/jlboat/phone/fragment/statusfragment/ImuFragment$1;->this$0 Lcom/jlboat/phone/fragment/statusfragment/ImuFragment;
+	34      (00000082) iget-object          v6, v6, Lcom/jlboat/phone/fragment/statusfragment/ImuFragment;->yaw Ljava/lang/String;
+	35      (00000086) invoke-virtual       v4, v6, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	36      (0000008c) move-result          v4
+	37      (0000008e) if-nez               v4, +03fh
+
+onNewMessage-BB@0x92 : [ onNewMessage-BB@0x10c ]
+	38      (00000092) const/4              v1, 1
+	39      (00000094) iget-object          v4, v0, Lcom/jlboat/phone/fragment/statusfragment/ImuFragment$1;->this$0 Lcom/jlboat/phone/fragment/statusfragment/ImuFragment;
+	40      (00000098) new-instance         v15, Lcom/jlboat/phone/util/EulerAngles;
+	41      (0000009c) invoke-virtual/range v17, Lcom/boat/jrosbridge/message/sensor_msgs/Imu;->getOrientation()Lcom/boat/jrosbridge/message/geometry_msgs/Quaternion;
+	42      (000000a2) move-result-object   v6
+	43      (000000a4) invoke-virtual       v6, Lcom/boat/jrosbridge/message/geometry_msgs/Quaternion;->getW()D
+	44      (000000aa) move-result-wide     v7
+	45      (000000ac) invoke-virtual/range v17, Lcom/boat/jrosbridge/message/sensor_msgs/Imu;->getOrientation()Lcom/boat/jrosbridge/message/geometry_msgs/Quaternion;
+	46      (000000b2) move-result-object   v6
+	47      (000000b4) invoke-virtual       v6, Lcom/boat/jrosbridge/message/geometry_msgs/Quaternion;->getX()D
+	48      (000000ba) move-result-wide     v9
+	49      (000000bc) invoke-virtual/range v17, Lcom/boat/jrosbridge/message/sensor_msgs/Imu;->getOrientation()Lcom/boat/jrosbridge/message/geometry_msgs/Quaternion;
+	50      (000000c2) move-result-object   v6
+	51      (000000c4) invoke-virtual       v6, Lcom/boat/jrosbridge/message/geometry_msgs/Quaternion;->getY()D
+	52      (000000ca) move-result-wide     v11
+	53      (000000cc) invoke-virtual/range v17, Lcom/boat/jrosbridge/message/sensor_msgs/Imu;->getOrientation()Lcom/boat/jrosbridge/message/geometry_msgs/Quaternion;
+	54      (000000d2) move-result-object   v6
+	55      (000000d4) invoke-virtual       v6, Lcom/boat/jrosbridge/message/geometry_msgs/Quaternion;->getZ()D
+	56      (000000da) move-result-wide     v13
+	57      (000000dc) move-object          v6, v15
+	58      (000000de) invoke-direct/range  v6 ... v14, Lcom/jlboat/phone/util/EulerAngles;-><init>(D D D D)V
+	59      (000000e4) iget-wide            v6, v15, Lcom/jlboat/phone/util/EulerAngles;->yaw D
+	60      (000000e8) invoke-static        v6, v7, Ljava/lang/Math;->toDegrees(D)D
+	61      (000000ee) move-result-wide     v6
+	62      (000000f0) invoke-static        v6, v7, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
+	63      (000000f6) move-result-object   v6
+	64      (000000f8) new-array            v3, v3, [Ljava/lang/Object;
+	65      (000000fc) aput-object          v6, v3, v5
+	66      (00000100) invoke-static        v2, v3, Ljava/lang/String;->format(Ljava/lang/String; [Ljava/lang/Object;)Ljava/lang/String;
+	67      (00000106) move-result-object   v2
+	68      (00000108) iput-object          v2, v4, Lcom/jlboat/phone/fragment/statusfragment/ImuFragment;->yaw Ljava/lang/String;
+
+onNewMessage-BB@0x10c : [ onNewMessage-BB@0x132 onNewMessage-BB@0x20e ]
+	69      (0000010c) const/4              v2, 2
+	70      (0000010e) invoke-static        v2, Ljava/text/DateFormat;->getTimeInstance(I)Ljava/text/DateFormat;
+	71      (00000114) move-result-object   v2
+	72      (00000116) invoke-static        Ljava/lang/System;->currentTimeMillis()J
+	73      (0000011c) move-result-wide     v3
+	74      (0000011e) invoke-static        v3, v4, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+	75      (00000124) move-result-object   v3
+	76      (00000126) invoke-virtual       v2, v3, Ljava/text/DateFormat;->format(Ljava/lang/Object;)Ljava/lang/String;
+	77      (0000012c) move-result-object   v3
+	78      (0000012e) if-eqz               v1, +070h
+
+onNewMessage-BB@0x132 : [ onNewMessage-BB@0x152 onNewMessage-BB@0x19c ]
+	79      (00000132) iget-object          v4, v0, Lcom/jlboat/phone/fragment/statusfragment/ImuFragment$1;->this$0 Lcom/jlboat/phone/fragment/statusfragment/ImuFragment;
+	80      (00000136) iget-object          v4, v4, Lcom/jlboat/phone/fragment/statusfragment/ImuFragment;->addViewed Ljava/util/List;
+	81      (0000013a) invoke-interface     v4, Ljava/util/List;->size()I
+	82      (00000140) move-result          v4
+	83      (00000142) const/16             v6, 300
+	84      (00000146) const-string         v7, "     yaw: "
+	85      (0000014a) const-string         v8, "     time: "
+	86      (0000014e) if-ge                v4, v6, +027h
+
+onNewMessage-BB@0x152 : [ onNewMessage-BB@0x1f6 ]
+	87      (00000152) iget-object          v4, v0, Lcom/jlboat/phone/fragment/statusfragment/ImuFragment$1;->this$0 Lcom/jlboat/phone/fragment/statusfragment/ImuFragment;
+	88      (00000156) iget-object          v4, v4, Lcom/jlboat/phone/fragment/statusfragment/ImuFragment;->addViewed Ljava/util/List;
+	89      (0000015a) new-instance         v6, Ljava/lang/StringBuilder;
+	90      (0000015e) invoke-direct        v6, Ljava/lang/StringBuilder;-><init>()V
+	91      (00000164) invoke-virtual       v6, v8, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	92      (0000016a) move-result-object   v6
+	93      (0000016c) invoke-virtual       v6, v3, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	94      (00000172) move-result-object   v6
+	95      (00000174) invoke-virtual       v6, v7, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	96      (0000017a) move-result-object   v6
+	97      (0000017c) iget-object          v7, v0, Lcom/jlboat/phone/fragment/statusfragment/ImuFragment$1;->this$0 Lcom/jlboat/phone/fragment/statusfragment/ImuFragment;
+	98      (00000180) iget-object          v7, v7, Lcom/jlboat/phone/fragment/statusfragment/ImuFragment;->yaw Ljava/lang/String;
+	99      (00000184) invoke-virtual       v6, v7, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	100     (0000018a) move-result-object   v6
+	101     (0000018c) invoke-virtual       v6, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	102     (00000192) move-result-object   v6
+	103     (00000194) invoke-interface     v4, v5, v6, Ljava/util/List;->add(I Ljava/lang/Object;)V
+	104     (0000019a) goto                 +2eh
+
+onNewMessage-BB@0x19c : [ onNewMessage-BB@0x1f6 ]
+	105     (0000019c) iget-object          v4, v0, Lcom/jlboat/phone/fragment/statusfragment/ImuFragment$1;->this$0 Lcom/jlboat/phone/fragment/statusfragment/ImuFragment;
+	106     (000001a0) iget-object          v4, v4, Lcom/jlboat/phone/fragment/statusfragment/ImuFragment;->addViewed Ljava/util/List;
+	107     (000001a4) const/16             v6, 299
+	108     (000001a8) invoke-interface     v4, v6, Ljava/util/List;->remove(I)Ljava/lang/Object;
+	109     (000001ae) iget-object          v4, v0, Lcom/jlboat/phone/fragment/statusfragment/ImuFragment$1;->this$0 Lcom/jlboat/phone/fragment/statusfragment/ImuFragment;
+	110     (000001b2) iget-object          v4, v4, Lcom/jlboat/phone/fragment/statusfragment/ImuFragment;->addViewed Ljava/util/List;
+	111     (000001b6) new-instance         v6, Ljava/lang/StringBuilder;
+	112     (000001ba) invoke-direct        v6, Ljava/lang/StringBuilder;-><init>()V
+	113     (000001c0) invoke-virtual       v6, v8, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	114     (000001c6) move-result-object   v6
+	115     (000001c8) invoke-virtual       v6, v3, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	116     (000001ce) move-result-object   v6
+	117     (000001d0) invoke-virtual       v6, v7, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	118     (000001d6) move-result-object   v6
+	119     (000001d8) iget-object          v7, v0, Lcom/jlboat/phone/fragment/statusfragment/ImuFragment$1;->this$0 Lcom/jlboat/phone/fragment/statusfragment/ImuFragment;
+	120     (000001dc) iget-object          v7, v7, Lcom/jlboat/phone/fragment/statusfragment/ImuFragment;->yaw Ljava/lang/String;
+	121     (000001e0) invoke-virtual       v6, v7, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	122     (000001e6) move-result-object   v6
+	123     (000001e8) invoke-virtual       v6, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	124     (000001ee) move-result-object   v6
+	125     (000001f0) invoke-interface     v4, v5, v6, Ljava/util/List;->add(I Ljava/lang/Object;)V
+
+onNewMessage-BB@0x1f6 : [ onNewMessage-BB@0x20e ]
+	126     (000001f6) iget-object          v4, v0, Lcom/jlboat/phone/fragment/statusfragment/ImuFragment$1;->this$0 Lcom/jlboat/phone/fragment/statusfragment/ImuFragment;
+	127     (000001fa) iget-object          v4, v4, Lcom/jlboat/phone/fragment/statusfragment/ImuFragment;->rvAddNewView Landroid/support/v7/widget/RecyclerView;
+	128     (000001fe) new-instance         v5, Lcom/jlboat/phone/fragment/statusfragment/ImuFragment$1$1;
+	129     (00000202) invoke-direct        v5, v0, Lcom/jlboat/phone/fragment/statusfragment/ImuFragment$1$1;-><init>(Lcom/jlboat/phone/fragment/statusfragment/ImuFragment$1;)V
+	130     (00000208) invoke-virtual       v4, v5, Landroid/support/v7/widget/RecyclerView;->post(Ljava/lang/Runnable;)Z
+
+onNewMessage-BB@0x20e : 
+	131     (0000020e) return-void          
+

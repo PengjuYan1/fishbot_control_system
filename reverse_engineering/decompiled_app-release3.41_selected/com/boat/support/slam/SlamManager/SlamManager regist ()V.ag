@@ -1,0 +1,32 @@
+# Lcom/boat/support/slam/SlamManager;->regist()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v3
+#
+# - return:void
+
+regist-BB@0x0 : [ regist-BB@0x8 regist-BB@0x30 ]
+	0       (00000000) iget-object          v0, v3, Lcom/boat/support/slam/SlamManager;->slamService Lcom/boat/support/slam/ISlamService;
+	1       (00000004) if-eqz               v0, +016h
+
+regist-BB@0x8 : [ regist-BB@0x10 regist-BB@0x30 ]
+	2       (00000008) iget-object          v0, v3, Lcom/boat/support/slam/SlamManager;->slamCallBack Lcom/boat/support/slam/callback/NaviCallback;
+	3       (0000000c) if-eqz               v0, +012h
+
+regist-BB@0x10 : [ regist-BB@0x30 ]
+	4       (00000010) iget-object          v0, v3, Lcom/boat/support/slam/SlamManager;->slamService Lcom/boat/support/slam/ISlamService;
+	5       (00000014) iget-object          v1, v3, Lcom/boat/support/slam/SlamManager;->slamCallBack Lcom/boat/support/slam/callback/NaviCallback;
+	6       (00000018) invoke-interface     v0, v1, Lcom/boat/support/slam/ISlamService;->registCallBack(Lcom/boat/support/slam/ISlamCallBack;)V
+	7       (0000001e) goto                 +9h
+	10:1d
+	(Landroid/os/RemoteException; -> 20 regist-BB@0x20)
+
+regist-BB@0x20 : [ regist-BB@0x30 ]
+	8       (00000020) move-exception       v0
+	9       (00000022) const-string         v1, "SlamManager"
+	10      (00000026) const-string         v2, "regist: "
+	11      (0000002a) invoke-static        v1, v2, v0, Landroid/util/Log;->w(Ljava/lang/String; Ljava/lang/String; Ljava/lang/Throwable;)I
+
+regist-BB@0x30 : 
+	12      (00000030) return-void          
+

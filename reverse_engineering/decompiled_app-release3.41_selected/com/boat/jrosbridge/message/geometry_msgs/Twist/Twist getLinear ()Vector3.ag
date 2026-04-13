@@ -1,0 +1,11 @@
+# Lcom/boat/jrosbridge/message/geometry_msgs/Twist;->getLinear()Lcom/boat/jrosbridge/message/geometry_msgs/Vector3; [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:com.boat.jrosbridge.message.geometry_msgs.Vector3
+
+getLinear-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/boat/jrosbridge/message/geometry_msgs/Twist;->linear Lcom/boat/jrosbridge/message/geometry_msgs/Vector3;
+	1       (00000004) return-object        v0
+

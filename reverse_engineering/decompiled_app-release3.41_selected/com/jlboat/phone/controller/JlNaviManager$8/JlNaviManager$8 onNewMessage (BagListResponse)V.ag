@@ -1,0 +1,72 @@
+# Lcom/jlboat/phone/controller/JlNaviManager$8;->onNewMessage(Lcom/jlboat/phone/message/map_msgs/BagListResponse;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:com.jlboat.phone.message.map_msgs.BagListResponse
+#
+# - return:void
+
+onNewMessage-BB@0x0 : [ onNewMessage-BB@0x22 onNewMessage-BB@0xce ]
+	0       (00000000) iget-object          v0, v3, Lcom/jlboat/phone/controller/JlNaviManager$8;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	1       (00000004) invoke-static        v0, Lcom/jlboat/phone/controller/JlNaviManager;->access$000(Lcom/jlboat/phone/controller/JlNaviManager;)Ljava/lang/String;
+	2       (0000000a) move-result-object   v0
+	3       (0000000c) const-string         v1, "onSuccess: getAndUploadBag "
+	4       (00000010) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	5       (00000016) invoke-virtual       v4, Lcom/jlboat/phone/message/map_msgs/BagListResponse;->getStatus()I
+	6       (0000001c) move-result          v0
+	7       (0000001e) if-nez               v0, +058h
+
+onNewMessage-BB@0x22 : [ onNewMessage-BB@0x6a onNewMessage-BB@0xcc ]
+	8       (00000022) iget-object          v0, v3, Lcom/jlboat/phone/controller/JlNaviManager$8;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	9       (00000026) invoke-static        v0, Lcom/jlboat/phone/controller/JlNaviManager;->access$000(Lcom/jlboat/phone/controller/JlNaviManager;)Ljava/lang/String;
+	10      (0000002c) move-result-object   v0
+	11      (0000002e) new-instance         v2, Ljava/lang/StringBuilder;
+	12      (00000032) invoke-direct        v2, Ljava/lang/StringBuilder;-><init>()V
+	13      (00000038) invoke-virtual       v2, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	14      (0000003e) move-result-object   v1
+	15      (00000040) invoke-virtual       v4, Lcom/jlboat/phone/message/map_msgs/BagListResponse;->getBagNames()Ljava/util/List;
+	16      (00000046) move-result-object   v2
+	17      (00000048) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+	18      (0000004e) move-result-object   v1
+	19      (00000050) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	20      (00000056) move-result-object   v1
+	21      (00000058) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	22      (0000005e) invoke-virtual       v4, Lcom/jlboat/phone/message/map_msgs/BagListResponse;->getBagNames()Ljava/util/List;
+	23      (00000064) move-result-object   v0
+	24      (00000066) if-eqz               v0, +033h
+
+onNewMessage-BB@0x6a : [ onNewMessage-BB@0x7e onNewMessage-BB@0x80 ]
+	25      (0000006a) invoke-virtual       v4, Lcom/jlboat/phone/message/map_msgs/BagListResponse;->getBagNames()Ljava/util/List;
+	26      (00000070) move-result-object   v0
+	27      (00000072) invoke-interface     v0, Ljava/util/List;->isEmpty()Z
+	28      (00000078) move-result          v0
+	29      (0000007a) if-eqz               v0, +003h
+
+onNewMessage-BB@0x7e : [ onNewMessage-BB@0xcc ]
+	30      (0000007e) goto                 +27h
+
+onNewMessage-BB@0x80 : [ onNewMessage-BB@0xce ]
+	31      (00000080) new-instance         v0, Landroid/content/Intent;
+	32      (00000084) invoke-direct        v0, Landroid/content/Intent;-><init>()V
+	33      (0000008a) const-string         v1, "com.jlboat.phone"
+	34      (0000008e) const-string         v2, "com.jlboat.phone.service.DownloadFileService"
+	35      (00000092) invoke-virtual       v0, v1, v2, Landroid/content/Intent;->setClassName(Ljava/lang/String; Ljava/lang/String;)Landroid/content/Intent;
+	36      (00000098) const-string         v1, "download_bags"
+	37      (0000009c) invoke-virtual       v0, v1, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
+	38      (000000a2) invoke-virtual       v4, Lcom/jlboat/phone/message/map_msgs/BagListResponse;->getBagNames()Ljava/util/List;
+	39      (000000a8) move-result-object   v1
+	40      (000000aa) check-cast           v1, Ljava/util/ArrayList;
+	41      (000000ae) const-string         v2, "bags"
+	42      (000000b2) invoke-virtual       v0, v2, v1, Landroid/content/Intent;->putStringArrayListExtra(Ljava/lang/String; Ljava/util/ArrayList;)Landroid/content/Intent;
+	43      (000000b8) iget-object          v1, v3, Lcom/jlboat/phone/controller/JlNaviManager$8;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	44      (000000bc) invoke-virtual       v1, Lcom/jlboat/phone/controller/JlNaviManager;->getApp()Lcom/boat/base/BaseApplication;
+	45      (000000c2) move-result-object   v1
+	46      (000000c4) invoke-virtual       v1, v0, Lcom/boat/base/BaseApplication;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
+	47      (000000ca) goto                 +2h
+
+onNewMessage-BB@0xcc : 
+	48      (000000cc) return-void          
+
+onNewMessage-BB@0xce : 
+	49      (000000ce) return-void          
+

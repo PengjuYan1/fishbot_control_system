@@ -1,0 +1,51 @@
+# Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025$2;->afterTextChanged(Landroid/text/Editable;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v5
+# - v6:android.text.Editable
+#
+# - return:void
+
+afterTextChanged-BB@0x0 : [ afterTextChanged-BB@0x16 afterTextChanged-BB@0x24 ]
+	0       (00000000) invoke-virtual       v6, Ljava/lang/Object;->toString()Ljava/lang/String;
+	1       (00000006) move-result-object   v0
+	2       (00000008) invoke-interface     v6, Landroid/text/Editable;->length()I
+	3       (0000000e) move-result          v1
+	4       (00000010) const/4              v2, 4
+	5       (00000012) if-le                v1, v2, +009h
+
+afterTextChanged-BB@0x16 : [ afterTextChanged-BB@0x24 ]
+	6       (00000016) invoke-interface     v6, Landroid/text/Editable;->length()I
+	7       (0000001c) move-result          v1
+	8       (0000001e) invoke-interface     v6, v2, v1, Landroid/text/Editable;->delete(I I)Landroid/text/Editable;
+
+afterTextChanged-BB@0x24 : [ afterTextChanged-BB@0x34 afterTextChanged-BB@0x42 ]
+	9       (00000024) invoke-virtual       v0, Ljava/lang/String;->isEmpty()Z
+	10      (0000002a) move-result          v1
+	11      (0000002c) const/16             v2, 9
+	12      (00000030) if-eqz               v1, +009h
+
+afterTextChanged-BB@0x34 : [ afterTextChanged-BB@0x42 ]
+	13      (00000034) const-string         v0, "0"
+	14      (00000038) iget-object          v1, v5, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025$2;->this$0 Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;
+	15      (0000003c) invoke-virtual       v1, v2, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;->getConfigs(I)V
+
+afterTextChanged-BB@0x42 : 
+	16      (00000042) iget-object          v1, v5, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025$2;->this$0 Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;
+	17      (00000046) invoke-static        v1, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;->access$900(Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;)Ljava/util/List;
+	18      (0000004c) move-result-object   v1
+	19      (0000004e) const/4              v3, 0
+	20      (00000050) invoke-interface     v1, v3, Ljava/util/List;->get(I)Ljava/lang/Object;
+	21      (00000056) move-result-object   v1
+	22      (00000058) check-cast           v1, Lcom/jlboat/phone/message/map_msgs/Config;
+	23      (0000005c) invoke-virtual       v1, v0, Lcom/jlboat/phone/message/map_msgs/Config;->setConfigValue(Ljava/lang/String;)V
+	24      (00000062) iget-object          v1, v5, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025$2;->this$0 Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;
+	25      (00000066) iget-object          v1, v1, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;->statusServiceClient Lcom/jlboat/phone/communication/StatusServiceClient;
+	26      (0000006a) iget-object          v3, v5, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025$2;->this$0 Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;
+	27      (0000006e) invoke-static        v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;->access$900(Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;)Ljava/util/List;
+	28      (00000074) move-result-object   v3
+	29      (00000076) new-instance         v4, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025$2$1;
+	30      (0000007a) invoke-direct        v4, v5, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025$2$1;-><init>(Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025$2;)V
+	31      (00000080) invoke-virtual       v1, v3, v2, v4, Lcom/jlboat/phone/communication/StatusServiceClient;->setOrDelConfigsService(Ljava/util/List; I Lcom/boat/jrosbridge/MessageListener;)V
+	32      (00000086) return-void          
+

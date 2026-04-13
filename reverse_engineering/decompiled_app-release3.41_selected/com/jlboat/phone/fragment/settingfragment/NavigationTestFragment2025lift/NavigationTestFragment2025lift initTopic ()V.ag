@@ -1,0 +1,49 @@
+# Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->initTopic()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v4
+#
+# - return:void
+
+initTopic-BB@0x0 : [ initTopic-BB@0x62 ]
+	0       (00000000) new-instance         v0, Lcom/boat/jrosbridge/Topic;
+	1       (00000004) const-class          v1, Lcom/jlboat/phone/message/map_msgs/NaviQueueListEntry;
+	2       (00000008) sget-object          v2, Lcom/jlboat/phone/application/BoatSlamApplication;->client Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;
+	3       (0000000c) const-string         v3, "/add_navi_to_queuelist"
+	4       (00000010) invoke-direct        v0, v3, v1, v2, Lcom/boat/jrosbridge/Topic;-><init>(Ljava/lang/String; Ljava/lang/Class; Lcom/boat/jrosbridge/ROSClient;)V
+	5       (00000016) iput-object          v0, v4, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->naviQueueListEntries Lcom/boat/jrosbridge/Topic;
+	6       (0000001a) iget-object          v0, v4, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->naviQueueListEntries Lcom/boat/jrosbridge/Topic;
+	7       (0000001e) invoke-virtual       v0, Lcom/boat/jrosbridge/Topic;->advertise()V
+	8       (00000024) new-instance         v0, Lcom/boat/jrosbridge/Topic;
+	9       (00000028) const-class          v1, Lcom/boat/jrosbridge/message/std_msgs/Int32;
+	10      (0000002c) sget-object          v2, Lcom/jlboat/phone/application/BoatSlamApplication;->client Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;
+	11      (00000030) const-string         v3, "/del_navi_to_queuelist"
+	12      (00000034) invoke-direct        v0, v3, v1, v2, Lcom/boat/jrosbridge/Topic;-><init>(Ljava/lang/String; Ljava/lang/Class; Lcom/boat/jrosbridge/ROSClient;)V
+	13      (0000003a) iput-object          v0, v4, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->delQueueEntry Lcom/boat/jrosbridge/Topic;
+	14      (0000003e) iget-object          v0, v4, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->delQueueEntry Lcom/boat/jrosbridge/Topic;
+	15      (00000042) invoke-virtual       v0, Lcom/boat/jrosbridge/Topic;->advertise()V
+	16      (00000048) new-instance         v0, Lcom/boat/jrosbridge/Topic;
+	17      (0000004c) const-class          v1, Lcom/jlboat/phone/message/map_msgs/NaviQueueList;
+	18      (00000050) sget-object          v2, Lcom/jlboat/phone/application/BoatSlamApplication;->client Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;
+	19      (00000054) const-string         v3, "/navi_list_queue"
+	20      (00000058) invoke-direct        v0, v3, v1, v2, Lcom/boat/jrosbridge/Topic;-><init>(Ljava/lang/String; Ljava/lang/Class; Lcom/boat/jrosbridge/ROSClient;)V
+	21      (0000005e) iput-object          v0, v4, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->getNaviQueueListEntries Lcom/boat/jrosbridge/Topic;
+
+initTopic-BB@0x62 : [ initTopic-BB@0x88 ]
+	22      (00000062) iget-object          v0, v4, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->getNaviQueueListEntries Lcom/boat/jrosbridge/Topic;
+	23      (00000066) new-instance         v1, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift$4;
+	24      (0000006a) invoke-direct        v1, v4, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift$4;-><init>(Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;)V
+	25      (00000070) invoke-virtual       v0, v1, Lcom/boat/jrosbridge/Topic;->subscribe(Lcom/boat/jrosbridge/MessageListener;)V
+	26      (00000076) goto                 +9h
+	62:75
+	(Ljava/lang/Exception; -> 78 initTopic-BB@0x78)
+
+initTopic-BB@0x78 : [ initTopic-BB@0x88 ]
+	27      (00000078) move-exception       v0
+	28      (0000007a) iget-object          v1, v4, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->TAG Ljava/lang/String;
+	29      (0000007e) const-string         v2, "订阅失败"
+	30      (00000082) invoke-static        v1, v2, v0, Landroid/util/Log;->e(Ljava/lang/String; Ljava/lang/String; Ljava/lang/Throwable;)I
+
+initTopic-BB@0x88 : 
+	31      (00000088) return-void          
+

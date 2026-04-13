@@ -1,0 +1,35 @@
+# Lcom/jlboat/phone/controller/JlNaviManager;->setErase(D D)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v4
+# - v5:double
+# - v6:double
+#
+# - return:void
+
+setErase-BB@0x0 : [ setErase-BB@0x8 setErase-BB@0x34 ]
+	0       (00000000) iget-boolean         v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->connectStatus Z
+	1       (00000004) if-eqz               v0, +018h
+
+setErase-BB@0x8 : [ setErase-BB@0x10 setErase-BB@0x12 ]
+	2       (00000008) iget-boolean         v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->isNavigationInited Z
+	3       (0000000c) if-nez               v0, +003h
+
+setErase-BB@0x10 : [ setErase-BB@0x34 ]
+	4       (00000010) goto                 +12h
+
+setErase-BB@0x12 : 
+	5       (00000012) new-instance         v0, Lcom/jlboat/phone/message/map_msgs/ErasePose;
+	6       (00000016) invoke-direct        v0, Lcom/jlboat/phone/message/map_msgs/ErasePose;-><init>()V
+	7       (0000001c) invoke-virtual       v0, v3, v4, Lcom/jlboat/phone/message/map_msgs/ErasePose;->setX(D)V
+	8       (00000022) invoke-virtual       v0, v5, v6, Lcom/jlboat/phone/message/map_msgs/ErasePose;->setY(D)V
+	9       (00000028) iget-object          v1, v2, Lcom/jlboat/phone/controller/JlNaviManager;->erasePoseTopic Lcom/boat/jrosbridge/Topic;
+	10      (0000002c) invoke-virtual       v1, v0, Lcom/boat/jrosbridge/Topic;->publish(Lcom/boat/jrosbridge/message/Message;)V
+	11      (00000032) return-void          
+
+setErase-BB@0x34 : 
+	12      (00000034) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->TAG Ljava/lang/String;
+	13      (00000038) const-string         v1, "clearMap: 初始化未成功 不可以进行数据请求 setErase"
+	14      (0000003c) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	15      (00000042) return-void          
+

@@ -1,0 +1,45 @@
+# Lcom/boat/ros/geometry/FrameTransformTree;->transformToRoot(Lorg/ros/namespace/GraphName;)Lcom/boat/ros/geometry/FrameTransform; [access_flags=]
+#
+# Parameters:
+# - local registers: v0...v6
+# - v7:org.ros.namespace.GraphName
+#
+# - return:com.boat.ros.geometry.FrameTransform
+
+transformToRoot-BB@0x0 : [ transformToRoot-BB@0xc transformToRoot-BB@0x10 ]
+	0       (00000000) invoke-direct        v6, v7, Lcom/boat/ros/geometry/FrameTransformTree;->getLatest(Lorg/ros/namespace/GraphName;)Lcom/boat/ros/geometry/FrameTransform;
+	1       (00000006) move-result-object   v0
+	2       (00000008) if-nez               v0, +004h
+
+transformToRoot-BB@0xc : 
+	3       (0000000c) const/4              v1, 0
+	4       (0000000e) return-object        v1
+
+transformToRoot-BB@0x10 : [ transformToRoot-BB@0x2c transformToRoot-BB@0x2e ]
+	5       (00000010) invoke-virtual       v0, Lcom/boat/ros/geometry/FrameTransform;->getTargetFrame()Lorg/ros/namespace/GraphName;
+	6       (00000016) move-result-object   v1
+	7       (00000018) invoke-virtual       v0, Lcom/boat/ros/geometry/FrameTransform;->getTime()Lcom/boat/jrosbridge/message/Time;
+	8       (0000001e) move-result-object   v2
+	9       (00000020) invoke-virtual       v6, v1, v2, Lcom/boat/ros/geometry/FrameTransformTree;->lookUp(Lorg/ros/namespace/GraphName; Lcom/boat/jrosbridge/message/Time;)Lcom/boat/ros/geometry/FrameTransform;
+	10      (00000026) move-result-object   v1
+	11      (00000028) if-nez               v1, +003h
+
+transformToRoot-BB@0x2c : 
+	12      (0000002c) return-object        v0
+
+transformToRoot-BB@0x2e : [ transformToRoot-BB@0x10 ]
+	13      (0000002e) invoke-virtual       v1, Lcom/boat/ros/geometry/FrameTransform;->getTransform()Lcom/boat/ros/geometry/Transform;
+	14      (00000034) move-result-object   v2
+	15      (00000036) invoke-virtual       v0, Lcom/boat/ros/geometry/FrameTransform;->getTransform()Lcom/boat/ros/geometry/Transform;
+	16      (0000003c) move-result-object   v3
+	17      (0000003e) invoke-virtual       v2, v3, Lcom/boat/ros/geometry/Transform;->multiply(Lcom/boat/ros/geometry/Transform;)Lcom/boat/ros/geometry/Transform;
+	18      (00000044) move-result-object   v2
+	19      (00000046) invoke-virtual       v1, Lcom/boat/ros/geometry/FrameTransform;->getTargetFrame()Lorg/ros/namespace/GraphName;
+	20      (0000004c) move-result-object   v3
+	21      (0000004e) new-instance         v4, Lcom/boat/ros/geometry/FrameTransform;
+	22      (00000052) invoke-virtual       v0, Lcom/boat/ros/geometry/FrameTransform;->getTime()Lcom/boat/jrosbridge/message/Time;
+	23      (00000058) move-result-object   v5
+	24      (0000005a) invoke-direct        v4, v2, v7, v3, v5, Lcom/boat/ros/geometry/FrameTransform;-><init>(Lcom/boat/ros/geometry/Transform; Lorg/ros/namespace/GraphName; Lorg/ros/namespace/GraphName; Lcom/boat/jrosbridge/message/Time;)V
+	25      (00000060) move-object          v0, v4
+	26      (00000062) goto                 -29h
+

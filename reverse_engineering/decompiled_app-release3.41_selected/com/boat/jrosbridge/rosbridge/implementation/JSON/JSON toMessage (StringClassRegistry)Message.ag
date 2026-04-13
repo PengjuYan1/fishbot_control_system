@@ -1,0 +1,28 @@
+# Lcom/boat/jrosbridge/rosbridge/implementation/JSON;->toMessage(Ljava/lang/String; Ljava/lang/Class; Lcom/boat/jrosbridge/rosbridge/implementation/Registry;)Lcom/boat/jrosbridge/message/Message; [access_flags=public static]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:java.lang.String
+# - v4:java.lang.Class
+# - v5:com.boat.jrosbridge.rosbridge.implementation.Registry
+#
+# - return:com.boat.jrosbridge.message.Message
+
+toMessage-BB@0x0 : [ toMessage-BB@0x1a toMessage-BB@0x22 ]
+	0       (00000000) invoke-static        v3, Lcom/boat/jrosbridge/rosbridge/implementation/JSON;->convertStringToJSONObject(Ljava/lang/String;)Lorg/json/simple/JSONObject;
+	1       (00000006) move-result-object   v0
+	2       (00000008) move-object          v1, v0
+	3       (0000000a) const-class          v2, Lcom/boat/jrosbridge/rosbridge/operation/Wrapper;
+	4       (0000000e) invoke-virtual       v2, v4, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
+	5       (00000014) move-result          v2
+	6       (00000016) if-eqz               v2, +006h
+
+toMessage-BB@0x1a : [ toMessage-BB@0x22 ]
+	7       (0000001a) invoke-static        v0, v4, Lcom/boat/jrosbridge/rosbridge/implementation/JSON;->wrap(Lorg/json/simple/JSONObject; Ljava/lang/Class;)Lorg/json/simple/JSONObject;
+	8       (00000020) move-result-object   v1
+
+toMessage-BB@0x22 : 
+	9       (00000022) invoke-static        v1, v4, v5, Lcom/boat/jrosbridge/rosbridge/implementation/JSON;->convertJSONObjectToMessage(Lorg/json/simple/JSONObject; Ljava/lang/Class; Lcom/boat/jrosbridge/rosbridge/implementation/Registry;)Lcom/boat/jrosbridge/message/Message;
+	10      (00000028) move-result-object   v2
+	11      (0000002a) return-object        v2
+

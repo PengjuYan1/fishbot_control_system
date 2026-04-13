@@ -1,0 +1,15 @@
+# Lcom/jlboat/phone/activity/DiyPathActivity;->access$3200(Lcom/jlboat/phone/activity/DiyPathActivity; Lcom/boat/support/slam/entity/floors/GlobalPlans; Ljava/lang/String; I)V [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v-1
+# - v0:com.jlboat.phone.activity.DiyPathActivity
+# - v1:com.boat.support.slam.entity.floors.GlobalPlans
+# - v2:java.lang.String
+# - v3:int
+#
+# - return:void
+
+access$3200-BB@0x0 : 
+	0       (00000000) invoke-direct        v0, v1, v2, v3, Lcom/jlboat/phone/activity/DiyPathActivity;->renamePath(Lcom/boat/support/slam/entity/floors/GlobalPlans; Ljava/lang/String; I)V
+	1       (00000006) return-void          
+

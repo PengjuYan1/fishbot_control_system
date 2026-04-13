@@ -1,0 +1,177 @@
+# Lcom/jlboat/phone/controller/JlNaviManager;->requestData1(I)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:int
+#
+# - return:void
+
+requestData1-BB@0x0 : [ requestData1-BB@0x8 requestData1-BB@0x194 ]
+	0       (00000000) iget-boolean         v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->connectStatus Z
+	1       (00000004) if-eqz               v0, +0c8h
+
+requestData1-BB@0x8 : [ requestData1-BB@0x10 requestData1-BB@0x14 ]
+	2       (00000008) iget-boolean         v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->isNavigationInited Z
+	3       (0000000c) if-nez               v0, +004h
+
+requestData1-BB@0x10 : [ requestData1-BB@0x194 ]
+	4       (00000010) goto/16              +0c2h
+
+requestData1-BB@0x14 : [ D:requestData1-BB@0x1c 1000:requestData1-BB@0x16e 1001:requestData1-BB@0x14e 1002:requestData1-BB@0x12e 1003:requestData1-BB@0x128 1004:requestData1-BB@0x108 1011:requestData1-BB@0xe8 1012:requestData1-BB@0xc8 1013:requestData1-BB@0xa8 1015:requestData1-BB@0x86 1021:requestData1-BB@0x64 1022:requestData1-BB@0x42 1031:requestData1-BB@0x20 ]
+	5       (00000014) const/4              v0, 1
+	6       (00000016) sparse-switch        v3, +00000c7h
+
+requestData1-BB@0x1c : [ requestData1-BB@0x192 ]
+	7       (0000001c) goto/16              +0bbh
+
+requestData1-BB@0x20 : [ requestData1-BB@0x34 requestData1-BB@0x192 ]
+	8       (00000020) iput-boolean         v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->isPower Z
+	9       (00000024) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->mHandler Landroid/os/Handler;
+	10      (00000028) invoke-virtual       v0, v3, Landroid/os/Handler;->hasMessages(I)Z
+	11      (0000002e) move-result          v0
+	12      (00000030) if-nez               v0, +0b1h
+
+requestData1-BB@0x34 : [ requestData1-BB@0x192 ]
+	13      (00000034) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->mHandler Landroid/os/Handler;
+	14      (00000038) invoke-virtual       v0, v3, Landroid/os/Handler;->sendEmptyMessage(I)Z
+	15      (0000003e) goto/16              +0aah
+
+requestData1-BB@0x42 : [ requestData1-BB@0x56 requestData1-BB@0x192 ]
+	16      (00000042) iput-boolean         v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->isNaviToPoint Z
+	17      (00000046) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->mHandler Landroid/os/Handler;
+	18      (0000004a) invoke-virtual       v0, v3, Landroid/os/Handler;->hasMessages(I)Z
+	19      (00000050) move-result          v0
+	20      (00000052) if-nez               v0, +0a0h
+
+requestData1-BB@0x56 : [ requestData1-BB@0x192 ]
+	21      (00000056) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->mHandler Landroid/os/Handler;
+	22      (0000005a) invoke-virtual       v0, v3, Landroid/os/Handler;->sendEmptyMessage(I)Z
+	23      (00000060) goto/16              +099h
+
+requestData1-BB@0x64 : [ requestData1-BB@0x78 requestData1-BB@0x192 ]
+	24      (00000064) iput-boolean         v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->isNaviStatus Z
+	25      (00000068) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->mHandler Landroid/os/Handler;
+	26      (0000006c) invoke-virtual       v0, v3, Landroid/os/Handler;->hasMessages(I)Z
+	27      (00000072) move-result          v0
+	28      (00000074) if-nez               v0, +08fh
+
+requestData1-BB@0x78 : [ requestData1-BB@0x192 ]
+	29      (00000078) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->mHandler Landroid/os/Handler;
+	30      (0000007c) invoke-virtual       v0, v3, Landroid/os/Handler;->sendEmptyMessage(I)Z
+	31      (00000082) goto/16              +088h
+
+requestData1-BB@0x86 : [ requestData1-BB@0x9a requestData1-BB@0x192 ]
+	32      (00000086) iput-boolean         v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->islocalPointUpdate Z
+	33      (0000008a) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->mHandler Landroid/os/Handler;
+	34      (0000008e) invoke-virtual       v0, v3, Landroid/os/Handler;->hasMessages(I)Z
+	35      (00000094) move-result          v0
+	36      (00000096) if-nez               v0, +07eh
+
+requestData1-BB@0x9a : [ requestData1-BB@0x192 ]
+	37      (0000009a) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->mHandler Landroid/os/Handler;
+	38      (0000009e) invoke-virtual       v0, v3, Landroid/os/Handler;->sendEmptyMessage(I)Z
+	39      (000000a4) goto/16              +077h
+
+requestData1-BB@0xa8 : [ requestData1-BB@0xbc requestData1-BB@0x192 ]
+	40      (000000a8) iput-boolean         v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->isMapUpdate Z
+	41      (000000ac) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->mHandler Landroid/os/Handler;
+	42      (000000b0) invoke-virtual       v0, v3, Landroid/os/Handler;->hasMessages(I)Z
+	43      (000000b6) move-result          v0
+	44      (000000b8) if-nez               v0, +06dh
+
+requestData1-BB@0xbc : [ requestData1-BB@0x192 ]
+	45      (000000bc) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->mHandler Landroid/os/Handler;
+	46      (000000c0) invoke-virtual       v0, v3, Landroid/os/Handler;->sendEmptyMessage(I)Z
+	47      (000000c6) goto                 +66h
+
+requestData1-BB@0xc8 : [ requestData1-BB@0xdc requestData1-BB@0x192 ]
+	48      (000000c8) iput-boolean         v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->isMapStatus Z
+	49      (000000cc) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->mHandler Landroid/os/Handler;
+	50      (000000d0) invoke-virtual       v0, v3, Landroid/os/Handler;->hasMessages(I)Z
+	51      (000000d6) move-result          v0
+	52      (000000d8) if-nez               v0, +05dh
+
+requestData1-BB@0xdc : [ requestData1-BB@0x192 ]
+	53      (000000dc) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->mHandler Landroid/os/Handler;
+	54      (000000e0) invoke-virtual       v0, v3, Landroid/os/Handler;->sendEmptyMessage(I)Z
+	55      (000000e6) goto                 +56h
+
+requestData1-BB@0xe8 : [ requestData1-BB@0xfc requestData1-BB@0x192 ]
+	56      (000000e8) iput-boolean         v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->isInit Z
+	57      (000000ec) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->mHandler Landroid/os/Handler;
+	58      (000000f0) invoke-virtual       v0, v3, Landroid/os/Handler;->hasMessages(I)Z
+	59      (000000f6) move-result          v0
+	60      (000000f8) if-nez               v0, +04dh
+
+requestData1-BB@0xfc : [ requestData1-BB@0x192 ]
+	61      (000000fc) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->mHandler Landroid/os/Handler;
+	62      (00000100) invoke-virtual       v0, v3, Landroid/os/Handler;->sendEmptyMessage(I)Z
+	63      (00000106) goto                 +46h
+
+requestData1-BB@0x108 : [ requestData1-BB@0x11c requestData1-BB@0x192 ]
+	64      (00000108) iput-boolean         v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->isGPlan Z
+	65      (0000010c) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->mHandler Landroid/os/Handler;
+	66      (00000110) invoke-virtual       v0, v3, Landroid/os/Handler;->hasMessages(I)Z
+	67      (00000116) move-result          v0
+	68      (00000118) if-nez               v0, +03dh
+
+requestData1-BB@0x11c : [ requestData1-BB@0x192 ]
+	69      (0000011c) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->mHandler Landroid/os/Handler;
+	70      (00000120) invoke-virtual       v0, v3, Landroid/os/Handler;->sendEmptyMessage(I)Z
+	71      (00000126) goto                 +36h
+
+requestData1-BB@0x128 : [ requestData1-BB@0x192 ]
+	72      (00000128) iput-boolean         v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->isScan Z
+	73      (0000012c) goto                 +33h
+
+requestData1-BB@0x12e : [ requestData1-BB@0x142 requestData1-BB@0x192 ]
+	74      (0000012e) iput-boolean         v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->isPose Z
+	75      (00000132) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->mHandler Landroid/os/Handler;
+	76      (00000136) invoke-virtual       v0, v3, Landroid/os/Handler;->hasMessages(I)Z
+	77      (0000013c) move-result          v0
+	78      (0000013e) if-nez               v0, +02ah
+
+requestData1-BB@0x142 : [ requestData1-BB@0x192 ]
+	79      (00000142) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->mHandler Landroid/os/Handler;
+	80      (00000146) invoke-virtual       v0, v3, Landroid/os/Handler;->sendEmptyMessage(I)Z
+	81      (0000014c) goto                 +23h
+
+requestData1-BB@0x14e : [ requestData1-BB@0x162 requestData1-BB@0x192 ]
+	82      (0000014e) iput-boolean         v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->isMapData Z
+	83      (00000152) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->mHandler Landroid/os/Handler;
+	84      (00000156) invoke-virtual       v0, v3, Landroid/os/Handler;->hasMessages(I)Z
+	85      (0000015c) move-result          v0
+	86      (0000015e) if-nez               v0, +01ah
+
+requestData1-BB@0x162 : [ requestData1-BB@0x192 ]
+	87      (00000162) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->mHandler Landroid/os/Handler;
+	88      (00000166) invoke-virtual       v0, v3, Landroid/os/Handler;->sendEmptyMessage(I)Z
+	89      (0000016c) goto                 +13h
+
+requestData1-BB@0x16e : [ requestData1-BB@0x186 requestData1-BB@0x190 ]
+	90      (0000016e) iput-boolean         v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->isAllMapData Z
+	91      (00000172) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->mHandler Landroid/os/Handler;
+	92      (00000176) const/16             v1, 1000
+	93      (0000017a) invoke-virtual       v0, v1, Landroid/os/Handler;->hasMessages(I)Z
+	94      (00000180) move-result          v0
+	95      (00000182) if-nez               v0, +007h
+
+requestData1-BB@0x186 : [ requestData1-BB@0x190 ]
+	96      (00000186) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->mHandler Landroid/os/Handler;
+	97      (0000018a) invoke-virtual       v0, v1, Landroid/os/Handler;->sendEmptyMessage(I)Z
+
+requestData1-BB@0x190 : 
+	98      (00000190) return-void          
+
+requestData1-BB@0x192 : 
+	99      (00000192) return-void          
+
+requestData1-BB@0x194 : 
+	100     (00000194) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->TAG Ljava/lang/String;
+	101     (00000198) const-string         v1, "requestData1: 初始化未成功 不可以进行数据请求 requestData1"
+	102     (0000019c) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	103     (000001a2) return-void          
+
+requestData1-BB@0x1a4 : 
+	104     (000001a4) sparse-switch-payload 3e8 3e9 3ea 3eb 3ec 3f3 3f4 3f5 3f7 3fd 3fe 407
+

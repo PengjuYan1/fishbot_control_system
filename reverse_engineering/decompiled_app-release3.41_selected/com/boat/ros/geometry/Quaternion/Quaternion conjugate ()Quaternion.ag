@@ -1,0 +1,20 @@
+# Lcom/boat/ros/geometry/Quaternion;->conjugate()Lcom/boat/ros/geometry/Quaternion; [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v10
+#
+# - return:com.boat.ros.geometry.Quaternion
+
+conjugate-BB@0x0 : 
+	0       (00000000) new-instance         v9, Lcom/boat/ros/geometry/Quaternion;
+	1       (00000004) iget-wide            v0, v10, Lcom/boat/ros/geometry/Quaternion;->x D
+	2       (00000008) neg-double           v1, v0
+	3       (0000000a) iget-wide            v3, v10, Lcom/boat/ros/geometry/Quaternion;->y D
+	4       (0000000e) neg-double           v3, v3
+	5       (00000010) iget-wide            v5, v10, Lcom/boat/ros/geometry/Quaternion;->z D
+	6       (00000014) neg-double           v5, v5
+	7       (00000016) iget-wide            v7, v10, Lcom/boat/ros/geometry/Quaternion;->w D
+	8       (0000001a) move-object          v0, v9
+	9       (0000001c) invoke-direct/range  v0 ... v8, Lcom/boat/ros/geometry/Quaternion;-><init>(D D D D)V
+	10      (00000022) return-object        v9
+

@@ -1,0 +1,41 @@
+# Lcom/jlboat/phone/fragment/statusfragment/AvoidFillFragment;->initView(Landroid/view/LayoutInflater; Landroid/view/ViewGroup;)Landroid/view/View; [access_flags=protected]
+#
+# Parameters:
+# - local registers: v0...v4
+# - v5:android.view.LayoutInflater
+# - v6:android.view.ViewGroup
+#
+# - return:android.view.View
+
+initView-BB@0x0 : 
+	0       (00000000) const-string         v0, "AvoidFillFragment"
+	1       (00000004) const-string         v1, "initView called"
+	2       (00000008) invoke-static        v0, v1, Lcom/boat/jrosbridge/message/Log;->d(Ljava/lang/String; Ljava/lang/String;)V
+	3       (0000000e) const                v0, 2131361868
+	4       (00000014) const/4              v1, 0
+	5       (00000016) invoke-virtual       v5, v0, v6, v1, Landroid/view/LayoutInflater;->inflate(I Landroid/view/ViewGroup; Z)Landroid/view/View;
+	6       (0000001c) move-result-object   v0
+	7       (0000001e) const                v1, 2131230917
+	8       (00000024) invoke-virtual       v0, v1, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	9       (0000002a) move-result-object   v1
+	10      (0000002c) check-cast           v1, Landroid/widget/TextView;
+	11      (00000030) iput-object          v1, v4, Lcom/jlboat/phone/fragment/statusfragment/AvoidFillFragment;->fill_no_tv Landroid/widget/TextView;
+	12      (00000034) const                v1, 2131231220
+	13      (0000003a) invoke-virtual       v0, v1, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	14      (00000040) move-result-object   v1
+	15      (00000042) check-cast           v1, Landroid/support/v7/widget/RecyclerView;
+	16      (00000046) iput-object          v1, v4, Lcom/jlboat/phone/fragment/statusfragment/AvoidFillFragment;->rvAddNewView Landroid/support/v7/widget/RecyclerView;
+	17      (0000004a) new-instance         v1, Landroid/support/v7/widget/LinearLayoutManager;
+	18      (0000004e) iget-object          v2, v4, Lcom/jlboat/phone/fragment/statusfragment/AvoidFillFragment;->act Landroid/support/v4/app/FragmentActivity;
+	19      (00000052) invoke-direct        v1, v2, Landroid/support/v7/widget/LinearLayoutManager;-><init>(Landroid/content/Context;)V
+	20      (00000058) iget-object          v2, v4, Lcom/jlboat/phone/fragment/statusfragment/AvoidFillFragment;->rvAddNewView Landroid/support/v7/widget/RecyclerView;
+	21      (0000005c) invoke-virtual       v2, v1, Landroid/support/v7/widget/RecyclerView;->setLayoutManager(Landroid/support/v7/widget/RecyclerView$LayoutManager;)V
+	22      (00000062) new-instance         v2, Lcom/jlboat/phone/adapter/AddDataAdapter;
+	23      (00000066) iget-object          v3, v4, Lcom/jlboat/phone/fragment/statusfragment/AvoidFillFragment;->addViewed Ljava/util/List;
+	24      (0000006a) invoke-direct        v2, v3, Lcom/jlboat/phone/adapter/AddDataAdapter;-><init>(Ljava/util/List;)V
+	25      (00000070) iput-object          v2, v4, Lcom/jlboat/phone/fragment/statusfragment/AvoidFillFragment;->addDataAdapter Lcom/jlboat/phone/adapter/AddDataAdapter;
+	26      (00000074) iget-object          v2, v4, Lcom/jlboat/phone/fragment/statusfragment/AvoidFillFragment;->rvAddNewView Landroid/support/v7/widget/RecyclerView;
+	27      (00000078) iget-object          v3, v4, Lcom/jlboat/phone/fragment/statusfragment/AvoidFillFragment;->addDataAdapter Lcom/jlboat/phone/adapter/AddDataAdapter;
+	28      (0000007c) invoke-virtual       v2, v3, Landroid/support/v7/widget/RecyclerView;->setAdapter(Landroid/support/v7/widget/RecyclerView$Adapter;)V
+	29      (00000082) return-object        v0
+

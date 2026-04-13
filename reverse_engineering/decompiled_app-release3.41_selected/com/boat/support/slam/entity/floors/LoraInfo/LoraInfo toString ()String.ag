@@ -1,0 +1,60 @@
+# Lcom/boat/support/slam/entity/floors/LoraInfo;->toString()Ljava/lang/String; [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v4
+#
+# - return:java.lang.String
+
+toString-BB@0x0 : 
+	0       (00000000) new-instance         v0, Ljava/lang/StringBuilder;
+	1       (00000004) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	2       (0000000a) const-string         v1, "LoraInfo{floorId="
+	3       (0000000e) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	4       (00000014) move-result-object   v0
+	5       (00000016) iget-wide            v1, v4, Lcom/boat/support/slam/entity/floors/LoraInfo;->floorId J
+	6       (0000001a) invoke-virtual       v0, v1, v2, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+	7       (00000020) move-result-object   v0
+	8       (00000022) const-string         v1, ", floorName='"
+	9       (00000026) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	10      (0000002c) move-result-object   v0
+	11      (0000002e) iget-object          v1, v4, Lcom/boat/support/slam/entity/floors/LoraInfo;->floorName Ljava/lang/String;
+	12      (00000032) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	13      (00000038) move-result-object   v0
+	14      (0000003a) const/16             v1, 39
+	15      (0000003e) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+	16      (00000044) move-result-object   v0
+	17      (00000046) const-string         v2, ", pointId="
+	18      (0000004a) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	19      (00000050) move-result-object   v0
+	20      (00000052) iget-wide            v2, v4, Lcom/boat/support/slam/entity/floors/LoraInfo;->pointId J
+	21      (00000056) invoke-virtual       v0, v2, v3, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+	22      (0000005c) move-result-object   v0
+	23      (0000005e) const-string         v2, ", pointName='"
+	24      (00000062) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	25      (00000068) move-result-object   v0
+	26      (0000006a) iget-object          v2, v4, Lcom/boat/support/slam/entity/floors/LoraInfo;->pointName Ljava/lang/String;
+	27      (0000006e) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	28      (00000074) move-result-object   v0
+	29      (00000076) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+	30      (0000007c) move-result-object   v0
+	31      (0000007e) const-string         v2, ", deviceType="
+	32      (00000082) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	33      (00000088) move-result-object   v0
+	34      (0000008a) iget                 v2, v4, Lcom/boat/support/slam/entity/floors/LoraInfo;->deviceType I
+	35      (0000008e) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	36      (00000094) move-result-object   v0
+	37      (00000096) const-string         v2, ", deviceID='"
+	38      (0000009a) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	39      (000000a0) move-result-object   v0
+	40      (000000a2) iget-object          v2, v4, Lcom/boat/support/slam/entity/floors/LoraInfo;->deviceID Ljava/lang/String;
+	41      (000000a6) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	42      (000000ac) move-result-object   v0
+	43      (000000ae) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+	44      (000000b4) move-result-object   v0
+	45      (000000b6) const/16             v1, 125
+	46      (000000ba) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+	47      (000000c0) move-result-object   v0
+	48      (000000c2) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	49      (000000c8) move-result-object   v0
+	50      (000000ca) return-object        v0
+

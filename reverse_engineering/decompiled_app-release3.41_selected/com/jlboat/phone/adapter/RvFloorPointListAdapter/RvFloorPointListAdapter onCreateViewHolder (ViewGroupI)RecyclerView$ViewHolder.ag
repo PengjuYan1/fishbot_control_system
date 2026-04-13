@@ -1,0 +1,46 @@
+# Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;->onCreateViewHolder(Landroid/view/ViewGroup; I)Landroid/support/v7/widget/RecyclerView$ViewHolder; [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v4
+# - v5:android.view.ViewGroup
+# - v6:int
+#
+# - return:android.support.v7.widget.RecyclerView$ViewHolder
+
+onCreateViewHolder-BB@0x0 : [ onCreateViewHolder-BB@0xc onCreateViewHolder-BB@0x36 ]
+	0       (00000000) iget                 v0, v4, Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;->TYPE_GROUP I
+	1       (00000004) const/4              v1, 0
+	2       (00000006) const/4              v2, 0
+	3       (00000008) if-ne                v6, v0, +017h
+
+onCreateViewHolder-BB@0xc : 
+	4       (0000000c) invoke-virtual       v5, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
+	5       (00000012) move-result-object   v0
+	6       (00000014) invoke-static        v0, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
+	7       (0000001a) move-result-object   v0
+	8       (0000001c) const                v3, 2131361878
+	9       (00000022) invoke-virtual       v0, v3, v5, v1, Landroid/view/LayoutInflater;->inflate(I Landroid/view/ViewGroup; Z)Landroid/view/View;
+	10      (00000028) move-result-object   v0
+	11      (0000002a) new-instance         v1, Lcom/jlboat/phone/adapter/RvFloorPointListAdapter$GroupViewHolder;
+	12      (0000002e) invoke-direct        v1, v4, v0, v2, Lcom/jlboat/phone/adapter/RvFloorPointListAdapter$GroupViewHolder;-><init>(Lcom/jlboat/phone/adapter/RvFloorPointListAdapter; Landroid/view/View; Lcom/jlboat/phone/adapter/RvFloorPointListAdapter$1;)V
+	13      (00000034) return-object        v1
+
+onCreateViewHolder-BB@0x36 : [ onCreateViewHolder-BB@0x3e onCreateViewHolder-BB@0x68 ]
+	14      (00000036) iget                 v0, v4, Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;->TYPE_FRIEND I
+	15      (0000003a) if-ne                v6, v0, +017h
+
+onCreateViewHolder-BB@0x3e : 
+	16      (0000003e) invoke-virtual       v5, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
+	17      (00000044) move-result-object   v0
+	18      (00000046) invoke-static        v0, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
+	19      (0000004c) move-result-object   v0
+	20      (0000004e) const                v3, 2131361879
+	21      (00000054) invoke-virtual       v0, v3, v5, v1, Landroid/view/LayoutInflater;->inflate(I Landroid/view/ViewGroup; Z)Landroid/view/View;
+	22      (0000005a) move-result-object   v0
+	23      (0000005c) new-instance         v1, Lcom/jlboat/phone/adapter/RvFloorPointListAdapter$FrdViewHolder;
+	24      (00000060) invoke-direct        v1, v4, v0, v2, Lcom/jlboat/phone/adapter/RvFloorPointListAdapter$FrdViewHolder;-><init>(Lcom/jlboat/phone/adapter/RvFloorPointListAdapter; Landroid/view/View; Lcom/jlboat/phone/adapter/RvFloorPointListAdapter$1;)V
+	25      (00000066) return-object        v1
+
+onCreateViewHolder-BB@0x68 : 
+	26      (00000068) return-object        v2
+

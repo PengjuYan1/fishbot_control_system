@@ -1,0 +1,14 @@
+# Lcom/boat/utils/ReportExceptionInformationUtils;->uploadPower(Landroid/content/Context; Z I Ljava/lang/String;)V [access_flags=public static]
+#
+# Parameters:
+# - local registers: v0...v-1
+# - v0:android.content.Context
+# - v1:boolean
+# - v2:int
+# - v3:java.lang.String
+#
+# - return:void
+
+uploadPower-BB@0x0 : 
+	0       (00000000) return-void          
+

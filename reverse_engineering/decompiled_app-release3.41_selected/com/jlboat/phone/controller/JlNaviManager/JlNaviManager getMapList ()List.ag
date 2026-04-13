@@ -1,0 +1,21 @@
+# Lcom/jlboat/phone/controller/JlNaviManager;->getMapList()Ljava/util/List; [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:java.util.List
+
+getMapList-BB@0x0 : [ getMapList-BB@0x8 getMapList-BB@0x16 ]
+	0       (00000000) iget-object          v0, v1, Lcom/jlboat/phone/controller/JlNaviManager;->floors Lcom/boat/support/slam/entity/floors/Floors;
+	1       (00000004) if-eqz               v0, +009h
+
+getMapList-BB@0x8 : 
+	2       (00000008) iget-object          v0, v1, Lcom/jlboat/phone/controller/JlNaviManager;->floors Lcom/boat/support/slam/entity/floors/Floors;
+	3       (0000000c) invoke-virtual       v0, Lcom/boat/support/slam/entity/floors/Floors;->getMaps()Ljava/util/List;
+	4       (00000012) move-result-object   v0
+	5       (00000014) return-object        v0
+
+getMapList-BB@0x16 : 
+	6       (00000016) const/4              v0, 0
+	7       (00000018) return-object        v0
+

@@ -1,0 +1,29 @@
+# Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment;->onClick(Landroid/view/View;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:android.view.View
+#
+# - return:void
+
+onClick-BB@0x0 : [ D:onClick-BB@0xe 2131230849:onClick-BB@0x12 2131231037:onClick-BB@0x10 2131231038:onClick-BB@0x12 ]
+	0       (00000000) invoke-virtual       v2, Landroid/view/View;->getId()I
+	1       (00000006) move-result          v0
+	2       (00000008) sparse-switch        v0, +000000ah
+
+onClick-BB@0xe : [ onClick-BB@0x18 ]
+	3       (0000000e) goto                 +5h
+
+onClick-BB@0x10 : [ onClick-BB@0x18 ]
+	4       (00000010) goto                 +4h
+
+onClick-BB@0x12 : [ onClick-BB@0x18 ]
+	5       (00000012) invoke-direct        v1, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment;->startNav()V
+
+onClick-BB@0x18 : 
+	6       (00000018) return-void          
+
+onClick-BB@0x1a : 
+	7       (0000001a) nop                  
+	8       (0000001c) sparse-switch-payload 7f080081 7f08013d 7f08013e
+

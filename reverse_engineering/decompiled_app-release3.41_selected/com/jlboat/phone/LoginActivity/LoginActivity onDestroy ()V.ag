@@ -1,0 +1,13 @@
+# Lcom/jlboat/phone/LoginActivity;->onDestroy()V [access_flags=protected]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:void
+
+onDestroy-BB@0x0 : 
+	0       (00000000) invoke-super         v1, Landroid/support/v7/app/AppCompatActivity;->onDestroy()V
+	1       (00000006) iget-object          v0, v1, Lcom/jlboat/phone/LoginActivity;->receiver Landroid/content/BroadcastReceiver;
+	2       (0000000a) invoke-virtual       v1, v0, Lcom/jlboat/phone/LoginActivity;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
+	3       (00000010) return-void          
+

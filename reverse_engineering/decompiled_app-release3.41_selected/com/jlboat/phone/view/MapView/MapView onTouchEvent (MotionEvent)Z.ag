@@ -1,0 +1,88 @@
+# Lcom/jlboat/phone/view/MapView;->onTouchEvent(Landroid/view/MotionEvent;)Z [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v8
+# - v9:android.view.MotionEvent
+#
+# - return:boolean
+
+onTouchEvent-BB@0x0 : [ onTouchEvent-BB@0xa onTouchEvent-BB@0xc ]
+	0       (00000000) iget-object          v0, v8, Lcom/jlboat/phone/view/MapView;->sourceBitmap Landroid/graphics/Bitmap;
+	1       (00000004) const/4              v1, 1
+	2       (00000006) if-nez               v0, +003h
+
+onTouchEvent-BB@0xa : 
+	3       (0000000a) return               v1
+
+onTouchEvent-BB@0xc : [ onTouchEvent-BB@0x2a onTouchEvent-BB@0x3e ]
+	4       (0000000c) invoke-virtual       v9, Landroid/view/MotionEvent;->getX()F
+	5       (00000012) move-result          v0
+	6       (00000014) invoke-virtual       v9, Landroid/view/MotionEvent;->getY()F
+	7       (0000001a) move-result          v2
+	8       (0000001c) invoke-virtual       v9, Landroid/view/MotionEvent;->getAction()I
+	9       (00000022) move-result          v3
+	10      (00000024) const/4              v4, 0
+	11      (00000026) if-nez               v3, +00ch
+
+onTouchEvent-BB@0x2a : [ onTouchEvent-BB@0x3e ]
+	12      (0000002a) invoke-static        Ljava/lang/System;->currentTimeMillis()J
+	13      (00000030) move-result-wide     v5
+	14      (00000032) iput-wide            v5, v8, Lcom/jlboat/phone/view/MapView;->clickTime J
+	15      (00000036) iput-boolean         v4, v8, Lcom/jlboat/phone/view/MapView;->isUpOut Z
+	16      (0000003a) iput-boolean         v4, v8, Lcom/jlboat/phone/view/MapView;->hasResponseLongClickEvent Z
+
+onTouchEvent-BB@0x3e : [ onTouchEvent-BB@0x4c onTouchEvent-BB@0xaa ]
+	17      (0000003e) invoke-virtual       v9, Landroid/view/MotionEvent;->getAction()I
+	18      (00000044) move-result          v3
+	19      (00000046) const/4              v5, 2
+	20      (00000048) if-ne                v3, v5, +031h
+
+onTouchEvent-BB@0x4c : [ onTouchEvent-BB@0x54 onTouchEvent-BB@0x66 ]
+	21      (0000004c) iget-object          v3, v8, Lcom/jlboat/phone/view/MapView;->moveCallBackLines Lcom/jlboat/phone/view/MapView$MoveCallBackLines;
+	22      (00000050) if-eqz               v3, +00bh
+
+onTouchEvent-BB@0x54 : [ onTouchEvent-BB@0x66 ]
+	23      (00000054) iget-object          v3, v8, Lcom/jlboat/phone/view/MapView;->moveCallBackLines Lcom/jlboat/phone/view/MapView$MoveCallBackLines;
+	24      (00000058) invoke-virtual       v8, Lcom/jlboat/phone/view/MapView;->getRosMapPoint()Lcom/boat/support/slam/entity/floors/Lines;
+	25      (0000005e) move-result-object   v5
+	26      (00000060) invoke-interface     v3, v5, Lcom/jlboat/phone/view/MapView$MoveCallBackLines;->onMoveChange(Lcom/boat/support/slam/entity/floors/Lines;)V
+
+onTouchEvent-BB@0x66 : [ onTouchEvent-BB@0x72 onTouchEvent-BB@0x78 ]
+	27      (00000066) invoke-virtual       v8, v8, v0, v2, Lcom/jlboat/phone/view/MapView;->isInside(Landroid/view/View; F F)Z
+	28      (0000006c) move-result          v3
+	29      (0000006e) if-eqz               v3, +005h
+
+onTouchEvent-BB@0x72 : [ onTouchEvent-BB@0x7c ]
+	30      (00000072) iput-boolean         v4, v8, Lcom/jlboat/phone/view/MapView;->isUpOut Z
+	31      (00000076) goto                 +3h
+
+onTouchEvent-BB@0x78 : [ onTouchEvent-BB@0x7c ]
+	32      (00000078) iput-boolean         v1, v8, Lcom/jlboat/phone/view/MapView;->isUpOut Z
+
+onTouchEvent-BB@0x7c : [ onTouchEvent-BB@0x96 onTouchEvent-BB@0xaa ]
+	33      (0000007c) invoke-static        Ljava/lang/System;->currentTimeMillis()J
+	34      (00000082) move-result-wide     v3
+	35      (00000084) iget-wide            v5, v8, Lcom/jlboat/phone/view/MapView;->clickTime J
+	36      (00000088) sub-long/2addr       v3, v5
+	37      (0000008a) const-wide/16        v5, 800
+	38      (0000008e) cmp-long             v7, v3, v5
+	39      (00000092) if-lez               v7, +00ch
+
+onTouchEvent-BB@0x96 : [ onTouchEvent-BB@0x9e onTouchEvent-BB@0xaa ]
+	40      (00000096) iget-boolean         v3, v8, Lcom/jlboat/phone/view/MapView;->hasResponseLongClickEvent Z
+	41      (0000009a) if-nez               v3, +008h
+
+onTouchEvent-BB@0x9e : [ onTouchEvent-BB@0xa6 onTouchEvent-BB@0xaa ]
+	42      (0000009e) iget-boolean         v3, v8, Lcom/jlboat/phone/view/MapView;->isUpOut Z
+	43      (000000a2) if-nez               v3, +004h
+
+onTouchEvent-BB@0xa6 : [ onTouchEvent-BB@0xaa ]
+	44      (000000a6) iput-boolean         v1, v8, Lcom/jlboat/phone/view/MapView;->hasResponseLongClickEvent Z
+
+onTouchEvent-BB@0xaa : 
+	45      (000000aa) invoke-virtual       v9, Landroid/view/MotionEvent;->getAction()I
+	46      (000000b0) nop                  
+	47      (000000b2) iget-object          v3, v8, Lcom/jlboat/phone/view/MapView;->touchEvenHandler Lcom/jlboat/phone/view/TouchEvenHandler;
+	48      (000000b6) invoke-virtual       v3, v9, Lcom/jlboat/phone/view/TouchEvenHandler;->touchEvent(Landroid/view/MotionEvent;)V
+	49      (000000bc) return               v1
+

@@ -1,0 +1,223 @@
+# Lcom/jlboat/phone/controller/JlNaviManager$1$2;->onDisconnect(Z Ljava/lang/String; I)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v5
+# - v6:boolean
+# - v7:java.lang.String
+# - v8:int
+#
+# - return:void
+
+onDisconnect-BB@0x0 : [ onDisconnect-BB@0x48 onDisconnect-BB@0x18e ]
+	0       (00000000) iget-object          v0, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	1       (00000004) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	2       (00000008) invoke-static        v0, Lcom/jlboat/phone/controller/JlNaviManager;->access$000(Lcom/jlboat/phone/controller/JlNaviManager;)Ljava/lang/String;
+	3       (0000000e) move-result-object   v0
+	4       (00000010) new-instance         v1, Ljava/lang/StringBuilder;
+	5       (00000014) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	6       (0000001a) const-string         v2, "ROSBridgeClient onDisconnect: code "
+	7       (0000001e) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	8       (00000024) move-result-object   v1
+	9       (00000026) invoke-virtual       v1, v8, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	10      (0000002c) move-result-object   v1
+	11      (0000002e) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	12      (00000034) move-result-object   v1
+	13      (00000036) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	14      (0000003c) const/16             v0, 1001
+	15      (00000040) const/4              v1, 0
+	16      (00000042) const/4              v2, 1
+	17      (00000044) if-gez               v8, +0a5h
+
+onDisconnect-BB@0x48 : [ onDisconnect-BB@0xe4 onDisconnect-BB@0xf2 ]
+	18      (00000048) iget-object          v3, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	19      (0000004c) iget-object          v3, v3, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	20      (00000050) invoke-static        v3, v0, Lcom/jlboat/phone/controller/JlNaviManager;->access$202(Lcom/jlboat/phone/controller/JlNaviManager; I)I
+	21      (00000056) iget-object          v0, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	22      (0000005a) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	23      (0000005e) const-string         v3, "连接失败,导航软件异常,可能底盘程序没起来"
+	24      (00000062) invoke-static        v0, v3, Lcom/jlboat/phone/controller/JlNaviManager;->access$302(Lcom/jlboat/phone/controller/JlNaviManager; Ljava/lang/String;)Ljava/lang/String;
+	25      (00000068) iget-object          v0, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	26      (0000006c) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	27      (00000070) new-instance         v3, Ljava/lang/StringBuilder;
+	28      (00000074) invoke-direct        v3, Ljava/lang/StringBuilder;-><init>()V
+	29      (0000007a) iget-object          v4, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	30      (0000007e) iget-object          v4, v4, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	31      (00000082) invoke-static        v4, Lcom/jlboat/phone/controller/JlNaviManager;->access$300(Lcom/jlboat/phone/controller/JlNaviManager;)Ljava/lang/String;
+	32      (00000088) move-result-object   v4
+	33      (0000008a) invoke-virtual       v3, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	34      (00000090) move-result-object   v3
+	35      (00000092) iget-object          v4, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	36      (00000096) iget-object          v4, v4, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	37      (0000009a) invoke-static        v4, Lcom/jlboat/phone/controller/JlNaviManager;->access$400(Lcom/jlboat/phone/controller/JlNaviManager;)Z
+	38      (000000a0) move-result          v4
+	39      (000000a2) invoke-virtual       v3, v4, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+	40      (000000a8) move-result-object   v3
+	41      (000000aa) iget-object          v4, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	42      (000000ae) iget-object          v4, v4, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	43      (000000b2) invoke-static        v4, Lcom/jlboat/phone/controller/JlNaviManager;->access$500(Lcom/jlboat/phone/controller/JlNaviManager;)Z
+	44      (000000b8) move-result          v4
+	45      (000000ba) invoke-virtual       v3, v4, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+	46      (000000c0) move-result-object   v3
+	47      (000000c2) invoke-virtual       v3, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	48      (000000c8) move-result-object   v3
+	49      (000000ca) invoke-virtual       v0, v3, Lcom/jlboat/phone/controller/JlNaviManager;->toast(Ljava/lang/String;)V
+	50      (000000d0) iget-object          v0, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	51      (000000d4) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	52      (000000d8) invoke-static        v0, Lcom/jlboat/phone/controller/JlNaviManager;->access$400(Lcom/jlboat/phone/controller/JlNaviManager;)Z
+	53      (000000de) move-result          v0
+	54      (000000e0) if-nez               v0, +009h
+
+onDisconnect-BB@0xe4 : [ onDisconnect-BB@0xf2 ]
+	55      (000000e4) iget-object          v0, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	56      (000000e8) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	57      (000000ec) invoke-static        v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->access$602(Lcom/jlboat/phone/controller/JlNaviManager; Z)Z
+
+onDisconnect-BB@0xf2 : [ onDisconnect-BB@0x106 onDisconnect-BB@0x15e ]
+	58      (000000f2) iget-object          v0, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	59      (000000f6) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	60      (000000fa) invoke-static        v0, Lcom/jlboat/phone/controller/JlNaviManager;->access$400(Lcom/jlboat/phone/controller/JlNaviManager;)Z
+	61      (00000100) move-result          v0
+	62      (00000102) if-eqz               v0, +02eh
+
+onDisconnect-BB@0x106 : [ onDisconnect-BB@0x11a onDisconnect-BB@0x15e ]
+	63      (00000106) iget-object          v0, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	64      (0000010a) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	65      (0000010e) invoke-static        v0, Lcom/jlboat/phone/controller/JlNaviManager;->access$500(Lcom/jlboat/phone/controller/JlNaviManager;)Z
+	66      (00000114) move-result          v0
+	67      (00000116) if-eqz               v0, +024h
+
+onDisconnect-BB@0x11a : [ onDisconnect-BB@0x15e ]
+	68      (0000011a) iget-object          v0, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	69      (0000011e) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	70      (00000122) invoke-virtual       v0, Lcom/jlboat/phone/controller/JlNaviManager;->getApp()Lcom/boat/base/BaseApplication;
+	71      (00000128) move-result-object   v0
+	72      (0000012a) iget-object          v2, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	73      (0000012e) iget-object          v2, v2, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	74      (00000132) invoke-static        v2, Lcom/jlboat/phone/controller/JlNaviManager;->access$200(Lcom/jlboat/phone/controller/JlNaviManager;)I
+	75      (00000138) move-result          v2
+	76      (0000013a) iget-object          v3, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	77      (0000013e) iget-object          v3, v3, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	78      (00000142) invoke-static        v3, Lcom/jlboat/phone/controller/JlNaviManager;->access$300(Lcom/jlboat/phone/controller/JlNaviManager;)Ljava/lang/String;
+	79      (00000148) move-result-object   v3
+	80      (0000014a) invoke-static        v0, v2, v3, Lcom/boat/utils/ReportExceptionInformationUtils;->uploadWarn(Landroid/content/Context; I Ljava/lang/String;)V
+	81      (00000150) iget-object          v0, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	82      (00000154) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	83      (00000158) invoke-static        v0, v1, Lcom/jlboat/phone/controller/JlNaviManager;->access$502(Lcom/jlboat/phone/controller/JlNaviManager; Z)Z
+
+onDisconnect-BB@0x15e : [ onDisconnect-BB@0x2f4 ]
+	84      (0000015e) iget-object          v0, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	85      (00000162) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	86      (00000166) invoke-static        v0, Lcom/jlboat/phone/controller/JlNaviManager;->access$100(Lcom/jlboat/phone/controller/JlNaviManager;)Landroid/os/Handler;
+	87      (0000016c) move-result-object   v0
+	88      (0000016e) const/4              v1, 2
+	89      (00000170) const-wide/16        v2, 10000
+	90      (00000174) invoke-virtual       v0, v1, v2, v3, Landroid/os/Handler;->sendEmptyMessageDelayed(I J)Z
+	91      (0000017a) iget-object          v0, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	92      (0000017e) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	93      (00000182) const/4              v1, 4
+	94      (00000184) invoke-virtual       v0, v1, Lcom/jlboat/phone/controller/JlNaviManager;->Navigational_state(I)V
+	95      (0000018a) goto/16              +0b5h
+
+onDisconnect-BB@0x18e : [ onDisconnect-BB@0x196 onDisconnect-BB@0x1ac ]
+	96      (0000018e) const/16             v3, 1000
+	97      (00000192) if-ne                v8, v3, +00dh
+
+onDisconnect-BB@0x196 : [ onDisconnect-BB@0x2f4 ]
+	98      (00000196) iget-object          v0, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	99      (0000019a) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	100     (0000019e) const-string         v1, "自动重启"
+	101     (000001a2) invoke-virtual       v0, v1, Lcom/jlboat/phone/controller/JlNaviManager;->toast(Ljava/lang/String;)V
+	102     (000001a8) goto/16              +0a6h
+
+onDisconnect-BB@0x1ac : [ onDisconnect-BB@0x1b0 onDisconnect-BB@0x2f4 ]
+	103     (000001ac) if-le                v8, v3, +0a4h
+
+onDisconnect-BB@0x1b0 : [ onDisconnect-BB@0x1c0 onDisconnect-BB@0x1d2 ]
+	104     (000001b0) iget-object          v3, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	105     (000001b4) iget-object          v3, v3, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	106     (000001b8) iget-object          v3, v3, Lcom/jlboat/phone/controller/JlNaviManager;->mapLisener Lcom/jlboat/phone/communication/MapListener;
+	107     (000001bc) if-eqz               v3, +00bh
+
+onDisconnect-BB@0x1c0 : [ onDisconnect-BB@0x1d2 ]
+	108     (000001c0) iget-object          v3, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	109     (000001c4) iget-object          v3, v3, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	110     (000001c8) iget-object          v3, v3, Lcom/jlboat/phone/controller/JlNaviManager;->mapLisener Lcom/jlboat/phone/communication/MapListener;
+	111     (000001cc) invoke-virtual       v3, Lcom/jlboat/phone/communication/MapListener;->recycle()V
+
+onDisconnect-BB@0x1d2 : [ onDisconnect-BB@0x26e onDisconnect-BB@0x27c ]
+	112     (000001d2) iget-object          v3, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	113     (000001d6) iget-object          v3, v3, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	114     (000001da) invoke-static        v3, v0, Lcom/jlboat/phone/controller/JlNaviManager;->access$202(Lcom/jlboat/phone/controller/JlNaviManager; I)I
+	115     (000001e0) iget-object          v0, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	116     (000001e4) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	117     (000001e8) const-string         v3, "底盘意外断开,尝试重连"
+	118     (000001ec) invoke-static        v0, v3, Lcom/jlboat/phone/controller/JlNaviManager;->access$302(Lcom/jlboat/phone/controller/JlNaviManager; Ljava/lang/String;)Ljava/lang/String;
+	119     (000001f2) iget-object          v0, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	120     (000001f6) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	121     (000001fa) new-instance         v3, Ljava/lang/StringBuilder;
+	122     (000001fe) invoke-direct        v3, Ljava/lang/StringBuilder;-><init>()V
+	123     (00000204) iget-object          v4, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	124     (00000208) iget-object          v4, v4, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	125     (0000020c) invoke-static        v4, Lcom/jlboat/phone/controller/JlNaviManager;->access$300(Lcom/jlboat/phone/controller/JlNaviManager;)Ljava/lang/String;
+	126     (00000212) move-result-object   v4
+	127     (00000214) invoke-virtual       v3, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	128     (0000021a) move-result-object   v3
+	129     (0000021c) iget-object          v4, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	130     (00000220) iget-object          v4, v4, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	131     (00000224) invoke-static        v4, Lcom/jlboat/phone/controller/JlNaviManager;->access$400(Lcom/jlboat/phone/controller/JlNaviManager;)Z
+	132     (0000022a) move-result          v4
+	133     (0000022c) invoke-virtual       v3, v4, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+	134     (00000232) move-result-object   v3
+	135     (00000234) iget-object          v4, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	136     (00000238) iget-object          v4, v4, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	137     (0000023c) invoke-static        v4, Lcom/jlboat/phone/controller/JlNaviManager;->access$500(Lcom/jlboat/phone/controller/JlNaviManager;)Z
+	138     (00000242) move-result          v4
+	139     (00000244) invoke-virtual       v3, v4, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+	140     (0000024a) move-result-object   v3
+	141     (0000024c) invoke-virtual       v3, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	142     (00000252) move-result-object   v3
+	143     (00000254) invoke-virtual       v0, v3, Lcom/jlboat/phone/controller/JlNaviManager;->toast(Ljava/lang/String;)V
+	144     (0000025a) iget-object          v0, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	145     (0000025e) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	146     (00000262) invoke-static        v0, Lcom/jlboat/phone/controller/JlNaviManager;->access$400(Lcom/jlboat/phone/controller/JlNaviManager;)Z
+	147     (00000268) move-result          v0
+	148     (0000026a) if-nez               v0, +009h
+
+onDisconnect-BB@0x26e : [ onDisconnect-BB@0x27c ]
+	149     (0000026e) iget-object          v0, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	150     (00000272) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	151     (00000276) invoke-static        v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->access$602(Lcom/jlboat/phone/controller/JlNaviManager; Z)Z
+
+onDisconnect-BB@0x27c : [ onDisconnect-BB@0x2f4 ]
+	152     (0000027c) iget-object          v0, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	153     (00000280) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	154     (00000284) invoke-virtual       v0, Lcom/jlboat/phone/controller/JlNaviManager;->getApp()Lcom/boat/base/BaseApplication;
+	155     (0000028a) move-result-object   v0
+	156     (0000028c) iget-object          v3, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	157     (00000290) iget-object          v3, v3, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	158     (00000294) invoke-static        v3, Lcom/jlboat/phone/controller/JlNaviManager;->access$200(Lcom/jlboat/phone/controller/JlNaviManager;)I
+	159     (0000029a) move-result          v3
+	160     (0000029c) iget-object          v4, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	161     (000002a0) iget-object          v4, v4, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	162     (000002a4) invoke-static        v4, Lcom/jlboat/phone/controller/JlNaviManager;->access$300(Lcom/jlboat/phone/controller/JlNaviManager;)Ljava/lang/String;
+	163     (000002aa) move-result-object   v4
+	164     (000002ac) invoke-static        v0, v3, v4, Lcom/boat/utils/ReportExceptionInformationUtils;->uploadWarn(Landroid/content/Context; I Ljava/lang/String;)V
+	165     (000002b2) iget-object          v0, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	166     (000002b6) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	167     (000002ba) const/4              v3, -1
+	168     (000002bc) invoke-static        v0, v3, Lcom/jlboat/phone/controller/JlNaviManager;->access$802(Lcom/jlboat/phone/controller/JlNaviManager; I)I
+	169     (000002c2) iget-object          v0, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	170     (000002c6) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	171     (000002ca) invoke-static        v0, Lcom/jlboat/phone/controller/JlNaviManager;->access$100(Lcom/jlboat/phone/controller/JlNaviManager;)Landroid/os/Handler;
+	172     (000002d0) move-result-object   v0
+	173     (000002d2) invoke-virtual       v0, v2, Landroid/os/Handler;->sendEmptyMessage(I)Z
+	174     (000002d8) iget-object          v0, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	175     (000002dc) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	176     (000002e0) invoke-static        v0, v1, Lcom/jlboat/phone/controller/JlNaviManager;->access$702(Lcom/jlboat/phone/controller/JlNaviManager; Z)Z
+	177     (000002e6) iget-object          v0, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	178     (000002ea) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	179     (000002ee) invoke-static        v0, v1, Lcom/jlboat/phone/controller/JlNaviManager;->access$902(Lcom/jlboat/phone/controller/JlNaviManager; Z)Z
+
+onDisconnect-BB@0x2f4 : 
+	180     (000002f4) return-void          
+

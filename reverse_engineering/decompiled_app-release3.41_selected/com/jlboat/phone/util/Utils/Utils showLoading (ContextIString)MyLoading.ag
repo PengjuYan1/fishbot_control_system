@@ -1,0 +1,23 @@
+# Lcom/jlboat/phone/util/Utils;->showLoading(Landroid/content/Context; I Ljava/lang/String;)Lcom/jlboat/phone/view/loading/MyLoading; [access_flags=public static]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:android.content.Context
+# - v5:int
+# - v6:java.lang.String
+#
+# - return:com.jlboat.phone.view.loading.MyLoading
+
+showLoading-BB@0x0 : 
+	0       (00000000) new-instance         v0, Lcom/jlboat/phone/view/loading/MyLoading;
+	1       (00000004) invoke-direct        v0, v4, v6, Lcom/jlboat/phone/view/loading/MyLoading;-><init>(Landroid/content/Context; Ljava/lang/String;)V
+	2       (0000000a) invoke-static        v4, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
+	3       (00000010) move-result-object   v1
+	4       (00000012) const/4              v2, 0
+	5       (00000014) invoke-virtual       v1, v5, v2, Landroid/view/LayoutInflater;->inflate(I Landroid/view/ViewGroup;)Landroid/view/View;
+	6       (0000001a) move-result-object   v1
+	7       (0000001c) const/16             v2, 17
+	8       (00000020) const/4              v3, 0
+	9       (00000022) invoke-virtual       v0, v1, v2, v3, v3, Lcom/jlboat/phone/view/loading/MyLoading;->showAtLocation(Landroid/view/View; I I I)V
+	10      (00000028) return-object        v0
+

@@ -1,0 +1,59 @@
+# Lcom/jlboat/phone/controller/JlNaviManager$9;->onNewMessage(Lcom/jlboat/phone/message/map_msgs/BagListResponse;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:com.jlboat.phone.message.map_msgs.BagListResponse
+#
+# - return:void
+
+onNewMessage-BB@0x0 : [ onNewMessage-BB@0x22 onNewMessage-BB@0x50 ]
+	0       (00000000) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager$9;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	1       (00000004) invoke-static        v0, Lcom/jlboat/phone/controller/JlNaviManager;->access$000(Lcom/jlboat/phone/controller/JlNaviManager;)Ljava/lang/String;
+	2       (0000000a) move-result-object   v0
+	3       (0000000c) const-string         v1, "onSuccess: getBag"
+	4       (00000010) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	5       (00000016) invoke-virtual       v3, Lcom/jlboat/phone/message/map_msgs/BagListResponse;->getStatus()I
+	6       (0000001c) move-result          v0
+	7       (0000001e) if-nez               v0, +019h
+
+onNewMessage-BB@0x22 : [ onNewMessage-BB@0x2a onNewMessage-BB@0x70 ]
+	8       (00000022) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager$9;->val$responseListener Lcom/boat/support/slam/IResponseListener;
+	9       (00000026) if-eqz               v0, +025h
+
+onNewMessage-BB@0x2a : [ onNewMessage-BB@0x4e ]
+	10      (0000002a) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager$9;->val$responseListener Lcom/boat/support/slam/IResponseListener;
+	11      (0000002e) invoke-virtual       v3, Lcom/jlboat/phone/message/map_msgs/BagListResponse;->getBagNames()Ljava/util/List;
+	12      (00000034) move-result-object   v1
+	13      (00000036) invoke-virtual       v1, Ljava/lang/Object;->toString()Ljava/lang/String;
+	14      (0000003c) move-result-object   v1
+	15      (0000003e) invoke-interface     v0, v1, Lcom/boat/support/slam/IResponseListener;->onSuccess(Ljava/lang/String;)V
+	16      (00000044) goto                 +5h
+	2a:43
+	(Landroid/os/RemoteException; -> 46 onNewMessage-BB@0x46)
+
+onNewMessage-BB@0x46 : [ onNewMessage-BB@0x4e ]
+	17      (00000046) move-exception       v0
+	18      (00000048) invoke-virtual       v0, Landroid/os/RemoteException;->printStackTrace()V
+
+onNewMessage-BB@0x4e : [ onNewMessage-BB@0x70 ]
+	19      (0000004e) goto                 +11h
+
+onNewMessage-BB@0x50 : [ onNewMessage-BB@0x58 onNewMessage-BB@0x70 ]
+	20      (00000050) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager$9;->val$responseListener Lcom/boat/support/slam/IResponseListener;
+	21      (00000054) if-eqz               v0, +00eh
+
+onNewMessage-BB@0x58 : [ onNewMessage-BB@0x70 ]
+	22      (00000058) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager$9;->val$responseListener Lcom/boat/support/slam/IResponseListener;
+	23      (0000005c) const-string         v1, ""
+	24      (00000060) invoke-interface     v0, v1, Lcom/boat/support/slam/IResponseListener;->onFailed(Ljava/lang/String;)V
+	25      (00000066) goto                 +5h
+	58:65
+	(Landroid/os/RemoteException; -> 68 onNewMessage-BB@0x68)
+
+onNewMessage-BB@0x68 : [ onNewMessage-BB@0x70 ]
+	26      (00000068) move-exception       v0
+	27      (0000006a) invoke-virtual       v0, Landroid/os/RemoteException;->printStackTrace()V
+
+onNewMessage-BB@0x70 : 
+	28      (00000070) return-void          
+

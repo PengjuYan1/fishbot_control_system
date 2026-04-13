@@ -1,0 +1,11 @@
+# Lcom/boat/base/BaseApplication;->getAppController()Lcom/boat/controller/AppController; [access_flags=public final]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:com.boat.controller.AppController
+
+getAppController-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/boat/base/BaseApplication;->mAc Lcom/boat/controller/AppController;
+	1       (00000004) return-object        v0
+

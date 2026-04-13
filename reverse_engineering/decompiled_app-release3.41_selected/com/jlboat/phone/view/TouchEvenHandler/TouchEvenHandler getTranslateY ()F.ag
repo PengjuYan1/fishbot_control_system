@@ -1,0 +1,13 @@
+# Lcom/jlboat/phone/view/TouchEvenHandler;->getTranslateY()F [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v2
+#
+# - return:float
+
+getTranslateY-BB@0x0 : 
+	0       (00000000) iget-object          v0, v2, Lcom/jlboat/phone/view/TouchEvenHandler;->values [F
+	1       (00000004) const/4              v1, 5
+	2       (00000006) aget                 v0, v0, v1
+	3       (0000000a) return               v0
+

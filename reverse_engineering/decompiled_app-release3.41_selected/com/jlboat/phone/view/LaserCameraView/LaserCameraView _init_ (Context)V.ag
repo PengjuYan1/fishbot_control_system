@@ -1,0 +1,36 @@
+# Lcom/jlboat/phone/view/LaserCameraView;-><init>(Landroid/content/Context;)V [access_flags=public constructor]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:android.content.Context
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) invoke-direct        v1, v2, Landroid/view/View;-><init>(Landroid/content/Context;)V
+	1       (00000006) const-string         v0, "LaserCameraView"
+	2       (0000000a) iput-object          v0, v1, Lcom/jlboat/phone/view/LaserCameraView;->TAG Ljava/lang/String;
+	3       (0000000e) new-instance         v0, Ljava/lang/Object;
+	4       (00000012) invoke-direct        v0, Ljava/lang/Object;-><init>()V
+	5       (00000018) iput-object          v0, v1, Lcom/jlboat/phone/view/LaserCameraView;->mutex01 Ljava/lang/Object;
+	6       (0000001c) new-instance         v0, Ljava/lang/Object;
+	7       (00000020) invoke-direct        v0, Ljava/lang/Object;-><init>()V
+	8       (00000026) iput-object          v0, v1, Lcom/jlboat/phone/view/LaserCameraView;->mutex02 Ljava/lang/Object;
+	9       (0000002a) new-instance         v0, Ljava/lang/Object;
+	10      (0000002e) invoke-direct        v0, Ljava/lang/Object;-><init>()V
+	11      (00000034) iput-object          v0, v1, Lcom/jlboat/phone/view/LaserCameraView;->mutex03 Ljava/lang/Object;
+	12      (00000038) const/4              v0, 1
+	13      (0000003a) iput                 v0, v1, Lcom/jlboat/phone/view/LaserCameraView;->stride I
+	14      (0000003e) new-instance         v0, Ljava/util/concurrent/CopyOnWriteArrayList;
+	15      (00000042) invoke-direct        v0, Ljava/util/concurrent/CopyOnWriteArrayList;-><init>()V
+	16      (00000048) iput-object          v0, v1, Lcom/jlboat/phone/view/LaserCameraView;->vectorScan01 Ljava/util/List;
+	17      (0000004c) new-instance         v0, Ljava/util/concurrent/CopyOnWriteArrayList;
+	18      (00000050) invoke-direct        v0, Ljava/util/concurrent/CopyOnWriteArrayList;-><init>()V
+	19      (00000056) iput-object          v0, v1, Lcom/jlboat/phone/view/LaserCameraView;->vectorScan02 Ljava/util/List;
+	20      (0000005a) new-instance         v0, Ljava/util/concurrent/CopyOnWriteArrayList;
+	21      (0000005e) invoke-direct        v0, Ljava/util/concurrent/CopyOnWriteArrayList;-><init>()V
+	22      (00000064) iput-object          v0, v1, Lcom/jlboat/phone/view/LaserCameraView;->vectorScan03 Ljava/util/List;
+	23      (00000068) const/16             v0, 100
+	24      (0000006c) iput                 v0, v1, Lcom/jlboat/phone/view/LaserCameraView;->matrix I
+	25      (00000070) return-void          
+

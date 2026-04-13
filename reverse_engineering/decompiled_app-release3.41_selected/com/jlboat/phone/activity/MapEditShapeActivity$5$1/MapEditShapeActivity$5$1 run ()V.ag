@@ -1,0 +1,16 @@
+# Lcom/jlboat/phone/activity/MapEditShapeActivity$5$1;->run()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v2
+#
+# - return:void
+
+run-BB@0x0 : 
+	0       (00000000) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapEditShapeActivity$5$1;->this$1 Lcom/jlboat/phone/activity/MapEditShapeActivity$5;
+	1       (00000004) iget-object          v0, v0, Lcom/jlboat/phone/activity/MapEditShapeActivity$5;->this$0 Lcom/jlboat/phone/activity/MapEditShapeActivity;
+	2       (00000008) iget-object          v0, v0, Lcom/jlboat/phone/activity/MapEditShapeActivity;->shapeListAdapter Lcom/jlboat/phone/adapter/ShapeListAdapter;
+	3       (0000000c) new-instance         v1, Ljava/util/ArrayList;
+	4       (00000010) invoke-direct        v1, Ljava/util/ArrayList;-><init>()V
+	5       (00000016) invoke-virtual       v0, v1, Lcom/jlboat/phone/adapter/ShapeListAdapter;->setListData(Ljava/util/List;)V
+	6       (0000001c) return-void          
+

@@ -1,0 +1,60 @@
+# Lcom/jlboat/phone/activity/MoveTestActivity;->onClick(Landroid/view/View;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:android.view.View
+#
+# - return:void
+
+onClick-BB@0x0 : [ D:onClick-BB@0xe 2131231016:onClick-BB@0x72 2131231017:onClick-BB@0x64 2131231018:onClick-BB@0x56 2131231024:onClick-BB@0x48 ]
+	0       (00000000) invoke-virtual       v4, Landroid/view/View;->getId()I
+	1       (00000006) move-result          v0
+	2       (00000008) sparse-switch        v0, +000003eh
+
+onClick-BB@0xe : 
+	3       (0000000e) new-instance         v0, Ljava/lang/IllegalStateException;
+	4       (00000012) new-instance         v1, Ljava/lang/StringBuilder;
+	5       (00000016) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	6       (0000001c) const-string         v2, "Unexpected value: "
+	7       (00000020) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	8       (00000026) move-result-object   v1
+	9       (00000028) invoke-virtual       v4, Landroid/view/View;->getId()I
+	10      (0000002e) move-result          v2
+	11      (00000030) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	12      (00000036) move-result-object   v1
+	13      (00000038) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	14      (0000003e) move-result-object   v1
+	15      (00000040) invoke-direct        v0, v1, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+	16      (00000046) throw                v0
+
+onClick-BB@0x48 : [ onClick-BB@0x80 ]
+	17      (00000048) const/4              v0, 4
+	18      (0000004a) iput                 v0, v3, Lcom/jlboat/phone/activity/MoveTestActivity;->bottonType I
+	19      (0000004e) invoke-direct        v3, v0, Lcom/jlboat/phone/activity/MoveTestActivity;->setData(I)V
+	20      (00000054) goto                 +16h
+
+onClick-BB@0x56 : [ onClick-BB@0x80 ]
+	21      (00000056) const/4              v0, 1
+	22      (00000058) iput                 v0, v3, Lcom/jlboat/phone/activity/MoveTestActivity;->bottonType I
+	23      (0000005c) invoke-direct        v3, v0, Lcom/jlboat/phone/activity/MoveTestActivity;->setData(I)V
+	24      (00000062) goto                 +fh
+
+onClick-BB@0x64 : [ onClick-BB@0x80 ]
+	25      (00000064) const/4              v0, 2
+	26      (00000066) iput                 v0, v3, Lcom/jlboat/phone/activity/MoveTestActivity;->bottonType I
+	27      (0000006a) invoke-direct        v3, v0, Lcom/jlboat/phone/activity/MoveTestActivity;->setData(I)V
+	28      (00000070) goto                 +8h
+
+onClick-BB@0x72 : [ onClick-BB@0x80 ]
+	29      (00000072) const/4              v0, 3
+	30      (00000074) iput                 v0, v3, Lcom/jlboat/phone/activity/MoveTestActivity;->bottonType I
+	31      (00000078) invoke-direct        v3, v0, Lcom/jlboat/phone/activity/MoveTestActivity;->setData(I)V
+	32      (0000007e) nop                  
+
+onClick-BB@0x80 : 
+	33      (00000080) return-void          
+
+onClick-BB@0x82 : 
+	34      (00000082) nop                  
+	35      (00000084) sparse-switch-payload 7f080128 7f080129 7f08012a 7f080130
+

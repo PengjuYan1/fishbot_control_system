@@ -1,0 +1,79 @@
+# Lcom/jlboat/phone/activity/DiyPointPathActivity$3$5;->onClick(Landroid/view/View;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v10
+# - v11:android.view.View
+#
+# - return:void
+
+onClick-BB@0x0 : [ onClick-BB@0x20 onClick-BB@0x22 ]
+	0       (00000000) const-string         v0, ""
+	1       (00000004) iget-object          v1, v10, Lcom/jlboat/phone/activity/DiyPointPathActivity$3$5;->val$rgDirDialogDppa Landroid/widget/RadioGroup;
+	2       (00000008) invoke-virtual       v1, Landroid/widget/RadioGroup;->getCheckedRadioButtonId()I
+	3       (0000000e) move-result          v1
+	4       (00000010) const/4              v2, 0
+	5       (00000012) nop                  
+	6       (00000014) const/4              v2, 0
+	7       (00000016) const                v3, 2131231125
+	8       (0000001c) if-ne                v1, v3, +003h
+
+onClick-BB@0x20 : [ onClick-BB@0x22 ]
+	9       (00000020) const/4              v2, 1
+
+onClick-BB@0x22 : [ onClick-BB@0x2c onClick-BB@0x2e ]
+	10      (00000022) const                v3, 2131231126
+	11      (00000028) if-ne                v1, v3, +003h
+
+onClick-BB@0x2c : [ onClick-BB@0x2e ]
+	12      (0000002c) const/4              v2, 2
+
+onClick-BB@0x2e : 
+	13      (0000002e) new-instance         v3, Ljava/lang/StringBuilder;
+	14      (00000032) invoke-direct        v3, Ljava/lang/StringBuilder;-><init>()V
+	15      (00000038) iget-object          v4, v10, Lcom/jlboat/phone/activity/DiyPointPathActivity$3$5;->val$etSpeedtDialogDppa Landroid/widget/EditText;
+	16      (0000003c) invoke-virtual       v4, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+	17      (00000042) move-result-object   v4
+	18      (00000044) invoke-virtual       v3, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+	19      (0000004a) move-result-object   v3
+	20      (0000004c) invoke-virtual       v3, v0, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	21      (00000052) move-result-object   v3
+	22      (00000054) invoke-virtual       v3, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	23      (0000005a) move-result-object   v3
+	24      (0000005c) invoke-static        v3, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+	25      (00000062) move-result          v8
+	26      (00000064) new-instance         v3, Ljava/lang/StringBuilder;
+	27      (00000068) invoke-direct        v3, Ljava/lang/StringBuilder;-><init>()V
+	28      (0000006e) iget-object          v4, v10, Lcom/jlboat/phone/activity/DiyPointPathActivity$3$5;->val$etWeightDialogDppa Landroid/widget/EditText;
+	29      (00000072) invoke-virtual       v4, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+	30      (00000078) move-result-object   v4
+	31      (0000007a) invoke-virtual       v3, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+	32      (00000080) move-result-object   v3
+	33      (00000082) invoke-virtual       v3, v0, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	34      (00000088) move-result-object   v0
+	35      (0000008a) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	36      (00000090) move-result-object   v0
+	37      (00000092) invoke-static        v0, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+	38      (00000098) move-result          v9
+	39      (0000009a) nop                  
+	40      (0000009c) iget-object          v0, v10, Lcom/jlboat/phone/activity/DiyPointPathActivity$3$5;->val$alertDialog Landroid/app/AlertDialog;
+	41      (000000a0) invoke-virtual       v0, Landroid/app/AlertDialog;->dismiss()V
+	42      (000000a6) iget-object          v0, v10, Lcom/jlboat/phone/activity/DiyPointPathActivity$3$5;->this$1 Lcom/jlboat/phone/activity/DiyPointPathActivity$3;
+	43      (000000aa) iget-object          v3, v0, Lcom/jlboat/phone/activity/DiyPointPathActivity$3;->this$0 Lcom/jlboat/phone/activity/DiyPointPathActivity;
+	44      (000000ae) iget-wide            v4, v10, Lcom/jlboat/phone/activity/DiyPointPathActivity$3$5;->val$shapeId J
+	45      (000000b2) iget-object          v0, v10, Lcom/jlboat/phone/activity/DiyPointPathActivity$3$5;->val$spLineTypeDialogDppa Landroid/widget/Spinner;
+	46      (000000b6) invoke-virtual       v0, Landroid/widget/Spinner;->getSelectedItemPosition()I
+	47      (000000bc) move-result          v6
+	48      (000000be) move                 v7, v2
+	49      (000000c0) invoke-static/range  v3 ... v9, Lcom/jlboat/phone/activity/DiyPointPathActivity;->access$700(Lcom/jlboat/phone/activity/DiyPointPathActivity; J I I F F)V
+	50      (000000c6) return-void          
+	2e:99
+	(Ljava/lang/Exception; -> c8 onClick-BB@0xc8)
+
+onClick-BB@0xc8 : 
+	51      (000000c8) move-exception       v0
+	52      (000000ca) iget-object          v3, v10, Lcom/jlboat/phone/activity/DiyPointPathActivity$3$5;->this$1 Lcom/jlboat/phone/activity/DiyPointPathActivity$3;
+	53      (000000ce) iget-object          v3, v3, Lcom/jlboat/phone/activity/DiyPointPathActivity$3;->this$0 Lcom/jlboat/phone/activity/DiyPointPathActivity;
+	54      (000000d2) const                v4, 2131493264
+	55      (000000d8) invoke-virtual       v3, v4, Lcom/jlboat/phone/activity/DiyPointPathActivity;->toast(I)V
+	56      (000000de) return-void          
+

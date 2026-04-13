@@ -1,0 +1,51 @@
+# Lcom/boat/support/slam/ISlamCallBack$Stub$Proxy;->onMotorLock(Z)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v5
+# - v6:boolean
+#
+# - return:void
+
+onMotorLock-BB@0x0 : [ onMotorLock-BB@0x10 ]
+	0       (00000000) invoke-static        Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+	1       (00000006) move-result-object   v0
+	2       (00000008) invoke-static        Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+	3       (0000000e) move-result-object   v1
+
+onMotorLock-BB@0x10 : [ onMotorLock-BB@0x20 onMotorLock-BB@0x24 ]
+	4       (00000010) const-string         v2, "com.boat.support.slam.ISlamCallBack"
+	5       (00000014) invoke-virtual       v0, v2, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+	6       (0000001a) const/4              v2, 0
+	7       (0000001c) if-eqz               v6, +004h
+	10:41
+	(Ljava/lang/Throwable; -> 52 onMotorLock-BB@0x52)
+
+onMotorLock-BB@0x20 : [ onMotorLock-BB@0x26 ]
+	8       (00000020) const/4              v3, 1
+	9       (00000022) goto                 +2h
+	10:41
+	(Ljava/lang/Throwable; -> 52 onMotorLock-BB@0x52)
+
+onMotorLock-BB@0x24 : [ onMotorLock-BB@0x26 ]
+	10      (00000024) const/4              v3, 0
+	10:41
+	(Ljava/lang/Throwable; -> 52 onMotorLock-BB@0x52)
+
+onMotorLock-BB@0x26 : 
+	11      (00000026) invoke-virtual       v0, v3, Landroid/os/Parcel;->writeInt(I)V
+	12      (0000002c) iget-object          v3, v5, Lcom/boat/support/slam/ISlamCallBack$Stub$Proxy;->mRemote Landroid/os/IBinder;
+	13      (00000030) const/16             v4, 13
+	14      (00000034) invoke-interface     v3, v4, v0, v1, v2, Landroid/os/IBinder;->transact(I Landroid/os/Parcel; Landroid/os/Parcel; I)Z
+	15      (0000003a) move-result          v2
+	16      (0000003c) invoke-virtual       v1, Landroid/os/Parcel;->readException()V
+	17      (00000042) invoke-virtual       v1, Landroid/os/Parcel;->recycle()V
+	18      (00000048) invoke-virtual       v0, Landroid/os/Parcel;->recycle()V
+	19      (0000004e) nop                  
+	20      (00000050) return-void          
+
+onMotorLock-BB@0x52 : 
+	21      (00000052) move-exception       v2
+	22      (00000054) invoke-virtual       v1, Landroid/os/Parcel;->recycle()V
+	23      (0000005a) invoke-virtual       v0, Landroid/os/Parcel;->recycle()V
+	24      (00000060) throw                v2
+

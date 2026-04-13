@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/adapter/LiftQueueAdapter;->access$000(Lcom/jlboat/phone/adapter/LiftQueueAdapter;)Lcom/jlboat/phone/adapter/LiftQueueAdapter$OnItemDeleteListener; [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.adapter.LiftQueueAdapter
+#
+# - return:com.jlboat.phone.adapter.LiftQueueAdapter$OnItemDeleteListener
+
+access$000-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/jlboat/phone/adapter/LiftQueueAdapter;->onItemDeleteListener Lcom/jlboat/phone/adapter/LiftQueueAdapter$OnItemDeleteListener;
+	1       (00000004) return-object        v0
+

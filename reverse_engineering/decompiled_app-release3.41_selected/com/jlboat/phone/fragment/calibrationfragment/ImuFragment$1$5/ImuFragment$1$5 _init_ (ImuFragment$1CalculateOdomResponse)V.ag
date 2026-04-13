@@ -1,0 +1,15 @@
+# Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment$1$5;-><init>(Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment$1; Lcom/jlboat/phone/message/map_msgs/CalculateOdomResponse;)V [access_flags=constructor]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.fragment.calibrationfragment.ImuFragment$1
+# - v2:com.jlboat.phone.message.map_msgs.CalculateOdomResponse
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) iput-object          v1, v0, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment$1$5;->this$1 Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment$1;
+	1       (00000004) iput-object          v2, v0, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment$1$5;->val$message Lcom/jlboat/phone/message/map_msgs/CalculateOdomResponse;
+	2       (00000008) invoke-direct        v0, Ljava/lang/Object;-><init>()V
+	3       (0000000e) return-void          
+

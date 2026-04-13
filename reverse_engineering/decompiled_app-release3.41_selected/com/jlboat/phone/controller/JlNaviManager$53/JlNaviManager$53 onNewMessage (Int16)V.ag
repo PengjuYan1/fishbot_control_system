@@ -1,0 +1,23 @@
+# Lcom/jlboat/phone/controller/JlNaviManager$53;->onNewMessage(Lcom/boat/jrosbridge/message/std_msgs/Int16;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:com.boat.jrosbridge.message.std_msgs.Int16
+#
+# - return:void
+
+onNewMessage-BB@0x0 : [ onNewMessage-BB@0x1a onNewMessage-BB@0x24 ]
+	0       (00000000) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager$53;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	1       (00000004) iget-short           v1, v3, Lcom/boat/jrosbridge/message/std_msgs/Int16;->data S
+	2       (00000008) invoke-static        v0, v1, Lcom/jlboat/phone/controller/JlNaviManager;->access$5802(Lcom/jlboat/phone/controller/JlNaviManager; I)I
+	3       (0000000e) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager$53;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	4       (00000012) iget-boolean         v0, v0, Lcom/jlboat/phone/controller/JlNaviManager;->isMapStatusEnd Z
+	5       (00000016) if-nez               v0, +007h
+
+onNewMessage-BB@0x1a : [ onNewMessage-BB@0x24 ]
+	6       (0000001a) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager$53;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	7       (0000001e) invoke-static        v0, Lcom/jlboat/phone/controller/JlNaviManager;->access$2400(Lcom/jlboat/phone/controller/JlNaviManager;)V
+
+onNewMessage-BB@0x24 : 
+	8       (00000024) return-void          
+

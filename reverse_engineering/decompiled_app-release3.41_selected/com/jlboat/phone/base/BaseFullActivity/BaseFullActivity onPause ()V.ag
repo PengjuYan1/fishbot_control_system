@@ -1,0 +1,19 @@
+# Lcom/jlboat/phone/base/BaseFullActivity;->onPause()V [access_flags=protected]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:void
+
+onPause-BB@0x0 : [ onPause-BB@0xe onPause-BB@0x18 ]
+	0       (00000000) invoke-super         v1, Landroid/support/v7/app/AppCompatActivity;->onPause()V
+	1       (00000006) iget-object          v0, v1, Lcom/jlboat/phone/base/BaseFullActivity;->voiceReceiver Landroid/content/BroadcastReceiver;
+	2       (0000000a) if-eqz               v0, +007h
+
+onPause-BB@0xe : [ onPause-BB@0x18 ]
+	3       (0000000e) iget-object          v0, v1, Lcom/jlboat/phone/base/BaseFullActivity;->voiceReceiver Landroid/content/BroadcastReceiver;
+	4       (00000012) invoke-virtual       v1, v0, Lcom/jlboat/phone/base/BaseFullActivity;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
+
+onPause-BB@0x18 : 
+	5       (00000018) return-void          
+

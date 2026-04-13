@@ -1,0 +1,29 @@
+# Lcom/jlboat/phone/adapter/TestResultAdapter250816;->isEntryCompleted(Lcom/jlboat/phone/message/map_msgs/TargetGoalEntry;)Z [access_flags=private]
+#
+# Parameters:
+# - local registers: v0...v6
+# - v7:com.jlboat.phone.message.map_msgs.TargetGoalEntry
+#
+# - return:boolean
+
+isEntryCompleted-BB@0x0 : [ isEntryCompleted-BB@0x6 isEntryCompleted-BB@0x8 ]
+	0       (00000000) const/4              v0, 0
+	1       (00000002) if-nez               v7, +003h
+
+isEntryCompleted-BB@0x6 : 
+	2       (00000006) return               v0
+
+isEntryCompleted-BB@0x8 : [ isEntryCompleted-BB@0x1e isEntryCompleted-BB@0x20 ]
+	3       (00000008) invoke-virtual       v7, Lcom/jlboat/phone/message/map_msgs/TargetGoalEntry;->getStatus()I
+	4       (0000000e) move-result          v1
+	5       (00000010) int-to-long          v1, v1
+	6       (00000012) const-wide/16        v3, 2
+	7       (00000016) cmp-long             v5, v1, v3
+	8       (0000001a) if-nez               v5, +003h
+
+isEntryCompleted-BB@0x1e : [ isEntryCompleted-BB@0x20 ]
+	9       (0000001e) const/4              v0, 1
+
+isEntryCompleted-BB@0x20 : 
+	10      (00000020) return               v0
+

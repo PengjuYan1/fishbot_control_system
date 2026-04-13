@@ -1,0 +1,11 @@
+# Lcom/boat/jrosbridge/message/std_msgs/Int16MultiArray;->getLayout()Lcom/boat/jrosbridge/message/std_msgs/MultiArrayLayout; [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:com.boat.jrosbridge.message.std_msgs.MultiArrayLayout
+
+getLayout-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/boat/jrosbridge/message/std_msgs/Int16MultiArray;->layout Lcom/boat/jrosbridge/message/std_msgs/MultiArrayLayout;
+	1       (00000004) return-object        v0
+

@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;->access$300(Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;)J [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:com.jlboat.phone.adapter.RvFloorPointListAdapter
+#
+# - return:long
+
+access$300-BB@0x0 : 
+	0       (00000000) iget-wide            v0, v2, Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;->defFloorId J
+	1       (00000004) return-wide          v0
+

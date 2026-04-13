@@ -1,0 +1,18 @@
+# Lcom/jlboat/phone/activity/DiyPathActivity$8;->onClick(Landroid/view/View;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:android.view.View
+#
+# - return:void
+
+onClick-BB@0x0 : 
+	0       (00000000) iget-object          v0, v2, Lcom/jlboat/phone/activity/DiyPathActivity$8;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	1       (00000004) invoke-static        v0, Lcom/jlboat/phone/activity/DiyPathActivity;->access$2600(Lcom/jlboat/phone/activity/DiyPathActivity;)Lcom/jlboat/phone/view/PathItemSettingPopup;
+	2       (0000000a) move-result-object   v0
+	3       (0000000c) invoke-virtual       v0, Lcom/jlboat/phone/view/PathItemSettingPopup;->dismiss()V
+	4       (00000012) iget-object          v0, v2, Lcom/jlboat/phone/activity/DiyPathActivity$8;->this$0 Lcom/jlboat/phone/activity/DiyPathActivity;
+	5       (00000016) iget-object          v1, v2, Lcom/jlboat/phone/activity/DiyPathActivity$8;->val$globalPlans Lcom/boat/support/slam/entity/floors/GlobalPlans;
+	6       (0000001a) invoke-static        v0, v1, Lcom/jlboat/phone/activity/DiyPathActivity;->access$2800(Lcom/jlboat/phone/activity/DiyPathActivity; Lcom/boat/support/slam/entity/floors/GlobalPlans;)V
+	7       (00000020) return-void          
+

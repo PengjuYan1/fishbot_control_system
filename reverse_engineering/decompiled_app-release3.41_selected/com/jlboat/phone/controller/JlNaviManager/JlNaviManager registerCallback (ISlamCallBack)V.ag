@@ -1,0 +1,25 @@
+# Lcom/jlboat/phone/controller/JlNaviManager;->registerCallback(Lcom/boat/support/slam/ISlamCallBack;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:com.boat.support.slam.ISlamCallBack
+#
+# - return:void
+
+registerCallback-BB@0x0 : [ registerCallback-BB@0x6 ]
+	0       (00000000) sget-object          v0, Lcom/jlboat/phone/controller/JlNaviManager;->mCallBack Landroid/os/RemoteCallbackList;
+	1       (00000004) monitor-enter        v0
+
+registerCallback-BB@0x6 : 
+	2       (00000006) sget-object          v1, Lcom/jlboat/phone/controller/JlNaviManager;->mCallBack Landroid/os/RemoteCallbackList;
+	3       (0000000a) invoke-virtual       v1, v3, Landroid/os/RemoteCallbackList;->register(Landroid/os/IInterface;)Z
+	4       (00000010) monitor-exit         v0
+	5       (00000012) return-void          
+	6:17
+	(Ljava/lang/Throwable; -> 14 registerCallback-BB@0x14)
+
+registerCallback-BB@0x14 : 
+	6       (00000014) move-exception       v1
+	7       (00000016) monitor-exit         v0
+	8       (00000018) throw                v1
+

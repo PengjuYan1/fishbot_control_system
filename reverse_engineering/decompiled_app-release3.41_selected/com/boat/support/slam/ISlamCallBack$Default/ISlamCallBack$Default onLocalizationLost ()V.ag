@@ -1,0 +1,10 @@
+# Lcom/boat/support/slam/ISlamCallBack$Default;->onLocalizationLost()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v0
+#
+# - return:void
+
+onLocalizationLost-BB@0x0 : 
+	0       (00000000) return-void          
+

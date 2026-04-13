@@ -1,0 +1,24 @@
+# Lcom/jlboat/phone/view/DrawMapView;-><init>(Landroid/content/Context; Landroid/util/AttributeSet;)V [access_flags=public constructor]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:android.content.Context
+# - v5:android.util.AttributeSet
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) invoke-direct        v3, v4, v5, Landroid/view/View;-><init>(Landroid/content/Context; Landroid/util/AttributeSet;)V
+	1       (00000006) new-instance         v0, Landroid/graphics/PaintFlagsDrawFilter;
+	2       (0000000a) const/4              v1, 0
+	3       (0000000c) const/4              v2, 3
+	4       (0000000e) invoke-direct        v0, v1, v2, Landroid/graphics/PaintFlagsDrawFilter;-><init>(I I)V
+	5       (00000014) iput-object          v0, v3, Lcom/jlboat/phone/view/DrawMapView;->drawFilter Landroid/graphics/DrawFilter;
+	6       (00000018) const/high16         v0, 1101004800
+	7       (0000001c) iput                 v0, v3, Lcom/jlboat/phone/view/DrawMapView;->eraserRadius F
+	8       (00000020) iput                 v0, v3, Lcom/jlboat/phone/view/DrawMapView;->physicalEraserRadius F
+	9       (00000024) const-wide/16        v0, 0
+	10      (00000028) iput-wide            v0, v3, Lcom/jlboat/phone/view/DrawMapView;->lastRefreshTime J
+	11      (0000002c) invoke-direct        v3, v4, Lcom/jlboat/phone/view/DrawMapView;->init(Landroid/content/Context;)V
+	12      (00000032) return-void          
+

@@ -1,0 +1,18 @@
+# Lcom/jlboat/phone/activity/DiyPathActivity;->access$2300(Lcom/jlboat/phone/activity/DiyPathActivity; J Ljava/lang/String; I I I Ljava/lang/String;)V [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.activity.DiyPathActivity
+# - v2:long
+# - v3:java.lang.String
+# - v4:int
+# - v5:int
+# - v6:int
+# - v7:java.lang.String
+#
+# - return:void
+
+access$2300-BB@0x0 : 
+	0       (00000000) invoke-direct/range  v0 ... v7, Lcom/jlboat/phone/activity/DiyPathActivity;->subOrVerData(J Ljava/lang/String; I I I Ljava/lang/String;)V
+	1       (00000006) return-void          
+

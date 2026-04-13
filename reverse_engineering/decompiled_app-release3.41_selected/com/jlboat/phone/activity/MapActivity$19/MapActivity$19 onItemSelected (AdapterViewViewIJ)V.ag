@@ -1,0 +1,220 @@
+# Lcom/jlboat/phone/activity/MapActivity$19;->onItemSelected(Landroid/widget/AdapterView; Landroid/view/View; I J)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v15
+# - v16:android.widget.AdapterView
+# - v17:android.view.View
+# - v18:int
+# - v19:long
+#
+# - return:void
+
+onItemSelected-BB@0x0 : [ onItemSelected-BB@0x8a ]
+	0       (00000000) move-object          v0, v14
+	1       (00000002) move/from16          v1, v17
+	2       (00000006) new-instance         v2, Ljava/lang/StringBuilder;
+	3       (0000000a) invoke-direct        v2, Ljava/lang/StringBuilder;-><init>()V
+	4       (00000010) const-string         v3, "楼层选中: "
+	5       (00000014) invoke-virtual       v2, v3, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	6       (0000001a) move-result-object   v2
+	7       (0000001c) invoke-virtual       v2, v1, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	8       (00000022) move-result-object   v2
+	9       (00000024) invoke-virtual       v2, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	10      (0000002a) move-result-object   v2
+	11      (0000002c) const-string         v3, "MapActivity"
+	12      (00000030) invoke-static        v3, v2, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	13      (00000036) iget-object          v2, v0, Lcom/jlboat/phone/activity/MapActivity$19;->val$selectIndex [I
+	14      (0000003a) const/4              v3, 0
+	15      (0000003c) aput                 v1, v2, v3
+	16      (00000040) iget-object          v2, v0, Lcom/jlboat/phone/activity/MapActivity$19;->val$bind_floors [Ljava/lang/String;
+	17      (00000044) iget-object          v4, v0, Lcom/jlboat/phone/activity/MapActivity$19;->val$floors_bind Landroid/widget/Spinner;
+	18      (00000048) invoke-virtual       v4, Landroid/widget/Spinner;->getSelectedItem()Ljava/lang/Object;
+	19      (0000004e) move-result-object   v4
+	20      (00000050) invoke-virtual       v4, Ljava/lang/Object;->toString()Ljava/lang/String;
+	21      (00000056) move-result-object   v4
+	22      (00000058) aput-object          v4, v2, v3
+	23      (0000005c) iget-object          v2, v0, Lcom/jlboat/phone/activity/MapActivity$19;->val$adapter2 Landroid/widget/ArrayAdapter;
+	24      (00000060) invoke-virtual       v2, Landroid/widget/ArrayAdapter;->clear()V
+	25      (00000066) iget-object          v2, v0, Lcom/jlboat/phone/activity/MapActivity$19;->val$adapter2 Landroid/widget/ArrayAdapter;
+	26      (0000006a) const-string         v4, "导航点"
+	27      (0000006e) invoke-virtual       v2, v4, Landroid/widget/ArrayAdapter;->add(Ljava/lang/Object;)V
+	28      (00000074) const/4              v2, 0
+	29      (00000076) iget-object          v4, v0, Lcom/jlboat/phone/activity/MapActivity$19;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	30      (0000007a) invoke-static        v4, Lcom/jlboat/phone/activity/MapActivity;->access$1400(Lcom/jlboat/phone/activity/MapActivity;)Ljava/util/List;
+	31      (00000080) move-result-object   v4
+	32      (00000082) invoke-interface     v4, Ljava/util/List;->iterator()Ljava/util/Iterator;
+	33      (00000088) move-result-object   v4
+
+onItemSelected-BB@0x8a : [ onItemSelected-BB@0x96 onItemSelected-BB@0xc4 ]
+	34      (0000008a) invoke-interface     v4, Ljava/util/Iterator;->hasNext()Z
+	35      (00000090) move-result          v5
+	36      (00000092) if-eqz               v5, +019h
+
+onItemSelected-BB@0x96 : [ onItemSelected-BB@0xbe onItemSelected-BB@0xc2 ]
+	37      (00000096) invoke-interface     v4, Ljava/util/Iterator;->next()Ljava/lang/Object;
+	38      (0000009c) move-result-object   v5
+	39      (0000009e) check-cast           v5, Lcom/boat/support/slam/entity/floors/Floors;
+	40      (000000a2) invoke-virtual       v5, Lcom/boat/support/slam/entity/floors/Floors;->getFloorName()Ljava/lang/String;
+	41      (000000a8) move-result-object   v6
+	42      (000000aa) iget-object          v7, v0, Lcom/jlboat/phone/activity/MapActivity$19;->val$bind_floors [Ljava/lang/String;
+	43      (000000ae) aget-object          v7, v7, v3
+	44      (000000b2) invoke-virtual       v6, v7, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	45      (000000b8) move-result          v6
+	46      (000000ba) if-eqz               v6, +004h
+
+onItemSelected-BB@0xbe : [ onItemSelected-BB@0xc4 ]
+	47      (000000be) move-object          v2, v5
+	48      (000000c0) goto                 +2h
+
+onItemSelected-BB@0xc2 : [ onItemSelected-BB@0x8a ]
+	49      (000000c2) goto                 -1ch
+
+onItemSelected-BB@0xc4 : [ onItemSelected-BB@0xc8 onItemSelected-BB@0xca ]
+	50      (000000c4) if-nez               v2, +003h
+
+onItemSelected-BB@0xc8 : 
+	51      (000000c8) return-void          
+
+onItemSelected-BB@0xca : [ onItemSelected-BB@0xdc ]
+	52      (000000ca) const/4              v3, 0
+	53      (000000cc) invoke-virtual       v2, Lcom/boat/support/slam/entity/floors/Floors;->getMaps()Ljava/util/List;
+	54      (000000d2) move-result-object   v4
+	55      (000000d4) invoke-interface     v4, Ljava/util/List;->iterator()Ljava/util/Iterator;
+	56      (000000da) move-result-object   v4
+
+onItemSelected-BB@0xdc : [ onItemSelected-BB@0xe8 onItemSelected-BB@0x112 ]
+	57      (000000dc) invoke-interface     v4, Ljava/util/Iterator;->hasNext()Z
+	58      (000000e2) move-result          v5
+	59      (000000e4) if-eqz               v5, +017h
+
+onItemSelected-BB@0xe8 : [ onItemSelected-BB@0x10c onItemSelected-BB@0x110 ]
+	60      (000000e8) invoke-interface     v4, Ljava/util/Iterator;->next()Ljava/lang/Object;
+	61      (000000ee) move-result-object   v5
+	62      (000000f0) check-cast           v5, Lcom/boat/support/slam/entity/floors/Maps;
+	63      (000000f4) invoke-virtual       v5, Lcom/boat/support/slam/entity/floors/Maps;->getMapId()J
+	64      (000000fa) move-result-wide     v6
+	65      (000000fc) invoke-virtual       v2, Lcom/boat/support/slam/entity/floors/Floors;->getDefaultmap()J
+	66      (00000102) move-result-wide     v8
+	67      (00000104) cmp-long             v10, v6, v8
+	68      (00000108) if-nez               v10, +004h
+
+onItemSelected-BB@0x10c : [ onItemSelected-BB@0x112 ]
+	69      (0000010c) move-object          v3, v5
+	70      (0000010e) goto                 +2h
+
+onItemSelected-BB@0x110 : [ onItemSelected-BB@0xdc ]
+	71      (00000110) goto                 -1ah
+
+onItemSelected-BB@0x112 : [ onItemSelected-BB@0x116 onItemSelected-BB@0x118 ]
+	72      (00000112) if-nez               v3, +003h
+
+onItemSelected-BB@0x116 : 
+	73      (00000116) return-void          
+
+onItemSelected-BB@0x118 : [ onItemSelected-BB@0x134 ]
+	74      (00000118) new-instance         v4, Ljava/util/ArrayList;
+	75      (0000011c) invoke-direct        v4, Ljava/util/ArrayList;-><init>()V
+	76      (00000122) const/4              v5, -1
+	77      (00000124) invoke-virtual       v3, Lcom/boat/support/slam/entity/floors/Maps;->getPoints()Ljava/util/List;
+	78      (0000012a) move-result-object   v6
+	79      (0000012c) invoke-interface     v6, Ljava/util/List;->iterator()Ljava/util/Iterator;
+	80      (00000132) move-result-object   v6
+
+onItemSelected-BB@0x134 : [ onItemSelected-BB@0x140 onItemSelected-BB@0x224 ]
+	81      (00000134) invoke-interface     v6, Ljava/util/Iterator;->hasNext()Z
+	82      (0000013a) move-result          v7
+	83      (0000013c) if-eqz               v7, +074h
+
+onItemSelected-BB@0x140 : [ onItemSelected-BB@0x164 onItemSelected-BB@0x134 ]
+	84      (00000140) invoke-interface     v6, Ljava/util/Iterator;->next()Ljava/lang/Object;
+	85      (00000146) move-result-object   v7
+	86      (00000148) check-cast           v7, Lcom/boat/support/slam/entity/floors/Points;
+	87      (0000014c) invoke-virtual       v7, Lcom/boat/support/slam/entity/floors/Points;->getPointName()Ljava/lang/String;
+	88      (00000152) move-result-object   v8
+	89      (00000154) iget-object          v9, v0, Lcom/jlboat/phone/activity/MapActivity$19;->val$chargePoint Ljava/lang/String;
+	90      (00000158) invoke-virtual       v9, v8, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	91      (0000015e) move-result          v9
+	92      (00000160) if-nez               v9, -016h
+
+onItemSelected-BB@0x164 : [ onItemSelected-BB@0x174 onItemSelected-BB@0x134 ]
+	93      (00000164) iget-object          v9, v0, Lcom/jlboat/phone/activity/MapActivity$19;->val$startPoint Ljava/lang/String;
+	94      (00000168) invoke-virtual       v9, v8, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	95      (0000016e) move-result          v9
+	96      (00000170) if-nez               v9, -01eh
+
+onItemSelected-BB@0x174 : [ onItemSelected-BB@0x184 onItemSelected-BB@0x134 ]
+	97      (00000174) iget-object          v9, v0, Lcom/jlboat/phone/activity/MapActivity$19;->val$pointLocation Ljava/lang/String;
+	98      (00000178) invoke-virtual       v9, v8, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	99      (0000017e) move-result          v9
+	100     (00000180) if-nez               v9, -026h
+
+onItemSelected-BB@0x184 : [ onItemSelected-BB@0x1a0 onItemSelected-BB@0x1da ]
+	101     (00000184) iget-object          v9, v0, Lcom/jlboat/phone/activity/MapActivity$19;->val$frd Lcom/boat/support/slam/entity/floors/Points;
+	102     (00000188) invoke-virtual       v9, Lcom/boat/support/slam/entity/floors/Points;->getPointId()J
+	103     (0000018e) move-result-wide     v9
+	104     (00000190) invoke-virtual       v7, Lcom/boat/support/slam/entity/floors/Points;->getPointId()J
+	105     (00000196) move-result-wide     v11
+	106     (00000198) cmp-long             v13, v9, v11
+	107     (0000019c) if-nez               v13, +01fh
+
+onItemSelected-BB@0x1a0 : [ onItemSelected-BB@0x1bc onItemSelected-BB@0x1da ]
+	108     (000001a0) iget-object          v9, v0, Lcom/jlboat/phone/activity/MapActivity$19;->val$localDataFloor Lcom/boat/support/slam/entity/floors/Floors;
+	109     (000001a4) invoke-virtual       v9, Lcom/boat/support/slam/entity/floors/Floors;->getFloorId()J
+	110     (000001aa) move-result-wide     v9
+	111     (000001ac) invoke-virtual       v2, Lcom/boat/support/slam/entity/floors/Floors;->getFloorId()J
+	112     (000001b2) move-result-wide     v11
+	113     (000001b4) cmp-long             v13, v9, v11
+	114     (000001b8) if-nez               v13, +011h
+
+onItemSelected-BB@0x1bc : [ onItemSelected-BB@0x1d8 onItemSelected-BB@0x1da ]
+	115     (000001bc) iget-object          v9, v0, Lcom/jlboat/phone/activity/MapActivity$19;->val$localMap Lcom/boat/support/slam/entity/floors/Maps;
+	116     (000001c0) invoke-virtual       v9, Lcom/boat/support/slam/entity/floors/Maps;->getMapId()J
+	117     (000001c6) move-result-wide     v9
+	118     (000001c8) invoke-virtual       v3, Lcom/boat/support/slam/entity/floors/Maps;->getMapId()J
+	119     (000001ce) move-result-wide     v11
+	120     (000001d0) cmp-long             v13, v9, v11
+	121     (000001d4) if-nez               v13, +003h
+
+onItemSelected-BB@0x1d8 : [ onItemSelected-BB@0x134 ]
+	122     (000001d8) goto                 -52h
+
+onItemSelected-BB@0x1da : [ onItemSelected-BB@0x1f8 onItemSelected-BB@0x222 ]
+	123     (000001da) invoke-interface     v4, v8, Ljava/util/List;->add(Ljava/lang/Object;)Z
+	124     (000001e0) iget-object          v9, v0, Lcom/jlboat/phone/activity/MapActivity$19;->val$frd Lcom/boat/support/slam/entity/floors/Points;
+	125     (000001e4) invoke-virtual       v9, Lcom/boat/support/slam/entity/floors/Points;->getBindPointId()J
+	126     (000001ea) move-result-wide     v9
+	127     (000001ec) const-wide/16        v11, 0
+	128     (000001f0) cmp-long             v13, v9, v11
+	129     (000001f4) if-eqz               v13, +017h
+
+onItemSelected-BB@0x1f8 : [ onItemSelected-BB@0x214 onItemSelected-BB@0x222 ]
+	130     (000001f8) invoke-virtual       v7, Lcom/boat/support/slam/entity/floors/Points;->getPointId()J
+	131     (000001fe) move-result-wide     v9
+	132     (00000200) iget-object          v11, v0, Lcom/jlboat/phone/activity/MapActivity$19;->val$frd Lcom/boat/support/slam/entity/floors/Points;
+	133     (00000204) invoke-virtual       v11, Lcom/boat/support/slam/entity/floors/Points;->getBindPointId()J
+	134     (0000020a) move-result-wide     v11
+	135     (0000020c) cmp-long             v13, v9, v11
+	136     (00000210) if-nez               v13, +009h
+
+onItemSelected-BB@0x214 : [ onItemSelected-BB@0x222 ]
+	137     (00000214) invoke-interface     v4, Ljava/util/List;->size()I
+	138     (0000021a) move-result          v9
+	139     (0000021c) add-int/lit8         v9, v9, -1
+	140     (00000220) move                 v5, v9
+
+onItemSelected-BB@0x222 : [ onItemSelected-BB@0x134 ]
+	141     (00000222) goto                 -77h
+
+onItemSelected-BB@0x224 : [ onItemSelected-BB@0x232 onItemSelected-BB@0x240 ]
+	142     (00000224) iget-object          v6, v0, Lcom/jlboat/phone/activity/MapActivity$19;->val$adapter2 Landroid/widget/ArrayAdapter;
+	143     (00000228) invoke-virtual       v6, v4, Landroid/widget/ArrayAdapter;->addAll(Ljava/util/Collection;)V
+	144     (0000022e) if-ltz               v5, +009h
+
+onItemSelected-BB@0x232 : [ onItemSelected-BB@0x240 ]
+	145     (00000232) iget-object          v6, v0, Lcom/jlboat/phone/activity/MapActivity$19;->val$point_bind Landroid/widget/Spinner;
+	146     (00000236) add-int/lit8         v7, v5, 1
+	147     (0000023a) invoke-virtual       v6, v7, Landroid/widget/Spinner;->setSelection(I)V
+
+onItemSelected-BB@0x240 : 
+	148     (00000240) return-void          
+

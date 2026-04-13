@@ -1,0 +1,26 @@
+# Lcom/jlboat/phone/activity/SettingActivity;->setCream(J)V [access_flags=private]
+#
+# Parameters:
+# - local registers: v0...v4
+# - v5:long
+#
+# - return:void
+
+setCream-BB@0x0 : 
+	0       (00000000) iget-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity;->TAG Ljava/lang/String;
+	1       (00000004) new-instance         v1, Ljava/lang/StringBuilder;
+	2       (00000008) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	3       (0000000e) const-string         v2, "setCream"
+	4       (00000012) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	5       (00000018) move-result-object   v1
+	6       (0000001a) invoke-virtual       v1, v4, v5, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+	7       (00000020) move-result-object   v1
+	8       (00000022) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	9       (00000028) move-result-object   v1
+	10      (0000002a) invoke-static        v0, v1, Landroid/util/Log;->e(Ljava/lang/String; Ljava/lang/String;)I
+	11      (00000030) iget-object          v0, v3, Lcom/jlboat/phone/activity/SettingActivity;->statusServiceClient Lcom/jlboat/phone/communication/StatusServiceClient;
+	12      (00000034) new-instance         v1, Lcom/jlboat/phone/activity/SettingActivity$9;
+	13      (00000038) invoke-direct        v1, v3, v4, v5, Lcom/jlboat/phone/activity/SettingActivity$9;-><init>(Lcom/jlboat/phone/activity/SettingActivity; J)V
+	14      (0000003e) invoke-virtual       v0, v4, v5, v1, Lcom/jlboat/phone/communication/StatusServiceClient;->setCreamService(J Lcom/boat/jrosbridge/MessageListener;)V
+	15      (00000044) return-void          
+

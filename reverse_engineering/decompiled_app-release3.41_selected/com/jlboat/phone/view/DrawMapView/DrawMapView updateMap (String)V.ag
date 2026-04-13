@@ -1,0 +1,38 @@
+# Lcom/jlboat/phone/view/DrawMapView;->updateMap(Ljava/lang/String;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v5
+# - v6:java.lang.String
+#
+# - return:void
+
+updateMap-BB@0x0 : 
+	0       (00000000) const/4              v0, 0
+	1       (00000002) iput-boolean         v0, v5, Lcom/jlboat/phone/view/DrawMapView;->isChange Z
+	2       (00000006) iget-object          v1, v5, Lcom/jlboat/phone/view/DrawMapView;->mapDataChangeCallBack Lcom/jlboat/phone/view/DrawMapView$MapDataChangeCallBack;
+	3       (0000000a) invoke-interface     v1, v0, Lcom/jlboat/phone/view/DrawMapView$MapDataChangeCallBack;->onChange(Z)V
+	4       (00000010) const-string         v1, "DrawMapView"
+	5       (00000014) const-string         v2, "updateMap: "
+	6       (00000018) invoke-static        v1, v2, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	7       (0000001e) invoke-static        v6, v0, Landroid/util/Base64;->decode(Ljava/lang/String; I)[B
+	8       (00000024) move-result-object   v1
+	9       (00000026) array-length         v2, v1
+	10      (00000028) invoke-static        v1, v0, v2, Landroid/graphics/BitmapFactory;->decodeByteArray([B I I)Landroid/graphics/Bitmap;
+	11      (0000002e) move-result-object   v2
+	12      (00000030) iput-object          v2, v5, Lcom/jlboat/phone/view/DrawMapView;->sourceBitmap Landroid/graphics/Bitmap;
+	13      (00000034) iget-object          v2, v5, Lcom/jlboat/phone/view/DrawMapView;->sourceBitmap Landroid/graphics/Bitmap;
+	14      (00000038) sget-object          v3, Landroid/graphics/Bitmap$Config;->ARGB_8888 Landroid/graphics/Bitmap$Config;
+	15      (0000003c) const/4              v4, 1
+	16      (0000003e) invoke-virtual       v2, v3, v4, Landroid/graphics/Bitmap;->copy(Landroid/graphics/Bitmap$Config; Z)Landroid/graphics/Bitmap;
+	17      (00000044) move-result-object   v2
+	18      (00000046) iput-object          v2, v5, Lcom/jlboat/phone/view/DrawMapView;->mutableBitmap Landroid/graphics/Bitmap;
+	19      (0000004a) iput-boolean         v4, v5, Lcom/jlboat/phone/view/DrawMapView;->map_ready Z
+	20      (0000004e) new-instance         v2, Lcom/jlboat/phone/view/TouchEvenHandler;
+	21      (00000052) iget-object          v3, v5, Lcom/jlboat/phone/view/DrawMapView;->sourceBitmap Landroid/graphics/Bitmap;
+	22      (00000056) invoke-direct        v2, v5, v3, v0, Lcom/jlboat/phone/view/TouchEvenHandler;-><init>(Landroid/view/View; Landroid/graphics/Bitmap; Z)V
+	23      (0000005c) iput-object          v2, v5, Lcom/jlboat/phone/view/DrawMapView;->touchEvenHandler Lcom/jlboat/phone/view/TouchEvenHandler;
+	24      (00000060) new-instance         v0, Lcom/jlboat/phone/view/DrawMapView$1;
+	25      (00000064) invoke-direct        v0, v5, Lcom/jlboat/phone/view/DrawMapView$1;-><init>(Lcom/jlboat/phone/view/DrawMapView;)V
+	26      (0000006a) invoke-virtual       v5, v0, Lcom/jlboat/phone/view/DrawMapView;->post(Ljava/lang/Runnable;)Z
+	27      (00000070) return-void          
+

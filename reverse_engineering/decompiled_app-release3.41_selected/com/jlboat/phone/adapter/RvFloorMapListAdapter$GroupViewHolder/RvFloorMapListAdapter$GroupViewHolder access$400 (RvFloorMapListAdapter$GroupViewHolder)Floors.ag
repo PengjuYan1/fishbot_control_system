@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/adapter/RvFloorMapListAdapter$GroupViewHolder;->access$400(Lcom/jlboat/phone/adapter/RvFloorMapListAdapter$GroupViewHolder;)Lcom/boat/support/slam/entity/floors/Floors; [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.adapter.RvFloorMapListAdapter$GroupViewHolder
+#
+# - return:com.boat.support.slam.entity.floors.Floors
+
+access$400-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter$GroupViewHolder;->group Lcom/boat/support/slam/entity/floors/Floors;
+	1       (00000004) return-object        v0
+

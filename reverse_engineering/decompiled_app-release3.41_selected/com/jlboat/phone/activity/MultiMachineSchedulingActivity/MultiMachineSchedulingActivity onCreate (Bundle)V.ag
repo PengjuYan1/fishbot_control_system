@@ -1,0 +1,52 @@
+# Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;->onCreate(Landroid/os/Bundle;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:android.os.Bundle
+#
+# - return:void
+
+onCreate-BB@0x0 : 
+	0       (00000000) invoke-super         v2, v3, Lcom/jlboat/phone/base/BaseFullActivity;->onCreate(Landroid/os/Bundle;)V
+	1       (00000006) const                v0, 2131361902
+	2       (0000000c) const                v1, 2131493094
+	3       (00000012) invoke-virtual       v2, v0, v1, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;->initTitleBar(I I)V
+	4       (00000018) const                v0, 2131231204
+	5       (0000001e) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;->findViewById(I)Landroid/view/View;
+	6       (00000024) move-result-object   v0
+	7       (00000026) check-cast           v0, Landroid/widget/Switch;
+	8       (0000002a) iput-object          v0, v2, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;->robotMultiOpenSw Landroid/widget/Switch;
+	9       (0000002e) const                v0, 2131231202
+	10      (00000034) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;->findViewById(I)Landroid/view/View;
+	11      (0000003a) move-result-object   v0
+	12      (0000003c) check-cast           v0, Landroid/widget/EditText;
+	13      (00000040) iput-object          v0, v2, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;->robotMultiDistanceBt Landroid/widget/EditText;
+	14      (00000044) const                v0, 2131231203
+	15      (0000004a) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;->findViewById(I)Landroid/view/View;
+	16      (00000050) move-result-object   v0
+	17      (00000052) check-cast           v0, Landroid/widget/EditText;
+	18      (00000056) iput-object          v0, v2, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;->robotMultiLevelBt Landroid/widget/EditText;
+	19      (0000005a) iget-object          v0, v2, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;->robotMultiDistanceBt Landroid/widget/EditText;
+	20      (0000005e) const/4              v1, 6
+	21      (00000060) invoke-virtual       v0, v1, Landroid/widget/EditText;->setImeOptions(I)V
+	22      (00000066) iget-object          v0, v2, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;->robotMultiLevelBt Landroid/widget/EditText;
+	23      (0000006a) invoke-virtual       v0, v1, Landroid/widget/EditText;->setImeOptions(I)V
+	24      (00000070) iget-object          v0, v2, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;->robotMultiDistanceBt Landroid/widget/EditText;
+	25      (00000074) invoke-virtual       v0, v2, Landroid/widget/EditText;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	26      (0000007a) iget-object          v0, v2, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;->robotMultiLevelBt Landroid/widget/EditText;
+	27      (0000007e) invoke-virtual       v0, v2, Landroid/widget/EditText;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	28      (00000084) iget-object          v0, v2, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;->robotMultiOpenSw Landroid/widget/Switch;
+	29      (00000088) invoke-virtual       v0, v2, Landroid/widget/Switch;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	30      (0000008e) iget-object          v0, v2, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;->robotMultiDistanceBt Landroid/widget/EditText;
+	31      (00000092) new-instance         v1, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity$1;
+	32      (00000096) invoke-direct        v1, v2, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity$1;-><init>(Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;)V
+	33      (0000009c) invoke-virtual       v0, v1, Landroid/widget/EditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
+	34      (000000a2) iget-object          v0, v2, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;->robotMultiLevelBt Landroid/widget/EditText;
+	35      (000000a6) new-instance         v1, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity$2;
+	36      (000000aa) invoke-direct        v1, v2, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity$2;-><init>(Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;)V
+	37      (000000b0) invoke-virtual       v0, v1, Landroid/widget/EditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
+	38      (000000b6) const-string         v0, "MultiMachineSchedulingActivity"
+	39      (000000ba) const-string         v1, "onCreate: "
+	40      (000000be) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	41      (000000c4) return-void          
+

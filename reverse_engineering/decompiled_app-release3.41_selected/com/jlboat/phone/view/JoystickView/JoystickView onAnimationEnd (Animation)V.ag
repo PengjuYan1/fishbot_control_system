@@ -1,0 +1,11 @@
+# Lcom/jlboat/phone/view/JoystickView;->onAnimationEnd(Landroid/view/animation/Animation;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:android.view.animation.Animation
+#
+# - return:void
+
+onAnimationEnd-BB@0x0 : 
+	0       (00000000) return-void          
+

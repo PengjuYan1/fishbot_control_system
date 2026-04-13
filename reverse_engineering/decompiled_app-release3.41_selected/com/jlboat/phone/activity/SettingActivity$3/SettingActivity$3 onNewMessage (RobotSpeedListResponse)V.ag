@@ -1,0 +1,37 @@
+# Lcom/jlboat/phone/activity/SettingActivity$3;->onNewMessage(Lcom/jlboat/phone/message/map_msgs/RobotSpeedListResponse;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v4
+# - v5:com.jlboat.phone.message.map_msgs.RobotSpeedListResponse
+#
+# - return:void
+
+onNewMessage-BB@0x0 : 
+	0       (00000000) iget-object          v0, v4, Lcom/jlboat/phone/activity/SettingActivity$3;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	1       (00000004) invoke-static        v0, Lcom/jlboat/phone/activity/SettingActivity;->access$200(Lcom/jlboat/phone/activity/SettingActivity;)V
+	2       (0000000a) iget-object          v0, v4, Lcom/jlboat/phone/activity/SettingActivity$3;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	3       (0000000e) invoke-static        v0, Lcom/jlboat/phone/activity/SettingActivity;->access$000(Lcom/jlboat/phone/activity/SettingActivity;)Ljava/lang/String;
+	4       (00000014) move-result-object   v0
+	5       (00000016) new-instance         v1, Ljava/lang/StringBuilder;
+	6       (0000001a) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	7       (00000020) const-string         v2, "onSuccess: updateSpeed: "
+	8       (00000024) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	9       (0000002a) move-result-object   v1
+	10      (0000002c) invoke-virtual       v5, Lcom/jlboat/phone/message/map_msgs/RobotSpeedListResponse;->getSpeed()J
+	11      (00000032) move-result-wide     v2
+	12      (00000034) invoke-virtual       v1, v2, v3, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+	13      (0000003a) move-result-object   v1
+	14      (0000003c) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	15      (00000042) move-result-object   v1
+	16      (00000044) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	17      (0000004a) iget-object          v0, v4, Lcom/jlboat/phone/activity/SettingActivity$3;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	18      (0000004e) invoke-virtual       v5, Lcom/jlboat/phone/message/map_msgs/RobotSpeedListResponse;->getSpeed()J
+	19      (00000054) move-result-wide     v1
+	20      (00000056) invoke-static        v0, v1, v2, Lcom/jlboat/phone/activity/SettingActivity;->access$302(Lcom/jlboat/phone/activity/SettingActivity; J)J
+	21      (0000005c) iget-object          v0, v4, Lcom/jlboat/phone/activity/SettingActivity$3;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	22      (00000060) invoke-static        v0, Lcom/jlboat/phone/activity/SettingActivity;->access$400(Lcom/jlboat/phone/activity/SettingActivity;)Landroid/os/Handler;
+	23      (00000066) move-result-object   v0
+	24      (00000068) const/4              v1, 2
+	25      (0000006a) invoke-virtual       v0, v1, Landroid/os/Handler;->sendEmptyMessage(I)Z
+	26      (00000070) return-void          
+

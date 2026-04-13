@@ -1,0 +1,13 @@
+# Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;->access$502(Lcom/jlboat/phone/adapter/RvFloorMapListAdapter; J)J [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.adapter.RvFloorMapListAdapter
+# - v2:long
+#
+# - return:long
+
+access$502-BB@0x0 : 
+	0       (00000000) iput-wide            v1, v0, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;->currentExpandedFloorId J
+	1       (00000004) return-wide          v1
+

@@ -1,0 +1,26 @@
+# Lcom/jlboat/phone/LoginActivity;->toast(I)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:int
+#
+# - return:void
+
+toast-BB@0x0 : [ toast-BB@0x16 toast-BB@0x26 ]
+	0       (00000000) invoke-static        v4, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+	1       (00000006) move-result-object   v0
+	2       (00000008) invoke-virtual       v0, Ljava/lang/String;->length()I
+	3       (0000000e) move-result          v1
+	4       (00000010) const/4              v2, 5
+	5       (00000012) if-le                v1, v2, +00ah
+
+toast-BB@0x16 : [ toast-BB@0x26 ]
+	6       (00000016) invoke-virtual       v3, Lcom/jlboat/phone/LoginActivity;->getResources()Landroid/content/res/Resources;
+	7       (0000001c) move-result-object   v1
+	8       (0000001e) invoke-virtual       v1, v4, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+	9       (00000024) move-result-object   v0
+
+toast-BB@0x26 : 
+	10      (00000026) invoke-virtual       v3, v0, Lcom/jlboat/phone/LoginActivity;->toast(Ljava/lang/String;)V
+	11      (0000002c) return-void          
+

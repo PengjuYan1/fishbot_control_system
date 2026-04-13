@@ -1,0 +1,14 @@
+# Lcom/jlboat/phone/activity/ErrorMessageActivity;-><init>()V [access_flags=public constructor]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) invoke-direct        v1, Lcom/jlboat/phone/base/BaseFullActivity;-><init>()V
+	1       (00000006) new-instance         v0, Lcom/jlboat/phone/activity/ErrorMessageActivity$1;
+	2       (0000000a) invoke-direct        v0, v1, Lcom/jlboat/phone/activity/ErrorMessageActivity$1;-><init>(Lcom/jlboat/phone/activity/ErrorMessageActivity;)V
+	3       (00000010) iput-object          v0, v1, Lcom/jlboat/phone/activity/ErrorMessageActivity;->receiver Landroid/content/BroadcastReceiver;
+	4       (00000014) return-void          
+

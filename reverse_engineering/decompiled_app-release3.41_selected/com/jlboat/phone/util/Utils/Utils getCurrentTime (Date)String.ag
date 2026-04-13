@@ -1,0 +1,16 @@
+# Lcom/jlboat/phone/util/Utils;->getCurrentTime(Ljava/util/Date;)Ljava/lang/String; [access_flags=public static]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:java.util.Date
+#
+# - return:java.lang.String
+
+getCurrentTime-BB@0x0 : 
+	0       (00000000) new-instance         v0, Ljava/text/SimpleDateFormat;
+	1       (00000004) const-string         v1, "yyyy-MM-dd HH:mm:ss"
+	2       (00000008) invoke-direct        v0, v1, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;)V
+	3       (0000000e) invoke-virtual       v0, v2, Ljava/text/SimpleDateFormat;->format(Ljava/util/Date;)Ljava/lang/String;
+	4       (00000014) move-result-object   v1
+	5       (00000016) return-object        v1
+

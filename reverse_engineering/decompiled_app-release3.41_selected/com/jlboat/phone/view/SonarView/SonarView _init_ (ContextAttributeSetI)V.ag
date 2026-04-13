@@ -1,0 +1,31 @@
+# Lcom/jlboat/phone/view/SonarView;-><init>(Landroid/content/Context; Landroid/util/AttributeSet; I)V [access_flags=public constructor]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:android.content.Context
+# - v3:android.util.AttributeSet
+# - v4:int
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) invoke-direct        v1, v2, v3, v4, Landroid/view/View;-><init>(Landroid/content/Context; Landroid/util/AttributeSet; I)V
+	1       (00000006) const/4              v0, 0
+	2       (00000008) iput-boolean         v0, v1, Lcom/jlboat/phone/view/SonarView;->hasdata Z
+	3       (0000000c) const/16             v0, 200
+	4       (00000010) iput                 v0, v1, Lcom/jlboat/phone/view/SonarView;->sonar_max I
+	5       (00000014) const                v0, 1043511490
+	6       (0000001a) iput                 v0, v1, Lcom/jlboat/phone/view/SonarView;->left_angel F
+	7       (0000001e) const                v0, 1063216883
+	8       (00000024) iput                 v0, v1, Lcom/jlboat/phone/view/SonarView;->leftm_angel F
+	9       (00000028) const                v0, 1077797966
+	10      (0000002e) iput                 v0, v1, Lcom/jlboat/phone/view/SonarView;->right_angel F
+	11      (00000032) const                v0, 1074869790
+	12      (00000038) iput                 v0, v1, Lcom/jlboat/phone/view/SonarView;->rightm_angel F
+	13      (0000003c) new-instance         v0, Ljava/util/concurrent/CopyOnWriteArrayList;
+	14      (00000040) invoke-direct        v0, Ljava/util/concurrent/CopyOnWriteArrayList;-><init>()V
+	15      (00000046) iput-object          v0, v1, Lcom/jlboat/phone/view/SonarView;->ints Ljava/util/List;
+	16      (0000004a) const-string         v0, ""
+	17      (0000004e) iput-object          v0, v1, Lcom/jlboat/phone/view/SonarView;->topicName Ljava/lang/String;
+	18      (00000052) return-void          
+

@@ -1,0 +1,25 @@
+# Lcom/jlboat/phone/fragment/settingfragment/LocalCostFragment;->onClick(Landroid/view/View;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:android.view.View
+#
+# - return:void
+
+onClick-BB@0x0 : [ D:onClick-BB@0xe 1:onClick-BB@0x10 ]
+	0       (00000000) invoke-virtual       v2, Landroid/view/View;->getId()I
+	1       (00000006) move-result          v0
+	2       (00000008) packed-switch        v0, +0000006h
+
+onClick-BB@0xe : [ onClick-BB@0x12 ]
+	3       (0000000e) goto                 +2h
+
+onClick-BB@0x10 : [ onClick-BB@0x12 ]
+	4       (00000010) nop                  
+
+onClick-BB@0x12 : 
+	5       (00000012) return-void          
+
+onClick-BB@0x14 : 
+	6       (00000014) packed-switch-payload 1
+

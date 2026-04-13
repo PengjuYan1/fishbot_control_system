@@ -1,0 +1,23 @@
+# Lcom/jlboat/phone/view/DrawMapView;->drawEraserIndicator(Landroid/graphics/Canvas;)V [access_flags=private]
+#
+# Parameters:
+# - local registers: v0...v4
+# - v5:android.graphics.Canvas
+#
+# - return:void
+
+drawEraserIndicator-BB@0x0 : 
+	0       (00000000) invoke-virtual       v4, Lcom/jlboat/phone/view/DrawMapView;->getWidth()I
+	1       (00000006) move-result          v0
+	2       (00000008) int-to-float         v0, v0
+	3       (0000000a) const/high16         v1, 1073741824
+	4       (0000000e) div-float/2addr      v0, v1
+	5       (00000010) invoke-virtual       v4, Lcom/jlboat/phone/view/DrawMapView;->getHeight()I
+	6       (00000016) move-result          v2
+	7       (00000018) int-to-float         v2, v2
+	8       (0000001a) div-float/2addr      v2, v1
+	9       (0000001c) iget                 v1, v4, Lcom/jlboat/phone/view/DrawMapView;->physicalEraserRadius F
+	10      (00000020) iget-object          v3, v4, Lcom/jlboat/phone/view/DrawMapView;->eraserIndicatorPaint Landroid/graphics/Paint;
+	11      (00000024) invoke-virtual       v5, v0, v2, v1, v3, Landroid/graphics/Canvas;->drawCircle(F F F Landroid/graphics/Paint;)V
+	12      (0000002a) return-void          
+

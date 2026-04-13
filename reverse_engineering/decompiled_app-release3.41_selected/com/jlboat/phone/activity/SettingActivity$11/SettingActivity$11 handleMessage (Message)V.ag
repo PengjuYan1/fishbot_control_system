@@ -1,0 +1,260 @@
+# Lcom/jlboat/phone/activity/SettingActivity$11;->handleMessage(Landroid/os/Message;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v10
+# - v11:android.os.Message
+#
+# - return:void
+
+handleMessage-BB@0x0 : [ D:handleMessage-BB@0x20 0:handleMessage-BB@0x302 1:handleMessage-BB@0x2ba 2:handleMessage-BB@0x150 3:handleMessage-BB@0x9c 4:handleMessage-BB@0x20 5:handleMessage-BB@0x20 6:handleMessage-BB@0x24 ]
+	0       (00000000) invoke-super         v10, v11, Landroid/os/Handler;->handleMessage(Landroid/os/Message;)V
+	1       (00000006) iget                 v0, v11, Landroid/os/Message;->what I
+	2       (0000000a) const-wide/16        v1, 2
+	3       (0000000e) const-wide/16        v3, 0
+	4       (00000012) const-wide/16        v5, 1
+	5       (00000016) const/4              v7, 1
+	6       (00000018) const/4              v8, 0
+	7       (0000001a) packed-switch        v0, +0000177h
+
+handleMessage-BB@0x20 : [ handleMessage-BB@0x304 ]
+	8       (00000020) goto/16              +172h
+
+handleMessage-BB@0x24 : [ handleMessage-BB@0x5c handleMessage-BB@0x72 ]
+	9       (00000024) iget-object          v0, v10, Lcom/jlboat/phone/activity/SettingActivity$11;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	10      (00000028) invoke-static        v0, Lcom/jlboat/phone/activity/SettingActivity;->access$1900(Lcom/jlboat/phone/activity/SettingActivity;)Landroid/widget/RadioButton;
+	11      (0000002e) move-result-object   v0
+	12      (00000030) invoke-virtual       v0, v8, Landroid/widget/RadioButton;->setChecked(Z)V
+	13      (00000036) iget-object          v0, v10, Lcom/jlboat/phone/activity/SettingActivity$11;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	14      (0000003a) invoke-static        v0, Lcom/jlboat/phone/activity/SettingActivity;->access$1800(Lcom/jlboat/phone/activity/SettingActivity;)Landroid/widget/RadioButton;
+	15      (00000040) move-result-object   v0
+	16      (00000042) invoke-virtual       v0, v8, Landroid/widget/RadioButton;->setChecked(Z)V
+	17      (00000048) iget-object          v0, v10, Lcom/jlboat/phone/activity/SettingActivity$11;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	18      (0000004c) invoke-static        v0, Lcom/jlboat/phone/activity/SettingActivity;->access$500(Lcom/jlboat/phone/activity/SettingActivity;)J
+	19      (00000052) move-result-wide     v0
+	20      (00000054) cmp-long             v2, v0, v3
+	21      (00000058) if-nez               v2, +00dh
+
+handleMessage-BB@0x5c : [ handleMessage-BB@0x304 ]
+	22      (0000005c) iget-object          v0, v10, Lcom/jlboat/phone/activity/SettingActivity$11;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	23      (00000060) invoke-static        v0, Lcom/jlboat/phone/activity/SettingActivity;->access$1800(Lcom/jlboat/phone/activity/SettingActivity;)Landroid/widget/RadioButton;
+	24      (00000066) move-result-object   v0
+	25      (00000068) invoke-virtual       v0, v7, Landroid/widget/RadioButton;->setChecked(Z)V
+	26      (0000006e) goto/16              +14bh
+
+handleMessage-BB@0x72 : [ handleMessage-BB@0x86 handleMessage-BB@0x304 ]
+	27      (00000072) iget-object          v0, v10, Lcom/jlboat/phone/activity/SettingActivity$11;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	28      (00000076) invoke-static        v0, Lcom/jlboat/phone/activity/SettingActivity;->access$500(Lcom/jlboat/phone/activity/SettingActivity;)J
+	29      (0000007c) move-result-wide     v0
+	30      (0000007e) cmp-long             v2, v0, v5
+	31      (00000082) if-nez               v2, +141h
+
+handleMessage-BB@0x86 : [ handleMessage-BB@0x304 ]
+	32      (00000086) iget-object          v0, v10, Lcom/jlboat/phone/activity/SettingActivity$11;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	33      (0000008a) invoke-static        v0, Lcom/jlboat/phone/activity/SettingActivity;->access$1900(Lcom/jlboat/phone/activity/SettingActivity;)Landroid/widget/RadioButton;
+	34      (00000090) move-result-object   v0
+	35      (00000092) invoke-virtual       v0, v7, Landroid/widget/RadioButton;->setChecked(Z)V
+	36      (00000098) goto/16              +136h
+
+handleMessage-BB@0x9c : [ handleMessage-BB@0xe6 handleMessage-BB@0xfc ]
+	37      (0000009c) iget-object          v0, v10, Lcom/jlboat/phone/activity/SettingActivity$11;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	38      (000000a0) invoke-static        v0, Lcom/jlboat/phone/activity/SettingActivity;->access$2100(Lcom/jlboat/phone/activity/SettingActivity;)Landroid/widget/RadioButton;
+	39      (000000a6) move-result-object   v0
+	40      (000000a8) invoke-virtual       v0, v8, Landroid/widget/RadioButton;->setChecked(Z)V
+	41      (000000ae) iget-object          v0, v10, Lcom/jlboat/phone/activity/SettingActivity$11;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	42      (000000b2) invoke-static        v0, Lcom/jlboat/phone/activity/SettingActivity;->access$2400(Lcom/jlboat/phone/activity/SettingActivity;)Landroid/widget/RadioButton;
+	43      (000000b8) move-result-object   v0
+	44      (000000ba) invoke-virtual       v0, v8, Landroid/widget/RadioButton;->setChecked(Z)V
+	45      (000000c0) iget-object          v0, v10, Lcom/jlboat/phone/activity/SettingActivity$11;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	46      (000000c4) invoke-static        v0, Lcom/jlboat/phone/activity/SettingActivity;->access$2200(Lcom/jlboat/phone/activity/SettingActivity;)Landroid/widget/RadioButton;
+	47      (000000ca) move-result-object   v0
+	48      (000000cc) invoke-virtual       v0, v8, Landroid/widget/RadioButton;->setChecked(Z)V
+	49      (000000d2) iget-object          v0, v10, Lcom/jlboat/phone/activity/SettingActivity$11;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	50      (000000d6) invoke-static        v0, Lcom/jlboat/phone/activity/SettingActivity;->access$600(Lcom/jlboat/phone/activity/SettingActivity;)J
+	51      (000000dc) move-result-wide     v8
+	52      (000000de) cmp-long             v0, v8, v3
+	53      (000000e2) if-nez               v0, +00dh
+
+handleMessage-BB@0xe6 : [ handleMessage-BB@0x304 ]
+	54      (000000e6) iget-object          v0, v10, Lcom/jlboat/phone/activity/SettingActivity$11;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	55      (000000ea) invoke-static        v0, Lcom/jlboat/phone/activity/SettingActivity;->access$2100(Lcom/jlboat/phone/activity/SettingActivity;)Landroid/widget/RadioButton;
+	56      (000000f0) move-result-object   v0
+	57      (000000f2) invoke-virtual       v0, v7, Landroid/widget/RadioButton;->setChecked(Z)V
+	58      (000000f8) goto/16              +106h
+
+handleMessage-BB@0xfc : [ handleMessage-BB@0x110 handleMessage-BB@0x126 ]
+	59      (000000fc) iget-object          v0, v10, Lcom/jlboat/phone/activity/SettingActivity$11;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	60      (00000100) invoke-static        v0, Lcom/jlboat/phone/activity/SettingActivity;->access$600(Lcom/jlboat/phone/activity/SettingActivity;)J
+	61      (00000106) move-result-wide     v3
+	62      (00000108) cmp-long             v0, v3, v5
+	63      (0000010c) if-nez               v0, +00dh
+
+handleMessage-BB@0x110 : [ handleMessage-BB@0x304 ]
+	64      (00000110) iget-object          v0, v10, Lcom/jlboat/phone/activity/SettingActivity$11;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	65      (00000114) invoke-static        v0, Lcom/jlboat/phone/activity/SettingActivity;->access$2400(Lcom/jlboat/phone/activity/SettingActivity;)Landroid/widget/RadioButton;
+	66      (0000011a) move-result-object   v0
+	67      (0000011c) invoke-virtual       v0, v7, Landroid/widget/RadioButton;->setChecked(Z)V
+	68      (00000122) goto/16              +0f1h
+
+handleMessage-BB@0x126 : [ handleMessage-BB@0x13a handleMessage-BB@0x304 ]
+	69      (00000126) iget-object          v0, v10, Lcom/jlboat/phone/activity/SettingActivity$11;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	70      (0000012a) invoke-static        v0, Lcom/jlboat/phone/activity/SettingActivity;->access$600(Lcom/jlboat/phone/activity/SettingActivity;)J
+	71      (00000130) move-result-wide     v3
+	72      (00000132) cmp-long             v0, v3, v1
+	73      (00000136) if-nez               v0, +0e7h
+
+handleMessage-BB@0x13a : [ handleMessage-BB@0x304 ]
+	74      (0000013a) iget-object          v0, v10, Lcom/jlboat/phone/activity/SettingActivity$11;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	75      (0000013e) invoke-static        v0, Lcom/jlboat/phone/activity/SettingActivity;->access$2200(Lcom/jlboat/phone/activity/SettingActivity;)Landroid/widget/RadioButton;
+	76      (00000144) move-result-object   v0
+	77      (00000146) invoke-virtual       v0, v7, Landroid/widget/RadioButton;->setChecked(Z)V
+	78      (0000014c) goto/16              +0dch
+
+handleMessage-BB@0x150 : [ handleMessage-BB@0x1d4 handleMessage-BB@0x1e8 ]
+	79      (00000150) iget-object          v0, v10, Lcom/jlboat/phone/activity/SettingActivity$11;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	80      (00000154) invoke-static        v0, Lcom/jlboat/phone/activity/SettingActivity;->access$1100(Lcom/jlboat/phone/activity/SettingActivity;)Landroid/widget/RadioButton;
+	81      (0000015a) move-result-object   v0
+	82      (0000015c) invoke-virtual       v0, v8, Landroid/widget/RadioButton;->setChecked(Z)V
+	83      (00000162) iget-object          v0, v10, Lcom/jlboat/phone/activity/SettingActivity$11;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	84      (00000166) invoke-static        v0, Lcom/jlboat/phone/activity/SettingActivity;->access$1200(Lcom/jlboat/phone/activity/SettingActivity;)Landroid/widget/RadioButton;
+	85      (0000016c) move-result-object   v0
+	86      (0000016e) invoke-virtual       v0, v8, Landroid/widget/RadioButton;->setChecked(Z)V
+	87      (00000174) iget-object          v0, v10, Lcom/jlboat/phone/activity/SettingActivity$11;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	88      (00000178) invoke-static        v0, Lcom/jlboat/phone/activity/SettingActivity;->access$1300(Lcom/jlboat/phone/activity/SettingActivity;)Landroid/widget/RadioButton;
+	89      (0000017e) move-result-object   v0
+	90      (00000180) invoke-virtual       v0, v8, Landroid/widget/RadioButton;->setChecked(Z)V
+	91      (00000186) iget-object          v0, v10, Lcom/jlboat/phone/activity/SettingActivity$11;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	92      (0000018a) invoke-static        v0, Lcom/jlboat/phone/activity/SettingActivity;->access$1400(Lcom/jlboat/phone/activity/SettingActivity;)Landroid/widget/RadioButton;
+	93      (00000190) move-result-object   v0
+	94      (00000192) invoke-virtual       v0, v8, Landroid/widget/RadioButton;->setChecked(Z)V
+	95      (00000198) iget-object          v0, v10, Lcom/jlboat/phone/activity/SettingActivity$11;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	96      (0000019c) invoke-static        v0, Lcom/jlboat/phone/activity/SettingActivity;->access$1500(Lcom/jlboat/phone/activity/SettingActivity;)Landroid/widget/RadioButton;
+	97      (000001a2) move-result-object   v0
+	98      (000001a4) invoke-virtual       v0, v8, Landroid/widget/RadioButton;->setChecked(Z)V
+	99      (000001aa) iget-object          v0, v10, Lcom/jlboat/phone/activity/SettingActivity$11;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	100     (000001ae) invoke-static        v0, Lcom/jlboat/phone/activity/SettingActivity;->access$1600(Lcom/jlboat/phone/activity/SettingActivity;)Landroid/widget/RadioButton;
+	101     (000001b4) move-result-object   v0
+	102     (000001b6) invoke-virtual       v0, v8, Landroid/widget/RadioButton;->setChecked(Z)V
+	103     (000001bc) iget-object          v0, v10, Lcom/jlboat/phone/activity/SettingActivity$11;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	104     (000001c0) invoke-static        v0, Lcom/jlboat/phone/activity/SettingActivity;->access$300(Lcom/jlboat/phone/activity/SettingActivity;)J
+	105     (000001c6) move-result-wide     v3
+	106     (000001c8) const-wide/16        v8, 4
+	107     (000001cc) cmp-long             v0, v3, v8
+	108     (000001d0) if-nez               v0, +00ch
+
+handleMessage-BB@0x1d4 : [ handleMessage-BB@0x23e ]
+	109     (000001d4) iget-object          v0, v10, Lcom/jlboat/phone/activity/SettingActivity$11;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	110     (000001d8) invoke-static        v0, Lcom/jlboat/phone/activity/SettingActivity;->access$1400(Lcom/jlboat/phone/activity/SettingActivity;)Landroid/widget/RadioButton;
+	111     (000001de) move-result-object   v0
+	112     (000001e0) invoke-virtual       v0, v7, Landroid/widget/RadioButton;->setChecked(Z)V
+	113     (000001e6) goto                 +2ch
+
+handleMessage-BB@0x1e8 : [ handleMessage-BB@0x200 handleMessage-BB@0x214 ]
+	114     (000001e8) iget-object          v0, v10, Lcom/jlboat/phone/activity/SettingActivity$11;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	115     (000001ec) invoke-static        v0, Lcom/jlboat/phone/activity/SettingActivity;->access$300(Lcom/jlboat/phone/activity/SettingActivity;)J
+	116     (000001f2) move-result-wide     v3
+	117     (000001f4) const-wide/16        v8, 5
+	118     (000001f8) cmp-long             v0, v3, v8
+	119     (000001fc) if-nez               v0, +00ch
+
+handleMessage-BB@0x200 : [ handleMessage-BB@0x23e ]
+	120     (00000200) iget-object          v0, v10, Lcom/jlboat/phone/activity/SettingActivity$11;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	121     (00000204) invoke-static        v0, Lcom/jlboat/phone/activity/SettingActivity;->access$1500(Lcom/jlboat/phone/activity/SettingActivity;)Landroid/widget/RadioButton;
+	122     (0000020a) move-result-object   v0
+	123     (0000020c) invoke-virtual       v0, v7, Landroid/widget/RadioButton;->setChecked(Z)V
+	124     (00000212) goto                 +16h
+
+handleMessage-BB@0x214 : [ handleMessage-BB@0x22c handleMessage-BB@0x23e ]
+	125     (00000214) iget-object          v0, v10, Lcom/jlboat/phone/activity/SettingActivity$11;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	126     (00000218) invoke-static        v0, Lcom/jlboat/phone/activity/SettingActivity;->access$300(Lcom/jlboat/phone/activity/SettingActivity;)J
+	127     (0000021e) move-result-wide     v3
+	128     (00000220) const-wide/16        v8, 6
+	129     (00000224) cmp-long             v0, v3, v8
+	130     (00000228) if-nez               v0, +00bh
+
+handleMessage-BB@0x22c : [ handleMessage-BB@0x23e ]
+	131     (0000022c) iget-object          v0, v10, Lcom/jlboat/phone/activity/SettingActivity$11;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	132     (00000230) invoke-static        v0, Lcom/jlboat/phone/activity/SettingActivity;->access$1600(Lcom/jlboat/phone/activity/SettingActivity;)Landroid/widget/RadioButton;
+	133     (00000236) move-result-object   v0
+	134     (00000238) invoke-virtual       v0, v7, Landroid/widget/RadioButton;->setChecked(Z)V
+
+handleMessage-BB@0x23e : [ handleMessage-BB@0x252 handleMessage-BB@0x266 ]
+	135     (0000023e) iget-object          v0, v10, Lcom/jlboat/phone/activity/SettingActivity$11;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	136     (00000242) invoke-static        v0, Lcom/jlboat/phone/activity/SettingActivity;->access$300(Lcom/jlboat/phone/activity/SettingActivity;)J
+	137     (00000248) move-result-wide     v3
+	138     (0000024a) cmp-long             v0, v3, v5
+	139     (0000024e) if-nez               v0, +00ch
+
+handleMessage-BB@0x252 : [ handleMessage-BB@0x304 ]
+	140     (00000252) iget-object          v0, v10, Lcom/jlboat/phone/activity/SettingActivity$11;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	141     (00000256) invoke-static        v0, Lcom/jlboat/phone/activity/SettingActivity;->access$1100(Lcom/jlboat/phone/activity/SettingActivity;)Landroid/widget/RadioButton;
+	142     (0000025c) move-result-object   v0
+	143     (0000025e) invoke-virtual       v0, v7, Landroid/widget/RadioButton;->setChecked(Z)V
+	144     (00000264) goto                 +50h
+
+handleMessage-BB@0x266 : [ handleMessage-BB@0x27a handleMessage-BB@0x28e ]
+	145     (00000266) iget-object          v0, v10, Lcom/jlboat/phone/activity/SettingActivity$11;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	146     (0000026a) invoke-static        v0, Lcom/jlboat/phone/activity/SettingActivity;->access$300(Lcom/jlboat/phone/activity/SettingActivity;)J
+	147     (00000270) move-result-wide     v3
+	148     (00000272) cmp-long             v0, v3, v1
+	149     (00000276) if-nez               v0, +00ch
+
+handleMessage-BB@0x27a : [ handleMessage-BB@0x304 ]
+	150     (0000027a) iget-object          v0, v10, Lcom/jlboat/phone/activity/SettingActivity$11;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	151     (0000027e) invoke-static        v0, Lcom/jlboat/phone/activity/SettingActivity;->access$1200(Lcom/jlboat/phone/activity/SettingActivity;)Landroid/widget/RadioButton;
+	152     (00000284) move-result-object   v0
+	153     (00000286) invoke-virtual       v0, v7, Landroid/widget/RadioButton;->setChecked(Z)V
+	154     (0000028c) goto                 +3ch
+
+handleMessage-BB@0x28e : [ handleMessage-BB@0x2a6 handleMessage-BB@0x304 ]
+	155     (0000028e) iget-object          v0, v10, Lcom/jlboat/phone/activity/SettingActivity$11;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	156     (00000292) invoke-static        v0, Lcom/jlboat/phone/activity/SettingActivity;->access$300(Lcom/jlboat/phone/activity/SettingActivity;)J
+	157     (00000298) move-result-wide     v0
+	158     (0000029a) const-wide/16        v2, 3
+	159     (0000029e) cmp-long             v4, v0, v2
+	160     (000002a2) if-nez               v4, +031h
+
+handleMessage-BB@0x2a6 : [ handleMessage-BB@0x304 ]
+	161     (000002a6) iget-object          v0, v10, Lcom/jlboat/phone/activity/SettingActivity$11;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	162     (000002aa) invoke-static        v0, Lcom/jlboat/phone/activity/SettingActivity;->access$1300(Lcom/jlboat/phone/activity/SettingActivity;)Landroid/widget/RadioButton;
+	163     (000002b0) move-result-object   v0
+	164     (000002b2) invoke-virtual       v0, v7, Landroid/widget/RadioButton;->setChecked(Z)V
+	165     (000002b8) goto                 +26h
+
+handleMessage-BB@0x2ba : [ handleMessage-BB@0x2c6 handleMessage-BB@0x304 ]
+	166     (000002ba) iget-object          v0, v11, Landroid/os/Message;->obj Ljava/lang/Object;
+	167     (000002be) instance-of          v0, v0, [Ljava/lang/Object;
+	168     (000002c2) if-eqz               v0, +021h
+
+handleMessage-BB@0x2c6 : [ handleMessage-BB@0x2da handleMessage-BB@0x300 ]
+	169     (000002c6) iget-object          v0, v11, Landroid/os/Message;->obj Ljava/lang/Object;
+	170     (000002ca) check-cast           v0, [Ljava/lang/Object;
+	171     (000002ce) aget-object          v1, v0, v8
+	172     (000002d2) instance-of          v1, v1, Ljava/lang/CharSequence;
+	173     (000002d6) if-eqz               v1, +015h
+
+handleMessage-BB@0x2da : [ handleMessage-BB@0x2e6 handleMessage-BB@0x300 ]
+	174     (000002da) aget-object          v1, v0, v7
+	175     (000002de) instance-of          v1, v1, Ljava/lang/CharSequence;
+	176     (000002e2) if-eqz               v1, +00fh
+
+handleMessage-BB@0x2e6 : [ handleMessage-BB@0x300 ]
+	177     (000002e6) iget-object          v1, v10, Lcom/jlboat/phone/activity/SettingActivity$11;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	178     (000002ea) aget-object          v2, v0, v8
+	179     (000002ee) check-cast           v2, Ljava/lang/CharSequence;
+	180     (000002f2) aget-object          v3, v0, v7
+	181     (000002f6) check-cast           v3, Ljava/lang/CharSequence;
+	182     (000002fa) invoke-static        v1, v2, v3, Lcom/jlboat/phone/activity/SettingActivity;->access$2500(Lcom/jlboat/phone/activity/SettingActivity; Ljava/lang/CharSequence; Ljava/lang/CharSequence;)V
+
+handleMessage-BB@0x300 : [ handleMessage-BB@0x304 ]
+	183     (00000300) goto                 +2h
+
+handleMessage-BB@0x302 : [ handleMessage-BB@0x304 ]
+	184     (00000302) nop                  
+
+handleMessage-BB@0x304 : 
+	185     (00000304) return-void          
+
+handleMessage-BB@0x306 : 
+	186     (00000306) nop                  
+	187     (00000308) packed-switch-payload 0 1 2 3 4 5 6
+

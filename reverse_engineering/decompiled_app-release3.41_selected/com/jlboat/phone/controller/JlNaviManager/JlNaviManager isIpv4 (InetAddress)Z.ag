@@ -1,0 +1,25 @@
+# Lcom/jlboat/phone/controller/JlNaviManager;->isIpv4(Ljava/net/InetAddress;)Z [access_flags=private static]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:java.net.InetAddress
+#
+# - return:boolean
+
+isIpv4-BB@0x0 : [ isIpv4-BB@0x10 isIpv4-BB@0x14 ]
+	0       (00000000) invoke-virtual       v2, Ljava/net/InetAddress;->getAddress()[B
+	1       (00000006) move-result-object   v0
+	2       (00000008) array-length         v0, v0
+	3       (0000000a) const/4              v1, 4
+	4       (0000000c) if-ne                v0, v1, +004h
+
+isIpv4-BB@0x10 : [ isIpv4-BB@0x16 ]
+	5       (00000010) const/4              v0, 1
+	6       (00000012) goto                 +2h
+
+isIpv4-BB@0x14 : [ isIpv4-BB@0x16 ]
+	7       (00000014) const/4              v0, 0
+
+isIpv4-BB@0x16 : 
+	8       (00000016) return               v0
+

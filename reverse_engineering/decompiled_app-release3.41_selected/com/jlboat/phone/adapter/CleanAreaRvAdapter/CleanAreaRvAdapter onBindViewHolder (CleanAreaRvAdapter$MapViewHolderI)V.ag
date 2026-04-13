@@ -1,0 +1,47 @@
+# Lcom/jlboat/phone/adapter/CleanAreaRvAdapter;->onBindViewHolder(Lcom/jlboat/phone/adapter/CleanAreaRvAdapter$MapViewHolder; I)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v5
+# - v6:com.jlboat.phone.adapter.CleanAreaRvAdapter$MapViewHolder
+# - v7:int
+#
+# - return:void
+
+onBindViewHolder-BB@0x0 : [ onBindViewHolder-BB@0x34 onBindViewHolder-BB@0x42 ]
+	0       (00000000) iget-object          v0, v5, Lcom/jlboat/phone/adapter/CleanAreaRvAdapter;->cleanAreas Ljava/util/List;
+	1       (00000004) invoke-interface     v0, v7, Ljava/util/List;->get(I)Ljava/lang/Object;
+	2       (0000000a) move-result-object   v0
+	3       (0000000c) check-cast           v0, Lcom/boat/support/slam/entity/floors/CleanArea;
+	4       (00000010) invoke-virtual       v0, Lcom/boat/support/slam/entity/floors/CleanArea;->getCleanAreaId()J
+	5       (00000016) move-result-wide     v0
+	6       (00000018) iget-object          v2, v5, Lcom/jlboat/phone/adapter/CleanAreaRvAdapter;->cleanAreas Ljava/util/List;
+	7       (0000001c) invoke-interface     v2, v7, Ljava/util/List;->get(I)Ljava/lang/Object;
+	8       (00000022) move-result-object   v2
+	9       (00000024) check-cast           v2, Lcom/boat/support/slam/entity/floors/CleanArea;
+	10      (00000028) invoke-virtual       v2, Lcom/boat/support/slam/entity/floors/CleanArea;->getCleanAreaName()Ljava/lang/String;
+	11      (0000002e) move-result-object   v2
+	12      (00000030) if-eqz               v2, +009h
+
+onBindViewHolder-BB@0x34 : [ onBindViewHolder-BB@0x42 ]
+	13      (00000034) invoke-static        v6, Lcom/jlboat/phone/adapter/CleanAreaRvAdapter$MapViewHolder;->access$000(Lcom/jlboat/phone/adapter/CleanAreaRvAdapter$MapViewHolder;)Landroid/widget/TextView;
+	14      (0000003a) move-result-object   v3
+	15      (0000003c) invoke-virtual       v3, v2, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+onBindViewHolder-BB@0x42 : 
+	16      (00000042) invoke-static        v6, Lcom/jlboat/phone/adapter/CleanAreaRvAdapter$MapViewHolder;->access$200(Lcom/jlboat/phone/adapter/CleanAreaRvAdapter$MapViewHolder;)Landroid/widget/LinearLayout;
+	17      (00000048) move-result-object   v3
+	18      (0000004a) new-instance         v4, Lcom/jlboat/phone/adapter/CleanAreaRvAdapter$1;
+	19      (0000004e) invoke-direct        v4, v5, v0, v1, v2, Lcom/jlboat/phone/adapter/CleanAreaRvAdapter$1;-><init>(Lcom/jlboat/phone/adapter/CleanAreaRvAdapter; J Ljava/lang/String;)V
+	20      (00000054) invoke-virtual       v3, v4, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	21      (0000005a) invoke-static        v6, Lcom/jlboat/phone/adapter/CleanAreaRvAdapter$MapViewHolder;->access$400(Lcom/jlboat/phone/adapter/CleanAreaRvAdapter$MapViewHolder;)Landroid/widget/CheckBox;
+	22      (00000060) move-result-object   v3
+	23      (00000062) new-instance         v4, Lcom/jlboat/phone/adapter/CleanAreaRvAdapter$2;
+	24      (00000066) invoke-direct        v4, v5, v0, v1, Lcom/jlboat/phone/adapter/CleanAreaRvAdapter$2;-><init>(Lcom/jlboat/phone/adapter/CleanAreaRvAdapter; J)V
+	25      (0000006c) invoke-virtual       v3, v4, Landroid/widget/CheckBox;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+	26      (00000072) invoke-static        v6, Lcom/jlboat/phone/adapter/CleanAreaRvAdapter$MapViewHolder;->access$200(Lcom/jlboat/phone/adapter/CleanAreaRvAdapter$MapViewHolder;)Landroid/widget/LinearLayout;
+	27      (00000078) move-result-object   v3
+	28      (0000007a) new-instance         v4, Lcom/jlboat/phone/adapter/CleanAreaRvAdapter$3;
+	29      (0000007e) invoke-direct        v4, v5, v0, v1, v2, Lcom/jlboat/phone/adapter/CleanAreaRvAdapter$3;-><init>(Lcom/jlboat/phone/adapter/CleanAreaRvAdapter; J Ljava/lang/String;)V
+	30      (00000084) invoke-virtual       v3, v4, Landroid/widget/LinearLayout;->setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
+	31      (0000008a) return-void          
+

@@ -1,0 +1,205 @@
+# Lcom/jlboat/phone/LoginActivity;->checkLogin()V [access_flags=private]
+#
+# Parameters:
+# local registers: v0...v4
+#
+# - return:void
+
+checkLogin-BB@0x0 : [ checkLogin-BB@0x8 checkLogin-BB@0x20c ]
+	0       (00000000) iget-boolean         v0, v4, Lcom/jlboat/phone/LoginActivity;->diyIp Z
+	1       (00000004) if-eqz               v0, +104h
+
+checkLogin-BB@0x8 : [ checkLogin-BB@0x20c ]
+	2       (00000008) iget-object          v0, v4, Lcom/jlboat/phone/LoginActivity;->et_route Landroid/widget/EditText;
+	3       (0000000c) invoke-virtual       v0, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+	4       (00000012) move-result-object   v0
+	5       (00000014) invoke-virtual       v0, Ljava/lang/Object;->toString()Ljava/lang/String;
+	6       (0000001a) move-result-object   v0
+	7       (0000001c) sput-object          v0, Lcom/jlboat/phone/application/BoatSlamApplication;->route_ip Ljava/lang/String;
+	8       (00000020) iget-object          v0, v4, Lcom/jlboat/phone/LoginActivity;->et_end_ip Landroid/widget/EditText;
+	9       (00000024) invoke-virtual       v0, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+	10      (0000002a) move-result-object   v0
+	11      (0000002c) invoke-virtual       v0, Ljava/lang/Object;->toString()Ljava/lang/String;
+	12      (00000032) move-result-object   v0
+	13      (00000034) sput-object          v0, Lcom/jlboat/phone/application/BoatSlamApplication;->end_ip Ljava/lang/String;
+	14      (00000038) new-instance         v0, Ljava/lang/StringBuilder;
+	15      (0000003c) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	16      (00000042) sget-object          v1, Lcom/jlboat/phone/application/BoatSlamApplication;->route_ip Ljava/lang/String;
+	17      (00000046) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	18      (0000004c) move-result-object   v0
+	19      (0000004e) sget-object          v1, Lcom/jlboat/phone/application/BoatSlamApplication;->end_ip Ljava/lang/String;
+	20      (00000052) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	21      (00000058) move-result-object   v0
+	22      (0000005a) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	23      (00000060) move-result-object   v0
+	24      (00000062) sput-object          v0, Lcom/jlboat/phone/application/BoatSlamApplication;->ros_ip Ljava/lang/String;
+	25      (00000066) new-instance         v0, Ljava/lang/StringBuilder;
+	26      (0000006a) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	27      (00000070) const-string         v1, "ws://"
+	28      (00000074) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	29      (0000007a) move-result-object   v0
+	30      (0000007c) sget-object          v1, Lcom/jlboat/phone/application/BoatSlamApplication;->ros_ip Ljava/lang/String;
+	31      (00000080) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	32      (00000086) move-result-object   v0
+	33      (00000088) const-string         v1, ":9090/"
+	34      (0000008c) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	35      (00000092) move-result-object   v0
+	36      (00000094) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	37      (0000009a) move-result-object   v0
+	38      (0000009c) sput-object          v0, Lcom/jlboat/phone/application/BoatSlamApplication;->wsros_uri Ljava/lang/String;
+	39      (000000a0) new-instance         v0, Ljava/lang/StringBuilder;
+	40      (000000a4) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	41      (000000aa) const-string         v1, "http://"
+	42      (000000ae) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	43      (000000b4) move-result-object   v0
+	44      (000000b6) sget-object          v2, Lcom/jlboat/phone/application/BoatSlamApplication;->ros_ip Ljava/lang/String;
+	45      (000000ba) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	46      (000000c0) move-result-object   v0
+	47      (000000c2) const-string         v2, ":5000/"
+	48      (000000c6) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	49      (000000cc) move-result-object   v0
+	50      (000000ce) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	51      (000000d4) move-result-object   v0
+	52      (000000d6) sput-object          v0, Lcom/jlboat/phone/application/BoatSlamApplication;->ros_url Ljava/lang/String;
+	53      (000000da) new-instance         v0, Ljava/lang/StringBuilder;
+	54      (000000de) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	55      (000000e4) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	56      (000000ea) move-result-object   v0
+	57      (000000ec) sget-object          v2, Lcom/jlboat/phone/application/BoatSlamApplication;->ros_ip Ljava/lang/String;
+	58      (000000f0) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	59      (000000f6) move-result-object   v0
+	60      (000000f8) const-string         v2, ":11311/"
+	61      (000000fc) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	62      (00000102) move-result-object   v0
+	63      (00000104) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	64      (0000010a) move-result-object   v0
+	65      (0000010c) sput-object          v0, Lcom/jlboat/phone/application/BoatSlamApplication;->ros_uri Ljava/lang/String;
+	66      (00000110) new-instance         v0, Ljava/lang/StringBuilder;
+	67      (00000114) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	68      (0000011a) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	69      (00000120) move-result-object   v0
+	70      (00000122) sget-object          v1, Lcom/jlboat/phone/application/BoatSlamApplication;->ros_ip Ljava/lang/String;
+	71      (00000126) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	72      (0000012c) move-result-object   v0
+	73      (0000012e) const-string         v1, ":9999/"
+	74      (00000132) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	75      (00000138) move-result-object   v0
+	76      (0000013a) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	77      (00000140) move-result-object   v0
+	78      (00000142) sput-object          v0, Lcom/jlboat/phone/application/BoatSlamApplication;->download_uri Ljava/lang/String;
+	79      (00000146) new-instance         v0, Ljava/lang/StringBuilder;
+	80      (0000014a) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	81      (00000150) sget-object          v1, Lcom/jlboat/phone/application/BoatSlamApplication;->ros_url Ljava/lang/String;
+	82      (00000154) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	83      (0000015a) move-result-object   v0
+	84      (0000015c) const-string         v1, "spirit/api/get_map_img"
+	85      (00000160) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	86      (00000166) move-result-object   v0
+	87      (00000168) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	88      (0000016e) move-result-object   v0
+	89      (00000170) sput-object          v0, Lcom/jlboat/phone/application/BoatSlamApplication;->mapApiGetMap Ljava/lang/String;
+	90      (00000174) new-instance         v0, Ljava/lang/StringBuilder;
+	91      (00000178) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	92      (0000017e) sget-object          v1, Lcom/jlboat/phone/application/BoatSlamApplication;->ros_url Ljava/lang/String;
+	93      (00000182) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	94      (00000188) move-result-object   v0
+	95      (0000018a) const-string         v1, "spirit/api/get_scan_img"
+	96      (0000018e) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	97      (00000194) move-result-object   v0
+	98      (00000196) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	99      (0000019c) move-result-object   v0
+	100     (0000019e) sput-object          v0, Lcom/jlboat/phone/application/BoatSlamApplication;->mapApiGetScan Ljava/lang/String;
+	101     (000001a2) new-instance         v0, Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;
+	102     (000001a6) sget-object          v1, Lcom/jlboat/phone/application/BoatSlamApplication;->wsros_uri Ljava/lang/String;
+	103     (000001aa) invoke-direct        v0, v1, Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;-><init>(Ljava/lang/String;)V
+	104     (000001b0) sput-object          v0, Lcom/jlboat/phone/application/BoatSlamApplication;->client Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;
+	105     (000001b4) const-string         v0, "user_mes"
+	106     (000001b8) const/4              v1, 0
+	107     (000001ba) invoke-virtual       v4, v0, v1, Lcom/jlboat/phone/LoginActivity;->getSharedPreferences(Ljava/lang/String; I)Landroid/content/SharedPreferences;
+	108     (000001c0) move-result-object   v0
+	109     (000001c2) invoke-interface     v0, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+	110     (000001c8) move-result-object   v1
+	111     (000001ca) iget-object          v2, v4, Lcom/jlboat/phone/LoginActivity;->et_route Landroid/widget/EditText;
+	112     (000001ce) invoke-virtual       v2, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+	113     (000001d4) move-result-object   v2
+	114     (000001d6) invoke-virtual       v2, Ljava/lang/Object;->toString()Ljava/lang/String;
+	115     (000001dc) move-result-object   v2
+	116     (000001de) const-string         v3, "route_ip"
+	117     (000001e2) invoke-interface     v1, v3, v2, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String; Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
+	118     (000001e8) iget-object          v2, v4, Lcom/jlboat/phone/LoginActivity;->et_end_ip Landroid/widget/EditText;
+	119     (000001ec) invoke-virtual       v2, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+	120     (000001f2) move-result-object   v2
+	121     (000001f4) invoke-virtual       v2, Ljava/lang/Object;->toString()Ljava/lang/String;
+	122     (000001fa) move-result-object   v2
+	123     (000001fc) const-string         v3, "end_ip"
+	124     (00000200) invoke-interface     v1, v3, v2, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String; Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
+	125     (00000206) invoke-interface     v1, Landroid/content/SharedPreferences$Editor;->commit()Z
+
+checkLogin-BB@0x20c : [ checkLogin-BB@0x2c0 checkLogin-BB@0x2ec ]
+	126     (0000020c) new-instance         v0, Ljava/lang/StringBuilder;
+	127     (00000210) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	128     (00000216) const-string         v1, "login: route_ip: "
+	129     (0000021a) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	130     (00000220) move-result-object   v0
+	131     (00000222) sget-object          v1, Lcom/jlboat/phone/application/BoatSlamApplication;->route_ip Ljava/lang/String;
+	132     (00000226) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	133     (0000022c) move-result-object   v0
+	134     (0000022e) const-string         v1, " , end_ip: "
+	135     (00000232) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	136     (00000238) move-result-object   v0
+	137     (0000023a) sget-object          v1, Lcom/jlboat/phone/application/BoatSlamApplication;->end_ip Ljava/lang/String;
+	138     (0000023e) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	139     (00000244) move-result-object   v0
+	140     (00000246) const-string         v1, " , ros_ip: "
+	141     (0000024a) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	142     (00000250) move-result-object   v0
+	143     (00000252) sget-object          v1, Lcom/jlboat/phone/application/BoatSlamApplication;->ros_ip Ljava/lang/String;
+	144     (00000256) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	145     (0000025c) move-result-object   v0
+	146     (0000025e) const-string         v1, " , ros_url: "
+	147     (00000262) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	148     (00000268) move-result-object   v0
+	149     (0000026a) sget-object          v1, Lcom/jlboat/phone/application/BoatSlamApplication;->ros_url Ljava/lang/String;
+	150     (0000026e) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	151     (00000274) move-result-object   v0
+	152     (00000276) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	153     (0000027c) move-result-object   v0
+	154     (0000027e) const-string         v1, "LoginActivity"
+	155     (00000282) invoke-static        v1, v0, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	156     (00000288) invoke-static        Lcom/jlboat/phone/util/Utils;->hasRosWifi()Z
+	157     (0000028e) move-result          v0
+	158     (00000290) new-instance         v2, Ljava/lang/StringBuilder;
+	159     (00000294) invoke-direct        v2, Ljava/lang/StringBuilder;-><init>()V
+	160     (0000029a) const-string         v3, "checkLogin: 是否检查到ros网络 "
+	161     (0000029e) invoke-virtual       v2, v3, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	162     (000002a4) move-result-object   v2
+	163     (000002a6) invoke-virtual       v2, v0, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+	164     (000002ac) move-result-object   v2
+	165     (000002ae) invoke-virtual       v2, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	166     (000002b4) move-result-object   v2
+	167     (000002b6) invoke-static        v1, v2, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	168     (000002bc) if-nez               v0, +018h
+
+checkLogin-BB@0x2c0 : [ checkLogin-BB@0x2c8 checkLogin-BB@0x2ca ]
+	169     (000002c0) iget-boolean         v1, v4, Lcom/jlboat/phone/LoginActivity;->diyIp Z
+	170     (000002c4) if-eqz               v1, +003h
+
+checkLogin-BB@0x2c8 : [ checkLogin-BB@0x2ec ]
+	171     (000002c8) goto                 +12h
+
+checkLogin-BB@0x2ca : [ checkLogin-BB@0x2f4 ]
+	172     (000002ca) const                v1, 2131493308
+	173     (000002d0) invoke-virtual       v4, v1, Lcom/jlboat/phone/LoginActivity;->toast(I)V
+	174     (000002d6) new-instance         v1, Landroid/content/Intent;
+	175     (000002da) const-string         v2, "android.settings.WIFI_SETTINGS"
+	176     (000002de) invoke-direct        v1, v2, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+	177     (000002e4) invoke-virtual       v4, v1, Lcom/jlboat/phone/LoginActivity;->startActivity(Landroid/content/Intent;)V
+	178     (000002ea) goto                 +5h
+
+checkLogin-BB@0x2ec : [ checkLogin-BB@0x2f4 ]
+	179     (000002ec) const/4              v1, 1
+	180     (000002ee) invoke-virtual       v4, v1, Lcom/jlboat/phone/LoginActivity;->setNetWorkManager1(Z)V
+
+checkLogin-BB@0x2f4 : 
+	181     (000002f4) return-void          
+

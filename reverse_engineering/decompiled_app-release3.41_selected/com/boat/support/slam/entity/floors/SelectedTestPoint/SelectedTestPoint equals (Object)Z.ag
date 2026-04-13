@@ -1,0 +1,41 @@
+# Lcom/boat/support/slam/entity/floors/SelectedTestPoint;->equals(Ljava/lang/Object;)Z [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:java.lang.Object
+#
+# - return:boolean
+
+equals-BB@0x0 : [ equals-BB@0x4 equals-BB@0x8 ]
+	0       (00000000) if-ne                v3, v4, +004h
+
+equals-BB@0x4 : 
+	1       (00000004) const/4              v0, 1
+	2       (00000006) return               v0
+
+equals-BB@0x8 : [ equals-BB@0xc equals-BB@0x3a ]
+	3       (00000008) if-eqz               v4, +019h
+
+equals-BB@0xc : [ equals-BB@0x20 equals-BB@0x22 ]
+	4       (0000000c) invoke-virtual       v3, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+	5       (00000012) move-result-object   v0
+	6       (00000014) invoke-virtual       v4, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+	7       (0000001a) move-result-object   v1
+	8       (0000001c) if-eq                v0, v1, +003h
+
+equals-BB@0x20 : [ equals-BB@0x3a ]
+	9       (00000020) goto                 +dh
+
+equals-BB@0x22 : 
+	10      (00000022) move-object          v0, v4
+	11      (00000024) check-cast           v0, Lcom/boat/support/slam/entity/floors/SelectedTestPoint;
+	12      (00000028) iget-object          v1, v3, Lcom/boat/support/slam/entity/floors/SelectedTestPoint;->point Lcom/boat/support/slam/entity/floors/Points;
+	13      (0000002c) iget-object          v2, v0, Lcom/boat/support/slam/entity/floors/SelectedTestPoint;->point Lcom/boat/support/slam/entity/floors/Points;
+	14      (00000030) invoke-virtual       v1, v2, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+	15      (00000036) move-result          v1
+	16      (00000038) return               v1
+
+equals-BB@0x3a : 
+	17      (0000003a) const/4              v0, 0
+	18      (0000003c) return               v0
+

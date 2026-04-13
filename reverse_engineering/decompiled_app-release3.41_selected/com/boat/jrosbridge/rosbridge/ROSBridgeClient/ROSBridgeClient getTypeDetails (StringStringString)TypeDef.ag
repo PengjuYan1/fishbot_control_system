@@ -1,0 +1,33 @@
+# Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;->getTypeDetails(Ljava/lang/String; Ljava/lang/String; Ljava/lang/String;)Lcom/boat/jrosbridge/message/rosapi/TypeDef; [access_flags=private]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:java.lang.String
+# - v5:java.lang.String
+# - v6:java.lang.String
+#
+# - return:com.boat.jrosbridge.message.rosapi.TypeDef
+
+getTypeDetails-BB@0x0 : 
+	0       (00000000) new-instance         v0, Lcom/boat/jrosbridge/Service;
+	1       (00000004) const-class          v1, Lcom/boat/jrosbridge/message/rosapi/Type;
+	2       (00000008) const-class          v2, Lcom/boat/jrosbridge/message/rosapi/MessageDetails;
+	3       (0000000c) invoke-direct        v0, v6, v1, v2, v3, Lcom/boat/jrosbridge/Service;-><init>(Ljava/lang/String; Ljava/lang/Class; Ljava/lang/Class; Lcom/boat/jrosbridge/ROSClient;)V
+	4       (00000012) new-instance         v1, Ljava/lang/StringBuilder;
+	5       (00000016) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	6       (0000001c) invoke-virtual       v1, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	7       (00000022) move-result-object   v1
+	8       (00000024) invoke-virtual       v1, v5, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	9       (0000002a) move-result-object   v1
+	10      (0000002c) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	11      (00000032) move-result-object   v1
+	12      (00000034) new-instance         v2, Lcom/boat/jrosbridge/message/rosapi/Type;
+	13      (00000038) invoke-direct        v2, v4, Lcom/boat/jrosbridge/message/rosapi/Type;-><init>(Ljava/lang/String;)V
+	14      (0000003e) invoke-virtual       v0, v2, Lcom/boat/jrosbridge/Service;->callBlocking(Lcom/boat/jrosbridge/message/Message;)Lcom/boat/jrosbridge/message/Message;
+	15      (00000044) move-result-object   v2
+	16      (00000046) check-cast           v2, Lcom/boat/jrosbridge/message/rosapi/MessageDetails;
+	17      (0000004a) iget-object          v2, v2, Lcom/boat/jrosbridge/message/rosapi/MessageDetails;->typedefs [Lcom/boat/jrosbridge/message/rosapi/TypeDef;
+	18      (0000004e) invoke-direct        v3, v1, v2, Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;->findType(Ljava/lang/String; [Lcom/boat/jrosbridge/message/rosapi/TypeDef;)Lcom/boat/jrosbridge/message/rosapi/TypeDef;
+	19      (00000054) move-result-object   v1
+	20      (00000056) return-object        v1
+

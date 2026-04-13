@@ -1,0 +1,30 @@
+# Lcom/jlboat/phone/communication/SpiritServiceClient;->renameDiyPath(Lworld_canvas_msgs18/DiyPathEnty; Lcom/boat/jrosbridge/MessageListener;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v5
+# - v6:world_canvas_msgs18.DiyPathEnty
+# - v7:com.boat.jrosbridge.MessageListener
+#
+# - return:void
+
+renameDiyPath-BB@0x0 : 
+	0       (00000000) new-instance         v0, Lcom/boat/jrosbridge/Service;
+	1       (00000004) sget-object          v1, Lcom/jlboat/phone/util/ServiceNames;->RenamePath Ljava/lang/String;
+	2       (00000008) const-class          v2, Lcom/jlboat/phone/message/map_msgs/RenameGlobalplanRequest;
+	3       (0000000c) const-class          v3, Lcom/jlboat/phone/message/map_msgs/SetGlobalPlanResponse;
+	4       (00000010) sget-object          v4, Lcom/jlboat/phone/application/BoatSlamApplication;->client Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;
+	5       (00000014) invoke-direct        v0, v1, v2, v3, v4, Lcom/boat/jrosbridge/Service;-><init>(Ljava/lang/String; Ljava/lang/Class; Ljava/lang/Class; Lcom/boat/jrosbridge/ROSClient;)V
+	6       (0000001a) new-instance         v1, Lcom/jlboat/phone/message/map_msgs/RenameGlobalplanRequest;
+	7       (0000001e) invoke-direct        v1, Lcom/jlboat/phone/message/map_msgs/RenameGlobalplanRequest;-><init>()V
+	8       (00000024) invoke-virtual       v6, Lworld_canvas_msgs18/DiyPathEnty;->getDir()J
+	9       (0000002a) move-result-wide     v2
+	10      (0000002c) invoke-virtual       v1, v2, v3, Lcom/jlboat/phone/message/map_msgs/RenameGlobalplanRequest;->setDir(J)V
+	11      (00000032) invoke-virtual       v6, Lworld_canvas_msgs18/DiyPathEnty;->getGlobalplanName()Ljava/lang/String;
+	12      (00000038) move-result-object   v2
+	13      (0000003a) invoke-virtual       v1, v2, Lcom/jlboat/phone/message/map_msgs/RenameGlobalplanRequest;->setGlobalplanName(Ljava/lang/String;)V
+	14      (00000040) invoke-virtual       v6, Lworld_canvas_msgs18/DiyPathEnty;->getGlobalplanId()J
+	15      (00000046) move-result-wide     v2
+	16      (00000048) invoke-virtual       v1, v2, v3, Lcom/jlboat/phone/message/map_msgs/RenameGlobalplanRequest;->setGlobalplanId(J)V
+	17      (0000004e) invoke-virtual       v0, v1, v7, Lcom/boat/jrosbridge/Service;->callWithHandler(Lcom/boat/jrosbridge/message/Message; Lcom/boat/jrosbridge/MessageListener;)V
+	18      (00000054) return-void          
+

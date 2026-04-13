@@ -1,0 +1,75 @@
+# Lcom/jlboat/phone/view/PathItemSettingPopup;->init()V [access_flags=private]
+#
+# Parameters:
+# local registers: v0...v3
+#
+# - return:void
+
+init-BB@0x0 : 
+	0       (00000000) iget-object          v0, v3, Lcom/jlboat/phone/view/PathItemSettingPopup;->mContext Landroid/content/Context;
+	1       (00000004) const-string         v1, "layout_inflater"
+	2       (00000008) invoke-virtual       v0, v1, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+	3       (0000000e) move-result-object   v0
+	4       (00000010) check-cast           v0, Landroid/view/LayoutInflater;
+	5       (00000014) const                v1, 2131361927
+	6       (0000001a) const/4              v2, 0
+	7       (0000001c) invoke-virtual       v0, v1, v2, Landroid/view/LayoutInflater;->inflate(I Landroid/view/ViewGroup;)Landroid/view/View;
+	8       (00000022) move-result-object   v1
+	9       (00000024) iput-object          v1, v3, Lcom/jlboat/phone/view/PathItemSettingPopup;->mView Landroid/view/View;
+	10      (00000028) iget-object          v1, v3, Lcom/jlboat/phone/view/PathItemSettingPopup;->mView Landroid/view/View;
+	11      (0000002c) const                v2, 2131231286
+	12      (00000032) invoke-virtual       v1, v2, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	13      (00000038) move-result-object   v1
+	14      (0000003a) check-cast           v1, Landroid/widget/Button;
+	15      (0000003e) iput-object          v1, v3, Lcom/jlboat/phone/view/PathItemSettingPopup;->testDiyPathBbtn Landroid/widget/Button;
+	16      (00000042) iget-object          v1, v3, Lcom/jlboat/phone/view/PathItemSettingPopup;->testDiyPathBbtn Landroid/widget/Button;
+	17      (00000046) iget-object          v2, v3, Lcom/jlboat/phone/view/PathItemSettingPopup;->mTestPathClickListener Landroid/view/View$OnClickListener;
+	18      (0000004a) invoke-virtual       v1, v2, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	19      (00000050) iget-object          v1, v3, Lcom/jlboat/phone/view/PathItemSettingPopup;->mView Landroid/view/View;
+	20      (00000054) const                v2, 2131230846
+	21      (0000005a) invoke-virtual       v1, v2, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	22      (00000060) move-result-object   v1
+	23      (00000062) check-cast           v1, Landroid/widget/Button;
+	24      (00000066) iput-object          v1, v3, Lcom/jlboat/phone/view/PathItemSettingPopup;->changePathNameBtn Landroid/widget/Button;
+	25      (0000006a) iget-object          v1, v3, Lcom/jlboat/phone/view/PathItemSettingPopup;->changePathNameBtn Landroid/widget/Button;
+	26      (0000006e) iget-object          v2, v3, Lcom/jlboat/phone/view/PathItemSettingPopup;->mChangePathNameClickListener Landroid/view/View$OnClickListener;
+	27      (00000072) invoke-virtual       v1, v2, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	28      (00000078) iget-object          v1, v3, Lcom/jlboat/phone/view/PathItemSettingPopup;->mView Landroid/view/View;
+	29      (0000007c) const                v2, 2131230750
+	30      (00000082) invoke-virtual       v1, v2, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	31      (00000088) move-result-object   v1
+	32      (0000008a) check-cast           v1, Landroid/widget/Button;
+	33      (0000008e) iput-object          v1, v3, Lcom/jlboat/phone/view/PathItemSettingPopup;->addPathPointBtn Landroid/widget/Button;
+	34      (00000092) iget-object          v1, v3, Lcom/jlboat/phone/view/PathItemSettingPopup;->addPathPointBtn Landroid/widget/Button;
+	35      (00000096) iget-object          v2, v3, Lcom/jlboat/phone/view/PathItemSettingPopup;->mAddPathPointClickListener Landroid/view/View$OnClickListener;
+	36      (0000009a) invoke-virtual       v1, v2, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	37      (000000a0) iget-object          v1, v3, Lcom/jlboat/phone/view/PathItemSettingPopup;->mView Landroid/view/View;
+	38      (000000a4) const                v2, 2131230868
+	39      (000000aa) invoke-virtual       v1, v2, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	40      (000000b0) move-result-object   v1
+	41      (000000b2) check-cast           v1, Landroid/widget/Button;
+	42      (000000b6) iput-object          v1, v3, Lcom/jlboat/phone/view/PathItemSettingPopup;->delPathBtn Landroid/widget/Button;
+	43      (000000ba) iget-object          v1, v3, Lcom/jlboat/phone/view/PathItemSettingPopup;->delPathBtn Landroid/widget/Button;
+	44      (000000be) iget-object          v2, v3, Lcom/jlboat/phone/view/PathItemSettingPopup;->mDelPathClickListener Landroid/view/View$OnClickListener;
+	45      (000000c2) invoke-virtual       v1, v2, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	46      (000000c8) iget-object          v1, v3, Lcom/jlboat/phone/view/PathItemSettingPopup;->mView Landroid/view/View;
+	47      (000000cc) invoke-virtual       v3, v1, Lcom/jlboat/phone/view/PathItemSettingPopup;->setContentView(Landroid/view/View;)V
+	48      (000000d2) const                v1, 2131558756
+	49      (000000d8) invoke-virtual       v3, v1, Lcom/jlboat/phone/view/PathItemSettingPopup;->setAnimationStyle(I)V
+	50      (000000de) const/4              v1, -1
+	51      (000000e0) invoke-virtual       v3, v1, Lcom/jlboat/phone/view/PathItemSettingPopup;->setWidth(I)V
+	52      (000000e6) invoke-virtual       v3, v1, Lcom/jlboat/phone/view/PathItemSettingPopup;->setHeight(I)V
+	53      (000000ec) iget-boolean         v1, v3, Lcom/jlboat/phone/view/PathItemSettingPopup;->touchWinDismiss Z
+	54      (000000f0) invoke-virtual       v3, v1, Lcom/jlboat/phone/view/PathItemSettingPopup;->setFocusable(Z)V
+	55      (000000f6) const/4              v1, 0
+	56      (000000f8) invoke-virtual       v3, v1, Lcom/jlboat/phone/view/PathItemSettingPopup;->setClippingEnabled(Z)V
+	57      (000000fe) iget-object          v1, v3, Lcom/jlboat/phone/view/PathItemSettingPopup;->mView Landroid/view/View;
+	58      (00000102) new-instance         v2, Lcom/jlboat/phone/view/PathItemSettingPopup$1;
+	59      (00000106) invoke-direct        v2, v3, Lcom/jlboat/phone/view/PathItemSettingPopup$1;-><init>(Lcom/jlboat/phone/view/PathItemSettingPopup;)V
+	60      (0000010c) invoke-virtual       v1, v2, Landroid/view/View;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
+	61      (00000112) new-instance         v1, Landroid/graphics/drawable/ColorDrawable;
+	62      (00000116) const                v2, 17170445
+	63      (0000011c) invoke-direct        v1, v2, Landroid/graphics/drawable/ColorDrawable;-><init>(I)V
+	64      (00000122) invoke-virtual       v3, v1, Lcom/jlboat/phone/view/PathItemSettingPopup;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
+	65      (00000128) return-void          
+

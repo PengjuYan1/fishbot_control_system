@@ -1,0 +1,34 @@
+# Lcom/jlboat/phone/view/LaserView$1;->onNewMessage(Lcom/boat/jrosbridge/message/sensor_msgs/LaserScan;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:com.boat.jrosbridge.message.sensor_msgs.LaserScan
+#
+# - return:void
+
+onNewMessage-BB@0x0 : [ onNewMessage-BB@0x10 onNewMessage-BB@0x34 ]
+	0       (00000000) iget-object          v0, v2, Lcom/jlboat/phone/view/LaserView$1;->this$0 Lcom/jlboat/phone/view/LaserView;
+	1       (00000004) invoke-static        v0, Lcom/jlboat/phone/view/LaserView;->access$000(Lcom/jlboat/phone/view/LaserView;)Lcom/jlboat/phone/view/LaserView$IHasData;
+	2       (0000000a) move-result-object   v0
+	3       (0000000c) if-eqz               v0, +014h
+
+onNewMessage-BB@0x10 : [ onNewMessage-BB@0x20 onNewMessage-BB@0x34 ]
+	4       (00000010) iget-object          v0, v2, Lcom/jlboat/phone/view/LaserView$1;->this$0 Lcom/jlboat/phone/view/LaserView;
+	5       (00000014) invoke-static        v0, Lcom/jlboat/phone/view/LaserView;->access$100(Lcom/jlboat/phone/view/LaserView;)Z
+	6       (0000001a) move-result          v0
+	7       (0000001c) if-nez               v0, +00ch
+
+onNewMessage-BB@0x20 : [ onNewMessage-BB@0x34 ]
+	8       (00000020) iget-object          v0, v2, Lcom/jlboat/phone/view/LaserView$1;->this$0 Lcom/jlboat/phone/view/LaserView;
+	9       (00000024) new-instance         v1, Lcom/jlboat/phone/view/LaserView$1$1;
+	10      (00000028) invoke-direct        v1, v2, Lcom/jlboat/phone/view/LaserView$1$1;-><init>(Lcom/jlboat/phone/view/LaserView$1;)V
+	11      (0000002e) invoke-virtual       v0, v1, Lcom/jlboat/phone/view/LaserView;->post(Ljava/lang/Runnable;)Z
+
+onNewMessage-BB@0x34 : 
+	12      (00000034) iget-object          v0, v2, Lcom/jlboat/phone/view/LaserView$1;->this$0 Lcom/jlboat/phone/view/LaserView;
+	13      (00000038) iget-object          v1, v2, Lcom/jlboat/phone/view/LaserView$1;->this$0 Lcom/jlboat/phone/view/LaserView;
+	14      (0000003c) invoke-static        v1, Lcom/jlboat/phone/view/LaserView;->access$200(Lcom/jlboat/phone/view/LaserView;)I
+	15      (00000042) move-result          v1
+	16      (00000044) invoke-static        v0, v3, v1, Lcom/jlboat/phone/view/LaserView;->access$300(Lcom/jlboat/phone/view/LaserView; Lcom/boat/jrosbridge/message/sensor_msgs/LaserScan; I)V
+	17      (0000004a) return-void          
+

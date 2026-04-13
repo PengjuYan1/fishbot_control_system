@@ -1,0 +1,107 @@
+# Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508$5;->onNewMessage(Lcom/jlboat/phone/message/map_msgs/TargetGoalEntryRunList;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v10
+# - v11:com.jlboat.phone.message.map_msgs.TargetGoalEntryRunList
+#
+# - return:void
+
+onNewMessage-BB@0x0 : [ onNewMessage-BB@0x32 onNewMessage-BB@0x38 ]
+	0       (00000000) iget-object          v0, v10, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508$5;->this$0 Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;
+	1       (00000004) invoke-static        v0, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;->access$2000(Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;)Lcom/boat/jrosbridge/Topic;
+	2       (0000000a) move-result-object   v0
+	3       (0000000c) invoke-virtual       v0, Lcom/boat/jrosbridge/Topic;->unsubscribe()V
+	4       (00000012) const/4              v0, 0
+	5       (00000014) const/4              v1, 3
+	6       (00000016) invoke-virtual       v11, Lcom/jlboat/phone/message/map_msgs/TargetGoalEntryRunList;->getOperated_goal_list()[Lcom/jlboat/phone/message/map_msgs/TargetGoalEntry;
+	7       (0000001c) move-result-object   v2
+	8       (0000001e) invoke-virtual       v11, Lcom/jlboat/phone/message/map_msgs/TargetGoalEntryRunList;->getHigh_goal_list()[Lcom/jlboat/phone/message/map_msgs/TargetGoalEntry;
+	9       (00000024) move-result-object   v3
+	10      (00000026) invoke-virtual       v11, Lcom/jlboat/phone/message/map_msgs/TargetGoalEntryRunList;->getLow_goal_list()[Lcom/jlboat/phone/message/map_msgs/TargetGoalEntry;
+	11      (0000002c) move-result-object   v4
+	12      (0000002e) if-eqz               v2, +005h
+
+onNewMessage-BB@0x32 : [ onNewMessage-BB@0x38 onNewMessage-BB@0x4e ]
+	13      (00000032) array-length         v5, v2
+	14      (00000034) if-nez               v5, +00dh
+
+onNewMessage-BB@0x38 : [ onNewMessage-BB@0x3c onNewMessage-BB@0x42 ]
+	15      (00000038) if-eqz               v3, +005h
+
+onNewMessage-BB@0x3c : [ onNewMessage-BB@0x42 onNewMessage-BB@0x4e ]
+	16      (0000003c) array-length         v5, v3
+	17      (0000003e) if-nez               v5, +008h
+
+onNewMessage-BB@0x42 : [ onNewMessage-BB@0x46 onNewMessage-BB@0x52 ]
+	18      (00000042) if-eqz               v4, +008h
+
+onNewMessage-BB@0x46 : [ onNewMessage-BB@0x4c onNewMessage-BB@0x4e ]
+	19      (00000046) array-length         v5, v4
+	20      (00000048) if-nez               v5, +003h
+
+onNewMessage-BB@0x4c : [ onNewMessage-BB@0x52 ]
+	21      (0000004c) goto                 +3h
+
+onNewMessage-BB@0x4e : [ onNewMessage-BB@0x54 ]
+	22      (0000004e) const/4              v5, 0
+	23      (00000050) goto                 +2h
+
+onNewMessage-BB@0x52 : [ onNewMessage-BB@0x54 ]
+	24      (00000052) const/4              v5, 1
+
+onNewMessage-BB@0x54 : [ onNewMessage-BB@0x58 onNewMessage-BB@0xce ]
+	25      (00000054) if-eqz               v5, +03dh
+
+onNewMessage-BB@0x58 : [ onNewMessage-BB@0x74 onNewMessage-BB@0xa0 ]
+	26      (00000058) iget-object          v6, v10, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508$5;->this$0 Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;
+	27      (0000005c) invoke-static        v6, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;->access$2100(Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;)Ljava/lang/String;
+	28      (00000062) move-result-object   v6
+	29      (00000064) const-string         v7, "All goal lists are null or empty"
+	30      (00000068) invoke-static        v6, v7, Landroid/util/Log;->e(Ljava/lang/String; Ljava/lang/String;)I
+	31      (0000006e) const/4              v6, 3
+	32      (00000070) if-ge                v0, v6, +018h
+
+onNewMessage-BB@0x74 : [ onNewMessage-BB@0xcc ]
+	33      (00000074) add-int/lit8         v0, v0, 1
+	34      (00000078) new-instance         v6, Landroid/os/Handler;
+	35      (0000007c) invoke-static        Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
+	36      (00000082) move-result-object   v7
+	37      (00000084) invoke-direct        v6, v7, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+	38      (0000008a) new-instance         v7, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508$5$$ExternalSyntheticLambda0;
+	39      (0000008e) invoke-direct        v7, v10, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508$5$$ExternalSyntheticLambda0;-><init>(Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508$5;)V
+	40      (00000094) const-wide/16        v8, 100
+	41      (00000098) invoke-virtual       v6, v7, v8, v9, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable; J)Z
+	42      (0000009e) goto                 +17h
+
+onNewMessage-BB@0xa0 : [ onNewMessage-BB@0xb0 onNewMessage-BB@0xc2 ]
+	43      (000000a0) iget-object          v6, v10, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508$5;->this$0 Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;
+	44      (000000a4) invoke-static        v6, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;->access$2000(Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;)Lcom/boat/jrosbridge/Topic;
+	45      (000000aa) move-result-object   v6
+	46      (000000ac) if-eqz               v6, +00bh
+
+onNewMessage-BB@0xb0 : [ onNewMessage-BB@0xc2 ]
+	47      (000000b0) iget-object          v6, v10, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508$5;->this$0 Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;
+	48      (000000b4) invoke-static        v6, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;->access$2000(Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;)Lcom/boat/jrosbridge/Topic;
+	49      (000000ba) move-result-object   v6
+	50      (000000bc) invoke-virtual       v6, Lcom/boat/jrosbridge/Topic;->unsubscribe()V
+
+onNewMessage-BB@0xc2 : [ onNewMessage-BB@0xcc ]
+	51      (000000c2) const-string         v6, "未获取到有效测试数据，请重试"
+	52      (000000c6) invoke-static        v6, Lcom/jlboat/phone/util/Utils;->toast(Ljava/lang/String;)V
+
+onNewMessage-BB@0xcc : 
+	53      (000000cc) return-void          
+
+onNewMessage-BB@0xce : 
+	54      (000000ce) new-instance         v6, Landroid/content/Intent;
+	55      (000000d2) iget-object          v7, v10, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508$5;->this$0 Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;
+	56      (000000d6) invoke-virtual       v7, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;->requireActivity()Landroid/support/v4/app/FragmentActivity;
+	57      (000000dc) move-result-object   v7
+	58      (000000de) const-class          v8, Lcom/jlboat/phone/activity/TestResultActivity202508;
+	59      (000000e2) invoke-direct        v6, v7, v8, Landroid/content/Intent;-><init>(Landroid/content/Context; Ljava/lang/Class;)V
+	60      (000000e8) iget-object          v7, v10, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508$5;->this$0 Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;
+	61      (000000ec) invoke-virtual       v7, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;->requireActivity()Landroid/support/v4/app/FragmentActivity;
+	62      (000000f2) move-result-object   v7
+	63      (000000f4) invoke-virtual       v7, v6, Landroid/support/v4/app/FragmentActivity;->startActivity(Landroid/content/Intent;)V
+	64      (000000fa) return-void          
+

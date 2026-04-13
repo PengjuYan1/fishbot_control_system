@@ -1,0 +1,19 @@
+# Lcom/jlboat/phone/activity/MapCleanAreaActivity;->init()V [access_flags=private]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:void
+
+init-BB@0x0 : 
+	0       (00000000) new-instance         v0, Lcom/jlboat/phone/communication/SpiritTopicListener;
+	1       (00000004) invoke-direct        v0, Lcom/jlboat/phone/communication/SpiritTopicListener;-><init>()V
+	2       (0000000a) iput-object          v0, v1, Lcom/jlboat/phone/activity/MapCleanAreaActivity;->spiritTopicListener Lcom/jlboat/phone/communication/SpiritTopicListener;
+	3       (0000000e) new-instance         v0, Lcom/jlboat/phone/communication/SpiritServiceClient;
+	4       (00000012) invoke-direct        v0, Lcom/jlboat/phone/communication/SpiritServiceClient;-><init>()V
+	5       (00000018) iput-object          v0, v1, Lcom/jlboat/phone/activity/MapCleanAreaActivity;->spiritServiceClient Lcom/jlboat/phone/communication/SpiritServiceClient;
+	6       (0000001c) new-instance         v0, Ljava/util/LinkedList;
+	7       (00000020) invoke-direct        v0, Ljava/util/LinkedList;-><init>()V
+	8       (00000026) iput-object          v0, v1, Lcom/jlboat/phone/activity/MapCleanAreaActivity;->linesList Ljava/util/List;
+	9       (0000002a) return-void          
+

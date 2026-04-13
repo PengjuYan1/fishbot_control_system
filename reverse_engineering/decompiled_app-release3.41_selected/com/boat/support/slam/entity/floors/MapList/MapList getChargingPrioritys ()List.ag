@@ -1,0 +1,36 @@
+# Lcom/boat/support/slam/entity/floors/MapList;->getChargingPrioritys()Ljava/util/List; [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v7
+#
+# - return:java.util.List
+
+getChargingPrioritys-BB@0x0 : [ getChargingPrioritys-BB@0x8 getChargingPrioritys-BB@0xc ]
+	0       (00000000) iget-object          v0, v7, Lcom/boat/support/slam/entity/floors/MapList;->chargingPrioritys [J
+	1       (00000004) if-nez               v0, +004h
+
+getChargingPrioritys-BB@0x8 : 
+	2       (00000008) const/4              v0, 0
+	3       (0000000a) return-object        v0
+
+getChargingPrioritys-BB@0xc : [ getChargingPrioritys-BB@0x1e ]
+	4       (0000000c) new-instance         v0, Ljava/util/ArrayList;
+	5       (00000010) invoke-direct        v0, Ljava/util/ArrayList;-><init>()V
+	6       (00000016) iget-object          v1, v7, Lcom/boat/support/slam/entity/floors/MapList;->chargingPrioritys [J
+	7       (0000001a) array-length         v2, v1
+	8       (0000001c) const/4              v3, 0
+
+getChargingPrioritys-BB@0x1e : [ getChargingPrioritys-BB@0x22 getChargingPrioritys-BB@0x3a ]
+	9       (0000001e) if-ge                v3, v2, +00eh
+
+getChargingPrioritys-BB@0x22 : [ getChargingPrioritys-BB@0x1e ]
+	10      (00000022) aget-wide            v4, v1, v3
+	11      (00000026) invoke-static        v4, v5, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+	12      (0000002c) move-result-object   v6
+	13      (0000002e) invoke-interface     v0, v6, Ljava/util/List;->add(Ljava/lang/Object;)Z
+	14      (00000034) add-int/lit8         v3, v3, 1
+	15      (00000038) goto                 -dh
+
+getChargingPrioritys-BB@0x3a : 
+	16      (0000003a) return-object        v0
+

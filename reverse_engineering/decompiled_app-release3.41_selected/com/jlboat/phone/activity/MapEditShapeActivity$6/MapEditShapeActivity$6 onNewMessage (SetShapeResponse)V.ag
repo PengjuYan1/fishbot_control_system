@@ -1,0 +1,17 @@
+# Lcom/jlboat/phone/activity/MapEditShapeActivity$6;->onNewMessage(Lcom/jlboat/phone/message/map_msgs/SetShapeResponse;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:com.jlboat.phone.message.map_msgs.SetShapeResponse
+#
+# - return:void
+
+onNewMessage-BB@0x0 : 
+	0       (00000000) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapEditShapeActivity$6;->this$0 Lcom/jlboat/phone/activity/MapEditShapeActivity;
+	1       (00000004) iget-object          v0, v0, Lcom/jlboat/phone/activity/MapEditShapeActivity;->linesList Ljava/util/List;
+	2       (00000008) invoke-interface     v0, Ljava/util/List;->clear()V
+	3       (0000000e) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapEditShapeActivity$6;->this$0 Lcom/jlboat/phone/activity/MapEditShapeActivity;
+	4       (00000012) const                v1, 2131493249
+	5       (00000018) invoke-virtual       v0, v1, Lcom/jlboat/phone/activity/MapEditShapeActivity;->toast(I)V
+	6       (0000001e) return-void          
+

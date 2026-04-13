@@ -1,0 +1,27 @@
+# Lcom/jlboat/phone/activity/GrabBagActivity;->onBackPressed()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v2
+#
+# - return:void
+
+onBackPressed-BB@0x0 : [ onBackPressed-BB@0x16 onBackPressed-BB@0x3a ]
+	0       (00000000) invoke-super         v2, Lcom/jlboat/phone/base/BaseFullActivity;->onBackPressed()V
+	1       (00000006) iget-object          v0, v2, Lcom/jlboat/phone/activity/GrabBagActivity;->back_start Landroid/widget/Switch;
+	2       (0000000a) invoke-virtual       v0, Landroid/widget/Switch;->isChecked()Z
+	3       (00000010) move-result          v0
+	4       (00000012) if-eqz               v0, +014h
+
+onBackPressed-BB@0x16 : [ onBackPressed-BB@0x3a ]
+	5       (00000016) iget-object          v0, v2, Lcom/jlboat/phone/activity/GrabBagActivity;->pubRecordBagListener Lcom/jlboat/phone/communication/PubRecordBag;
+	6       (0000001a) const/4              v1, 4
+	7       (0000001c) invoke-virtual       v0, v1, Lcom/jlboat/phone/communication/PubRecordBag;->setType(I)V
+	8       (00000022) iget-object          v0, v2, Lcom/jlboat/phone/activity/GrabBagActivity;->handler Landroid/os/Handler;
+	9       (00000026) const/4              v1, 1
+	10      (00000028) invoke-virtual       v0, v1, Landroid/os/Handler;->removeMessages(I)V
+	11      (0000002e) const                v0, 2131493209
+	12      (00000034) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/GrabBagActivity;->toast(I)V
+
+onBackPressed-BB@0x3a : 
+	13      (0000003a) return-void          
+

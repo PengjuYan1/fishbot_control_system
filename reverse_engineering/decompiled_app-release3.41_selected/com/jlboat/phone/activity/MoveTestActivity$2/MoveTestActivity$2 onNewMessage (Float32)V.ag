@@ -1,0 +1,84 @@
+# Lcom/jlboat/phone/activity/MoveTestActivity$2;->onNewMessage(Lcom/boat/jrosbridge/message/std_msgs/Float32;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:com.boat.jrosbridge.message.std_msgs.Float32
+#
+# - return:void
+
+onNewMessage-BB@0x0 : [ onNewMessage-BB@0xd4 onNewMessage-BB@0xec ]
+	0       (00000000) iget-object          v0, v2, Lcom/jlboat/phone/activity/MoveTestActivity$2;->this$0 Lcom/jlboat/phone/activity/MoveTestActivity;
+	1       (00000004) invoke-virtual       v3, Lcom/boat/jrosbridge/message/std_msgs/Float32;->getData()F
+	2       (0000000a) move-result          v1
+	3       (0000000c) invoke-static        v0, v1, Lcom/jlboat/phone/activity/MoveTestActivity;->access$1102(Lcom/jlboat/phone/activity/MoveTestActivity; F)F
+	4       (00000012) iget-object          v0, v2, Lcom/jlboat/phone/activity/MoveTestActivity$2;->this$0 Lcom/jlboat/phone/activity/MoveTestActivity;
+	5       (00000016) new-instance         v1, Lcom/jlboat/phone/bean/MoveRes;
+	6       (0000001a) invoke-direct        v1, Lcom/jlboat/phone/bean/MoveRes;-><init>()V
+	7       (00000020) invoke-static        v0, v1, Lcom/jlboat/phone/activity/MoveTestActivity;->access$1202(Lcom/jlboat/phone/activity/MoveTestActivity; Lcom/jlboat/phone/bean/MoveRes;)Lcom/jlboat/phone/bean/MoveRes;
+	8       (00000026) iget-object          v0, v2, Lcom/jlboat/phone/activity/MoveTestActivity$2;->this$0 Lcom/jlboat/phone/activity/MoveTestActivity;
+	9       (0000002a) invoke-static        v0, Lcom/jlboat/phone/activity/MoveTestActivity;->access$1200(Lcom/jlboat/phone/activity/MoveTestActivity;)Lcom/jlboat/phone/bean/MoveRes;
+	10      (00000030) move-result-object   v0
+	11      (00000032) iget-object          v1, v2, Lcom/jlboat/phone/activity/MoveTestActivity$2;->this$0 Lcom/jlboat/phone/activity/MoveTestActivity;
+	12      (00000036) invoke-static        v1, Lcom/jlboat/phone/activity/MoveTestActivity;->access$700(Lcom/jlboat/phone/activity/MoveTestActivity;)I
+	13      (0000003c) move-result          v1
+	14      (0000003e) invoke-virtual       v0, v1, Lcom/jlboat/phone/bean/MoveRes;->setType(I)V
+	15      (00000044) iget-object          v0, v2, Lcom/jlboat/phone/activity/MoveTestActivity$2;->this$0 Lcom/jlboat/phone/activity/MoveTestActivity;
+	16      (00000048) invoke-static        v0, Lcom/jlboat/phone/activity/MoveTestActivity;->access$1200(Lcom/jlboat/phone/activity/MoveTestActivity;)Lcom/jlboat/phone/bean/MoveRes;
+	17      (0000004e) move-result-object   v0
+	18      (00000050) iget-object          v1, v2, Lcom/jlboat/phone/activity/MoveTestActivity$2;->this$0 Lcom/jlboat/phone/activity/MoveTestActivity;
+	19      (00000054) invoke-static        v1, Lcom/jlboat/phone/activity/MoveTestActivity;->access$1100(Lcom/jlboat/phone/activity/MoveTestActivity;)F
+	20      (0000005a) move-result          v1
+	21      (0000005c) invoke-virtual       v0, v1, Lcom/jlboat/phone/bean/MoveRes;->setValue(F)V
+	22      (00000062) iget-object          v0, v2, Lcom/jlboat/phone/activity/MoveTestActivity$2;->this$0 Lcom/jlboat/phone/activity/MoveTestActivity;
+	23      (00000066) invoke-static        v0, Lcom/jlboat/phone/activity/MoveTestActivity;->access$1200(Lcom/jlboat/phone/activity/MoveTestActivity;)Lcom/jlboat/phone/bean/MoveRes;
+	24      (0000006c) move-result-object   v0
+	25      (0000006e) new-instance         v1, Ljava/util/Date;
+	26      (00000072) invoke-direct        v1, Ljava/util/Date;-><init>()V
+	27      (00000078) invoke-static        v1, Lcom/jlboat/phone/util/Utils;->getCurrentTime(Ljava/util/Date;)Ljava/lang/String;
+	28      (0000007e) move-result-object   v1
+	29      (00000080) invoke-virtual       v0, v1, Lcom/jlboat/phone/bean/MoveRes;->setTime(Ljava/lang/String;)V
+	30      (00000086) iget-object          v0, v2, Lcom/jlboat/phone/activity/MoveTestActivity$2;->this$0 Lcom/jlboat/phone/activity/MoveTestActivity;
+	31      (0000008a) invoke-static        v0, Lcom/jlboat/phone/activity/MoveTestActivity;->access$100(Lcom/jlboat/phone/activity/MoveTestActivity;)Ljava/util/List;
+	32      (00000090) move-result-object   v0
+	33      (00000092) iget-object          v1, v2, Lcom/jlboat/phone/activity/MoveTestActivity$2;->this$0 Lcom/jlboat/phone/activity/MoveTestActivity;
+	34      (00000096) invoke-static        v1, Lcom/jlboat/phone/activity/MoveTestActivity;->access$1200(Lcom/jlboat/phone/activity/MoveTestActivity;)Lcom/jlboat/phone/bean/MoveRes;
+	35      (0000009c) move-result-object   v1
+	36      (0000009e) invoke-interface     v0, v1, Ljava/util/List;->add(Ljava/lang/Object;)Z
+	37      (000000a4) iget-object          v0, v2, Lcom/jlboat/phone/activity/MoveTestActivity$2;->this$0 Lcom/jlboat/phone/activity/MoveTestActivity;
+	38      (000000a8) invoke-static        v0, Lcom/jlboat/phone/activity/MoveTestActivity;->access$1300(Lcom/jlboat/phone/activity/MoveTestActivity;)Landroid/os/Handler;
+	39      (000000ae) move-result-object   v0
+	40      (000000b0) const/16             v1, 101
+	41      (000000b4) invoke-virtual       v0, v1, Landroid/os/Handler;->sendEmptyMessage(I)Z
+	42      (000000ba) iget-object          v0, v2, Lcom/jlboat/phone/activity/MoveTestActivity$2;->this$0 Lcom/jlboat/phone/activity/MoveTestActivity;
+	43      (000000be) invoke-static        v0, Lcom/jlboat/phone/activity/MoveTestActivity;->access$1100(Lcom/jlboat/phone/activity/MoveTestActivity;)F
+	44      (000000c4) move-result          v0
+	45      (000000c6) const                v1, 1176255488
+	46      (000000cc) cmpl-float           v0, v0, v1
+	47      (000000d0) if-nez               v0, +00eh
+
+onNewMessage-BB@0xd4 : [ onNewMessage-BB@0x11c ]
+	48      (000000d4) iget-object          v0, v2, Lcom/jlboat/phone/activity/MoveTestActivity$2;->this$0 Lcom/jlboat/phone/activity/MoveTestActivity;
+	49      (000000d8) invoke-static        v0, Lcom/jlboat/phone/activity/MoveTestActivity;->access$1300(Lcom/jlboat/phone/activity/MoveTestActivity;)Landroid/os/Handler;
+	50      (000000de) move-result-object   v0
+	51      (000000e0) const/16             v1, 102
+	52      (000000e4) invoke-virtual       v0, v1, Landroid/os/Handler;->sendEmptyMessage(I)Z
+	53      (000000ea) goto                 +19h
+
+onNewMessage-BB@0xec : [ onNewMessage-BB@0x106 onNewMessage-BB@0x11c ]
+	54      (000000ec) iget-object          v0, v2, Lcom/jlboat/phone/activity/MoveTestActivity$2;->this$0 Lcom/jlboat/phone/activity/MoveTestActivity;
+	55      (000000f0) invoke-static        v0, Lcom/jlboat/phone/activity/MoveTestActivity;->access$1100(Lcom/jlboat/phone/activity/MoveTestActivity;)F
+	56      (000000f6) move-result          v0
+	57      (000000f8) const                v1, 1176256512
+	58      (000000fe) cmpl-float           v0, v0, v1
+	59      (00000102) if-nez               v0, +00dh
+
+onNewMessage-BB@0x106 : [ onNewMessage-BB@0x11c ]
+	60      (00000106) iget-object          v0, v2, Lcom/jlboat/phone/activity/MoveTestActivity$2;->this$0 Lcom/jlboat/phone/activity/MoveTestActivity;
+	61      (0000010a) invoke-static        v0, Lcom/jlboat/phone/activity/MoveTestActivity;->access$1300(Lcom/jlboat/phone/activity/MoveTestActivity;)Landroid/os/Handler;
+	62      (00000110) move-result-object   v0
+	63      (00000112) const/16             v1, 103
+	64      (00000116) invoke-virtual       v0, v1, Landroid/os/Handler;->sendEmptyMessage(I)Z
+
+onNewMessage-BB@0x11c : 
+	65      (0000011c) return-void          
+

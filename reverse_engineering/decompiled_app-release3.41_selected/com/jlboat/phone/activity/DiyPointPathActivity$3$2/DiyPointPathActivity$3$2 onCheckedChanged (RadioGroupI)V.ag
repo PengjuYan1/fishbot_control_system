@@ -1,0 +1,28 @@
+# Lcom/jlboat/phone/activity/DiyPointPathActivity$3$2;->onCheckedChanged(Landroid/widget/RadioGroup; I)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:android.widget.RadioGroup
+# - v2:int
+#
+# - return:void
+
+onCheckedChanged-BB@0x0 : [ D:onCheckedChanged-BB@0x6 2131231124:onCheckedChanged-BB@0xa 2131231125:onCheckedChanged-BB@0x8 ]
+	0       (00000000) packed-switch        v2, +0000008h
+
+onCheckedChanged-BB@0x6 : [ onCheckedChanged-BB@0xc ]
+	1       (00000006) goto                 +3h
+
+onCheckedChanged-BB@0x8 : [ onCheckedChanged-BB@0xc ]
+	2       (00000008) goto                 +2h
+
+onCheckedChanged-BB@0xa : [ onCheckedChanged-BB@0xc ]
+	3       (0000000a) nop                  
+
+onCheckedChanged-BB@0xc : 
+	4       (0000000c) return-void          
+
+onCheckedChanged-BB@0xe : 
+	5       (0000000e) nop                  
+	6       (00000010) packed-switch-payload 7f080194 7f080195
+

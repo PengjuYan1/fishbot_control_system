@@ -1,0 +1,14 @@
+# Lcom/jlboat/phone/adapter/RvFloorPointListAdapter$GroupViewHolder;-><init>(Lcom/jlboat/phone/adapter/RvFloorPointListAdapter; Landroid/view/View; Lcom/jlboat/phone/adapter/RvFloorPointListAdapter$1;)V [access_flags=synthetic constructor]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.adapter.RvFloorPointListAdapter
+# - v2:android.view.View
+# - v3:com.jlboat.phone.adapter.RvFloorPointListAdapter$1
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) invoke-direct        v0, v1, v2, Lcom/jlboat/phone/adapter/RvFloorPointListAdapter$GroupViewHolder;-><init>(Lcom/jlboat/phone/adapter/RvFloorPointListAdapter; Landroid/view/View;)V
+	1       (00000006) return-void          
+

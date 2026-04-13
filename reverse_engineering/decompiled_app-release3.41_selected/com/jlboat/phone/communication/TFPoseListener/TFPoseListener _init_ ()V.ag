@@ -1,0 +1,26 @@
+# Lcom/jlboat/phone/communication/TFPoseListener;-><init>()V [access_flags=public constructor]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) invoke-direct        v1, Ljava/lang/Object;-><init>()V
+	1       (00000006) const-string         v0, "TFPoseListener"
+	2       (0000000a) iput-object          v0, v1, Lcom/jlboat/phone/communication/TFPoseListener;->TAG Ljava/lang/String;
+	3       (0000000e) const-string         v0, "map"
+	4       (00000012) invoke-static        v0, Lorg/ros/namespace/GraphName;->of(Ljava/lang/String;)Lorg/ros/namespace/GraphName;
+	5       (00000018) move-result-object   v0
+	6       (0000001a) iput-object          v0, v1, Lcom/jlboat/phone/communication/TFPoseListener;->map_frame Lorg/ros/namespace/GraphName;
+	7       (0000001e) const-string         v0, "base_footprint"
+	8       (00000022) invoke-static        v0, Lorg/ros/namespace/GraphName;->of(Ljava/lang/String;)Lorg/ros/namespace/GraphName;
+	9       (00000028) move-result-object   v0
+	10      (0000002a) iput-object          v0, v1, Lcom/jlboat/phone/communication/TFPoseListener;->base_footprint_frame Lorg/ros/namespace/GraphName;
+	11      (0000002e) new-instance         v0, Lcom/boat/ros/geometry/FrameTransformTree;
+	12      (00000032) invoke-direct        v0, Lcom/boat/ros/geometry/FrameTransformTree;-><init>()V
+	13      (00000038) iput-object          v0, v1, Lcom/jlboat/phone/communication/TFPoseListener;->frameTransformTree Lcom/boat/ros/geometry/FrameTransformTree;
+	14      (0000003c) const/4              v0, 0
+	15      (0000003e) iput-boolean         v0, v1, Lcom/jlboat/phone/communication/TFPoseListener;->isStart Z
+	16      (00000042) return-void          
+

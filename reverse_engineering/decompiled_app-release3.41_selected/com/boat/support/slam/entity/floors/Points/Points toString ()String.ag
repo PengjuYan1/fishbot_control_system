@@ -1,0 +1,182 @@
+# Lcom/boat/support/slam/entity/floors/Points;->toString()Ljava/lang/String; [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v4
+#
+# - return:java.lang.String
+
+toString-BB@0x0 : 
+	0       (00000000) new-instance         v0, Ljava/lang/StringBuilder;
+	1       (00000004) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	2       (0000000a) const-string         v1, "Points{positionYaw="
+	3       (0000000e) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	4       (00000014) move-result-object   v0
+	5       (00000016) iget-wide            v1, v4, Lcom/boat/support/slam/entity/floors/Points;->positionYaw D
+	6       (0000001a) invoke-virtual       v0, v1, v2, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
+	7       (00000020) move-result-object   v0
+	8       (00000022) const-string         v1, ", positionX="
+	9       (00000026) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	10      (0000002c) move-result-object   v0
+	11      (0000002e) iget-wide            v1, v4, Lcom/boat/support/slam/entity/floors/Points;->positionX D
+	12      (00000032) invoke-virtual       v0, v1, v2, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
+	13      (00000038) move-result-object   v0
+	14      (0000003a) const-string         v1, ", positionY="
+	15      (0000003e) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	16      (00000044) move-result-object   v0
+	17      (00000046) iget-wide            v1, v4, Lcom/boat/support/slam/entity/floors/Points;->positionY D
+	18      (0000004a) invoke-virtual       v0, v1, v2, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
+	19      (00000050) move-result-object   v0
+	20      (00000052) const-string         v1, ", pointName='"
+	21      (00000056) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	22      (0000005c) move-result-object   v0
+	23      (0000005e) iget-object          v1, v4, Lcom/boat/support/slam/entity/floors/Points;->pointName Ljava/lang/String;
+	24      (00000062) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	25      (00000068) move-result-object   v0
+	26      (0000006a) const/16             v1, 39
+	27      (0000006e) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+	28      (00000074) move-result-object   v0
+	29      (00000076) const-string         v2, ", deviceType="
+	30      (0000007a) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	31      (00000080) move-result-object   v0
+	32      (00000082) iget                 v2, v4, Lcom/boat/support/slam/entity/floors/Points;->deviceType I
+	33      (00000086) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	34      (0000008c) move-result-object   v0
+	35      (0000008e) const-string         v2, ", deviceID='"
+	36      (00000092) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	37      (00000098) move-result-object   v0
+	38      (0000009a) iget-object          v2, v4, Lcom/boat/support/slam/entity/floors/Points;->deviceID Ljava/lang/String;
+	39      (0000009e) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	40      (000000a4) move-result-object   v0
+	41      (000000a6) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+	42      (000000ac) move-result-object   v0
+	43      (000000ae) const-string         v2, ", waitPoints="
+	44      (000000b2) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	45      (000000b8) move-result-object   v0
+	46      (000000ba) iget-object          v2, v4, Lcom/boat/support/slam/entity/floors/Points;->waitPoints Ljava/util/List;
+	47      (000000be) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+	48      (000000c4) move-result-object   v0
+	49      (000000c6) const-string         v2, ", bindPointId="
+	50      (000000ca) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	51      (000000d0) move-result-object   v0
+	52      (000000d2) iget-wide            v2, v4, Lcom/boat/support/slam/entity/floors/Points;->bindPointId J
+	53      (000000d6) invoke-virtual       v0, v2, v3, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+	54      (000000dc) move-result-object   v0
+	55      (000000de) const-string         v2, ", bindFloorId="
+	56      (000000e2) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	57      (000000e8) move-result-object   v0
+	58      (000000ea) iget-wide            v2, v4, Lcom/boat/support/slam/entity/floors/Points;->bindFloorId J
+	59      (000000ee) invoke-virtual       v0, v2, v3, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+	60      (000000f4) move-result-object   v0
+	61      (000000f6) const-string         v2, ", bindMapId="
+	62      (000000fa) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	63      (00000100) move-result-object   v0
+	64      (00000102) iget-wide            v2, v4, Lcom/boat/support/slam/entity/floors/Points;->bindMapId J
+	65      (00000106) invoke-virtual       v0, v2, v3, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+	66      (0000010c) move-result-object   v0
+	67      (0000010e) const-string         v2, ", cargoRegionType='"
+	68      (00000112) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	69      (00000118) move-result-object   v0
+	70      (0000011a) iget-object          v2, v4, Lcom/boat/support/slam/entity/floors/Points;->cargoRegionType Ljava/lang/String;
+	71      (0000011e) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	72      (00000124) move-result-object   v0
+	73      (00000126) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+	74      (0000012c) move-result-object   v0
+	75      (0000012e) const-string         v2, ", ledWarnID='"
+	76      (00000132) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	77      (00000138) move-result-object   v0
+	78      (0000013a) iget-object          v2, v4, Lcom/boat/support/slam/entity/floors/Points;->ledWarnID Ljava/lang/String;
+	79      (0000013e) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	80      (00000144) move-result-object   v0
+	81      (00000146) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+	82      (0000014c) move-result-object   v0
+	83      (0000014e) const-string         v2, ", pointId="
+	84      (00000152) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	85      (00000158) move-result-object   v0
+	86      (0000015a) iget-wide            v2, v4, Lcom/boat/support/slam/entity/floors/Points;->pointId J
+	87      (0000015e) invoke-virtual       v0, v2, v3, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+	88      (00000164) move-result-object   v0
+	89      (00000166) const-string         v2, ", resId="
+	90      (0000016a) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	91      (00000170) move-result-object   v0
+	92      (00000172) iget-wide            v2, v4, Lcom/boat/support/slam/entity/floors/Points;->resId J
+	93      (00000176) invoke-virtual       v0, v2, v3, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+	94      (0000017c) move-result-object   v0
+	95      (0000017e) const-string         v2, ", pointWords='"
+	96      (00000182) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	97      (00000188) move-result-object   v0
+	98      (0000018a) iget-object          v2, v4, Lcom/boat/support/slam/entity/floors/Points;->pointWords Ljava/lang/String;
+	99      (0000018e) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	100     (00000194) move-result-object   v0
+	101     (00000196) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+	102     (0000019c) move-result-object   v0
+	103     (0000019e) const-string         v2, ", naviPointWords='"
+	104     (000001a2) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	105     (000001a8) move-result-object   v0
+	106     (000001aa) iget-object          v2, v4, Lcom/boat/support/slam/entity/floors/Points;->naviPointWords Ljava/lang/String;
+	107     (000001ae) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	108     (000001b4) move-result-object   v0
+	109     (000001b6) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+	110     (000001bc) move-result-object   v0
+	111     (000001be) const-string         v2, ", navipointResid="
+	112     (000001c2) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	113     (000001c8) move-result-object   v0
+	114     (000001ca) iget-wide            v2, v4, Lcom/boat/support/slam/entity/floors/Points;->navipointResid J
+	115     (000001ce) invoke-virtual       v0, v2, v3, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+	116     (000001d4) move-result-object   v0
+	117     (000001d6) const-string         v2, ", isCircle="
+	118     (000001da) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	119     (000001e0) move-result-object   v0
+	120     (000001e2) iget                 v2, v4, Lcom/boat/support/slam/entity/floors/Points;->isCircle I
+	121     (000001e6) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	122     (000001ec) move-result-object   v0
+	123     (000001ee) const-string         v2, ", alias='"
+	124     (000001f2) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	125     (000001f8) move-result-object   v0
+	126     (000001fa) iget-object          v2, v4, Lcom/boat/support/slam/entity/floors/Points;->alias Ljava/lang/String;
+	127     (000001fe) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	128     (00000204) move-result-object   v0
+	129     (00000206) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+	130     (0000020c) move-result-object   v0
+	131     (0000020e) const-string         v1, ", isGo="
+	132     (00000212) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	133     (00000218) move-result-object   v0
+	134     (0000021a) iget                 v1, v4, Lcom/boat/support/slam/entity/floors/Points;->isGo I
+	135     (0000021e) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	136     (00000224) move-result-object   v0
+	137     (00000226) const-string         v1, ", waitTime="
+	138     (0000022a) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	139     (00000230) move-result-object   v0
+	140     (00000232) iget                 v1, v4, Lcom/boat/support/slam/entity/floors/Points;->waitTime I
+	141     (00000236) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	142     (0000023c) move-result-object   v0
+	143     (0000023e) const-string         v1, ", naviwordsOrRes="
+	144     (00000242) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	145     (00000248) move-result-object   v0
+	146     (0000024a) iget                 v1, v4, Lcom/boat/support/slam/entity/floors/Points;->naviwordsOrRes I
+	147     (0000024e) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	148     (00000254) move-result-object   v0
+	149     (00000256) const-string         v1, ", wordOrRes="
+	150     (0000025a) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	151     (00000260) move-result-object   v0
+	152     (00000262) iget                 v1, v4, Lcom/boat/support/slam/entity/floors/Points;->wordOrRes I
+	153     (00000266) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	154     (0000026c) move-result-object   v0
+	155     (0000026e) const-string         v1, ", isWaitOpen="
+	156     (00000272) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	157     (00000278) move-result-object   v0
+	158     (0000027a) iget                 v1, v4, Lcom/boat/support/slam/entity/floors/Points;->isWaitOpen I
+	159     (0000027e) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	160     (00000284) move-result-object   v0
+	161     (00000286) const-string         v1, ", isAliasOpen="
+	162     (0000028a) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	163     (00000290) move-result-object   v0
+	164     (00000292) iget                 v1, v4, Lcom/boat/support/slam/entity/floors/Points;->isAliasOpen I
+	165     (00000296) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	166     (0000029c) move-result-object   v0
+	167     (0000029e) const/16             v1, 125
+	168     (000002a2) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+	169     (000002a8) move-result-object   v0
+	170     (000002aa) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	171     (000002b0) move-result-object   v0
+	172     (000002b2) return-object        v0
+

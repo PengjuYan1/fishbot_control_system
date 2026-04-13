@@ -1,0 +1,40 @@
+# Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;->removeOOO(Ljava/util/List;)Ljava/util/List; [access_flags=private]
+#
+# Parameters:
+# - local registers: v0...v5
+# - v6:java.util.List
+#
+# - return:java.util.List
+
+removeOOO-BB@0x0 : [ removeOOO-BB@0x12 ]
+	0       (00000000) new-instance         v0, Ljava/util/ArrayList;
+	1       (00000004) invoke-direct        v0, Ljava/util/ArrayList;-><init>()V
+	2       (0000000a) invoke-interface     v6, Ljava/util/List;->iterator()Ljava/util/Iterator;
+	3       (00000010) move-result-object   v1
+
+removeOOO-BB@0x12 : [ removeOOO-BB@0x1e removeOOO-BB@0x4c ]
+	4       (00000012) invoke-interface     v1, Ljava/util/Iterator;->hasNext()Z
+	5       (00000018) move-result          v2
+	6       (0000001a) if-eqz               v2, +019h
+
+removeOOO-BB@0x1e : [ removeOOO-BB@0x42 removeOOO-BB@0x44 ]
+	7       (0000001e) invoke-interface     v1, Ljava/util/Iterator;->next()Ljava/lang/Object;
+	8       (00000024) move-result-object   v2
+	9       (00000026) check-cast           v2, Lcom/boat/support/slam/entity/floors/Points;
+	10      (0000002a) invoke-virtual       v2, Lcom/boat/support/slam/entity/floors/Points;->getPointName()Ljava/lang/String;
+	11      (00000030) move-result-object   v3
+	12      (00000032) sget-object          v4, Lcom/jlboat/phone/application/BoatSlamApplication;->CANCLEPOINTNAME Ljava/lang/String;
+	13      (00000036) invoke-virtual       v3, v4, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	14      (0000003c) move-result          v3
+	15      (0000003e) if-eqz               v3, +003h
+
+removeOOO-BB@0x42 : [ removeOOO-BB@0x12 ]
+	16      (00000042) goto                 -18h
+
+removeOOO-BB@0x44 : [ removeOOO-BB@0x12 ]
+	17      (00000044) invoke-interface     v0, v2, Ljava/util/List;->add(Ljava/lang/Object;)Z
+	18      (0000004a) goto                 -1ch
+
+removeOOO-BB@0x4c : 
+	19      (0000004c) return-object        v0
+

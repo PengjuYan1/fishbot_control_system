@@ -1,0 +1,212 @@
+# Lcom/jlboat/phone/controller/JlNaviManager$1$2;->onConnect()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v5
+#
+# - return:void
+
+onConnect-BB@0x0 : [ onConnect-BB@0xb0 onConnect-BB@0xbe ]
+	0       (00000000) iget-object          v0, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	1       (00000004) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	2       (00000008) const/4              v1, 1
+	3       (0000000a) invoke-static        v0, v1, Lcom/jlboat/phone/controller/JlNaviManager;->access$702(Lcom/jlboat/phone/controller/JlNaviManager; Z)Z
+	4       (00000010) iget-object          v0, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	5       (00000014) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	6       (00000018) const/16             v2, 1002
+	7       (0000001c) invoke-static        v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->access$202(Lcom/jlboat/phone/controller/JlNaviManager; I)I
+	8       (00000022) iget-object          v0, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	9       (00000026) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	10      (0000002a) const-string         v2, "机器人连接导航通讯成功"
+	11      (0000002e) invoke-static        v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->access$302(Lcom/jlboat/phone/controller/JlNaviManager; Ljava/lang/String;)Ljava/lang/String;
+	12      (00000034) iget-object          v0, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	13      (00000038) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	14      (0000003c) new-instance         v2, Ljava/lang/StringBuilder;
+	15      (00000040) invoke-direct        v2, Ljava/lang/StringBuilder;-><init>()V
+	16      (00000046) iget-object          v3, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	17      (0000004a) iget-object          v3, v3, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	18      (0000004e) invoke-static        v3, Lcom/jlboat/phone/controller/JlNaviManager;->access$300(Lcom/jlboat/phone/controller/JlNaviManager;)Ljava/lang/String;
+	19      (00000054) move-result-object   v3
+	20      (00000056) invoke-virtual       v2, v3, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	21      (0000005c) move-result-object   v2
+	22      (0000005e) iget-object          v3, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	23      (00000062) iget-object          v3, v3, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	24      (00000066) invoke-static        v3, Lcom/jlboat/phone/controller/JlNaviManager;->access$400(Lcom/jlboat/phone/controller/JlNaviManager;)Z
+	25      (0000006c) move-result          v3
+	26      (0000006e) invoke-virtual       v2, v3, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+	27      (00000074) move-result-object   v2
+	28      (00000076) iget-object          v3, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	29      (0000007a) iget-object          v3, v3, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	30      (0000007e) invoke-static        v3, Lcom/jlboat/phone/controller/JlNaviManager;->access$500(Lcom/jlboat/phone/controller/JlNaviManager;)Z
+	31      (00000084) move-result          v3
+	32      (00000086) invoke-virtual       v2, v3, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+	33      (0000008c) move-result-object   v2
+	34      (0000008e) invoke-virtual       v2, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	35      (00000094) move-result-object   v2
+	36      (00000096) invoke-virtual       v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->toast(Ljava/lang/String;)V
+	37      (0000009c) iget-object          v0, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	38      (000000a0) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	39      (000000a4) invoke-static        v0, Lcom/jlboat/phone/controller/JlNaviManager;->access$400(Lcom/jlboat/phone/controller/JlNaviManager;)Z
+	40      (000000aa) move-result          v0
+	41      (000000ac) if-nez               v0, +009h
+
+onConnect-BB@0xb0 : [ onConnect-BB@0xbe ]
+	42      (000000b0) iget-object          v0, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	43      (000000b4) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	44      (000000b8) invoke-static        v0, v1, Lcom/jlboat/phone/controller/JlNaviManager;->access$602(Lcom/jlboat/phone/controller/JlNaviManager; Z)Z
+
+onConnect-BB@0xbe : 
+	45      (000000be) iget-object          v0, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	46      (000000c2) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	47      (000000c6) invoke-virtual       v0, Lcom/jlboat/phone/controller/JlNaviManager;->getApp()Lcom/boat/base/BaseApplication;
+	48      (000000cc) move-result-object   v0
+	49      (000000ce) iget-object          v1, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	50      (000000d2) iget-object          v1, v1, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	51      (000000d6) invoke-static        v1, Lcom/jlboat/phone/controller/JlNaviManager;->access$200(Lcom/jlboat/phone/controller/JlNaviManager;)I
+	52      (000000dc) move-result          v1
+	53      (000000de) iget-object          v2, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	54      (000000e2) iget-object          v2, v2, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	55      (000000e6) invoke-static        v2, Lcom/jlboat/phone/controller/JlNaviManager;->access$300(Lcom/jlboat/phone/controller/JlNaviManager;)Ljava/lang/String;
+	56      (000000ec) move-result-object   v2
+	57      (000000ee) invoke-static        v0, v1, v2, Lcom/boat/utils/ReportExceptionInformationUtils;->uploadWarn(Landroid/content/Context; I Ljava/lang/String;)V
+	58      (000000f4) iget-object          v0, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	59      (000000f8) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	60      (000000fc) new-instance         v1, Lcom/boat/jrosbridge/Topic;
+	61      (00000100) sget-object          v2, Lcom/jlboat/phone/util/TopicNames;->CMD_VEL Ljava/lang/String;
+	62      (00000104) const-class          v3, Lcom/boat/jrosbridge/message/geometry_msgs/Twist;
+	63      (00000108) sget-object          v4, Lcom/jlboat/phone/application/BoatSlamApplication;->client Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;
+	64      (0000010c) invoke-direct        v1, v2, v3, v4, Lcom/boat/jrosbridge/Topic;-><init>(Ljava/lang/String; Ljava/lang/Class; Lcom/boat/jrosbridge/ROSClient;)V
+	65      (00000112) iput-object          v1, v0, Lcom/jlboat/phone/controller/JlNaviManager;->pubCmdListener Lcom/boat/jrosbridge/Topic;
+	66      (00000116) iget-object          v0, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	67      (0000011a) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	68      (0000011e) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager;->pubCmdListener Lcom/boat/jrosbridge/Topic;
+	69      (00000122) invoke-virtual       v0, Lcom/boat/jrosbridge/Topic;->advertise()V
+	70      (00000128) iget-object          v0, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	71      (0000012c) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	72      (00000130) new-instance         v1, Lcom/jlboat/phone/communication/PubRecordBag;
+	73      (00000134) invoke-direct        v1, Lcom/jlboat/phone/communication/PubRecordBag;-><init>()V
+	74      (0000013a) iput-object          v1, v0, Lcom/jlboat/phone/controller/JlNaviManager;->pubRecordBagListener Lcom/jlboat/phone/communication/PubRecordBag;
+	75      (0000013e) iget-object          v0, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	76      (00000142) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	77      (00000146) new-instance         v1, Lcom/boat/jrosbridge/Topic;
+	78      (0000014a) sget-object          v2, Lcom/jlboat/phone/util/TopicNames;->NaviToPointName Ljava/lang/String;
+	79      (0000014e) const-class          v3, Lcom/jlboat/phone/message/map_msgs/SetTargetGoal;
+	80      (00000152) sget-object          v4, Lcom/jlboat/phone/application/BoatSlamApplication;->client Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;
+	81      (00000156) invoke-direct        v1, v2, v3, v4, Lcom/boat/jrosbridge/Topic;-><init>(Ljava/lang/String; Ljava/lang/Class; Lcom/boat/jrosbridge/ROSClient;)V
+	82      (0000015c) iput-object          v1, v0, Lcom/jlboat/phone/controller/JlNaviManager;->setTargetGoalPublish Lcom/boat/jrosbridge/Topic;
+	83      (00000160) iget-object          v0, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	84      (00000164) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	85      (00000168) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager;->setTargetGoalPublish Lcom/boat/jrosbridge/Topic;
+	86      (0000016c) invoke-virtual       v0, Lcom/boat/jrosbridge/Topic;->advertise()V
+	87      (00000172) iget-object          v0, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	88      (00000176) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	89      (0000017a) new-instance         v1, Lcom/boat/jrosbridge/Topic;
+	90      (0000017e) sget-object          v2, Lcom/jlboat/phone/util/TopicNames;->NpathAddorDel Ljava/lang/String;
+	91      (00000182) const-class          v3, Lcom/jlboat/phone/message/map_msgs/NGlobalPlan;
+	92      (00000186) sget-object          v4, Lcom/jlboat/phone/application/BoatSlamApplication;->client Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;
+	93      (0000018a) invoke-direct        v1, v2, v3, v4, Lcom/boat/jrosbridge/Topic;-><init>(Ljava/lang/String; Ljava/lang/Class; Lcom/boat/jrosbridge/ROSClient;)V
+	94      (00000190) iput-object          v1, v0, Lcom/jlboat/phone/controller/JlNaviManager;->nGlobalPlanTopicPublish Lcom/boat/jrosbridge/Topic;
+	95      (00000194) iget-object          v0, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	96      (00000198) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	97      (0000019c) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager;->nGlobalPlanTopicPublish Lcom/boat/jrosbridge/Topic;
+	98      (000001a0) invoke-virtual       v0, Lcom/boat/jrosbridge/Topic;->advertise()V
+	99      (000001a6) iget-object          v0, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	100     (000001aa) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	101     (000001ae) new-instance         v1, Lcom/boat/jrosbridge/Topic;
+	102     (000001b2) sget-object          v2, Lcom/jlboat/phone/util/TopicNames;->ErasePose Ljava/lang/String;
+	103     (000001b6) const-class          v3, Lcom/jlboat/phone/message/map_msgs/ErasePose;
+	104     (000001ba) sget-object          v4, Lcom/jlboat/phone/application/BoatSlamApplication;->client Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;
+	105     (000001be) invoke-direct        v1, v2, v3, v4, Lcom/boat/jrosbridge/Topic;-><init>(Ljava/lang/String; Ljava/lang/Class; Lcom/boat/jrosbridge/ROSClient;)V
+	106     (000001c4) iput-object          v1, v0, Lcom/jlboat/phone/controller/JlNaviManager;->erasePoseTopic Lcom/boat/jrosbridge/Topic;
+	107     (000001c8) iget-object          v0, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	108     (000001cc) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	109     (000001d0) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager;->erasePoseTopic Lcom/boat/jrosbridge/Topic;
+	110     (000001d4) invoke-virtual       v0, Lcom/boat/jrosbridge/Topic;->advertise()V
+	111     (000001da) iget-object          v0, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	112     (000001de) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	113     (000001e2) new-instance         v1, Lcom/boat/jrosbridge/Topic;
+	114     (000001e6) sget-object          v2, Lcom/jlboat/phone/util/TopicNames;->OUTOFCHARGE Ljava/lang/String;
+	115     (000001ea) const-class          v3, Lcom/boat/jrosbridge/message/std_msgs/Int16;
+	116     (000001ee) sget-object          v4, Lcom/jlboat/phone/application/BoatSlamApplication;->client Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;
+	117     (000001f2) invoke-direct        v1, v2, v3, v4, Lcom/boat/jrosbridge/Topic;-><init>(Ljava/lang/String; Ljava/lang/Class; Lcom/boat/jrosbridge/ROSClient;)V
+	118     (000001f8) iput-object          v1, v0, Lcom/jlboat/phone/controller/JlNaviManager;->outofChange Lcom/boat/jrosbridge/Topic;
+	119     (000001fc) iget-object          v0, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	120     (00000200) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	121     (00000204) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager;->outofChange Lcom/boat/jrosbridge/Topic;
+	122     (00000208) invoke-virtual       v0, Lcom/boat/jrosbridge/Topic;->advertise()V
+	123     (0000020e) iget-object          v0, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	124     (00000212) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	125     (00000216) new-instance         v1, Lcom/boat/jrosbridge/Topic;
+	126     (0000021a) sget-object          v2, Lcom/jlboat/phone/util/TopicNames;->WARNLEDSTATUS Ljava/lang/String;
+	127     (0000021e) const-class          v3, Lcom/boat/jrosbridge/message/std_msgs/Int16;
+	128     (00000222) sget-object          v4, Lcom/jlboat/phone/application/BoatSlamApplication;->client Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;
+	129     (00000226) invoke-direct        v1, v2, v3, v4, Lcom/boat/jrosbridge/Topic;-><init>(Ljava/lang/String; Ljava/lang/Class; Lcom/boat/jrosbridge/ROSClient;)V
+	130     (0000022c) iput-object          v1, v0, Lcom/jlboat/phone/controller/JlNaviManager;->warnLedStatus Lcom/boat/jrosbridge/Topic;
+	131     (00000230) iget-object          v0, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	132     (00000234) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	133     (00000238) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager;->warnLedStatus Lcom/boat/jrosbridge/Topic;
+	134     (0000023c) invoke-virtual       v0, Lcom/boat/jrosbridge/Topic;->advertise()V
+	135     (00000242) iget-object          v0, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	136     (00000246) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	137     (0000024a) new-instance         v1, Lcom/boat/jrosbridge/Topic;
+	138     (0000024e) sget-object          v2, Lcom/jlboat/phone/util/TopicNames;->REACHPOINT_STATUS Ljava/lang/String;
+	139     (00000252) const-class          v3, Lcom/boat/jrosbridge/message/std_msgs/Int16;
+	140     (00000256) sget-object          v4, Lcom/jlboat/phone/application/BoatSlamApplication;->client Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;
+	141     (0000025a) invoke-direct        v1, v2, v3, v4, Lcom/boat/jrosbridge/Topic;-><init>(Ljava/lang/String; Ljava/lang/Class; Lcom/boat/jrosbridge/ROSClient;)V
+	142     (00000260) iput-object          v1, v0, Lcom/jlboat/phone/controller/JlNaviManager;->reachPointStatus Lcom/boat/jrosbridge/Topic;
+	143     (00000264) iget-object          v0, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	144     (00000268) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	145     (0000026c) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager;->reachPointStatus Lcom/boat/jrosbridge/Topic;
+	146     (00000270) invoke-virtual       v0, Lcom/boat/jrosbridge/Topic;->advertise()V
+	147     (00000276) iget-object          v0, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	148     (0000027a) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	149     (0000027e) new-instance         v1, Lcom/jlboat/phone/communication/MapListener;
+	150     (00000282) invoke-direct        v1, Lcom/jlboat/phone/communication/MapListener;-><init>()V
+	151     (00000288) iput-object          v1, v0, Lcom/jlboat/phone/controller/JlNaviManager;->mapLisener Lcom/jlboat/phone/communication/MapListener;
+	152     (0000028c) iget-object          v0, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	153     (00000290) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	154     (00000294) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager;->mapLisener Lcom/jlboat/phone/communication/MapListener;
+	155     (00000298) iget-object          v1, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	156     (0000029c) iget-object          v1, v1, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	157     (000002a0) invoke-virtual       v0, v1, Lcom/jlboat/phone/communication/MapListener;->setOnCallBack(Lcom/jlboat/phone/communication/MapListener$onDataCallBack;)V
+	158     (000002a6) iget-object          v0, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	159     (000002aa) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	160     (000002ae) new-instance         v1, Lcom/jlboat/phone/communication/TFPoseListener;
+	161     (000002b2) invoke-direct        v1, Lcom/jlboat/phone/communication/TFPoseListener;-><init>()V
+	162     (000002b8) iput-object          v1, v0, Lcom/jlboat/phone/controller/JlNaviManager;->tfPoseListener Lcom/jlboat/phone/communication/TFPoseListener;
+	163     (000002bc) iget-object          v0, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	164     (000002c0) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	165     (000002c4) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager;->tfPoseListener Lcom/jlboat/phone/communication/TFPoseListener;
+	166     (000002c8) iget-object          v1, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	167     (000002cc) iget-object          v1, v1, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	168     (000002d0) invoke-virtual       v0, v1, Lcom/jlboat/phone/communication/TFPoseListener;->setListener(Lcom/jlboat/phone/communication/TFPoseListener$OnCallBack;)V
+	169     (000002d6) iget-object          v0, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	170     (000002da) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	171     (000002de) new-instance         v1, Lcom/jlboat/phone/communication/PathLayerLisener;
+	172     (000002e2) invoke-direct        v1, Lcom/jlboat/phone/communication/PathLayerLisener;-><init>()V
+	173     (000002e8) iput-object          v1, v0, Lcom/jlboat/phone/controller/JlNaviManager;->pathLayerLisener Lcom/jlboat/phone/communication/PathLayerLisener;
+	174     (000002ec) iget-object          v0, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	175     (000002f0) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	176     (000002f4) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager;->pathLayerLisener Lcom/jlboat/phone/communication/PathLayerLisener;
+	177     (000002f8) iget-object          v1, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	178     (000002fc) iget-object          v1, v1, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	179     (00000300) invoke-virtual       v0, v1, Lcom/jlboat/phone/communication/PathLayerLisener;->setListener(Lcom/jlboat/phone/communication/PathLayerLisener$OnDataCallBack;)V
+	180     (00000306) iget-object          v0, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	181     (0000030a) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	182     (0000030e) new-instance         v1, Lcom/jlboat/phone/communication/StatusServiceClient;
+	183     (00000312) invoke-direct        v1, Lcom/jlboat/phone/communication/StatusServiceClient;-><init>()V
+	184     (00000318) iput-object          v1, v0, Lcom/jlboat/phone/controller/JlNaviManager;->statusServiceClient Lcom/jlboat/phone/communication/StatusServiceClient;
+	185     (0000031c) iget-object          v0, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	186     (00000320) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	187     (00000324) new-instance         v1, Lcom/jlboat/phone/communication/SpiritServiceClient;
+	188     (00000328) invoke-direct        v1, Lcom/jlboat/phone/communication/SpiritServiceClient;-><init>()V
+	189     (0000032e) iput-object          v1, v0, Lcom/jlboat/phone/controller/JlNaviManager;->spiritServiceClient Lcom/jlboat/phone/communication/SpiritServiceClient;
+	190     (00000332) iget-object          v0, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	191     (00000336) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	192     (0000033a) new-instance         v1, Lcom/jlboat/phone/communication/SpiritTopicListener;
+	193     (0000033e) invoke-direct        v1, Lcom/jlboat/phone/communication/SpiritTopicListener;-><init>()V
+	194     (00000344) iput-object          v1, v0, Lcom/jlboat/phone/controller/JlNaviManager;->spiritTopicListener Lcom/jlboat/phone/communication/SpiritTopicListener;
+	195     (00000348) iget-object          v0, v5, Lcom/jlboat/phone/controller/JlNaviManager$1$2;->this$1 Lcom/jlboat/phone/controller/JlNaviManager$1;
+	196     (0000034c) iget-object          v0, v0, Lcom/jlboat/phone/controller/JlNaviManager$1;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	197     (00000350) invoke-virtual       v0, Lcom/jlboat/phone/controller/JlNaviManager;->initService()V
+	198     (00000356) return-void          
+

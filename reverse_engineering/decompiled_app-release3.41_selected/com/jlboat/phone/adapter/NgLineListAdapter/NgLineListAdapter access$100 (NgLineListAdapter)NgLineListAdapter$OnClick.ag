@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/adapter/NgLineListAdapter;->access$100(Lcom/jlboat/phone/adapter/NgLineListAdapter;)Lcom/jlboat/phone/adapter/NgLineListAdapter$OnClick; [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.adapter.NgLineListAdapter
+#
+# - return:com.jlboat.phone.adapter.NgLineListAdapter$OnClick
+
+access$100-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/jlboat/phone/adapter/NgLineListAdapter;->onclick Lcom/jlboat/phone/adapter/NgLineListAdapter$OnClick;
+	1       (00000004) return-object        v0
+

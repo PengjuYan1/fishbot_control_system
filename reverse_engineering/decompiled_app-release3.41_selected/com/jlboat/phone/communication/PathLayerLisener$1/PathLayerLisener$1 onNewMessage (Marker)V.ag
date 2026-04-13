@@ -1,0 +1,67 @@
+# Lcom/jlboat/phone/communication/PathLayerLisener$1;->onNewMessage(Lcom/boat/jrosbridge/message/visualization_msgs/Marker;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v7
+# - v8:com.boat.jrosbridge.message.visualization_msgs.Marker
+#
+# - return:void
+
+onNewMessage-BB@0x0 : [ onNewMessage-BB@0x4 onNewMessage-BB@0x94 ]
+	0       (00000000) if-eqz               v8, +04ah
+
+onNewMessage-BB@0x4 : [ onNewMessage-BB@0x14 onNewMessage-BB@0x16 ]
+	1       (00000004) invoke-virtual       v8, Lcom/boat/jrosbridge/message/visualization_msgs/Marker;->getPoints()[Lcom/boat/jrosbridge/message/geometry_msgs/Point;
+	2       (0000000a) move-result-object   v0
+	3       (0000000c) array-length         v0, v0
+	4       (0000000e) const/4              v1, 1
+	5       (00000010) if-ge                v0, v1, +003h
+
+onNewMessage-BB@0x14 : [ onNewMessage-BB@0x94 ]
+	6       (00000014) goto                 +40h
+
+onNewMessage-BB@0x16 : [ onNewMessage-BB@0x2c ]
+	7       (00000016) new-instance         v0, Ljava/util/LinkedList;
+	8       (0000001a) invoke-direct        v0, Ljava/util/LinkedList;-><init>()V
+	9       (00000020) invoke-virtual       v8, Lcom/boat/jrosbridge/message/visualization_msgs/Marker;->getPoints()[Lcom/boat/jrosbridge/message/geometry_msgs/Point;
+	10      (00000026) move-result-object   v1
+	11      (00000028) array-length         v2, v1
+	12      (0000002a) const/4              v3, 0
+
+onNewMessage-BB@0x2c : [ onNewMessage-BB@0x30 onNewMessage-BB@0x66 ]
+	13      (0000002c) if-ge                v3, v2, +01dh
+
+onNewMessage-BB@0x30 : [ onNewMessage-BB@0x2c ]
+	14      (00000030) aget-object          v4, v1, v3
+	15      (00000034) invoke-virtual       v4, Lcom/boat/jrosbridge/message/geometry_msgs/Point;->getX()D
+	16      (0000003a) move-result-wide     v5
+	17      (0000003c) invoke-static        v5, v6, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
+	18      (00000042) move-result-object   v5
+	19      (00000044) invoke-interface     v0, v5, Ljava/util/List;->add(Ljava/lang/Object;)Z
+	20      (0000004a) invoke-virtual       v4, Lcom/boat/jrosbridge/message/geometry_msgs/Point;->getY()D
+	21      (00000050) move-result-wide     v5
+	22      (00000052) invoke-static        v5, v6, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
+	23      (00000058) move-result-object   v5
+	24      (0000005a) invoke-interface     v0, v5, Ljava/util/List;->add(Ljava/lang/Object;)Z
+	25      (00000060) add-int/lit8         v3, v3, 1
+	26      (00000064) goto                 -1ch
+
+onNewMessage-BB@0x66 : [ onNewMessage-BB@0x7c onNewMessage-BB@0x92 ]
+	27      (00000066) new-instance         v1, Lorg/json/JSONArray;
+	28      (0000006a) invoke-direct        v1, v0, Lorg/json/JSONArray;-><init>(Ljava/util/Collection;)V
+	29      (00000070) iget-object          v2, v7, Lcom/jlboat/phone/communication/PathLayerLisener$1;->this$0 Lcom/jlboat/phone/communication/PathLayerLisener;
+	30      (00000074) iget-object          v2, v2, Lcom/jlboat/phone/communication/PathLayerLisener;->onDataCallBack Lcom/jlboat/phone/communication/PathLayerLisener$OnDataCallBack;
+	31      (00000078) if-eqz               v2, +00dh
+
+onNewMessage-BB@0x7c : [ onNewMessage-BB@0x92 ]
+	32      (0000007c) iget-object          v2, v7, Lcom/jlboat/phone/communication/PathLayerLisener$1;->this$0 Lcom/jlboat/phone/communication/PathLayerLisener;
+	33      (00000080) iget-object          v2, v2, Lcom/jlboat/phone/communication/PathLayerLisener;->onDataCallBack Lcom/jlboat/phone/communication/PathLayerLisener$OnDataCallBack;
+	34      (00000084) invoke-virtual       v1, Lorg/json/JSONArray;->toString()Ljava/lang/String;
+	35      (0000008a) move-result-object   v3
+	36      (0000008c) invoke-interface     v2, v3, Lcom/jlboat/phone/communication/PathLayerLisener$OnDataCallBack;->onPathLayerListener(Ljava/lang/String;)V
+
+onNewMessage-BB@0x92 : 
+	37      (00000092) return-void          
+
+onNewMessage-BB@0x94 : 
+	38      (00000094) return-void          
+

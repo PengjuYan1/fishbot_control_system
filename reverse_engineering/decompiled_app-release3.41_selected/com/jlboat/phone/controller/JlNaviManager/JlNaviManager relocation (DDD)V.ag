@@ -1,0 +1,66 @@
+# Lcom/jlboat/phone/controller/JlNaviManager;->relocation(D D D)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v25
+# - v26:double
+# - v27:double
+# - v28:double
+#
+# - return:void
+
+relocation-BB@0x0 : [ relocation-BB@0xc relocation-BB@0xa0 ]
+	0       (00000000) move-object/from16   v0, v22
+	1       (00000004) iget-boolean         v1, v0, Lcom/jlboat/phone/controller/JlNaviManager;->connectStatus Z
+	2       (00000008) if-eqz               v1, +04ch
+
+relocation-BB@0xc : [ relocation-BB@0x14 relocation-BB@0x1a ]
+	3       (0000000c) iget-boolean         v1, v0, Lcom/jlboat/phone/controller/JlNaviManager;->isNavigationInited Z
+	4       (00000010) if-nez               v1, +005h
+
+relocation-BB@0x14 : [ relocation-BB@0xa4 ]
+	5       (00000014) move-wide/from16     v10, v27
+	6       (00000018) goto                 +46h
+
+relocation-BB@0x1a : 
+	7       (0000001a) iget-object          v1, v0, Lcom/jlboat/phone/controller/JlNaviManager;->TAG Ljava/lang/String;
+	8       (0000001e) new-instance         v2, Ljava/lang/StringBuilder;
+	9       (00000022) invoke-direct        v2, Ljava/lang/StringBuilder;-><init>()V
+	10      (00000028) const-string         v3, "relocation:  yaw = "
+	11      (0000002c) invoke-virtual       v2, v3, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	12      (00000032) move-result-object   v2
+	13      (00000034) move-wide/from16     v10, v27
+	14      (00000038) invoke-virtual       v2, v10, v11, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
+	15      (0000003e) move-result-object   v2
+	16      (00000040) invoke-virtual       v2, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	17      (00000046) move-result-object   v2
+	18      (00000048) invoke-static        v1, v2, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	19      (0000004e) new-instance         v1, Lcom/jlboat/phone/util/EulerAngles;
+	20      (00000052) const-wide/16        v4, 0
+	21      (00000056) const-wide/16        v8, 0
+	22      (0000005a) move-object          v3, v1
+	23      (0000005c) move-wide/from16     v6, v27
+	24      (00000060) invoke-direct/range  v3 ... v9, Lcom/jlboat/phone/util/EulerAngles;-><init>(D D D)V
+	25      (00000066) invoke-virtual       v1, Lcom/jlboat/phone/util/EulerAngles;->ToQuaternion()Lcom/jlboat/phone/util/Quaternion;
+	26      (0000006c) move-result-object   v1
+	27      (0000006e) iget-object          v12, v0, Lcom/jlboat/phone/controller/JlNaviManager;->spiritServiceClient Lcom/jlboat/phone/communication/SpiritServiceClient;
+	28      (00000072) iget-wide            v2, v1, Lcom/jlboat/phone/util/Quaternion;->z D
+	29      (00000076) iget-wide            v4, v1, Lcom/jlboat/phone/util/Quaternion;->w D
+	30      (0000007a) new-instance         v6, Lcom/jlboat/phone/controller/JlNaviManager$31;
+	31      (0000007e) invoke-direct        v6, v0, Lcom/jlboat/phone/controller/JlNaviManager$31;-><init>(Lcom/jlboat/phone/controller/JlNaviManager;)V
+	32      (00000084) move-wide/from16     v13, v23
+	33      (00000088) move-wide/from16     v15, v25
+	34      (0000008c) move-wide/from16     v17, v2
+	35      (00000090) move-wide/from16     v19, v4
+	36      (00000094) move-object/from16   v21, v6
+	37      (00000098) invoke-virtual/range v12 ... v21, Lcom/jlboat/phone/communication/SpiritServiceClient;->relocation(D D D D Lcom/boat/jrosbridge/MessageListener;)V
+	38      (0000009e) return-void          
+
+relocation-BB@0xa0 : [ relocation-BB@0xa4 ]
+	39      (000000a0) move-wide/from16     v10, v27
+
+relocation-BB@0xa4 : 
+	40      (000000a4) iget-object          v1, v0, Lcom/jlboat/phone/controller/JlNaviManager;->TAG Ljava/lang/String;
+	41      (000000a8) const-string         v2, "relocation: 初始化未成功 不可以进行数据请求 relocation "
+	42      (000000ac) invoke-static        v1, v2, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	43      (000000b2) return-void          
+

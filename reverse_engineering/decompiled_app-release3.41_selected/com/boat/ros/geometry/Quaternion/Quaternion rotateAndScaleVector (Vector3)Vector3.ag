@@ -1,0 +1,36 @@
+# Lcom/boat/ros/geometry/Quaternion;->rotateAndScaleVector(Lcom/boat/ros/geometry/Vector3;)Lcom/boat/ros/geometry/Vector3; [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v10
+# - v11:com.boat.ros.geometry.Vector3
+#
+# - return:com.boat.ros.geometry.Vector3
+
+rotateAndScaleVector-BB@0x0 : 
+	0       (00000000) new-instance         v9, Lcom/boat/ros/geometry/Quaternion;
+	1       (00000004) invoke-virtual       v11, Lcom/boat/ros/geometry/Vector3;->getX()D
+	2       (0000000a) move-result-wide     v1
+	3       (0000000c) invoke-virtual       v11, Lcom/boat/ros/geometry/Vector3;->getY()D
+	4       (00000012) move-result-wide     v3
+	5       (00000014) invoke-virtual       v11, Lcom/boat/ros/geometry/Vector3;->getZ()D
+	6       (0000001a) move-result-wide     v5
+	7       (0000001c) const-wide/16        v7, 0
+	8       (00000020) move-object          v0, v9
+	9       (00000022) invoke-direct/range  v0 ... v8, Lcom/boat/ros/geometry/Quaternion;-><init>(D D D D)V
+	10      (00000028) invoke-virtual       v10, Lcom/boat/ros/geometry/Quaternion;->conjugate()Lcom/boat/ros/geometry/Quaternion;
+	11      (0000002e) move-result-object   v1
+	12      (00000030) invoke-virtual       v0, v1, Lcom/boat/ros/geometry/Quaternion;->multiply(Lcom/boat/ros/geometry/Quaternion;)Lcom/boat/ros/geometry/Quaternion;
+	13      (00000036) move-result-object   v1
+	14      (00000038) invoke-virtual       v10, v1, Lcom/boat/ros/geometry/Quaternion;->multiply(Lcom/boat/ros/geometry/Quaternion;)Lcom/boat/ros/geometry/Quaternion;
+	15      (0000003e) move-result-object   v1
+	16      (00000040) new-instance         v9, Lcom/boat/ros/geometry/Vector3;
+	17      (00000044) invoke-virtual       v1, Lcom/boat/ros/geometry/Quaternion;->getX()D
+	18      (0000004a) move-result-wide     v3
+	19      (0000004c) invoke-virtual       v1, Lcom/boat/ros/geometry/Quaternion;->getY()D
+	20      (00000052) move-result-wide     v5
+	21      (00000054) invoke-virtual       v1, Lcom/boat/ros/geometry/Quaternion;->getZ()D
+	22      (0000005a) move-result-wide     v7
+	23      (0000005c) move-object          v2, v9
+	24      (0000005e) invoke-direct/range  v2 ... v8, Lcom/boat/ros/geometry/Vector3;-><init>(D D D)V
+	25      (00000064) return-object        v9
+

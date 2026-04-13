@@ -1,0 +1,19 @@
+# Lcom/jlboat/phone/activity/MapActivity;->showWaitingDialog(Ljava/lang/CharSequence; Ljava/lang/CharSequence;)V [access_flags=private]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:java.lang.CharSequence
+# - v4:java.lang.CharSequence
+#
+# - return:void
+
+showWaitingDialog-BB@0x0 : 
+	0       (00000000) const/4              v0, 1
+	1       (00000002) invoke-static        v2, v3, v4, v0, Landroid/app/ProgressDialog;->show(Landroid/content/Context; Ljava/lang/CharSequence; Ljava/lang/CharSequence; Z)Landroid/app/ProgressDialog;
+	2       (00000008) move-result-object   v0
+	3       (0000000a) iput-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity;->waitingDialog Landroid/app/ProgressDialog;
+	4       (0000000e) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity;->waitingDialog Landroid/app/ProgressDialog;
+	5       (00000012) const/4              v1, 0
+	6       (00000014) invoke-virtual       v0, v1, Landroid/app/ProgressDialog;->setProgressStyle(I)V
+	7       (0000001a) return-void          
+

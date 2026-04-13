@@ -1,0 +1,50 @@
+# Lcom/jlboat/phone/controller/JlNaviManager;->onPowerListener()V [access_flags=private]
+#
+# Parameters:
+# local registers: v0...v4
+#
+# - return:void
+
+onPowerListener-BB@0x0 : [ onPowerListener-BB@0x8 onPowerListener-BB@0xa ]
+	0       (00000000) iget-boolean         v0, v4, Lcom/jlboat/phone/controller/JlNaviManager;->isPowerUpdateEnd Z
+	1       (00000004) if-eqz               v0, +003h
+
+onPowerListener-BB@0x8 : 
+	2       (00000008) return-void          
+
+onPowerListener-BB@0xa : 
+	3       (0000000a) new-instance         v0, Landroid/os/Message;
+	4       (0000000e) invoke-direct        v0, Landroid/os/Message;-><init>()V
+	5       (00000014) const/16             v1, 100
+	6       (00000018) iput                 v1, v0, Landroid/os/Message;->what I
+	7       (0000001c) new-instance         v1, Landroid/os/Bundle;
+	8       (00000020) invoke-direct        v1, Landroid/os/Bundle;-><init>()V
+	9       (00000026) const-string         v2, "code"
+	10      (0000002a) const/16             v3, 1031
+	11      (0000002e) invoke-virtual       v1, v2, v3, Landroid/os/Bundle;->putInt(Ljava/lang/String; I)V
+	12      (00000034) new-instance         v2, Ljava/lang/StringBuilder;
+	13      (00000038) invoke-direct        v2, Ljava/lang/StringBuilder;-><init>()V
+	14      (0000003e) const-string         v3, "{"isCharging":"
+	15      (00000042) invoke-virtual       v2, v3, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	16      (00000048) move-result-object   v2
+	17      (0000004a) iget-boolean         v3, v4, Lcom/jlboat/phone/controller/JlNaviManager;->isCharging Z
+	18      (0000004e) invoke-virtual       v2, v3, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+	19      (00000054) move-result-object   v2
+	20      (00000056) const-string         v3, ","battery":""
+	21      (0000005a) invoke-virtual       v2, v3, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	22      (00000060) move-result-object   v2
+	23      (00000062) iget                 v3, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentBattery I
+	24      (00000066) invoke-virtual       v2, v3, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	25      (0000006c) move-result-object   v2
+	26      (0000006e) const-string         v3, ""}"
+	27      (00000072) invoke-virtual       v2, v3, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	28      (00000078) move-result-object   v2
+	29      (0000007a) invoke-virtual       v2, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	30      (00000080) move-result-object   v2
+	31      (00000082) const-string         v3, "data"
+	32      (00000086) invoke-virtual       v1, v3, v2, Landroid/os/Bundle;->putString(Ljava/lang/String; Ljava/lang/String;)V
+	33      (0000008c) invoke-virtual       v0, v1, Landroid/os/Message;->setData(Landroid/os/Bundle;)V
+	34      (00000092) iget-object          v3, v4, Lcom/jlboat/phone/controller/JlNaviManager;->mHandler Landroid/os/Handler;
+	35      (00000096) invoke-virtual       v3, v0, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
+	36      (0000009c) return-void          
+

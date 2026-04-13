@@ -1,0 +1,71 @@
+# Lcom/jlboat/phone/util/EulerAngles;->ToQuaternion()Lcom/jlboat/phone/util/Quaternion; [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v9
+#
+# - return:com.jlboat.phone.util.Quaternion
+
+ToQuaternion-BB@0x0 : 
+	0       (00000000) iget-wide            v0, v9, Lcom/jlboat/phone/util/EulerAngles;->yaw D
+	1       (00000004) const-wide/high16    v2, 4602678819172646912
+	2       (00000008) mul-double           v0, v0, v2
+	3       (0000000c) invoke-static        v0, v1, Ljava/lang/Math;->cos(D)D
+	4       (00000012) move-result-wide     v0
+	5       (00000014) double-to-float      v0, v0
+	6       (00000016) iget-wide            v4, v9, Lcom/jlboat/phone/util/EulerAngles;->yaw D
+	7       (0000001a) mul-double           v4, v4, v2
+	8       (0000001e) invoke-static        v4, v5, Ljava/lang/Math;->sin(D)D
+	9       (00000024) move-result-wide     v4
+	10      (00000026) double-to-float      v1, v4
+	11      (00000028) iget-wide            v4, v9, Lcom/jlboat/phone/util/EulerAngles;->pitch D
+	12      (0000002c) mul-double           v4, v4, v2
+	13      (00000030) invoke-static        v4, v5, Ljava/lang/Math;->cos(D)D
+	14      (00000036) move-result-wide     v4
+	15      (00000038) double-to-float      v4, v4
+	16      (0000003a) iget-wide            v5, v9, Lcom/jlboat/phone/util/EulerAngles;->pitch D
+	17      (0000003e) mul-double           v5, v5, v2
+	18      (00000042) invoke-static        v5, v6, Ljava/lang/Math;->sin(D)D
+	19      (00000048) move-result-wide     v5
+	20      (0000004a) double-to-float      v5, v5
+	21      (0000004c) iget-wide            v6, v9, Lcom/jlboat/phone/util/EulerAngles;->roll D
+	22      (00000050) mul-double           v6, v6, v2
+	23      (00000054) invoke-static        v6, v7, Ljava/lang/Math;->cos(D)D
+	24      (0000005a) move-result-wide     v6
+	25      (0000005c) double-to-float      v6, v6
+	26      (0000005e) iget-wide            v7, v9, Lcom/jlboat/phone/util/EulerAngles;->roll D
+	27      (00000062) mul-double           v7, v7, v2
+	28      (00000066) invoke-static        v7, v8, Ljava/lang/Math;->sin(D)D
+	29      (0000006c) move-result-wide     v2
+	30      (0000006e) double-to-float      v2, v2
+	31      (00000070) new-instance         v3, Lcom/jlboat/phone/util/Quaternion;
+	32      (00000074) invoke-direct        v3, Lcom/jlboat/phone/util/Quaternion;-><init>()V
+	33      (0000007a) mul-float            v7, v0, v4
+	34      (0000007e) mul-float            v7, v7, v6
+	35      (00000082) mul-float            v8, v1, v5
+	36      (00000086) mul-float            v8, v8, v2
+	37      (0000008a) add-float/2addr      v7, v8
+	38      (0000008c) float-to-double      v7, v7
+	39      (0000008e) iput-wide            v7, v3, Lcom/jlboat/phone/util/Quaternion;->w D
+	40      (00000092) mul-float            v7, v0, v4
+	41      (00000096) mul-float            v7, v7, v2
+	42      (0000009a) mul-float            v8, v1, v5
+	43      (0000009e) mul-float            v8, v8, v6
+	44      (000000a2) sub-float/2addr      v7, v8
+	45      (000000a4) float-to-double      v7, v7
+	46      (000000a6) iput-wide            v7, v3, Lcom/jlboat/phone/util/Quaternion;->x D
+	47      (000000aa) mul-float            v7, v1, v4
+	48      (000000ae) mul-float            v7, v7, v2
+	49      (000000b2) mul-float            v8, v0, v5
+	50      (000000b6) mul-float            v8, v8, v6
+	51      (000000ba) add-float/2addr      v7, v8
+	52      (000000bc) float-to-double      v7, v7
+	53      (000000be) iput-wide            v7, v3, Lcom/jlboat/phone/util/Quaternion;->y D
+	54      (000000c2) mul-float            v7, v1, v4
+	55      (000000c6) mul-float            v7, v7, v6
+	56      (000000ca) mul-float            v8, v0, v5
+	57      (000000ce) mul-float            v8, v8, v2
+	58      (000000d2) sub-float/2addr      v7, v8
+	59      (000000d4) float-to-double      v7, v7
+	60      (000000d6) iput-wide            v7, v3, Lcom/jlboat/phone/util/Quaternion;->z D
+	61      (000000da) return-object        v3
+

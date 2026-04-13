@@ -1,0 +1,13 @@
+# Lcom/boat/support/slam/callback/NaviCallback;->onNaviGoalCallback(J J J)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:long
+# - v5:long
+# - v6:long
+#
+# - return:void
+
+onNaviGoalCallback-BB@0x0 : 
+	0       (00000000) return-void          
+

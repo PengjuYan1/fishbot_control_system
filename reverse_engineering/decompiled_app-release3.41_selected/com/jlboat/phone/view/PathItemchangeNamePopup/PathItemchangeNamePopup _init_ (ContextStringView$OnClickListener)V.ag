@@ -1,0 +1,20 @@
+# Lcom/jlboat/phone/view/PathItemchangeNamePopup;-><init>(Landroid/content/Context; Ljava/lang/String; Landroid/view/View$OnClickListener;)V [access_flags=public constructor]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:android.content.Context
+# - v3:java.lang.String
+# - v4:android.view.View$OnClickListener
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) invoke-direct        v1, v2, Landroid/widget/PopupWindow;-><init>(Landroid/content/Context;)V
+	1       (00000006) const/4              v0, 0
+	2       (00000008) iput-boolean         v0, v1, Lcom/jlboat/phone/view/PathItemchangeNamePopup;->touchWinDismiss Z
+	3       (0000000c) iput-object          v2, v1, Lcom/jlboat/phone/view/PathItemchangeNamePopup;->mContext Landroid/content/Context;
+	4       (00000010) iput-object          v3, v1, Lcom/jlboat/phone/view/PathItemchangeNamePopup;->oldName Ljava/lang/String;
+	5       (00000014) iput-object          v4, v1, Lcom/jlboat/phone/view/PathItemchangeNamePopup;->msubClickListener Landroid/view/View$OnClickListener;
+	6       (00000018) invoke-direct        v1, Lcom/jlboat/phone/view/PathItemchangeNamePopup;->init()V
+	7       (0000001e) return-void          
+

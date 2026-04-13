@@ -1,0 +1,16 @@
+# Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;-><init>()V [access_flags=public constructor]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) invoke-direct        v1, Lcom/jlboat/phone/base/BaseFragment;-><init>()V
+	1       (00000006) const/4              v0, 1
+	2       (00000008) iput-boolean         v0, v1, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;->flag Z
+	3       (0000000c) new-instance         v0, Ljava/util/concurrent/CopyOnWriteArrayList;
+	4       (00000010) invoke-direct        v0, Ljava/util/concurrent/CopyOnWriteArrayList;-><init>()V
+	5       (00000016) iput-object          v0, v1, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;->configList Ljava/util/List;
+	6       (0000001a) return-void          
+

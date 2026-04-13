@@ -1,0 +1,42 @@
+# Lcom/jlboat/phone/activity/MapEditMapActivity2025;->onClick(Landroid/view/View;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:android.view.View
+#
+# - return:void
+
+onClick-BB@0x0 : [ D:onClick-BB@0xe 2131230823:onClick-BB@0x10 ]
+	0       (00000000) invoke-virtual       v4, Landroid/view/View;->getId()I
+	1       (00000006) move-result          v0
+	2       (00000008) packed-switch        v0, +000002ah
+
+onClick-BB@0xe : [ onClick-BB@0x5a ]
+	3       (0000000e) goto                 +26h
+
+onClick-BB@0x10 : [ onClick-BB@0x3a onClick-BB@0x5a ]
+	4       (00000010) const                v0, 2131493126
+	5       (00000016) invoke-virtual       v3, v0, Lcom/jlboat/phone/activity/MapEditMapActivity2025;->getResString(I)Ljava/lang/String;
+	6       (0000001c) move-result-object   v0
+	7       (0000001e) const                v1, 2131493125
+	8       (00000024) invoke-virtual       v3, v1, Lcom/jlboat/phone/activity/MapEditMapActivity2025;->getResString(I)Ljava/lang/String;
+	9       (0000002a) move-result-object   v1
+	10      (0000002c) invoke-direct        v3, v0, v1, Lcom/jlboat/phone/activity/MapEditMapActivity2025;->safeShowWaitingDialog(Ljava/lang/CharSequence; Ljava/lang/CharSequence;)V
+	11      (00000032) iget-object          v0, v3, Lcom/jlboat/phone/activity/MapEditMapActivity2025;->spiritServiceClient Lcom/jlboat/phone/communication/SpiritServiceClient;
+	12      (00000036) if-eqz               v0, +012h
+
+onClick-BB@0x3a : [ onClick-BB@0x5a ]
+	13      (0000003a) iget-object          v0, v3, Lcom/jlboat/phone/activity/MapEditMapActivity2025;->spiritServiceClient Lcom/jlboat/phone/communication/SpiritServiceClient;
+	14      (0000003e) iget-object          v1, v3, Lcom/jlboat/phone/activity/MapEditMapActivity2025;->mapView Lcom/jlboat/phone/view/DrawMapView;
+	15      (00000042) invoke-virtual       v1, Lcom/jlboat/phone/view/DrawMapView;->getMapData()Ljava/lang/String;
+	16      (00000048) move-result-object   v1
+	17      (0000004a) new-instance         v2, Lcom/jlboat/phone/activity/MapEditMapActivity2025$4;
+	18      (0000004e) invoke-direct        v2, v3, Lcom/jlboat/phone/activity/MapEditMapActivity2025$4;-><init>(Lcom/jlboat/phone/activity/MapEditMapActivity2025;)V
+	19      (00000054) invoke-virtual       v0, v1, v2, Lcom/jlboat/phone/communication/SpiritServiceClient;->saveMapEXTService(Ljava/lang/String; Lcom/boat/jrosbridge/MessageListener;)V
+
+onClick-BB@0x5a : 
+	20      (0000005a) return-void          
+
+onClick-BB@0x5c : 
+	21      (0000005c) packed-switch-payload 7f080067
+

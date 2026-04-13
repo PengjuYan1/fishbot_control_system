@@ -1,0 +1,38 @@
+# Lcom/boat/support/slam/SlamManager;->relocation(D D D D D D)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v21
+# - v22:double
+# - v23:double
+# - v24:double
+# - v25:double
+# - v26:double
+# - v27:double
+#
+# - return:void
+
+relocation-BB@0x0 : [ relocation-BB@0xa relocation-BB@0x36 ]
+	0       (00000000) move-object          v1, v15
+	1       (00000002) iget-object          v0, v1, Lcom/boat/support/slam/SlamManager;->slamService Lcom/boat/support/slam/ISlamService;
+	2       (00000006) if-eqz               v0, +018h
+
+relocation-BB@0xa : [ relocation-BB@0x36 ]
+	3       (0000000a) iget-object          v2, v1, Lcom/boat/support/slam/SlamManager;->slamService Lcom/boat/support/slam/ISlamService;
+	4       (0000000e) move-wide/from16     v3, v16
+	5       (00000012) move-wide/from16     v5, v18
+	6       (00000016) move-wide/from16     v7, v20
+	7       (0000001a) move-wide/from16     v9, v22
+	8       (0000001e) move-wide/from16     v11, v24
+	9       (00000022) move-wide/from16     v13, v26
+	10      (00000026) invoke-interface/range v2 ... v14, Lcom/boat/support/slam/ISlamService;->relocation(D D D D D D)V
+	11      (0000002c) goto                 +5h
+	a:2b
+	(Landroid/os/RemoteException; -> 2e relocation-BB@0x2e)
+
+relocation-BB@0x2e : [ relocation-BB@0x36 ]
+	12      (0000002e) move-exception       v0
+	13      (00000030) invoke-virtual       v0, Landroid/os/RemoteException;->printStackTrace()V
+
+relocation-BB@0x36 : 
+	14      (00000036) return-void          
+

@@ -1,0 +1,38 @@
+# Lcom/boat/support/slam/ISlamService$_Parcel;->writeTypedList(Landroid/os/Parcel; Ljava/util/List; I)V [access_flags=private static]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:android.os.Parcel
+# - v4:java.util.List
+# - v5:int
+#
+# - return:void
+
+writeTypedList-BB@0x0 : [ writeTypedList-BB@0x4 writeTypedList-BB@0xe ]
+	0       (00000000) if-nez               v4, +007h
+
+writeTypedList-BB@0x4 : [ writeTypedList-BB@0x3a ]
+	1       (00000004) const/4              v0, -1
+	2       (00000006) invoke-virtual       v3, v0, Landroid/os/Parcel;->writeInt(I)V
+	3       (0000000c) goto                 +17h
+
+writeTypedList-BB@0xe : [ writeTypedList-BB@0x1e ]
+	4       (0000000e) invoke-interface     v4, Ljava/util/List;->size()I
+	5       (00000014) move-result          v0
+	6       (00000016) const/4              v1, 0
+	7       (00000018) invoke-virtual       v3, v0, Landroid/os/Parcel;->writeInt(I)V
+
+writeTypedList-BB@0x1e : [ writeTypedList-BB@0x22 writeTypedList-BB@0x3a ]
+	8       (0000001e) if-ge                v1, v0, +00eh
+
+writeTypedList-BB@0x22 : [ writeTypedList-BB@0x1e ]
+	9       (00000022) invoke-interface     v4, v1, Ljava/util/List;->get(I)Ljava/lang/Object;
+	10      (00000028) move-result-object   v2
+	11      (0000002a) check-cast           v2, Landroid/os/Parcelable;
+	12      (0000002e) invoke-static        v3, v2, v5, Lcom/boat/support/slam/ISlamService$_Parcel;->writeTypedObject(Landroid/os/Parcel; Landroid/os/Parcelable; I)V
+	13      (00000034) add-int/lit8         v1, v1, 1
+	14      (00000038) goto                 -dh
+
+writeTypedList-BB@0x3a : 
+	15      (0000003a) return-void          
+

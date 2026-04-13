@@ -1,0 +1,33 @@
+# Lcom/jlboat/phone/fragment/settingfragment/MoveBaseFragment;->initView(Landroid/view/LayoutInflater; Landroid/view/ViewGroup;)Landroid/view/View; [access_flags=protected]
+#
+# Parameters:
+# - local registers: v0...v4
+# - v5:android.view.LayoutInflater
+# - v6:android.view.ViewGroup
+#
+# - return:android.view.View
+
+initView-BB@0x0 : 
+	0       (00000000) const                v0, 2131361857
+	1       (00000006) const/4              v1, 0
+	2       (00000008) invoke-virtual       v5, v0, v6, v1, Landroid/view/LayoutInflater;->inflate(I Landroid/view/ViewGroup; Z)Landroid/view/View;
+	3       (0000000e) move-result-object   v0
+	4       (00000010) const                v1, 2131231222
+	5       (00000016) invoke-virtual       v0, v1, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	6       (0000001c) move-result-object   v1
+	7       (0000001e) check-cast           v1, Landroid/support/v7/widget/RecyclerView;
+	8       (00000022) iput-object          v1, v4, Lcom/jlboat/phone/fragment/settingfragment/MoveBaseFragment;->rvMoveBase Landroid/support/v7/widget/RecyclerView;
+	9       (00000026) new-instance         v1, Lcom/jlboat/phone/adapter/ConfigListAdapter;
+	10      (0000002a) iget-object          v2, v4, Lcom/jlboat/phone/fragment/settingfragment/MoveBaseFragment;->mContext Landroid/content/Context;
+	11      (0000002e) invoke-direct        v1, v2, Lcom/jlboat/phone/adapter/ConfigListAdapter;-><init>(Landroid/content/Context;)V
+	12      (00000034) iput-object          v1, v4, Lcom/jlboat/phone/fragment/settingfragment/MoveBaseFragment;->adapter Lcom/jlboat/phone/adapter/ConfigListAdapter;
+	13      (00000038) iget-object          v1, v4, Lcom/jlboat/phone/fragment/settingfragment/MoveBaseFragment;->rvMoveBase Landroid/support/v7/widget/RecyclerView;
+	14      (0000003c) new-instance         v2, Landroid/support/v7/widget/LinearLayoutManager;
+	15      (00000040) iget-object          v3, v4, Lcom/jlboat/phone/fragment/settingfragment/MoveBaseFragment;->mContext Landroid/content/Context;
+	16      (00000044) invoke-direct        v2, v3, Landroid/support/v7/widget/LinearLayoutManager;-><init>(Landroid/content/Context;)V
+	17      (0000004a) invoke-virtual       v1, v2, Landroid/support/v7/widget/RecyclerView;->setLayoutManager(Landroid/support/v7/widget/RecyclerView$LayoutManager;)V
+	18      (00000050) iget-object          v1, v4, Lcom/jlboat/phone/fragment/settingfragment/MoveBaseFragment;->rvMoveBase Landroid/support/v7/widget/RecyclerView;
+	19      (00000054) iget-object          v2, v4, Lcom/jlboat/phone/fragment/settingfragment/MoveBaseFragment;->adapter Lcom/jlboat/phone/adapter/ConfigListAdapter;
+	20      (00000058) invoke-virtual       v1, v2, Landroid/support/v7/widget/RecyclerView;->setAdapter(Landroid/support/v7/widget/RecyclerView$Adapter;)V
+	21      (0000005e) return-object        v0
+

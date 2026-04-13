@@ -1,0 +1,47 @@
+# Lcom/jlboat/phone/view/SonarView$1;->onNewMessage(Lcom/boat/jrosbridge/message/std_msgs/Float32MultiArray;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v7
+# - v8:com.boat.jrosbridge.message.std_msgs.Float32MultiArray
+#
+# - return:void
+
+onNewMessage-BB@0x0 : [ onNewMessage-BB@0x16 ]
+	0       (00000000) new-instance         v0, Ljava/util/ArrayList;
+	1       (00000004) invoke-direct        v0, Ljava/util/ArrayList;-><init>()V
+	2       (0000000a) invoke-virtual       v8, Lcom/boat/jrosbridge/message/std_msgs/Float32MultiArray;->getData()[F
+	3       (00000010) move-result-object   v1
+	4       (00000012) array-length         v2, v1
+	5       (00000014) const/4              v3, 0
+
+onNewMessage-BB@0x16 : [ onNewMessage-BB@0x1a onNewMessage-BB@0x4e ]
+	6       (00000016) if-ge                v3, v2, +01ch
+
+onNewMessage-BB@0x1a : [ onNewMessage-BB@0x2a onNewMessage-BB@0x3a ]
+	7       (0000001a) aget                 v4, v1, v3
+	8       (0000001e) const/high16         v5, 1128792064
+	9       (00000022) cmpl-float           v6, v4, v5
+	10      (00000026) if-lez               v6, +00ah
+
+onNewMessage-BB@0x2a : [ onNewMessage-BB@0x48 ]
+	11      (0000002a) invoke-static        v5, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+	12      (00000030) move-result-object   v5
+	13      (00000032) invoke-interface     v0, v5, Ljava/util/List;->add(Ljava/lang/Object;)Z
+	14      (00000038) goto                 +8h
+
+onNewMessage-BB@0x3a : [ onNewMessage-BB@0x48 ]
+	15      (0000003a) invoke-static        v4, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+	16      (00000040) move-result-object   v5
+	17      (00000042) invoke-interface     v0, v5, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+onNewMessage-BB@0x48 : [ onNewMessage-BB@0x16 ]
+	18      (00000048) add-int/lit8         v3, v3, 1
+	19      (0000004c) goto                 -1bh
+
+onNewMessage-BB@0x4e : 
+	20      (0000004e) iget-object          v1, v7, Lcom/jlboat/phone/view/SonarView$1;->this$0 Lcom/jlboat/phone/view/SonarView;
+	21      (00000052) new-instance         v2, Lcom/jlboat/phone/view/SonarView$1$1;
+	22      (00000056) invoke-direct        v2, v7, v0, Lcom/jlboat/phone/view/SonarView$1$1;-><init>(Lcom/jlboat/phone/view/SonarView$1; Ljava/util/List;)V
+	23      (0000005c) invoke-virtual       v1, v2, Lcom/jlboat/phone/view/SonarView;->post(Ljava/lang/Runnable;)Z
+	24      (00000062) return-void          
+

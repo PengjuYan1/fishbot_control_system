@@ -1,0 +1,16 @@
+# Lcom/boat/jrosbridge/rosbridge/implementation/Base64;->encodeToString([B Z)Ljava/lang/String; [access_flags=public static final]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:byte[]
+# - v3:boolean
+#
+# - return:java.lang.String
+
+encodeToString-BB@0x0 : 
+	0       (00000000) new-instance         v0, Ljava/lang/String;
+	1       (00000004) invoke-static        v2, v3, Lcom/boat/jrosbridge/rosbridge/implementation/Base64;->encodeToChar([B Z)[C
+	2       (0000000a) move-result-object   v1
+	3       (0000000c) invoke-direct        v0, v1, Ljava/lang/String;-><init>([C)V
+	4       (00000012) return-object        v0
+

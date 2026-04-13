@@ -1,0 +1,41 @@
+# Lcom/jlboat/phone/util/Utils;->bytesToHex([B)Ljava/lang/String; [access_flags=public static]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:byte[]
+#
+# - return:java.lang.String
+
+bytesToHex-BB@0x0 : [ bytesToHex-BB@0xc ]
+	0       (00000000) new-instance         v0, Ljava/lang/StringBuilder;
+	1       (00000004) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	2       (0000000a) const/4              v1, 0
+
+bytesToHex-BB@0xc : [ bytesToHex-BB@0x12 bytesToHex-BB@0x48 ]
+	3       (0000000c) array-length         v2, v4
+	4       (0000000e) if-ge                v1, v2, +01dh
+
+bytesToHex-BB@0x12 : [ bytesToHex-BB@0x22 bytesToHex-BB@0x2c ]
+	5       (00000012) aget-byte            v2, v4, v1
+	6       (00000016) and-int/lit16        v2, v2, 255
+	7       (0000001a) const/16             v3, 16
+	8       (0000001e) if-ge                v2, v3, +007h
+
+bytesToHex-BB@0x22 : [ bytesToHex-BB@0x2c ]
+	9       (00000022) const-string         v3, "0"
+	10      (00000026) invoke-virtual       v0, v3, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+bytesToHex-BB@0x2c : [ bytesToHex-BB@0xc ]
+	11      (0000002c) invoke-static        v2, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+	12      (00000032) move-result-object   v3
+	13      (00000034) invoke-virtual       v3, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
+	14      (0000003a) move-result-object   v3
+	15      (0000003c) invoke-virtual       v0, v3, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	16      (00000042) add-int/lit8         v1, v1, 1
+	17      (00000046) goto                 -1dh
+
+bytesToHex-BB@0x48 : 
+	18      (00000048) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	19      (0000004e) move-result-object   v1
+	20      (00000050) return-object        v1
+

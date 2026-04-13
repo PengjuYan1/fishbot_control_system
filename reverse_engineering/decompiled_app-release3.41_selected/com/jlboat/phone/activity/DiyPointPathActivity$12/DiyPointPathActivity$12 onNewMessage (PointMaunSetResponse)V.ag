@@ -1,0 +1,24 @@
+# Lcom/jlboat/phone/activity/DiyPointPathActivity$12;->onNewMessage(Lcom/jlboat/phone/message/map_msgs/PointMaunSetResponse;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:com.jlboat.phone.message.map_msgs.PointMaunSetResponse
+#
+# - return:void
+
+onNewMessage-BB@0x0 : 
+	0       (00000000) new-instance         v0, Ljava/lang/StringBuilder;
+	1       (00000004) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	2       (0000000a) const-string         v1, "onNewMessage: addMenuPoint 指令发送成功 "
+	3       (0000000e) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	4       (00000014) move-result-object   v0
+	5       (00000016) invoke-virtual       v4, Lcom/jlboat/phone/message/map_msgs/PointMaunSetResponse;->getResult()J
+	6       (0000001c) move-result-wide     v1
+	7       (0000001e) invoke-virtual       v0, v1, v2, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+	8       (00000024) move-result-object   v0
+	9       (00000026) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	10      (0000002c) move-result-object   v0
+	11      (0000002e) const-string         v1, "DiyPointPathActivity"
+	12      (00000032) invoke-static        v1, v0, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	13      (00000038) return-void          
+

@@ -1,0 +1,72 @@
+# Lcom/jlboat/phone/activity/MapEditMapActivity2025$1;->handleMessage(Landroid/os/Message;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v4
+# - v5:android.os.Message
+#
+# - return:void
+
+handleMessage-BB@0x0 : [ D:handleMessage-BB@0x10 2:handleMessage-BB@0x3a 3:handleMessage-BB@0x2e 31:handleMessage-BB@0x12 ]
+	0       (00000000) invoke-super         v4, v5, Landroid/os/Handler;->handleMessage(Landroid/os/Message;)V
+	1       (00000006) iget                 v0, v5, Landroid/os/Message;->what I
+	2       (0000000a) sparse-switch        v0, +000004dh
+
+handleMessage-BB@0x10 : [ handleMessage-BB@0xa0 ]
+	3       (00000010) goto                 +48h
+
+handleMessage-BB@0x12 : [ handleMessage-BB@0xa0 ]
+	4       (00000012) iget-object          v0, v4, Lcom/jlboat/phone/activity/MapEditMapActivity2025$1;->this$0 Lcom/jlboat/phone/activity/MapEditMapActivity2025;
+	5       (00000016) const                v1, 2131493304
+	6       (0000001c) invoke-virtual       v0, v1, Lcom/jlboat/phone/activity/MapEditMapActivity2025;->toast(I)V
+	7       (00000022) iget-object          v0, v4, Lcom/jlboat/phone/activity/MapEditMapActivity2025$1;->this$0 Lcom/jlboat/phone/activity/MapEditMapActivity2025;
+	8       (00000026) invoke-static        v0, Lcom/jlboat/phone/activity/MapEditMapActivity2025;->access$200(Lcom/jlboat/phone/activity/MapEditMapActivity2025;)V
+	9       (0000002c) goto                 +3ah
+
+handleMessage-BB@0x2e : [ handleMessage-BB@0xa0 ]
+	10      (0000002e) iget-object          v0, v4, Lcom/jlboat/phone/activity/MapEditMapActivity2025$1;->this$0 Lcom/jlboat/phone/activity/MapEditMapActivity2025;
+	11      (00000032) invoke-static        v0, Lcom/jlboat/phone/activity/MapEditMapActivity2025;->access$200(Lcom/jlboat/phone/activity/MapEditMapActivity2025;)V
+	12      (00000038) goto                 +34h
+
+handleMessage-BB@0x3a : [ handleMessage-BB@0x46 handleMessage-BB@0x84 ]
+	13      (0000003a) iget-object          v0, v5, Landroid/os/Message;->obj Ljava/lang/Object;
+	14      (0000003e) instance-of          v0, v0, [Ljava/lang/Object;
+	15      (00000042) if-eqz               v0, +021h
+
+handleMessage-BB@0x46 : [ handleMessage-BB@0x5c handleMessage-BB@0x84 ]
+	16      (00000046) iget-object          v0, v5, Landroid/os/Message;->obj Ljava/lang/Object;
+	17      (0000004a) check-cast           v0, [Ljava/lang/Object;
+	18      (0000004e) const/4              v1, 0
+	19      (00000050) aget-object          v2, v0, v1
+	20      (00000054) instance-of          v2, v2, Ljava/lang/CharSequence;
+	21      (00000058) if-eqz               v2, +016h
+
+handleMessage-BB@0x5c : [ handleMessage-BB@0x6a handleMessage-BB@0x84 ]
+	22      (0000005c) const/4              v2, 1
+	23      (0000005e) aget-object          v3, v0, v2
+	24      (00000062) instance-of          v3, v3, Ljava/lang/CharSequence;
+	25      (00000066) if-eqz               v3, +00fh
+
+handleMessage-BB@0x6a : [ handleMessage-BB@0x84 ]
+	26      (0000006a) iget-object          v3, v4, Lcom/jlboat/phone/activity/MapEditMapActivity2025$1;->this$0 Lcom/jlboat/phone/activity/MapEditMapActivity2025;
+	27      (0000006e) aget-object          v1, v0, v1
+	28      (00000072) check-cast           v1, Ljava/lang/CharSequence;
+	29      (00000076) aget-object          v2, v0, v2
+	30      (0000007a) check-cast           v2, Ljava/lang/CharSequence;
+	31      (0000007e) invoke-static        v3, v1, v2, Lcom/jlboat/phone/activity/MapEditMapActivity2025;->access$000(Lcom/jlboat/phone/activity/MapEditMapActivity2025; Ljava/lang/CharSequence; Ljava/lang/CharSequence;)V
+
+handleMessage-BB@0x84 : [ handleMessage-BB@0xa0 ]
+	32      (00000084) iget-object          v0, v4, Lcom/jlboat/phone/activity/MapEditMapActivity2025$1;->this$0 Lcom/jlboat/phone/activity/MapEditMapActivity2025;
+	33      (00000088) invoke-static        v0, Lcom/jlboat/phone/activity/MapEditMapActivity2025;->access$100(Lcom/jlboat/phone/activity/MapEditMapActivity2025;)Landroid/os/Handler;
+	34      (0000008e) move-result-object   v0
+	35      (00000090) const/16             v1, 31
+	36      (00000094) const-wide/16        v2, 30000
+	37      (00000098) invoke-virtual       v0, v1, v2, v3, Landroid/os/Handler;->sendEmptyMessageDelayed(I J)Z
+	38      (0000009e) nop                  
+
+handleMessage-BB@0xa0 : 
+	39      (000000a0) return-void          
+
+handleMessage-BB@0xa2 : 
+	40      (000000a2) nop                  
+	41      (000000a4) sparse-switch-payload 2 3 1f
+

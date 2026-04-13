@@ -1,0 +1,15 @@
+# Lcom/boat/jrosbridge/Topic;->publish(Lcom/boat/jrosbridge/message/Message;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:com.boat.jrosbridge.message.Message
+#
+# - return:void
+
+publish-BB@0x0 : 
+	0       (00000000) new-instance         v0, Lcom/boat/jrosbridge/rosbridge/operation/Publish;
+	1       (00000004) iget-object          v1, v2, Lcom/boat/jrosbridge/Topic;->topic Ljava/lang/String;
+	2       (00000008) invoke-direct        v0, v1, v3, Lcom/boat/jrosbridge/rosbridge/operation/Publish;-><init>(Ljava/lang/String; Lcom/boat/jrosbridge/message/Message;)V
+	3       (0000000e) invoke-direct        v2, v0, Lcom/boat/jrosbridge/Topic;->send(Lcom/boat/jrosbridge/rosbridge/operation/Operation;)V
+	4       (00000014) return-void          
+

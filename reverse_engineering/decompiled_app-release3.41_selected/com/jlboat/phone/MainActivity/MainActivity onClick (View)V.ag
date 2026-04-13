@@ -1,0 +1,93 @@
+# Lcom/jlboat/phone/MainActivity;->onClick(Landroid/view/View;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v4
+# - v5:android.view.View
+#
+# - return:void
+
+onClick-BB@0x0 : [ onClick-BB@0x12 onClick-BB@0x36 ]
+	0       (00000000) invoke-virtual       v5, Landroid/view/View;->getId()I
+	1       (00000006) move-result          v0
+	2       (00000008) const                v1, 2131231002
+	3       (0000000e) if-ne                v0, v1, +014h
+
+onClick-BB@0x12 : [ onClick-BB@0xf4 ]
+	4       (00000012) new-instance         v1, Landroid/content/Intent;
+	5       (00000016) const-class          v2, Lcom/jlboat/phone/activity/MapActivity;
+	6       (0000001a) invoke-direct        v1, v4, v2, Landroid/content/Intent;-><init>(Landroid/content/Context; Ljava/lang/Class;)V
+	7       (00000020) const-string         v2, "isMeu"
+	8       (00000024) const/4              v3, 1
+	9       (00000026) invoke-virtual       v1, v2, v3, Landroid/content/Intent;->putExtra(Ljava/lang/String; Z)Landroid/content/Intent;
+	10      (0000002c) move-result-object   v1
+	11      (0000002e) invoke-virtual       v4, v1, Lcom/jlboat/phone/MainActivity;->startActivity(Landroid/content/Intent;)V
+	12      (00000034) goto                 +60h
+
+onClick-BB@0x36 : [ onClick-BB@0x40 onClick-BB@0x56 ]
+	13      (00000036) const                v1, 2131230890
+	14      (0000003c) if-ne                v0, v1, +00dh
+
+onClick-BB@0x40 : [ onClick-BB@0xf4 ]
+	15      (00000040) new-instance         v1, Landroid/content/Intent;
+	16      (00000044) const-class          v2, Lcom/jlboat/phone/activity/ErrorMessageActivity;
+	17      (00000048) invoke-direct        v1, v4, v2, Landroid/content/Intent;-><init>(Landroid/content/Context; Ljava/lang/Class;)V
+	18      (0000004e) invoke-virtual       v4, v1, Lcom/jlboat/phone/MainActivity;->startActivity(Landroid/content/Intent;)V
+	19      (00000054) goto                 +50h
+
+onClick-BB@0x56 : [ onClick-BB@0x60 onClick-BB@0x76 ]
+	20      (00000056) const                v1, 2131231001
+	21      (0000005c) if-ne                v0, v1, +00dh
+
+onClick-BB@0x60 : [ onClick-BB@0xf4 ]
+	22      (00000060) new-instance         v1, Landroid/content/Intent;
+	23      (00000064) const-class          v2, Lcom/jlboat/phone/activity/MapControlActivity;
+	24      (00000068) invoke-direct        v1, v4, v2, Landroid/content/Intent;-><init>(Landroid/content/Context; Ljava/lang/Class;)V
+	25      (0000006e) invoke-virtual       v4, v1, Lcom/jlboat/phone/MainActivity;->startActivity(Landroid/content/Intent;)V
+	26      (00000074) goto                 +40h
+
+onClick-BB@0x76 : [ onClick-BB@0x80 onClick-BB@0x96 ]
+	27      (00000076) const                v1, 2131231003
+	28      (0000007c) if-ne                v0, v1, +00dh
+
+onClick-BB@0x80 : [ onClick-BB@0xf4 ]
+	29      (00000080) new-instance         v1, Landroid/content/Intent;
+	30      (00000084) const-class          v2, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;
+	31      (00000088) invoke-direct        v1, v4, v2, Landroid/content/Intent;-><init>(Landroid/content/Context; Ljava/lang/Class;)V
+	32      (0000008e) invoke-virtual       v4, v1, Lcom/jlboat/phone/MainActivity;->startActivity(Landroid/content/Intent;)V
+	33      (00000094) goto                 +30h
+
+onClick-BB@0x96 : [ onClick-BB@0xa0 onClick-BB@0xb6 ]
+	34      (00000096) const                v1, 2131231005
+	35      (0000009c) if-ne                v0, v1, +00dh
+
+onClick-BB@0xa0 : [ onClick-BB@0xf4 ]
+	36      (000000a0) new-instance         v1, Landroid/content/Intent;
+	37      (000000a4) const-class          v2, Lcom/jlboat/phone/activity/StatusActivity;
+	38      (000000a8) invoke-direct        v1, v4, v2, Landroid/content/Intent;-><init>(Landroid/content/Context; Ljava/lang/Class;)V
+	39      (000000ae) invoke-virtual       v4, v1, Lcom/jlboat/phone/MainActivity;->startActivity(Landroid/content/Intent;)V
+	40      (000000b4) goto                 +20h
+
+onClick-BB@0xb6 : [ onClick-BB@0xc0 onClick-BB@0xd6 ]
+	41      (000000b6) const                v1, 2131230758
+	42      (000000bc) if-ne                v0, v1, +00dh
+
+onClick-BB@0xc0 : [ onClick-BB@0xf4 ]
+	43      (000000c0) new-instance         v1, Landroid/content/Intent;
+	44      (000000c4) const-class          v2, Lcom/jlboat/phone/activity/AdvancedConfigurationActivity;
+	45      (000000c8) invoke-direct        v1, v4, v2, Landroid/content/Intent;-><init>(Landroid/content/Context; Ljava/lang/Class;)V
+	46      (000000ce) invoke-virtual       v4, v1, Lcom/jlboat/phone/MainActivity;->startActivity(Landroid/content/Intent;)V
+	47      (000000d4) goto                 +10h
+
+onClick-BB@0xd6 : [ onClick-BB@0xe0 onClick-BB@0xf4 ]
+	48      (000000d6) const                v1, 2131231004
+	49      (000000dc) if-ne                v0, v1, +00ch
+
+onClick-BB@0xe0 : [ onClick-BB@0xf4 ]
+	50      (000000e0) new-instance         v1, Landroid/content/Intent;
+	51      (000000e4) const-class          v2, Lcom/jlboat/phone/activity/SettingActivity;
+	52      (000000e8) invoke-direct        v1, v4, v2, Landroid/content/Intent;-><init>(Landroid/content/Context; Ljava/lang/Class;)V
+	53      (000000ee) invoke-virtual       v4, v1, Lcom/jlboat/phone/MainActivity;->startActivity(Landroid/content/Intent;)V
+
+onClick-BB@0xf4 : 
+	54      (000000f4) return-void          
+

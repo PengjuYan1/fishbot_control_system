@@ -1,0 +1,15 @@
+# Lcom/jlboat/deliverphone/R$styleable;-><clinit>()V [access_flags=public static constructor]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:void
+
+<clinit>-BB@0x0 : 
+	0       (00000000) const                v0, 2130903177
+	1       (00000006) const                v1, 2130903310
+	2       (0000000c) filled-new-array     v0, v1, [I
+	3       (00000012) move-result-object   v0
+	4       (00000014) sput-object          v0, Lcom/jlboat/deliverphone/R$styleable;->AntoLineUtil [I
+	5       (00000018) return-void          
+

@@ -1,0 +1,14 @@
+# Lcom/boat/utils/OkHttpUtils;->getCall(Lokhttp3/OkHttpClient; Lokhttp3/Request;)Lokhttp3/Call; [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:okhttp3.OkHttpClient
+# - v3:okhttp3.Request
+#
+# - return:okhttp3.Call
+
+getCall-BB@0x0 : 
+	0       (00000000) invoke-virtual       v2, v3, Lokhttp3/OkHttpClient;->newCall(Lokhttp3/Request;)Lokhttp3/Call;
+	1       (00000006) move-result-object   v0
+	2       (00000008) return-object        v0
+

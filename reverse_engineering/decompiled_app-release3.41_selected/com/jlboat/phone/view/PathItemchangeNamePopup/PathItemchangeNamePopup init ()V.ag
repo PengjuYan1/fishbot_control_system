@@ -1,0 +1,73 @@
+# Lcom/jlboat/phone/view/PathItemchangeNamePopup;->init()V [access_flags=private]
+#
+# Parameters:
+# local registers: v0...v3
+#
+# - return:void
+
+init-BB@0x0 : [ init-BB@0x86 init-BB@0x94 ]
+	0       (00000000) iget-object          v0, v3, Lcom/jlboat/phone/view/PathItemchangeNamePopup;->mContext Landroid/content/Context;
+	1       (00000004) const-string         v1, "layout_inflater"
+	2       (00000008) invoke-virtual       v0, v1, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+	3       (0000000e) move-result-object   v0
+	4       (00000010) check-cast           v0, Landroid/view/LayoutInflater;
+	5       (00000014) const                v1, 2131361926
+	6       (0000001a) const/4              v2, 0
+	7       (0000001c) invoke-virtual       v0, v1, v2, Landroid/view/LayoutInflater;->inflate(I Landroid/view/ViewGroup;)Landroid/view/View;
+	8       (00000022) move-result-object   v1
+	9       (00000024) iput-object          v1, v3, Lcom/jlboat/phone/view/PathItemchangeNamePopup;->mView Landroid/view/View;
+	10      (00000028) iget-object          v1, v3, Lcom/jlboat/phone/view/PathItemchangeNamePopup;->mView Landroid/view/View;
+	11      (0000002c) const                v2, 2131231082
+	12      (00000032) invoke-virtual       v1, v2, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	13      (00000038) move-result-object   v1
+	14      (0000003a) check-cast           v1, Landroid/widget/EditText;
+	15      (0000003e) iput-object          v1, v3, Lcom/jlboat/phone/view/PathItemchangeNamePopup;->et Landroid/widget/EditText;
+	16      (00000042) iget-object          v1, v3, Lcom/jlboat/phone/view/PathItemchangeNamePopup;->et Landroid/widget/EditText;
+	17      (00000046) iget-object          v2, v3, Lcom/jlboat/phone/view/PathItemchangeNamePopup;->oldName Ljava/lang/String;
+	18      (0000004a) invoke-virtual       v1, v2, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+	19      (00000050) iget-object          v1, v3, Lcom/jlboat/phone/view/PathItemchangeNamePopup;->et Landroid/widget/EditText;
+	20      (00000054) new-instance         v2, Lcom/jlboat/phone/view/PathItemchangeNamePopup$1;
+	21      (00000058) invoke-direct        v2, v3, Lcom/jlboat/phone/view/PathItemchangeNamePopup$1;-><init>(Lcom/jlboat/phone/view/PathItemchangeNamePopup;)V
+	22      (0000005e) invoke-virtual       v1, v2, Landroid/widget/EditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
+	23      (00000064) iget-object          v1, v3, Lcom/jlboat/phone/view/PathItemchangeNamePopup;->mView Landroid/view/View;
+	24      (00000068) const                v2, 2131231081
+	25      (0000006e) invoke-virtual       v1, v2, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	26      (00000074) move-result-object   v1
+	27      (00000076) check-cast           v1, Landroid/widget/Button;
+	28      (0000007a) iput-object          v1, v3, Lcom/jlboat/phone/view/PathItemchangeNamePopup;->sub Landroid/widget/Button;
+	29      (0000007e) iget-object          v1, v3, Lcom/jlboat/phone/view/PathItemchangeNamePopup;->msubClickListener Landroid/view/View$OnClickListener;
+	30      (00000082) if-eqz               v1, +009h
+
+init-BB@0x86 : [ init-BB@0x94 ]
+	31      (00000086) iget-object          v1, v3, Lcom/jlboat/phone/view/PathItemchangeNamePopup;->sub Landroid/widget/Button;
+	32      (0000008a) iget-object          v2, v3, Lcom/jlboat/phone/view/PathItemchangeNamePopup;->msubClickListener Landroid/view/View$OnClickListener;
+	33      (0000008e) invoke-virtual       v1, v2, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+init-BB@0x94 : 
+	34      (00000094) iget-object          v1, v3, Lcom/jlboat/phone/view/PathItemchangeNamePopup;->mView Landroid/view/View;
+	35      (00000098) const                v2, 2131231080
+	36      (0000009e) invoke-virtual       v1, v2, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	37      (000000a4) move-result-object   v1
+	38      (000000a6) check-cast           v1, Landroid/widget/Button;
+	39      (000000aa) iput-object          v1, v3, Lcom/jlboat/phone/view/PathItemchangeNamePopup;->cancle Landroid/widget/Button;
+	40      (000000ae) iget-object          v1, v3, Lcom/jlboat/phone/view/PathItemchangeNamePopup;->cancle Landroid/widget/Button;
+	41      (000000b2) new-instance         v2, Lcom/jlboat/phone/view/PathItemchangeNamePopup$2;
+	42      (000000b6) invoke-direct        v2, v3, Lcom/jlboat/phone/view/PathItemchangeNamePopup$2;-><init>(Lcom/jlboat/phone/view/PathItemchangeNamePopup;)V
+	43      (000000bc) invoke-virtual       v1, v2, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	44      (000000c2) iget-object          v1, v3, Lcom/jlboat/phone/view/PathItemchangeNamePopup;->mView Landroid/view/View;
+	45      (000000c6) invoke-virtual       v3, v1, Lcom/jlboat/phone/view/PathItemchangeNamePopup;->setContentView(Landroid/view/View;)V
+	46      (000000cc) const                v1, 2131558756
+	47      (000000d2) invoke-virtual       v3, v1, Lcom/jlboat/phone/view/PathItemchangeNamePopup;->setAnimationStyle(I)V
+	48      (000000d8) const/4              v1, -1
+	49      (000000da) invoke-virtual       v3, v1, Lcom/jlboat/phone/view/PathItemchangeNamePopup;->setWidth(I)V
+	50      (000000e0) invoke-virtual       v3, v1, Lcom/jlboat/phone/view/PathItemchangeNamePopup;->setHeight(I)V
+	51      (000000e6) iget-boolean         v1, v3, Lcom/jlboat/phone/view/PathItemchangeNamePopup;->touchWinDismiss Z
+	52      (000000ea) invoke-virtual       v3, v1, Lcom/jlboat/phone/view/PathItemchangeNamePopup;->setFocusable(Z)V
+	53      (000000f0) const/4              v1, 0
+	54      (000000f2) invoke-virtual       v3, v1, Lcom/jlboat/phone/view/PathItemchangeNamePopup;->setClippingEnabled(Z)V
+	55      (000000f8) iget-object          v1, v3, Lcom/jlboat/phone/view/PathItemchangeNamePopup;->mView Landroid/view/View;
+	56      (000000fc) new-instance         v2, Lcom/jlboat/phone/view/PathItemchangeNamePopup$3;
+	57      (00000100) invoke-direct        v2, v3, Lcom/jlboat/phone/view/PathItemchangeNamePopup$3;-><init>(Lcom/jlboat/phone/view/PathItemchangeNamePopup;)V
+	58      (00000106) invoke-virtual       v1, v2, Landroid/view/View;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
+	59      (0000010c) return-void          
+

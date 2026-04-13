@@ -1,0 +1,11 @@
+# Lcom/boat/jrosbridge/message/geometry_msgs/TransformStamped;->getTransform()Lcom/boat/jrosbridge/message/geometry_msgs/Transform; [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:com.boat.jrosbridge.message.geometry_msgs.Transform
+
+getTransform-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/boat/jrosbridge/message/geometry_msgs/TransformStamped;->transform Lcom/boat/jrosbridge/message/geometry_msgs/Transform;
+	1       (00000004) return-object        v0
+

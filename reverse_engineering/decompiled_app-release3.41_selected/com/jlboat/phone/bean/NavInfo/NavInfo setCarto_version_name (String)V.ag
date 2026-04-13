@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/bean/NavInfo;->setCarto_version_name(Ljava/lang/String;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:java.lang.String
+#
+# - return:void
+
+setCarto_version_name-BB@0x0 : 
+	0       (00000000) iput-object          v1, v0, Lcom/jlboat/phone/bean/NavInfo;->carto_version_name Ljava/lang/String;
+	1       (00000004) return-void          
+

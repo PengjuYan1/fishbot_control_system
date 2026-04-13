@@ -1,0 +1,26 @@
+# Lcom/jlboat/phone/LoginActivity$3;->run()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v2
+#
+# - return:void
+
+run-BB@0x0 : [ run-BB@0x4 ]
+	0       (00000000) const-wide/16        v0, 200
+
+run-BB@0x4 : [ run-BB@0x14 ]
+	1       (00000004) invoke-static        v0, v1, Ljava/lang/Thread;->sleep(J)V
+	2       (0000000a) goto                 +5h
+	4:9
+	(Ljava/lang/InterruptedException; -> c run-BB@0xc)
+
+run-BB@0xc : [ run-BB@0x14 ]
+	3       (0000000c) move-exception       v0
+	4       (0000000e) invoke-virtual       v0, Ljava/lang/InterruptedException;->printStackTrace()V
+
+run-BB@0x14 : 
+	5       (00000014) iget-object          v0, v2, Lcom/jlboat/phone/LoginActivity$3;->this$0 Lcom/jlboat/phone/LoginActivity;
+	6       (00000018) iget-boolean         v1, v2, Lcom/jlboat/phone/LoginActivity$3;->val$isIntent Z
+	7       (0000001c) invoke-virtual       v0, v1, Lcom/jlboat/phone/LoginActivity;->setNetWorkManager2(Z)V
+	8       (00000022) return-void          
+

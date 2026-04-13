@@ -1,0 +1,24 @@
+# Lcom/jlboat/phone/adapter/MapActDlFloorListAdapter$1;->onClick(Landroid/view/View;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:android.view.View
+#
+# - return:void
+
+onClick-BB@0x0 : [ onClick-BB@0x10 onClick-BB@0x26 ]
+	0       (00000000) iget-object          v0, v2, Lcom/jlboat/phone/adapter/MapActDlFloorListAdapter$1;->this$0 Lcom/jlboat/phone/adapter/MapActDlFloorListAdapter;
+	1       (00000004) invoke-static        v0, Lcom/jlboat/phone/adapter/MapActDlFloorListAdapter;->access$000(Lcom/jlboat/phone/adapter/MapActDlFloorListAdapter;)Lcom/jlboat/phone/adapter/MapActDlFloorListAdapter$OnItemClickListener;
+	2       (0000000a) move-result-object   v0
+	3       (0000000c) if-eqz               v0, +00dh
+
+onClick-BB@0x10 : [ onClick-BB@0x26 ]
+	4       (00000010) iget-object          v0, v2, Lcom/jlboat/phone/adapter/MapActDlFloorListAdapter$1;->this$0 Lcom/jlboat/phone/adapter/MapActDlFloorListAdapter;
+	5       (00000014) invoke-static        v0, Lcom/jlboat/phone/adapter/MapActDlFloorListAdapter;->access$000(Lcom/jlboat/phone/adapter/MapActDlFloorListAdapter;)Lcom/jlboat/phone/adapter/MapActDlFloorListAdapter$OnItemClickListener;
+	6       (0000001a) move-result-object   v0
+	7       (0000001c) iget                 v1, v2, Lcom/jlboat/phone/adapter/MapActDlFloorListAdapter$1;->val$postion I
+	8       (00000020) invoke-interface     v0, v1, Lcom/jlboat/phone/adapter/MapActDlFloorListAdapter$OnItemClickListener;->onClick(I)V
+
+onClick-BB@0x26 : 
+	9       (00000026) return-void          
+

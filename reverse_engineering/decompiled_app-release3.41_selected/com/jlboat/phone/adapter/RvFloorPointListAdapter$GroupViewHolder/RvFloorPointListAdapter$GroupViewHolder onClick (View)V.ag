@@ -1,0 +1,104 @@
+# Lcom/jlboat/phone/adapter/RvFloorPointListAdapter$GroupViewHolder;->onClick(Landroid/view/View;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v6
+# - v7:android.view.View
+#
+# - return:void
+
+onClick-BB@0x0 : [ onClick-BB@0x14 onClick-BB@0xf8 ]
+	0       (00000000) iget-object          v0, v6, Lcom/jlboat/phone/adapter/RvFloorPointListAdapter$GroupViewHolder;->this$0 Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;
+	1       (00000004) iget-object          v1, v6, Lcom/jlboat/phone/adapter/RvFloorPointListAdapter$GroupViewHolder;->group Lcom/boat/support/slam/entity/floors/Floors;
+	2       (00000008) invoke-static        v0, v1, Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;->access$500(Lcom/jlboat/phone/adapter/RvFloorPointListAdapter; Lcom/boat/support/slam/entity/floors/Floors;)Ljava/util/List;
+	3       (0000000e) move-result-object   v0
+	4       (00000010) if-eqz               v0, +074h
+
+onClick-BB@0x14 : [ onClick-BB@0x20 onClick-BB@0x22 ]
+	5       (00000014) invoke-interface     v0, Ljava/util/List;->isEmpty()Z
+	6       (0000001a) move-result          v1
+	7       (0000001c) if-eqz               v1, +003h
+
+onClick-BB@0x20 : [ onClick-BB@0xf8 ]
+	8       (00000020) goto                 +6ch
+
+onClick-BB@0x22 : [ onClick-BB@0x48 onClick-BB@0x60 ]
+	9       (00000022) invoke-virtual       v6, Lcom/jlboat/phone/adapter/RvFloorPointListAdapter$GroupViewHolder;->getAdapterPosition()I
+	10      (00000028) move-result          v1
+	11      (0000002a) add-int/lit8         v2, v1, 1
+	12      (0000002e) const/4              v3, 0
+	13      (00000030) iget-object          v4, v6, Lcom/jlboat/phone/adapter/RvFloorPointListAdapter$GroupViewHolder;->this$0 Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;
+	14      (00000034) invoke-static        v4, Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;->access$600(Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;)Ljava/util/List;
+	15      (0000003a) move-result-object   v4
+	16      (0000003c) invoke-interface     v4, Ljava/util/List;->size()I
+	17      (00000042) move-result          v4
+	18      (00000044) if-ge                v2, v4, +00eh
+
+onClick-BB@0x48 : [ onClick-BB@0x60 ]
+	19      (00000048) iget-object          v4, v6, Lcom/jlboat/phone/adapter/RvFloorPointListAdapter$GroupViewHolder;->this$0 Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;
+	20      (0000004c) invoke-static        v4, Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;->access$600(Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;)Ljava/util/List;
+	21      (00000052) move-result-object   v4
+	22      (00000054) invoke-interface     v4, v2, Ljava/util/List;->get(I)Ljava/lang/Object;
+	23      (0000005a) move-result-object   v4
+	24      (0000005c) instance-of          v3, v4, Lcom/boat/support/slam/entity/floors/Points;
+
+onClick-BB@0x60 : [ onClick-BB@0x64 onClick-BB@0x8a ]
+	25      (00000060) if-nez               v3, +015h
+
+onClick-BB@0x64 : [ onClick-BB@0xf6 ]
+	26      (00000064) iget-object          v4, v6, Lcom/jlboat/phone/adapter/RvFloorPointListAdapter$GroupViewHolder;->this$0 Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;
+	27      (00000068) invoke-static        v4, Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;->access$600(Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;)Ljava/util/List;
+	28      (0000006e) move-result-object   v4
+	29      (00000070) invoke-interface     v4, v2, v0, Ljava/util/List;->addAll(I Ljava/util/Collection;)Z
+	30      (00000076) iget-object          v4, v6, Lcom/jlboat/phone/adapter/RvFloorPointListAdapter$GroupViewHolder;->this$0 Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;
+	31      (0000007a) invoke-interface     v0, Ljava/util/List;->size()I
+	32      (00000080) move-result          v5
+	33      (00000082) invoke-virtual       v4, v2, v5, Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;->notifyItemRangeInserted(I I)V
+	34      (00000088) goto                 +37h
+
+onClick-BB@0x8a : [ onClick-BB@0x8c ]
+	35      (0000008a) const/4              v4, 0
+
+onClick-BB@0x8c : [ onClick-BB@0x98 onClick-BB@0xe4 ]
+	36      (0000008c) invoke-interface     v0, Ljava/util/List;->size()I
+	37      (00000092) move-result          v5
+	38      (00000094) if-ge                v4, v5, +028h
+
+onClick-BB@0x98 : [ onClick-BB@0xb0 onClick-BB@0xde ]
+	39      (00000098) iget-object          v5, v6, Lcom/jlboat/phone/adapter/RvFloorPointListAdapter$GroupViewHolder;->this$0 Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;
+	40      (0000009c) invoke-static        v5, Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;->access$600(Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;)Ljava/util/List;
+	41      (000000a2) move-result-object   v5
+	42      (000000a4) invoke-interface     v5, Ljava/util/List;->size()I
+	43      (000000aa) move-result          v5
+	44      (000000ac) if-ge                v2, v5, +019h
+
+onClick-BB@0xb0 : [ onClick-BB@0xcc onClick-BB@0xde ]
+	45      (000000b0) iget-object          v5, v6, Lcom/jlboat/phone/adapter/RvFloorPointListAdapter$GroupViewHolder;->this$0 Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;
+	46      (000000b4) invoke-static        v5, Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;->access$600(Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;)Ljava/util/List;
+	47      (000000ba) move-result-object   v5
+	48      (000000bc) invoke-interface     v5, v2, Ljava/util/List;->get(I)Ljava/lang/Object;
+	49      (000000c2) move-result-object   v5
+	50      (000000c4) instance-of          v5, v5, Lcom/boat/support/slam/entity/floors/Points;
+	51      (000000c8) if-eqz               v5, +00bh
+
+onClick-BB@0xcc : [ onClick-BB@0xde ]
+	52      (000000cc) iget-object          v5, v6, Lcom/jlboat/phone/adapter/RvFloorPointListAdapter$GroupViewHolder;->this$0 Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;
+	53      (000000d0) invoke-static        v5, Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;->access$600(Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;)Ljava/util/List;
+	54      (000000d6) move-result-object   v5
+	55      (000000d8) invoke-interface     v5, v2, Ljava/util/List;->remove(I)Ljava/lang/Object;
+
+onClick-BB@0xde : [ onClick-BB@0x8c ]
+	56      (000000de) add-int/lit8         v4, v4, 1
+	57      (000000e2) goto                 -2bh
+
+onClick-BB@0xe4 : [ onClick-BB@0xf6 ]
+	58      (000000e4) iget-object          v4, v6, Lcom/jlboat/phone/adapter/RvFloorPointListAdapter$GroupViewHolder;->this$0 Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;
+	59      (000000e8) invoke-interface     v0, Ljava/util/List;->size()I
+	60      (000000ee) move-result          v5
+	61      (000000f0) invoke-virtual       v4, v2, v5, Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;->notifyItemRangeRemoved(I I)V
+
+onClick-BB@0xf6 : 
+	62      (000000f6) return-void          
+
+onClick-BB@0xf8 : 
+	63      (000000f8) return-void          
+

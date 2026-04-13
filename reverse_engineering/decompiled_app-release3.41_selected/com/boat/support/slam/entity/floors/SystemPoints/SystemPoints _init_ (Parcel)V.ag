@@ -1,0 +1,27 @@
+# Lcom/boat/support/slam/entity/floors/SystemPoints;-><init>(Landroid/os/Parcel;)V [access_flags=protected constructor]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:android.os.Parcel
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) invoke-direct        v2, Ljava/lang/Object;-><init>()V
+	1       (00000006) invoke-virtual       v3, Landroid/os/Parcel;->readDouble()D
+	2       (0000000c) move-result-wide     v0
+	3       (0000000e) iput-wide            v0, v2, Lcom/boat/support/slam/entity/floors/SystemPoints;->positionYaw D
+	4       (00000012) invoke-virtual       v3, Landroid/os/Parcel;->readDouble()D
+	5       (00000018) move-result-wide     v0
+	6       (0000001a) iput-wide            v0, v2, Lcom/boat/support/slam/entity/floors/SystemPoints;->positionX D
+	7       (0000001e) invoke-virtual       v3, Landroid/os/Parcel;->readDouble()D
+	8       (00000024) move-result-wide     v0
+	9       (00000026) iput-wide            v0, v2, Lcom/boat/support/slam/entity/floors/SystemPoints;->positionY D
+	10      (0000002a) invoke-virtual       v3, Landroid/os/Parcel;->readLong()J
+	11      (00000030) move-result-wide     v0
+	12      (00000032) iput-wide            v0, v2, Lcom/boat/support/slam/entity/floors/SystemPoints;->pointId J
+	13      (00000036) invoke-virtual       v3, Landroid/os/Parcel;->readString()Ljava/lang/String;
+	14      (0000003c) move-result-object   v0
+	15      (0000003e) iput-object          v0, v2, Lcom/boat/support/slam/entity/floors/SystemPoints;->pointName Ljava/lang/String;
+	16      (00000042) return-void          
+

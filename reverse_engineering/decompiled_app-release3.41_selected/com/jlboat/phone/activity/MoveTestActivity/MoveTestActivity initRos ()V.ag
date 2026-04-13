@@ -1,0 +1,11 @@
+# Lcom/jlboat/phone/activity/MoveTestActivity;->initRos()V [access_flags=private]
+#
+# Parameters:
+# local registers: v0...v0
+#
+# - return:void
+
+initRos-BB@0x0 : 
+	0       (00000000) invoke-virtual       v0, Lcom/jlboat/phone/activity/MoveTestActivity;->initRosData()V
+	1       (00000006) return-void          
+

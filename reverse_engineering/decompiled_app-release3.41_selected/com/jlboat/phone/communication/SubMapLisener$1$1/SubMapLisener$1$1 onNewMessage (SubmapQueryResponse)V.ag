@@ -1,0 +1,50 @@
+# Lcom/jlboat/phone/communication/SubMapLisener$1$1;->onNewMessage(Lcartographer_ros_msgs/SubmapQueryResponse;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v4
+# - v5:cartographer_ros_msgs.SubmapQueryResponse
+#
+# - return:void
+
+onNewMessage-BB@0x0 : [ onNewMessage-BB@0x6a onNewMessage-BB@0x88 ]
+	0       (00000000) iget-object          v0, v4, Lcom/jlboat/phone/communication/SubMapLisener$1$1;->this$1 Lcom/jlboat/phone/communication/SubMapLisener$1;
+	1       (00000004) iget-object          v0, v0, Lcom/jlboat/phone/communication/SubMapLisener$1;->this$0 Lcom/jlboat/phone/communication/SubMapLisener;
+	2       (00000008) iget-object          v0, v0, Lcom/jlboat/phone/communication/SubMapLisener;->a [I
+	3       (0000000c) iget-object          v1, v4, Lcom/jlboat/phone/communication/SubMapLisener$1$1;->this$1 Lcom/jlboat/phone/communication/SubMapLisener$1;
+	4       (00000010) iget-object          v1, v1, Lcom/jlboat/phone/communication/SubMapLisener$1;->this$0 Lcom/jlboat/phone/communication/SubMapLisener;
+	5       (00000014) iget-object          v1, v1, Lcom/jlboat/phone/communication/SubMapLisener;->a [I
+	6       (00000018) const/4              v2, 1
+	7       (0000001a) aget                 v1, v1, v2
+	8       (0000001e) add-int/2addr        v1, v2
+	9       (00000020) aput                 v1, v0, v2
+	10      (00000024) iget-object          v0, v4, Lcom/jlboat/phone/communication/SubMapLisener$1$1;->this$1 Lcom/jlboat/phone/communication/SubMapLisener$1;
+	11      (00000028) iget-object          v0, v0, Lcom/jlboat/phone/communication/SubMapLisener$1;->this$0 Lcom/jlboat/phone/communication/SubMapLisener;
+	12      (0000002c) iget-object          v0, v0, Lcom/jlboat/phone/communication/SubMapLisener;->a [I
+	13      (00000030) iget-object          v1, v4, Lcom/jlboat/phone/communication/SubMapLisener$1$1;->this$1 Lcom/jlboat/phone/communication/SubMapLisener$1;
+	14      (00000034) iget-object          v1, v1, Lcom/jlboat/phone/communication/SubMapLisener$1;->this$0 Lcom/jlboat/phone/communication/SubMapLisener;
+	15      (00000038) iget-object          v1, v1, Lcom/jlboat/phone/communication/SubMapLisener;->a [I
+	16      (0000003c) const/4              v3, 2
+	17      (0000003e) aget                 v1, v1, v3
+	18      (00000042) add-int/2addr        v1, v2
+	19      (00000044) aput                 v1, v0, v3
+	20      (00000048) iget-object          v0, v4, Lcom/jlboat/phone/communication/SubMapLisener$1$1;->this$1 Lcom/jlboat/phone/communication/SubMapLisener$1;
+	21      (0000004c) iget-object          v0, v0, Lcom/jlboat/phone/communication/SubMapLisener$1;->this$0 Lcom/jlboat/phone/communication/SubMapLisener;
+	22      (00000050) invoke-static        v0, Lcom/jlboat/phone/communication/SubMapLisener;->access$100(Lcom/jlboat/phone/communication/SubMapLisener;)V
+	23      (00000056) invoke-virtual       v5, Lcartographer_ros_msgs/SubmapQueryResponse;->getStatus()Lcartographer_ros_msgs/StatusResponse;
+	24      (0000005c) move-result-object   v0
+	25      (0000005e) invoke-virtual       v0, Lcartographer_ros_msgs/StatusResponse;->getCode()B
+	26      (00000064) move-result          v0
+	27      (00000066) if-nez               v0, +011h
+
+onNewMessage-BB@0x6a : [ onNewMessage-BB@0x88 ]
+	28      (0000006a) iget-object          v0, v4, Lcom/jlboat/phone/communication/SubMapLisener$1$1;->this$1 Lcom/jlboat/phone/communication/SubMapLisener$1;
+	29      (0000006e) iget-object          v0, v0, Lcom/jlboat/phone/communication/SubMapLisener$1;->this$0 Lcom/jlboat/phone/communication/SubMapLisener;
+	30      (00000072) iget                 v1, v4, Lcom/jlboat/phone/communication/SubMapLisener$1$1;->val$index I
+	31      (00000076) invoke-virtual       v5, Lcartographer_ros_msgs/SubmapQueryResponse;->getTextures()Ljava/util/List;
+	32      (0000007c) move-result-object   v2
+	33      (0000007e) const/16             v3, 13
+	34      (00000082) invoke-static        v0, v3, v1, v2, Lcom/jlboat/phone/communication/SubMapLisener;->access$200(Lcom/jlboat/phone/communication/SubMapLisener; I I Ljava/util/List;)V
+
+onNewMessage-BB@0x88 : 
+	35      (00000088) return-void          
+

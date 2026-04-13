@@ -1,0 +1,13 @@
+# Lcom/boat/support/slam/SlamManager;->forwardTo(D)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:double
+#
+# - return:void
+
+forwardTo-BB@0x0 : 
+	0       (00000000) const-wide           v0, 4599075939470750515
+	1       (0000000a) invoke-direct        v2, v3, v4, v0, v1, Lcom/boat/support/slam/SlamManager;->moveTo(D D)V
+	2       (00000010) return-void          
+

@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;->access$400(Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;)Lcom/jlboat/phone/adapter/TestPointListAdapter; [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.fragment.settingfragment.NavigationTestFragment2025
+#
+# - return:com.jlboat.phone.adapter.TestPointListAdapter
+
+access$400-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;->testPointListAdapter Lcom/jlboat/phone/adapter/TestPointListAdapter;
+	1       (00000004) return-object        v0
+

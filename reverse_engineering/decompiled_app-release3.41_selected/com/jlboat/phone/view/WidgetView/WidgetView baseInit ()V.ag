@@ -1,0 +1,28 @@
+# Lcom/jlboat/phone/view/WidgetView;->baseInit()V [access_flags=private]
+#
+# Parameters:
+# local registers: v0...v3
+#
+# - return:void
+
+baseInit-BB@0x0 : 
+	0       (00000000) const/4              v0, 0
+	1       (00000002) invoke-virtual       v3, v0, Lcom/jlboat/phone/view/WidgetView;->setWillNotDraw(Z)V
+	2       (00000008) new-instance         v0, Landroid/graphics/Paint;
+	3       (0000000c) invoke-direct        v0, Landroid/graphics/Paint;-><init>()V
+	4       (00000012) iput-object          v0, v3, Lcom/jlboat/phone/view/WidgetView;->highlightPaint Landroid/graphics/Paint;
+	5       (00000016) iget-object          v0, v3, Lcom/jlboat/phone/view/WidgetView;->highlightPaint Landroid/graphics/Paint;
+	6       (0000001a) invoke-virtual       v3, Lcom/jlboat/phone/view/WidgetView;->getResources()Landroid/content/res/Resources;
+	7       (00000020) move-result-object   v1
+	8       (00000022) const                v2, 2131034165
+	9       (00000028) invoke-virtual       v1, v2, Landroid/content/res/Resources;->getColor(I)I
+	10      (0000002e) move-result          v1
+	11      (00000030) invoke-virtual       v0, v1, Landroid/graphics/Paint;->setColor(I)V
+	12      (00000036) iget-object          v0, v3, Lcom/jlboat/phone/view/WidgetView;->highlightPaint Landroid/graphics/Paint;
+	13      (0000003a) sget-object          v1, Landroid/graphics/Paint$Style;->FILL_AND_STROKE Landroid/graphics/Paint$Style;
+	14      (0000003e) invoke-virtual       v0, v1, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
+	15      (00000044) iget-object          v0, v3, Lcom/jlboat/phone/view/WidgetView;->highlightPaint Landroid/graphics/Paint;
+	16      (00000048) const/16             v1, 100
+	17      (0000004c) invoke-virtual       v0, v1, Landroid/graphics/Paint;->setAlpha(I)V
+	18      (00000052) return-void          
+

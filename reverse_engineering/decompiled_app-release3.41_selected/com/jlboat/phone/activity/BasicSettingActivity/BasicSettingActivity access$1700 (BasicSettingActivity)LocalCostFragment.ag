@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/activity/BasicSettingActivity;->access$1700(Lcom/jlboat/phone/activity/BasicSettingActivity;)Lcom/jlboat/phone/fragment/settingfragment/LocalCostFragment; [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.activity.BasicSettingActivity
+#
+# - return:com.jlboat.phone.fragment.settingfragment.LocalCostFragment
+
+access$1700-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/jlboat/phone/activity/BasicSettingActivity;->localCostFragment Lcom/jlboat/phone/fragment/settingfragment/LocalCostFragment;
+	1       (00000004) return-object        v0
+

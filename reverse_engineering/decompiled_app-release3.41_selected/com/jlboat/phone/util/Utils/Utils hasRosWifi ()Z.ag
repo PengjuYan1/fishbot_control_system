@@ -1,0 +1,111 @@
+# Lcom/jlboat/phone/util/Utils;->hasRosWifi()Z [access_flags=public static]
+#
+# Parameters:
+# local registers: v0...v6
+#
+# - return:boolean
+
+hasRosWifi-BB@0x0 : [ hasRosWifi-BB@0x2 ]
+	0       (00000000) const/4              v0, 0
+
+hasRosWifi-BB@0x2 : [ hasRosWifi-BB@0xe hasRosWifi-BB@0x10 ]
+	1       (00000002) invoke-static        Ljava/net/NetworkInterface;->getNetworkInterfaces()Ljava/util/Enumeration;
+	2       (00000008) move-result-object   v1
+	3       (0000000a) if-nez               v1, +003h
+	2:99
+	(Ljava/net/SocketException; -> a4 hasRosWifi-BB@0xa4)
+
+hasRosWifi-BB@0xe : 
+	4       (0000000e) return               v0
+	2:99
+	(Ljava/net/SocketException; -> a4 hasRosWifi-BB@0xa4)
+
+hasRosWifi-BB@0x10 : [ hasRosWifi-BB@0x1c hasRosWifi-BB@0xa2 ]
+	5       (00000010) invoke-interface     v1, Ljava/util/Enumeration;->hasMoreElements()Z
+	6       (00000016) move-result          v2
+	7       (00000018) if-eqz               v2, +045h
+	2:99
+	(Ljava/net/SocketException; -> a4 hasRosWifi-BB@0xa4)
+
+hasRosWifi-BB@0x1c : [ hasRosWifi-BB@0x34 hasRosWifi-BB@0x36 ]
+	8       (0000001c) invoke-interface     v1, Ljava/util/Enumeration;->nextElement()Ljava/lang/Object;
+	9       (00000022) move-result-object   v2
+	10      (00000024) check-cast           v2, Ljava/net/NetworkInterface;
+	11      (00000028) invoke-virtual       v2, Ljava/net/NetworkInterface;->isUp()Z
+	12      (0000002e) move-result          v3
+	13      (00000030) if-nez               v3, +003h
+	2:99
+	(Ljava/net/SocketException; -> a4 hasRosWifi-BB@0xa4)
+
+hasRosWifi-BB@0x34 : [ hasRosWifi-BB@0x10 ]
+	14      (00000034) goto                 -12h
+	2:99
+	(Ljava/net/SocketException; -> a4 hasRosWifi-BB@0xa4)
+
+hasRosWifi-BB@0x36 : [ hasRosWifi-BB@0x3e ]
+	15      (00000036) invoke-virtual       v2, Ljava/net/NetworkInterface;->getInetAddresses()Ljava/util/Enumeration;
+	16      (0000003c) move-result-object   v3
+	2:99
+	(Ljava/net/SocketException; -> a4 hasRosWifi-BB@0xa4)
+
+hasRosWifi-BB@0x3e : [ hasRosWifi-BB@0x4a hasRosWifi-BB@0xa0 ]
+	17      (0000003e) invoke-interface     v3, Ljava/util/Enumeration;->hasMoreElements()Z
+	18      (00000044) move-result          v4
+	19      (00000046) if-eqz               v4, +02dh
+	2:99
+	(Ljava/net/SocketException; -> a4 hasRosWifi-BB@0xa4)
+
+hasRosWifi-BB@0x4a : [ hasRosWifi-BB@0x5e hasRosWifi-BB@0x9e ]
+	20      (0000004a) invoke-interface     v3, Ljava/util/Enumeration;->nextElement()Ljava/lang/Object;
+	21      (00000050) move-result-object   v4
+	22      (00000052) check-cast           v4, Ljava/net/InetAddress;
+	23      (00000056) instance-of          v5, v4, Ljava/net/Inet4Address;
+	24      (0000005a) if-eqz               v5, +022h
+	2:99
+	(Ljava/net/SocketException; -> a4 hasRosWifi-BB@0xa4)
+
+hasRosWifi-BB@0x5e : [ hasRosWifi-BB@0x6a hasRosWifi-BB@0x9e ]
+	25      (0000005e) invoke-virtual       v4, Ljava/net/InetAddress;->isLoopbackAddress()Z
+	26      (00000064) move-result          v5
+	27      (00000066) if-nez               v5, +01ch
+	2:99
+	(Ljava/net/SocketException; -> a4 hasRosWifi-BB@0xa4)
+
+hasRosWifi-BB@0x6a : [ hasRosWifi-BB@0x82 hasRosWifi-BB@0x9e ]
+	28      (0000006a) invoke-virtual       v4, Ljava/net/InetAddress;->getHostAddress()Ljava/lang/String;
+	29      (00000070) move-result-object   v5
+	30      (00000072) sget-object          v6, Lcom/jlboat/phone/application/BoatSlamApplication;->route_ip Ljava/lang/String;
+	31      (00000076) invoke-virtual       v5, v6, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+	32      (0000007c) move-result          v5
+	33      (0000007e) if-eqz               v5, +010h
+	2:99
+	(Ljava/net/SocketException; -> a4 hasRosWifi-BB@0xa4)
+
+hasRosWifi-BB@0x82 : 
+	34      (00000082) invoke-virtual       v2, Ljava/net/NetworkInterface;->getDisplayName()Ljava/lang/String;
+	35      (00000088) move-result-object   v5
+	36      (0000008a) sput-object          v5, Lcom/jlboat/phone/application/BoatSlamApplication;->displayName Ljava/lang/String;
+	37      (0000008e) invoke-virtual       v4, Ljava/net/InetAddress;->getHostAddress()Ljava/lang/String;
+	38      (00000094) move-result-object   v5
+	39      (00000096) sput-object          v5, Lcom/jlboat/phone/application/BoatSlamApplication;->hostAddress Ljava/lang/String;
+	40      (0000009a) const/4              v0, 1
+	41      (0000009c) return               v0
+
+hasRosWifi-BB@0x9e : [ hasRosWifi-BB@0x3e ]
+	42      (0000009e) goto                 -30h
+
+hasRosWifi-BB@0xa0 : [ hasRosWifi-BB@0x10 ]
+	43      (000000a0) goto                 -48h
+
+hasRosWifi-BB@0xa2 : [ hasRosWifi-BB@0xa6 ]
+	44      (000000a2) goto                 +2h
+
+hasRosWifi-BB@0xa4 : [ hasRosWifi-BB@0xa6 ]
+	45      (000000a4) move-exception       v1
+
+hasRosWifi-BB@0xa6 : 
+	46      (000000a6) const-string         v1, ""
+	47      (000000aa) sput-object          v1, Lcom/jlboat/phone/application/BoatSlamApplication;->displayName Ljava/lang/String;
+	48      (000000ae) sput-object          v1, Lcom/jlboat/phone/application/BoatSlamApplication;->hostAddress Ljava/lang/String;
+	49      (000000b2) return               v0
+

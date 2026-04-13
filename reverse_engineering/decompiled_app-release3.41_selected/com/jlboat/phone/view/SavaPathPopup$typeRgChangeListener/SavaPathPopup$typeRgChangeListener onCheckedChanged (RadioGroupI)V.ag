@@ -1,0 +1,68 @@
+# Lcom/jlboat/phone/view/SavaPathPopup$typeRgChangeListener;->onCheckedChanged(Landroid/widget/RadioGroup; I)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:android.widget.RadioGroup
+# - v5:int
+#
+# - return:void
+
+onCheckedChanged-BB@0x0 : [ D:onCheckedChanged-BB@0x12 2131231090:onCheckedChanged-BB@0x30 2131231091:onCheckedChanged-BB@0x12 2131231092:onCheckedChanged-BB@0x14 ]
+	0       (00000000) invoke-virtual       v4, Landroid/widget/RadioGroup;->getId()I
+	1       (00000006) move-result          v0
+	2       (00000008) const/4              v1, 1
+	3       (0000000a) const/4              v2, 0
+	4       (0000000c) packed-switch        v0, +0000028h
+
+onCheckedChanged-BB@0x12 : [ onCheckedChanged-BB@0x5a ]
+	5       (00000012) goto                 +24h
+
+onCheckedChanged-BB@0x14 : [ D:onCheckedChanged-BB@0x1a 2131230775:onCheckedChanged-BB@0x26 2131231343:onCheckedChanged-BB@0x1c ]
+	6       (00000014) sparse-switch        v5, +000002eh
+
+onCheckedChanged-BB@0x1a : [ onCheckedChanged-BB@0x5a ]
+	7       (0000001a) goto                 +20h
+
+onCheckedChanged-BB@0x1c : [ onCheckedChanged-BB@0x5a ]
+	8       (0000001c) iget-object          v0, v3, Lcom/jlboat/phone/view/SavaPathPopup$typeRgChangeListener;->this$0 Lcom/jlboat/phone/view/SavaPathPopup;
+	9       (00000020) iput                 v1, v0, Lcom/jlboat/phone/view/SavaPathPopup;->directional I
+	10      (00000024) goto                 +1bh
+
+onCheckedChanged-BB@0x26 : [ onCheckedChanged-BB@0x5a ]
+	11      (00000026) iget-object          v0, v3, Lcom/jlboat/phone/view/SavaPathPopup$typeRgChangeListener;->this$0 Lcom/jlboat/phone/view/SavaPathPopup;
+	12      (0000002a) iput                 v2, v0, Lcom/jlboat/phone/view/SavaPathPopup;->directional I
+	13      (0000002e) goto                 +16h
+
+onCheckedChanged-BB@0x30 : [ D:onCheckedChanged-BB@0x36 2131231089:onCheckedChanged-BB@0x4e 2131231093:onCheckedChanged-BB@0x44 2131231094:onCheckedChanged-BB@0x38 ]
+	14      (00000030) sparse-switch        v5, +000002ah
+
+onCheckedChanged-BB@0x36 : [ onCheckedChanged-BB@0x58 ]
+	15      (00000036) goto                 +11h
+
+onCheckedChanged-BB@0x38 : [ onCheckedChanged-BB@0x58 ]
+	16      (00000038) iget-object          v0, v3, Lcom/jlboat/phone/view/SavaPathPopup$typeRgChangeListener;->this$0 Lcom/jlboat/phone/view/SavaPathPopup;
+	17      (0000003c) const/4              v1, 2
+	18      (0000003e) iput                 v1, v0, Lcom/jlboat/phone/view/SavaPathPopup;->pathType I
+	19      (00000042) goto                 +bh
+
+onCheckedChanged-BB@0x44 : [ onCheckedChanged-BB@0x58 ]
+	20      (00000044) iget-object          v0, v3, Lcom/jlboat/phone/view/SavaPathPopup$typeRgChangeListener;->this$0 Lcom/jlboat/phone/view/SavaPathPopup;
+	21      (00000048) iput                 v1, v0, Lcom/jlboat/phone/view/SavaPathPopup;->pathType I
+	22      (0000004c) goto                 +6h
+
+onCheckedChanged-BB@0x4e : [ onCheckedChanged-BB@0x58 ]
+	23      (0000004e) iget-object          v0, v3, Lcom/jlboat/phone/view/SavaPathPopup$typeRgChangeListener;->this$0 Lcom/jlboat/phone/view/SavaPathPopup;
+	24      (00000052) iput                 v2, v0, Lcom/jlboat/phone/view/SavaPathPopup;->pathType I
+	25      (00000056) nop                  
+
+onCheckedChanged-BB@0x58 : [ onCheckedChanged-BB@0x5a ]
+	26      (00000058) nop                  
+
+onCheckedChanged-BB@0x5a : 
+	27      (0000005a) return-void          
+
+onCheckedChanged-BB@0x5c : 
+	28      (0000005c) packed-switch-payload 7f080172 7f080173 7f080174
+	29      (00000070) sparse-switch-payload 7f080037 7f08026f
+	30      (00000084) sparse-switch-payload 7f080171 7f080175 7f080176
+

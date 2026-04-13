@@ -1,0 +1,12 @@
+# Lcartographer_ros_msgs/SubmapTexture;->setResolution(D)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:double
+#
+# - return:void
+
+setResolution-BB@0x0 : 
+	0       (00000000) iput-wide            v1, v0, Lcartographer_ros_msgs/SubmapTexture;->resolution D
+	1       (00000004) return-void          
+

@@ -1,0 +1,61 @@
+# Lcom/jlboat/phone/service/SpiritTopicListenerUtils$7;->onNewMessage(Lcom/boat/jrosbridge/message/std_msgs/Int16;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v4
+# - v5:com.boat.jrosbridge.message.std_msgs.Int16
+#
+# - return:void
+
+onNewMessage-BB@0x0 : [ onNewMessage-BB@0x3c onNewMessage-BB@0x3e ]
+	0       (00000000) invoke-virtual       v5, Lcom/boat/jrosbridge/message/std_msgs/Int16;->getData()S
+	1       (00000006) move-result          v0
+	2       (00000008) new-instance         v1, Ljava/lang/StringBuilder;
+	3       (0000000c) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	4       (00000012) const-string         v2, "topic getMapStatusMsg: "
+	5       (00000016) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	6       (0000001c) move-result-object   v1
+	7       (0000001e) invoke-virtual       v1, v0, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	8       (00000024) move-result-object   v1
+	9       (00000026) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	10      (0000002c) move-result-object   v1
+	11      (0000002e) const-string         v2, "SpiritTopicListenerUtils"
+	12      (00000032) invoke-static        v2, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	13      (00000038) if-nez               v0, +003h
+
+onNewMessage-BB@0x3c : 
+	14      (0000003c) return-void          
+
+onNewMessage-BB@0x3e : [ onNewMessage-BB@0x48 onNewMessage-BB@0x60 ]
+	15      (0000003e) const/16             v1, 60
+	16      (00000042) const/4              v2, 4
+	17      (00000044) if-ne                v0, v1, +00eh
+
+onNewMessage-BB@0x48 : 
+	18      (00000048) sget-object          v1, Lcom/jlboat/phone/application/BoatSlamApplication;->mApplication Lcom/jlboat/phone/application/BoatSlamApplication;
+	19      (0000004c) invoke-static        v1, v2, Lcom/boat/utils/ReportExceptionInformationUtils;->deleteWarnMsg(Lcom/jlboat/phone/application/BoatSlamApplication; I)V
+	20      (00000052) iget-object          v1, v4, Lcom/jlboat/phone/service/SpiritTopicListenerUtils$7;->this$0 Lcom/jlboat/phone/service/SpiritTopicListenerUtils;
+	21      (00000056) const/4              v2, 1
+	22      (00000058) invoke-static        v1, v2, Lcom/jlboat/phone/service/SpiritTopicListenerUtils;->access$402(Lcom/jlboat/phone/service/SpiritTopicListenerUtils; Z)Z
+	23      (0000005e) return-void          
+
+onNewMessage-BB@0x60 : [ onNewMessage-BB@0x68 onNewMessage-BB@0x92 ]
+	24      (00000060) const/16             v1, 61
+	25      (00000064) if-ne                v0, v1, +017h
+
+onNewMessage-BB@0x68 : [ onNewMessage-BB@0x78 onNewMessage-BB@0x92 ]
+	26      (00000068) iget-object          v1, v4, Lcom/jlboat/phone/service/SpiritTopicListenerUtils$7;->this$0 Lcom/jlboat/phone/service/SpiritTopicListenerUtils;
+	27      (0000006c) invoke-static        v1, Lcom/jlboat/phone/service/SpiritTopicListenerUtils;->access$400(Lcom/jlboat/phone/service/SpiritTopicListenerUtils;)Z
+	28      (00000072) move-result          v1
+	29      (00000074) if-eqz               v1, +00fh
+
+onNewMessage-BB@0x78 : [ onNewMessage-BB@0x92 ]
+	30      (00000078) iget-object          v1, v4, Lcom/jlboat/phone/service/SpiritTopicListenerUtils$7;->this$0 Lcom/jlboat/phone/service/SpiritTopicListenerUtils;
+	31      (0000007c) const/4              v3, 0
+	32      (0000007e) invoke-static        v1, v3, Lcom/jlboat/phone/service/SpiritTopicListenerUtils;->access$402(Lcom/jlboat/phone/service/SpiritTopicListenerUtils; Z)Z
+	33      (00000084) sget-object          v1, Lcom/jlboat/phone/application/BoatSlamApplication;->mApplication Lcom/jlboat/phone/application/BoatSlamApplication;
+	34      (00000088) const-string         v3, "机器人地图加载失败导致地图没有起来，导航模块不工作!"
+	35      (0000008c) invoke-static        v1, v0, v2, v3, Lcom/boat/utils/ReportExceptionInformationUtils;->showWarnMsg(Landroid/content/Context; I I Ljava/lang/String;)V
+
+onNewMessage-BB@0x92 : 
+	36      (00000092) return-void          
+

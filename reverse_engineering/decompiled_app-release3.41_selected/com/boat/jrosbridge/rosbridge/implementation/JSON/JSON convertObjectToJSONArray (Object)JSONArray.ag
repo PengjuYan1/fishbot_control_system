@@ -1,0 +1,39 @@
+# Lcom/boat/jrosbridge/rosbridge/implementation/JSON;->convertObjectToJSONArray(Ljava/lang/Object;)Lorg/json/simple/JSONArray; [access_flags=private static]
+#
+# Parameters:
+# - local registers: v0...v6
+# - v7:java.lang.Object
+#
+# - return:org.json.simple.JSONArray
+
+convertObjectToJSONArray-BB@0x0 : [ convertObjectToJSONArray-BB@0x1e ]
+	0       (00000000) new-instance         v0, Lorg/json/simple/JSONArray;
+	1       (00000004) invoke-direct        v0, Lorg/json/simple/JSONArray;-><init>()V
+	2       (0000000a) invoke-virtual       v7, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+	3       (00000010) move-result-object   v1
+	4       (00000012) invoke-virtual       v1, Ljava/lang/Class;->getFields()[Ljava/lang/reflect/Field;
+	5       (00000018) move-result-object   v1
+	6       (0000001a) array-length         v2, v1
+	7       (0000001c) const/4              v3, 0
+
+convertObjectToJSONArray-BB@0x1e : [ convertObjectToJSONArray-BB@0x22 convertObjectToJSONArray-BB@0x46 ]
+	8       (0000001e) if-ge                v3, v2, +014h
+
+convertObjectToJSONArray-BB@0x22 : [ convertObjectToJSONArray-BB@0x32 convertObjectToJSONArray-BB@0x40 ]
+	9       (00000022) aget-object          v4, v1, v3
+	10      (00000026) invoke-static        v4, v7, Lcom/boat/jrosbridge/rosbridge/implementation/JSON;->getFieldObject(Ljava/lang/reflect/Field; Ljava/lang/Object;)Ljava/lang/Object;
+	11      (0000002c) move-result-object   v5
+	12      (0000002e) if-eqz               v5, +009h
+
+convertObjectToJSONArray-BB@0x32 : [ convertObjectToJSONArray-BB@0x40 ]
+	13      (00000032) invoke-static        v5, Lcom/boat/jrosbridge/rosbridge/implementation/JSON;->convertElementToJSON(Ljava/lang/Object;)Ljava/lang/Object;
+	14      (00000038) move-result-object   v6
+	15      (0000003a) invoke-virtual       v0, v6, Lorg/json/simple/JSONArray;->add(Ljava/lang/Object;)Z
+
+convertObjectToJSONArray-BB@0x40 : [ convertObjectToJSONArray-BB@0x1e ]
+	16      (00000040) add-int/lit8         v3, v3, 1
+	17      (00000044) goto                 -13h
+
+convertObjectToJSONArray-BB@0x46 : 
+	18      (00000046) return-object        v0
+

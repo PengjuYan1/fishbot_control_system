@@ -1,0 +1,15 @@
+# Lcom/jlboat/phone/adapter/TestResultAdapter250816;->setData3(Z I)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:boolean
+# - v2:int
+#
+# - return:void
+
+setData3-BB@0x0 : 
+	0       (00000000) iput-boolean         v1, v0, Lcom/jlboat/phone/adapter/TestResultAdapter250816;->isCycle Z
+	1       (00000004) iput                 v2, v0, Lcom/jlboat/phone/adapter/TestResultAdapter250816;->cycleCount I
+	2       (00000008) invoke-virtual       v0, Lcom/jlboat/phone/adapter/TestResultAdapter250816;->notifyDataSetChanged()V
+	3       (0000000e) return-void          
+

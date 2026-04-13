@@ -1,0 +1,43 @@
+# Lcom/jlboat/phone/activity/RobotMapActivity$17;->onNewMessage(Lcom/boat/jrosbridge/message/std_srvs/Empty;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:com.boat.jrosbridge.message.std_srvs.Empty
+#
+# - return:void
+
+onNewMessage-BB@0x0 : 
+	0       (00000000) iget-object          v0, v3, Lcom/jlboat/phone/activity/RobotMapActivity$17;->this$0 Lcom/jlboat/phone/activity/RobotMapActivity;
+	1       (00000004) invoke-static        v0, Lcom/jlboat/phone/activity/RobotMapActivity;->access$2300(Lcom/jlboat/phone/activity/RobotMapActivity;)V
+	2       (0000000a) iget-object          v0, v3, Lcom/jlboat/phone/activity/RobotMapActivity$17;->this$0 Lcom/jlboat/phone/activity/RobotMapActivity;
+	3       (0000000e) const-wide/16        v1, 0
+	4       (00000012) invoke-static        v0, v1, v2, Lcom/jlboat/phone/activity/RobotMapActivity;->access$102(Lcom/jlboat/phone/activity/RobotMapActivity; J)J
+	5       (00000018) iget-object          v0, v3, Lcom/jlboat/phone/activity/RobotMapActivity$17;->this$0 Lcom/jlboat/phone/activity/RobotMapActivity;
+	6       (0000001c) invoke-static        v0, Lcom/jlboat/phone/activity/RobotMapActivity;->access$1000(Lcom/jlboat/phone/activity/RobotMapActivity;)Ljava/util/List;
+	7       (00000022) move-result-object   v0
+	8       (00000024) invoke-interface     v0, Ljava/util/List;->clear()V
+	9       (0000002a) iget-object          v0, v3, Lcom/jlboat/phone/activity/RobotMapActivity$17;->this$0 Lcom/jlboat/phone/activity/RobotMapActivity;
+	10      (0000002e) invoke-static        v0, Lcom/jlboat/phone/activity/RobotMapActivity;->access$1300(Lcom/jlboat/phone/activity/RobotMapActivity;)Landroid/os/Handler;
+	11      (00000034) move-result-object   v0
+	12      (00000036) const/4              v1, 1
+	13      (00000038) invoke-virtual       v0, v1, Landroid/os/Handler;->sendEmptyMessage(I)Z
+	14      (0000003e) iget-object          v0, v3, Lcom/jlboat/phone/activity/RobotMapActivity$17;->this$0 Lcom/jlboat/phone/activity/RobotMapActivity;
+	15      (00000042) invoke-static        v0, Lcom/jlboat/phone/activity/RobotMapActivity;->access$1100(Lcom/jlboat/phone/activity/RobotMapActivity;)Ljava/util/List;
+	16      (00000048) move-result-object   v0
+	17      (0000004a) invoke-interface     v0, Ljava/util/List;->clear()V
+	18      (00000050) iget-object          v0, v3, Lcom/jlboat/phone/activity/RobotMapActivity$17;->this$0 Lcom/jlboat/phone/activity/RobotMapActivity;
+	19      (00000054) invoke-static        v0, Lcom/jlboat/phone/activity/RobotMapActivity;->access$1500(Lcom/jlboat/phone/activity/RobotMapActivity;)Ljava/util/List;
+	20      (0000005a) move-result-object   v0
+	21      (0000005c) invoke-interface     v0, Ljava/util/List;->clear()V
+	22      (00000062) iget-object          v0, v3, Lcom/jlboat/phone/activity/RobotMapActivity$17;->this$0 Lcom/jlboat/phone/activity/RobotMapActivity;
+	23      (00000066) invoke-static        v0, Lcom/jlboat/phone/activity/RobotMapActivity;->access$1600(Lcom/jlboat/phone/activity/RobotMapActivity;)Ljava/util/List;
+	24      (0000006c) move-result-object   v0
+	25      (0000006e) invoke-interface     v0, Ljava/util/List;->clear()V
+	26      (00000074) iget-object          v0, v3, Lcom/jlboat/phone/activity/RobotMapActivity$17;->this$0 Lcom/jlboat/phone/activity/RobotMapActivity;
+	27      (00000078) invoke-static        v0, Lcom/jlboat/phone/activity/RobotMapActivity;->access$1700(Lcom/jlboat/phone/activity/RobotMapActivity;)Ljava/util/List;
+	28      (0000007e) move-result-object   v0
+	29      (00000080) invoke-interface     v0, Ljava/util/List;->clear()V
+	30      (00000086) iget-object          v0, v3, Lcom/jlboat/phone/activity/RobotMapActivity$17;->this$0 Lcom/jlboat/phone/activity/RobotMapActivity;
+	31      (0000008a) invoke-static        v0, Lcom/jlboat/phone/activity/RobotMapActivity;->access$2400(Lcom/jlboat/phone/activity/RobotMapActivity;)V
+	32      (00000090) return-void          
+

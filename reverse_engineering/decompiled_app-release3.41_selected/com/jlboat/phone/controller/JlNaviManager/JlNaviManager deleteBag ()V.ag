@@ -1,0 +1,34 @@
+# Lcom/jlboat/phone/controller/JlNaviManager;->deleteBag()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v2
+#
+# - return:void
+
+deleteBag-BB@0x0 : [ deleteBag-BB@0x8 deleteBag-BB@0x36 ]
+	0       (00000000) iget-boolean         v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->connectStatus Z
+	1       (00000004) if-eqz               v0, +019h
+
+deleteBag-BB@0x8 : [ deleteBag-BB@0x10 deleteBag-BB@0x12 ]
+	2       (00000008) iget-boolean         v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->isNavigationInited Z
+	3       (0000000c) if-nez               v0, +003h
+
+deleteBag-BB@0x10 : [ deleteBag-BB@0x36 ]
+	4       (00000010) goto                 +13h
+
+deleteBag-BB@0x12 : 
+	5       (00000012) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->TAG Ljava/lang/String;
+	6       (00000016) const-string         v1, "onSuccess:deleteBag "
+	7       (0000001a) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	8       (00000020) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->spiritServiceClient Lcom/jlboat/phone/communication/SpiritServiceClient;
+	9       (00000024) new-instance         v1, Lcom/jlboat/phone/controller/JlNaviManager$5;
+	10      (00000028) invoke-direct        v1, v2, Lcom/jlboat/phone/controller/JlNaviManager$5;-><init>(Lcom/jlboat/phone/controller/JlNaviManager;)V
+	11      (0000002e) invoke-virtual       v0, v1, Lcom/jlboat/phone/communication/SpiritServiceClient;->deleteBagService(Lcom/boat/jrosbridge/MessageListener;)V
+	12      (00000034) return-void          
+
+deleteBag-BB@0x36 : 
+	13      (00000036) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->TAG Ljava/lang/String;
+	14      (0000003a) const-string         v1, "deleteBag: 初始化未成功 不可以进行数据请求 deleteBag"
+	15      (0000003e) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	16      (00000044) return-void          
+

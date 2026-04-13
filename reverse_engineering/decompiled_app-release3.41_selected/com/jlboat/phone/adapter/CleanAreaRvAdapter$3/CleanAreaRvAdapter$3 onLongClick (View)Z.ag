@@ -1,0 +1,18 @@
+# Lcom/jlboat/phone/adapter/CleanAreaRvAdapter$3;->onLongClick(Landroid/view/View;)Z [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v4
+# - v5:android.view.View
+#
+# - return:boolean
+
+onLongClick-BB@0x0 : 
+	0       (00000000) iget-object          v0, v4, Lcom/jlboat/phone/adapter/CleanAreaRvAdapter$3;->this$0 Lcom/jlboat/phone/adapter/CleanAreaRvAdapter;
+	1       (00000004) invoke-static        v0, Lcom/jlboat/phone/adapter/CleanAreaRvAdapter;->access$500(Lcom/jlboat/phone/adapter/CleanAreaRvAdapter;)Lcom/jlboat/phone/adapter/CleanAreaRvAdapter$OnLongClick;
+	2       (0000000a) move-result-object   v0
+	3       (0000000c) iget-wide            v1, v4, Lcom/jlboat/phone/adapter/CleanAreaRvAdapter$3;->val$id J
+	4       (00000010) iget-object          v3, v4, Lcom/jlboat/phone/adapter/CleanAreaRvAdapter$3;->val$name Ljava/lang/String;
+	5       (00000014) invoke-interface     v0, v1, v2, v3, Lcom/jlboat/phone/adapter/CleanAreaRvAdapter$OnLongClick;->longclick(J Ljava/lang/String;)V
+	6       (0000001a) const/4              v0, 0
+	7       (0000001c) return               v0
+

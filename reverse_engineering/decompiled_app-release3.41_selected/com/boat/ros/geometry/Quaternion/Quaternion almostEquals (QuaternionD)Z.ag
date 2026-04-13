@@ -1,0 +1,63 @@
+# Lcom/boat/ros/geometry/Quaternion;->almostEquals(Lcom/boat/ros/geometry/Quaternion; D)Z [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v8
+# - v9:com.boat.ros.geometry.Quaternion
+# - v10:double
+#
+# - return:boolean
+
+almostEquals-BB@0x0 : [ almostEquals-BB@0x72 ]
+	0       (00000000) new-instance         v0, Ljava/util/LinkedList;
+	1       (00000004) invoke-direct        v0, Ljava/util/LinkedList;-><init>()V
+	2       (0000000a) iget-wide            v1, v7, Lcom/boat/ros/geometry/Quaternion;->x D
+	3       (0000000e) iget-wide            v3, v8, Lcom/boat/ros/geometry/Quaternion;->x D
+	4       (00000012) sub-double/2addr     v1, v3
+	5       (00000014) invoke-static        v1, v2, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
+	6       (0000001a) move-result-object   v1
+	7       (0000001c) invoke-interface     v0, v1, Ljava/util/List;->add(Ljava/lang/Object;)Z
+	8       (00000022) iget-wide            v1, v7, Lcom/boat/ros/geometry/Quaternion;->y D
+	9       (00000026) iget-wide            v3, v8, Lcom/boat/ros/geometry/Quaternion;->y D
+	10      (0000002a) sub-double/2addr     v1, v3
+	11      (0000002c) invoke-static        v1, v2, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
+	12      (00000032) move-result-object   v1
+	13      (00000034) invoke-interface     v0, v1, Ljava/util/List;->add(Ljava/lang/Object;)Z
+	14      (0000003a) iget-wide            v1, v7, Lcom/boat/ros/geometry/Quaternion;->z D
+	15      (0000003e) iget-wide            v3, v8, Lcom/boat/ros/geometry/Quaternion;->z D
+	16      (00000042) sub-double/2addr     v1, v3
+	17      (00000044) invoke-static        v1, v2, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
+	18      (0000004a) move-result-object   v1
+	19      (0000004c) invoke-interface     v0, v1, Ljava/util/List;->add(Ljava/lang/Object;)Z
+	20      (00000052) iget-wide            v1, v7, Lcom/boat/ros/geometry/Quaternion;->w D
+	21      (00000056) iget-wide            v3, v8, Lcom/boat/ros/geometry/Quaternion;->w D
+	22      (0000005a) sub-double/2addr     v1, v3
+	23      (0000005c) invoke-static        v1, v2, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
+	24      (00000062) move-result-object   v1
+	25      (00000064) invoke-interface     v0, v1, Ljava/util/List;->add(Ljava/lang/Object;)Z
+	26      (0000006a) invoke-interface     v0, Ljava/util/List;->iterator()Ljava/util/Iterator;
+	27      (00000070) move-result-object   v1
+
+almostEquals-BB@0x72 : [ almostEquals-BB@0x7e almostEquals-BB@0x82 ]
+	28      (00000072) invoke-interface     v1, Ljava/util/Iterator;->hasNext()Z
+	29      (00000078) move-result          v2
+	30      (0000007a) if-nez               v2, +004h
+
+almostEquals-BB@0x7e : 
+	31      (0000007e) const/4              v2, 1
+	32      (00000080) return               v2
+
+almostEquals-BB@0x82 : [ almostEquals-BB@0xa6 almostEquals-BB@0x72 ]
+	33      (00000082) invoke-interface     v1, Ljava/util/Iterator;->next()Ljava/lang/Object;
+	34      (00000088) move-result-object   v2
+	35      (0000008a) check-cast           v2, Ljava/lang/Double;
+	36      (0000008e) invoke-virtual       v2, Ljava/lang/Double;->doubleValue()D
+	37      (00000094) move-result-wide     v2
+	38      (00000096) invoke-static        v2, v3, Ljava/lang/Math;->abs(D)D
+	39      (0000009c) move-result-wide     v4
+	40      (0000009e) cmpl-double          v6, v4, v9
+	41      (000000a2) if-lez               v6, -018h
+
+almostEquals-BB@0xa6 : 
+	42      (000000a6) const/4              v4, 0
+	43      (000000a8) return               v4
+

@@ -1,0 +1,74 @@
+# Lcom/jlboat/phone/view/JoystickView;->init()V [access_flags=private]
+#
+# Parameters:
+# local registers: v0...v4
+#
+# - return:void
+
+init-BB@0x0 : 
+	0       (00000000) invoke-virtual       v4, Lcom/jlboat/phone/view/JoystickView;->getContext()Landroid/content/Context;
+	1       (00000006) move-result-object   v0
+	2       (00000008) const/high16         v1, 1065353216
+	3       (0000000c) invoke-static        v0, v1, Lcom/jlboat/phone/util/Utils;->cmToPx(Landroid/content/Context; F)F
+	4       (00000012) move-result          v0
+	5       (00000014) const/high16         v1, 1077936128
+	6       (00000018) div-float/2addr      v0, v1
+	7       (0000001a) iput                 v0, v4, Lcom/jlboat/phone/view/JoystickView;->joystickRadius F
+	8       (0000001e) new-instance         v0, Landroid/graphics/Paint;
+	9       (00000022) invoke-direct        v0, Landroid/graphics/Paint;-><init>()V
+	10      (00000028) iput-object          v0, v4, Lcom/jlboat/phone/view/JoystickView;->joystickPaint Landroid/graphics/Paint;
+	11      (0000002c) iget-object          v0, v4, Lcom/jlboat/phone/view/JoystickView;->joystickPaint Landroid/graphics/Paint;
+	12      (00000030) invoke-virtual       v4, Lcom/jlboat/phone/view/JoystickView;->getResources()Landroid/content/res/Resources;
+	13      (00000036) move-result-object   v2
+	14      (00000038) const                v3, 2131034205
+	15      (0000003e) invoke-virtual       v2, v3, Landroid/content/res/Resources;->getColor(I)I
+	16      (00000044) move-result          v2
+	17      (00000046) invoke-virtual       v0, v2, Landroid/graphics/Paint;->setColor(I)V
+	18      (0000004c) new-instance         v0, Landroid/graphics/Paint;
+	19      (00000050) invoke-direct        v0, Landroid/graphics/Paint;-><init>()V
+	20      (00000056) iput-object          v0, v4, Lcom/jlboat/phone/view/JoystickView;->outerPaint Landroid/graphics/Paint;
+	21      (0000005a) iget-object          v0, v4, Lcom/jlboat/phone/view/JoystickView;->outerPaint Landroid/graphics/Paint;
+	22      (0000005e) invoke-virtual       v4, Lcom/jlboat/phone/view/JoystickView;->getResources()Landroid/content/res/Resources;
+	23      (00000064) move-result-object   v2
+	24      (00000066) const                v3, 2131034163
+	25      (0000006c) invoke-virtual       v2, v3, Landroid/content/res/Resources;->getColor(I)I
+	26      (00000072) move-result          v2
+	27      (00000074) invoke-virtual       v0, v2, Landroid/graphics/Paint;->setColor(I)V
+	28      (0000007a) iget-object          v0, v4, Lcom/jlboat/phone/view/JoystickView;->outerPaint Landroid/graphics/Paint;
+	29      (0000007e) sget-object          v2, Landroid/graphics/Paint$Style;->STROKE Landroid/graphics/Paint$Style;
+	30      (00000082) invoke-virtual       v0, v2, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
+	31      (00000088) iget-object          v0, v4, Lcom/jlboat/phone/view/JoystickView;->outerPaint Landroid/graphics/Paint;
+	32      (0000008c) invoke-virtual       v4, Lcom/jlboat/phone/view/JoystickView;->getContext()Landroid/content/Context;
+	33      (00000092) move-result-object   v2
+	34      (00000094) invoke-static        v2, v1, Lcom/jlboat/phone/util/Utils;->dpToPx(Landroid/content/Context; F)F
+	35      (0000009a) move-result          v1
+	36      (0000009c) invoke-virtual       v0, v1, Landroid/graphics/Paint;->setStrokeWidth(F)V
+	37      (000000a2) new-instance         v0, Landroid/graphics/Paint;
+	38      (000000a6) invoke-direct        v0, Landroid/graphics/Paint;-><init>()V
+	39      (000000ac) iput-object          v0, v4, Lcom/jlboat/phone/view/JoystickView;->linePaint Landroid/graphics/Paint;
+	40      (000000b0) iget-object          v0, v4, Lcom/jlboat/phone/view/JoystickView;->linePaint Landroid/graphics/Paint;
+	41      (000000b4) invoke-virtual       v4, Lcom/jlboat/phone/view/JoystickView;->getResources()Landroid/content/res/Resources;
+	42      (000000ba) move-result-object   v1
+	43      (000000bc) const                v2, 2131034164
+	44      (000000c2) invoke-virtual       v1, v2, Landroid/content/res/Resources;->getColor(I)I
+	45      (000000c8) move-result          v1
+	46      (000000ca) invoke-virtual       v0, v1, Landroid/graphics/Paint;->setColor(I)V
+	47      (000000d0) iget-object          v0, v4, Lcom/jlboat/phone/view/JoystickView;->linePaint Landroid/graphics/Paint;
+	48      (000000d4) sget-object          v1, Landroid/graphics/Paint$Style;->STROKE Landroid/graphics/Paint$Style;
+	49      (000000d8) invoke-virtual       v0, v1, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
+	50      (000000de) iget-object          v0, v4, Lcom/jlboat/phone/view/JoystickView;->linePaint Landroid/graphics/Paint;
+	51      (000000e2) const/16             v1, 50
+	52      (000000e6) invoke-virtual       v0, v1, Landroid/graphics/Paint;->setAlpha(I)V
+	53      (000000ec) iget-object          v0, v4, Lcom/jlboat/phone/view/JoystickView;->linePaint Landroid/graphics/Paint;
+	54      (000000f0) invoke-virtual       v4, Lcom/jlboat/phone/view/JoystickView;->getContext()Landroid/content/Context;
+	55      (000000f6) move-result-object   v1
+	56      (000000f8) const/high16         v2, 1073741824
+	57      (000000fc) invoke-static        v1, v2, Lcom/jlboat/phone/util/Utils;->dpToPx(Landroid/content/Context; F)F
+	58      (00000102) move-result          v1
+	59      (00000104) invoke-virtual       v0, v1, Landroid/graphics/Paint;->setStrokeWidth(F)V
+	60      (0000010a) new-instance         v0, Landroid/graphics/Point;
+	61      (0000010e) const/4              v1, 0
+	62      (00000110) invoke-direct        v0, v1, v1, Landroid/graphics/Point;-><init>(I I)V
+	63      (00000116) iput-object          v0, v4, Lcom/jlboat/phone/view/JoystickView;->contactUpLocation Landroid/graphics/Point;
+	64      (0000011a) return-void          
+

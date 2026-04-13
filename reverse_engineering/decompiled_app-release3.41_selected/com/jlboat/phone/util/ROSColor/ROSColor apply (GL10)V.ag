@@ -1,0 +1,16 @@
+# Lcom/jlboat/phone/util/ROSColor;->apply(Ljavax/microedition/khronos/opengles/GL10;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v4
+# - v5:javax.microedition.khronos.opengles.GL10
+#
+# - return:void
+
+apply-BB@0x0 : 
+	0       (00000000) iget                 v0, v4, Lcom/jlboat/phone/util/ROSColor;->red F
+	1       (00000004) iget                 v1, v4, Lcom/jlboat/phone/util/ROSColor;->green F
+	2       (00000008) iget                 v2, v4, Lcom/jlboat/phone/util/ROSColor;->blue F
+	3       (0000000c) iget                 v3, v4, Lcom/jlboat/phone/util/ROSColor;->alpha F
+	4       (00000010) invoke-interface     v5, v0, v1, v2, v3, Ljavax/microedition/khronos/opengles/GL10;->glColor4f(F F F F)V
+	5       (00000016) return-void          
+

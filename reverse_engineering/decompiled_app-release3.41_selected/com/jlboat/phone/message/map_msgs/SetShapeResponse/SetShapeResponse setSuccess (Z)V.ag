@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/message/map_msgs/SetShapeResponse;->setSuccess(Z)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:boolean
+#
+# - return:void
+
+setSuccess-BB@0x0 : 
+	0       (00000000) iput-boolean         v1, v0, Lcom/jlboat/phone/message/map_msgs/SetShapeResponse;->success Z
+	1       (00000004) return-void          
+

@@ -1,0 +1,16 @@
+# Lcom/boat/ros/geometry/FrameTransformTree;->update(Lcom/boat/ros/geometry/FrameTransform;)V [access_flags=]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:com.boat.ros.geometry.FrameTransform
+#
+# - return:void
+
+update-BB@0x0 : 
+	0       (00000000) invoke-virtual       v3, Lcom/boat/ros/geometry/FrameTransform;->getSourceFrame()Lorg/ros/namespace/GraphName;
+	1       (00000006) move-result-object   v0
+	2       (00000008) new-instance         v1, Lcom/boat/ros/geometry/LazyFrameTransform;
+	3       (0000000c) invoke-direct        v1, v3, Lcom/boat/ros/geometry/LazyFrameTransform;-><init>(Lcom/boat/ros/geometry/FrameTransform;)V
+	4       (00000012) invoke-direct        v2, v0, v1, Lcom/boat/ros/geometry/FrameTransformTree;->add(Lorg/ros/namespace/GraphName; Lcom/boat/ros/geometry/LazyFrameTransform;)V
+	5       (00000018) return-void          
+

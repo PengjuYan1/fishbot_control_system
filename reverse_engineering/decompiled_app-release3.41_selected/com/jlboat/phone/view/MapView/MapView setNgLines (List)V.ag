@@ -1,0 +1,28 @@
+# Lcom/jlboat/phone/view/MapView;->setNgLines(Ljava/util/List;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:java.util.List
+#
+# - return:void
+
+setNgLines-BB@0x0 : 
+	0       (00000000) iput-object          v3, v2, Lcom/jlboat/phone/view/MapView;->ngNlineList Ljava/util/List;
+	1       (00000004) new-instance         v0, Ljava/lang/StringBuilder;
+	2       (00000008) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	3       (0000000e) const-string         v1, "setNgLines: ngNlineList "
+	4       (00000012) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	5       (00000018) move-result-object   v0
+	6       (0000001a) invoke-interface     v3, Ljava/util/List;->size()I
+	7       (00000020) move-result          v1
+	8       (00000022) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	9       (00000028) move-result-object   v0
+	10      (0000002a) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	11      (00000030) move-result-object   v0
+	12      (00000032) const-string         v1, "MapView"
+	13      (00000036) invoke-static        v1, v0, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	14      (0000003c) new-instance         v0, Lcom/jlboat/phone/view/MapView$14;
+	15      (00000040) invoke-direct        v0, v2, Lcom/jlboat/phone/view/MapView$14;-><init>(Lcom/jlboat/phone/view/MapView;)V
+	16      (00000046) invoke-virtual       v2, v0, Lcom/jlboat/phone/view/MapView;->post(Ljava/lang/Runnable;)Z
+	17      (0000004c) return-void          
+

@@ -1,0 +1,122 @@
+# Lcom/jlboat/phone/activity/MapEditChargeActivity;->onCreate(Landroid/os/Bundle;)V [access_flags=protected]
+#
+# Parameters:
+# - local registers: v0...v8
+# - v9:android.os.Bundle
+#
+# - return:void
+
+onCreate-BB@0x0 : [ onCreate-BB@0x128 onCreate-BB@0x198 ]
+	0       (00000000) const-string         v0, "MapEditChargeActivity"
+	1       (00000004) const-string         v1, "onCreate"
+	2       (00000008) invoke-static        v0, v1, Landroid/util/Log;->e(Ljava/lang/String; Ljava/lang/String;)I
+	3       (0000000e) invoke-super         v8, v9, Lcom/jlboat/phone/base/BaseFullActivity;->onCreate(Landroid/os/Bundle;)V
+	4       (00000014) const                v0, 2131361844
+	5       (0000001a) const                v1, 2131492933
+	6       (00000020) invoke-virtual       v8, v0, v1, Lcom/jlboat/phone/activity/MapEditChargeActivity;->initTitleBar(I I)V
+	7       (00000026) const                v0, 2131231034
+	8       (0000002c) invoke-virtual       v8, v0, Lcom/jlboat/phone/activity/MapEditChargeActivity;->findViewById(I)Landroid/view/View;
+	9       (00000032) move-result-object   v0
+	10      (00000034) check-cast           v0, Landroid/widget/LinearLayout;
+	11      (00000038) iput-object          v0, v8, Lcom/jlboat/phone/activity/MapEditChargeActivity;->navNopointTipLl Landroid/widget/LinearLayout;
+	12      (0000003c) const                v0, 2131231031
+	13      (00000042) invoke-virtual       v8, v0, Lcom/jlboat/phone/activity/MapEditChargeActivity;->findViewById(I)Landroid/view/View;
+	14      (00000048) move-result-object   v0
+	15      (0000004a) check-cast           v0, Landroid/support/v7/widget/RecyclerView;
+	16      (0000004e) iput-object          v0, v8, Lcom/jlboat/phone/activity/MapEditChargeActivity;->navAllPointRv Landroid/support/v7/widget/RecyclerView;
+	17      (00000052) const                v0, 2131231036
+	18      (00000058) invoke-virtual       v8, v0, Lcom/jlboat/phone/activity/MapEditChargeActivity;->findViewById(I)Landroid/view/View;
+	19      (0000005e) move-result-object   v0
+	20      (00000060) check-cast           v0, Landroid/support/v7/widget/RecyclerView;
+	21      (00000064) iput-object          v0, v8, Lcom/jlboat/phone/activity/MapEditChargeActivity;->navSelectedPointRv Landroid/support/v7/widget/RecyclerView;
+	22      (00000068) const                v0, 2131230821
+	23      (0000006e) invoke-virtual       v8, v0, Lcom/jlboat/phone/activity/MapEditChargeActivity;->findViewById(I)Landroid/view/View;
+	24      (00000074) move-result-object   v0
+	25      (00000076) check-cast           v0, Landroid/widget/Button;
+	26      (0000007a) iput-object          v0, v8, Lcom/jlboat/phone/activity/MapEditChargeActivity;->bt_yes Landroid/widget/Button;
+	27      (0000007e) iget-object          v0, v8, Lcom/jlboat/phone/activity/MapEditChargeActivity;->bt_yes Landroid/widget/Button;
+	28      (00000082) invoke-virtual       v0, v8, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	29      (00000088) new-instance         v0, Lcom/jlboat/phone/adapter/MapActDlFloorListAdapter;
+	30      (0000008c) invoke-direct        v0, Lcom/jlboat/phone/adapter/MapActDlFloorListAdapter;-><init>()V
+	31      (00000092) iput-object          v0, v8, Lcom/jlboat/phone/activity/MapEditChargeActivity;->testPointListAdapter Lcom/jlboat/phone/adapter/MapActDlFloorListAdapter;
+	32      (00000096) iget-object          v0, v8, Lcom/jlboat/phone/activity/MapEditChargeActivity;->navAllPointRv Landroid/support/v7/widget/RecyclerView;
+	33      (0000009a) new-instance         v1, Landroid/support/v7/widget/GridLayoutManager;
+	34      (0000009e) const/4              v2, 6
+	35      (000000a0) invoke-direct        v1, v8, v2, Landroid/support/v7/widget/GridLayoutManager;-><init>(Landroid/content/Context; I)V
+	36      (000000a6) invoke-virtual       v0, v1, Landroid/support/v7/widget/RecyclerView;->setLayoutManager(Landroid/support/v7/widget/RecyclerView$LayoutManager;)V
+	37      (000000ac) iget-object          v0, v8, Lcom/jlboat/phone/activity/MapEditChargeActivity;->navAllPointRv Landroid/support/v7/widget/RecyclerView;
+	38      (000000b0) iget-object          v1, v8, Lcom/jlboat/phone/activity/MapEditChargeActivity;->testPointListAdapter Lcom/jlboat/phone/adapter/MapActDlFloorListAdapter;
+	39      (000000b4) invoke-virtual       v0, v1, Landroid/support/v7/widget/RecyclerView;->setAdapter(Landroid/support/v7/widget/RecyclerView$Adapter;)V
+	40      (000000ba) new-instance         v0, Lcom/jlboat/phone/adapter/MapActDlFloorListSelectAdapter;
+	41      (000000be) invoke-direct        v0, Lcom/jlboat/phone/adapter/MapActDlFloorListSelectAdapter;-><init>()V
+	42      (000000c4) iput-object          v0, v8, Lcom/jlboat/phone/activity/MapEditChargeActivity;->testPointSelectedListAdapter Lcom/jlboat/phone/adapter/MapActDlFloorListSelectAdapter;
+	43      (000000c8) iget-object          v0, v8, Lcom/jlboat/phone/activity/MapEditChargeActivity;->navSelectedPointRv Landroid/support/v7/widget/RecyclerView;
+	44      (000000cc) new-instance         v1, Landroid/support/v7/widget/GridLayoutManager;
+	45      (000000d0) invoke-direct        v1, v8, v2, Landroid/support/v7/widget/GridLayoutManager;-><init>(Landroid/content/Context; I)V
+	46      (000000d6) invoke-virtual       v0, v1, Landroid/support/v7/widget/RecyclerView;->setLayoutManager(Landroid/support/v7/widget/RecyclerView$LayoutManager;)V
+	47      (000000dc) iget-object          v0, v8, Lcom/jlboat/phone/activity/MapEditChargeActivity;->navSelectedPointRv Landroid/support/v7/widget/RecyclerView;
+	48      (000000e0) iget-object          v1, v8, Lcom/jlboat/phone/activity/MapEditChargeActivity;->testPointSelectedListAdapter Lcom/jlboat/phone/adapter/MapActDlFloorListSelectAdapter;
+	49      (000000e4) invoke-virtual       v0, v1, Landroid/support/v7/widget/RecyclerView;->setAdapter(Landroid/support/v7/widget/RecyclerView$Adapter;)V
+	50      (000000ea) iget-object          v0, v8, Lcom/jlboat/phone/activity/MapEditChargeActivity;->testPointSelectedListAdapter Lcom/jlboat/phone/adapter/MapActDlFloorListSelectAdapter;
+	51      (000000ee) new-instance         v1, Lcom/jlboat/phone/activity/MapEditChargeActivity$1;
+	52      (000000f2) invoke-direct        v1, v8, Lcom/jlboat/phone/activity/MapEditChargeActivity$1;-><init>(Lcom/jlboat/phone/activity/MapEditChargeActivity;)V
+	53      (000000f8) invoke-virtual       v0, v1, Lcom/jlboat/phone/adapter/MapActDlFloorListSelectAdapter;->setOnItemClickListener(Lcom/jlboat/phone/adapter/MapActDlFloorListSelectAdapter$OnItemClickListener;)V
+	54      (000000fe) iget-object          v0, v8, Lcom/jlboat/phone/activity/MapEditChargeActivity;->testPointListAdapter Lcom/jlboat/phone/adapter/MapActDlFloorListAdapter;
+	55      (00000102) new-instance         v1, Lcom/jlboat/phone/activity/MapEditChargeActivity$2;
+	56      (00000106) invoke-direct        v1, v8, Lcom/jlboat/phone/activity/MapEditChargeActivity$2;-><init>(Lcom/jlboat/phone/activity/MapEditChargeActivity;)V
+	57      (0000010c) invoke-virtual       v0, v1, Lcom/jlboat/phone/adapter/MapActDlFloorListAdapter;->setOnItemClickListener(Lcom/jlboat/phone/adapter/MapActDlFloorListAdapter$OnItemClickListener;)V
+	58      (00000112) iget-object          v0, v8, Lcom/jlboat/phone/activity/MapEditChargeActivity;->mapPointList Ljava/util/List;
+	59      (00000116) iget-object          v1, v8, Lcom/jlboat/phone/activity/MapEditChargeActivity;->currentFloors Ljava/util/List;
+	60      (0000011a) invoke-interface     v0, v1, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
+	61      (00000120) iget-object          v0, v8, Lcom/jlboat/phone/activity/MapEditChargeActivity;->chargingPrioritys Ljava/util/List;
+	62      (00000124) if-eqz               v0, +03ah
+
+onCreate-BB@0x128 : [ onCreate-BB@0x134 ]
+	63      (00000128) iget-object          v0, v8, Lcom/jlboat/phone/activity/MapEditChargeActivity;->chargingPrioritys Ljava/util/List;
+	64      (0000012c) invoke-interface     v0, Ljava/util/List;->iterator()Ljava/util/Iterator;
+	65      (00000132) move-result-object   v0
+
+onCreate-BB@0x134 : [ onCreate-BB@0x140 onCreate-BB@0x198 ]
+	66      (00000134) invoke-interface     v0, Ljava/util/Iterator;->hasNext()Z
+	67      (0000013a) move-result          v1
+	68      (0000013c) if-eqz               v1, +02eh
+
+onCreate-BB@0x140 : [ onCreate-BB@0x160 ]
+	69      (00000140) invoke-interface     v0, Ljava/util/Iterator;->next()Ljava/lang/Object;
+	70      (00000146) move-result-object   v1
+	71      (00000148) check-cast           v1, Ljava/lang/Long;
+	72      (0000014c) invoke-virtual       v1, Ljava/lang/Long;->longValue()J
+	73      (00000152) move-result-wide     v1
+	74      (00000154) iget-object          v3, v8, Lcom/jlboat/phone/activity/MapEditChargeActivity;->currentFloors Ljava/util/List;
+	75      (00000158) invoke-interface     v3, Ljava/util/List;->iterator()Ljava/util/Iterator;
+	76      (0000015e) move-result-object   v3
+
+onCreate-BB@0x160 : [ onCreate-BB@0x16c onCreate-BB@0x196 ]
+	77      (00000160) invoke-interface     v3, Ljava/util/Iterator;->hasNext()Z
+	78      (00000166) move-result          v4
+	79      (00000168) if-eqz               v4, +017h
+
+onCreate-BB@0x16c : [ onCreate-BB@0x188 onCreate-BB@0x194 ]
+	80      (0000016c) invoke-interface     v3, Ljava/util/Iterator;->next()Ljava/lang/Object;
+	81      (00000172) move-result-object   v4
+	82      (00000174) check-cast           v4, Lcom/boat/support/slam/entity/floors/Floors;
+	83      (00000178) invoke-virtual       v4, Lcom/boat/support/slam/entity/floors/Floors;->getFloorId()J
+	84      (0000017e) move-result-wide     v5
+	85      (00000180) cmp-long             v7, v5, v1
+	86      (00000184) if-nez               v7, +008h
+
+onCreate-BB@0x188 : [ onCreate-BB@0x196 ]
+	87      (00000188) iget-object          v3, v8, Lcom/jlboat/phone/activity/MapEditChargeActivity;->selectedPointList Ljava/util/List;
+	88      (0000018c) invoke-interface     v3, v4, Ljava/util/List;->add(Ljava/lang/Object;)Z
+	89      (00000192) goto                 +2h
+
+onCreate-BB@0x194 : [ onCreate-BB@0x160 ]
+	90      (00000194) goto                 -1ah
+
+onCreate-BB@0x196 : [ onCreate-BB@0x134 ]
+	91      (00000196) goto                 -31h
+
+onCreate-BB@0x198 : 
+	92      (00000198) invoke-direct        v8, Lcom/jlboat/phone/activity/MapEditChargeActivity;->updateVisibility()V
+	93      (0000019e) return-void          
+

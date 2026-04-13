@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/adapter/ShapeListAdapter;->access$100(Lcom/jlboat/phone/adapter/ShapeListAdapter;)Lcom/jlboat/phone/adapter/ShapeListAdapter$OnClick; [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.adapter.ShapeListAdapter
+#
+# - return:com.jlboat.phone.adapter.ShapeListAdapter$OnClick
+
+access$100-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/jlboat/phone/adapter/ShapeListAdapter;->onclick Lcom/jlboat/phone/adapter/ShapeListAdapter$OnClick;
+	1       (00000004) return-object        v0
+

@@ -1,0 +1,58 @@
+# Lcom/jlboat/phone/communication/SpiritServiceClient;->relocation(D D D D Lcom/boat/jrosbridge/MessageListener;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v21
+# - v22:double
+# - v23:double
+# - v24:double
+# - v25:double
+# - v26:com.boat.jrosbridge.MessageListener
+#
+# - return:void
+
+relocation-BB@0x0 : 
+	0       (00000000) new-instance         v0, Lcom/boat/jrosbridge/Service;
+	1       (00000004) sget-object          v1, Lcom/jlboat/phone/util/ServiceNames;->Relocation Ljava/lang/String;
+	2       (00000008) const-class          v2, Lcom/jlboat/phone/message/map_msgs/SetRelocationRequest;
+	3       (0000000c) const-class          v3, Lcom/jlboat/phone/message/map_msgs/SetRelocationResponse;
+	4       (00000010) sget-object          v4, Lcom/jlboat/phone/application/BoatSlamApplication;->client Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;
+	5       (00000014) invoke-direct        v0, v1, v2, v3, v4, Lcom/boat/jrosbridge/Service;-><init>(Ljava/lang/String; Ljava/lang/Class; Ljava/lang/Class; Lcom/boat/jrosbridge/ROSClient;)V
+	6       (0000001a) new-instance         v1, Lcom/jlboat/phone/message/map_msgs/SetRelocationRequest;
+	7       (0000001e) invoke-direct        v1, Lcom/jlboat/phone/message/map_msgs/SetRelocationRequest;-><init>()V
+	8       (00000024) new-instance         v2, Lcom/boat/jrosbridge/message/geometry_msgs/Quaternion;
+	9       (00000028) invoke-direct        v2, Lcom/boat/jrosbridge/message/geometry_msgs/Quaternion;-><init>()V
+	10      (0000002e) move-wide/from16     v3, v24
+	11      (00000032) invoke-virtual       v2, v3, v4, Lcom/boat/jrosbridge/message/geometry_msgs/Quaternion;->setW(D)V
+	12      (00000038) const-wide/16        v5, 0
+	13      (0000003c) invoke-virtual       v2, v5, v6, Lcom/boat/jrosbridge/message/geometry_msgs/Quaternion;->setX(D)V
+	14      (00000042) invoke-virtual       v2, v5, v6, Lcom/boat/jrosbridge/message/geometry_msgs/Quaternion;->setY(D)V
+	15      (00000048) move-wide/from16     v7, v22
+	16      (0000004c) invoke-virtual       v2, v7, v8, Lcom/boat/jrosbridge/message/geometry_msgs/Quaternion;->setZ(D)V
+	17      (00000052) new-instance         v9, Lcom/boat/jrosbridge/message/geometry_msgs/Point;
+	18      (00000056) invoke-direct        v9, Lcom/boat/jrosbridge/message/geometry_msgs/Point;-><init>()V
+	19      (0000005c) move-wide/from16     v10, v18
+	20      (00000060) invoke-virtual       v9, v10, v11, Lcom/boat/jrosbridge/message/geometry_msgs/Point;->setX(D)V
+	21      (00000066) move-wide/from16     v12, v20
+	22      (0000006a) invoke-virtual       v9, v12, v13, Lcom/boat/jrosbridge/message/geometry_msgs/Point;->setY(D)V
+	23      (00000070) invoke-virtual       v9, v5, v6, Lcom/boat/jrosbridge/message/geometry_msgs/Point;->setZ(D)V
+	24      (00000076) new-instance         v5, Lcom/boat/jrosbridge/message/geometry_msgs/Pose;
+	25      (0000007a) invoke-direct        v5, Lcom/boat/jrosbridge/message/geometry_msgs/Pose;-><init>()V
+	26      (00000080) invoke-virtual       v5, v2, Lcom/boat/jrosbridge/message/geometry_msgs/Pose;->setOrientation(Lcom/boat/jrosbridge/message/geometry_msgs/Quaternion;)V
+	27      (00000086) invoke-virtual       v5, v9, Lcom/boat/jrosbridge/message/geometry_msgs/Pose;->setPosition(Lcom/boat/jrosbridge/message/geometry_msgs/Point;)V
+	28      (0000008c) new-instance         v6, Lcom/boat/jrosbridge/message/geometry_msgs/PoseWithCovariance;
+	29      (00000090) invoke-direct        v6, Lcom/boat/jrosbridge/message/geometry_msgs/PoseWithCovariance;-><init>()V
+	30      (00000096) invoke-virtual       v6, v5, Lcom/boat/jrosbridge/message/geometry_msgs/PoseWithCovariance;->setPose(Lcom/boat/jrosbridge/message/geometry_msgs/Pose;)V
+	31      (0000009c) new-instance         v14, Lcom/boat/jrosbridge/message/std_msgs/Header;
+	32      (000000a0) invoke-direct        v14, Lcom/boat/jrosbridge/message/std_msgs/Header;-><init>()V
+	33      (000000a6) const-string         v15, "map"
+	34      (000000aa) invoke-virtual       v14, v15, Lcom/boat/jrosbridge/message/std_msgs/Header;->setFrameId(Ljava/lang/String;)V
+	35      (000000b0) new-instance         v15, Lcom/boat/jrosbridge/message/geometry_msgs/PoseWithCovarianceStamped;
+	36      (000000b4) invoke-direct        v15, Lcom/boat/jrosbridge/message/geometry_msgs/PoseWithCovarianceStamped;-><init>()V
+	37      (000000ba) invoke-virtual       v15, v14, Lcom/boat/jrosbridge/message/geometry_msgs/PoseWithCovarianceStamped;->setHeader(Lcom/boat/jrosbridge/message/std_msgs/Header;)V
+	38      (000000c0) invoke-virtual       v15, v6, Lcom/boat/jrosbridge/message/geometry_msgs/PoseWithCovarianceStamped;->setPose(Lcom/boat/jrosbridge/message/geometry_msgs/PoseWithCovariance;)V
+	39      (000000c6) invoke-virtual       v1, v15, Lcom/jlboat/phone/message/map_msgs/SetRelocationRequest;->setPoint(Lcom/boat/jrosbridge/message/geometry_msgs/PoseWithCovarianceStamped;)V
+	40      (000000cc) move-object/from16   v16, v2
+	41      (000000d0) move-object/from16   v2, v26
+	42      (000000d4) invoke-virtual       v0, v1, v2, Lcom/boat/jrosbridge/Service;->callWithHandler(Lcom/boat/jrosbridge/message/Message; Lcom/boat/jrosbridge/MessageListener;)V
+	43      (000000da) return-void          
+

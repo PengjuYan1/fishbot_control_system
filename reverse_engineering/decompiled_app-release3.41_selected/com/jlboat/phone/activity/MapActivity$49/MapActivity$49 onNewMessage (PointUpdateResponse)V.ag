@@ -1,0 +1,25 @@
+# Lcom/jlboat/phone/activity/MapActivity$49;->onNewMessage(Lcom/jlboat/phone/message/map_msgs/PointUpdateResponse;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v5
+# - v6:com.jlboat.phone.message.map_msgs.PointUpdateResponse
+#
+# - return:void
+
+onNewMessage-BB@0x0 : [ onNewMessage-BB@0x1e onNewMessage-BB@0x2e ]
+	0       (00000000) iget-object          v0, v5, Lcom/jlboat/phone/activity/MapActivity$49;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	1       (00000004) invoke-static        v0, Lcom/jlboat/phone/activity/MapActivity;->access$4400(Lcom/jlboat/phone/activity/MapActivity;)V
+	2       (0000000a) invoke-virtual       v6, Lcom/jlboat/phone/message/map_msgs/PointUpdateResponse;->getResult()J
+	3       (00000010) move-result-wide     v0
+	4       (00000012) const-wide/16        v2, 0
+	5       (00000016) cmp-long             v4, v0, v2
+	6       (0000001a) if-nez               v4, +00ah
+
+onNewMessage-BB@0x1e : [ onNewMessage-BB@0x2e ]
+	7       (0000001e) iget-object          v0, v5, Lcom/jlboat/phone/activity/MapActivity$49;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	8       (00000022) const                v1, 2131493252
+	9       (00000028) invoke-virtual       v0, v1, Lcom/jlboat/phone/activity/MapActivity;->toast(I)V
+
+onNewMessage-BB@0x2e : 
+	10      (0000002e) return-void          
+

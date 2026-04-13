@@ -1,0 +1,140 @@
+# Lcom/jlboat/phone/view/MapView$22;->onNewMessage(Lcom/boat/jrosbridge/message/geometry_msgs/PoseStamped;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v12
+# - v13:com.boat.jrosbridge.message.geometry_msgs.PoseStamped
+#
+# - return:void
+
+onNewMessage-BB@0x0 : [ onNewMessage-BB@0xe ]
+	0       (00000000) iget-object          v0, v12, Lcom/jlboat/phone/view/MapView$22;->this$0 Lcom/jlboat/phone/view/MapView;
+	1       (00000004) invoke-static        v0, Lcom/jlboat/phone/view/MapView;->access$800(Lcom/jlboat/phone/view/MapView;)Ljava/lang/Object;
+	2       (0000000a) move-result-object   v0
+	3       (0000000c) monitor-enter        v0
+
+onNewMessage-BB@0xe : 
+	4       (0000000e) iget-object          v1, v12, Lcom/jlboat/phone/view/MapView$22;->this$0 Lcom/jlboat/phone/view/MapView;
+	5       (00000012) new-instance         v9, Lcom/boat/ros/geometry/Vector3;
+	6       (00000016) iget-object          v2, v13, Lcom/boat/jrosbridge/message/geometry_msgs/PoseStamped;->pose Lcom/boat/jrosbridge/message/geometry_msgs/Pose;
+	7       (0000001a) iget-object          v2, v2, Lcom/boat/jrosbridge/message/geometry_msgs/Pose;->position Lcom/boat/jrosbridge/message/geometry_msgs/Point;
+	8       (0000001e) iget-wide            v3, v2, Lcom/boat/jrosbridge/message/geometry_msgs/Point;->x D
+	9       (00000022) iget-object          v2, v13, Lcom/boat/jrosbridge/message/geometry_msgs/PoseStamped;->pose Lcom/boat/jrosbridge/message/geometry_msgs/Pose;
+	10      (00000026) iget-object          v2, v2, Lcom/boat/jrosbridge/message/geometry_msgs/Pose;->position Lcom/boat/jrosbridge/message/geometry_msgs/Point;
+	11      (0000002a) iget-wide            v5, v2, Lcom/boat/jrosbridge/message/geometry_msgs/Point;->y D
+	12      (0000002e) iget-object          v2, v13, Lcom/boat/jrosbridge/message/geometry_msgs/PoseStamped;->pose Lcom/boat/jrosbridge/message/geometry_msgs/Pose;
+	13      (00000032) iget-object          v2, v2, Lcom/boat/jrosbridge/message/geometry_msgs/Pose;->position Lcom/boat/jrosbridge/message/geometry_msgs/Point;
+	14      (00000036) iget-wide            v7, v2, Lcom/boat/jrosbridge/message/geometry_msgs/Point;->z D
+	15      (0000003a) move-object          v2, v9
+	16      (0000003c) invoke-direct/range  v2 ... v8, Lcom/boat/ros/geometry/Vector3;-><init>(D D D)V
+	17      (00000042) invoke-static        v1, v9, Lcom/jlboat/phone/view/MapView;->access$902(Lcom/jlboat/phone/view/MapView; Lcom/boat/ros/geometry/Vector3;)Lcom/boat/ros/geometry/Vector3;
+	18      (00000048) iget-object          v1, v12, Lcom/jlboat/phone/view/MapView$22;->this$0 Lcom/jlboat/phone/view/MapView;
+	19      (0000004c) new-instance         v11, Lcom/boat/ros/geometry/Quaternion;
+	20      (00000050) iget-object          v2, v13, Lcom/boat/jrosbridge/message/geometry_msgs/PoseStamped;->pose Lcom/boat/jrosbridge/message/geometry_msgs/Pose;
+	21      (00000054) iget-object          v2, v2, Lcom/boat/jrosbridge/message/geometry_msgs/Pose;->orientation Lcom/boat/jrosbridge/message/geometry_msgs/Quaternion;
+	22      (00000058) iget-wide            v3, v2, Lcom/boat/jrosbridge/message/geometry_msgs/Quaternion;->x D
+	23      (0000005c) iget-object          v2, v13, Lcom/boat/jrosbridge/message/geometry_msgs/PoseStamped;->pose Lcom/boat/jrosbridge/message/geometry_msgs/Pose;
+	24      (00000060) iget-object          v2, v2, Lcom/boat/jrosbridge/message/geometry_msgs/Pose;->orientation Lcom/boat/jrosbridge/message/geometry_msgs/Quaternion;
+	25      (00000064) iget-wide            v5, v2, Lcom/boat/jrosbridge/message/geometry_msgs/Quaternion;->y D
+	26      (00000068) iget-object          v2, v13, Lcom/boat/jrosbridge/message/geometry_msgs/PoseStamped;->pose Lcom/boat/jrosbridge/message/geometry_msgs/Pose;
+	27      (0000006c) iget-object          v2, v2, Lcom/boat/jrosbridge/message/geometry_msgs/Pose;->orientation Lcom/boat/jrosbridge/message/geometry_msgs/Quaternion;
+	28      (00000070) iget-wide            v7, v2, Lcom/boat/jrosbridge/message/geometry_msgs/Quaternion;->z D
+	29      (00000074) iget-object          v2, v13, Lcom/boat/jrosbridge/message/geometry_msgs/PoseStamped;->pose Lcom/boat/jrosbridge/message/geometry_msgs/Pose;
+	30      (00000078) iget-object          v2, v2, Lcom/boat/jrosbridge/message/geometry_msgs/Pose;->orientation Lcom/boat/jrosbridge/message/geometry_msgs/Quaternion;
+	31      (0000007c) iget-wide            v9, v2, Lcom/boat/jrosbridge/message/geometry_msgs/Quaternion;->w D
+	32      (00000080) move-object          v2, v11
+	33      (00000082) invoke-direct/range  v2 ... v10, Lcom/boat/ros/geometry/Quaternion;-><init>(D D D D)V
+	34      (00000088) invoke-static        v1, v11, Lcom/jlboat/phone/view/MapView;->access$1002(Lcom/jlboat/phone/view/MapView; Lcom/boat/ros/geometry/Quaternion;)Lcom/boat/ros/geometry/Quaternion;
+	35      (0000008e) iget-object          v1, v12, Lcom/jlboat/phone/view/MapView$22;->this$0 Lcom/jlboat/phone/view/MapView;
+	36      (00000092) iget-object          v1, v1, Lcom/jlboat/phone/view/MapView;->vector Lcom/boat/ros/geometry/Vector3;
+	37      (00000096) iget-object          v2, v12, Lcom/jlboat/phone/view/MapView$22;->this$0 Lcom/jlboat/phone/view/MapView;
+	38      (0000009a) iget-object          v2, v2, Lcom/jlboat/phone/view/MapView;->vector Lcom/boat/ros/geometry/Vector3;
+	39      (0000009e) invoke-virtual       v1, v2, Lcom/boat/ros/geometry/Vector3;->subtract(Lcom/boat/ros/geometry/Vector3;)Lcom/boat/ros/geometry/Vector3;
+	40      (000000a4) move-result-object   v1
+	41      (000000a6) iget-object          v2, v12, Lcom/jlboat/phone/view/MapView$22;->this$0 Lcom/jlboat/phone/view/MapView;
+	42      (000000aa) iget-object          v2, v2, Lcom/jlboat/phone/view/MapView;->vectorleft Lcom/boat/ros/geometry/Vector3;
+	43      (000000ae) iget-object          v3, v12, Lcom/jlboat/phone/view/MapView$22;->this$0 Lcom/jlboat/phone/view/MapView;
+	44      (000000b2) iget-object          v3, v3, Lcom/jlboat/phone/view/MapView;->vector Lcom/boat/ros/geometry/Vector3;
+	45      (000000b6) invoke-virtual       v2, v3, Lcom/boat/ros/geometry/Vector3;->subtract(Lcom/boat/ros/geometry/Vector3;)Lcom/boat/ros/geometry/Vector3;
+	46      (000000bc) move-result-object   v2
+	47      (000000be) iget-object          v3, v12, Lcom/jlboat/phone/view/MapView$22;->this$0 Lcom/jlboat/phone/view/MapView;
+	48      (000000c2) iget-object          v3, v3, Lcom/jlboat/phone/view/MapView;->vectortop Lcom/boat/ros/geometry/Vector3;
+	49      (000000c6) iget-object          v4, v12, Lcom/jlboat/phone/view/MapView$22;->this$0 Lcom/jlboat/phone/view/MapView;
+	50      (000000ca) iget-object          v4, v4, Lcom/jlboat/phone/view/MapView;->vector Lcom/boat/ros/geometry/Vector3;
+	51      (000000ce) invoke-virtual       v3, v4, Lcom/boat/ros/geometry/Vector3;->subtract(Lcom/boat/ros/geometry/Vector3;)Lcom/boat/ros/geometry/Vector3;
+	52      (000000d4) move-result-object   v3
+	53      (000000d6) iget-object          v4, v12, Lcom/jlboat/phone/view/MapView$22;->this$0 Lcom/jlboat/phone/view/MapView;
+	54      (000000da) iget-object          v4, v4, Lcom/jlboat/phone/view/MapView;->vectorright Lcom/boat/ros/geometry/Vector3;
+	55      (000000de) iget-object          v5, v12, Lcom/jlboat/phone/view/MapView$22;->this$0 Lcom/jlboat/phone/view/MapView;
+	56      (000000e2) iget-object          v5, v5, Lcom/jlboat/phone/view/MapView;->vector Lcom/boat/ros/geometry/Vector3;
+	57      (000000e6) invoke-virtual       v4, v5, Lcom/boat/ros/geometry/Vector3;->subtract(Lcom/boat/ros/geometry/Vector3;)Lcom/boat/ros/geometry/Vector3;
+	58      (000000ec) move-result-object   v4
+	59      (000000ee) iget-object          v5, v12, Lcom/jlboat/phone/view/MapView$22;->this$0 Lcom/jlboat/phone/view/MapView;
+	60      (000000f2) iget-object          v6, v12, Lcom/jlboat/phone/view/MapView$22;->this$0 Lcom/jlboat/phone/view/MapView;
+	61      (000000f6) invoke-static        v6, Lcom/jlboat/phone/view/MapView;->access$1000(Lcom/jlboat/phone/view/MapView;)Lcom/boat/ros/geometry/Quaternion;
+	62      (000000fc) move-result-object   v6
+	63      (000000fe) invoke-virtual       v6, v1, Lcom/boat/ros/geometry/Quaternion;->rotateAndScaleVector(Lcom/boat/ros/geometry/Vector3;)Lcom/boat/ros/geometry/Vector3;
+	64      (00000104) move-result-object   v6
+	65      (00000106) iget-object          v7, v12, Lcom/jlboat/phone/view/MapView$22;->this$0 Lcom/jlboat/phone/view/MapView;
+	66      (0000010a) invoke-static        v7, Lcom/jlboat/phone/view/MapView;->access$900(Lcom/jlboat/phone/view/MapView;)Lcom/boat/ros/geometry/Vector3;
+	67      (00000110) move-result-object   v7
+	68      (00000112) invoke-virtual       v6, v7, Lcom/boat/ros/geometry/Vector3;->add(Lcom/boat/ros/geometry/Vector3;)Lcom/boat/ros/geometry/Vector3;
+	69      (00000118) move-result-object   v6
+	70      (0000011a) invoke-static        v5, v6, Lcom/jlboat/phone/view/MapView;->access$1102(Lcom/jlboat/phone/view/MapView; Lcom/boat/ros/geometry/Vector3;)Lcom/boat/ros/geometry/Vector3;
+	71      (00000120) iget-object          v5, v12, Lcom/jlboat/phone/view/MapView$22;->this$0 Lcom/jlboat/phone/view/MapView;
+	72      (00000124) iget-object          v6, v12, Lcom/jlboat/phone/view/MapView$22;->this$0 Lcom/jlboat/phone/view/MapView;
+	73      (00000128) invoke-static        v6, Lcom/jlboat/phone/view/MapView;->access$1000(Lcom/jlboat/phone/view/MapView;)Lcom/boat/ros/geometry/Quaternion;
+	74      (0000012e) move-result-object   v6
+	75      (00000130) invoke-virtual       v6, v2, Lcom/boat/ros/geometry/Quaternion;->rotateAndScaleVector(Lcom/boat/ros/geometry/Vector3;)Lcom/boat/ros/geometry/Vector3;
+	76      (00000136) move-result-object   v6
+	77      (00000138) iget-object          v7, v12, Lcom/jlboat/phone/view/MapView$22;->this$0 Lcom/jlboat/phone/view/MapView;
+	78      (0000013c) invoke-static        v7, Lcom/jlboat/phone/view/MapView;->access$900(Lcom/jlboat/phone/view/MapView;)Lcom/boat/ros/geometry/Vector3;
+	79      (00000142) move-result-object   v7
+	80      (00000144) invoke-virtual       v6, v7, Lcom/boat/ros/geometry/Vector3;->add(Lcom/boat/ros/geometry/Vector3;)Lcom/boat/ros/geometry/Vector3;
+	81      (0000014a) move-result-object   v6
+	82      (0000014c) invoke-static        v5, v6, Lcom/jlboat/phone/view/MapView;->access$1202(Lcom/jlboat/phone/view/MapView; Lcom/boat/ros/geometry/Vector3;)Lcom/boat/ros/geometry/Vector3;
+	83      (00000152) iget-object          v5, v12, Lcom/jlboat/phone/view/MapView$22;->this$0 Lcom/jlboat/phone/view/MapView;
+	84      (00000156) iget-object          v6, v12, Lcom/jlboat/phone/view/MapView$22;->this$0 Lcom/jlboat/phone/view/MapView;
+	85      (0000015a) invoke-static        v6, Lcom/jlboat/phone/view/MapView;->access$1000(Lcom/jlboat/phone/view/MapView;)Lcom/boat/ros/geometry/Quaternion;
+	86      (00000160) move-result-object   v6
+	87      (00000162) invoke-virtual       v6, v3, Lcom/boat/ros/geometry/Quaternion;->rotateAndScaleVector(Lcom/boat/ros/geometry/Vector3;)Lcom/boat/ros/geometry/Vector3;
+	88      (00000168) move-result-object   v6
+	89      (0000016a) iget-object          v7, v12, Lcom/jlboat/phone/view/MapView$22;->this$0 Lcom/jlboat/phone/view/MapView;
+	90      (0000016e) invoke-static        v7, Lcom/jlboat/phone/view/MapView;->access$900(Lcom/jlboat/phone/view/MapView;)Lcom/boat/ros/geometry/Vector3;
+	91      (00000174) move-result-object   v7
+	92      (00000176) invoke-virtual       v6, v7, Lcom/boat/ros/geometry/Vector3;->add(Lcom/boat/ros/geometry/Vector3;)Lcom/boat/ros/geometry/Vector3;
+	93      (0000017c) move-result-object   v6
+	94      (0000017e) invoke-static        v5, v6, Lcom/jlboat/phone/view/MapView;->access$1302(Lcom/jlboat/phone/view/MapView; Lcom/boat/ros/geometry/Vector3;)Lcom/boat/ros/geometry/Vector3;
+	95      (00000184) iget-object          v5, v12, Lcom/jlboat/phone/view/MapView$22;->this$0 Lcom/jlboat/phone/view/MapView;
+	96      (00000188) iget-object          v6, v12, Lcom/jlboat/phone/view/MapView$22;->this$0 Lcom/jlboat/phone/view/MapView;
+	97      (0000018c) invoke-static        v6, Lcom/jlboat/phone/view/MapView;->access$1000(Lcom/jlboat/phone/view/MapView;)Lcom/boat/ros/geometry/Quaternion;
+	98      (00000192) move-result-object   v6
+	99      (00000194) invoke-virtual       v6, v4, Lcom/boat/ros/geometry/Quaternion;->rotateAndScaleVector(Lcom/boat/ros/geometry/Vector3;)Lcom/boat/ros/geometry/Vector3;
+	100     (0000019a) move-result-object   v6
+	101     (0000019c) iget-object          v7, v12, Lcom/jlboat/phone/view/MapView$22;->this$0 Lcom/jlboat/phone/view/MapView;
+	102     (000001a0) invoke-static        v7, Lcom/jlboat/phone/view/MapView;->access$900(Lcom/jlboat/phone/view/MapView;)Lcom/boat/ros/geometry/Vector3;
+	103     (000001a6) move-result-object   v7
+	104     (000001a8) invoke-virtual       v6, v7, Lcom/boat/ros/geometry/Vector3;->add(Lcom/boat/ros/geometry/Vector3;)Lcom/boat/ros/geometry/Vector3;
+	105     (000001ae) move-result-object   v6
+	106     (000001b0) invoke-static        v5, v6, Lcom/jlboat/phone/view/MapView;->access$1402(Lcom/jlboat/phone/view/MapView; Lcom/boat/ros/geometry/Vector3;)Lcom/boat/ros/geometry/Vector3;
+	107     (000001b6) iget-object          v5, v12, Lcom/jlboat/phone/view/MapView$22;->this$0 Lcom/jlboat/phone/view/MapView;
+	108     (000001ba) const/4              v6, 1
+	109     (000001bc) invoke-static        v5, v6, Lcom/jlboat/phone/view/MapView;->access$1502(Lcom/jlboat/phone/view/MapView; Z)Z
+	110     (000001c2) nop                  
+	111     (000001c4) monitor-exit         v0
+	112     (000001c6) iget-object          v0, v12, Lcom/jlboat/phone/view/MapView$22;->this$0 Lcom/jlboat/phone/view/MapView;
+	113     (000001ca) new-instance         v1, Lcom/jlboat/phone/view/MapView$22$1;
+	114     (000001ce) invoke-direct        v1, v12, Lcom/jlboat/phone/view/MapView$22$1;-><init>(Lcom/jlboat/phone/view/MapView$22;)V
+	115     (000001d4) invoke-virtual       v0, v1, Lcom/jlboat/phone/view/MapView;->post(Ljava/lang/Runnable;)Z
+	116     (000001da) return-void          
+	e:1c5
+	(Ljava/lang/Throwable; -> 1dc onNewMessage-BB@0x1dc)
+
+onNewMessage-BB@0x1dc : [ onNewMessage-BB@0x1de ]
+	117     (000001dc) move-exception       v1
+
+onNewMessage-BB@0x1de : 
+	118     (000001de) monitor-exit         v0
+	119     (000001e0) throw                v1
+	1de:1df
+	(Ljava/lang/Throwable; -> 1dc onNewMessage-BB@0x1dc)
+

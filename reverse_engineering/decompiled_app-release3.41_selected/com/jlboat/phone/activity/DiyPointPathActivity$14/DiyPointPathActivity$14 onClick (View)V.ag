@@ -1,0 +1,138 @@
+# Lcom/jlboat/phone/activity/DiyPointPathActivity$14;->onClick(Landroid/view/View;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v10
+# - v11:android.view.View
+#
+# - return:void
+
+onClick-BB@0x0 : [ onClick-BB@0x20 onClick-BB@0x22 ]
+	0       (00000000) const-string         v0, ""
+	1       (00000004) iget-object          v1, v10, Lcom/jlboat/phone/activity/DiyPointPathActivity$14;->val$rgDirDialogDppa Landroid/widget/RadioGroup;
+	2       (00000008) invoke-virtual       v1, Landroid/widget/RadioGroup;->getCheckedRadioButtonId()I
+	3       (0000000e) move-result          v1
+	4       (00000010) const/4              v2, 0
+	5       (00000012) nop                  
+	6       (00000014) const/4              v2, 0
+	7       (00000016) const                v3, 2131231125
+	8       (0000001c) if-ne                v1, v3, +003h
+
+onClick-BB@0x20 : [ onClick-BB@0x22 ]
+	9       (00000020) const/4              v2, 1
+
+onClick-BB@0x22 : [ onClick-BB@0x2c onClick-BB@0x2e ]
+	10      (00000022) const                v3, 2131231126
+	11      (00000028) if-ne                v1, v3, +003h
+
+onClick-BB@0x2c : [ onClick-BB@0x2e ]
+	12      (0000002c) const/4              v2, 2
+
+onClick-BB@0x2e : 
+	13      (0000002e) new-instance         v3, Ljava/lang/StringBuilder;
+	14      (00000032) invoke-direct        v3, Ljava/lang/StringBuilder;-><init>()V
+	15      (00000038) iget-object          v4, v10, Lcom/jlboat/phone/activity/DiyPointPathActivity$14;->val$etSpeedtDialogDppa Landroid/widget/EditText;
+	16      (0000003c) invoke-virtual       v4, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+	17      (00000042) move-result-object   v4
+	18      (00000044) invoke-virtual       v3, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+	19      (0000004a) move-result-object   v3
+	20      (0000004c) invoke-virtual       v3, v0, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	21      (00000052) move-result-object   v3
+	22      (00000054) invoke-virtual       v3, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	23      (0000005a) move-result-object   v3
+	24      (0000005c) invoke-static        v3, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+	25      (00000062) move-result          v3
+	26      (00000064) new-instance         v4, Ljava/lang/StringBuilder;
+	27      (00000068) invoke-direct        v4, Ljava/lang/StringBuilder;-><init>()V
+	28      (0000006e) iget-object          v5, v10, Lcom/jlboat/phone/activity/DiyPointPathActivity$14;->val$etWeightDialogDppa Landroid/widget/EditText;
+	29      (00000072) invoke-virtual       v5, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+	30      (00000078) move-result-object   v5
+	31      (0000007a) invoke-virtual       v4, v5, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+	32      (00000080) move-result-object   v4
+	33      (00000082) invoke-virtual       v4, v0, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	34      (00000088) move-result-object   v4
+	35      (0000008a) invoke-virtual       v4, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	36      (00000090) move-result-object   v4
+	37      (00000092) invoke-static        v4, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+	38      (00000098) move-result          v4
+	39      (0000009a) nop                  
+	40      (0000009c) new-instance         v5, Lcom/jlboat/phone/message/map_msgs/Config;
+	41      (000000a0) invoke-direct        v5, Lcom/jlboat/phone/message/map_msgs/Config;-><init>()V
+	42      (000000a6) const/4              v6, 1
+	43      (000000a8) invoke-virtual       v5, v6, Lcom/jlboat/phone/message/map_msgs/Config;->setType(I)V
+	44      (000000ae) const-string         v7, "ng_path_df_type"
+	45      (000000b2) invoke-virtual       v5, v7, Lcom/jlboat/phone/message/map_msgs/Config;->setConfigName(Ljava/lang/String;)V
+	46      (000000b8) new-instance         v7, Ljava/lang/StringBuilder;
+	47      (000000bc) invoke-direct        v7, Ljava/lang/StringBuilder;-><init>()V
+	48      (000000c2) iget-object          v8, v10, Lcom/jlboat/phone/activity/DiyPointPathActivity$14;->val$spLineTypeDialogDppa Landroid/widget/Spinner;
+	49      (000000c6) invoke-virtual       v8, Landroid/widget/Spinner;->getSelectedItemPosition()I
+	50      (000000cc) move-result          v8
+	51      (000000ce) invoke-virtual       v7, v8, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	52      (000000d4) move-result-object   v7
+	53      (000000d6) invoke-virtual       v7, v0, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	54      (000000dc) move-result-object   v7
+	55      (000000de) invoke-virtual       v7, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	56      (000000e4) move-result-object   v7
+	57      (000000e6) invoke-virtual       v5, v7, Lcom/jlboat/phone/message/map_msgs/Config;->setConfigValue(Ljava/lang/String;)V
+	58      (000000ec) new-instance         v7, Lcom/jlboat/phone/message/map_msgs/Config;
+	59      (000000f0) invoke-direct        v7, Lcom/jlboat/phone/message/map_msgs/Config;-><init>()V
+	60      (000000f6) invoke-virtual       v7, v6, Lcom/jlboat/phone/message/map_msgs/Config;->setType(I)V
+	61      (000000fc) const-string         v8, "ng_path_df_direction"
+	62      (00000100) invoke-virtual       v7, v8, Lcom/jlboat/phone/message/map_msgs/Config;->setConfigName(Ljava/lang/String;)V
+	63      (00000106) new-instance         v8, Ljava/lang/StringBuilder;
+	64      (0000010a) invoke-direct        v8, Ljava/lang/StringBuilder;-><init>()V
+	65      (00000110) invoke-virtual       v8, v2, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	66      (00000116) move-result-object   v8
+	67      (00000118) invoke-virtual       v8, v0, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	68      (0000011e) move-result-object   v8
+	69      (00000120) invoke-virtual       v8, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	70      (00000126) move-result-object   v8
+	71      (00000128) invoke-virtual       v7, v8, Lcom/jlboat/phone/message/map_msgs/Config;->setConfigValue(Ljava/lang/String;)V
+	72      (0000012e) new-instance         v8, Lcom/jlboat/phone/message/map_msgs/Config;
+	73      (00000132) invoke-direct        v8, Lcom/jlboat/phone/message/map_msgs/Config;-><init>()V
+	74      (00000138) invoke-virtual       v8, v6, Lcom/jlboat/phone/message/map_msgs/Config;->setType(I)V
+	75      (0000013e) const-string         v9, "ng_path_df_speed"
+	76      (00000142) invoke-virtual       v8, v9, Lcom/jlboat/phone/message/map_msgs/Config;->setConfigName(Ljava/lang/String;)V
+	77      (00000148) new-instance         v9, Ljava/lang/StringBuilder;
+	78      (0000014c) invoke-direct        v9, Ljava/lang/StringBuilder;-><init>()V
+	79      (00000152) invoke-virtual       v9, v3, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+	80      (00000158) move-result-object   v9
+	81      (0000015a) invoke-virtual       v9, v0, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	82      (00000160) move-result-object   v9
+	83      (00000162) invoke-virtual       v9, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	84      (00000168) move-result-object   v9
+	85      (0000016a) invoke-virtual       v8, v9, Lcom/jlboat/phone/message/map_msgs/Config;->setConfigValue(Ljava/lang/String;)V
+	86      (00000170) new-instance         v9, Lcom/jlboat/phone/message/map_msgs/Config;
+	87      (00000174) invoke-direct        v9, Lcom/jlboat/phone/message/map_msgs/Config;-><init>()V
+	88      (0000017a) invoke-virtual       v9, v6, Lcom/jlboat/phone/message/map_msgs/Config;->setType(I)V
+	89      (00000180) const-string         v6, "ng_path_df_weight"
+	90      (00000184) invoke-virtual       v9, v6, Lcom/jlboat/phone/message/map_msgs/Config;->setConfigName(Ljava/lang/String;)V
+	91      (0000018a) new-instance         v6, Ljava/lang/StringBuilder;
+	92      (0000018e) invoke-direct        v6, Ljava/lang/StringBuilder;-><init>()V
+	93      (00000194) invoke-virtual       v6, v4, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+	94      (0000019a) move-result-object   v6
+	95      (0000019c) invoke-virtual       v6, v0, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	96      (000001a2) move-result-object   v0
+	97      (000001a4) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	98      (000001aa) move-result-object   v0
+	99      (000001ac) invoke-virtual       v9, v0, Lcom/jlboat/phone/message/map_msgs/Config;->setConfigValue(Ljava/lang/String;)V
+	100     (000001b2) new-instance         v0, Ljava/util/LinkedList;
+	101     (000001b6) invoke-direct        v0, Ljava/util/LinkedList;-><init>()V
+	102     (000001bc) invoke-interface     v0, v5, Ljava/util/List;->add(Ljava/lang/Object;)Z
+	103     (000001c2) invoke-interface     v0, v7, Ljava/util/List;->add(Ljava/lang/Object;)Z
+	104     (000001c8) invoke-interface     v0, v8, Ljava/util/List;->add(Ljava/lang/Object;)Z
+	105     (000001ce) invoke-interface     v0, v9, Ljava/util/List;->add(Ljava/lang/Object;)Z
+	106     (000001d4) iget-object          v6, v10, Lcom/jlboat/phone/activity/DiyPointPathActivity$14;->this$0 Lcom/jlboat/phone/activity/DiyPointPathActivity;
+	107     (000001d8) invoke-static        v6, v0, Lcom/jlboat/phone/activity/DiyPointPathActivity;->access$2600(Lcom/jlboat/phone/activity/DiyPointPathActivity; Ljava/util/List;)V
+	108     (000001de) iget-object          v6, v10, Lcom/jlboat/phone/activity/DiyPointPathActivity$14;->val$alertDialog Landroid/app/AlertDialog;
+	109     (000001e2) invoke-virtual       v6, Landroid/app/AlertDialog;->dismiss()V
+	110     (000001e8) return-void          
+	2e:99
+	(Ljava/lang/Exception; -> 1ea onClick-BB@0x1ea)
+
+onClick-BB@0x1ea : 
+	111     (000001ea) move-exception       v0
+	112     (000001ec) iget-object          v3, v10, Lcom/jlboat/phone/activity/DiyPointPathActivity$14;->this$0 Lcom/jlboat/phone/activity/DiyPointPathActivity;
+	113     (000001f0) const                v4, 2131493264
+	114     (000001f6) invoke-virtual       v3, v4, Lcom/jlboat/phone/activity/DiyPointPathActivity;->toast(I)V
+	115     (000001fc) return-void          
+

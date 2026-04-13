@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/bean/PixeMarks;->setPoseList(Ljava/util/List;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:java.util.List
+#
+# - return:void
+
+setPoseList-BB@0x0 : 
+	0       (00000000) iput-object          v1, v0, Lcom/jlboat/phone/bean/PixeMarks;->poseList Ljava/util/List;
+	1       (00000004) return-void          
+

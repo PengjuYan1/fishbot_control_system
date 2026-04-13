@@ -1,0 +1,48 @@
+# Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->lambda$updateNaviQueueRv$0$com-jlboat-phone-fragment-settingfragment-NavigationTestFragment2025lift()V [access_flags=synthetic]
+#
+# Parameters:
+# local registers: v0...v3
+#
+# - return:void
+
+lambda$updateNaviQueueRv$0$com-jlboat-phone-fragment-settingfragment-NavigationTestFragment2025lift-BB@0x0 : [ lambda$updateNaviQueueRv$0$com-jlboat-phone-fragment-settingfragment-NavigationTestFragment2025lift-BB@0x8 lambda$updateNaviQueueRv$0$com-jlboat-phone-fragment-settingfragment-NavigationTestFragment2025lift-BB@0x2e ]
+	0       (00000000) iget-object          v0, v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->naviQueueListEntrys Lcom/jlboat/phone/message/map_msgs/NaviQueueList;
+	1       (00000004) if-nez               v0, +015h
+
+lambda$updateNaviQueueRv$0$com-jlboat-phone-fragment-settingfragment-NavigationTestFragment2025lift-BB@0x8 : 
+	2       (00000008) iget-object          v0, v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->TAG Ljava/lang/String;
+	3       (0000000c) const-string         v1, "naviQueueListEntrys 为 null"
+	4       (00000010) invoke-static        v0, v1, Landroid/util/Log;->e(Ljava/lang/String; Ljava/lang/String;)I
+	5       (00000016) const/4              v0, 0
+	6       (00000018) iget-object          v1, v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->liftQueueAdapter Lcom/jlboat/phone/adapter/LiftQueueAdapter;
+	7       (0000001c) invoke-virtual       v1, v0, Lcom/jlboat/phone/adapter/LiftQueueAdapter;->setData(Ljava/util/List;)V
+	8       (00000022) iget-object          v1, v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->liftQueueAdapter Lcom/jlboat/phone/adapter/LiftQueueAdapter;
+	9       (00000026) invoke-virtual       v1, Lcom/jlboat/phone/adapter/LiftQueueAdapter;->notifyDataSetChanged()V
+	10      (0000002c) return-void          
+
+lambda$updateNaviQueueRv$0$com-jlboat-phone-fragment-settingfragment-NavigationTestFragment2025lift-BB@0x2e : [ lambda$updateNaviQueueRv$0$com-jlboat-phone-fragment-settingfragment-NavigationTestFragment2025lift-BB@0x3e lambda$updateNaviQueueRv$0$com-jlboat-phone-fragment-settingfragment-NavigationTestFragment2025lift-BB@0x64 ]
+	11      (0000002e) iget-object          v0, v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->naviQueueListEntrys Lcom/jlboat/phone/message/map_msgs/NaviQueueList;
+	12      (00000032) invoke-virtual       v0, Lcom/jlboat/phone/message/map_msgs/NaviQueueList;->getNaviQueueListEntrys()[Lcom/jlboat/phone/message/map_msgs/NaviQueueListEntry;
+	13      (00000038) move-result-object   v0
+	14      (0000003a) if-nez               v0, +015h
+
+lambda$updateNaviQueueRv$0$com-jlboat-phone-fragment-settingfragment-NavigationTestFragment2025lift-BB@0x3e : 
+	15      (0000003e) iget-object          v1, v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->TAG Ljava/lang/String;
+	16      (00000042) const-string         v2, "队列数组为空"
+	17      (00000046) invoke-static        v1, v2, Landroid/util/Log;->e(Ljava/lang/String; Ljava/lang/String;)I
+	18      (0000004c) const/4              v1, 0
+	19      (0000004e) iget-object          v2, v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->liftQueueAdapter Lcom/jlboat/phone/adapter/LiftQueueAdapter;
+	20      (00000052) invoke-virtual       v2, v1, Lcom/jlboat/phone/adapter/LiftQueueAdapter;->setData(Ljava/util/List;)V
+	21      (00000058) iget-object          v2, v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->liftQueueAdapter Lcom/jlboat/phone/adapter/LiftQueueAdapter;
+	22      (0000005c) invoke-virtual       v2, Lcom/jlboat/phone/adapter/LiftQueueAdapter;->notifyDataSetChanged()V
+	23      (00000062) return-void          
+
+lambda$updateNaviQueueRv$0$com-jlboat-phone-fragment-settingfragment-NavigationTestFragment2025lift-BB@0x64 : 
+	24      (00000064) invoke-static        v0, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+	25      (0000006a) move-result-object   v1
+	26      (0000006c) iget-object          v2, v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->liftQueueAdapter Lcom/jlboat/phone/adapter/LiftQueueAdapter;
+	27      (00000070) invoke-virtual       v2, v1, Lcom/jlboat/phone/adapter/LiftQueueAdapter;->setData(Ljava/util/List;)V
+	28      (00000076) iget-object          v2, v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->liftQueueAdapter Lcom/jlboat/phone/adapter/LiftQueueAdapter;
+	29      (0000007a) invoke-virtual       v2, Lcom/jlboat/phone/adapter/LiftQueueAdapter;->notifyDataSetChanged()V
+	30      (00000080) return-void          
+

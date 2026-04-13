@@ -1,0 +1,26 @@
+# Lcom/jlboat/phone/activity/SettingActivity$15;->onNewMessage(Lcom/jlboat/phone/message/map_msgs/RobotSshResponse;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v4
+# - v5:com.jlboat.phone.message.map_msgs.RobotSshResponse
+#
+# - return:void
+
+onNewMessage-BB@0x0 : 
+	0       (00000000) invoke-virtual       v5, Lcom/jlboat/phone/message/map_msgs/RobotSshResponse;->getStatus()I
+	1       (00000006) move-result          v0
+	2       (00000008) iget-object          v1, v4, Lcom/jlboat/phone/activity/SettingActivity$15;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	3       (0000000c) invoke-static        v1, Lcom/jlboat/phone/activity/SettingActivity;->access$000(Lcom/jlboat/phone/activity/SettingActivity;)Ljava/lang/String;
+	4       (00000012) move-result-object   v1
+	5       (00000014) new-instance         v2, Ljava/lang/StringBuilder;
+	6       (00000018) invoke-direct        v2, Ljava/lang/StringBuilder;-><init>()V
+	7       (0000001e) const-string         v3, "onSuccess:reboot"
+	8       (00000022) invoke-virtual       v2, v3, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	9       (00000028) move-result-object   v2
+	10      (0000002a) invoke-virtual       v2, v0, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	11      (00000030) move-result-object   v2
+	12      (00000032) invoke-virtual       v2, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	13      (00000038) move-result-object   v2
+	14      (0000003a) invoke-static        v1, v2, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	15      (00000040) return-void          
+

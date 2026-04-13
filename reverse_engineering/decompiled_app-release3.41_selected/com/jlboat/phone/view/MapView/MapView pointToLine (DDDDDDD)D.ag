@@ -1,0 +1,100 @@
+# Lcom/jlboat/phone/view/MapView;->pointToLine(D D D D D D D)D [access_flags=private]
+#
+# Parameters:
+# - local registers: v0...v23
+# - v24:double
+# - v25:double
+# - v26:double
+# - v27:double
+# - v28:double
+# - v29:double
+# - v30:double
+#
+# - return:double
+
+pointToLine-BB@0x0 : [ pointToLine-BB@0x60 pointToLine-BB@0xde ]
+	0       (00000000) const-wide/16        v0, 0
+	1       (00000004) move-object/from16   v2, v16
+	2       (00000008) move-wide/from16     v3, v21
+	3       (0000000c) move-wide/from16     v5, v23
+	4       (00000010) move-wide/from16     v7, v25
+	5       (00000014) move-wide/from16     v9, v27
+	6       (00000018) invoke-direct/range  v2 ... v10, Lcom/jlboat/phone/view/MapView;->lineSpace(D D D D)D
+	7       (0000001e) move-result-wide     v2
+	8       (00000020) move-object/from16   v4, v16
+	9       (00000024) move-wide/from16     v5, v21
+	10      (00000028) move-wide/from16     v7, v23
+	11      (0000002c) move-wide/from16     v9, v17
+	12      (00000030) move-wide/from16     v11, v19
+	13      (00000034) invoke-direct/range  v4 ... v12, Lcom/jlboat/phone/view/MapView;->lineSpace(D D D D)D
+	14      (0000003a) move-result-wide     v4
+	15      (0000003c) move-object/from16   v6, v16
+	16      (00000040) move-wide/from16     v7, v25
+	17      (00000044) move-wide/from16     v9, v27
+	18      (00000048) move-wide/from16     v11, v17
+	19      (0000004c) move-wide/from16     v13, v19
+	20      (00000050) invoke-direct/range  v6 ... v14, Lcom/jlboat/phone/view/MapView;->lineSpace(D D D D)D
+	21      (00000056) move-result-wide     v6
+	22      (00000058) cmpg-double          v8, v6, v29
+	23      (0000005c) if-lez               v8, +041h
+
+pointToLine-BB@0x60 : [ pointToLine-BB@0x68 pointToLine-BB@0x6a ]
+	24      (00000060) cmpg-double          v8, v4, v29
+	25      (00000064) if-gtz               v8, +003h
+
+pointToLine-BB@0x68 : [ pointToLine-BB@0xde ]
+	26      (00000068) goto                 +3bh
+
+pointToLine-BB@0x6a : [ pointToLine-BB@0x72 pointToLine-BB@0x76 ]
+	27      (0000006a) cmpg-double          v8, v2, v29
+	28      (0000006e) if-gtz               v8, +004h
+
+pointToLine-BB@0x72 : 
+	29      (00000072) move-wide            v0, v4
+	30      (00000074) return-wide          v0
+
+pointToLine-BB@0x76 : [ pointToLine-BB@0x8c pointToLine-BB@0x90 ]
+	31      (00000076) mul-double           v8, v6, v6
+	32      (0000007a) mul-double           v10, v2, v2
+	33      (0000007e) mul-double           v12, v4, v4
+	34      (00000082) add-double/2addr     v10, v12
+	35      (00000084) cmpl-double          v12, v8, v10
+	36      (00000088) if-ltz               v12, +004h
+
+pointToLine-BB@0x8c : 
+	37      (0000008c) move-wide            v0, v4
+	38      (0000008e) return-wide          v0
+
+pointToLine-BB@0x90 : [ pointToLine-BB@0xa6 pointToLine-BB@0xaa ]
+	39      (00000090) mul-double           v8, v4, v4
+	40      (00000094) mul-double           v10, v2, v2
+	41      (00000098) mul-double           v12, v6, v6
+	42      (0000009c) add-double/2addr     v10, v12
+	43      (0000009e) cmpl-double          v12, v8, v10
+	44      (000000a2) if-ltz               v12, +004h
+
+pointToLine-BB@0xa6 : 
+	45      (000000a6) move-wide            v0, v6
+	46      (000000a8) return-wide          v0
+
+pointToLine-BB@0xaa : 
+	47      (000000aa) add-double           v8, v2, v4
+	48      (000000ae) add-double/2addr     v8, v6
+	49      (000000b0) const-wide/high16    v10, 4611686018427387904
+	50      (000000b4) div-double/2addr     v8, v10
+	51      (000000b6) sub-double           v12, v8, v2
+	52      (000000ba) mul-double           v12, v12, v8
+	53      (000000be) sub-double           v14, v8, v4
+	54      (000000c2) mul-double           v12, v12, v14
+	55      (000000c6) sub-double           v14, v8, v6
+	56      (000000ca) mul-double           v12, v12, v14
+	57      (000000ce) invoke-static        v12, v13, Ljava/lang/Math;->sqrt(D)D
+	58      (000000d4) move-result-wide     v12
+	59      (000000d6) mul-double           v10, v10, v12
+	60      (000000da) div-double/2addr     v10, v2
+	61      (000000dc) return-wide          v10
+
+pointToLine-BB@0xde : 
+	62      (000000de) const-wide/16        v0, 0
+	63      (000000e2) return-wide          v0
+

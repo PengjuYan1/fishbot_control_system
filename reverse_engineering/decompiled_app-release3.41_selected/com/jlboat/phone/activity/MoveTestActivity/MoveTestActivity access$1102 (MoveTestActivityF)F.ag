@@ -1,0 +1,13 @@
+# Lcom/jlboat/phone/activity/MoveTestActivity;->access$1102(Lcom/jlboat/phone/activity/MoveTestActivity; F)F [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v-1
+# - v0:com.jlboat.phone.activity.MoveTestActivity
+# - v1:float
+#
+# - return:float
+
+access$1102-BB@0x0 : 
+	0       (00000000) iput                 v1, v0, Lcom/jlboat/phone/activity/MoveTestActivity;->data F
+	1       (00000004) return               v1
+

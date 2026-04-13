@@ -1,0 +1,13 @@
+# Lcom/jlboat/phone/activity/MapEditRegionActivity;->access$1402(Lcom/jlboat/phone/activity/MapEditRegionActivity; Landroid/widget/RelativeLayout$LayoutParams;)Landroid/widget/RelativeLayout$LayoutParams; [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v-1
+# - v0:com.jlboat.phone.activity.MapEditRegionActivity
+# - v1:android.widget.RelativeLayout$LayoutParams
+#
+# - return:android.widget.RelativeLayout$LayoutParams
+
+access$1402-BB@0x0 : 
+	0       (00000000) iput-object          v1, v0, Lcom/jlboat/phone/activity/MapEditRegionActivity;->params Landroid/widget/RelativeLayout$LayoutParams;
+	1       (00000004) return-object        v1
+

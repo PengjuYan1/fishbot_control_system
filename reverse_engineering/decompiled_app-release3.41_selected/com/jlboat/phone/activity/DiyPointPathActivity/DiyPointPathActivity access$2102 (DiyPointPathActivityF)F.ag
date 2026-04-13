@@ -1,0 +1,13 @@
+# Lcom/jlboat/phone/activity/DiyPointPathActivity;->access$2102(Lcom/jlboat/phone/activity/DiyPointPathActivity; F)F [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v-1
+# - v0:com.jlboat.phone.activity.DiyPointPathActivity
+# - v1:float
+#
+# - return:float
+
+access$2102-BB@0x0 : 
+	0       (00000000) iput                 v1, v0, Lcom/jlboat/phone/activity/DiyPointPathActivity;->defWeight F
+	1       (00000004) return               v1
+

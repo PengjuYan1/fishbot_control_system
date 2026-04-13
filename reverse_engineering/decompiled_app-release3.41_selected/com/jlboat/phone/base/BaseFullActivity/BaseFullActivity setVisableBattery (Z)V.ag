@@ -1,0 +1,34 @@
+# Lcom/jlboat/phone/base/BaseFullActivity;->setVisableBattery(Z)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:boolean
+#
+# - return:void
+
+setVisableBattery-BB@0x0 : [ setVisableBattery-BB@0x8 setVisableBattery-BB@0x2a ]
+	0       (00000000) iput-boolean         v3, v2, Lcom/jlboat/phone/base/BaseFullActivity;->isShowBattery Z
+	1       (00000004) if-eqz               v3, +013h
+
+setVisableBattery-BB@0x8 : [ setVisableBattery-BB@0x4c ]
+	2       (00000008) iget-object          v0, v2, Lcom/jlboat/phone/base/BaseFullActivity;->batteryView Lcom/jlboat/phone/view/BatteryView;
+	3       (0000000c) const/4              v1, 0
+	4       (0000000e) invoke-virtual       v0, v1, Lcom/jlboat/phone/view/BatteryView;->setVisibility(I)V
+	5       (00000014) iget-object          v0, v2, Lcom/jlboat/phone/base/BaseFullActivity;->robo_phow_text Landroid/widget/TextView;
+	6       (00000018) invoke-virtual       v0, v1, Landroid/widget/TextView;->setVisibility(I)V
+	7       (0000001e) iget-object          v0, v2, Lcom/jlboat/phone/base/BaseFullActivity;->iv_battery_eating Landroid/widget/ImageView;
+	8       (00000022) invoke-virtual       v0, v1, Landroid/widget/ImageView;->setVisibility(I)V
+	9       (00000028) goto                 +12h
+
+setVisableBattery-BB@0x2a : [ setVisableBattery-BB@0x4c ]
+	10      (0000002a) iget-object          v0, v2, Lcom/jlboat/phone/base/BaseFullActivity;->batteryView Lcom/jlboat/phone/view/BatteryView;
+	11      (0000002e) const/16             v1, 8
+	12      (00000032) invoke-virtual       v0, v1, Lcom/jlboat/phone/view/BatteryView;->setVisibility(I)V
+	13      (00000038) iget-object          v0, v2, Lcom/jlboat/phone/base/BaseFullActivity;->robo_phow_text Landroid/widget/TextView;
+	14      (0000003c) invoke-virtual       v0, v1, Landroid/widget/TextView;->setVisibility(I)V
+	15      (00000042) iget-object          v0, v2, Lcom/jlboat/phone/base/BaseFullActivity;->iv_battery_eating Landroid/widget/ImageView;
+	16      (00000046) invoke-virtual       v0, v1, Landroid/widget/ImageView;->setVisibility(I)V
+
+setVisableBattery-BB@0x4c : 
+	17      (0000004c) return-void          
+

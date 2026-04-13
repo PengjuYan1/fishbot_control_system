@@ -1,0 +1,249 @@
+# Lcom/jlboat/phone/activity/SettingActivity;->onClick(Landroid/view/View;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v9
+# - v10:android.view.View
+#
+# - return:void
+
+onClick-BB@0x0 : [ onClick-BB@0x16 onClick-BB@0x20 ]
+	0       (00000000) invoke-virtual       v10, Landroid/view/View;->getId()I
+	1       (00000006) move-result          v0
+	2       (00000008) const                v1, 2131230817
+	3       (0000000e) const-wide/16        v2, 1
+	4       (00000012) if-ne                v0, v1, +007h
+
+onClick-BB@0x16 : [ onClick-BB@0x130 ]
+	5       (00000016) invoke-direct        v9, v2, v3, Lcom/jlboat/phone/activity/SettingActivity;->setSpeed(J)V
+	6       (0000001c) goto/16              +08ah
+
+onClick-BB@0x20 : [ onClick-BB@0x2e onClick-BB@0x38 ]
+	7       (00000020) const                v1, 2131230819
+	8       (00000026) const-wide/16        v4, 2
+	9       (0000002a) if-ne                v0, v1, +007h
+
+onClick-BB@0x2e : [ onClick-BB@0x130 ]
+	10      (0000002e) invoke-direct        v9, v4, v5, Lcom/jlboat/phone/activity/SettingActivity;->setSpeed(J)V
+	11      (00000034) goto/16              +07eh
+
+onClick-BB@0x38 : [ onClick-BB@0x42 onClick-BB@0x50 ]
+	12      (00000038) const                v1, 2131230811
+	13      (0000003e) if-ne                v0, v1, +009h
+
+onClick-BB@0x42 : [ onClick-BB@0x130 ]
+	14      (00000042) const-wide/16        v1, 3
+	15      (00000046) invoke-direct        v9, v1, v2, Lcom/jlboat/phone/activity/SettingActivity;->setSpeed(J)V
+	16      (0000004c) goto/16              +072h
+
+onClick-BB@0x50 : [ onClick-BB@0x5a onClick-BB@0x68 ]
+	17      (00000050) const                v1, 2131231112
+	18      (00000056) if-ne                v0, v1, +009h
+
+onClick-BB@0x5a : [ onClick-BB@0x130 ]
+	19      (0000005a) const-wide/16        v1, 4
+	20      (0000005e) invoke-direct        v9, v1, v2, Lcom/jlboat/phone/activity/SettingActivity;->setSpeed(J)V
+	21      (00000064) goto/16              +066h
+
+onClick-BB@0x68 : [ onClick-BB@0x72 onClick-BB@0x7e ]
+	22      (00000068) const                v1, 2131231113
+	23      (0000006e) if-ne                v0, v1, +008h
+
+onClick-BB@0x72 : [ onClick-BB@0x130 ]
+	24      (00000072) const-wide/16        v1, 5
+	25      (00000076) invoke-direct        v9, v1, v2, Lcom/jlboat/phone/activity/SettingActivity;->setSpeed(J)V
+	26      (0000007c) goto                 +5ah
+
+onClick-BB@0x7e : [ onClick-BB@0x88 onClick-BB@0x94 ]
+	27      (0000007e) const                v1, 2131231111
+	28      (00000084) if-ne                v0, v1, +008h
+
+onClick-BB@0x88 : [ onClick-BB@0x130 ]
+	29      (00000088) const-wide/16        v1, 6
+	30      (0000008c) invoke-direct        v9, v1, v2, Lcom/jlboat/phone/activity/SettingActivity;->setSpeed(J)V
+	31      (00000092) goto                 +4fh
+
+onClick-BB@0x94 : [ onClick-BB@0xa2 onClick-BB@0xaa ]
+	32      (00000094) const                v1, 2131230816
+	33      (0000009a) const-wide/16        v6, 0
+	34      (0000009e) if-ne                v0, v1, +006h
+
+onClick-BB@0xa2 : [ onClick-BB@0x130 ]
+	35      (000000a2) invoke-direct        v9, v6, v7, Lcom/jlboat/phone/activity/SettingActivity;->setSafe(J)V
+	36      (000000a8) goto                 +44h
+
+onClick-BB@0xaa : [ onClick-BB@0xb4 onClick-BB@0xbc ]
+	37      (000000aa) const                v1, 2131230818
+	38      (000000b0) if-ne                v0, v1, +006h
+
+onClick-BB@0xb4 : [ onClick-BB@0x130 ]
+	39      (000000b4) invoke-direct        v9, v2, v3, Lcom/jlboat/phone/activity/SettingActivity;->setSafe(J)V
+	40      (000000ba) goto                 +3bh
+
+onClick-BB@0xbc : [ onClick-BB@0xc6 onClick-BB@0xce ]
+	41      (000000bc) const                v1, 2131230810
+	42      (000000c2) if-ne                v0, v1, +006h
+
+onClick-BB@0xc6 : [ onClick-BB@0x130 ]
+	43      (000000c6) invoke-direct        v9, v4, v5, Lcom/jlboat/phone/activity/SettingActivity;->setSafe(J)V
+	44      (000000cc) goto                 +32h
+
+onClick-BB@0xce : [ onClick-BB@0xd8 onClick-BB@0xe0 ]
+	45      (000000ce) const                v1, 2131230814
+	46      (000000d4) if-ne                v0, v1, +006h
+
+onClick-BB@0xd8 : [ onClick-BB@0x130 ]
+	47      (000000d8) invoke-direct        v9, v6, v7, Lcom/jlboat/phone/activity/SettingActivity;->setCream(J)V
+	48      (000000de) goto                 +29h
+
+onClick-BB@0xe0 : [ onClick-BB@0xea onClick-BB@0xf2 ]
+	49      (000000e0) const                v1, 2131230808
+	50      (000000e6) if-ne                v0, v1, +006h
+
+onClick-BB@0xea : [ onClick-BB@0x130 ]
+	51      (000000ea) invoke-direct        v9, v2, v3, Lcom/jlboat/phone/activity/SettingActivity;->setCream(J)V
+	52      (000000f0) goto                 +20h
+
+onClick-BB@0xf2 : [ onClick-BB@0xfc onClick-BB@0x112 ]
+	53      (000000f2) const                v1, 2131231196
+	54      (000000f8) if-ne                v0, v1, +00dh
+
+onClick-BB@0xfc : [ onClick-BB@0x130 ]
+	55      (000000fc) new-instance         v1, Landroid/content/Intent;
+	56      (00000100) const-class          v2, Lcom/jlboat/phone/activity/RobotCalibrationActivity;
+	57      (00000104) invoke-direct        v1, v9, v2, Landroid/content/Intent;-><init>(Landroid/content/Context; Ljava/lang/Class;)V
+	58      (0000010a) invoke-virtual       v9, v1, Lcom/jlboat/phone/activity/SettingActivity;->startActivity(Landroid/content/Intent;)V
+	59      (00000110) goto                 +10h
+
+onClick-BB@0x112 : [ onClick-BB@0x11c onClick-BB@0x130 ]
+	60      (00000112) const                v1, 2131231211
+	61      (00000118) if-ne                v0, v1, +00ch
+
+onClick-BB@0x11c : [ onClick-BB@0x130 ]
+	62      (0000011c) new-instance         v1, Landroid/content/Intent;
+	63      (00000120) const-class          v2, Lcom/jlboat/phone/activity/RobotWifiActivity;
+	64      (00000124) invoke-direct        v1, v9, v2, Landroid/content/Intent;-><init>(Landroid/content/Context; Ljava/lang/Class;)V
+	65      (0000012a) invoke-virtual       v9, v1, Lcom/jlboat/phone/activity/SettingActivity;->startActivity(Landroid/content/Intent;)V
+
+onClick-BB@0x130 : [ onClick-BB@0x13a onClick-BB@0x1c6 ]
+	66      (00000130) const                v1, 2131231205
+	67      (00000136) if-ne                v0, v1, +048h
+
+onClick-BB@0x13a : [ onClick-BB@0x1c6 ]
+	68      (0000013a) new-instance         v1, Landroid/app/AlertDialog$Builder;
+	69      (0000013e) invoke-direct        v1, v9, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+	70      (00000144) new-instance         v2, Ljava/lang/StringBuilder;
+	71      (00000148) invoke-direct        v2, Ljava/lang/StringBuilder;-><init>()V
+	72      (0000014e) const                v3, 2131493006
+	73      (00000154) invoke-virtual       v9, v3, Lcom/jlboat/phone/activity/SettingActivity;->getResString(I)Ljava/lang/String;
+	74      (0000015a) move-result-object   v3
+	75      (0000015c) invoke-virtual       v2, v3, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	76      (00000162) move-result-object   v2
+	77      (00000164) const-string         v3, " "
+	78      (00000168) invoke-virtual       v2, v3, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	79      (0000016e) move-result-object   v2
+	80      (00000170) const                v3, 2131493016
+	81      (00000176) invoke-virtual       v9, v3, Lcom/jlboat/phone/activity/SettingActivity;->getResString(I)Ljava/lang/String;
+	82      (0000017c) move-result-object   v3
+	83      (0000017e) invoke-virtual       v2, v3, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	84      (00000184) move-result-object   v2
+	85      (00000186) invoke-virtual       v2, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	86      (0000018c) move-result-object   v2
+	87      (0000018e) invoke-virtual       v1, v2, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+	88      (00000194) new-instance         v2, Lcom/jlboat/phone/activity/SettingActivity$12;
+	89      (00000198) invoke-direct        v2, v9, Lcom/jlboat/phone/activity/SettingActivity$12;-><init>(Lcom/jlboat/phone/activity/SettingActivity;)V
+	90      (0000019e) const                v3, 2131493023
+	91      (000001a4) invoke-virtual       v1, v3, v2, Landroid/app/AlertDialog$Builder;->setPositiveButton(I Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+	92      (000001aa) new-instance         v2, Lcom/jlboat/phone/activity/SettingActivity$13;
+	93      (000001ae) invoke-direct        v2, v9, Lcom/jlboat/phone/activity/SettingActivity$13;-><init>(Lcom/jlboat/phone/activity/SettingActivity;)V
+	94      (000001b4) const                v3, 2131493007
+	95      (000001ba) invoke-virtual       v1, v3, v2, Landroid/app/AlertDialog$Builder;->setNegativeButton(I Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+	96      (000001c0) invoke-virtual       v1, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
+
+onClick-BB@0x1c6 : [ onClick-BB@0x1d0 onClick-BB@0x226 ]
+	97      (000001c6) const                v1, 2131231183
+	98      (000001cc) if-ne                v0, v1, +02dh
+
+onClick-BB@0x1d0 : [ onClick-BB@0x1ee onClick-BB@0x1fa ]
+	99      (000001d0) invoke-static        Ljava/lang/System;->currentTimeMillis()J
+	100     (000001d6) move-result-wide     v1
+	101     (000001d8) iget-wide            v3, v9, Lcom/jlboat/phone/activity/SettingActivity;->time J
+	102     (000001dc) sub-long             v3, v1, v3
+	103     (000001e0) const-wide/16        v5, 800
+	104     (000001e4) const/4              v7, 1
+	105     (000001e6) cmp-long             v8, v3, v5
+	106     (000001ea) if-gez               v8, +008h
+
+onClick-BB@0x1ee : [ onClick-BB@0x1fe ]
+	107     (000001ee) iget                 v3, v9, Lcom/jlboat/phone/activity/SettingActivity;->count I
+	108     (000001f2) add-int/2addr        v3, v7
+	109     (000001f4) iput                 v3, v9, Lcom/jlboat/phone/activity/SettingActivity;->count I
+	110     (000001f8) goto                 +3h
+
+onClick-BB@0x1fa : [ onClick-BB@0x1fe ]
+	111     (000001fa) iput                 v7, v9, Lcom/jlboat/phone/activity/SettingActivity;->count I
+
+onClick-BB@0x1fe : [ onClick-BB@0x20c onClick-BB@0x226 ]
+	112     (000001fe) iput-wide            v1, v9, Lcom/jlboat/phone/activity/SettingActivity;->time J
+	113     (00000202) iget                 v3, v9, Lcom/jlboat/phone/activity/SettingActivity;->count I
+	114     (00000206) const/4              v4, 3
+	115     (00000208) if-lt                v3, v4, +00fh
+
+onClick-BB@0x20c : [ onClick-BB@0x226 ]
+	116     (0000020c) const/4              v3, 0
+	117     (0000020e) iput                 v3, v9, Lcom/jlboat/phone/activity/SettingActivity;->count I
+	118     (00000212) new-instance         v3, Landroid/content/Intent;
+	119     (00000216) const-class          v4, Lcom/jlboat/phone/activity/BasicSettingActivity;
+	120     (0000021a) invoke-direct        v3, v9, v4, Landroid/content/Intent;-><init>(Landroid/content/Context; Ljava/lang/Class;)V
+	121     (00000220) invoke-virtual       v9, v3, Lcom/jlboat/phone/activity/SettingActivity;->startActivity(Landroid/content/Intent;)V
+
+onClick-BB@0x226 : [ onClick-BB@0x230 onClick-BB@0x2a2 ]
+	122     (00000226) const                v1, 2131231210
+	123     (0000022c) if-ne                v0, v1, +03bh
+
+onClick-BB@0x230 : [ onClick-BB@0x23c ]
+	124     (00000230) iget-object          v1, v9, Lcom/jlboat/phone/activity/SettingActivity;->configList Ljava/util/List;
+	125     (00000234) invoke-interface     v1, Ljava/util/List;->iterator()Ljava/util/Iterator;
+	126     (0000023a) move-result-object   v1
+
+onClick-BB@0x23c : [ onClick-BB@0x248 onClick-BB@0x294 ]
+	127     (0000023c) invoke-interface     v1, Ljava/util/Iterator;->hasNext()Z
+	128     (00000242) move-result          v2
+	129     (00000244) if-eqz               v2, +028h
+
+onClick-BB@0x248 : [ onClick-BB@0x26c onClick-BB@0x292 ]
+	130     (00000248) invoke-interface     v1, Ljava/util/Iterator;->next()Ljava/lang/Object;
+	131     (0000024e) move-result-object   v2
+	132     (00000250) check-cast           v2, Lcom/jlboat/phone/message/map_msgs/Config;
+	133     (00000254) invoke-virtual       v2, Lcom/jlboat/phone/message/map_msgs/Config;->getConfigName()Ljava/lang/String;
+	134     (0000025a) move-result-object   v3
+	135     (0000025c) const-string         v4, "startAutoupgrade"
+	136     (00000260) invoke-virtual       v3, v4, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	137     (00000266) move-result          v3
+	138     (00000268) if-eqz               v3, +015h
+
+onClick-BB@0x26c : [ onClick-BB@0x27c onClick-BB@0x288 ]
+	139     (0000026c) iget-object          v3, v9, Lcom/jlboat/phone/activity/SettingActivity;->robotUpdateSw Landroid/widget/Switch;
+	140     (00000270) invoke-virtual       v3, Landroid/widget/Switch;->isChecked()Z
+	141     (00000276) move-result          v3
+	142     (00000278) if-eqz               v3, +008h
+
+onClick-BB@0x27c : [ onClick-BB@0x292 ]
+	143     (0000027c) const-string         v3, "True"
+	144     (00000280) invoke-virtual       v2, v3, Lcom/jlboat/phone/message/map_msgs/Config;->setConfigValue(Ljava/lang/String;)V
+	145     (00000286) goto                 +6h
+
+onClick-BB@0x288 : [ onClick-BB@0x292 ]
+	146     (00000288) const-string         v3, "False"
+	147     (0000028c) invoke-virtual       v2, v3, Lcom/jlboat/phone/message/map_msgs/Config;->setConfigValue(Ljava/lang/String;)V
+
+onClick-BB@0x292 : [ onClick-BB@0x23c ]
+	148     (00000292) goto                 -2bh
+
+onClick-BB@0x294 : [ onClick-BB@0x2a2 ]
+	149     (00000294) iget-object          v1, v9, Lcom/jlboat/phone/activity/SettingActivity;->configList Ljava/util/List;
+	150     (00000298) const/16             v2, 9
+	151     (0000029c) invoke-direct        v9, v1, v2, Lcom/jlboat/phone/activity/SettingActivity;->setConfig(Ljava/util/List; I)V
+
+onClick-BB@0x2a2 : 
+	152     (000002a2) return-void          
+

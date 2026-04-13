@@ -1,0 +1,22 @@
+# Lcom/jlboat/phone/activity/MapEditMapActivity2025;-><init>()V [access_flags=public constructor]
+#
+# Parameters:
+# local registers: v0...v2
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) invoke-direct        v2, Lcom/jlboat/phone/base/BaseFullActivity;-><init>()V
+	1       (00000006) const/4              v0, 2
+	2       (00000008) iput                 v0, v2, Lcom/jlboat/phone/activity/MapEditMapActivity2025;->handlerShowWaitingDialog I
+	3       (0000000c) const/4              v0, 3
+	4       (0000000e) iput                 v0, v2, Lcom/jlboat/phone/activity/MapEditMapActivity2025;->handlerDismissWaitingDialog I
+	5       (00000012) const/16             v0, 31
+	6       (00000016) iput                 v0, v2, Lcom/jlboat/phone/activity/MapEditMapActivity2025;->handlerDismissWaitingDialogTimeOut I
+	7       (0000001a) new-instance         v0, Lcom/jlboat/phone/activity/MapEditMapActivity2025$1;
+	8       (0000001e) invoke-direct        v0, v2, Lcom/jlboat/phone/activity/MapEditMapActivity2025$1;-><init>(Lcom/jlboat/phone/activity/MapEditMapActivity2025;)V
+	9       (00000024) iput-object          v0, v2, Lcom/jlboat/phone/activity/MapEditMapActivity2025;->handler Landroid/os/Handler;
+	10      (00000028) const-wide/16        v0, 0
+	11      (0000002c) iput-wide            v0, v2, Lcom/jlboat/phone/activity/MapEditMapActivity2025;->firstTime J
+	12      (00000030) return-void          
+

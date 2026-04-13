@@ -1,0 +1,19 @@
+# Lcom/boat/jrosbridge/message/Duration;->add(Lcom/boat/jrosbridge/message/Duration;)Lcom/boat/jrosbridge/message/Duration; [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v4
+# - v5:com.boat.jrosbridge.message.Duration
+#
+# - return:com.boat.jrosbridge.message.Duration
+
+add-BB@0x0 : 
+	0       (00000000) new-instance         v0, Lcom/boat/jrosbridge/message/Duration;
+	1       (00000004) iget                 v1, v4, Lcom/boat/jrosbridge/message/Duration;->secs I
+	2       (00000008) iget                 v2, v5, Lcom/boat/jrosbridge/message/Duration;->secs I
+	3       (0000000c) add-int/2addr        v1, v2
+	4       (0000000e) iget                 v2, v4, Lcom/boat/jrosbridge/message/Duration;->nsecs I
+	5       (00000012) iget                 v3, v5, Lcom/boat/jrosbridge/message/Duration;->nsecs I
+	6       (00000016) add-int/2addr        v2, v3
+	7       (00000018) invoke-direct        v0, v1, v2, Lcom/boat/jrosbridge/message/Duration;-><init>(I I)V
+	8       (0000001e) return-object        v0
+

@@ -1,0 +1,119 @@
+# Lcom/jlboat/phone/view/MapView;-><init>(Landroid/content/Context; Landroid/util/AttributeSet;)V [access_flags=public constructor]
+#
+# Parameters:
+# - local registers: v0...v18
+# - v19:android.content.Context
+# - v20:android.util.AttributeSet
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) move-object/from16   v0, v18
+	1       (00000004) invoke-direct/range  v18 ... v20, Landroid/view/View;-><init>(Landroid/content/Context; Landroid/util/AttributeSet;)V
+	2       (0000000a) const/16             v1, 10
+	3       (0000000e) iput                 v1, v0, Lcom/jlboat/phone/view/MapView;->ize I
+	4       (00000012) const/16             v1, 800
+	5       (00000016) iput                 v1, v0, Lcom/jlboat/phone/view/MapView;->longTime I
+	6       (0000001a) const/4              v1, 0
+	7       (0000001c) iput-boolean         v1, v0, Lcom/jlboat/phone/view/MapView;->isUpOut Z
+	8       (00000020) iput-boolean         v1, v0, Lcom/jlboat/phone/view/MapView;->hasResponseLongClickEvent Z
+	9       (00000024) const-wide/16        v2, 0
+	10      (00000028) iput-wide            v2, v0, Lcom/jlboat/phone/view/MapView;->clickTime J
+	11      (0000002c) const-string         v2, "ffffffff"
+	12      (00000030) invoke-static        v2, Lcom/jlboat/phone/util/ROSColor;->fromHex(Ljava/lang/String;)Lcom/jlboat/phone/util/ROSColor;
+	13      (00000036) move-result-object   v2
+	14      (00000038) iput-object          v2, v0, Lcom/jlboat/phone/view/MapView;->colorLow Lcom/jlboat/phone/util/ROSColor;
+	15      (0000003c) const-string         v2, "ff147ff9"
+	16      (00000040) invoke-static        v2, Lcom/jlboat/phone/util/ROSColor;->fromHex(Ljava/lang/String;)Lcom/jlboat/phone/util/ROSColor;
+	17      (00000046) move-result-object   v2
+	18      (00000048) iput-object          v2, v0, Lcom/jlboat/phone/view/MapView;->colorHigh Lcom/jlboat/phone/util/ROSColor;
+	19      (0000004c) const/4              v2, 1
+	20      (0000004e) iput-boolean         v2, v0, Lcom/jlboat/phone/view/MapView;->isbuild Z
+	21      (00000052) new-instance         v3, Ljava/util/concurrent/CopyOnWriteArrayList;
+	22      (00000056) invoke-direct        v3, Ljava/util/concurrent/CopyOnWriteArrayList;-><init>()V
+	23      (0000005c) iput-object          v3, v0, Lcom/jlboat/phone/view/MapView;->vectorScan Ljava/util/List;
+	24      (00000060) iput                 v2, v0, Lcom/jlboat/phone/view/MapView;->stride I
+	25      (00000064) new-instance         v3, Ljava/util/concurrent/CopyOnWriteArrayList;
+	26      (00000068) invoke-direct        v3, Ljava/util/concurrent/CopyOnWriteArrayList;-><init>()V
+	27      (0000006e) iput-object          v3, v0, Lcom/jlboat/phone/view/MapView;->posintLists Ljava/util/List;
+	28      (00000072) new-instance         v3, Ljava/util/LinkedList;
+	29      (00000076) invoke-direct        v3, Ljava/util/LinkedList;-><init>()V
+	30      (0000007c) iput-object          v3, v0, Lcom/jlboat/phone/view/MapView;->pixeMarksList Ljava/util/List;
+	31      (00000080) new-instance         v3, Ljava/util/LinkedList;
+	32      (00000084) invoke-direct        v3, Ljava/util/LinkedList;-><init>()V
+	33      (0000008a) iput-object          v3, v0, Lcom/jlboat/phone/view/MapView;->shapeAreas Ljava/util/List;
+	34      (0000008e) iput-boolean         v2, v0, Lcom/jlboat/phone/view/MapView;->isScreenMode Z
+	35      (00000092) iput-boolean         v1, v0, Lcom/jlboat/phone/view/MapView;->isClose Z
+	36      (00000096) new-instance         v2, Ljava/util/LinkedList;
+	37      (0000009a) invoke-direct        v2, Ljava/util/LinkedList;-><init>()V
+	38      (000000a0) iput-object          v2, v0, Lcom/jlboat/phone/view/MapView;->regionList Ljava/util/List;
+	39      (000000a4) new-instance         v2, Ljava/util/LinkedList;
+	40      (000000a8) invoke-direct        v2, Ljava/util/LinkedList;-><init>()V
+	41      (000000ae) iput-object          v2, v0, Lcom/jlboat/phone/view/MapView;->mGlobalPlans Ljava/util/List;
+	42      (000000b2) const/4              v2, 0
+	43      (000000b4) iput-object          v2, v0, Lcom/jlboat/phone/view/MapView;->points Ljava/util/List;
+	44      (000000b8) new-instance         v2, Ljava/util/LinkedList;
+	45      (000000bc) invoke-direct        v2, Ljava/util/LinkedList;-><init>()V
+	46      (000000c2) iput-object          v2, v0, Lcom/jlboat/phone/view/MapView;->cleanAreas Ljava/util/List;
+	47      (000000c6) const-wide/16        v2, -1
+	48      (000000ca) iput-wide            v2, v0, Lcom/jlboat/phone/view/MapView;->ngNlineID J
+	49      (000000ce) iput-boolean         v1, v0, Lcom/jlboat/phone/view/MapView;->isAutoPoint Z
+	50      (000000d2) iput-boolean         v1, v0, Lcom/jlboat/phone/view/MapView;->hasEnablePoint Z
+	51      (000000d6) iput-boolean         v1, v0, Lcom/jlboat/phone/view/MapView;->isShowId Z
+	52      (000000da) iput-boolean         v1, v0, Lcom/jlboat/phone/view/MapView;->isRobot Z
+	53      (000000de) new-instance         v2, Lcom/boat/ros/geometry/Vector3;
+	54      (000000e2) const-wide/16        v7, 0
+	55      (000000e6) const-wide/16        v9, 0
+	56      (000000ea) const-wide/16        v5, 0
+	57      (000000ee) move-object          v4, v2
+	58      (000000f0) invoke-direct/range  v4 ... v10, Lcom/boat/ros/geometry/Vector3;-><init>(D D D)V
+	59      (000000f6) iput-object          v2, v0, Lcom/jlboat/phone/view/MapView;->vector Lcom/boat/ros/geometry/Vector3;
+	60      (000000fa) new-instance         v2, Lcom/boat/ros/geometry/Vector3;
+	61      (000000fe) const-wide           v14, 4596734067664517857
+	62      (00000108) const-wide/16        v16, 0
+	63      (0000010c) const-wide           v12, -4626637969190257951
+	64      (00000116) move-object          v11, v2
+	65      (00000118) invoke-direct/range  v11 ... v17, Lcom/boat/ros/geometry/Vector3;-><init>(D D D)V
+	66      (0000011e) iput-object          v2, v0, Lcom/jlboat/phone/view/MapView;->vectorleft Lcom/boat/ros/geometry/Vector3;
+	67      (00000122) new-instance         v2, Lcom/boat/ros/geometry/Vector3;
+	68      (00000126) const-wide/16        v6, 0
+	69      (0000012a) const-wide/16        v8, 0
+	70      (0000012e) const-wide           v4, 4599075939470750515
+	71      (00000138) move-object          v3, v2
+	72      (0000013a) invoke-direct/range  v3 ... v9, Lcom/boat/ros/geometry/Vector3;-><init>(D D D)V
+	73      (00000140) iput-object          v2, v0, Lcom/jlboat/phone/view/MapView;->vectortop Lcom/boat/ros/geometry/Vector3;
+	74      (00000144) new-instance         v2, Lcom/boat/ros/geometry/Vector3;
+	75      (00000148) const-wide           v13, -4626998257160447590
+	76      (00000152) const-wide/16        v15, 0
+	77      (00000156) const-wide           v11, -4626998257160447590
+	78      (00000160) move-object          v10, v2
+	79      (00000162) invoke-direct/range  v10 ... v16, Lcom/boat/ros/geometry/Vector3;-><init>(D D D)V
+	80      (00000168) iput-object          v2, v0, Lcom/jlboat/phone/view/MapView;->vectorright Lcom/boat/ros/geometry/Vector3;
+	81      (0000016c) new-instance         v2, Landroid/graphics/PaintFlagsDrawFilter;
+	82      (00000170) const/4              v3, 3
+	83      (00000172) invoke-direct        v2, v1, v3, Landroid/graphics/PaintFlagsDrawFilter;-><init>(I I)V
+	84      (00000178) iput-object          v2, v0, Lcom/jlboat/phone/view/MapView;->drawFilter Landroid/graphics/DrawFilter;
+	85      (0000017c) const-wide           v1, 4598535507708739584
+	86      (00000186) iput-wide            v1, v0, Lcom/jlboat/phone/view/MapView;->scan_offset_x D
+	87      (0000018a) const-wide/16        v1, 0
+	88      (0000018e) iput-wide            v1, v0, Lcom/jlboat/phone/view/MapView;->scan_offset_y D
+	89      (00000192) iput-wide            v1, v0, Lcom/jlboat/phone/view/MapView;->scan_offset_z D
+	90      (00000196) invoke-direct/range  v18, Lcom/jlboat/phone/view/MapView;->createColorMap()V
+	91      (0000019c) invoke-direct/range  v18, Lcom/jlboat/phone/view/MapView;->creatMarkerPaint()V
+	92      (000001a2) invoke-direct/range  v18, Lcom/jlboat/phone/view/MapView;->creatRegionPaint()V
+	93      (000001a8) invoke-direct/range  v18, Lcom/jlboat/phone/view/MapView;->createCleanAreasPaint()V
+	94      (000001ae) invoke-direct/range  v18, Lcom/jlboat/phone/view/MapView;->createCleanPathPaint()V
+	95      (000001b4) invoke-direct/range  v18, Lcom/jlboat/phone/view/MapView;->creatScanPaint()V
+	96      (000001ba) invoke-direct/range  v18, Lcom/jlboat/phone/view/MapView;->creatPathPaint()V
+	97      (000001c0) invoke-direct/range  v18, Lcom/jlboat/phone/view/MapView;->createPathPaint()V
+	98      (000001c6) invoke-direct/range  v18, Lcom/jlboat/phone/view/MapView;->createPointWaitPaint()V
+	99      (000001cc) invoke-direct/range  v18, Lcom/jlboat/phone/view/MapView;->createPathPaintCheck()V
+	100     (000001d2) invoke-direct/range  v18, Lcom/jlboat/phone/view/MapView;->createNgLinePaint()V
+	101     (000001d8) new-instance         v1, Ljava/lang/Object;
+	102     (000001dc) invoke-direct        v1, Ljava/lang/Object;-><init>()V
+	103     (000001e2) iput-object          v1, v0, Lcom/jlboat/phone/view/MapView;->mutex Ljava/lang/Object;
+	104     (000001e6) new-instance         v1, Ljava/lang/Object;
+	105     (000001ea) invoke-direct        v1, Ljava/lang/Object;-><init>()V
+	106     (000001f0) iput-object          v1, v0, Lcom/jlboat/phone/view/MapView;->poseMutex Ljava/lang/Object;
+	107     (000001f4) return-void          
+

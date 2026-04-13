@@ -1,0 +1,25 @@
+# Lcom/jlboat/phone/activity/MapActivity$35;-><init>(Lcom/jlboat/phone/activity/MapActivity; Ljava/util/List; Ljava/util/List; Lcom/jlboat/phone/adapter/MapActDlFloorListAdapter; Lcom/jlboat/phone/adapter/MapActDlFloorListSelectAdapter; Landroid/support/v7/widget/RecyclerView; Landroid/widget/LinearLayout;)V [access_flags=constructor]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.activity.MapActivity
+# - v2:java.util.List
+# - v3:java.util.List
+# - v4:com.jlboat.phone.adapter.MapActDlFloorListAdapter
+# - v5:com.jlboat.phone.adapter.MapActDlFloorListSelectAdapter
+# - v6:android.support.v7.widget.RecyclerView
+# - v7:android.widget.LinearLayout
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) iput-object          v1, v0, Lcom/jlboat/phone/activity/MapActivity$35;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	1       (00000004) iput-object          v2, v0, Lcom/jlboat/phone/activity/MapActivity$35;->val$mapPointList Ljava/util/List;
+	2       (00000008) iput-object          v3, v0, Lcom/jlboat/phone/activity/MapActivity$35;->val$selectedPointList Ljava/util/List;
+	3       (0000000c) iput-object          v4, v0, Lcom/jlboat/phone/activity/MapActivity$35;->val$testPointListAdapter Lcom/jlboat/phone/adapter/MapActDlFloorListAdapter;
+	4       (00000010) iput-object          v5, v0, Lcom/jlboat/phone/activity/MapActivity$35;->val$testPointSelectedListAdapter Lcom/jlboat/phone/adapter/MapActDlFloorListSelectAdapter;
+	5       (00000014) iput-object          v6, v0, Lcom/jlboat/phone/activity/MapActivity$35;->val$navSelectedPointRv Landroid/support/v7/widget/RecyclerView;
+	6       (00000018) iput-object          v7, v0, Lcom/jlboat/phone/activity/MapActivity$35;->val$navNopointTipLl Landroid/widget/LinearLayout;
+	7       (0000001c) invoke-direct        v0, Ljava/lang/Object;-><init>()V
+	8       (00000022) return-void          
+

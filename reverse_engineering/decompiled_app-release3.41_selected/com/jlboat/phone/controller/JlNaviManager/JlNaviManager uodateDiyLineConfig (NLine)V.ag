@@ -1,0 +1,87 @@
+# Lcom/jlboat/phone/controller/JlNaviManager;->uodateDiyLineConfig(Lcom/boat/support/slam/entity/floors/NLine;)V [access_flags=private]
+#
+# Parameters:
+# - local registers: v0...v9
+# - v10:com.boat.support.slam.entity.floors.NLine
+#
+# - return:void
+
+uodateDiyLineConfig-BB@0x0 : 
+	0       (00000000) new-instance         v0, Ljava/util/LinkedList;
+	1       (00000004) invoke-direct        v0, Ljava/util/LinkedList;-><init>()V
+	2       (0000000a) new-instance         v1, Lcom/jlboat/phone/message/map_msgs/Config;
+	3       (0000000e) invoke-direct        v1, Lcom/jlboat/phone/message/map_msgs/Config;-><init>()V
+	4       (00000014) const/4              v2, 1
+	5       (00000016) invoke-virtual       v1, v2, Lcom/jlboat/phone/message/map_msgs/Config;->setType(I)V
+	6       (0000001c) const-string         v3, "ng_path_df_type"
+	7       (00000020) invoke-virtual       v1, v3, Lcom/jlboat/phone/message/map_msgs/Config;->setConfigName(Ljava/lang/String;)V
+	8       (00000026) new-instance         v3, Ljava/lang/StringBuilder;
+	9       (0000002a) invoke-direct        v3, Ljava/lang/StringBuilder;-><init>()V
+	10      (00000030) invoke-virtual       v10, Lcom/boat/support/slam/entity/floors/NLine;->getType()I
+	11      (00000036) move-result          v4
+	12      (00000038) invoke-virtual       v3, v4, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	13      (0000003e) move-result-object   v3
+	14      (00000040) const-string         v4, ""
+	15      (00000044) invoke-virtual       v3, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	16      (0000004a) move-result-object   v3
+	17      (0000004c) invoke-virtual       v3, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	18      (00000052) move-result-object   v3
+	19      (00000054) invoke-virtual       v1, v3, Lcom/jlboat/phone/message/map_msgs/Config;->setConfigValue(Ljava/lang/String;)V
+	20      (0000005a) new-instance         v3, Lcom/jlboat/phone/message/map_msgs/Config;
+	21      (0000005e) invoke-direct        v3, Lcom/jlboat/phone/message/map_msgs/Config;-><init>()V
+	22      (00000064) invoke-virtual       v3, v2, Lcom/jlboat/phone/message/map_msgs/Config;->setType(I)V
+	23      (0000006a) const-string         v5, "ng_path_df_direction"
+	24      (0000006e) invoke-virtual       v3, v5, Lcom/jlboat/phone/message/map_msgs/Config;->setConfigName(Ljava/lang/String;)V
+	25      (00000074) new-instance         v5, Ljava/lang/StringBuilder;
+	26      (00000078) invoke-direct        v5, Ljava/lang/StringBuilder;-><init>()V
+	27      (0000007e) invoke-virtual       v10, Lcom/boat/support/slam/entity/floors/NLine;->getDirection()I
+	28      (00000084) move-result          v6
+	29      (00000086) invoke-virtual       v5, v6, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	30      (0000008c) move-result-object   v5
+	31      (0000008e) invoke-virtual       v5, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	32      (00000094) move-result-object   v5
+	33      (00000096) invoke-virtual       v5, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	34      (0000009c) move-result-object   v5
+	35      (0000009e) invoke-virtual       v3, v5, Lcom/jlboat/phone/message/map_msgs/Config;->setConfigValue(Ljava/lang/String;)V
+	36      (000000a4) new-instance         v5, Lcom/jlboat/phone/message/map_msgs/Config;
+	37      (000000a8) invoke-direct        v5, Lcom/jlboat/phone/message/map_msgs/Config;-><init>()V
+	38      (000000ae) invoke-virtual       v5, v2, Lcom/jlboat/phone/message/map_msgs/Config;->setType(I)V
+	39      (000000b4) const-string         v6, "ng_path_df_speed"
+	40      (000000b8) invoke-virtual       v5, v6, Lcom/jlboat/phone/message/map_msgs/Config;->setConfigName(Ljava/lang/String;)V
+	41      (000000be) new-instance         v6, Ljava/lang/StringBuilder;
+	42      (000000c2) invoke-direct        v6, Ljava/lang/StringBuilder;-><init>()V
+	43      (000000c8) invoke-virtual       v10, Lcom/boat/support/slam/entity/floors/NLine;->getSpeed()F
+	44      (000000ce) move-result          v7
+	45      (000000d0) invoke-virtual       v6, v7, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+	46      (000000d6) move-result-object   v6
+	47      (000000d8) invoke-virtual       v6, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	48      (000000de) move-result-object   v6
+	49      (000000e0) invoke-virtual       v6, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	50      (000000e6) move-result-object   v6
+	51      (000000e8) invoke-virtual       v5, v6, Lcom/jlboat/phone/message/map_msgs/Config;->setConfigValue(Ljava/lang/String;)V
+	52      (000000ee) new-instance         v6, Lcom/jlboat/phone/message/map_msgs/Config;
+	53      (000000f2) invoke-direct        v6, Lcom/jlboat/phone/message/map_msgs/Config;-><init>()V
+	54      (000000f8) invoke-virtual       v6, v2, Lcom/jlboat/phone/message/map_msgs/Config;->setType(I)V
+	55      (000000fe) const-string         v7, "ng_path_df_weight"
+	56      (00000102) invoke-virtual       v6, v7, Lcom/jlboat/phone/message/map_msgs/Config;->setConfigName(Ljava/lang/String;)V
+	57      (00000108) new-instance         v7, Ljava/lang/StringBuilder;
+	58      (0000010c) invoke-direct        v7, Ljava/lang/StringBuilder;-><init>()V
+	59      (00000112) invoke-virtual       v10, Lcom/boat/support/slam/entity/floors/NLine;->getWeight()F
+	60      (00000118) move-result          v8
+	61      (0000011a) invoke-virtual       v7, v8, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+	62      (00000120) move-result-object   v7
+	63      (00000122) invoke-virtual       v7, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	64      (00000128) move-result-object   v4
+	65      (0000012a) invoke-virtual       v4, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	66      (00000130) move-result-object   v4
+	67      (00000132) invoke-virtual       v6, v4, Lcom/jlboat/phone/message/map_msgs/Config;->setConfigValue(Ljava/lang/String;)V
+	68      (00000138) invoke-interface     v0, v1, Ljava/util/List;->add(Ljava/lang/Object;)Z
+	69      (0000013e) invoke-interface     v0, v3, Ljava/util/List;->add(Ljava/lang/Object;)Z
+	70      (00000144) invoke-interface     v0, v5, Ljava/util/List;->add(Ljava/lang/Object;)Z
+	71      (0000014a) invoke-interface     v0, v6, Ljava/util/List;->add(Ljava/lang/Object;)Z
+	72      (00000150) iget-object          v4, v9, Lcom/jlboat/phone/controller/JlNaviManager;->statusServiceClient Lcom/jlboat/phone/communication/StatusServiceClient;
+	73      (00000154) new-instance         v7, Lcom/jlboat/phone/controller/JlNaviManager$30;
+	74      (00000158) invoke-direct        v7, v9, Lcom/jlboat/phone/controller/JlNaviManager$30;-><init>(Lcom/jlboat/phone/controller/JlNaviManager;)V
+	75      (0000015e) invoke-virtual       v4, v0, v2, v7, Lcom/jlboat/phone/communication/StatusServiceClient;->setOrDelConfigsService(Ljava/util/List; I Lcom/boat/jrosbridge/MessageListener;)V
+	76      (00000164) return-void          
+

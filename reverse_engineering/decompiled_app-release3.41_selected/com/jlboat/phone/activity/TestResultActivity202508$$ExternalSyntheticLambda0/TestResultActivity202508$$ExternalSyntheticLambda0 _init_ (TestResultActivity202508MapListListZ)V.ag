@@ -1,0 +1,19 @@
+# Lcom/jlboat/phone/activity/TestResultActivity202508$$ExternalSyntheticLambda0;-><init>(Lcom/jlboat/phone/activity/TestResultActivity202508; Lcom/boat/support/slam/entity/floors/MapList; Ljava/util/List; Z)V [access_flags=public synthetic constructor]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.activity.TestResultActivity202508
+# - v2:com.boat.support.slam.entity.floors.MapList
+# - v3:java.util.List
+# - v4:boolean
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) invoke-direct        v0, Ljava/lang/Object;-><init>()V
+	1       (00000006) iput-object          v1, v0, Lcom/jlboat/phone/activity/TestResultActivity202508$$ExternalSyntheticLambda0;->f$0 Lcom/jlboat/phone/activity/TestResultActivity202508;
+	2       (0000000a) iput-object          v2, v0, Lcom/jlboat/phone/activity/TestResultActivity202508$$ExternalSyntheticLambda0;->f$1 Lcom/boat/support/slam/entity/floors/MapList;
+	3       (0000000e) iput-object          v3, v0, Lcom/jlboat/phone/activity/TestResultActivity202508$$ExternalSyntheticLambda0;->f$2 Ljava/util/List;
+	4       (00000012) iput-boolean         v4, v0, Lcom/jlboat/phone/activity/TestResultActivity202508$$ExternalSyntheticLambda0;->f$3 Z
+	5       (00000016) return-void          
+

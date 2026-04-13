@@ -1,0 +1,44 @@
+# Lcom/boat/jrosbridge/message/Message;->isPrimitive(Ljava/lang/Class;)Z [access_flags=public static]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:java.lang.Class
+#
+# - return:boolean
+
+isPrimitive-BB@0x0 : [ isPrimitive-BB@0xc isPrimitive-BB@0x42 ]
+	0       (00000000) invoke-virtual       v1, Ljava/lang/Class;->isPrimitive()Z
+	1       (00000006) move-result          v0
+	2       (00000008) if-nez               v0, +01dh
+
+isPrimitive-BB@0xc : [ isPrimitive-BB@0x1c isPrimitive-BB@0x42 ]
+	3       (0000000c) const-class          v0, Ljava/lang/String;
+	4       (00000010) invoke-virtual       v1, v0, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+	5       (00000016) move-result          v0
+	6       (00000018) if-nez               v0, +015h
+
+isPrimitive-BB@0x1c : [ isPrimitive-BB@0x2c isPrimitive-BB@0x42 ]
+	7       (0000001c) const-class          v0, Ljava/lang/Number;
+	8       (00000020) invoke-virtual       v0, v1, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
+	9       (00000026) move-result          v0
+	10      (00000028) if-nez               v0, +00dh
+
+isPrimitive-BB@0x2c : [ isPrimitive-BB@0x3c isPrimitive-BB@0x3e ]
+	11      (0000002c) const-class          v0, Ljava/lang/Boolean;
+	12      (00000030) invoke-virtual       v1, v0, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+	13      (00000036) move-result          v0
+	14      (00000038) if-eqz               v0, +003h
+
+isPrimitive-BB@0x3c : [ isPrimitive-BB@0x42 ]
+	15      (0000003c) goto                 +3h
+
+isPrimitive-BB@0x3e : [ isPrimitive-BB@0x44 ]
+	16      (0000003e) const/4              v0, 0
+	17      (00000040) goto                 +2h
+
+isPrimitive-BB@0x42 : [ isPrimitive-BB@0x44 ]
+	18      (00000042) const/4              v0, 1
+
+isPrimitive-BB@0x44 : 
+	19      (00000044) return               v0
+

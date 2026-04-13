@@ -1,0 +1,25 @@
+# Lcom/jlboat/phone/activity/MapActivity$1;->longlick(Landroid/view/View; Lcom/boat/support/slam/entity/floors/Floors; Lcom/boat/support/slam/entity/floors/Maps;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:android.view.View
+# - v4:com.boat.support.slam.entity.floors.Floors
+# - v5:com.boat.support.slam.entity.floors.Maps
+#
+# - return:void
+
+longlick-BB@0x0 : [ longlick-BB@0x12 longlick-BB@0x1c ]
+	0       (00000000) const-string         v0, "MapActivity"
+	1       (00000004) const-string         v1, "longlick: maplist"
+	2       (00000008) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	3       (0000000e) if-nez               v5, +007h
+
+longlick-BB@0x12 : [ longlick-BB@0x1c ]
+	4       (00000012) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity$1;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	5       (00000016) invoke-virtual       v0, v4, Lcom/jlboat/phone/activity/MapActivity;->FloorAndDeleteorRename(Lcom/boat/support/slam/entity/floors/Floors;)V
+
+longlick-BB@0x1c : 
+	6       (0000001c) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity$1;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	7       (00000020) invoke-virtual       v0, v4, v5, Lcom/jlboat/phone/activity/MapActivity;->MapAndDeleteorRename(Lcom/boat/support/slam/entity/floors/Floors; Lcom/boat/support/slam/entity/floors/Maps;)V
+	8       (00000026) return-void          
+

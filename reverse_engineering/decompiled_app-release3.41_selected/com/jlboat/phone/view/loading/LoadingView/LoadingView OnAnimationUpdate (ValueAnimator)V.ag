@@ -1,0 +1,39 @@
+# Lcom/jlboat/phone/view/loading/LoadingView;->OnAnimationUpdate(Landroid/animation/ValueAnimator;)V [access_flags=protected]
+#
+# Parameters:
+# - local registers: v0...v6
+# - v7:android.animation.ValueAnimator
+#
+# - return:void
+
+OnAnimationUpdate-BB@0x0 : [ OnAnimationUpdate-BB@0x2e OnAnimationUpdate-BB@0x42 ]
+	0       (00000000) invoke-virtual       v7, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
+	1       (00000006) move-result-object   v0
+	2       (00000008) check-cast           v0, Ljava/lang/Float;
+	3       (0000000c) invoke-virtual       v0, Ljava/lang/Float;->floatValue()F
+	4       (00000012) move-result          v0
+	5       (00000014) iput                 v0, v6, Lcom/jlboat/phone/view/loading/LoadingView;->mAnimatedValue F
+	6       (00000018) iget                 v0, v6, Lcom/jlboat/phone/view/loading/LoadingView;->mAnimatedValue F
+	7       (0000001c) float-to-double      v0, v0
+	8       (0000001e) const-wide/high16    v2, 4602678819172646912
+	9       (00000022) const/high16         v4, 1144258560
+	10      (00000026) cmpg-double          v5, v0, v2
+	11      (0000002a) if-gez               v5, +00ch
+
+OnAnimationUpdate-BB@0x2e : [ OnAnimationUpdate-BB@0x4c ]
+	12      (0000002e) const/4              v0, 0
+	13      (00000030) iput-boolean         v0, v6, Lcom/jlboat/phone/view/loading/LoadingView;->isSmile Z
+	14      (00000034) iget                 v0, v6, Lcom/jlboat/phone/view/loading/LoadingView;->mAnimatedValue F
+	15      (00000038) mul-float            v0, v0, v4
+	16      (0000003c) iput                 v0, v6, Lcom/jlboat/phone/view/loading/LoadingView;->startAngle F
+	17      (00000040) goto                 +6h
+
+OnAnimationUpdate-BB@0x42 : [ OnAnimationUpdate-BB@0x4c ]
+	18      (00000042) iput                 v4, v6, Lcom/jlboat/phone/view/loading/LoadingView;->startAngle F
+	19      (00000046) const/4              v0, 1
+	20      (00000048) iput-boolean         v0, v6, Lcom/jlboat/phone/view/loading/LoadingView;->isSmile Z
+
+OnAnimationUpdate-BB@0x4c : 
+	21      (0000004c) invoke-virtual       v6, Lcom/jlboat/phone/view/loading/LoadingView;->invalidate()V
+	22      (00000052) return-void          
+

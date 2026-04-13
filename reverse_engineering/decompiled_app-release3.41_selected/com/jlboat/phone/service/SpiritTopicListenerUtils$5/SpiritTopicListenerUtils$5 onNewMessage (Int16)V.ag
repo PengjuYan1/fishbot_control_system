@@ -1,0 +1,43 @@
+# Lcom/jlboat/phone/service/SpiritTopicListenerUtils$5;->onNewMessage(Lcom/boat/jrosbridge/message/std_msgs/Int16;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v4
+# - v5:com.boat.jrosbridge.message.std_msgs.Int16
+#
+# - return:void
+
+onNewMessage-BB@0x0 : [ onNewMessage-BB@0x12 onNewMessage-BB@0x28 ]
+	0       (00000000) invoke-virtual       v5, Lcom/boat/jrosbridge/message/std_msgs/Int16;->getData()S
+	1       (00000006) move-result          v0
+	2       (00000008) const/16             v1, 32
+	3       (0000000c) const/4              v2, 2
+	4       (0000000e) if-ne                v0, v1, +00dh
+
+onNewMessage-BB@0x12 : [ onNewMessage-BB@0x28 ]
+	5       (00000012) sget-object          v1, Lcom/jlboat/phone/application/BoatSlamApplication;->mApplication Lcom/jlboat/phone/application/BoatSlamApplication;
+	6       (00000016) invoke-static        v1, v2, Lcom/boat/utils/ReportExceptionInformationUtils;->deleteWarnMsg(Lcom/jlboat/phone/application/BoatSlamApplication; I)V
+	7       (0000001c) iget-object          v1, v4, Lcom/jlboat/phone/service/SpiritTopicListenerUtils$5;->this$0 Lcom/jlboat/phone/service/SpiritTopicListenerUtils;
+	8       (00000020) const/4              v3, 1
+	9       (00000022) invoke-static        v1, v3, Lcom/jlboat/phone/service/SpiritTopicListenerUtils;->access$202(Lcom/jlboat/phone/service/SpiritTopicListenerUtils; Z)Z
+
+onNewMessage-BB@0x28 : [ onNewMessage-BB@0x30 onNewMessage-BB@0x5a ]
+	10      (00000028) const/16             v1, 31
+	11      (0000002c) if-ne                v0, v1, +017h
+
+onNewMessage-BB@0x30 : [ onNewMessage-BB@0x40 onNewMessage-BB@0x5a ]
+	12      (00000030) iget-object          v1, v4, Lcom/jlboat/phone/service/SpiritTopicListenerUtils$5;->this$0 Lcom/jlboat/phone/service/SpiritTopicListenerUtils;
+	13      (00000034) invoke-static        v1, Lcom/jlboat/phone/service/SpiritTopicListenerUtils;->access$200(Lcom/jlboat/phone/service/SpiritTopicListenerUtils;)Z
+	14      (0000003a) move-result          v1
+	15      (0000003c) if-eqz               v1, +00fh
+
+onNewMessage-BB@0x40 : [ onNewMessage-BB@0x5a ]
+	16      (00000040) iget-object          v1, v4, Lcom/jlboat/phone/service/SpiritTopicListenerUtils$5;->this$0 Lcom/jlboat/phone/service/SpiritTopicListenerUtils;
+	17      (00000044) const/4              v3, 0
+	18      (00000046) invoke-static        v1, v3, Lcom/jlboat/phone/service/SpiritTopicListenerUtils;->access$202(Lcom/jlboat/phone/service/SpiritTopicListenerUtils; Z)Z
+	19      (0000004c) sget-object          v1, Lcom/jlboat/phone/application/BoatSlamApplication;->mApplication Lcom/jlboat/phone/application/BoatSlamApplication;
+	20      (00000050) const-string         v3, "机器人处于急停状态！机器人电机锁住不动"
+	21      (00000054) invoke-static        v1, v0, v2, v3, Lcom/boat/utils/ReportExceptionInformationUtils;->showWarnMsg(Landroid/content/Context; I I Ljava/lang/String;)V
+
+onNewMessage-BB@0x5a : 
+	22      (0000005a) return-void          
+

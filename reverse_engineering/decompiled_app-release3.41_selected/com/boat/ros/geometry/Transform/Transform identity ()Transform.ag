@@ -1,0 +1,16 @@
+# Lcom/boat/ros/geometry/Transform;->identity()Lcom/boat/ros/geometry/Transform; [access_flags=public static]
+#
+# Parameters:
+# local registers: v0...v2
+#
+# - return:com.boat.ros.geometry.Transform
+
+identity-BB@0x0 : 
+	0       (00000000) new-instance         v0, Lcom/boat/ros/geometry/Transform;
+	1       (00000004) invoke-static        Lcom/boat/ros/geometry/Vector3;->zero()Lcom/boat/ros/geometry/Vector3;
+	2       (0000000a) move-result-object   v1
+	3       (0000000c) invoke-static        Lcom/boat/ros/geometry/Quaternion;->identity()Lcom/boat/ros/geometry/Quaternion;
+	4       (00000012) move-result-object   v2
+	5       (00000014) invoke-direct        v0, v1, v2, Lcom/boat/ros/geometry/Transform;-><init>(Lcom/boat/ros/geometry/Vector3; Lcom/boat/ros/geometry/Quaternion;)V
+	6       (0000001a) return-object        v0
+

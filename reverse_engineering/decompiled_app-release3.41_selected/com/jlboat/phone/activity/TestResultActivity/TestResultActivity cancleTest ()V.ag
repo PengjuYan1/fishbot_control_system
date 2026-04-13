@@ -1,0 +1,16 @@
+# Lcom/jlboat/phone/activity/TestResultActivity;->cancleTest()V [access_flags=private]
+#
+# Parameters:
+# local registers: v0...v5
+#
+# - return:void
+
+cancleTest-BB@0x0 : 
+	0       (00000000) iget-object          v0, v5, Lcom/jlboat/phone/activity/TestResultActivity;->spiritServiceClient Lcom/jlboat/phone/communication/SpiritServiceClient;
+	1       (00000004) iget-object          v1, v5, Lcom/jlboat/phone/activity/TestResultActivity;->nameList Ljava/util/ArrayList;
+	2       (00000008) new-instance         v2, Lcom/jlboat/phone/activity/TestResultActivity$2;
+	3       (0000000c) invoke-direct        v2, v5, Lcom/jlboat/phone/activity/TestResultActivity$2;-><init>(Lcom/jlboat/phone/activity/TestResultActivity;)V
+	4       (00000012) const-wide/16        v3, 7
+	5       (00000016) invoke-virtual       v0, v1, v3, v4, v2, Lcom/jlboat/phone/communication/SpiritServiceClient;->setNaviTestService(Ljava/util/List; J Lcom/boat/jrosbridge/MessageListener;)V
+	6       (0000001c) return-void          
+

@@ -1,0 +1,22 @@
+# Lcom/jlboat/phone/fragment/statusfragment/LoraFragment;->onCreateView(Landroid/view/LayoutInflater; Landroid/view/ViewGroup; Landroid/os/Bundle;)Landroid/view/View; [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:android.view.LayoutInflater
+# - v4:android.view.ViewGroup
+# - v5:android.os.Bundle
+#
+# - return:android.view.View
+
+onCreateView-BB@0x0 : 
+	0       (00000000) invoke-virtual       v2, Lcom/jlboat/phone/fragment/statusfragment/LoraFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+	1       (00000006) move-result-object   v0
+	2       (00000008) iput-object          v0, v2, Lcom/jlboat/phone/fragment/statusfragment/LoraFragment;->mContext Landroid/content/Context;
+	3       (0000000c) const-string         v0, "LoraFragment"
+	4       (00000010) const-string         v1, "onCreateView called"
+	5       (00000014) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	6       (0000001a) invoke-virtual       v2, Lcom/jlboat/phone/fragment/statusfragment/LoraFragment;->init()V
+	7       (00000020) invoke-super         v2, v3, v4, v5, Lcom/jlboat/phone/base/BaseFragment;->onCreateView(Landroid/view/LayoutInflater; Landroid/view/ViewGroup; Landroid/os/Bundle;)Landroid/view/View;
+	8       (00000026) move-result-object   v0
+	9       (00000028) return-object        v0
+

@@ -1,0 +1,17 @@
+# Lcom/jlboat/phone/view/ErrorMsgAdapter;->onBindViewHolder(Lcom/jlboat/phone/view/ErrorMsgAdapter$MsgViewHolder; I)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:com.jlboat.phone.view.ErrorMsgAdapter$MsgViewHolder
+# - v3:int
+#
+# - return:void
+
+onBindViewHolder-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/jlboat/phone/view/ErrorMsgAdapter;->listData Ljava/util/List;
+	1       (00000004) invoke-interface     v0, v3, Ljava/util/List;->get(I)Ljava/lang/Object;
+	2       (0000000a) move-result-object   v0
+	3       (0000000c) check-cast           v0, Lcom/jlboat/phone/view/Err;
+	4       (00000010) invoke-virtual       v2, v0, Lcom/jlboat/phone/view/ErrorMsgAdapter$MsgViewHolder;->setData(Lcom/jlboat/phone/view/Err;)V
+	5       (00000016) return-void          
+

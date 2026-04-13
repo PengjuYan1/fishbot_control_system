@@ -1,0 +1,24 @@
+# Lcom/boat/support/slam/entity/floors/NPoint;-><init>(Landroid/os/Parcel;)V [access_flags=protected constructor]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:android.os.Parcel
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) invoke-direct        v2, Ljava/lang/Object;-><init>()V
+	1       (00000006) invoke-virtual       v3, Landroid/os/Parcel;->readLong()J
+	2       (0000000c) move-result-wide     v0
+	3       (0000000e) iput-wide            v0, v2, Lcom/boat/support/slam/entity/floors/NPoint;->nId J
+	4       (00000012) invoke-virtual       v3, Landroid/os/Parcel;->readString()Ljava/lang/String;
+	5       (00000018) move-result-object   v0
+	6       (0000001a) iput-object          v0, v2, Lcom/boat/support/slam/entity/floors/NPoint;->nName Ljava/lang/String;
+	7       (0000001e) invoke-virtual       v3, Landroid/os/Parcel;->readLong()J
+	8       (00000024) move-result-wide     v0
+	9       (00000026) iput-wide            v0, v2, Lcom/boat/support/slam/entity/floors/NPoint;->x J
+	10      (0000002a) invoke-virtual       v3, Landroid/os/Parcel;->readLong()J
+	11      (00000030) move-result-wide     v0
+	12      (00000032) iput-wide            v0, v2, Lcom/boat/support/slam/entity/floors/NPoint;->y J
+	13      (00000036) return-void          
+

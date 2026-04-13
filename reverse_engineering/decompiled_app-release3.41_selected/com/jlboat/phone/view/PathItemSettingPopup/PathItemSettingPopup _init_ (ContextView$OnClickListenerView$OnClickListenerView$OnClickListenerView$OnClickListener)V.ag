@@ -1,0 +1,24 @@
+# Lcom/jlboat/phone/view/PathItemSettingPopup;-><init>(Landroid/content/Context; Landroid/view/View$OnClickListener; Landroid/view/View$OnClickListener; Landroid/view/View$OnClickListener; Landroid/view/View$OnClickListener;)V [access_flags=public constructor]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:android.content.Context
+# - v3:android.view.View$OnClickListener
+# - v4:android.view.View$OnClickListener
+# - v5:android.view.View$OnClickListener
+# - v6:android.view.View$OnClickListener
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) invoke-direct        v1, v2, Landroid/widget/PopupWindow;-><init>(Landroid/content/Context;)V
+	1       (00000006) const/4              v0, 1
+	2       (00000008) iput-boolean         v0, v1, Lcom/jlboat/phone/view/PathItemSettingPopup;->touchWinDismiss Z
+	3       (0000000c) iput-object          v2, v1, Lcom/jlboat/phone/view/PathItemSettingPopup;->mContext Landroid/content/Context;
+	4       (00000010) iput-object          v3, v1, Lcom/jlboat/phone/view/PathItemSettingPopup;->mTestPathClickListener Landroid/view/View$OnClickListener;
+	5       (00000014) iput-object          v4, v1, Lcom/jlboat/phone/view/PathItemSettingPopup;->mChangePathNameClickListener Landroid/view/View$OnClickListener;
+	6       (00000018) iput-object          v5, v1, Lcom/jlboat/phone/view/PathItemSettingPopup;->mAddPathPointClickListener Landroid/view/View$OnClickListener;
+	7       (0000001c) iput-object          v6, v1, Lcom/jlboat/phone/view/PathItemSettingPopup;->mDelPathClickListener Landroid/view/View$OnClickListener;
+	8       (00000020) invoke-direct        v1, Lcom/jlboat/phone/view/PathItemSettingPopup;->init()V
+	9       (00000026) return-void          
+

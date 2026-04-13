@@ -1,0 +1,44 @@
+# Lcom/jlboat/phone/activity/DiyPointPathActivity$7;->onCheckedChanged(Landroid/widget/CompoundButton; Z)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:android.widget.CompoundButton
+# - v4:boolean
+#
+# - return:void
+
+onCheckedChanged-BB@0x0 : [ onCheckedChanged-BB@0x56 onCheckedChanged-BB@0x60 ]
+	0       (00000000) new-instance         v0, Ljava/lang/StringBuilder;
+	1       (00000004) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	2       (0000000a) const-string         v1, "onCheckedChanged: 111 "
+	3       (0000000e) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	4       (00000014) move-result-object   v0
+	5       (00000016) invoke-virtual       v0, v4, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+	6       (0000001c) move-result-object   v0
+	7       (0000001e) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	8       (00000024) move-result-object   v0
+	9       (00000026) const-string         v1, "DiyPointPathActivity"
+	10      (0000002a) invoke-static        v1, v0, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	11      (00000030) iget-object          v0, v2, Lcom/jlboat/phone/activity/DiyPointPathActivity$7;->this$0 Lcom/jlboat/phone/activity/DiyPointPathActivity;
+	12      (00000034) invoke-static        v0, Lcom/jlboat/phone/activity/DiyPointPathActivity;->access$400(Lcom/jlboat/phone/activity/DiyPointPathActivity;)Lcom/jlboat/phone/view/MapView;
+	13      (0000003a) move-result-object   v0
+	14      (0000003c) invoke-virtual       v0, v4, Lcom/jlboat/phone/view/MapView;->setShowDiYP(Z)V
+	15      (00000042) iget-object          v0, v2, Lcom/jlboat/phone/activity/DiyPointPathActivity$7;->this$0 Lcom/jlboat/phone/activity/DiyPointPathActivity;
+	16      (00000046) invoke-static        v0, Lcom/jlboat/phone/activity/DiyPointPathActivity;->access$300(Lcom/jlboat/phone/activity/DiyPointPathActivity;)Lcom/jlboat/phone/adapter/NaviListAdapter;
+	17      (0000004c) move-result-object   v0
+	18      (0000004e) iget-object          v1, v2, Lcom/jlboat/phone/activity/DiyPointPathActivity$7;->this$0 Lcom/jlboat/phone/activity/DiyPointPathActivity;
+	19      (00000052) if-eqz               v4, +007h
+
+onCheckedChanged-BB@0x56 : [ onCheckedChanged-BB@0x68 ]
+	20      (00000056) invoke-static        v1, Lcom/jlboat/phone/activity/DiyPointPathActivity;->access$100(Lcom/jlboat/phone/activity/DiyPointPathActivity;)Ljava/util/List;
+	21      (0000005c) move-result-object   v1
+	22      (0000005e) goto                 +5h
+
+onCheckedChanged-BB@0x60 : [ onCheckedChanged-BB@0x68 ]
+	23      (00000060) invoke-static        v1, Lcom/jlboat/phone/activity/DiyPointPathActivity;->access$200(Lcom/jlboat/phone/activity/DiyPointPathActivity;)Ljava/util/List;
+	24      (00000066) move-result-object   v1
+
+onCheckedChanged-BB@0x68 : 
+	25      (00000068) invoke-virtual       v0, v1, Lcom/jlboat/phone/adapter/NaviListAdapter;->setListData(Ljava/util/List;)V
+	26      (0000006e) return-void          
+

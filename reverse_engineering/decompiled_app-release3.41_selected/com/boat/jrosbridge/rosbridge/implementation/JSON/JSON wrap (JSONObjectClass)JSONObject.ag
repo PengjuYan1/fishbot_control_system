@@ -1,0 +1,22 @@
+# Lcom/boat/jrosbridge/rosbridge/implementation/JSON;->wrap(Lorg/json/simple/JSONObject; Ljava/lang/Class;)Lorg/json/simple/JSONObject; [access_flags=private static]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:org.json.simple.JSONObject
+# - v5:java.lang.Class
+#
+# - return:org.json.simple.JSONObject
+
+wrap-BB@0x0 : 
+	0       (00000000) new-instance         v0, Lorg/json/simple/JSONObject;
+	1       (00000004) invoke-direct        v0, Lorg/json/simple/JSONObject;-><init>()V
+	2       (0000000a) invoke-static        v5, Lcom/boat/jrosbridge/rosbridge/indication/Indication;->getIndicatorName(Ljava/lang/Class;)Ljava/lang/String;
+	3       (00000010) move-result-object   v1
+	4       (00000012) invoke-static        v5, Lcom/boat/jrosbridge/rosbridge/indication/Indication;->getIndicatedName(Ljava/lang/Class;)Ljava/lang/String;
+	5       (00000018) move-result-object   v2
+	6       (0000001a) invoke-virtual       v4, v1, Lorg/json/simple/JSONObject;->get(Ljava/lang/Object;)Ljava/lang/Object;
+	7       (00000020) move-result-object   v3
+	8       (00000022) invoke-virtual       v0, v1, v3, Lorg/json/simple/JSONObject;->put(Ljava/lang/Object; Ljava/lang/Object;)Ljava/lang/Object;
+	9       (00000028) invoke-virtual       v0, v2, v4, Lorg/json/simple/JSONObject;->put(Ljava/lang/Object; Ljava/lang/Object;)Ljava/lang/Object;
+	10      (0000002e) return-object        v0
+

@@ -1,0 +1,41 @@
+# Lcom/jlboat/phone/service/ErrorMsgService$3;->run()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v3
+#
+# - return:void
+
+run-BB@0x0 : [ run-BB@0x20 ]
+	0       (00000000) iget-object          v0, v3, Lcom/jlboat/phone/service/ErrorMsgService$3;->val$end [Z
+	1       (00000004) const/4              v1, 1
+	2       (00000006) const/4              v2, 0
+	3       (00000008) aput-boolean         v1, v0, v2
+	4       (0000000c) sget-object          v0, Lcom/jlboat/phone/application/BoatSlamApplication;->client Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;
+	5       (00000010) new-instance         v1, Lcom/jlboat/phone/service/ErrorMsgService$3$1;
+	6       (00000014) invoke-direct        v1, v3, Lcom/jlboat/phone/service/ErrorMsgService$3$1;-><init>(Lcom/jlboat/phone/service/ErrorMsgService$3;)V
+	7       (0000001a) invoke-virtual       v0, v1, Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;->connect(Lcom/boat/jrosbridge/ROSClient$ConnectionStatusListener;)Z
+
+run-BB@0x20 : [ run-BB@0x2c run-BB@0x42 ]
+	8       (00000020) iget-object          v0, v3, Lcom/jlboat/phone/service/ErrorMsgService$3;->val$end [Z
+	9       (00000024) aget-boolean         v0, v0, v2
+	10      (00000028) if-eqz               v0, +00dh
+
+run-BB@0x2c : [ run-BB@0x30 ]
+	11      (0000002c) const-wide/16        v0, 10
+
+run-BB@0x30 : [ run-BB@0x36 ]
+	12      (00000030) invoke-static        v0, v1, Ljava/lang/Thread;->sleep(J)V
+	30:35
+	(Ljava/lang/InterruptedException; -> 38 run-BB@0x38)
+
+run-BB@0x36 : [ run-BB@0x20 ]
+	13      (00000036) goto                 -bh
+
+run-BB@0x38 : [ run-BB@0x36 ]
+	14      (00000038) move-exception       v0
+	15      (0000003a) invoke-virtual       v0, Ljava/lang/InterruptedException;->printStackTrace()V
+	16      (00000040) goto                 -5h
+
+run-BB@0x42 : 
+	17      (00000042) return-void          
+

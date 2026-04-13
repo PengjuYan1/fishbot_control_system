@@ -1,0 +1,16 @@
+# Lcom/jlboat/phone/fragment/statusfragment/Camera03Fragment;->setConfig(Ljava/util/List; I)V [access_flags=private]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:java.util.List
+# - v4:int
+#
+# - return:void
+
+setConfig-BB@0x0 : 
+	0       (00000000) iget-object          v0, v2, Lcom/jlboat/phone/fragment/statusfragment/Camera03Fragment;->statusServiceClient Lcom/jlboat/phone/communication/StatusServiceClient;
+	1       (00000004) new-instance         v1, Lcom/jlboat/phone/fragment/statusfragment/Camera03Fragment$2;
+	2       (00000008) invoke-direct        v1, v2, Lcom/jlboat/phone/fragment/statusfragment/Camera03Fragment$2;-><init>(Lcom/jlboat/phone/fragment/statusfragment/Camera03Fragment;)V
+	3       (0000000e) invoke-virtual       v0, v3, v4, v1, Lcom/jlboat/phone/communication/StatusServiceClient;->setOrDelConfigsService(Ljava/util/List; I Lcom/boat/jrosbridge/MessageListener;)V
+	4       (00000014) return-void          
+

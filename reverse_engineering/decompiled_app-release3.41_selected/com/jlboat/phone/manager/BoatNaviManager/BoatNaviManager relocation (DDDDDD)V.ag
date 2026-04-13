@@ -1,0 +1,16 @@
+# Lcom/jlboat/phone/manager/BoatNaviManager;->relocation(D D D D D D)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v6
+# - v7:double
+# - v8:double
+# - v9:double
+# - v10:double
+# - v11:double
+# - v12:double
+#
+# - return:void
+
+relocation-BB@0x0 : 
+	0       (00000000) return-void          
+

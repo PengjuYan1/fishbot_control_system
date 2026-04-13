@@ -1,0 +1,11 @@
+# Lcartographer_ros_msgs/SubmapEntry;->getTrajectoryId()I [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:int
+
+getTrajectoryId-BB@0x0 : 
+	0       (00000000) iget                 v0, v1, Lcartographer_ros_msgs/SubmapEntry;->trajectory_id I
+	1       (00000004) return               v0
+

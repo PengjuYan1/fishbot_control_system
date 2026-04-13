@@ -1,0 +1,31 @@
+# Lcom/jlboat/phone/view/Err;-><init>(Landroid/os/Parcel;)V [access_flags=protected constructor]
+#
+# Parameters:
+# - local registers: v0...v5
+# - v6:android.os.Parcel
+#
+# - return:void
+
+<init>-BB@0x0 : [ <init>-BB@0x26 <init>-BB@0x2a ]
+	0       (00000000) invoke-direct        v5, Ljava/lang/Object;-><init>()V
+	1       (00000006) invoke-virtual       v6, Landroid/os/Parcel;->readString()Ljava/lang/String;
+	2       (0000000c) move-result-object   v0
+	3       (0000000e) iput-object          v0, v5, Lcom/jlboat/phone/view/Err;->msg Ljava/lang/String;
+	4       (00000012) invoke-virtual       v6, Landroid/os/Parcel;->readLong()J
+	5       (00000018) move-result-wide     v0
+	6       (0000001a) const-wide/16        v2, -1
+	7       (0000001e) cmp-long             v4, v0, v2
+	8       (00000022) if-nez               v4, +004h
+
+<init>-BB@0x26 : [ <init>-BB@0x34 ]
+	9       (00000026) const/4              v2, 0
+	10      (00000028) goto                 +6h
+
+<init>-BB@0x2a : [ <init>-BB@0x34 ]
+	11      (0000002a) new-instance         v2, Ljava/util/Date;
+	12      (0000002e) invoke-direct        v2, v0, v1, Ljava/util/Date;-><init>(J)V
+
+<init>-BB@0x34 : 
+	13      (00000034) iput-object          v2, v5, Lcom/jlboat/phone/view/Err;->da Ljava/util/Date;
+	14      (00000038) return-void          
+

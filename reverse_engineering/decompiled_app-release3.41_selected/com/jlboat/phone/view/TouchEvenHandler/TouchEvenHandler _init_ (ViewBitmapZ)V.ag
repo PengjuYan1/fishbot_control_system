@@ -1,0 +1,59 @@
+# Lcom/jlboat/phone/view/TouchEvenHandler;-><init>(Landroid/view/View; Landroid/graphics/Bitmap; Z)V [access_flags=public constructor]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:android.view.View
+# - v4:android.graphics.Bitmap
+# - v5:boolean
+#
+# - return:void
+
+<init>-BB@0x0 : [ <init>-BB@0xac <init>-BB@0xb2 ]
+	0       (00000000) invoke-direct        v2, Ljava/lang/Object;-><init>()V
+	1       (00000006) const/16             v0, 9
+	2       (0000000a) new-array            v0, v0, [F
+	3       (0000000e) iput-object          v0, v2, Lcom/jlboat/phone/view/TouchEvenHandler;->values [F
+	4       (00000012) const/4              v0, 0
+	5       (00000014) iput                 v0, v2, Lcom/jlboat/phone/view/TouchEvenHandler;->x_down F
+	6       (00000018) iput                 v0, v2, Lcom/jlboat/phone/view/TouchEvenHandler;->y_down F
+	7       (0000001c) new-instance         v1, Landroid/graphics/PointF;
+	8       (00000020) invoke-direct        v1, Landroid/graphics/PointF;-><init>()V
+	9       (00000026) iput-object          v1, v2, Lcom/jlboat/phone/view/TouchEvenHandler;->start Landroid/graphics/PointF;
+	10      (0000002a) new-instance         v1, Landroid/graphics/PointF;
+	11      (0000002e) invoke-direct        v1, Landroid/graphics/PointF;-><init>()V
+	12      (00000034) iput-object          v1, v2, Lcom/jlboat/phone/view/TouchEvenHandler;->mid Landroid/graphics/PointF;
+	13      (00000038) const/high16         v1, 1065353216
+	14      (0000003c) iput                 v1, v2, Lcom/jlboat/phone/view/TouchEvenHandler;->oldDist F
+	15      (00000040) iput                 v0, v2, Lcom/jlboat/phone/view/TouchEvenHandler;->oldRotation F
+	16      (00000044) new-instance         v0, Landroid/graphics/Matrix;
+	17      (00000048) invoke-direct        v0, Landroid/graphics/Matrix;-><init>()V
+	18      (0000004e) iput-object          v0, v2, Lcom/jlboat/phone/view/TouchEvenHandler;->matrix Landroid/graphics/Matrix;
+	19      (00000052) new-instance         v0, Landroid/graphics/Matrix;
+	20      (00000056) invoke-direct        v0, Landroid/graphics/Matrix;-><init>()V
+	21      (0000005c) iput-object          v0, v2, Lcom/jlboat/phone/view/TouchEvenHandler;->matrix1 Landroid/graphics/Matrix;
+	22      (00000060) new-instance         v0, Landroid/graphics/Matrix;
+	23      (00000064) invoke-direct        v0, Landroid/graphics/Matrix;-><init>()V
+	24      (0000006a) iput-object          v0, v2, Lcom/jlboat/phone/view/TouchEvenHandler;->savedMatrix Landroid/graphics/Matrix;
+	25      (0000006e) const/4              v0, 0
+	26      (00000070) iput-boolean         v0, v2, Lcom/jlboat/phone/view/TouchEvenHandler;->matrixCheck Z
+	27      (00000074) iput-boolean         v0, v2, Lcom/jlboat/phone/view/TouchEvenHandler;->isAutoRefresh Z
+	28      (00000078) const/4              v0, 1
+	29      (0000007a) iput-boolean         v0, v2, Lcom/jlboat/phone/view/TouchEvenHandler;->canRotate Z
+	30      (0000007e) iput-object          v3, v2, Lcom/jlboat/phone/view/TouchEvenHandler;->view Landroid/view/View;
+	31      (00000082) iput-boolean         v5, v2, Lcom/jlboat/phone/view/TouchEvenHandler;->isAutoRefresh Z
+	32      (00000086) invoke-virtual       v3, Landroid/view/View;->getWidth()I
+	33      (0000008c) move-result          v0
+	34      (0000008e) iput                 v0, v2, Lcom/jlboat/phone/view/TouchEvenHandler;->widthScreen I
+	35      (00000092) invoke-virtual       v3, Landroid/view/View;->getHeight()I
+	36      (00000098) move-result          v0
+	37      (0000009a) iput                 v0, v2, Lcom/jlboat/phone/view/TouchEvenHandler;->heightScreen I
+	38      (0000009e) iput-object          v4, v2, Lcom/jlboat/phone/view/TouchEvenHandler;->sourceBitmap Landroid/graphics/Bitmap;
+	39      (000000a2) invoke-direct        v2, Lcom/jlboat/phone/view/TouchEvenHandler;->initBitmap()V
+	40      (000000a8) if-nez               v5, +005h
+
+<init>-BB@0xac : [ <init>-BB@0xb2 ]
+	41      (000000ac) invoke-virtual       v3, Landroid/view/View;->invalidate()V
+
+<init>-BB@0xb2 : 
+	42      (000000b2) return-void          
+

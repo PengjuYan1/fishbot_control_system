@@ -1,0 +1,201 @@
+# Lcom/jlboat/phone/activity/MapActivity;->setChargingPriority()V [access_flags=private]
+#
+# Parameters:
+# local registers: v0...v22
+#
+# - return:void
+
+setChargingPriority-BB@0x0 : [ setChargingPriority-BB@0xc setChargingPriority-BB@0x1a ]
+	0       (00000000) move-object/from16   v8, v22
+	1       (00000004) iget-object          v0, v8, Lcom/jlboat/phone/activity/MapActivity;->chargingPrioritys Ljava/util/List;
+	2       (00000008) if-nez               v0, +009h
+
+setChargingPriority-BB@0xc : 
+	3       (0000000c) const                v0, 2131493290
+	4       (00000012) invoke-virtual       v8, v0, Lcom/jlboat/phone/activity/MapActivity;->toast(I)V
+	5       (00000018) return-void          
+
+setChargingPriority-BB@0x1a : [ setChargingPriority-BB@0x1b6 setChargingPriority-BB@0x222 ]
+	6       (0000001a) new-instance         v0, Landroid/app/AlertDialog$Builder;
+	7       (0000001e) invoke-direct        v0, v8, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+	8       (00000024) move-object          v9, v0
+	9       (00000026) invoke-virtual/range v22, Lcom/jlboat/phone/activity/MapActivity;->getLayoutInflater()Landroid/view/LayoutInflater;
+	10      (0000002c) move-result-object   v0
+	11      (0000002e) const                v1, 2131361844
+	12      (00000034) const/4              v2, 0
+	13      (00000036) invoke-virtual       v0, v1, v2, Landroid/view/LayoutInflater;->inflate(I Landroid/view/ViewGroup;)Landroid/view/View;
+	14      (0000003c) move-result-object   v10
+	15      (0000003e) const                v0, 2131231328
+	16      (00000044) invoke-virtual       v10, v0, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	17      (0000004a) move-result-object   v0
+	18      (0000004c) move-object          v11, v0
+	19      (0000004e) check-cast           v11, Landroid/widget/TextView;
+	20      (00000052) const                v0, 2131230802
+	21      (00000058) invoke-virtual       v10, v0, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	22      (0000005e) move-result-object   v0
+	23      (00000060) move-object          v12, v0
+	24      (00000062) check-cast           v12, Landroid/widget/Button;
+	25      (00000066) const                v0, 2131230799
+	26      (0000006c) invoke-virtual       v10, v0, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	27      (00000072) move-result-object   v0
+	28      (00000074) move-object          v13, v0
+	29      (00000076) check-cast           v13, Landroid/widget/Button;
+	30      (0000007a) const                v0, 2131492996
+	31      (00000080) invoke-virtual       v8, v0, Lcom/jlboat/phone/activity/MapActivity;->getResString(I)Ljava/lang/String;
+	32      (00000086) move-result-object   v0
+	33      (00000088) invoke-virtual       v11, v0, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+	34      (0000008e) new-instance         v0, Ljava/util/ArrayList;
+	35      (00000092) invoke-direct        v0, Ljava/util/ArrayList;-><init>()V
+	36      (00000098) move-object          v14, v0
+	37      (0000009a) new-instance         v0, Ljava/util/ArrayList;
+	38      (0000009e) invoke-direct        v0, Ljava/util/ArrayList;-><init>()V
+	39      (000000a4) move-object          v15, v0
+	40      (000000a6) const                v0, 2131231034
+	41      (000000ac) invoke-virtual       v10, v0, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	42      (000000b2) move-result-object   v0
+	43      (000000b4) move-object          v7, v0
+	44      (000000b6) check-cast           v7, Landroid/widget/LinearLayout;
+	45      (000000ba) const                v0, 2131231031
+	46      (000000c0) invoke-virtual       v10, v0, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	47      (000000c6) move-result-object   v0
+	48      (000000c8) move-object          v6, v0
+	49      (000000ca) check-cast           v6, Landroid/support/v7/widget/RecyclerView;
+	50      (000000ce) const                v0, 2131231036
+	51      (000000d4) invoke-virtual       v10, v0, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	52      (000000da) move-result-object   v0
+	53      (000000dc) move-object          v5, v0
+	54      (000000de) check-cast           v5, Landroid/support/v7/widget/RecyclerView;
+	55      (000000e2) new-instance         v0, Lcom/jlboat/phone/adapter/MapActDlFloorListAdapter;
+	56      (000000e6) invoke-direct        v0, Lcom/jlboat/phone/adapter/MapActDlFloorListAdapter;-><init>()V
+	57      (000000ec) move-object          v4, v0
+	58      (000000ee) new-instance         v0, Landroid/support/v7/widget/GridLayoutManager;
+	59      (000000f2) invoke-virtual/range v22, Lcom/jlboat/phone/activity/MapActivity;->getMyApplication()Lcom/boat/base/BaseApplication;
+	60      (000000f8) move-result-object   v1
+	61      (000000fa) const/4              v2, 6
+	62      (000000fc) invoke-direct        v0, v1, v2, Landroid/support/v7/widget/GridLayoutManager;-><init>(Landroid/content/Context; I)V
+	63      (00000102) invoke-virtual       v6, v0, Landroid/support/v7/widget/RecyclerView;->setLayoutManager(Landroid/support/v7/widget/RecyclerView$LayoutManager;)V
+	64      (00000108) invoke-virtual       v6, v4, Landroid/support/v7/widget/RecyclerView;->setAdapter(Landroid/support/v7/widget/RecyclerView$Adapter;)V
+	65      (0000010e) new-instance         v0, Lcom/jlboat/phone/adapter/MapActDlFloorListSelectAdapter;
+	66      (00000112) invoke-direct        v0, Lcom/jlboat/phone/adapter/MapActDlFloorListSelectAdapter;-><init>()V
+	67      (00000118) move-object          v3, v0
+	68      (0000011a) new-instance         v0, Landroid/support/v7/widget/GridLayoutManager;
+	69      (0000011e) invoke-virtual/range v22, Lcom/jlboat/phone/activity/MapActivity;->getMyApplication()Lcom/boat/base/BaseApplication;
+	70      (00000124) move-result-object   v1
+	71      (00000126) invoke-direct        v0, v1, v2, Landroid/support/v7/widget/GridLayoutManager;-><init>(Landroid/content/Context; I)V
+	72      (0000012c) invoke-virtual       v5, v0, Landroid/support/v7/widget/RecyclerView;->setLayoutManager(Landroid/support/v7/widget/RecyclerView$LayoutManager;)V
+	73      (00000132) invoke-virtual       v5, v3, Landroid/support/v7/widget/RecyclerView;->setAdapter(Landroid/support/v7/widget/RecyclerView$Adapter;)V
+	74      (00000138) new-instance         v2, Lcom/jlboat/phone/activity/MapActivity$34;
+	75      (0000013c) move-object          v0, v2
+	76      (0000013e) move-object/from16   v1, v22
+	77      (00000142) move-object/from16   v16, v11
+	78      (00000146) move-object          v11, v2
+	79      (00000148) move-object          v2, v15
+	80      (0000014a) move-object/from16   v17, v3
+	81      (0000014e) move-object          v3, v4
+	82      (00000150) move-object/from16   v18, v4
+	83      (00000154) move-object          v4, v14
+	84      (00000156) move-object/from16   v19, v5
+	85      (0000015a) move-object/from16   v5, v17
+	86      (0000015e) move-object/from16   v20, v6
+	87      (00000162) move-object/from16   v6, v19
+	88      (00000166) move-object/from16   v21, v7
+	89      (0000016a) invoke-direct/range  v0 ... v7, Lcom/jlboat/phone/activity/MapActivity$34;-><init>(Lcom/jlboat/phone/activity/MapActivity; Ljava/util/List; Lcom/jlboat/phone/adapter/MapActDlFloorListAdapter; Ljava/util/List; Lcom/jlboat/phone/adapter/MapActDlFloorListSelectAdapter; Landroid/support/v7/widget/RecyclerView; Landroid/widget/LinearLayout;)V
+	90      (00000170) move-object/from16   v7, v17
+	91      (00000174) invoke-virtual       v7, v11, Lcom/jlboat/phone/adapter/MapActDlFloorListSelectAdapter;->setOnItemClickListener(Lcom/jlboat/phone/adapter/MapActDlFloorListSelectAdapter$OnItemClickListener;)V
+	92      (0000017a) new-instance         v11, Lcom/jlboat/phone/activity/MapActivity$35;
+	93      (0000017e) move-object          v0, v11
+	94      (00000180) move-object          v2, v14
+	95      (00000182) move-object          v3, v15
+	96      (00000184) move-object/from16   v4, v18
+	97      (00000188) move-object          v5, v7
+	98      (0000018a) move-object/from16   v17, v13
+	99      (0000018e) move-object          v13, v7
+	100     (00000190) move-object/from16   v7, v21
+	101     (00000194) invoke-direct/range  v0 ... v7, Lcom/jlboat/phone/activity/MapActivity$35;-><init>(Lcom/jlboat/phone/activity/MapActivity; Ljava/util/List; Ljava/util/List; Lcom/jlboat/phone/adapter/MapActDlFloorListAdapter; Lcom/jlboat/phone/adapter/MapActDlFloorListSelectAdapter; Landroid/support/v7/widget/RecyclerView; Landroid/widget/LinearLayout;)V
+	102     (0000019a) move-object/from16   v0, v18
+	103     (0000019e) invoke-virtual       v0, v11, Lcom/jlboat/phone/adapter/MapActDlFloorListAdapter;->setOnItemClickListener(Lcom/jlboat/phone/adapter/MapActDlFloorListAdapter$OnItemClickListener;)V
+	104     (000001a4) iget-object          v1, v8, Lcom/jlboat/phone/activity/MapActivity;->currentFloors Ljava/util/List;
+	105     (000001a8) invoke-interface     v14, v1, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
+	106     (000001ae) iget-object          v1, v8, Lcom/jlboat/phone/activity/MapActivity;->chargingPrioritys Ljava/util/List;
+	107     (000001b2) if-eqz               v1, +038h
+
+setChargingPriority-BB@0x1b6 : [ setChargingPriority-BB@0x1c2 ]
+	108     (000001b6) iget-object          v1, v8, Lcom/jlboat/phone/activity/MapActivity;->chargingPrioritys Ljava/util/List;
+	109     (000001ba) invoke-interface     v1, Ljava/util/List;->iterator()Ljava/util/Iterator;
+	110     (000001c0) move-result-object   v1
+
+setChargingPriority-BB@0x1c2 : [ setChargingPriority-BB@0x1ce setChargingPriority-BB@0x222 ]
+	111     (000001c2) invoke-interface     v1, Ljava/util/Iterator;->hasNext()Z
+	112     (000001c8) move-result          v2
+	113     (000001ca) if-eqz               v2, +02ch
+
+setChargingPriority-BB@0x1ce : [ setChargingPriority-BB@0x1ee ]
+	114     (000001ce) invoke-interface     v1, Ljava/util/Iterator;->next()Ljava/lang/Object;
+	115     (000001d4) move-result-object   v2
+	116     (000001d6) check-cast           v2, Ljava/lang/Long;
+	117     (000001da) invoke-virtual       v2, Ljava/lang/Long;->longValue()J
+	118     (000001e0) move-result-wide     v2
+	119     (000001e2) iget-object          v4, v8, Lcom/jlboat/phone/activity/MapActivity;->currentFloors Ljava/util/List;
+	120     (000001e6) invoke-interface     v4, Ljava/util/List;->iterator()Ljava/util/Iterator;
+	121     (000001ec) move-result-object   v4
+
+setChargingPriority-BB@0x1ee : [ setChargingPriority-BB@0x1fa setChargingPriority-BB@0x220 ]
+	122     (000001ee) invoke-interface     v4, Ljava/util/Iterator;->hasNext()Z
+	123     (000001f4) move-result          v5
+	124     (000001f6) if-eqz               v5, +015h
+
+setChargingPriority-BB@0x1fa : [ setChargingPriority-BB@0x216 setChargingPriority-BB@0x21e ]
+	125     (000001fa) invoke-interface     v4, Ljava/util/Iterator;->next()Ljava/lang/Object;
+	126     (00000200) move-result-object   v5
+	127     (00000202) check-cast           v5, Lcom/boat/support/slam/entity/floors/Floors;
+	128     (00000206) invoke-virtual       v5, Lcom/boat/support/slam/entity/floors/Floors;->getFloorId()J
+	129     (0000020c) move-result-wide     v6
+	130     (0000020e) cmp-long             v11, v6, v2
+	131     (00000212) if-nez               v11, +006h
+
+setChargingPriority-BB@0x216 : [ setChargingPriority-BB@0x220 ]
+	132     (00000216) invoke-interface     v15, v5, Ljava/util/List;->add(Ljava/lang/Object;)Z
+	133     (0000021c) goto                 +2h
+
+setChargingPriority-BB@0x21e : [ setChargingPriority-BB@0x1ee ]
+	134     (0000021e) goto                 -18h
+
+setChargingPriority-BB@0x220 : [ setChargingPriority-BB@0x1c2 ]
+	135     (00000220) goto                 -2fh
+
+setChargingPriority-BB@0x222 : [ setChargingPriority-BB@0x240 setChargingPriority-BB@0x256 ]
+	136     (00000222) invoke-virtual       v0, v14, v15, Lcom/jlboat/phone/adapter/MapActDlFloorListAdapter;->setData(Ljava/util/List; Ljava/util/List;)V
+	137     (00000228) invoke-virtual       v13, v15, Lcom/jlboat/phone/adapter/MapActDlFloorListSelectAdapter;->setData(Ljava/util/List;)V
+	138     (0000022e) invoke-interface     v15, Ljava/util/List;->size()I
+	139     (00000234) move-result          v1
+	140     (00000236) const/16             v2, 8
+	141     (0000023a) const/4              v3, 0
+	142     (0000023c) if-lez               v1, +00dh
+
+setChargingPriority-BB@0x240 : [ setChargingPriority-BB@0x26a ]
+	143     (00000240) move-object/from16   v1, v19
+	144     (00000244) invoke-virtual       v1, v3, Landroid/support/v7/widget/RecyclerView;->setVisibility(I)V
+	145     (0000024a) move-object/from16   v4, v21
+	146     (0000024e) invoke-virtual       v4, v2, Landroid/widget/LinearLayout;->setVisibility(I)V
+	147     (00000254) goto                 +bh
+
+setChargingPriority-BB@0x256 : [ setChargingPriority-BB@0x26a ]
+	148     (00000256) move-object/from16   v1, v19
+	149     (0000025a) move-object/from16   v4, v21
+	150     (0000025e) invoke-virtual       v4, v3, Landroid/widget/LinearLayout;->setVisibility(I)V
+	151     (00000264) invoke-virtual       v1, v2, Landroid/support/v7/widget/RecyclerView;->setVisibility(I)V
+
+setChargingPriority-BB@0x26a : 
+	152     (0000026a) invoke-virtual       v9, v10, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
+	153     (00000270) invoke-virtual       v9, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+	154     (00000276) move-result-object   v2
+	155     (00000278) new-instance         v3, Lcom/jlboat/phone/activity/MapActivity$36;
+	156     (0000027c) invoke-direct        v3, v8, v15, v2, Lcom/jlboat/phone/activity/MapActivity$36;-><init>(Lcom/jlboat/phone/activity/MapActivity; Ljava/util/List; Landroid/app/AlertDialog;)V
+	157     (00000282) invoke-virtual       v12, v3, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	158     (00000288) new-instance         v3, Lcom/jlboat/phone/activity/MapActivity$37;
+	159     (0000028c) invoke-direct        v3, v8, v2, Lcom/jlboat/phone/activity/MapActivity$37;-><init>(Lcom/jlboat/phone/activity/MapActivity; Landroid/app/AlertDialog;)V
+	160     (00000292) move-object/from16   v5, v17
+	161     (00000296) invoke-virtual       v5, v3, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	162     (0000029c) invoke-virtual       v2, Landroid/app/AlertDialog;->show()V
+	163     (000002a2) return-void          
+

@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/application/BoatSlamApplication;->attachBaseContext(Landroid/content/Context;)V [access_flags=protected]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:android.content.Context
+#
+# - return:void
+
+attachBaseContext-BB@0x0 : 
+	0       (00000000) invoke-super         v0, v1, Lcom/boat/base/BaseApplication;->attachBaseContext(Landroid/content/Context;)V
+	1       (00000006) return-void          
+

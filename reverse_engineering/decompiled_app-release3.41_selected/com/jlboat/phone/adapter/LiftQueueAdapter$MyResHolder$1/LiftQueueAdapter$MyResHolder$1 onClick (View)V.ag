@@ -1,0 +1,32 @@
+# Lcom/jlboat/phone/adapter/LiftQueueAdapter$MyResHolder$1;->onClick(Landroid/view/View;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:android.view.View
+#
+# - return:void
+
+onClick-BB@0x0 : [ onClick-BB@0x14 onClick-BB@0x3c ]
+	0       (00000000) iget-object          v0, v2, Lcom/jlboat/phone/adapter/LiftQueueAdapter$MyResHolder$1;->this$1 Lcom/jlboat/phone/adapter/LiftQueueAdapter$MyResHolder;
+	1       (00000004) iget-object          v0, v0, Lcom/jlboat/phone/adapter/LiftQueueAdapter$MyResHolder;->this$0 Lcom/jlboat/phone/adapter/LiftQueueAdapter;
+	2       (00000008) invoke-static        v0, Lcom/jlboat/phone/adapter/LiftQueueAdapter;->access$000(Lcom/jlboat/phone/adapter/LiftQueueAdapter;)Lcom/jlboat/phone/adapter/LiftQueueAdapter$OnItemDeleteListener;
+	3       (0000000e) move-result-object   v0
+	4       (00000010) if-eqz               v0, +016h
+
+onClick-BB@0x14 : [ onClick-BB@0x26 onClick-BB@0x3c ]
+	5       (00000014) iget-object          v0, v2, Lcom/jlboat/phone/adapter/LiftQueueAdapter$MyResHolder$1;->this$1 Lcom/jlboat/phone/adapter/LiftQueueAdapter$MyResHolder;
+	6       (00000018) invoke-virtual       v0, Lcom/jlboat/phone/adapter/LiftQueueAdapter$MyResHolder;->getAdapterPosition()I
+	7       (0000001e) move-result          v0
+	8       (00000020) const/4              v1, -1
+	9       (00000022) if-eq                v0, v1, +00dh
+
+onClick-BB@0x26 : [ onClick-BB@0x3c ]
+	10      (00000026) iget-object          v1, v2, Lcom/jlboat/phone/adapter/LiftQueueAdapter$MyResHolder$1;->this$1 Lcom/jlboat/phone/adapter/LiftQueueAdapter$MyResHolder;
+	11      (0000002a) iget-object          v1, v1, Lcom/jlboat/phone/adapter/LiftQueueAdapter$MyResHolder;->this$0 Lcom/jlboat/phone/adapter/LiftQueueAdapter;
+	12      (0000002e) invoke-static        v1, Lcom/jlboat/phone/adapter/LiftQueueAdapter;->access$000(Lcom/jlboat/phone/adapter/LiftQueueAdapter;)Lcom/jlboat/phone/adapter/LiftQueueAdapter$OnItemDeleteListener;
+	13      (00000034) move-result-object   v1
+	14      (00000036) invoke-interface     v1, v0, Lcom/jlboat/phone/adapter/LiftQueueAdapter$OnItemDeleteListener;->onItemDelete(I)V
+
+onClick-BB@0x3c : 
+	15      (0000003c) return-void          
+

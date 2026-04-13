@@ -1,0 +1,25 @@
+# Lcom/jlboat/phone/activity/MapActivity;->onLongClick(Landroid/view/View;)Z [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:android.view.View
+#
+# - return:boolean
+
+onLongClick-BB@0x0 : [ D:onLongClick-BB@0xe 2131230755:onLongClick-BB@0x12 ]
+	0       (00000000) invoke-virtual       v2, Landroid/view/View;->getId()I
+	1       (00000006) move-result          v0
+	2       (00000008) packed-switch        v0, +0000008h
+
+onLongClick-BB@0xe : 
+	3       (0000000e) const/4              v0, 0
+	4       (00000010) return               v0
+
+onLongClick-BB@0x12 : 
+	5       (00000012) const/4              v0, 1
+	6       (00000014) return               v0
+
+onLongClick-BB@0x16 : 
+	7       (00000016) nop                  
+	8       (00000018) packed-switch-payload 7f080023
+

@@ -1,0 +1,18 @@
+# Lcom/boat/support/slam/entity/floors/Lines;-><init>(Landroid/os/Parcel;)V [access_flags=protected constructor]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:android.os.Parcel
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) invoke-direct        v2, Ljava/lang/Object;-><init>()V
+	1       (00000006) invoke-virtual       v3, Landroid/os/Parcel;->readDouble()D
+	2       (0000000c) move-result-wide     v0
+	3       (0000000e) iput-wide            v0, v2, Lcom/boat/support/slam/entity/floors/Lines;->x D
+	4       (00000012) invoke-virtual       v3, Landroid/os/Parcel;->readDouble()D
+	5       (00000018) move-result-wide     v0
+	6       (0000001a) iput-wide            v0, v2, Lcom/boat/support/slam/entity/floors/Lines;->y D
+	7       (0000001e) return-void          
+

@@ -1,0 +1,11 @@
+# Lcom/jlboat/phone/view/loading/LoadingView;->SetAnimRepeatCount()I [access_flags=protected]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:int
+
+SetAnimRepeatCount-BB@0x0 : 
+	0       (00000000) const/4              v0, -1
+	1       (00000002) return               v0
+

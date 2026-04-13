@@ -1,0 +1,22 @@
+# Lcom/jlboat/phone/communication/PubRecordBag;-><init>()V [access_flags=public constructor]
+#
+# Parameters:
+# local registers: v0...v4
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) invoke-direct        v4, Ljava/lang/Object;-><init>()V
+	1       (00000006) new-instance         v0, Lcom/boat/jrosbridge/Topic;
+	2       (0000000a) const-class          v1, Lcom/jlboat/phone/message/map_msgs/RecordBag;
+	3       (0000000e) sget-object          v2, Lcom/jlboat/phone/application/BoatSlamApplication;->client Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;
+	4       (00000012) const-string         v3, "Record_bag"
+	5       (00000016) invoke-direct        v0, v3, v1, v2, Lcom/boat/jrosbridge/Topic;-><init>(Ljava/lang/String; Ljava/lang/Class; Lcom/boat/jrosbridge/ROSClient;)V
+	6       (0000001c) iput-object          v0, v4, Lcom/jlboat/phone/communication/PubRecordBag;->grabagPublisher Lcom/boat/jrosbridge/Topic;
+	7       (00000020) iget-object          v0, v4, Lcom/jlboat/phone/communication/PubRecordBag;->grabagPublisher Lcom/boat/jrosbridge/Topic;
+	8       (00000024) invoke-virtual       v0, Lcom/boat/jrosbridge/Topic;->advertise()V
+	9       (0000002a) new-instance         v0, Lcom/jlboat/phone/message/map_msgs/RecordBag;
+	10      (0000002e) invoke-direct        v0, Lcom/jlboat/phone/message/map_msgs/RecordBag;-><init>()V
+	11      (00000034) iput-object          v0, v4, Lcom/jlboat/phone/communication/PubRecordBag;->grabaglocal Lcom/jlboat/phone/message/map_msgs/RecordBag;
+	12      (00000038) return-void          
+

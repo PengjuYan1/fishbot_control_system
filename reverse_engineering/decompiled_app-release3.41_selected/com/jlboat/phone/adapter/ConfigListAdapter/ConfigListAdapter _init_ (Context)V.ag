@@ -1,0 +1,24 @@
+# Lcom/jlboat/phone/adapter/ConfigListAdapter;-><init>(Landroid/content/Context;)V [access_flags=public constructor]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:android.content.Context
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) invoke-direct        v2, Landroid/support/v7/widget/RecyclerView$Adapter;-><init>()V
+	1       (00000006) new-instance         v0, Ljava/util/ArrayList;
+	2       (0000000a) invoke-direct        v0, Ljava/util/ArrayList;-><init>()V
+	3       (00000010) iput-object          v0, v2, Lcom/jlboat/phone/adapter/ConfigListAdapter;->listData Ljava/util/List;
+	4       (00000014) new-instance         v0, Lcom/jlboat/phone/adapter/ConfigListAdapter$3;
+	5       (00000018) invoke-direct        v0, v2, Lcom/jlboat/phone/adapter/ConfigListAdapter$3;-><init>(Lcom/jlboat/phone/adapter/ConfigListAdapter;)V
+	6       (0000001e) iput-object          v0, v2, Lcom/jlboat/phone/adapter/ConfigListAdapter;->handler Landroid/os/Handler;
+	7       (00000022) iput-object          v3, v2, Lcom/jlboat/phone/adapter/ConfigListAdapter;->mContext Landroid/content/Context;
+	8       (00000026) new-instance         v0, Ljava/lang/ref/WeakReference;
+	9       (0000002a) move-object          v1, v3
+	10      (0000002c) check-cast           v1, Lcom/jlboat/phone/activity/BasicSettingActivity;
+	11      (00000030) invoke-direct        v0, v1, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
+	12      (00000036) iput-object          v0, v2, Lcom/jlboat/phone/adapter/ConfigListAdapter;->weak Ljava/lang/ref/WeakReference;
+	13      (0000003a) return-void          
+

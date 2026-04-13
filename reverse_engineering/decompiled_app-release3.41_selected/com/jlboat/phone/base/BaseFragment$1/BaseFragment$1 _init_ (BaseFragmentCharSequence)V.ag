@@ -1,0 +1,15 @@
+# Lcom/jlboat/phone/base/BaseFragment$1;-><init>(Lcom/jlboat/phone/base/BaseFragment; Ljava/lang/CharSequence;)V [access_flags=constructor]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.base.BaseFragment
+# - v2:java.lang.CharSequence
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) iput-object          v1, v0, Lcom/jlboat/phone/base/BaseFragment$1;->this$0 Lcom/jlboat/phone/base/BaseFragment;
+	1       (00000004) iput-object          v2, v0, Lcom/jlboat/phone/base/BaseFragment$1;->val$str Ljava/lang/CharSequence;
+	2       (00000008) invoke-direct        v0, Ljava/lang/Object;-><init>()V
+	3       (0000000e) return-void          
+

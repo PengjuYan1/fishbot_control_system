@@ -1,0 +1,10 @@
+# Lcom/jlboat/phone/fragment/calibrationfragment/OmodFragment;->getCalcuOdom()V [access_flags=private]
+#
+# Parameters:
+# local registers: v0...v0
+#
+# - return:void
+
+getCalcuOdom-BB@0x0 : 
+	0       (00000000) return-void          
+

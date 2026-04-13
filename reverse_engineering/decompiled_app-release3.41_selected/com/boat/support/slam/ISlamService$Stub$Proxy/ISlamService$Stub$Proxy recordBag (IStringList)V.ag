@@ -1,0 +1,41 @@
+# Lcom/boat/support/slam/ISlamService$Stub$Proxy;->recordBag(I Ljava/lang/String; Ljava/util/List;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v5
+# - v6:int
+# - v7:java.lang.String
+# - v8:java.util.List
+#
+# - return:void
+
+recordBag-BB@0x0 : [ recordBag-BB@0x10 ]
+	0       (00000000) invoke-static        Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+	1       (00000006) move-result-object   v0
+	2       (00000008) invoke-static        Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+	3       (0000000e) move-result-object   v1
+
+recordBag-BB@0x10 : 
+	4       (00000010) const-string         v2, "com.boat.support.slam.ISlamService"
+	5       (00000014) invoke-virtual       v0, v2, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+	6       (0000001a) invoke-virtual       v0, v6, Landroid/os/Parcel;->writeInt(I)V
+	7       (00000020) invoke-virtual       v0, v7, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+	8       (00000026) invoke-virtual       v0, v8, Landroid/os/Parcel;->writeStringList(Ljava/util/List;)V
+	9       (0000002c) iget-object          v2, v5, Lcom/boat/support/slam/ISlamService$Stub$Proxy;->mRemote Landroid/os/IBinder;
+	10      (00000030) const/16             v3, 40
+	11      (00000034) const/4              v4, 0
+	12      (00000036) invoke-interface     v2, v3, v0, v1, v4, Landroid/os/IBinder;->transact(I Landroid/os/Parcel; Landroid/os/Parcel; I)Z
+	13      (0000003c) move-result          v2
+	14      (0000003e) invoke-virtual       v1, Landroid/os/Parcel;->readException()V
+	15      (00000044) invoke-virtual       v1, Landroid/os/Parcel;->recycle()V
+	16      (0000004a) invoke-virtual       v0, Landroid/os/Parcel;->recycle()V
+	17      (00000050) nop                  
+	18      (00000052) return-void          
+	10:43
+	(Ljava/lang/Throwable; -> 54 recordBag-BB@0x54)
+
+recordBag-BB@0x54 : 
+	19      (00000054) move-exception       v2
+	20      (00000056) invoke-virtual       v1, Landroid/os/Parcel;->recycle()V
+	21      (0000005c) invoke-virtual       v0, Landroid/os/Parcel;->recycle()V
+	22      (00000062) throw                v2
+

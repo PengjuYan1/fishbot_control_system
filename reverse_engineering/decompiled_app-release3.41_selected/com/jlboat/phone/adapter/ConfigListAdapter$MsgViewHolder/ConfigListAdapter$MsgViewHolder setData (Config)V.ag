@@ -1,0 +1,19 @@
+# Lcom/jlboat/phone/adapter/ConfigListAdapter$MsgViewHolder;->setData(Lcom/jlboat/phone/message/map_msgs/Config;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:com.jlboat.phone.message.map_msgs.Config
+#
+# - return:void
+
+setData-BB@0x0 : 
+	0       (00000000) iget-object          v0, v2, Lcom/jlboat/phone/adapter/ConfigListAdapter$MsgViewHolder;->config_name Landroid/widget/TextView;
+	1       (00000004) invoke-virtual       v3, Lcom/jlboat/phone/message/map_msgs/Config;->getConfigName()Ljava/lang/String;
+	2       (0000000a) move-result-object   v1
+	3       (0000000c) invoke-virtual       v0, v1, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+	4       (00000012) iget-object          v0, v2, Lcom/jlboat/phone/adapter/ConfigListAdapter$MsgViewHolder;->config_value Landroid/widget/TextView;
+	5       (00000016) invoke-virtual       v3, Lcom/jlboat/phone/message/map_msgs/Config;->getConfigValue()Ljava/lang/String;
+	6       (0000001c) move-result-object   v1
+	7       (0000001e) invoke-virtual       v0, v1, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+	8       (00000024) return-void          
+

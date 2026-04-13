@@ -1,0 +1,31 @@
+# Lcom/jlboat/phone/activity/MapEditMapActivity2025;->dismissWaitingDialog()V [access_flags=private]
+#
+# Parameters:
+# local registers: v0...v2
+#
+# - return:void
+
+dismissWaitingDialog-BB@0x0 : [ dismissWaitingDialog-BB@0x8 dismissWaitingDialog-BB@0x18 ]
+	0       (00000000) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapEditMapActivity2025;->waitingDialog Landroid/app/ProgressDialog;
+	1       (00000004) if-eqz               v0, +00ah
+
+dismissWaitingDialog-BB@0x8 : [ dismissWaitingDialog-BB@0x18 ]
+	2       (00000008) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapEditMapActivity2025;->waitingDialog Landroid/app/ProgressDialog;
+	3       (0000000c) invoke-virtual       v0, Landroid/app/ProgressDialog;->dismiss()V
+	4       (00000012) const/4              v0, 0
+	5       (00000014) iput-object          v0, v2, Lcom/jlboat/phone/activity/MapEditMapActivity2025;->waitingDialog Landroid/app/ProgressDialog;
+
+dismissWaitingDialog-BB@0x18 : [ dismissWaitingDialog-BB@0x2c dismissWaitingDialog-BB@0x36 ]
+	6       (00000018) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapEditMapActivity2025;->handler Landroid/os/Handler;
+	7       (0000001c) const/16             v1, 31
+	8       (00000020) invoke-virtual       v0, v1, Landroid/os/Handler;->hasMessages(I)Z
+	9       (00000026) move-result          v0
+	10      (00000028) if-eqz               v0, +007h
+
+dismissWaitingDialog-BB@0x2c : [ dismissWaitingDialog-BB@0x36 ]
+	11      (0000002c) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapEditMapActivity2025;->handler Landroid/os/Handler;
+	12      (00000030) invoke-virtual       v0, v1, Landroid/os/Handler;->removeMessages(I)V
+
+dismissWaitingDialog-BB@0x36 : 
+	13      (00000036) return-void          
+

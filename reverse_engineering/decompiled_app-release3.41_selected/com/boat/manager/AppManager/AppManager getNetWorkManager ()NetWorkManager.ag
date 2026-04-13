@@ -1,0 +1,22 @@
+# Lcom/boat/manager/AppManager;->getNetWorkManager()Lcom/boat/manager/NetWorkManager; [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v2
+#
+# - return:com.boat.manager.NetWorkManager
+
+getNetWorkManager-BB@0x0 : [ getNetWorkManager-BB@0x8 getNetWorkManager-BB@0x1e ]
+	0       (00000000) iget-object          v0, v2, Lcom/boat/manager/AppManager;->mNetWorkManager Lcom/boat/manager/NetWorkManager;
+	1       (00000004) if-nez               v0, +00dh
+
+getNetWorkManager-BB@0x8 : [ getNetWorkManager-BB@0x1e ]
+	2       (00000008) new-instance         v0, Lcom/boat/manager/NetWorkManager;
+	3       (0000000c) invoke-virtual       v2, Lcom/boat/manager/AppManager;->getApp()Lcom/boat/base/BaseApplication;
+	4       (00000012) move-result-object   v1
+	5       (00000014) invoke-direct        v0, v1, Lcom/boat/manager/NetWorkManager;-><init>(Lcom/boat/base/BaseApplication;)V
+	6       (0000001a) iput-object          v0, v2, Lcom/boat/manager/AppManager;->mNetWorkManager Lcom/boat/manager/NetWorkManager;
+
+getNetWorkManager-BB@0x1e : 
+	7       (0000001e) iget-object          v0, v2, Lcom/boat/manager/AppManager;->mNetWorkManager Lcom/boat/manager/NetWorkManager;
+	8       (00000022) return-object        v0
+

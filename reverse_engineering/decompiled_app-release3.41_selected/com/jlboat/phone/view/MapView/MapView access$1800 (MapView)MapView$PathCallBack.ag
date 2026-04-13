@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/view/MapView;->access$1800(Lcom/jlboat/phone/view/MapView;)Lcom/jlboat/phone/view/MapView$PathCallBack; [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.view.MapView
+#
+# - return:com.jlboat.phone.view.MapView$PathCallBack
+
+access$1800-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/jlboat/phone/view/MapView;->navigationPathListen Lcom/jlboat/phone/view/MapView$PathCallBack;
+	1       (00000004) return-object        v0
+

@@ -1,0 +1,13 @@
+# Lcom/boat/support/slam/SlamManager;->moveLeft()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v4
+#
+# - return:void
+
+moveLeft-BB@0x0 : 
+	0       (00000000) const-wide/16        v0, 0
+	1       (00000004) const-wide           v2, 4600877379321698714
+	2       (0000000e) invoke-direct        v4, v0, v1, v2, v3, Lcom/boat/support/slam/SlamManager;->moveAlways(D D)V
+	3       (00000014) return-void          
+

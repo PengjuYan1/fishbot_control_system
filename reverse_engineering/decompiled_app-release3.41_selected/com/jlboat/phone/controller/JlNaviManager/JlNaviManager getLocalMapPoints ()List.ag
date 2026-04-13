@@ -1,0 +1,21 @@
+# Lcom/jlboat/phone/controller/JlNaviManager;->getLocalMapPoints()Ljava/util/List; [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v2
+#
+# - return:java.util.List
+
+getLocalMapPoints-BB@0x0 : [ getLocalMapPoints-BB@0xc getLocalMapPoints-BB@0x16 ]
+	0       (00000000) invoke-virtual       v2, Lcom/jlboat/phone/controller/JlNaviManager;->getLocalMaps()Lcom/boat/support/slam/entity/floors/Maps;
+	1       (00000006) move-result-object   v0
+	2       (00000008) if-eqz               v0, +007h
+
+getLocalMapPoints-BB@0xc : 
+	3       (0000000c) invoke-virtual       v0, Lcom/boat/support/slam/entity/floors/Maps;->getPoints()Ljava/util/List;
+	4       (00000012) move-result-object   v1
+	5       (00000014) return-object        v1
+
+getLocalMapPoints-BB@0x16 : 
+	6       (00000016) const/4              v1, 0
+	7       (00000018) return-object        v1
+

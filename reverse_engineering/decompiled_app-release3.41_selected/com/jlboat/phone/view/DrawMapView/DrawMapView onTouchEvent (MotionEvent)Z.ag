@@ -1,0 +1,49 @@
+# Lcom/jlboat/phone/view/DrawMapView;->onTouchEvent(Landroid/view/MotionEvent;)Z [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v6
+# - v7:android.view.MotionEvent
+#
+# - return:boolean
+
+onTouchEvent-BB@0x0 : [ onTouchEvent-BB@0xa onTouchEvent-BB@0xc ]
+	0       (00000000) iget-object          v0, v6, Lcom/jlboat/phone/view/DrawMapView;->touchEvenHandler Lcom/jlboat/phone/view/TouchEvenHandler;
+	1       (00000004) const/4              v1, 1
+	2       (00000006) if-nez               v0, +003h
+
+onTouchEvent-BB@0xa : 
+	3       (0000000a) return               v1
+
+onTouchEvent-BB@0xc : [ onTouchEvent-BB@0x1e onTouchEvent-BB@0x6a ]
+	4       (0000000c) iget-object          v0, v6, Lcom/jlboat/phone/view/DrawMapView;->touchEvenHandler Lcom/jlboat/phone/view/TouchEvenHandler;
+	5       (00000010) invoke-virtual       v0, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->touchEvent(Landroid/view/MotionEvent;)V
+	6       (00000016) iget-boolean         v0, v6, Lcom/jlboat/phone/view/DrawMapView;->start Z
+	7       (0000001a) if-eqz               v0, +028h
+
+onTouchEvent-BB@0x1e : [ onTouchEvent-BB@0x5c onTouchEvent-BB@0x6a ]
+	8       (0000001e) invoke-virtual       v6, Lcom/jlboat/phone/view/DrawMapView;->getWidth()I
+	9       (00000024) move-result          v0
+	10      (00000026) int-to-float         v0, v0
+	11      (00000028) const/high16         v2, 1073741824
+	12      (0000002c) div-float/2addr      v0, v2
+	13      (0000002e) invoke-virtual       v6, Lcom/jlboat/phone/view/DrawMapView;->getHeight()I
+	14      (00000034) move-result          v3
+	15      (00000036) int-to-float         v3, v3
+	16      (00000038) div-float/2addr      v3, v2
+	17      (0000003a) iget-object          v2, v6, Lcom/jlboat/phone/view/DrawMapView;->touchEvenHandler Lcom/jlboat/phone/view/TouchEvenHandler;
+	18      (0000003e) invoke-virtual       v2, v0, v3, Lcom/jlboat/phone/view/TouchEvenHandler;->coordinatesToImage(F F)Landroid/graphics/PointF;
+	19      (00000044) move-result-object   v2
+	20      (00000046) iget                 v4, v2, Landroid/graphics/PointF;->x F
+	21      (0000004a) iget                 v5, v2, Landroid/graphics/PointF;->y F
+	22      (0000004e) invoke-direct        v6, v4, v5, Lcom/jlboat/phone/view/DrawMapView;->eraseAt(F F)V
+	23      (00000054) iget-boolean         v4, v6, Lcom/jlboat/phone/view/DrawMapView;->isChange Z
+	24      (00000058) if-nez               v4, +009h
+
+onTouchEvent-BB@0x5c : [ onTouchEvent-BB@0x6a ]
+	25      (0000005c) iput-boolean         v1, v6, Lcom/jlboat/phone/view/DrawMapView;->isChange Z
+	26      (00000060) iget-object          v4, v6, Lcom/jlboat/phone/view/DrawMapView;->mapDataChangeCallBack Lcom/jlboat/phone/view/DrawMapView$MapDataChangeCallBack;
+	27      (00000064) invoke-interface     v4, v1, Lcom/jlboat/phone/view/DrawMapView$MapDataChangeCallBack;->onChange(Z)V
+
+onTouchEvent-BB@0x6a : 
+	28      (0000006a) return               v1
+

@@ -1,0 +1,11 @@
+# Lcom/jlboat/phone/view/Err;->getDa()Ljava/util/Date; [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:java.util.Date
+
+getDa-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/jlboat/phone/view/Err;->da Ljava/util/Date;
+	1       (00000004) return-object        v0
+

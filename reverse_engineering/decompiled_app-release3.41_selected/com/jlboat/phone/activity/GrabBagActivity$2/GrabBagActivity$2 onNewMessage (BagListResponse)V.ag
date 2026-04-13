@@ -1,0 +1,35 @@
+# Lcom/jlboat/phone/activity/GrabBagActivity$2;->onNewMessage(Lcom/jlboat/phone/message/map_msgs/BagListResponse;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:com.jlboat.phone.message.map_msgs.BagListResponse
+#
+# - return:void
+
+onNewMessage-BB@0x0 : 
+	0       (00000000) iget-object          v0, v3, Lcom/jlboat/phone/activity/GrabBagActivity$2;->this$0 Lcom/jlboat/phone/activity/GrabBagActivity;
+	1       (00000004) invoke-static        v0, Lcom/jlboat/phone/activity/GrabBagActivity;->access$500(Lcom/jlboat/phone/activity/GrabBagActivity;)Ljava/lang/String;
+	2       (0000000a) move-result-object   v0
+	3       (0000000c) new-instance         v1, Ljava/lang/StringBuilder;
+	4       (00000010) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	5       (00000016) const-string         v2, "getBag  onSuccess: "
+	6       (0000001a) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	7       (00000020) move-result-object   v1
+	8       (00000022) invoke-virtual       v4, Lcom/jlboat/phone/message/map_msgs/BagListResponse;->getBagNames()Ljava/util/List;
+	9       (00000028) move-result-object   v2
+	10      (0000002a) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+	11      (00000030) move-result-object   v1
+	12      (00000032) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	13      (00000038) move-result-object   v1
+	14      (0000003a) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	15      (00000040) iget-object          v0, v3, Lcom/jlboat/phone/activity/GrabBagActivity$2;->this$0 Lcom/jlboat/phone/activity/GrabBagActivity;
+	16      (00000044) invoke-virtual       v4, Lcom/jlboat/phone/message/map_msgs/BagListResponse;->getBagNames()Ljava/util/List;
+	17      (0000004a) move-result-object   v1
+	18      (0000004c) invoke-static        v0, v1, Lcom/jlboat/phone/activity/GrabBagActivity;->access$602(Lcom/jlboat/phone/activity/GrabBagActivity; Ljava/util/List;)Ljava/util/List;
+	19      (00000052) iget-object          v0, v3, Lcom/jlboat/phone/activity/GrabBagActivity$2;->this$0 Lcom/jlboat/phone/activity/GrabBagActivity;
+	20      (00000056) invoke-static        v0, Lcom/jlboat/phone/activity/GrabBagActivity;->access$200(Lcom/jlboat/phone/activity/GrabBagActivity;)Landroid/os/Handler;
+	21      (0000005c) move-result-object   v0
+	22      (0000005e) const/4              v1, 2
+	23      (00000060) invoke-virtual       v0, v1, Landroid/os/Handler;->sendEmptyMessage(I)Z
+	24      (00000066) return-void          
+

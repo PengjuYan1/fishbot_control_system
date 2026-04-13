@@ -1,0 +1,43 @@
+# Lcom/jlboat/phone/communication/SpiritServiceClient;->setChargingPriority(Ljava/util/List; Lcom/boat/jrosbridge/MessageListener;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v6
+# - v7:java.util.List
+# - v8:com.boat.jrosbridge.MessageListener
+#
+# - return:void
+
+setChargingPriority-BB@0x0 : [ setChargingPriority-BB@0x32 ]
+	0       (00000000) new-instance         v0, Lcom/boat/jrosbridge/Service;
+	1       (00000004) sget-object          v1, Lcom/jlboat/phone/util/ServiceNames;->Chargpriority Ljava/lang/String;
+	2       (00000008) const-class          v2, Lcom/jlboat/phone/message/map_msgs/SetInt64ArrayRequest;
+	3       (0000000c) const-class          v3, Lcom/jlboat/phone/message/map_msgs/SetInt64ArrayResponse;
+	4       (00000010) sget-object          v4, Lcom/jlboat/phone/application/BoatSlamApplication;->client Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;
+	5       (00000014) invoke-direct        v0, v1, v2, v3, v4, Lcom/boat/jrosbridge/Service;-><init>(Ljava/lang/String; Ljava/lang/Class; Ljava/lang/Class; Lcom/boat/jrosbridge/ROSClient;)V
+	6       (0000001a) new-instance         v1, Lcom/jlboat/phone/message/map_msgs/SetInt64ArrayRequest;
+	7       (0000001e) invoke-direct        v1, Lcom/jlboat/phone/message/map_msgs/SetInt64ArrayRequest;-><init>()V
+	8       (00000024) invoke-interface     v7, Ljava/util/List;->size()I
+	9       (0000002a) move-result          v2
+	10      (0000002c) new-array            v2, v2, [J
+	11      (00000030) const/4              v3, 0
+
+setChargingPriority-BB@0x32 : [ setChargingPriority-BB@0x3e setChargingPriority-BB@0x5c ]
+	12      (00000032) invoke-interface     v7, Ljava/util/List;->size()I
+	13      (00000038) move-result          v4
+	14      (0000003a) if-ge                v3, v4, +011h
+
+setChargingPriority-BB@0x3e : [ setChargingPriority-BB@0x32 ]
+	15      (0000003e) invoke-interface     v7, v3, Ljava/util/List;->get(I)Ljava/lang/Object;
+	16      (00000044) move-result-object   v4
+	17      (00000046) check-cast           v4, Ljava/lang/Long;
+	18      (0000004a) invoke-virtual       v4, Ljava/lang/Long;->longValue()J
+	19      (00000050) move-result-wide     v4
+	20      (00000052) aput-wide            v4, v2, v3
+	21      (00000056) add-int/lit8         v3, v3, 1
+	22      (0000005a) goto                 -14h
+
+setChargingPriority-BB@0x5c : 
+	23      (0000005c) invoke-virtual       v1, v2, Lcom/jlboat/phone/message/map_msgs/SetInt64ArrayRequest;->setData([J)V
+	24      (00000062) invoke-virtual       v0, v1, v8, Lcom/boat/jrosbridge/Service;->callWithHandler(Lcom/boat/jrosbridge/message/Message; Lcom/boat/jrosbridge/MessageListener;)V
+	25      (00000068) return-void          
+

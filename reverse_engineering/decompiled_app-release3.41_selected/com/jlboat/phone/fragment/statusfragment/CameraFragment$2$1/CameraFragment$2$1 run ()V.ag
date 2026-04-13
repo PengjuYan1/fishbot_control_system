@@ -1,0 +1,47 @@
+# Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$2$1;->run()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v3
+#
+# - return:void
+
+run-BB@0x0 : [ run-BB@0x1c run-BB@0x46 ]
+	0       (00000000) iget-object          v0, v3, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$2$1;->val$config Lcom/jlboat/phone/message/map_msgs/Config;
+	1       (00000004) invoke-virtual       v0, Lcom/jlboat/phone/message/map_msgs/Config;->getConfigValue()Ljava/lang/String;
+	2       (0000000a) move-result-object   v0
+	3       (0000000c) const-string         v1, "True"
+	4       (00000010) invoke-virtual       v0, v1, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	5       (00000016) move-result          v0
+	6       (00000018) if-eqz               v0, +017h
+
+run-BB@0x1c : [ run-BB@0x6e ]
+	7       (0000001c) iget-object          v0, v3, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$2$1;->this$1 Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$2;
+	8       (00000020) iget-object          v0, v0, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$2;->this$0 Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;
+	9       (00000024) iget-object          v0, v0, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;->cameraOpen Landroid/widget/Button;
+	10      (00000028) iget-object          v1, v3, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$2$1;->this$1 Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$2;
+	11      (0000002c) iget-object          v1, v1, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$2;->this$0 Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;
+	12      (00000030) const                v2, 2131492938
+	13      (00000036) invoke-virtual       v1, v2, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;->getString(I)Ljava/lang/String;
+	14      (0000003c) move-result-object   v1
+	15      (0000003e) invoke-virtual       v0, v1, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
+	16      (00000044) goto                 +15h
+
+run-BB@0x46 : [ run-BB@0x6e ]
+	17      (00000046) iget-object          v0, v3, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$2$1;->this$1 Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$2;
+	18      (0000004a) iget-object          v0, v0, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$2;->this$0 Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;
+	19      (0000004e) iget-object          v0, v0, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;->cameraOpen Landroid/widget/Button;
+	20      (00000052) iget-object          v1, v3, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$2$1;->this$1 Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$2;
+	21      (00000056) iget-object          v1, v1, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$2;->this$0 Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;
+	22      (0000005a) const                v2, 2131492939
+	23      (00000060) invoke-virtual       v1, v2, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;->getString(I)Ljava/lang/String;
+	24      (00000066) move-result-object   v1
+	25      (00000068) invoke-virtual       v0, v1, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
+
+run-BB@0x6e : 
+	26      (0000006e) iget-object          v0, v3, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$2$1;->this$1 Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$2;
+	27      (00000072) iget-object          v0, v0, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$2;->this$0 Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;
+	28      (00000076) iget-object          v0, v0, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;->cameraOpen Landroid/widget/Button;
+	29      (0000007a) const/4              v1, 0
+	30      (0000007c) invoke-virtual       v0, v1, Landroid/widget/Button;->setVisibility(I)V
+	31      (00000082) return-void          
+

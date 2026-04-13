@@ -1,0 +1,14 @@
+# Lcom/jlboat/phone/activity/MapActivity$20;->onNothingSelected(Landroid/widget/AdapterView;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:android.widget.AdapterView
+#
+# - return:void
+
+onNothingSelected-BB@0x0 : 
+	0       (00000000) const-string         v0, "MapActivity"
+	1       (00000004) const-string         v1, "point_bind onItemClick: noth"
+	2       (00000008) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	3       (0000000e) return-void          
+

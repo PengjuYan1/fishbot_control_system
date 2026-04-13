@@ -1,0 +1,20 @@
+# Lcom/boat/jrosbridge/Service;->take(Ljava/lang/String;)Lcom/boat/jrosbridge/message/Message; [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:java.lang.String
+#
+# - return:com.boat.jrosbridge.message.Message
+
+take-BB@0x0 : 
+	0       (00000000) iget-object          v0, v2, Lcom/boat/jrosbridge/Service;->calls Ljava/util/Map;
+	1       (00000004) invoke-interface     v0, v3, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+	2       (0000000a) move-result-object   v0
+	3       (0000000c) check-cast           v0, Lcom/boat/jrosbridge/Service$CallRecord;
+	4       (00000010) iget-object          v1, v0, Lcom/boat/jrosbridge/Service$CallRecord;->latch Ljava/util/concurrent/CountDownLatch;
+	5       (00000014) invoke-virtual       v1, Ljava/util/concurrent/CountDownLatch;->await()V
+	6       (0000001a) iget-object          v1, v2, Lcom/boat/jrosbridge/Service;->calls Ljava/util/Map;
+	7       (0000001e) invoke-interface     v1, v3, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+	8       (00000024) iget-object          v1, v0, Lcom/boat/jrosbridge/Service$CallRecord;->result Lcom/boat/jrosbridge/message/Message;
+	9       (00000028) return-object        v1
+

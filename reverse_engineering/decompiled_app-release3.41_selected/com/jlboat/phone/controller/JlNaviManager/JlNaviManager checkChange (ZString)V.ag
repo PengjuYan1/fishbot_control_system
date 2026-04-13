@@ -1,0 +1,45 @@
+# Lcom/jlboat/phone/controller/JlNaviManager;->checkChange(Z Ljava/lang/String;)V [access_flags=private]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:boolean
+# - v5:java.lang.String
+#
+# - return:void
+
+checkChange-BB@0x0 : [ checkChange-BB@0x64 checkChange-BB@0x7a ]
+	0       (00000000) iget-object          v0, v3, Lcom/jlboat/phone/controller/JlNaviManager;->TAG Ljava/lang/String;
+	1       (00000004) new-instance         v1, Ljava/lang/StringBuilder;
+	2       (00000008) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	3       (0000000e) const-string         v2, "checkChange: "
+	4       (00000012) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	5       (00000018) move-result-object   v1
+	6       (0000001a) invoke-virtual       v1, v5, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	7       (00000020) move-result-object   v1
+	8       (00000022) const-string         v2, " newCharging : "
+	9       (00000026) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	10      (0000002c) move-result-object   v1
+	11      (0000002e) invoke-virtual       v1, v4, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+	12      (00000034) move-result-object   v1
+	13      (00000036) const-string         v2, "oldCharging: "
+	14      (0000003a) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	15      (00000040) move-result-object   v1
+	16      (00000042) iget-boolean         v2, v3, Lcom/jlboat/phone/controller/JlNaviManager;->isCharging Z
+	17      (00000046) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+	18      (0000004c) move-result-object   v1
+	19      (0000004e) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	20      (00000054) move-result-object   v1
+	21      (00000056) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	22      (0000005c) iget-boolean         v0, v3, Lcom/jlboat/phone/controller/JlNaviManager;->isCharging Z
+	23      (00000060) if-eq                v4, v0, +00dh
+
+checkChange-BB@0x64 : [ checkChange-BB@0x7a ]
+	24      (00000064) iput-boolean         v4, v3, Lcom/jlboat/phone/controller/JlNaviManager;->isCharging Z
+	25      (00000068) invoke-direct        v3, Lcom/jlboat/phone/controller/JlNaviManager;->onPowerListener()V
+	26      (0000006e) iget-object          v0, v3, Lcom/jlboat/phone/controller/JlNaviManager;->mHandler Landroid/os/Handler;
+	27      (00000072) const/4              v1, 5
+	28      (00000074) invoke-virtual       v0, v1, Landroid/os/Handler;->sendEmptyMessage(I)Z
+
+checkChange-BB@0x7a : 
+	29      (0000007a) return-void          
+

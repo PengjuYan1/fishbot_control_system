@@ -1,0 +1,15 @@
+# Lcom/jlboat/phone/fragment/statusfragment/Camera03Fragment;->robotSsh(Ljava/lang/String;)V [access_flags=private]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:java.lang.String
+#
+# - return:void
+
+robotSsh-BB@0x0 : 
+	0       (00000000) iget-object          v0, v2, Lcom/jlboat/phone/fragment/statusfragment/Camera03Fragment;->spiritServiceClient Lcom/jlboat/phone/communication/SpiritServiceClient;
+	1       (00000004) new-instance         v1, Lcom/jlboat/phone/fragment/statusfragment/Camera03Fragment$3;
+	2       (00000008) invoke-direct        v1, v2, Lcom/jlboat/phone/fragment/statusfragment/Camera03Fragment$3;-><init>(Lcom/jlboat/phone/fragment/statusfragment/Camera03Fragment;)V
+	3       (0000000e) invoke-virtual       v0, v3, v1, Lcom/jlboat/phone/communication/SpiritServiceClient;->robotSshService(Ljava/lang/String; Lcom/boat/jrosbridge/MessageListener;)V
+	4       (00000014) return-void          
+

@@ -1,0 +1,11 @@
+# Lcom/jlboat/phone/view/loading/LoadingView;->OnAnimationRepeat(Landroid/animation/Animator;)V [access_flags=protected]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:android.animation.Animator
+#
+# - return:void
+
+OnAnimationRepeat-BB@0x0 : 
+	0       (00000000) return-void          
+

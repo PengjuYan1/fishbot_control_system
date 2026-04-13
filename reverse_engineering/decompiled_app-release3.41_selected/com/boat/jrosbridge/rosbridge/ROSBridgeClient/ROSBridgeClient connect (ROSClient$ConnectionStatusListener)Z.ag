@@ -1,0 +1,49 @@
+# Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;->connect(Lcom/boat/jrosbridge/ROSClient$ConnectionStatusListener;)Z [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v4
+# - v5:com.boat.jrosbridge.ROSClient$ConnectionStatusListener
+#
+# - return:boolean
+
+connect-BB@0x0 : [ connect-BB@0x1a connect-BB@0x3e ]
+	0       (00000000) const/4              v0, 0
+	1       (00000002) iget-object          v1, v4, Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;->uriString Ljava/lang/String;
+	2       (00000006) invoke-static        v1, Lcom/boat/jrosbridge/rosbridge/implementation/ROSBridgeWebSocketClient;->create(Ljava/lang/String;)Lcom/boat/jrosbridge/rosbridge/implementation/ROSBridgeWebSocketClient;
+	3       (0000000c) move-result-object   v1
+	4       (0000000e) iput-object          v1, v4, Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;->client Lcom/boat/jrosbridge/rosbridge/implementation/ROSBridgeWebSocketClient;
+	5       (00000012) iget-object          v1, v4, Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;->client Lcom/boat/jrosbridge/rosbridge/implementation/ROSBridgeWebSocketClient;
+	6       (00000016) if-eqz               v1, +014h
+
+connect-BB@0x1a : [ connect-BB@0x24 ]
+	7       (0000001a) iget-object          v1, v4, Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;->client Lcom/boat/jrosbridge/rosbridge/implementation/ROSBridgeWebSocketClient;
+	8       (0000001e) invoke-virtual       v1, v5, Lcom/boat/jrosbridge/rosbridge/implementation/ROSBridgeWebSocketClient;->setListener(Lcom/boat/jrosbridge/ROSClient$ConnectionStatusListener;)V
+
+connect-BB@0x24 : [ connect-BB@0x32 ]
+	9       (00000024) iget-object          v1, v4, Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;->client Lcom/boat/jrosbridge/rosbridge/implementation/ROSBridgeWebSocketClient;
+	10      (00000028) invoke-virtual       v1, Lcom/boat/jrosbridge/rosbridge/implementation/ROSBridgeWebSocketClient;->connectBlocking()Z
+	11      (0000002e) move-result          v1
+	12      (00000030) move                 v0, v1
+	24:2f
+	(Ljava/lang/InterruptedException; -> 34 connect-BB@0x34)
+
+connect-BB@0x32 : [ connect-BB@0x50 ]
+	13      (00000032) goto                 +fh
+
+connect-BB@0x34 : [ connect-BB@0x32 ]
+	14      (00000034) move-exception       v1
+	15      (00000036) invoke-virtual       v1, Ljava/lang/InterruptedException;->printStackTrace()V
+	16      (0000003c) goto                 -5h
+
+connect-BB@0x3e : [ connect-BB@0x42 connect-BB@0x50 ]
+	17      (0000003e) if-eqz               v5, +009h
+
+connect-BB@0x42 : [ connect-BB@0x50 ]
+	18      (00000042) const-string         v1, ""
+	19      (00000046) const/4              v2, -1
+	20      (00000048) const/4              v3, 0
+	21      (0000004a) invoke-interface     v5, v3, v1, v2, Lcom/boat/jrosbridge/ROSClient$ConnectionStatusListener;->onDisconnect(Z Ljava/lang/String; I)V
+
+connect-BB@0x50 : 
+	22      (00000050) return               v0
+

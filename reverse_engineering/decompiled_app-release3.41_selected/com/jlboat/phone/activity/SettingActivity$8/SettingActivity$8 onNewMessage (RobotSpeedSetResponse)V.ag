@@ -1,0 +1,50 @@
+# Lcom/jlboat/phone/activity/SettingActivity$8;->onNewMessage(Lcom/jlboat/phone/message/map_msgs/RobotSpeedSetResponse;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v5
+# - v6:com.jlboat.phone.message.map_msgs.RobotSpeedSetResponse
+#
+# - return:void
+
+onNewMessage-BB@0x0 : [ onNewMessage-BB@0x82 onNewMessage-BB@0x90 ]
+	0       (00000000) iget-object          v0, v5, Lcom/jlboat/phone/activity/SettingActivity$8;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	1       (00000004) invoke-static        v0, Lcom/jlboat/phone/activity/SettingActivity;->access$1100(Lcom/jlboat/phone/activity/SettingActivity;)Landroid/widget/RadioButton;
+	2       (0000000a) move-result-object   v0
+	3       (0000000c) const/4              v1, 1
+	4       (0000000e) invoke-virtual       v0, v1, Landroid/widget/RadioButton;->setEnabled(Z)V
+	5       (00000014) iget-object          v0, v5, Lcom/jlboat/phone/activity/SettingActivity$8;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	6       (00000018) invoke-static        v0, Lcom/jlboat/phone/activity/SettingActivity;->access$1200(Lcom/jlboat/phone/activity/SettingActivity;)Landroid/widget/RadioButton;
+	7       (0000001e) move-result-object   v0
+	8       (00000020) invoke-virtual       v0, v1, Landroid/widget/RadioButton;->setEnabled(Z)V
+	9       (00000026) iget-object          v0, v5, Lcom/jlboat/phone/activity/SettingActivity$8;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	10      (0000002a) invoke-static        v0, Lcom/jlboat/phone/activity/SettingActivity;->access$1300(Lcom/jlboat/phone/activity/SettingActivity;)Landroid/widget/RadioButton;
+	11      (00000030) move-result-object   v0
+	12      (00000032) invoke-virtual       v0, v1, Landroid/widget/RadioButton;->setEnabled(Z)V
+	13      (00000038) iget-object          v0, v5, Lcom/jlboat/phone/activity/SettingActivity$8;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	14      (0000003c) invoke-static        v0, Lcom/jlboat/phone/activity/SettingActivity;->access$1400(Lcom/jlboat/phone/activity/SettingActivity;)Landroid/widget/RadioButton;
+	15      (00000042) move-result-object   v0
+	16      (00000044) invoke-virtual       v0, v1, Landroid/widget/RadioButton;->setEnabled(Z)V
+	17      (0000004a) iget-object          v0, v5, Lcom/jlboat/phone/activity/SettingActivity$8;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	18      (0000004e) invoke-static        v0, Lcom/jlboat/phone/activity/SettingActivity;->access$1500(Lcom/jlboat/phone/activity/SettingActivity;)Landroid/widget/RadioButton;
+	19      (00000054) move-result-object   v0
+	20      (00000056) invoke-virtual       v0, v1, Landroid/widget/RadioButton;->setEnabled(Z)V
+	21      (0000005c) iget-object          v0, v5, Lcom/jlboat/phone/activity/SettingActivity$8;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	22      (00000060) invoke-static        v0, Lcom/jlboat/phone/activity/SettingActivity;->access$1600(Lcom/jlboat/phone/activity/SettingActivity;)Landroid/widget/RadioButton;
+	23      (00000066) move-result-object   v0
+	24      (00000068) invoke-virtual       v0, v1, Landroid/widget/RadioButton;->setEnabled(Z)V
+	25      (0000006e) invoke-virtual       v6, Lcom/jlboat/phone/message/map_msgs/RobotSpeedSetResponse;->getResult()J
+	26      (00000074) move-result-wide     v0
+	27      (00000076) const-wide/16        v2, 0
+	28      (0000007a) cmp-long             v4, v0, v2
+	29      (0000007e) if-nez               v4, +009h
+
+onNewMessage-BB@0x82 : [ onNewMessage-BB@0x90 ]
+	30      (00000082) iget-object          v0, v5, Lcom/jlboat/phone/activity/SettingActivity$8;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	31      (00000086) const-string         v1, "速度设置成功"
+	32      (0000008a) invoke-virtual       v0, v1, Lcom/jlboat/phone/activity/SettingActivity;->toast(Ljava/lang/String;)V
+
+onNewMessage-BB@0x90 : 
+	33      (00000090) iget-object          v0, v5, Lcom/jlboat/phone/activity/SettingActivity$8;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	34      (00000094) invoke-static        v0, Lcom/jlboat/phone/activity/SettingActivity;->access$1700(Lcom/jlboat/phone/activity/SettingActivity;)V
+	35      (0000009a) return-void          
+

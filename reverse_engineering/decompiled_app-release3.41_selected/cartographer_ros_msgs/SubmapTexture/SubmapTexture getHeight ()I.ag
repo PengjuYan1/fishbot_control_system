@@ -1,0 +1,11 @@
+# Lcartographer_ros_msgs/SubmapTexture;->getHeight()I [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:int
+
+getHeight-BB@0x0 : 
+	0       (00000000) iget                 v0, v1, Lcartographer_ros_msgs/SubmapTexture;->height I
+	1       (00000004) return               v0
+

@@ -1,0 +1,94 @@
+# Lcom/jlboat/phone/activity/TestResultActivity;->processDataAndUpdateUI(Ljava/util/List; Lcom/boat/support/slam/entity/floors/MapList;)V [access_flags=private]
+#
+# Parameters:
+# - local registers: v0...v8
+# - v9:java.util.List
+# - v10:com.boat.support.slam.entity.floors.MapList
+#
+# - return:void
+
+processDataAndUpdateUI-BB@0x0 : [ processDataAndUpdateUI-BB@0xa ]
+	0       (00000000) const/4              v0, 1
+	1       (00000002) invoke-interface     v9, Ljava/util/List;->iterator()Ljava/util/Iterator;
+	2       (00000008) move-result-object   v1
+
+processDataAndUpdateUI-BB@0xa : [ processDataAndUpdateUI-BB@0x16 processDataAndUpdateUI-BB@0x96 ]
+	3       (0000000a) invoke-interface     v1, Ljava/util/Iterator;->hasNext()Z
+	4       (00000010) move-result          v2
+	5       (00000012) if-eqz               v2, +042h
+
+processDataAndUpdateUI-BB@0x16 : [ processDataAndUpdateUI-BB@0x32 processDataAndUpdateUI-BB@0x4e ]
+	6       (00000016) invoke-interface     v1, Ljava/util/Iterator;->next()Ljava/lang/Object;
+	7       (0000001c) move-result-object   v2
+	8       (0000001e) check-cast           v2, Lcom/jlboat/phone/message/map_msgs/NaviTestResultEntry;
+	9       (00000022) invoke-virtual       v2, Lcom/jlboat/phone/message/map_msgs/NaviTestResultEntry;->getTestType()J
+	10      (00000028) move-result-wide     v3
+	11      (0000002a) long-to-int          v4, v3
+	12      (0000002c) const/4              v3, 2
+	13      (0000002e) if-ne                v4, v3, +010h
+
+processDataAndUpdateUI-BB@0x32 : [ processDataAndUpdateUI-BB@0x46 processDataAndUpdateUI-BB@0x4a ]
+	14      (00000032) invoke-virtual       v2, Lcom/jlboat/phone/message/map_msgs/NaviTestResultEntry;->getGoalResult()J
+	15      (00000038) move-result-wide     v3
+	16      (0000003a) const-wide/16        v5, 2
+	17      (0000003e) cmp-long             v7, v3, v5
+	18      (00000042) if-nez               v7, +004h
+
+processDataAndUpdateUI-BB@0x46 : [ processDataAndUpdateUI-BB@0x96 ]
+	19      (00000046) const/4              v0, 1
+	20      (00000048) goto                 +27h
+
+processDataAndUpdateUI-BB@0x4a : [ processDataAndUpdateUI-BB@0x8c ]
+	21      (0000004a) const/4              v0, 0
+	22      (0000004c) goto                 +20h
+
+processDataAndUpdateUI-BB@0x4e : [ processDataAndUpdateUI-BB@0x5c processDataAndUpdateUI-BB@0x92 ]
+	23      (0000004e) invoke-virtual       v2, Lcom/jlboat/phone/message/map_msgs/NaviTestResultEntry;->getGoalResult()J
+	24      (00000054) move-result-wide     v4
+	25      (00000056) long-to-int          v5, v4
+	26      (00000058) if-eq                v5, v3, +01dh
+
+processDataAndUpdateUI-BB@0x5c : [ processDataAndUpdateUI-BB@0x6a processDataAndUpdateUI-BB@0x6c ]
+	27      (0000005c) invoke-virtual       v2, Lcom/jlboat/phone/message/map_msgs/NaviTestResultEntry;->getChargeResult()J
+	28      (00000062) move-result-wide     v4
+	29      (00000064) long-to-int          v5, v4
+	30      (00000066) if-ne                v5, v3, +003h
+
+processDataAndUpdateUI-BB@0x6a : [ processDataAndUpdateUI-BB@0x92 ]
+	31      (0000006a) goto                 +14h
+
+processDataAndUpdateUI-BB@0x6c : [ processDataAndUpdateUI-BB@0x7c processDataAndUpdateUI-BB@0x8e ]
+	32      (0000006c) invoke-virtual       v2, Lcom/jlboat/phone/message/map_msgs/NaviTestResultEntry;->getGoalResult()J
+	33      (00000072) move-result-wide     v3
+	34      (00000074) long-to-int          v4, v3
+	35      (00000076) const/4              v3, 3
+	36      (00000078) if-eq                v4, v3, +00bh
+
+processDataAndUpdateUI-BB@0x7c : [ processDataAndUpdateUI-BB@0x8a processDataAndUpdateUI-BB@0x8c ]
+	37      (0000007c) invoke-virtual       v2, Lcom/jlboat/phone/message/map_msgs/NaviTestResultEntry;->getChargeResult()J
+	38      (00000082) move-result-wide     v4
+	39      (00000084) long-to-int          v5, v4
+	40      (00000086) if-ne                v5, v3, +003h
+
+processDataAndUpdateUI-BB@0x8a : [ processDataAndUpdateUI-BB@0x8e ]
+	41      (0000008a) goto                 +2h
+
+processDataAndUpdateUI-BB@0x8c : [ processDataAndUpdateUI-BB@0xa ]
+	42      (0000008c) goto                 -41h
+
+processDataAndUpdateUI-BB@0x8e : [ processDataAndUpdateUI-BB@0x96 ]
+	43      (0000008e) const/4              v0, 0
+	44      (00000090) goto                 +3h
+
+processDataAndUpdateUI-BB@0x92 : [ processDataAndUpdateUI-BB@0x96 ]
+	45      (00000092) const/4              v0, 1
+	46      (00000094) nop                  
+
+processDataAndUpdateUI-BB@0x96 : 
+	47      (00000096) move                 v1, v0
+	48      (00000098) iget-object          v2, v8, Lcom/jlboat/phone/activity/TestResultActivity;->testResRv Landroid/support/v7/widget/RecyclerView;
+	49      (0000009c) new-instance         v3, Lcom/jlboat/phone/activity/TestResultActivity$$ExternalSyntheticLambda0;
+	50      (000000a0) invoke-direct        v3, v8, v10, v9, v1, Lcom/jlboat/phone/activity/TestResultActivity$$ExternalSyntheticLambda0;-><init>(Lcom/jlboat/phone/activity/TestResultActivity; Lcom/boat/support/slam/entity/floors/MapList; Ljava/util/List; Z)V
+	51      (000000a6) invoke-virtual       v2, v3, Landroid/support/v7/widget/RecyclerView;->post(Ljava/lang/Runnable;)Z
+	52      (000000ac) return-void          
+

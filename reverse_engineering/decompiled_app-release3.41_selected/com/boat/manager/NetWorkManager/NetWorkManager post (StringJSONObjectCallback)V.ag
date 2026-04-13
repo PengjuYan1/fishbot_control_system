@@ -1,0 +1,24 @@
+# Lcom/boat/manager/NetWorkManager;->post(Ljava/lang/String; Lorg/json/JSONObject; Lokhttp3/Callback;)V [access_flags=private]
+#
+# Parameters:
+# - local registers: v0...v4
+# - v5:java.lang.String
+# - v6:org.json.JSONObject
+# - v7:okhttp3.Callback
+#
+# - return:void
+
+post-BB@0x0 : 
+	0       (00000000) new-instance         v0, Lcom/boat/utils/OkHttpUtils;
+	1       (00000004) invoke-direct        v0, Lcom/boat/utils/OkHttpUtils;-><init>()V
+	2       (0000000a) invoke-virtual       v0, Lcom/boat/utils/OkHttpUtils;->getClient()Lokhttp3/OkHttpClient;
+	3       (00000010) move-result-object   v1
+	4       (00000012) invoke-virtual       v0, v6, Lcom/boat/utils/OkHttpUtils;->getRequestBody(Lorg/json/JSONObject;)Lokhttp3/RequestBody;
+	5       (00000018) move-result-object   v2
+	6       (0000001a) invoke-virtual       v0, v5, v2, Lcom/boat/utils/OkHttpUtils;->getJsonRequest(Ljava/lang/String; Lokhttp3/RequestBody;)Lokhttp3/Request;
+	7       (00000020) move-result-object   v2
+	8       (00000022) invoke-virtual       v0, v1, v2, Lcom/boat/utils/OkHttpUtils;->getCall(Lokhttp3/OkHttpClient; Lokhttp3/Request;)Lokhttp3/Call;
+	9       (00000028) move-result-object   v3
+	10      (0000002a) invoke-virtual       v0, v3, v7, Lcom/boat/utils/OkHttpUtils;->enqueue(Lokhttp3/Call; Lokhttp3/Callback;)V
+	11      (00000030) return-void          
+

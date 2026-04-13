@@ -1,0 +1,37 @@
+# Lcom/jlboat/phone/util/ROSColor;->fromHexAndAlpha(Ljava/lang/String; F)Lcom/jlboat/phone/util/ROSColor; [access_flags=public static]
+#
+# Parameters:
+# - local registers: v0...v4
+# - v5:java.lang.String
+# - v6:float
+#
+# - return:com.jlboat.phone.util.ROSColor
+
+fromHexAndAlpha-BB@0x0 : 
+	0       (00000000) const/4              v0, 0
+	1       (00000002) const/4              v1, 2
+	2       (00000004) invoke-virtual       v5, v0, v1, Ljava/lang/String;->substring(I I)Ljava/lang/String;
+	3       (0000000a) move-result-object   v0
+	4       (0000000c) const/16             v2, 16
+	5       (00000010) invoke-static        v0, v2, Ljava/lang/Integer;->parseInt(Ljava/lang/String; I)I
+	6       (00000016) move-result          v0
+	7       (00000018) int-to-float         v0, v0
+	8       (0000001a) const/high16         v3, 1132396544
+	9       (0000001e) div-float/2addr      v0, v3
+	10      (00000020) const/4              v4, 4
+	11      (00000022) invoke-virtual       v5, v1, v4, Ljava/lang/String;->substring(I I)Ljava/lang/String;
+	12      (00000028) move-result-object   v1
+	13      (0000002a) invoke-static        v1, v2, Ljava/lang/Integer;->parseInt(Ljava/lang/String; I)I
+	14      (00000030) move-result          v1
+	15      (00000032) int-to-float         v1, v1
+	16      (00000034) div-float/2addr      v1, v3
+	17      (00000036) invoke-virtual       v5, v4, Ljava/lang/String;->substring(I)Ljava/lang/String;
+	18      (0000003c) move-result-object   v4
+	19      (0000003e) invoke-static        v4, v2, Ljava/lang/Integer;->parseInt(Ljava/lang/String; I)I
+	20      (00000044) move-result          v2
+	21      (00000046) int-to-float         v2, v2
+	22      (00000048) div-float/2addr      v2, v3
+	23      (0000004a) new-instance         v3, Lcom/jlboat/phone/util/ROSColor;
+	24      (0000004e) invoke-direct        v3, v0, v1, v2, v6, Lcom/jlboat/phone/util/ROSColor;-><init>(F F F F)V
+	25      (00000054) return-object        v3
+

@@ -1,0 +1,20 @@
+# Lcom/jlboat/phone/activity/SettingActivity;->dismissWaitingDialog()V [access_flags=private]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:void
+
+dismissWaitingDialog-BB@0x0 : [ dismissWaitingDialog-BB@0x8 dismissWaitingDialog-BB@0x18 ]
+	0       (00000000) iget-object          v0, v1, Lcom/jlboat/phone/activity/SettingActivity;->waitingDialog Landroid/app/ProgressDialog;
+	1       (00000004) if-eqz               v0, +00ah
+
+dismissWaitingDialog-BB@0x8 : [ dismissWaitingDialog-BB@0x18 ]
+	2       (00000008) iget-object          v0, v1, Lcom/jlboat/phone/activity/SettingActivity;->waitingDialog Landroid/app/ProgressDialog;
+	3       (0000000c) invoke-virtual       v0, Landroid/app/ProgressDialog;->dismiss()V
+	4       (00000012) const/4              v0, 0
+	5       (00000014) iput-object          v0, v1, Lcom/jlboat/phone/activity/SettingActivity;->waitingDialog Landroid/app/ProgressDialog;
+
+dismissWaitingDialog-BB@0x18 : 
+	6       (00000018) return-void          
+

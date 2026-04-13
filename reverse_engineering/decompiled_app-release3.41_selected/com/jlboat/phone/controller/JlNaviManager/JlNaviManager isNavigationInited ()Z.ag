@@ -1,0 +1,25 @@
+# Lcom/jlboat/phone/controller/JlNaviManager;->isNavigationInited()Z [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:boolean
+
+isNavigationInited-BB@0x0 : [ isNavigationInited-BB@0x8 isNavigationInited-BB@0x14 ]
+	0       (00000000) iget-boolean         v0, v1, Lcom/jlboat/phone/controller/JlNaviManager;->connectStatus Z
+	1       (00000004) if-eqz               v0, +008h
+
+isNavigationInited-BB@0x8 : [ isNavigationInited-BB@0x10 isNavigationInited-BB@0x14 ]
+	2       (00000008) iget-boolean         v0, v1, Lcom/jlboat/phone/controller/JlNaviManager;->isNavigationInited Z
+	3       (0000000c) if-eqz               v0, +004h
+
+isNavigationInited-BB@0x10 : [ isNavigationInited-BB@0x16 ]
+	4       (00000010) const/4              v0, 1
+	5       (00000012) goto                 +2h
+
+isNavigationInited-BB@0x14 : [ isNavigationInited-BB@0x16 ]
+	6       (00000014) const/4              v0, 0
+
+isNavigationInited-BB@0x16 : 
+	7       (00000016) return               v0
+

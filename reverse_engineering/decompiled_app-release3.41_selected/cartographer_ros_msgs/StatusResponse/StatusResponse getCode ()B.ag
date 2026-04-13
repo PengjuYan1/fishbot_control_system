@@ -1,0 +1,11 @@
+# Lcartographer_ros_msgs/StatusResponse;->getCode()B [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:byte
+
+getCode-BB@0x0 : 
+	0       (00000000) iget-byte            v0, v1, Lcartographer_ros_msgs/StatusResponse;->code B
+	1       (00000004) return               v0
+

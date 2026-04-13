@@ -1,0 +1,33 @@
+# Lcom/boat/support/slam/entity/floors/NLine;-><init>(Landroid/os/Parcel;)V [access_flags=protected constructor]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:android.os.Parcel
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) invoke-direct        v2, Ljava/lang/Object;-><init>()V
+	1       (00000006) invoke-virtual       v3, Landroid/os/Parcel;->readLong()J
+	2       (0000000c) move-result-wide     v0
+	3       (0000000e) iput-wide            v0, v2, Lcom/boat/support/slam/entity/floors/NLine;->id J
+	4       (00000012) invoke-virtual       v3, Landroid/os/Parcel;->readLong()J
+	5       (00000018) move-result-wide     v0
+	6       (0000001a) iput-wide            v0, v2, Lcom/boat/support/slam/entity/floors/NLine;->startNid J
+	7       (0000001e) invoke-virtual       v3, Landroid/os/Parcel;->readLong()J
+	8       (00000024) move-result-wide     v0
+	9       (00000026) iput-wide            v0, v2, Lcom/boat/support/slam/entity/floors/NLine;->endNid J
+	10      (0000002a) invoke-virtual       v3, Landroid/os/Parcel;->readInt()I
+	11      (00000030) move-result          v0
+	12      (00000032) iput                 v0, v2, Lcom/boat/support/slam/entity/floors/NLine;->type I
+	13      (00000036) invoke-virtual       v3, Landroid/os/Parcel;->readInt()I
+	14      (0000003c) move-result          v0
+	15      (0000003e) iput                 v0, v2, Lcom/boat/support/slam/entity/floors/NLine;->direction I
+	16      (00000042) invoke-virtual       v3, Landroid/os/Parcel;->readFloat()F
+	17      (00000048) move-result          v0
+	18      (0000004a) iput                 v0, v2, Lcom/boat/support/slam/entity/floors/NLine;->weight F
+	19      (0000004e) invoke-virtual       v3, Landroid/os/Parcel;->readFloat()F
+	20      (00000054) move-result          v0
+	21      (00000056) iput                 v0, v2, Lcom/boat/support/slam/entity/floors/NLine;->speed F
+	22      (0000005a) return-void          
+

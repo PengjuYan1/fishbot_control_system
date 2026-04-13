@@ -1,0 +1,81 @@
+# Lcom/jlboat/phone/communication/SpiritServiceClient;->addOrDelShapeServer(Lworld_canvas_msgs18/SetShapeRequestEnty; Lcom/boat/jrosbridge/MessageListener;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v8
+# - v9:world_canvas_msgs18.SetShapeRequestEnty
+# - v10:com.boat.jrosbridge.MessageListener
+#
+# - return:void
+
+addOrDelShapeServer-BB@0x0 : [ addOrDelShapeServer-BB@0x30 addOrDelShapeServer-BB@0x3e ]
+	0       (00000000) new-instance         v0, Lcom/boat/jrosbridge/Service;
+	1       (00000004) sget-object          v1, Lcom/jlboat/phone/util/ServiceNames;->ShapeService Ljava/lang/String;
+	2       (00000008) const-class          v2, Lcom/jlboat/phone/message/map_msgs/SetShapeRequest;
+	3       (0000000c) const-class          v3, Lcom/jlboat/phone/message/map_msgs/SetShapeResponse;
+	4       (00000010) sget-object          v4, Lcom/jlboat/phone/application/BoatSlamApplication;->client Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;
+	5       (00000014) invoke-direct        v0, v1, v2, v3, v4, Lcom/boat/jrosbridge/Service;-><init>(Ljava/lang/String; Ljava/lang/Class; Ljava/lang/Class; Lcom/boat/jrosbridge/ROSClient;)V
+	6       (0000001a) new-instance         v1, Lcom/jlboat/phone/message/map_msgs/SetShapeRequest;
+	7       (0000001e) invoke-direct        v1, Lcom/jlboat/phone/message/map_msgs/SetShapeRequest;-><init>()V
+	8       (00000024) invoke-virtual       v9, Lworld_canvas_msgs18/SetShapeRequestEnty;->getType()Ljava/lang/String;
+	9       (0000002a) move-result-object   v2
+	10      (0000002c) if-eqz               v2, +009h
+
+addOrDelShapeServer-BB@0x30 : [ addOrDelShapeServer-BB@0x3e ]
+	11      (00000030) invoke-virtual       v9, Lworld_canvas_msgs18/SetShapeRequestEnty;->getType()Ljava/lang/String;
+	12      (00000036) move-result-object   v2
+	13      (00000038) invoke-virtual       v1, v2, Lcom/jlboat/phone/message/map_msgs/SetShapeRequest;->setType(Ljava/lang/String;)V
+
+addOrDelShapeServer-BB@0x3e : [ addOrDelShapeServer-BB@0x54 addOrDelShapeServer-BB@0xbe ]
+	14      (0000003e) new-instance         v2, Ljava/util/LinkedList;
+	15      (00000042) invoke-direct        v2, Ljava/util/LinkedList;-><init>()V
+	16      (00000048) invoke-virtual       v9, Lworld_canvas_msgs18/SetShapeRequestEnty;->getPoints()Ljava/util/List;
+	17      (0000004e) move-result-object   v3
+	18      (00000050) if-eqz               v3, +037h
+
+addOrDelShapeServer-BB@0x54 : [ addOrDelShapeServer-BB@0x68 addOrDelShapeServer-BB@0xbe ]
+	19      (00000054) invoke-virtual       v9, Lworld_canvas_msgs18/SetShapeRequestEnty;->getPoints()Ljava/util/List;
+	20      (0000005a) move-result-object   v3
+	21      (0000005c) invoke-interface     v3, Ljava/util/List;->size()I
+	22      (00000062) move-result          v3
+	23      (00000064) if-lez               v3, +02dh
+
+addOrDelShapeServer-BB@0x68 : [ addOrDelShapeServer-BB@0x78 ]
+	24      (00000068) invoke-virtual       v9, Lworld_canvas_msgs18/SetShapeRequestEnty;->getPoints()Ljava/util/List;
+	25      (0000006e) move-result-object   v3
+	26      (00000070) invoke-interface     v3, Ljava/util/List;->iterator()Ljava/util/Iterator;
+	27      (00000076) move-result-object   v3
+
+addOrDelShapeServer-BB@0x78 : [ addOrDelShapeServer-BB@0x84 addOrDelShapeServer-BB@0xbe ]
+	28      (00000078) invoke-interface     v3, Ljava/util/Iterator;->hasNext()Z
+	29      (0000007e) move-result          v4
+	30      (00000080) if-eqz               v4, +01fh
+
+addOrDelShapeServer-BB@0x84 : [ addOrDelShapeServer-BB@0x78 ]
+	31      (00000084) invoke-interface     v3, Ljava/util/Iterator;->next()Ljava/lang/Object;
+	32      (0000008a) move-result-object   v4
+	33      (0000008c) check-cast           v4, Lcom/boat/support/slam/entity/floors/Lines;
+	34      (00000090) new-instance         v5, Lcom/boat/jrosbridge/message/geometry_msgs/Point;
+	35      (00000094) invoke-direct        v5, Lcom/boat/jrosbridge/message/geometry_msgs/Point;-><init>()V
+	36      (0000009a) invoke-virtual       v4, Lcom/boat/support/slam/entity/floors/Lines;->getX()D
+	37      (000000a0) move-result-wide     v6
+	38      (000000a2) invoke-virtual       v5, v6, v7, Lcom/boat/jrosbridge/message/geometry_msgs/Point;->setX(D)V
+	39      (000000a8) invoke-virtual       v4, Lcom/boat/support/slam/entity/floors/Lines;->getY()D
+	40      (000000ae) move-result-wide     v6
+	41      (000000b0) invoke-virtual       v5, v6, v7, Lcom/boat/jrosbridge/message/geometry_msgs/Point;->setY(D)V
+	42      (000000b6) invoke-interface     v2, v5, Ljava/util/List;->add(Ljava/lang/Object;)Z
+	43      (000000bc) goto                 -22h
+
+addOrDelShapeServer-BB@0xbe : 
+	44      (000000be) invoke-virtual       v1, v2, Lcom/jlboat/phone/message/map_msgs/SetShapeRequest;->setPoints(Ljava/util/List;)V
+	45      (000000c4) invoke-virtual       v9, Lworld_canvas_msgs18/SetShapeRequestEnty;->getRadius()F
+	46      (000000ca) move-result          v3
+	47      (000000cc) invoke-virtual       v1, v3, Lcom/jlboat/phone/message/map_msgs/SetShapeRequest;->setRadius(F)V
+	48      (000000d2) invoke-virtual       v9, Lworld_canvas_msgs18/SetShapeRequestEnty;->getShapeId()J
+	49      (000000d8) move-result-wide     v3
+	50      (000000da) invoke-virtual       v1, v3, v4, Lcom/jlboat/phone/message/map_msgs/SetShapeRequest;->setShapeId(J)V
+	51      (000000e0) invoke-virtual       v9, Lworld_canvas_msgs18/SetShapeRequestEnty;->isClosed()Z
+	52      (000000e6) move-result          v3
+	53      (000000e8) invoke-virtual       v1, v3, Lcom/jlboat/phone/message/map_msgs/SetShapeRequest;->setClosed(Z)V
+	54      (000000ee) invoke-virtual       v0, v1, v10, Lcom/boat/jrosbridge/Service;->callWithHandler(Lcom/boat/jrosbridge/message/Message; Lcom/boat/jrosbridge/MessageListener;)V
+	55      (000000f4) return-void          
+

@@ -1,0 +1,51 @@
+# Lcom/jlboat/phone/manager/BoatNaviManager;->rotateTo(I D)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:int
+# - v5:double
+#
+# - return:void
+
+rotateTo-BB@0x0 : [ rotateTo-BB@0x48 rotateTo-BB@0x4a ]
+	0       (00000000) new-instance         v0, Ljava/lang/StringBuilder;
+	1       (00000004) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	2       (0000000a) const-string         v1, "rotateTo: angle："
+	3       (0000000e) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	4       (00000014) move-result-object   v0
+	5       (00000016) invoke-virtual       v0, v3, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	6       (0000001c) move-result-object   v0
+	7       (0000001e) const-string         v1, " angularSpeed: "
+	8       (00000022) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	9       (00000028) move-result-object   v0
+	10      (0000002a) invoke-virtual       v0, v4, v5, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
+	11      (00000030) move-result-object   v0
+	12      (00000032) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	13      (00000038) move-result-object   v0
+	14      (0000003a) const-string         v1, "baotnavimanager"
+	15      (0000003e) invoke-static        v1, v0, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	16      (00000044) if-nez               v3, +003h
+
+rotateTo-BB@0x48 : 
+	17      (00000048) return-void          
+
+rotateTo-BB@0x4a : [ rotateTo-BB@0x66 rotateTo-BB@0x6a ]
+	18      (0000004a) iget-object          v0, v2, Lcom/jlboat/phone/manager/BoatNaviManager;->mApp Lcom/jlboat/phone/application/BoatSlamApplication;
+	19      (0000004e) invoke-virtual       v0, Lcom/jlboat/phone/application/BoatSlamApplication;->getAppController()Lcom/boat/controller/AppController;
+	20      (00000054) move-result-object   v0
+	21      (00000056) check-cast           v0, Lcom/jlboat/phone/controller/SlamAppController;
+	22      (0000005a) invoke-virtual       v0, Lcom/jlboat/phone/controller/SlamAppController;->getJlNaviManager()Lcom/jlboat/phone/controller/JlNaviManager;
+	23      (00000060) move-result-object   v0
+	24      (00000062) if-lez               v3, +004h
+
+rotateTo-BB@0x66 : [ rotateTo-BB@0x6c ]
+	25      (00000066) const/4              v1, 3
+	26      (00000068) goto                 +2h
+
+rotateTo-BB@0x6a : [ rotateTo-BB@0x6c ]
+	27      (0000006a) const/4              v1, 4
+
+rotateTo-BB@0x6c : 
+	28      (0000006c) invoke-virtual       v0, v1, v3, Lcom/jlboat/phone/controller/JlNaviManager;->setNavicmd(I I)V
+	29      (00000072) return-void          
+

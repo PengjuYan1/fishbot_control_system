@@ -1,0 +1,51 @@
+# Lcom/boat/support/slam/ISlamCallBack$Stub$Proxy;->onChargeChanged(Z)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v5
+# - v6:boolean
+#
+# - return:void
+
+onChargeChanged-BB@0x0 : [ onChargeChanged-BB@0x10 ]
+	0       (00000000) invoke-static        Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+	1       (00000006) move-result-object   v0
+	2       (00000008) invoke-static        Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+	3       (0000000e) move-result-object   v1
+
+onChargeChanged-BB@0x10 : [ onChargeChanged-BB@0x22 onChargeChanged-BB@0x26 ]
+	4       (00000010) const-string         v2, "com.boat.support.slam.ISlamCallBack"
+	5       (00000014) invoke-virtual       v0, v2, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+	6       (0000001a) const/4              v2, 1
+	7       (0000001c) const/4              v3, 0
+	8       (0000001e) if-eqz               v6, +004h
+	10:3f
+	(Ljava/lang/Throwable; -> 50 onChargeChanged-BB@0x50)
+
+onChargeChanged-BB@0x22 : [ onChargeChanged-BB@0x28 ]
+	9       (00000022) const/4              v4, 1
+	10      (00000024) goto                 +2h
+	10:3f
+	(Ljava/lang/Throwable; -> 50 onChargeChanged-BB@0x50)
+
+onChargeChanged-BB@0x26 : [ onChargeChanged-BB@0x28 ]
+	11      (00000026) const/4              v4, 0
+	10:3f
+	(Ljava/lang/Throwable; -> 50 onChargeChanged-BB@0x50)
+
+onChargeChanged-BB@0x28 : 
+	12      (00000028) invoke-virtual       v0, v4, Landroid/os/Parcel;->writeInt(I)V
+	13      (0000002e) iget-object          v4, v5, Lcom/boat/support/slam/ISlamCallBack$Stub$Proxy;->mRemote Landroid/os/IBinder;
+	14      (00000032) invoke-interface     v4, v2, v0, v1, v3, Landroid/os/IBinder;->transact(I Landroid/os/Parcel; Landroid/os/Parcel; I)Z
+	15      (00000038) move-result          v2
+	16      (0000003a) invoke-virtual       v1, Landroid/os/Parcel;->readException()V
+	17      (00000040) invoke-virtual       v1, Landroid/os/Parcel;->recycle()V
+	18      (00000046) invoke-virtual       v0, Landroid/os/Parcel;->recycle()V
+	19      (0000004c) nop                  
+	20      (0000004e) return-void          
+
+onChargeChanged-BB@0x50 : 
+	21      (00000050) move-exception       v2
+	22      (00000052) invoke-virtual       v1, Landroid/os/Parcel;->recycle()V
+	23      (00000058) invoke-virtual       v0, Landroid/os/Parcel;->recycle()V
+	24      (0000005e) throw                v2
+

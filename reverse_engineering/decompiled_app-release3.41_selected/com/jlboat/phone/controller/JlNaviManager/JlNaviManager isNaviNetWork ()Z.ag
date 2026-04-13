@@ -1,0 +1,22 @@
+# Lcom/jlboat/phone/controller/JlNaviManager;->isNaviNetWork()Z [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v2
+#
+# - return:boolean
+
+isNaviNetWork-BB@0x0 : [ isNaviNetWork-BB@0xc isNaviNetWork-BB@0x10 ]
+	0       (00000000) iget                 v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->currentNaviNetWorkStatus I
+	1       (00000004) const/16             v1, 22
+	2       (00000008) if-ne                v0, v1, +004h
+
+isNaviNetWork-BB@0xc : [ isNaviNetWork-BB@0x12 ]
+	3       (0000000c) const/4              v0, 1
+	4       (0000000e) goto                 +2h
+
+isNaviNetWork-BB@0x10 : [ isNaviNetWork-BB@0x12 ]
+	5       (00000010) const/4              v0, 0
+
+isNaviNetWork-BB@0x12 : 
+	6       (00000012) return               v0
+

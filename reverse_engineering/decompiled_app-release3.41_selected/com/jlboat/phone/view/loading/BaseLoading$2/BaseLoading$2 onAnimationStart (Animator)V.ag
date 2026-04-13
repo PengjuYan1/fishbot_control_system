@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/view/loading/BaseLoading$2;->onAnimationStart(Landroid/animation/Animator;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:android.animation.Animator
+#
+# - return:void
+
+onAnimationStart-BB@0x0 : 
+	0       (00000000) invoke-super         v0, v1, Landroid/animation/AnimatorListenerAdapter;->onAnimationStart(Landroid/animation/Animator;)V
+	1       (00000006) return-void          
+

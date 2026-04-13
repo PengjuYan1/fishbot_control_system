@@ -1,0 +1,32 @@
+# Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;->isConnect()Z [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:boolean
+
+isConnect-BB@0x0 : [ isConnect-BB@0x10 isConnect-BB@0x26 ]
+	0       (00000000) iget-object          v0, v1, Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;->client Lcom/boat/jrosbridge/rosbridge/implementation/ROSBridgeWebSocketClient;
+	1       (00000004) invoke-virtual       v0, Lcom/boat/jrosbridge/rosbridge/implementation/ROSBridgeWebSocketClient;->isClosing()Z
+	2       (0000000a) move-result          v0
+	3       (0000000c) if-eqz               v0, +00dh
+
+isConnect-BB@0x10 : [ isConnect-BB@0x20 isConnect-BB@0x22 ]
+	4       (00000010) iget-object          v0, v1, Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;->client Lcom/boat/jrosbridge/rosbridge/implementation/ROSBridgeWebSocketClient;
+	5       (00000014) invoke-virtual       v0, Lcom/boat/jrosbridge/rosbridge/implementation/ROSBridgeWebSocketClient;->isClosed()Z
+	6       (0000001a) move-result          v0
+	7       (0000001c) if-nez               v0, +003h
+
+isConnect-BB@0x20 : [ isConnect-BB@0x26 ]
+	8       (00000020) goto                 +3h
+
+isConnect-BB@0x22 : [ isConnect-BB@0x28 ]
+	9       (00000022) const/4              v0, 0
+	10      (00000024) goto                 +2h
+
+isConnect-BB@0x26 : [ isConnect-BB@0x28 ]
+	11      (00000026) const/4              v0, 1
+
+isConnect-BB@0x28 : 
+	12      (00000028) return               v0
+

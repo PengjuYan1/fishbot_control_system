@@ -1,0 +1,49 @@
+# Lcom/jlboat/phone/service/ErrorMsgService;->getWifiSSID()V [access_flags=private]
+#
+# Parameters:
+# local registers: v0...v6
+#
+# - return:void
+
+getWifiSSID-BB@0x0 : 
+	0       (00000000) invoke-virtual       v6, Lcom/jlboat/phone/service/ErrorMsgService;->getApplication()Landroid/app/Application;
+	1       (00000006) move-result-object   v0
+	2       (00000008) invoke-virtual       v0, Landroid/app/Application;->getApplicationContext()Landroid/content/Context;
+	3       (0000000e) move-result-object   v0
+	4       (00000010) const-string         v1, "wifi"
+	5       (00000014) invoke-virtual       v0, v1, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+	6       (0000001a) move-result-object   v0
+	7       (0000001c) check-cast           v0, Landroid/net/wifi/WifiManager;
+	8       (00000020) invoke-virtual       v0, Landroid/net/wifi/WifiManager;->getConnectionInfo()Landroid/net/wifi/WifiInfo;
+	9       (00000026) move-result-object   v1
+	10      (00000028) invoke-virtual       v1, Landroid/net/wifi/WifiInfo;->getSSID()Ljava/lang/String;
+	11      (0000002e) move-result-object   v2
+	12      (00000030) invoke-virtual       v2, Ljava/lang/String;->length()I
+	13      (00000036) move-result          v3
+	14      (00000038) const/4              v4, 1
+	15      (0000003a) sub-int/2addr        v3, v4
+	16      (0000003c) invoke-virtual       v2, v4, v3, Ljava/lang/String;->substring(I I)Ljava/lang/String;
+	17      (00000042) move-result-object   v3
+	18      (00000044) sput-object          v3, Lcom/jlboat/phone/application/BoatSlamApplication;->ssid Ljava/lang/String;
+	19      (00000048) new-instance         v3, Ljava/lang/StringBuilder;
+	20      (0000004c) invoke-direct        v3, Ljava/lang/StringBuilder;-><init>()V
+	21      (00000052) const-string         v4, "getWifiSSID: "
+	22      (00000056) invoke-virtual       v3, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	23      (0000005c) move-result-object   v3
+	24      (0000005e) sget-object          v4, Lcom/jlboat/phone/application/BoatSlamApplication;->ssid Ljava/lang/String;
+	25      (00000062) invoke-virtual       v3, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	26      (00000068) move-result-object   v3
+	27      (0000006a) invoke-virtual       v3, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	28      (00000070) move-result-object   v3
+	29      (00000072) const-string         v4, "ErrorMsgService"
+	30      (00000076) invoke-static        v4, v3, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	31      (0000007c) new-instance         v3, Landroid/content/Intent;
+	32      (00000080) invoke-direct        v3, Landroid/content/Intent;-><init>()V
+	33      (00000086) const-string         v4, "ssid"
+	34      (0000008a) invoke-virtual       v3, v4, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
+	35      (00000090) const-string         v4, "value"
+	36      (00000094) sget-object          v5, Lcom/jlboat/phone/application/BoatSlamApplication;->ssid Ljava/lang/String;
+	37      (00000098) invoke-virtual       v3, v4, v5, Landroid/content/Intent;->putExtra(Ljava/lang/String; Ljava/lang/String;)Landroid/content/Intent;
+	38      (0000009e) invoke-virtual       v6, v3, Lcom/jlboat/phone/service/ErrorMsgService;->sendBroadcast(Landroid/content/Intent;)V
+	39      (000000a4) return-void          
+

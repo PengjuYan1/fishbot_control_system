@@ -1,0 +1,35 @@
+# Lcom/boat/support/slam/ISlamService$Stub$Proxy;->updateStatus()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v5
+#
+# - return:void
+
+updateStatus-BB@0x0 : [ updateStatus-BB@0x10 ]
+	0       (00000000) invoke-static        Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+	1       (00000006) move-result-object   v0
+	2       (00000008) invoke-static        Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+	3       (0000000e) move-result-object   v1
+
+updateStatus-BB@0x10 : 
+	4       (00000010) const-string         v2, "com.boat.support.slam.ISlamService"
+	5       (00000014) invoke-virtual       v0, v2, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+	6       (0000001a) iget-object          v2, v5, Lcom/boat/support/slam/ISlamService$Stub$Proxy;->mRemote Landroid/os/IBinder;
+	7       (0000001e) const/16             v3, 32
+	8       (00000022) const/4              v4, 0
+	9       (00000024) invoke-interface     v2, v3, v0, v1, v4, Landroid/os/IBinder;->transact(I Landroid/os/Parcel; Landroid/os/Parcel; I)Z
+	10      (0000002a) move-result          v2
+	11      (0000002c) invoke-virtual       v1, Landroid/os/Parcel;->readException()V
+	12      (00000032) invoke-virtual       v1, Landroid/os/Parcel;->recycle()V
+	13      (00000038) invoke-virtual       v0, Landroid/os/Parcel;->recycle()V
+	14      (0000003e) nop                  
+	15      (00000040) return-void          
+	10:31
+	(Ljava/lang/Throwable; -> 42 updateStatus-BB@0x42)
+
+updateStatus-BB@0x42 : 
+	16      (00000042) move-exception       v2
+	17      (00000044) invoke-virtual       v1, Landroid/os/Parcel;->recycle()V
+	18      (0000004a) invoke-virtual       v0, Landroid/os/Parcel;->recycle()V
+	19      (00000050) throw                v2
+

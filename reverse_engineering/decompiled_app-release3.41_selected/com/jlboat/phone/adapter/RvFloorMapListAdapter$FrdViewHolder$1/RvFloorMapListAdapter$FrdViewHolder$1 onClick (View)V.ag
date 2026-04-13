@@ -1,0 +1,49 @@
+# Lcom/jlboat/phone/adapter/RvFloorMapListAdapter$FrdViewHolder$1;->onClick(Landroid/view/View;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:android.view.View
+#
+# - return:void
+
+onClick-BB@0x0 : [ onClick-BB@0x70 onClick-BB@0x8e ]
+	0       (00000000) new-instance         v0, Ljava/lang/StringBuilder;
+	1       (00000004) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	2       (0000000a) const-string         v1, "onClick: "
+	3       (0000000e) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	4       (00000014) move-result-object   v0
+	5       (00000016) iget-object          v1, v3, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter$FrdViewHolder$1;->val$mapBelongFloor Lcom/boat/support/slam/entity/floors/Floors;
+	6       (0000001a) invoke-virtual       v1, Lcom/boat/support/slam/entity/floors/Floors;->getFloorName()Ljava/lang/String;
+	7       (00000020) move-result-object   v1
+	8       (00000022) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	9       (00000028) move-result-object   v0
+	10      (0000002a) const-string         v1, "  "
+	11      (0000002e) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	12      (00000034) move-result-object   v0
+	13      (00000036) iget-object          v1, v3, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter$FrdViewHolder$1;->val$currentMap Lcom/boat/support/slam/entity/floors/Maps;
+	14      (0000003a) invoke-virtual       v1, Lcom/boat/support/slam/entity/floors/Maps;->getMapName()Ljava/lang/String;
+	15      (00000040) move-result-object   v1
+	16      (00000042) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	17      (00000048) move-result-object   v0
+	18      (0000004a) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	19      (00000050) move-result-object   v0
+	20      (00000052) const-string         v1, "catalpa "
+	21      (00000056) invoke-static        v1, v0, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	22      (0000005c) iget-object          v0, v3, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter$FrdViewHolder$1;->this$1 Lcom/jlboat/phone/adapter/RvFloorMapListAdapter$FrdViewHolder;
+	23      (00000060) iget-object          v0, v0, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter$FrdViewHolder;->this$0 Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;
+	24      (00000064) invoke-static        v0, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;->access$300(Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;)Lcom/jlboat/phone/adapter/RvFloorMapListAdapter$OnClick;
+	25      (0000006a) move-result-object   v0
+	26      (0000006c) if-eqz               v0, +011h
+
+onClick-BB@0x70 : [ onClick-BB@0x8e ]
+	27      (00000070) iget-object          v0, v3, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter$FrdViewHolder$1;->this$1 Lcom/jlboat/phone/adapter/RvFloorMapListAdapter$FrdViewHolder;
+	28      (00000074) iget-object          v0, v0, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter$FrdViewHolder;->this$0 Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;
+	29      (00000078) invoke-static        v0, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;->access$300(Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;)Lcom/jlboat/phone/adapter/RvFloorMapListAdapter$OnClick;
+	30      (0000007e) move-result-object   v0
+	31      (00000080) iget-object          v1, v3, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter$FrdViewHolder$1;->val$mapBelongFloor Lcom/boat/support/slam/entity/floors/Floors;
+	32      (00000084) iget-object          v2, v3, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter$FrdViewHolder$1;->val$currentMap Lcom/boat/support/slam/entity/floors/Maps;
+	33      (00000088) invoke-interface     v0, v4, v1, v2, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter$OnClick;->click(Landroid/view/View; Lcom/boat/support/slam/entity/floors/Floors; Lcom/boat/support/slam/entity/floors/Maps;)V
+
+onClick-BB@0x8e : 
+	34      (0000008e) return-void          
+

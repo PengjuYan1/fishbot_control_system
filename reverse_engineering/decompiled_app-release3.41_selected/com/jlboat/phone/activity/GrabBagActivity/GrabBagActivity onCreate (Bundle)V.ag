@@ -1,0 +1,36 @@
+# Lcom/jlboat/phone/activity/GrabBagActivity;->onCreate(Landroid/os/Bundle;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:android.os.Bundle
+#
+# - return:void
+
+onCreate-BB@0x0 : 
+	0       (00000000) invoke-super         v2, v3, Lcom/jlboat/phone/base/BaseFullActivity;->onCreate(Landroid/os/Bundle;)V
+	1       (00000006) const                v0, 2131361824
+	2       (0000000c) const                v1, 2131492912
+	3       (00000012) invoke-virtual       v2, v0, v1, Lcom/jlboat/phone/activity/GrabBagActivity;->initTitleBar(I I)V
+	4       (00000018) const                v0, 2131230769
+	5       (0000001e) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/GrabBagActivity;->findViewById(I)Landroid/view/View;
+	6       (00000024) move-result-object   v0
+	7       (00000026) check-cast           v0, Landroid/widget/Switch;
+	8       (0000002a) iput-object          v0, v2, Lcom/jlboat/phone/activity/GrabBagActivity;->back_start Landroid/widget/Switch;
+	9       (0000002e) invoke-direct        v2, Lcom/jlboat/phone/activity/GrabBagActivity;->switchchange()V
+	10      (00000034) const                v0, 2131231221
+	11      (0000003a) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/GrabBagActivity;->findViewById(I)Landroid/view/View;
+	12      (00000040) move-result-object   v0
+	13      (00000042) check-cast           v0, Landroid/support/v7/widget/RecyclerView;
+	14      (00000046) iput-object          v0, v2, Lcom/jlboat/phone/activity/GrabBagActivity;->rvBag Landroid/support/v7/widget/RecyclerView;
+	15      (0000004a) new-instance         v0, Lcom/jlboat/phone/view/BagListAdapter;
+	16      (0000004e) invoke-direct        v0, v2, Lcom/jlboat/phone/view/BagListAdapter;-><init>(Landroid/content/Context;)V
+	17      (00000054) iput-object          v0, v2, Lcom/jlboat/phone/activity/GrabBagActivity;->adapter Lcom/jlboat/phone/view/BagListAdapter;
+	18      (00000058) iget-object          v0, v2, Lcom/jlboat/phone/activity/GrabBagActivity;->rvBag Landroid/support/v7/widget/RecyclerView;
+	19      (0000005c) new-instance         v1, Landroid/support/v7/widget/LinearLayoutManager;
+	20      (00000060) invoke-direct        v1, v2, Landroid/support/v7/widget/LinearLayoutManager;-><init>(Landroid/content/Context;)V
+	21      (00000066) invoke-virtual       v0, v1, Landroid/support/v7/widget/RecyclerView;->setLayoutManager(Landroid/support/v7/widget/RecyclerView$LayoutManager;)V
+	22      (0000006c) iget-object          v0, v2, Lcom/jlboat/phone/activity/GrabBagActivity;->rvBag Landroid/support/v7/widget/RecyclerView;
+	23      (00000070) iget-object          v1, v2, Lcom/jlboat/phone/activity/GrabBagActivity;->adapter Lcom/jlboat/phone/view/BagListAdapter;
+	24      (00000074) invoke-virtual       v0, v1, Landroid/support/v7/widget/RecyclerView;->setAdapter(Landroid/support/v7/widget/RecyclerView$Adapter;)V
+	25      (0000007a) return-void          
+

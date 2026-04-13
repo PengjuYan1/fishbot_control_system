@@ -1,0 +1,55 @@
+# Lcom/jlboat/phone/activity/DiyPointPathActivity$5;->onCheckedChanged(Landroid/widget/RadioGroup; I)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:android.widget.RadioGroup
+# - v5:int
+#
+# - return:void
+
+onCheckedChanged-BB@0x0 : [ D:onCheckedChanged-BB@0x8 2131231201:onCheckedChanged-BB@0x48 2131231229:onCheckedChanged-BB@0xa ]
+	0       (00000000) const/4              v0, 0
+	1       (00000002) sparse-switch        v5, +0000043h
+
+onCheckedChanged-BB@0x8 : [ onCheckedChanged-BB@0x86 ]
+	2       (00000008) goto                 +3fh
+
+onCheckedChanged-BB@0xa : [ onCheckedChanged-BB@0x86 ]
+	3       (0000000a) iget-object          v1, v3, Lcom/jlboat/phone/activity/DiyPointPathActivity$5;->this$0 Lcom/jlboat/phone/activity/DiyPointPathActivity;
+	4       (0000000e) invoke-static        v1, Lcom/jlboat/phone/activity/DiyPointPathActivity;->access$1200(Lcom/jlboat/phone/activity/DiyPointPathActivity;)Landroid/widget/ImageView;
+	5       (00000014) move-result-object   v1
+	6       (00000016) invoke-virtual       v1, v0, Landroid/widget/ImageView;->setVisibility(I)V
+	7       (0000001c) iget-object          v0, v3, Lcom/jlboat/phone/activity/DiyPointPathActivity$5;->this$0 Lcom/jlboat/phone/activity/DiyPointPathActivity;
+	8       (00000020) const/4              v1, 1
+	9       (00000022) invoke-static        v0, v1, Lcom/jlboat/phone/activity/DiyPointPathActivity;->access$1302(Lcom/jlboat/phone/activity/DiyPointPathActivity; Z)Z
+	10      (00000028) iget-object          v0, v3, Lcom/jlboat/phone/activity/DiyPointPathActivity$5;->this$0 Lcom/jlboat/phone/activity/DiyPointPathActivity;
+	11      (0000002c) invoke-static        v0, Lcom/jlboat/phone/activity/DiyPointPathActivity;->access$400(Lcom/jlboat/phone/activity/DiyPointPathActivity;)Lcom/jlboat/phone/view/MapView;
+	12      (00000032) move-result-object   v0
+	13      (00000034) iget-object          v1, v3, Lcom/jlboat/phone/activity/DiyPointPathActivity$5;->this$0 Lcom/jlboat/phone/activity/DiyPointPathActivity;
+	14      (00000038) invoke-static        v1, Lcom/jlboat/phone/activity/DiyPointPathActivity;->access$1300(Lcom/jlboat/phone/activity/DiyPointPathActivity;)Z
+	15      (0000003e) move-result          v1
+	16      (00000040) invoke-virtual       v0, v1, Lcom/jlboat/phone/view/MapView;->setDIYLineMode(Z)V
+	17      (00000046) goto                 +20h
+
+onCheckedChanged-BB@0x48 : [ onCheckedChanged-BB@0x86 ]
+	18      (00000048) iget-object          v1, v3, Lcom/jlboat/phone/activity/DiyPointPathActivity$5;->this$0 Lcom/jlboat/phone/activity/DiyPointPathActivity;
+	19      (0000004c) invoke-static        v1, Lcom/jlboat/phone/activity/DiyPointPathActivity;->access$1200(Lcom/jlboat/phone/activity/DiyPointPathActivity;)Landroid/widget/ImageView;
+	20      (00000052) move-result-object   v1
+	21      (00000054) const/16             v2, 8
+	22      (00000058) invoke-virtual       v1, v2, Landroid/widget/ImageView;->setVisibility(I)V
+	23      (0000005e) iget-object          v1, v3, Lcom/jlboat/phone/activity/DiyPointPathActivity$5;->this$0 Lcom/jlboat/phone/activity/DiyPointPathActivity;
+	24      (00000062) invoke-static        v1, v0, Lcom/jlboat/phone/activity/DiyPointPathActivity;->access$1302(Lcom/jlboat/phone/activity/DiyPointPathActivity; Z)Z
+	25      (00000068) iget-object          v0, v3, Lcom/jlboat/phone/activity/DiyPointPathActivity$5;->this$0 Lcom/jlboat/phone/activity/DiyPointPathActivity;
+	26      (0000006c) invoke-static        v0, Lcom/jlboat/phone/activity/DiyPointPathActivity;->access$400(Lcom/jlboat/phone/activity/DiyPointPathActivity;)Lcom/jlboat/phone/view/MapView;
+	27      (00000072) move-result-object   v0
+	28      (00000074) iget-object          v1, v3, Lcom/jlboat/phone/activity/DiyPointPathActivity$5;->this$0 Lcom/jlboat/phone/activity/DiyPointPathActivity;
+	29      (00000078) invoke-static        v1, Lcom/jlboat/phone/activity/DiyPointPathActivity;->access$1300(Lcom/jlboat/phone/activity/DiyPointPathActivity;)Z
+	30      (0000007e) move-result          v1
+	31      (00000080) invoke-virtual       v0, v1, Lcom/jlboat/phone/view/MapView;->setDIYLineMode(Z)V
+
+onCheckedChanged-BB@0x86 : 
+	32      (00000086) return-void          
+
+onCheckedChanged-BB@0x88 : 
+	33      (00000088) sparse-switch-payload 7f0801e1 7f0801fd
+

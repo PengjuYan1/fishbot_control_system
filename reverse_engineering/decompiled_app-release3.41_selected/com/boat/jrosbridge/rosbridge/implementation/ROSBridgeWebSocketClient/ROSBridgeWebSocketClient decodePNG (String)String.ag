@@ -1,0 +1,75 @@
+# Lcom/boat/jrosbridge/rosbridge/implementation/ROSBridgeWebSocketClient;->decodePNG(Ljava/lang/String;)Ljava/lang/String; [access_flags=public static]
+#
+# Parameters:
+# - local registers: v0...v10
+# - v11:java.lang.String
+#
+# - return:java.lang.String
+
+decodePNG-BB@0x0 : [ decodePNG-BB@0x28 ]
+	0       (00000000) const/4              v0, 0
+	1       (00000002) invoke-static        v11, v0, Landroid/util/Base64;->decode(Ljava/lang/String; I)[B
+	2       (00000008) move-result-object   v0
+	3       (0000000a) new-instance         v1, Ljava/io/ByteArrayInputStream;
+	4       (0000000e) invoke-direct        v1, v0, Ljava/io/ByteArrayInputStream;-><init>([B)V
+	5       (00000014) invoke-static        v1, Landroid/graphics/BitmapFactory;->decodeStream(Ljava/io/InputStream;)Landroid/graphics/Bitmap;
+	6       (0000001a) move-result-object   v2
+	7       (0000001c) new-instance         v3, Ljava/lang/StringBuilder;
+	8       (00000020) invoke-direct        v3, Ljava/lang/StringBuilder;-><init>()V
+	9       (00000026) const/4              v4, 0
+
+decodePNG-BB@0x28 : [ decodePNG-BB@0x34 decodePNG-BB@0x98 ]
+	10      (00000028) invoke-virtual       v2, Landroid/graphics/Bitmap;->getHeight()I
+	11      (0000002e) move-result          v5
+	12      (00000030) if-ge                v4, v5, +034h
+
+decodePNG-BB@0x34 : [ decodePNG-BB@0x36 ]
+	13      (00000034) const/4              v5, 0
+
+decodePNG-BB@0x36 : [ decodePNG-BB@0x42 decodePNG-BB@0x92 ]
+	14      (00000036) invoke-virtual       v2, Landroid/graphics/Bitmap;->getWidth()I
+	15      (0000003c) move-result          v6
+	16      (0000003e) if-ge                v5, v6, +02ah
+
+decodePNG-BB@0x42 : [ decodePNG-BB@0x6a decodePNG-BB@0x74 ]
+	17      (00000042) invoke-virtual       v2, v5, v4, Landroid/graphics/Bitmap;->getPixel(I I)I
+	18      (00000048) move-result          v6
+	19      (0000004a) invoke-static        v6, Landroid/graphics/Color;->red(I)I
+	20      (00000050) move-result          v7
+	21      (00000052) invoke-static        v6, Landroid/graphics/Color;->green(I)I
+	22      (00000058) move-result          v8
+	23      (0000005a) invoke-static        v6, Landroid/graphics/Color;->blue(I)I
+	24      (00000060) move-result          v9
+	25      (00000062) const/16             v10, 10
+	26      (00000066) if-ne                v7, v10, +007h
+
+decodePNG-BB@0x6a : [ decodePNG-BB@0x6e decodePNG-BB@0x74 ]
+	27      (0000006a) if-ne                v8, v10, +005h
+
+decodePNG-BB@0x6e : [ decodePNG-BB@0x72 decodePNG-BB@0x74 ]
+	28      (0000006e) if-ne                v9, v10, +003h
+
+decodePNG-BB@0x72 : [ decodePNG-BB@0x8c ]
+	29      (00000072) goto                 +dh
+
+decodePNG-BB@0x74 : [ decodePNG-BB@0x8c ]
+	30      (00000074) int-to-char          v10, v7
+	31      (00000076) invoke-virtual       v3, v10, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+	32      (0000007c) int-to-char          v10, v8
+	33      (0000007e) invoke-virtual       v3, v10, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+	34      (00000084) int-to-char          v10, v9
+	35      (00000086) invoke-virtual       v3, v10, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+decodePNG-BB@0x8c : [ decodePNG-BB@0x36 ]
+	36      (0000008c) add-int/lit8         v5, v5, 1
+	37      (00000090) goto                 -2dh
+
+decodePNG-BB@0x92 : [ decodePNG-BB@0x28 ]
+	38      (00000092) add-int/lit8         v4, v4, 1
+	39      (00000096) goto                 -37h
+
+decodePNG-BB@0x98 : 
+	40      (00000098) invoke-virtual       v3, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	41      (0000009e) move-result-object   v4
+	42      (000000a0) return-object        v4
+

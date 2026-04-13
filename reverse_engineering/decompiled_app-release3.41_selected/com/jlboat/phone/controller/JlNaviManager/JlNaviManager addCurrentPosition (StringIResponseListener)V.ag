@@ -1,0 +1,33 @@
+# Lcom/jlboat/phone/controller/JlNaviManager;->addCurrentPosition(Ljava/lang/String; Lcom/boat/support/slam/IResponseListener;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:java.lang.String
+# - v5:com.boat.support.slam.IResponseListener
+#
+# - return:void
+
+addCurrentPosition-BB@0x0 : [ addCurrentPosition-BB@0x12 addCurrentPosition-BB@0x14 ]
+	0       (00000000) const/4              v0, 0
+	1       (00000002) const-string         v1, "充电桩"
+	2       (00000006) invoke-virtual       v1, v4, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	3       (0000000c) move-result          v1
+	4       (0000000e) if-eqz               v1, +003h
+
+addCurrentPosition-BB@0x12 : [ addCurrentPosition-BB@0x14 ]
+	5       (00000012) const/4              v0, 1
+
+addCurrentPosition-BB@0x14 : [ addCurrentPosition-BB@0x24 addCurrentPosition-BB@0x26 ]
+	6       (00000014) const-string         v1, "初始点"
+	7       (00000018) invoke-virtual       v1, v4, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	8       (0000001e) move-result          v1
+	9       (00000020) if-eqz               v1, +003h
+
+addCurrentPosition-BB@0x24 : [ addCurrentPosition-BB@0x26 ]
+	10      (00000024) const/4              v0, 2
+
+addCurrentPosition-BB@0x26 : 
+	11      (00000026) int-to-long          v1, v0
+	12      (00000028) invoke-direct        v3, v1, v2, v4, v5, Lcom/jlboat/phone/controller/JlNaviManager;->setPoint(J Ljava/lang/String; Lcom/boat/support/slam/IResponseListener;)V
+	13      (0000002e) return-void          
+

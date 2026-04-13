@@ -1,0 +1,46 @@
+# Lcom/boat/support/slam/SlamManager;->naviTargetGoalPlanSlam(J J J I Lcom/boat/support/slam/IResponseListener;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v14
+# - v15:long
+# - v16:long
+# - v17:long
+# - v18:int
+# - v19:com.boat.support.slam.IResponseListener
+#
+# - return:void
+
+naviTargetGoalPlanSlam-BB@0x0 : [ naviTargetGoalPlanSlam-BB@0xe naviTargetGoalPlanSlam-BB@0x10 ]
+	0       (00000000) move-object          v1, v11
+	1       (00000002) invoke-virtual       v11, Lcom/boat/support/slam/SlamManager;->isNavigationInited()Z
+	2       (00000008) move-result          v0
+	3       (0000000a) if-nez               v0, +003h
+
+naviTargetGoalPlanSlam-BB@0xe : 
+	4       (0000000e) return-void          
+
+naviTargetGoalPlanSlam-BB@0x10 : [ naviTargetGoalPlanSlam-BB@0x18 naviTargetGoalPlanSlam-BB@0x44 ]
+	5       (00000010) iget-object          v0, v1, Lcom/boat/support/slam/SlamManager;->slamService Lcom/boat/support/slam/ISlamService;
+	6       (00000014) if-eqz               v0, +018h
+
+naviTargetGoalPlanSlam-BB@0x18 : [ naviTargetGoalPlanSlam-BB@0x44 ]
+	7       (00000018) iget-object          v2, v1, Lcom/boat/support/slam/SlamManager;->slamService Lcom/boat/support/slam/ISlamService;
+	8       (0000001c) move-wide            v3, v12
+	9       (0000001e) move-wide            v5, v14
+	10      (00000020) move-wide/from16     v7, v16
+	11      (00000024) move/from16          v9, v18
+	12      (00000028) move-object/from16   v10, v19
+	13      (0000002c) invoke-interface/range v2 ... v10, Lcom/boat/support/slam/ISlamService;->naviTargetGoalPlan(J J J I Lcom/boat/support/slam/IResponseListener;)V
+	14      (00000032) goto                 +9h
+	18:31
+	(Landroid/os/RemoteException; -> 34 naviTargetGoalPlanSlam-BB@0x34)
+
+naviTargetGoalPlanSlam-BB@0x34 : [ naviTargetGoalPlanSlam-BB@0x44 ]
+	15      (00000034) move-exception       v0
+	16      (00000036) const-string         v2, "SlamManager"
+	17      (0000003a) const-string         v3, "navigationTo2: "
+	18      (0000003e) invoke-static        v2, v3, v0, Landroid/util/Log;->w(Ljava/lang/String; Ljava/lang/String; Ljava/lang/Throwable;)I
+
+naviTargetGoalPlanSlam-BB@0x44 : 
+	19      (00000044) return-void          
+

@@ -1,0 +1,14 @@
+# Lcom/boat/jrosbridge/Service;->call(Lcom/boat/jrosbridge/message/Message;)Ljava/lang/String; [access_flags=private]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:com.boat.jrosbridge.message.Message
+#
+# - return:java.lang.String
+
+call-BB@0x0 : 
+	0       (00000000) const/4              v0, 0
+	1       (00000002) invoke-direct        v1, v2, v0, Lcom/boat/jrosbridge/Service;->callImpl(Lcom/boat/jrosbridge/message/Message; Lcom/boat/jrosbridge/MessageListener;)Ljava/lang/String;
+	2       (00000008) move-result-object   v0
+	3       (0000000a) return-object        v0
+

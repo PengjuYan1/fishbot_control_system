@@ -1,0 +1,13 @@
+# Lcom/jlboat/phone/view/MapView;->access$200(Lcom/jlboat/phone/view/MapView; Lcom/boat/jrosbridge/message/nav_msgs/OccupancyGrid;)V [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v-1
+# - v0:com.jlboat.phone.view.MapView
+# - v1:com.boat.jrosbridge.message.nav_msgs.OccupancyGrid
+#
+# - return:void
+
+access$200-BB@0x0 : 
+	0       (00000000) invoke-direct        v0, v1, Lcom/jlboat/phone/view/MapView;->updateMapBase64(Lcom/boat/jrosbridge/message/nav_msgs/OccupancyGrid;)V
+	1       (00000006) return-void          
+

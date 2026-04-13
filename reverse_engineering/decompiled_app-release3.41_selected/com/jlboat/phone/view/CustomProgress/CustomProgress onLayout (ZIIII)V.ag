@@ -1,0 +1,245 @@
+# Lcom/jlboat/phone/view/CustomProgress;->onLayout(Z I I I I)V [access_flags=protected]
+#
+# Parameters:
+# - local registers: v0...v14
+# - v15:boolean
+# - v16:int
+# - v17:int
+# - v18:int
+# - v19:int
+#
+# - return:void
+
+onLayout-BB@0x0 : 
+	0       (00000000) move-object          v0, v14
+	1       (00000002) invoke-super/range   v14 ... v19, Landroid/view/View;->onLayout(Z I I I I)V
+	2       (00000008) iget-object          v1, v0, Lcom/jlboat/phone/view/CustomProgress;->mPaint Landroid/graphics/Paint;
+	3       (0000000c) const/4              v2, 1
+	4       (0000000e) invoke-virtual       v1, v2, Landroid/graphics/Paint;->setAntiAlias(Z)V
+	5       (00000014) iget-object          v1, v0, Lcom/jlboat/phone/view/CustomProgress;->mPaint Landroid/graphics/Paint;
+	6       (00000018) sget-object          v2, Landroid/graphics/Paint$Style;->STROKE Landroid/graphics/Paint$Style;
+	7       (0000001c) invoke-virtual       v1, v2, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
+	8       (00000022) iget-object          v1, v0, Lcom/jlboat/phone/view/CustomProgress;->mPaint Landroid/graphics/Paint;
+	9       (00000026) iget                 v2, v0, Lcom/jlboat/phone/view/CustomProgress;->mCircleWidth I
+	10      (0000002a) int-to-float         v2, v2
+	11      (0000002c) invoke-virtual       v1, v2, Landroid/graphics/Paint;->setStrokeWidth(F)V
+	12      (00000032) iget-object          v1, v0, Lcom/jlboat/phone/view/CustomProgress;->mPaint Landroid/graphics/Paint;
+	13      (00000036) const                v2, -16711681
+	14      (0000003c) invoke-virtual       v1, v2, Landroid/graphics/Paint;->setColor(I)V
+	15      (00000042) iget-object          v1, v0, Lcom/jlboat/phone/view/CustomProgress;->mtextPaint Landroid/graphics/Paint;
+	16      (00000046) invoke-virtual       v14, Lcom/jlboat/phone/view/CustomProgress;->getResources()Landroid/content/res/Resources;
+	17      (0000004c) move-result-object   v2
+	18      (0000004e) const                v3, 2131034165
+	19      (00000054) invoke-virtual       v2, v3, Landroid/content/res/Resources;->getColor(I)I
+	20      (0000005a) move-result          v2
+	21      (0000005c) invoke-virtual       v1, v2, Landroid/graphics/Paint;->setColor(I)V
+	22      (00000062) iget-object          v1, v0, Lcom/jlboat/phone/view/CustomProgress;->mtextPaint Landroid/graphics/Paint;
+	23      (00000066) const/high16         v2, 1077936128
+	24      (0000006a) invoke-virtual       v1, v2, Landroid/graphics/Paint;->setStrokeWidth(F)V
+	25      (00000070) iget-object          v1, v0, Lcom/jlboat/phone/view/CustomProgress;->mtextPaint Landroid/graphics/Paint;
+	26      (00000074) const/high16         v2, 1106247680
+	27      (00000078) invoke-virtual       v1, v2, Landroid/graphics/Paint;->setTextSize(F)V
+	28      (0000007e) invoke-virtual       v14, Lcom/jlboat/phone/view/CustomProgress;->getWidth()I
+	29      (00000084) move-result          v1
+	30      (00000086) div-int/lit8         v1, v1, 2
+	31      (0000008a) int-to-float         v1, v1
+	32      (0000008c) iput                 v1, v0, Lcom/jlboat/phone/view/CustomProgress;->x F
+	33      (00000090) invoke-virtual       v14, Lcom/jlboat/phone/view/CustomProgress;->getHeight()I
+	34      (00000096) move-result          v1
+	35      (00000098) div-int/lit8         v1, v1, 2
+	36      (0000009c) int-to-float         v1, v1
+	37      (0000009e) iput                 v1, v0, Lcom/jlboat/phone/view/CustomProgress;->y F
+	38      (000000a2) new-instance         v1, Landroid/graphics/RectF;
+	39      (000000a6) iget                 v2, v0, Lcom/jlboat/phone/view/CustomProgress;->x F
+	40      (000000aa) neg-float            v2, v2
+	41      (000000ac) const/high16         v3, 1090519040
+	42      (000000b0) div-float/2addr      v2, v3
+	43      (000000b2) invoke-virtual       v14, Lcom/jlboat/phone/view/CustomProgress;->getHeight()I
+	44      (000000b8) move-result          v4
+	45      (000000ba) div-int/lit8         v4, v4, 4
+	46      (000000be) mul-int/lit8         v4, v4, 3
+	47      (000000c2) int-to-float         v4, v4
+	48      (000000c4) invoke-virtual       v14, Lcom/jlboat/phone/view/CustomProgress;->getWidth()I
+	49      (000000ca) move-result          v5
+	50      (000000cc) int-to-float         v5, v5
+	51      (000000ce) iget                 v6, v0, Lcom/jlboat/phone/view/CustomProgress;->x F
+	52      (000000d2) div-float/2addr      v6, v3
+	53      (000000d4) add-float/2addr      v5, v6
+	54      (000000d6) invoke-virtual       v14, Lcom/jlboat/phone/view/CustomProgress;->getHeight()I
+	55      (000000dc) move-result          v3
+	56      (000000de) int-to-float         v3, v3
+	57      (000000e0) iget                 v6, v0, Lcom/jlboat/phone/view/CustomProgress;->y F
+	58      (000000e4) add-float/2addr      v3, v6
+	59      (000000e6) invoke-direct        v1, v2, v4, v5, v3, Landroid/graphics/RectF;-><init>(F F F F)V
+	60      (000000ec) iput-object          v1, v0, Lcom/jlboat/phone/view/CustomProgress;->oval Landroid/graphics/RectF;
+	61      (000000f0) new-instance         v1, Landroid/graphics/Rect;
+	62      (000000f4) invoke-virtual       v14, Lcom/jlboat/phone/view/CustomProgress;->getHeight()I
+	63      (000000fa) move-result          v2
+	64      (000000fc) const/16             v3, 100
+	65      (00000100) sub-int/2addr        v2, v3
+	66      (00000102) invoke-virtual       v14, Lcom/jlboat/phone/view/CustomProgress;->getHeight()I
+	67      (00000108) move-result          v4
+	68      (0000010a) const/16             v5, 50
+	69      (0000010e) sub-int/2addr        v4, v5
+	70      (00000110) invoke-direct        v1, v5, v2, v3, v4, Landroid/graphics/Rect;-><init>(I I I I)V
+	71      (00000116) iput-object          v1, v0, Lcom/jlboat/phone/view/CustomProgress;->rect0 Landroid/graphics/Rect;
+	72      (0000011a) new-instance         v1, Landroid/graphics/Rect;
+	73      (0000011e) invoke-virtual       v14, Lcom/jlboat/phone/view/CustomProgress;->getHeight()I
+	74      (00000124) move-result          v2
+	75      (00000126) add-int/lit8         v2, v2, -120
+	76      (0000012a) invoke-virtual       v14, Lcom/jlboat/phone/view/CustomProgress;->getHeight()I
+	77      (00000130) move-result          v4
+	78      (00000132) add-int/lit8         v4, v4, -70
+	79      (00000136) const/16             v6, 102
+	80      (0000013a) const/16             v7, 152
+	81      (0000013e) invoke-direct        v1, v6, v2, v7, v4, Landroid/graphics/Rect;-><init>(I I I I)V
+	82      (00000144) iput-object          v1, v0, Lcom/jlboat/phone/view/CustomProgress;->rect1 Landroid/graphics/Rect;
+	83      (00000148) new-instance         v1, Landroid/graphics/Rect;
+	84      (0000014c) invoke-virtual       v14, Lcom/jlboat/phone/view/CustomProgress;->getHeight()I
+	85      (00000152) move-result          v2
+	86      (00000154) add-int/lit16        v2, v2, -140
+	87      (00000158) invoke-virtual       v14, Lcom/jlboat/phone/view/CustomProgress;->getHeight()I
+	88      (0000015e) move-result          v4
+	89      (00000160) add-int/lit8         v4, v4, -90
+	90      (00000164) const/16             v8, 202
+	91      (00000168) invoke-direct        v1, v7, v2, v8, v4, Landroid/graphics/Rect;-><init>(I I I I)V
+	92      (0000016e) iput-object          v1, v0, Lcom/jlboat/phone/view/CustomProgress;->rect2 Landroid/graphics/Rect;
+	93      (00000172) new-instance         v1, Landroid/graphics/Rect;
+	94      (00000176) iget                 v2, v0, Lcom/jlboat/phone/view/CustomProgress;->x F
+	95      (0000017a) const/high16         v4, 1103626240
+	96      (0000017e) sub-float/2addr      v2, v4
+	97      (00000180) const/high16         v9, 1112014848
+	98      (00000184) sub-float/2addr      v2, v9
+	99      (00000186) const/high16         v10, 1073741824
+	100     (0000018a) sub-float/2addr      v2, v10
+	101     (0000018c) float-to-int         v2, v2
+	102     (0000018e) invoke-virtual       v14, Lcom/jlboat/phone/view/CustomProgress;->getHeight()I
+	103     (00000194) move-result          v11
+	104     (00000196) div-int/lit8         v11, v11, 4
+	105     (0000019a) mul-int/lit8         v11, v11, 3
+	106     (0000019e) sub-int/2addr        v11, v5
+	107     (000001a0) iget                 v12, v0, Lcom/jlboat/phone/view/CustomProgress;->x F
+	108     (000001a4) add-float/2addr      v12, v4
+	109     (000001a6) sub-float/2addr      v12, v9
+	110     (000001a8) sub-float/2addr      v12, v10
+	111     (000001aa) float-to-int         v12, v12
+	112     (000001ac) invoke-virtual       v14, Lcom/jlboat/phone/view/CustomProgress;->getHeight()I
+	113     (000001b2) move-result          v13
+	114     (000001b4) div-int/lit8         v13, v13, 4
+	115     (000001b8) mul-int/lit8         v13, v13, 3
+	116     (000001bc) invoke-direct        v1, v2, v11, v12, v13, Landroid/graphics/Rect;-><init>(I I I I)V
+	117     (000001c2) iput-object          v1, v0, Lcom/jlboat/phone/view/CustomProgress;->rect3 Landroid/graphics/Rect;
+	118     (000001c6) new-instance         v1, Landroid/graphics/Rect;
+	119     (000001ca) iget                 v2, v0, Lcom/jlboat/phone/view/CustomProgress;->x F
+	120     (000001ce) sub-float/2addr      v2, v4
+	121     (000001d0) float-to-int         v2, v2
+	122     (000001d2) invoke-virtual       v14, Lcom/jlboat/phone/view/CustomProgress;->getHeight()I
+	123     (000001d8) move-result          v11
+	124     (000001da) div-int/lit8         v11, v11, 4
+	125     (000001de) mul-int/lit8         v11, v11, 3
+	126     (000001e2) sub-int/2addr        v11, v5
+	127     (000001e4) iget                 v12, v0, Lcom/jlboat/phone/view/CustomProgress;->x F
+	128     (000001e8) add-float/2addr      v12, v4
+	129     (000001ea) float-to-int         v12, v12
+	130     (000001ec) invoke-virtual       v14, Lcom/jlboat/phone/view/CustomProgress;->getHeight()I
+	131     (000001f2) move-result          v13
+	132     (000001f4) div-int/lit8         v13, v13, 4
+	133     (000001f8) mul-int/lit8         v13, v13, 3
+	134     (000001fc) invoke-direct        v1, v2, v11, v12, v13, Landroid/graphics/Rect;-><init>(I I I I)V
+	135     (00000202) iput-object          v1, v0, Lcom/jlboat/phone/view/CustomProgress;->rect4 Landroid/graphics/Rect;
+	136     (00000206) new-instance         v1, Landroid/graphics/Rect;
+	137     (0000020a) iget                 v2, v0, Lcom/jlboat/phone/view/CustomProgress;->x F
+	138     (0000020e) sub-float/2addr      v2, v4
+	139     (00000210) add-float/2addr      v2, v9
+	140     (00000212) add-float/2addr      v2, v10
+	141     (00000214) float-to-int         v2, v2
+	142     (00000216) invoke-virtual       v14, Lcom/jlboat/phone/view/CustomProgress;->getHeight()I
+	143     (0000021c) move-result          v11
+	144     (0000021e) div-int/lit8         v11, v11, 4
+	145     (00000222) mul-int/lit8         v11, v11, 3
+	146     (00000226) sub-int/2addr        v11, v5
+	147     (00000228) iget                 v12, v0, Lcom/jlboat/phone/view/CustomProgress;->x F
+	148     (0000022c) add-float/2addr      v12, v4
+	149     (0000022e) add-float/2addr      v12, v9
+	150     (00000230) add-float/2addr      v12, v10
+	151     (00000232) float-to-int         v4, v12
+	152     (00000234) invoke-virtual       v14, Lcom/jlboat/phone/view/CustomProgress;->getHeight()I
+	153     (0000023a) move-result          v9
+	154     (0000023c) div-int/lit8         v9, v9, 4
+	155     (00000240) mul-int/lit8         v9, v9, 3
+	156     (00000244) invoke-direct        v1, v2, v11, v4, v9, Landroid/graphics/Rect;-><init>(I I I I)V
+	157     (0000024a) iput-object          v1, v0, Lcom/jlboat/phone/view/CustomProgress;->rect5 Landroid/graphics/Rect;
+	158     (0000024e) new-instance         v1, Landroid/graphics/Rect;
+	159     (00000252) invoke-virtual       v14, Lcom/jlboat/phone/view/CustomProgress;->getWidth()I
+	160     (00000258) move-result          v2
+	161     (0000025a) sub-int/2addr        v2, v8
+	162     (0000025c) invoke-virtual       v14, Lcom/jlboat/phone/view/CustomProgress;->getHeight()I
+	163     (00000262) move-result          v4
+	164     (00000264) add-int/lit16        v4, v4, -140
+	165     (00000268) invoke-virtual       v14, Lcom/jlboat/phone/view/CustomProgress;->getWidth()I
+	166     (0000026e) move-result          v8
+	167     (00000270) sub-int/2addr        v8, v7
+	168     (00000272) invoke-virtual       v14, Lcom/jlboat/phone/view/CustomProgress;->getHeight()I
+	169     (00000278) move-result          v9
+	170     (0000027a) add-int/lit8         v9, v9, -90
+	171     (0000027e) invoke-direct        v1, v2, v4, v8, v9, Landroid/graphics/Rect;-><init>(I I I I)V
+	172     (00000284) iput-object          v1, v0, Lcom/jlboat/phone/view/CustomProgress;->rect6 Landroid/graphics/Rect;
+	173     (00000288) new-instance         v1, Landroid/graphics/Rect;
+	174     (0000028c) invoke-virtual       v14, Lcom/jlboat/phone/view/CustomProgress;->getWidth()I
+	175     (00000292) move-result          v2
+	176     (00000294) sub-int/2addr        v2, v7
+	177     (00000296) invoke-virtual       v14, Lcom/jlboat/phone/view/CustomProgress;->getHeight()I
+	178     (0000029c) move-result          v4
+	179     (0000029e) add-int/lit8         v4, v4, -120
+	180     (000002a2) invoke-virtual       v14, Lcom/jlboat/phone/view/CustomProgress;->getWidth()I
+	181     (000002a8) move-result          v7
+	182     (000002aa) sub-int/2addr        v7, v6
+	183     (000002ac) invoke-virtual       v14, Lcom/jlboat/phone/view/CustomProgress;->getHeight()I
+	184     (000002b2) move-result          v6
+	185     (000002b4) add-int/lit8         v6, v6, -70
+	186     (000002b8) invoke-direct        v1, v2, v4, v7, v6, Landroid/graphics/Rect;-><init>(I I I I)V
+	187     (000002be) iput-object          v1, v0, Lcom/jlboat/phone/view/CustomProgress;->rect7 Landroid/graphics/Rect;
+	188     (000002c2) new-instance         v1, Landroid/graphics/Rect;
+	189     (000002c6) invoke-virtual       v14, Lcom/jlboat/phone/view/CustomProgress;->getWidth()I
+	190     (000002cc) move-result          v2
+	191     (000002ce) sub-int/2addr        v2, v3
+	192     (000002d0) invoke-virtual       v14, Lcom/jlboat/phone/view/CustomProgress;->getHeight()I
+	193     (000002d6) move-result          v4
+	194     (000002d8) sub-int/2addr        v4, v3
+	195     (000002da) invoke-virtual       v14, Lcom/jlboat/phone/view/CustomProgress;->getWidth()I
+	196     (000002e0) move-result          v3
+	197     (000002e2) sub-int/2addr        v3, v5
+	198     (000002e4) invoke-virtual       v14, Lcom/jlboat/phone/view/CustomProgress;->getHeight()I
+	199     (000002ea) move-result          v6
+	200     (000002ec) sub-int/2addr        v6, v5
+	201     (000002ee) invoke-direct        v1, v2, v4, v3, v6, Landroid/graphics/Rect;-><init>(I I I I)V
+	202     (000002f4) iput-object          v1, v0, Lcom/jlboat/phone/view/CustomProgress;->rect8 Landroid/graphics/Rect;
+	203     (000002f8) iget-object          v1, v0, Lcom/jlboat/phone/view/CustomProgress;->mIcon0 Landroid/graphics/drawable/Drawable;
+	204     (000002fc) iget-object          v2, v0, Lcom/jlboat/phone/view/CustomProgress;->rect0 Landroid/graphics/Rect;
+	205     (00000300) invoke-virtual       v1, v2, Landroid/graphics/drawable/Drawable;->setBounds(Landroid/graphics/Rect;)V
+	206     (00000306) iget-object          v1, v0, Lcom/jlboat/phone/view/CustomProgress;->mIcon1 Landroid/graphics/drawable/Drawable;
+	207     (0000030a) iget-object          v2, v0, Lcom/jlboat/phone/view/CustomProgress;->rect1 Landroid/graphics/Rect;
+	208     (0000030e) invoke-virtual       v1, v2, Landroid/graphics/drawable/Drawable;->setBounds(Landroid/graphics/Rect;)V
+	209     (00000314) iget-object          v1, v0, Lcom/jlboat/phone/view/CustomProgress;->mIcon2 Landroid/graphics/drawable/Drawable;
+	210     (00000318) iget-object          v2, v0, Lcom/jlboat/phone/view/CustomProgress;->rect2 Landroid/graphics/Rect;
+	211     (0000031c) invoke-virtual       v1, v2, Landroid/graphics/drawable/Drawable;->setBounds(Landroid/graphics/Rect;)V
+	212     (00000322) iget-object          v1, v0, Lcom/jlboat/phone/view/CustomProgress;->mIcon3 Landroid/graphics/drawable/Drawable;
+	213     (00000326) iget-object          v2, v0, Lcom/jlboat/phone/view/CustomProgress;->rect3 Landroid/graphics/Rect;
+	214     (0000032a) invoke-virtual       v1, v2, Landroid/graphics/drawable/Drawable;->setBounds(Landroid/graphics/Rect;)V
+	215     (00000330) iget-object          v1, v0, Lcom/jlboat/phone/view/CustomProgress;->mIcon4 Landroid/graphics/drawable/Drawable;
+	216     (00000334) iget-object          v2, v0, Lcom/jlboat/phone/view/CustomProgress;->rect4 Landroid/graphics/Rect;
+	217     (00000338) invoke-virtual       v1, v2, Landroid/graphics/drawable/Drawable;->setBounds(Landroid/graphics/Rect;)V
+	218     (0000033e) iget-object          v1, v0, Lcom/jlboat/phone/view/CustomProgress;->mIcon5 Landroid/graphics/drawable/Drawable;
+	219     (00000342) iget-object          v2, v0, Lcom/jlboat/phone/view/CustomProgress;->rect5 Landroid/graphics/Rect;
+	220     (00000346) invoke-virtual       v1, v2, Landroid/graphics/drawable/Drawable;->setBounds(Landroid/graphics/Rect;)V
+	221     (0000034c) iget-object          v1, v0, Lcom/jlboat/phone/view/CustomProgress;->mIcon6 Landroid/graphics/drawable/Drawable;
+	222     (00000350) iget-object          v2, v0, Lcom/jlboat/phone/view/CustomProgress;->rect6 Landroid/graphics/Rect;
+	223     (00000354) invoke-virtual       v1, v2, Landroid/graphics/drawable/Drawable;->setBounds(Landroid/graphics/Rect;)V
+	224     (0000035a) iget-object          v1, v0, Lcom/jlboat/phone/view/CustomProgress;->mIcon7 Landroid/graphics/drawable/Drawable;
+	225     (0000035e) iget-object          v2, v0, Lcom/jlboat/phone/view/CustomProgress;->rect7 Landroid/graphics/Rect;
+	226     (00000362) invoke-virtual       v1, v2, Landroid/graphics/drawable/Drawable;->setBounds(Landroid/graphics/Rect;)V
+	227     (00000368) iget-object          v1, v0, Lcom/jlboat/phone/view/CustomProgress;->mIcon8 Landroid/graphics/drawable/Drawable;
+	228     (0000036c) iget-object          v2, v0, Lcom/jlboat/phone/view/CustomProgress;->rect8 Landroid/graphics/Rect;
+	229     (00000370) invoke-virtual       v1, v2, Landroid/graphics/drawable/Drawable;->setBounds(Landroid/graphics/Rect;)V
+	230     (00000376) return-void          
+

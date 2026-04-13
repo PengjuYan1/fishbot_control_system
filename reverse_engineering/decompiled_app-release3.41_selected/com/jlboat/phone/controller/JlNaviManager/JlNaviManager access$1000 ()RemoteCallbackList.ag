@@ -1,0 +1,11 @@
+# Lcom/jlboat/phone/controller/JlNaviManager;->access$1000()Landroid/os/RemoteCallbackList; [access_flags=static synthetic]
+#
+# Parameters:
+# local registers: v0...v0
+#
+# - return:android.os.RemoteCallbackList
+
+access$1000-BB@0x0 : 
+	0       (00000000) sget-object          v0, Lcom/jlboat/phone/controller/JlNaviManager;->mCallBack Landroid/os/RemoteCallbackList;
+	1       (00000004) return-object        v0
+

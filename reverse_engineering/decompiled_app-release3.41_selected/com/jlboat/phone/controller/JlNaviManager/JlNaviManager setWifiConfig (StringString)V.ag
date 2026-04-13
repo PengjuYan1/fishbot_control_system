@@ -1,0 +1,33 @@
+# Lcom/jlboat/phone/controller/JlNaviManager;->setWifiConfig(Ljava/lang/String; Ljava/lang/String;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:java.lang.String
+# - v4:java.lang.String
+#
+# - return:void
+
+setWifiConfig-BB@0x0 : [ setWifiConfig-BB@0x8 setWifiConfig-BB@0x28 ]
+	0       (00000000) iget-boolean         v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->connectStatus Z
+	1       (00000004) if-eqz               v0, +012h
+
+setWifiConfig-BB@0x8 : [ setWifiConfig-BB@0x10 setWifiConfig-BB@0x12 ]
+	2       (00000008) iget-boolean         v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->isNavigationInited Z
+	3       (0000000c) if-nez               v0, +003h
+
+setWifiConfig-BB@0x10 : [ setWifiConfig-BB@0x28 ]
+	4       (00000010) goto                 +ch
+
+setWifiConfig-BB@0x12 : 
+	5       (00000012) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->spiritServiceClient Lcom/jlboat/phone/communication/SpiritServiceClient;
+	6       (00000016) new-instance         v1, Lcom/jlboat/phone/controller/JlNaviManager$23;
+	7       (0000001a) invoke-direct        v1, v2, Lcom/jlboat/phone/controller/JlNaviManager$23;-><init>(Lcom/jlboat/phone/controller/JlNaviManager;)V
+	8       (00000020) invoke-virtual       v0, v3, v4, v1, Lcom/jlboat/phone/communication/SpiritServiceClient;->setWifiServiceResponseListener(Ljava/lang/String; Ljava/lang/String; Lcom/boat/jrosbridge/MessageListener;)V
+	9       (00000026) return-void          
+
+setWifiConfig-BB@0x28 : 
+	10      (00000028) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->TAG Ljava/lang/String;
+	11      (0000002c) const-string         v1, "setWifiConfig: 初始化未成功 不能进行数据请求 setWifiConfig"
+	12      (00000030) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	13      (00000036) return-void          
+

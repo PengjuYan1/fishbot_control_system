@@ -1,0 +1,152 @@
+# Lcom/jlboat/phone/fragment/statusfragment/AvoidFillFragment$1;->onNewMessage(Lcom/boat/jrosbridge/message/std_msgs/Int16MultiArray;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v11
+# - v12:com.boat.jrosbridge.message.std_msgs.Int16MultiArray
+#
+# - return:void
+
+onNewMessage-BB@0x0 : [ onNewMessage-BB@0x1c onNewMessage-BB@0x1f0 ]
+	0       (00000000) iget-object          v0, v11, Lcom/jlboat/phone/fragment/statusfragment/AvoidFillFragment$1;->this$0 Lcom/jlboat/phone/fragment/statusfragment/AvoidFillFragment;
+	1       (00000004) const/4              v1, 0
+	2       (00000006) invoke-static        v0, v1, Lcom/jlboat/phone/fragment/statusfragment/AvoidFillFragment;->access$002(Lcom/jlboat/phone/fragment/statusfragment/AvoidFillFragment; Z)Z
+	3       (0000000c) invoke-virtual       v12, Lcom/boat/jrosbridge/message/std_msgs/Int16MultiArray;->getData()[J
+	4       (00000012) move-result-object   v0
+	5       (00000014) array-length         v2, v0
+	6       (00000016) const/4              v3, 2
+	7       (00000018) if-ne                v2, v3, +0ech
+
+onNewMessage-BB@0x1c : [ onNewMessage-BB@0x62 onNewMessage-BB@0x6e ]
+	8       (0000001c) new-instance         v2, Ljava/lang/StringBuilder;
+	9       (00000020) invoke-direct        v2, Ljava/lang/StringBuilder;-><init>()V
+	10      (00000026) const-string         v4, "InfraredRangeSensor_Distance: "
+	11      (0000002a) invoke-virtual       v2, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	12      (00000030) move-result-object   v2
+	13      (00000032) invoke-virtual       v2, v0, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+	14      (00000038) move-result-object   v2
+	15      (0000003a) invoke-virtual       v2, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	16      (00000040) move-result-object   v2
+	17      (00000042) const-string         v4, "AvoidFillFragment"
+	18      (00000046) invoke-static        v4, v2, Lcom/boat/jrosbridge/message/Log;->d(Ljava/lang/String; Ljava/lang/String;)V
+	19      (0000004c) aget-wide            v4, v0, v1
+	20      (00000050) const-wide/16        v6, 30
+	21      (00000054) const-wide/16        v8, 150
+	22      (00000058) const/4              v2, 1
+	23      (0000005a) cmp-long             v10, v4, v8
+	24      (0000005e) if-gez               v10, +008h
+
+onNewMessage-BB@0x62 : [ onNewMessage-BB@0x6e onNewMessage-BB@0x86 ]
+	25      (00000062) aget-wide            v4, v0, v1
+	26      (00000066) cmp-long             v10, v4, v6
+	27      (0000006a) if-gtz               v10, +00eh
+
+onNewMessage-BB@0x6e : [ onNewMessage-BB@0x7a onNewMessage-BB@0x90 ]
+	28      (0000006e) aget-wide            v4, v0, v2
+	29      (00000072) cmp-long             v10, v4, v8
+	30      (00000076) if-gez               v10, +00dh
+
+onNewMessage-BB@0x7a : [ onNewMessage-BB@0x86 onNewMessage-BB@0x90 ]
+	31      (0000007a) aget-wide            v4, v0, v2
+	32      (0000007e) cmp-long             v8, v4, v6
+	33      (00000082) if-lez               v8, +007h
+
+onNewMessage-BB@0x86 : [ onNewMessage-BB@0x90 ]
+	34      (00000086) iget-object          v4, v11, Lcom/jlboat/phone/fragment/statusfragment/AvoidFillFragment$1;->this$0 Lcom/jlboat/phone/fragment/statusfragment/AvoidFillFragment;
+	35      (0000008a) invoke-static        v4, v2, Lcom/jlboat/phone/fragment/statusfragment/AvoidFillFragment;->access$002(Lcom/jlboat/phone/fragment/statusfragment/AvoidFillFragment; Z)Z
+
+onNewMessage-BB@0x90 : [ onNewMessage-BB@0xd8 onNewMessage-BB@0x14a ]
+	36      (00000090) invoke-static        v3, Ljava/text/DateFormat;->getTimeInstance(I)Ljava/text/DateFormat;
+	37      (00000096) move-result-object   v3
+	38      (00000098) invoke-static        Ljava/lang/System;->currentTimeMillis()J
+	39      (0000009e) move-result-wide     v4
+	40      (000000a0) invoke-static        v4, v5, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+	41      (000000a6) move-result-object   v4
+	42      (000000a8) invoke-virtual       v3, v4, Ljava/text/DateFormat;->format(Ljava/lang/Object;)Ljava/lang/String;
+	43      (000000ae) move-result-object   v4
+	44      (000000b0) iget-object          v5, v11, Lcom/jlboat/phone/fragment/statusfragment/AvoidFillFragment$1;->this$0 Lcom/jlboat/phone/fragment/statusfragment/AvoidFillFragment;
+	45      (000000b4) iget-object          v5, v5, Lcom/jlboat/phone/fragment/statusfragment/AvoidFillFragment;->addViewed Ljava/util/List;
+	46      (000000b8) invoke-interface     v5, Ljava/util/List;->size()I
+	47      (000000be) move-result          v5
+	48      (000000c0) const/16             v6, 100
+	49      (000000c4) const-string         v7, " ]"
+	50      (000000c8) const-string         v8, ","
+	51      (000000cc) const-string         v9, "  :[ "
+	52      (000000d0) const-string         v10, "     time: "
+	53      (000000d4) if-ge                v5, v6, +03bh
+
+onNewMessage-BB@0xd8 : [ onNewMessage-BB@0x1cc ]
+	54      (000000d8) iget-object          v5, v11, Lcom/jlboat/phone/fragment/statusfragment/AvoidFillFragment$1;->this$0 Lcom/jlboat/phone/fragment/statusfragment/AvoidFillFragment;
+	55      (000000dc) iget-object          v5, v5, Lcom/jlboat/phone/fragment/statusfragment/AvoidFillFragment;->addViewed Ljava/util/List;
+	56      (000000e0) new-instance         v6, Ljava/lang/StringBuilder;
+	57      (000000e4) invoke-direct        v6, Ljava/lang/StringBuilder;-><init>()V
+	58      (000000ea) invoke-virtual       v6, v10, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	59      (000000f0) move-result-object   v6
+	60      (000000f2) invoke-virtual       v6, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	61      (000000f8) move-result-object   v6
+	62      (000000fa) invoke-virtual       v6, v9, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	63      (00000100) move-result-object   v6
+	64      (00000102) aget-wide            v9, v0, v1
+	65      (00000106) invoke-static        v9, v10, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+	66      (0000010c) move-result-object   v9
+	67      (0000010e) invoke-virtual       v6, v9, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	68      (00000114) move-result-object   v6
+	69      (00000116) invoke-virtual       v6, v8, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	70      (0000011c) move-result-object   v6
+	71      (0000011e) aget-wide            v8, v0, v2
+	72      (00000122) invoke-static        v8, v9, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+	73      (00000128) move-result-object   v2
+	74      (0000012a) invoke-virtual       v6, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	75      (00000130) move-result-object   v2
+	76      (00000132) invoke-virtual       v2, v7, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	77      (00000138) move-result-object   v2
+	78      (0000013a) invoke-virtual       v2, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	79      (00000140) move-result-object   v2
+	80      (00000142) invoke-interface     v5, v1, v2, Ljava/util/List;->add(I Ljava/lang/Object;)V
+	81      (00000148) goto                 +42h
+
+onNewMessage-BB@0x14a : [ onNewMessage-BB@0x1cc ]
+	82      (0000014a) iget-object          v5, v11, Lcom/jlboat/phone/fragment/statusfragment/AvoidFillFragment$1;->this$0 Lcom/jlboat/phone/fragment/statusfragment/AvoidFillFragment;
+	83      (0000014e) iget-object          v5, v5, Lcom/jlboat/phone/fragment/statusfragment/AvoidFillFragment;->addViewed Ljava/util/List;
+	84      (00000152) const/16             v6, 99
+	85      (00000156) invoke-interface     v5, v6, Ljava/util/List;->remove(I)Ljava/lang/Object;
+	86      (0000015c) iget-object          v5, v11, Lcom/jlboat/phone/fragment/statusfragment/AvoidFillFragment$1;->this$0 Lcom/jlboat/phone/fragment/statusfragment/AvoidFillFragment;
+	87      (00000160) iget-object          v5, v5, Lcom/jlboat/phone/fragment/statusfragment/AvoidFillFragment;->addViewed Ljava/util/List;
+	88      (00000164) new-instance         v6, Ljava/lang/StringBuilder;
+	89      (00000168) invoke-direct        v6, Ljava/lang/StringBuilder;-><init>()V
+	90      (0000016e) invoke-virtual       v6, v10, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	91      (00000174) move-result-object   v6
+	92      (00000176) invoke-virtual       v6, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	93      (0000017c) move-result-object   v6
+	94      (0000017e) invoke-virtual       v6, v9, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	95      (00000184) move-result-object   v6
+	96      (00000186) aget-wide            v9, v0, v1
+	97      (0000018a) invoke-static        v9, v10, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+	98      (00000190) move-result-object   v9
+	99      (00000192) invoke-virtual       v6, v9, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	100     (00000198) move-result-object   v6
+	101     (0000019a) invoke-virtual       v6, v8, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	102     (000001a0) move-result-object   v6
+	103     (000001a2) aget-wide            v8, v0, v2
+	104     (000001a6) invoke-static        v8, v9, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+	105     (000001ac) move-result-object   v2
+	106     (000001ae) invoke-virtual       v6, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	107     (000001b4) move-result-object   v2
+	108     (000001b6) invoke-virtual       v2, v7, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	109     (000001bc) move-result-object   v2
+	110     (000001be) invoke-virtual       v2, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	111     (000001c4) move-result-object   v2
+	112     (000001c6) invoke-interface     v5, v1, v2, Ljava/util/List;->add(I Ljava/lang/Object;)V
+
+onNewMessage-BB@0x1cc : [ onNewMessage-BB@0x1f0 ]
+	113     (000001cc) iget-object          v1, v11, Lcom/jlboat/phone/fragment/statusfragment/AvoidFillFragment$1;->this$0 Lcom/jlboat/phone/fragment/statusfragment/AvoidFillFragment;
+	114     (000001d0) invoke-static        v1, Lcom/jlboat/phone/fragment/statusfragment/AvoidFillFragment;->access$000(Lcom/jlboat/phone/fragment/statusfragment/AvoidFillFragment;)Z
+	115     (000001d6) move-result          v1
+	116     (000001d8) iget-object          v2, v11, Lcom/jlboat/phone/fragment/statusfragment/AvoidFillFragment$1;->this$0 Lcom/jlboat/phone/fragment/statusfragment/AvoidFillFragment;
+	117     (000001dc) iget-object          v2, v2, Lcom/jlboat/phone/fragment/statusfragment/AvoidFillFragment;->rvAddNewView Landroid/support/v7/widget/RecyclerView;
+	118     (000001e0) new-instance         v5, Lcom/jlboat/phone/fragment/statusfragment/AvoidFillFragment$1$1;
+	119     (000001e4) invoke-direct        v5, v11, v1, Lcom/jlboat/phone/fragment/statusfragment/AvoidFillFragment$1$1;-><init>(Lcom/jlboat/phone/fragment/statusfragment/AvoidFillFragment$1; Z)V
+	120     (000001ea) invoke-virtual       v2, v5, Landroid/support/v7/widget/RecyclerView;->post(Ljava/lang/Runnable;)Z
+
+onNewMessage-BB@0x1f0 : 
+	121     (000001f0) return-void          
+

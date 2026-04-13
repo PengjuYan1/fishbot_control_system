@@ -1,0 +1,113 @@
+# Lcom/jlboat/phone/base/BaseFullActivity;->initTitleBar(I I)V [access_flags=protected]
+#
+# Parameters:
+# - local registers: v0...v4
+# - v5:int
+# - v6:int
+#
+# - return:void
+
+initTitleBar-BB@0x0 : [ initTitleBar-BB@0xac initTitleBar-BB@0xc6 ]
+	0       (00000000) iput                 v5, v4, Lcom/jlboat/phone/base/BaseFullActivity;->mLayout I
+	1       (00000004) invoke-virtual       v4, v5, Lcom/jlboat/phone/base/BaseFullActivity;->setContentView(I)V
+	2       (0000000a) const                v0, 2131231198
+	3       (00000010) invoke-virtual       v4, v0, Lcom/jlboat/phone/base/BaseFullActivity;->findViewById(I)Landroid/view/View;
+	4       (00000016) move-result-object   v0
+	5       (00000018) check-cast           v0, Landroid/widget/ImageView;
+	6       (0000001c) iput-object          v0, v4, Lcom/jlboat/phone/base/BaseFullActivity;->errImg Landroid/widget/ImageView;
+	7       (00000020) iget-object          v0, v4, Lcom/jlboat/phone/base/BaseFullActivity;->errImg Landroid/widget/ImageView;
+	8       (00000024) new-instance         v1, Lcom/jlboat/phone/base/BaseFullActivity$5;
+	9       (00000028) invoke-direct        v1, v4, Lcom/jlboat/phone/base/BaseFullActivity$5;-><init>(Lcom/jlboat/phone/base/BaseFullActivity;)V
+	10      (0000002e) invoke-virtual       v0, v1, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	11      (00000034) const                v0, 2131231213
+	12      (0000003a) invoke-virtual       v4, v0, Lcom/jlboat/phone/base/BaseFullActivity;->findViewById(I)Landroid/view/View;
+	13      (00000040) move-result-object   v0
+	14      (00000042) check-cast           v0, Lcom/jlboat/phone/view/BatteryView;
+	15      (00000046) iput-object          v0, v4, Lcom/jlboat/phone/base/BaseFullActivity;->batteryView Lcom/jlboat/phone/view/BatteryView;
+	16      (0000004a) const                v0, 2131230941
+	17      (00000050) invoke-virtual       v4, v0, Lcom/jlboat/phone/base/BaseFullActivity;->findViewById(I)Landroid/view/View;
+	18      (00000056) move-result-object   v0
+	19      (00000058) check-cast           v0, Landroid/widget/ImageView;
+	20      (0000005c) iput-object          v0, v4, Lcom/jlboat/phone/base/BaseFullActivity;->iv_battery_eating Landroid/widget/ImageView;
+	21      (00000060) const                v0, 2131231187
+	22      (00000066) invoke-virtual       v4, v0, Lcom/jlboat/phone/base/BaseFullActivity;->findViewById(I)Landroid/view/View;
+	23      (0000006c) move-result-object   v0
+	24      (0000006e) check-cast           v0, Landroid/widget/TextView;
+	25      (00000072) iput-object          v0, v4, Lcom/jlboat/phone/base/BaseFullActivity;->robo_phow_text Landroid/widget/TextView;
+	26      (00000076) const                v0, 2131231186
+	27      (0000007c) invoke-virtual       v4, v0, Lcom/jlboat/phone/base/BaseFullActivity;->findViewById(I)Landroid/view/View;
+	28      (00000082) move-result-object   v0
+	29      (00000084) check-cast           v0, Landroid/view/ViewGroup;
+	30      (00000088) iput-object          v0, v4, Lcom/jlboat/phone/base/BaseFullActivity;->rl_title_context Landroid/view/ViewGroup;
+	31      (0000008c) const                v0, 2131231182
+	32      (00000092) invoke-virtual       v4, v0, Lcom/jlboat/phone/base/BaseFullActivity;->findViewById(I)Landroid/view/View;
+	33      (00000098) move-result-object   v0
+	34      (0000009a) check-cast           v0, Landroid/view/ViewGroup;
+	35      (0000009e) iput-object          v0, v4, Lcom/jlboat/phone/base/BaseFullActivity;->rl_context_context Landroid/view/ViewGroup;
+	36      (000000a2) iget-object          v0, v4, Lcom/jlboat/phone/base/BaseFullActivity;->rl_title_context Landroid/view/ViewGroup;
+	37      (000000a6) const/4              v1, 0
+	38      (000000a8) if-eqz               v0, +00fh
+
+initTitleBar-BB@0xac : [ initTitleBar-BB@0xc6 ]
+	39      (000000ac) iget-object          v0, v4, Lcom/jlboat/phone/base/BaseFullActivity;->rl_title_context Landroid/view/ViewGroup;
+	40      (000000b0) invoke-virtual       v4, v4, Lcom/jlboat/phone/base/BaseFullActivity;->getStatusBarHeight(Landroid/content/Context;)I
+	41      (000000b6) move-result          v2
+	42      (000000b8) invoke-virtual       v4, v4, Lcom/jlboat/phone/base/BaseFullActivity;->getStatusBarHeight(Landroid/content/Context;)I
+	43      (000000be) move-result          v3
+	44      (000000c0) invoke-virtual       v0, v2, v1, v3, v1, Landroid/view/ViewGroup;->setPadding(I I I I)V
+
+initTitleBar-BB@0xc6 : [ initTitleBar-BB@0xce initTitleBar-BB@0xe8 ]
+	45      (000000c6) iget-object          v0, v4, Lcom/jlboat/phone/base/BaseFullActivity;->rl_context_context Landroid/view/ViewGroup;
+	46      (000000ca) if-eqz               v0, +00fh
+
+initTitleBar-BB@0xce : [ initTitleBar-BB@0xe8 ]
+	47      (000000ce) iget-object          v0, v4, Lcom/jlboat/phone/base/BaseFullActivity;->rl_context_context Landroid/view/ViewGroup;
+	48      (000000d2) invoke-virtual       v4, v4, Lcom/jlboat/phone/base/BaseFullActivity;->getStatusBarHeight(Landroid/content/Context;)I
+	49      (000000d8) move-result          v2
+	50      (000000da) invoke-virtual       v4, v4, Lcom/jlboat/phone/base/BaseFullActivity;->getStatusBarHeight(Landroid/content/Context;)I
+	51      (000000e0) move-result          v3
+	52      (000000e2) invoke-virtual       v0, v2, v1, v3, v1, Landroid/view/ViewGroup;->setPadding(I I I I)V
+
+initTitleBar-BB@0xe8 : [ initTitleBar-BB@0x172 initTitleBar-BB@0x18a ]
+	53      (000000e8) const                v0, 2131231313
+	54      (000000ee) invoke-virtual       v4, v0, Lcom/jlboat/phone/base/BaseFullActivity;->findViewById(I)Landroid/view/View;
+	55      (000000f4) move-result-object   v0
+	56      (000000f6) check-cast           v0, Landroid/widget/ImageView;
+	57      (000000fa) iput-object          v0, v4, Lcom/jlboat/phone/base/BaseFullActivity;->titleBack Landroid/widget/ImageView;
+	58      (000000fe) iget-object          v0, v4, Lcom/jlboat/phone/base/BaseFullActivity;->titleBack Landroid/widget/ImageView;
+	59      (00000102) new-instance         v2, Lcom/jlboat/phone/base/BaseFullActivity$6;
+	60      (00000106) invoke-direct        v2, v4, Lcom/jlboat/phone/base/BaseFullActivity$6;-><init>(Lcom/jlboat/phone/base/BaseFullActivity;)V
+	61      (0000010c) invoke-virtual       v0, v2, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	62      (00000112) const                v0, 2131231317
+	63      (00000118) invoke-virtual       v4, v0, Lcom/jlboat/phone/base/BaseFullActivity;->findViewById(I)Landroid/view/View;
+	64      (0000011e) move-result-object   v0
+	65      (00000120) check-cast           v0, Landroid/widget/TextView;
+	66      (00000124) iput-object          v0, v4, Lcom/jlboat/phone/base/BaseFullActivity;->titleText Landroid/widget/TextView;
+	67      (00000128) const                v0, 2131231266
+	68      (0000012e) invoke-virtual       v4, v0, Lcom/jlboat/phone/base/BaseFullActivity;->findViewById(I)Landroid/view/View;
+	69      (00000134) move-result-object   v0
+	70      (00000136) check-cast           v0, Landroid/widget/TextView;
+	71      (0000013a) iput-object          v0, v4, Lcom/jlboat/phone/base/BaseFullActivity;->ss Landroid/widget/TextView;
+	72      (0000013e) const                v0, 2131231388
+	73      (00000144) invoke-virtual       v4, v0, Lcom/jlboat/phone/base/BaseFullActivity;->findViewById(I)Landroid/view/View;
+	74      (0000014a) move-result-object   v0
+	75      (0000014c) check-cast           v0, Landroid/widget/LinearLayout;
+	76      (00000150) iput-object          v0, v4, Lcom/jlboat/phone/base/BaseFullActivity;->wifi Landroid/widget/LinearLayout;
+	77      (00000154) iget-object          v0, v4, Lcom/jlboat/phone/base/BaseFullActivity;->titleText Landroid/widget/TextView;
+	78      (00000158) invoke-virtual       v0, v6, Landroid/widget/TextView;->setText(I)V
+	79      (0000015e) sget-object          v0, Lcom/jlboat/phone/application/BoatSlamApplication;->ssid Ljava/lang/String;
+	80      (00000162) const-string         v2, "unknown ssid"
+	81      (00000166) invoke-virtual       v0, v2, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	82      (0000016c) move-result          v0
+	83      (0000016e) if-nez               v0, +00eh
+
+initTitleBar-BB@0x172 : [ initTitleBar-BB@0x18a ]
+	84      (00000172) iget-object          v0, v4, Lcom/jlboat/phone/base/BaseFullActivity;->wifi Landroid/widget/LinearLayout;
+	85      (00000176) invoke-virtual       v0, v1, Landroid/widget/LinearLayout;->setVisibility(I)V
+	86      (0000017c) iget-object          v0, v4, Lcom/jlboat/phone/base/BaseFullActivity;->ss Landroid/widget/TextView;
+	87      (00000180) sget-object          v1, Lcom/jlboat/phone/application/BoatSlamApplication;->ssid Ljava/lang/String;
+	88      (00000184) invoke-virtual       v0, v1, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+initTitleBar-BB@0x18a : 
+	89      (0000018a) return-void          
+

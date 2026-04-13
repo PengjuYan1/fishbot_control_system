@@ -1,0 +1,56 @@
+# Lcom/jlboat/phone/view/SonarView;->setDataList(Ljava/util/List;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v4
+# - v5:java.util.List
+#
+# - return:void
+
+setDataList-BB@0x0 : [ setDataList-BB@0x10 setDataList-BB@0x1a ]
+	0       (00000000) iget-object          v0, v4, Lcom/jlboat/phone/view/SonarView;->ints Ljava/util/List;
+	1       (00000004) invoke-interface     v0, Ljava/util/List;->isEmpty()Z
+	2       (0000000a) move-result          v0
+	3       (0000000c) if-nez               v0, +007h
+
+setDataList-BB@0x10 : [ setDataList-BB@0x1a ]
+	4       (00000010) iget-object          v0, v4, Lcom/jlboat/phone/view/SonarView;->ints Ljava/util/List;
+	5       (00000014) invoke-interface     v0, Ljava/util/List;->clear()V
+
+setDataList-BB@0x1a : [ setDataList-BB@0x22 ]
+	6       (0000001a) invoke-interface     v5, Ljava/util/List;->iterator()Ljava/util/Iterator;
+	7       (00000020) move-result-object   v0
+
+setDataList-BB@0x22 : [ setDataList-BB@0x2e setDataList-BB@0x58 ]
+	8       (00000022) invoke-interface     v0, Ljava/util/Iterator;->hasNext()Z
+	9       (00000028) move-result          v1
+	10      (0000002a) if-eqz               v1, +017h
+
+setDataList-BB@0x2e : [ setDataList-BB@0x22 ]
+	11      (0000002e) invoke-interface     v0, Ljava/util/Iterator;->next()Ljava/lang/Object;
+	12      (00000034) move-result-object   v1
+	13      (00000036) check-cast           v1, Ljava/lang/Float;
+	14      (0000003a) invoke-virtual       v1, Ljava/lang/Float;->floatValue()F
+	15      (00000040) move-result          v1
+	16      (00000042) iget-object          v2, v4, Lcom/jlboat/phone/view/SonarView;->ints Ljava/util/List;
+	17      (00000046) float-to-int         v3, v1
+	18      (00000048) invoke-static        v3, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+	19      (0000004e) move-result-object   v3
+	20      (00000050) invoke-interface     v2, v3, Ljava/util/List;->add(Ljava/lang/Object;)Z
+	21      (00000056) goto                 -1ah
+
+setDataList-BB@0x58 : [ setDataList-BB@0x6a setDataList-BB@0x6c ]
+	22      (00000058) iget-object          v0, v4, Lcom/jlboat/phone/view/SonarView;->ints Ljava/util/List;
+	23      (0000005c) invoke-interface     v0, Ljava/util/List;->size()I
+	24      (00000062) move-result          v0
+	25      (00000064) const/4              v1, 7
+	26      (00000066) if-ge                v0, v1, +003h
+
+setDataList-BB@0x6a : 
+	27      (0000006a) return-void          
+
+setDataList-BB@0x6c : 
+	28      (0000006c) const/4              v0, 1
+	29      (0000006e) iput-boolean         v0, v4, Lcom/jlboat/phone/view/SonarView;->hasdata Z
+	30      (00000072) invoke-virtual       v4, Lcom/jlboat/phone/view/SonarView;->invalidate()V
+	31      (00000078) return-void          
+

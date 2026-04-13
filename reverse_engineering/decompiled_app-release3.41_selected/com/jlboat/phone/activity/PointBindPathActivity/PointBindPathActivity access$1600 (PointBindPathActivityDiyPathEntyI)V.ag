@@ -1,0 +1,14 @@
+# Lcom/jlboat/phone/activity/PointBindPathActivity;->access$1600(Lcom/jlboat/phone/activity/PointBindPathActivity; Lworld_canvas_msgs18/DiyPathEnty; I)V [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v-1
+# - v0:com.jlboat.phone.activity.PointBindPathActivity
+# - v1:world_canvas_msgs18.DiyPathEnty
+# - v2:int
+#
+# - return:void
+
+access$1600-BB@0x0 : 
+	0       (00000000) invoke-direct        v0, v1, v2, Lcom/jlboat/phone/activity/PointBindPathActivity;->addBindNavPoint(Lworld_canvas_msgs18/DiyPathEnty; I)V
+	1       (00000006) return-void          
+

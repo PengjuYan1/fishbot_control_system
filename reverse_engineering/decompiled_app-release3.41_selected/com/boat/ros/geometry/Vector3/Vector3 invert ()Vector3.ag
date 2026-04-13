@@ -1,0 +1,19 @@
+# Lcom/boat/ros/geometry/Vector3;->invert()Lcom/boat/ros/geometry/Vector3; [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v8
+#
+# - return:com.boat.ros.geometry.Vector3
+
+invert-BB@0x0 : 
+	0       (00000000) new-instance         v7, Lcom/boat/ros/geometry/Vector3;
+	1       (00000004) iget-wide            v0, v8, Lcom/boat/ros/geometry/Vector3;->x D
+	2       (00000008) neg-double           v1, v0
+	3       (0000000a) iget-wide            v3, v8, Lcom/boat/ros/geometry/Vector3;->y D
+	4       (0000000e) neg-double           v3, v3
+	5       (00000010) iget-wide            v5, v8, Lcom/boat/ros/geometry/Vector3;->z D
+	6       (00000014) neg-double           v5, v5
+	7       (00000016) move-object          v0, v7
+	8       (00000018) invoke-direct/range  v0 ... v6, Lcom/boat/ros/geometry/Vector3;-><init>(D D D)V
+	9       (0000001e) return-object        v7
+

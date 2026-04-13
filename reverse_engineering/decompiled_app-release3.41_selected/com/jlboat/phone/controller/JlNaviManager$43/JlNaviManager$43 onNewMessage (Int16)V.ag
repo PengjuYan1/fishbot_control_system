@@ -1,0 +1,20 @@
+# Lcom/jlboat/phone/controller/JlNaviManager$43;->onNewMessage(Lcom/boat/jrosbridge/message/std_msgs/Int16;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:com.boat.jrosbridge.message.std_msgs.Int16
+#
+# - return:void
+
+onNewMessage-BB@0x0 : 
+	0       (00000000) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager$43;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	1       (00000004) invoke-virtual       v3, Lcom/boat/jrosbridge/message/std_msgs/Int16;->getData()S
+	2       (0000000a) move-result          v1
+	3       (0000000c) invoke-static        v0, v1, Lcom/jlboat/phone/controller/JlNaviManager;->access$2102(Lcom/jlboat/phone/controller/JlNaviManager; I)I
+	4       (00000012) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager$43;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	5       (00000016) invoke-static        v0, Lcom/jlboat/phone/controller/JlNaviManager;->access$100(Lcom/jlboat/phone/controller/JlNaviManager;)Landroid/os/Handler;
+	6       (0000001c) move-result-object   v0
+	7       (0000001e) const/16             v1, 16
+	8       (00000022) invoke-virtual       v0, v1, Landroid/os/Handler;->sendEmptyMessage(I)Z
+	9       (00000028) return-void          
+

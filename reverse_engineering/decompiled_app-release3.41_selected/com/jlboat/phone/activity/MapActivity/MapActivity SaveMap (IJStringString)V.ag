@@ -1,0 +1,29 @@
+# Lcom/jlboat/phone/activity/MapActivity;->SaveMap(I J Ljava/lang/String; Ljava/lang/String;)V [access_flags=private]
+#
+# Parameters:
+# - local registers: v0...v10
+# - v11:int
+# - v12:long
+# - v13:java.lang.String
+# - v14:java.lang.String
+#
+# - return:void
+
+SaveMap-BB@0x0 : 
+	0       (00000000) const                v0, 2131493126
+	1       (00000006) invoke-virtual       v9, v0, Lcom/jlboat/phone/activity/MapActivity;->getResString(I)Ljava/lang/String;
+	2       (0000000c) move-result-object   v0
+	3       (0000000e) const                v1, 2131493125
+	4       (00000014) invoke-virtual       v9, v1, Lcom/jlboat/phone/activity/MapActivity;->getResString(I)Ljava/lang/String;
+	5       (0000001a) move-result-object   v1
+	6       (0000001c) invoke-direct        v9, v0, v1, Lcom/jlboat/phone/activity/MapActivity;->safeShowWaitingDialog(Ljava/lang/CharSequence; Ljava/lang/CharSequence;)V
+	7       (00000022) iget-object          v2, v9, Lcom/jlboat/phone/activity/MapActivity;->spiritServiceClient Lcom/jlboat/phone/communication/SpiritServiceClient;
+	8       (00000026) new-instance         v8, Lcom/jlboat/phone/activity/MapActivity$39;
+	9       (0000002a) invoke-direct        v8, v9, Lcom/jlboat/phone/activity/MapActivity$39;-><init>(Lcom/jlboat/phone/activity/MapActivity;)V
+	10      (00000030) move                 v3, v10
+	11      (00000032) move-wide            v4, v11
+	12      (00000034) move-object          v6, v13
+	13      (00000036) move-object          v7, v14
+	14      (00000038) invoke-virtual/range v2 ... v8, Lcom/jlboat/phone/communication/SpiritServiceClient;->saveMapService(I J Ljava/lang/String; Ljava/lang/String; Lcom/boat/jrosbridge/MessageListener;)V
+	15      (0000003e) return-void          
+

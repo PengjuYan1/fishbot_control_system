@@ -102,4 +102,5 @@ ros_adapter/    robot capability abstraction and concrete adapter skeletons
 storage/        SQLite helpers and schema migrations
 tests/          unit and integration tests
 docs/           design and implementation plans
+reverse_engineering/ APK reverse-engineering references used for ROS/API verification
 ```

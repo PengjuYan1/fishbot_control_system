@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/activity/GrabBagActivity;->access$500(Lcom/jlboat/phone/activity/GrabBagActivity;)Ljava/lang/String; [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.activity.GrabBagActivity
+#
+# - return:java.lang.String
+
+access$500-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/jlboat/phone/activity/GrabBagActivity;->TAG Ljava/lang/String;
+	1       (00000004) return-object        v0
+

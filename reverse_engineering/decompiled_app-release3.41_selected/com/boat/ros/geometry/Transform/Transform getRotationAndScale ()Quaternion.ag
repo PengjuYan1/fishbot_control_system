@@ -1,0 +1,11 @@
+# Lcom/boat/ros/geometry/Transform;->getRotationAndScale()Lcom/boat/ros/geometry/Quaternion; [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:com.boat.ros.geometry.Quaternion
+
+getRotationAndScale-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/boat/ros/geometry/Transform;->rotationAndScale Lcom/boat/ros/geometry/Quaternion;
+	1       (00000004) return-object        v0
+

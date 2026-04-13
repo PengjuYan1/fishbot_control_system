@@ -1,0 +1,70 @@
+# Lcom/jlboat/phone/view/LaserCameraView;->setMatrix1(I)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v4
+# - v5:int
+#
+# - return:void
+
+setMatrix1-BB@0x0 : [ setMatrix1-BB@0x6 ]
+	0       (00000000) iget-object          v0, v4, Lcom/jlboat/phone/view/LaserCameraView;->mutex01 Ljava/lang/Object;
+	1       (00000004) monitor-enter        v0
+
+setMatrix1-BB@0x6 : [ setMatrix1-BB@0xc ]
+	2       (00000006) iget-object          v1, v4, Lcom/jlboat/phone/view/LaserCameraView;->mutex02 Ljava/lang/Object;
+	3       (0000000a) monitor-enter        v1
+	6:b
+	(Ljava/lang/Throwable; -> 2a setMatrix1-BB@0x2a)
+
+setMatrix1-BB@0xc : [ setMatrix1-BB@0x12 ]
+	4       (0000000c) iget-object          v2, v4, Lcom/jlboat/phone/view/LaserCameraView;->mutex03 Ljava/lang/Object;
+	5       (00000010) monitor-enter        v2
+	c:11
+	(Ljava/lang/Throwable; -> 24 setMatrix1-BB@0x24)
+
+setMatrix1-BB@0x12 : [ setMatrix1-BB@0x18 ]
+	6       (00000012) iput                 v5, v4, Lcom/jlboat/phone/view/LaserCameraView;->matrix I
+	7       (00000016) monitor-exit         v2
+	12:17
+	(Ljava/lang/Throwable; -> 1e setMatrix1-BB@0x1e)
+
+setMatrix1-BB@0x18 : [ setMatrix1-BB@0x1a ]
+	8       (00000018) monitor-exit         v1
+	18:19
+	(Ljava/lang/Throwable; -> 24 setMatrix1-BB@0x24)
+
+setMatrix1-BB@0x1a : 
+	9       (0000001a) monitor-exit         v0
+	10      (0000001c) return-void          
+	1a:1b
+	(Ljava/lang/Throwable; -> 2a setMatrix1-BB@0x2a)
+
+setMatrix1-BB@0x1e : [ setMatrix1-BB@0x20 ]
+	11      (0000001e) move-exception       v3
+
+setMatrix1-BB@0x20 : [ setMatrix1-BB@0x22 ]
+	12      (00000020) monitor-exit         v2
+	20:21
+	(Ljava/lang/Throwable; -> 1e setMatrix1-BB@0x1e)
+
+setMatrix1-BB@0x22 : 
+	13      (00000022) throw                v3
+	22:27
+	(Ljava/lang/Throwable; -> 24 setMatrix1-BB@0x24)
+
+setMatrix1-BB@0x24 : [ setMatrix1-BB@0x28 ]
+	14      (00000024) move-exception       v2
+	15      (00000026) monitor-exit         v1
+	22:27
+	(Ljava/lang/Throwable; -> 24 setMatrix1-BB@0x24)
+
+setMatrix1-BB@0x28 : 
+	16      (00000028) throw                v2
+	28:2d
+	(Ljava/lang/Throwable; -> 2a setMatrix1-BB@0x2a)
+
+setMatrix1-BB@0x2a : 
+	17      (0000002a) move-exception       v1
+	18      (0000002c) monitor-exit         v0
+	19      (0000002e) throw                v1
+

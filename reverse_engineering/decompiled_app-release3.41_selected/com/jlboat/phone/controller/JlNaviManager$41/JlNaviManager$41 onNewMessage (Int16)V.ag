@@ -1,0 +1,78 @@
+# Lcom/jlboat/phone/controller/JlNaviManager$41;->onNewMessage(Lcom/boat/jrosbridge/message/std_msgs/Int16;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v4
+# - v5:com.boat.jrosbridge.message.std_msgs.Int16
+#
+# - return:void
+
+onNewMessage-BB@0x0 : [ onNewMessage-BB@0x70 onNewMessage-BB@0x72 ]
+	0       (00000000) invoke-virtual       v5, Lcom/boat/jrosbridge/message/std_msgs/Int16;->getData()S
+	1       (00000006) move-result          v0
+	2       (00000008) iget-object          v1, v4, Lcom/jlboat/phone/controller/JlNaviManager$41;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	3       (0000000c) invoke-static        v1, Lcom/jlboat/phone/controller/JlNaviManager;->access$000(Lcom/jlboat/phone/controller/JlNaviManager;)Ljava/lang/String;
+	4       (00000012) move-result-object   v1
+	5       (00000014) new-instance         v2, Ljava/lang/StringBuilder;
+	6       (00000018) invoke-direct        v2, Ljava/lang/StringBuilder;-><init>()V
+	7       (0000001e) const-string         v3, "topic 底盘上报电量: getBattry: currentBattery = "
+	8       (00000022) invoke-virtual       v2, v3, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	9       (00000028) move-result-object   v2
+	10      (0000002a) iget-object          v3, v4, Lcom/jlboat/phone/controller/JlNaviManager$41;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	11      (0000002e) invoke-static        v3, Lcom/jlboat/phone/controller/JlNaviManager;->access$800(Lcom/jlboat/phone/controller/JlNaviManager;)I
+	12      (00000034) move-result          v3
+	13      (00000036) invoke-virtual       v2, v3, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	14      (0000003c) move-result-object   v2
+	15      (0000003e) const-string         v3, ", newBattery = "
+	16      (00000042) invoke-virtual       v2, v3, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	17      (00000048) move-result-object   v2
+	18      (0000004a) invoke-virtual       v2, v0, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	19      (00000050) move-result-object   v2
+	20      (00000052) invoke-virtual       v2, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	21      (00000058) move-result-object   v2
+	22      (0000005a) invoke-static        v1, v2, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	23      (00000060) iget-object          v1, v4, Lcom/jlboat/phone/controller/JlNaviManager$41;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	24      (00000064) invoke-static        v1, Lcom/jlboat/phone/controller/JlNaviManager;->access$800(Lcom/jlboat/phone/controller/JlNaviManager;)I
+	25      (0000006a) move-result          v1
+	26      (0000006c) if-ne                v1, v0, +003h
+
+onNewMessage-BB@0x70 : 
+	27      (00000070) return-void          
+
+onNewMessage-BB@0x72 : 
+	28      (00000072) iget-object          v1, v4, Lcom/jlboat/phone/controller/JlNaviManager$41;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	29      (00000076) invoke-static        v1, v0, Lcom/jlboat/phone/controller/JlNaviManager;->access$802(Lcom/jlboat/phone/controller/JlNaviManager; I)I
+	30      (0000007c) iget-object          v1, v4, Lcom/jlboat/phone/controller/JlNaviManager$41;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	31      (00000080) invoke-static        v1, Lcom/jlboat/phone/controller/JlNaviManager;->access$2700(Lcom/jlboat/phone/controller/JlNaviManager;)V
+	32      (00000086) iget-object          v1, v4, Lcom/jlboat/phone/controller/JlNaviManager$41;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	33      (0000008a) invoke-static        v1, Lcom/jlboat/phone/controller/JlNaviManager;->access$100(Lcom/jlboat/phone/controller/JlNaviManager;)Landroid/os/Handler;
+	34      (00000090) move-result-object   v1
+	35      (00000092) const/4              v2, 7
+	36      (00000094) invoke-virtual       v1, v2, Landroid/os/Handler;->sendEmptyMessage(I)Z
+	37      (0000009a) invoke-virtual       v5, Lcom/boat/jrosbridge/message/std_msgs/Int16;->getData()S
+	38      (000000a0) move-result          v1
+	39      (000000a2) sput                 v1, Lcom/jlboat/phone/application/BoatSlamApplication;->power I
+	40      (000000a6) iget-object          v1, v4, Lcom/jlboat/phone/controller/JlNaviManager$41;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	41      (000000aa) invoke-static        v1, Lcom/jlboat/phone/controller/JlNaviManager;->access$000(Lcom/jlboat/phone/controller/JlNaviManager;)Ljava/lang/String;
+	42      (000000b0) move-result-object   v1
+	43      (000000b2) new-instance         v2, Ljava/lang/StringBuilder;
+	44      (000000b6) invoke-direct        v2, Ljava/lang/StringBuilder;-><init>()V
+	45      (000000bc) const-string         v3, "onNewMessage 电量: "
+	46      (000000c0) invoke-virtual       v2, v3, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	47      (000000c6) move-result-object   v2
+	48      (000000c8) sget                 v3, Lcom/jlboat/phone/application/BoatSlamApplication;->power I
+	49      (000000cc) invoke-virtual       v2, v3, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	50      (000000d2) move-result-object   v2
+	51      (000000d4) invoke-virtual       v2, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	52      (000000da) move-result-object   v2
+	53      (000000dc) invoke-static        v1, v2, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	54      (000000e2) new-instance         v1, Landroid/content/Intent;
+	55      (000000e6) invoke-direct        v1, Landroid/content/Intent;-><init>()V
+	56      (000000ec) const-string         v2, "power"
+	57      (000000f0) invoke-virtual       v1, v2, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
+	58      (000000f6) const-string         v2, "value"
+	59      (000000fa) sget                 v3, Lcom/jlboat/phone/application/BoatSlamApplication;->power I
+	60      (000000fe) invoke-virtual       v1, v2, v3, Landroid/content/Intent;->putExtra(Ljava/lang/String; I)Landroid/content/Intent;
+	61      (00000104) sget-object          v2, Lcom/jlboat/phone/application/BoatSlamApplication;->mApplication Lcom/jlboat/phone/application/BoatSlamApplication;
+	62      (00000108) invoke-virtual       v2, v1, Lcom/jlboat/phone/application/BoatSlamApplication;->sendBroadcast(Landroid/content/Intent;)V
+	63      (0000010e) return-void          
+

@@ -1,0 +1,13 @@
+# Lcom/boat/utils/OkHttpUtils;->enqueue(Lokhttp3/Call; Lokhttp3/Callback;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:okhttp3.Call
+# - v2:okhttp3.Callback
+#
+# - return:void
+
+enqueue-BB@0x0 : 
+	0       (00000000) invoke-interface     v1, v2, Lokhttp3/Call;->enqueue(Lokhttp3/Callback;)V
+	1       (00000006) return-void          
+

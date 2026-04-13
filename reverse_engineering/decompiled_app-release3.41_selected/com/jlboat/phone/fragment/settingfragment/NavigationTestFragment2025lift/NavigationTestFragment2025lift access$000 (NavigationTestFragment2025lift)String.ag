@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->access$000(Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;)Ljava/lang/String; [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.fragment.settingfragment.NavigationTestFragment2025lift
+#
+# - return:java.lang.String
+
+access$000-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025lift;->currentMapName Ljava/lang/String;
+	1       (00000004) return-object        v0
+

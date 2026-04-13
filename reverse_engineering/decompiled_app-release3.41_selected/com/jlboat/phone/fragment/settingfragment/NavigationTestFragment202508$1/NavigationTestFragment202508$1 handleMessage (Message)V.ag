@@ -1,0 +1,98 @@
+# Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508$1;->handleMessage(Landroid/os/Message;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:android.os.Message
+#
+# - return:void
+
+handleMessage-BB@0x0 : [ D:handleMessage-BB@0x10 101:handleMessage-BB@0x14 ]
+	0       (00000000) invoke-super         v3, v4, Landroid/os/Handler;->handleMessage(Landroid/os/Message;)V
+	1       (00000006) iget                 v0, v4, Landroid/os/Message;->what I
+	2       (0000000a) packed-switch        v0, +000008bh
+
+handleMessage-BB@0x10 : [ handleMessage-BB@0x11e ]
+	3       (00000010) goto/16              +087h
+
+handleMessage-BB@0x14 : [ handleMessage-BB@0x38 handleMessage-BB@0x50 ]
+	4       (00000014) iget-object          v0, v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508$1;->this$0 Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;
+	5       (00000018) invoke-static        v0, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;->access$000(Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;)Ljava/lang/String;
+	6       (0000001e) move-result-object   v0
+	7       (00000020) invoke-virtual       v0, Ljava/lang/String;->trim()Ljava/lang/String;
+	8       (00000026) move-result-object   v0
+	9       (00000028) const-string         v1, ""
+	10      (0000002c) invoke-virtual       v0, v1, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	11      (00000032) move-result          v0
+	12      (00000034) if-eqz               v0, +00eh
+
+handleMessage-BB@0x38 : [ handleMessage-BB@0x6e ]
+	13      (00000038) iget-object          v0, v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508$1;->this$0 Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;
+	14      (0000003c) invoke-static        v0, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;->access$100(Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;)Landroid/widget/TextView;
+	15      (00000042) move-result-object   v0
+	16      (00000044) const-string         v1, "未命名地图"
+	17      (00000048) invoke-virtual       v0, v1, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+	18      (0000004e) goto                 +10h
+
+handleMessage-BB@0x50 : [ handleMessage-BB@0x6e ]
+	19      (00000050) iget-object          v0, v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508$1;->this$0 Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;
+	20      (00000054) invoke-static        v0, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;->access$100(Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;)Landroid/widget/TextView;
+	21      (0000005a) move-result-object   v0
+	22      (0000005c) iget-object          v1, v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508$1;->this$0 Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;
+	23      (00000060) invoke-static        v1, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;->access$000(Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;)Ljava/lang/String;
+	24      (00000066) move-result-object   v1
+	25      (00000068) invoke-virtual       v0, v1, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+handleMessage-BB@0x6e : [ handleMessage-BB@0xd4 handleMessage-BB@0xfa ]
+	26      (0000006e) iget-object          v0, v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508$1;->this$0 Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;
+	27      (00000072) invoke-static        v0, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;->access$400(Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;)Lcom/jlboat/phone/adapter/TestPointListAdapter;
+	28      (00000078) move-result-object   v0
+	29      (0000007a) iget-object          v1, v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508$1;->this$0 Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;
+	30      (0000007e) invoke-static        v1, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;->access$200(Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;)Ljava/util/List;
+	31      (00000084) move-result-object   v1
+	32      (00000086) iget-object          v2, v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508$1;->this$0 Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;
+	33      (0000008a) invoke-static        v2, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;->access$300(Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;)Ljava/util/List;
+	34      (00000090) move-result-object   v2
+	35      (00000092) invoke-virtual       v0, v1, v2, Lcom/jlboat/phone/adapter/TestPointListAdapter;->setData(Ljava/util/List; Ljava/util/List;)V
+	36      (00000098) iget-object          v0, v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508$1;->this$0 Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;
+	37      (0000009c) invoke-static        v0, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;->access$500(Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;)Lcom/jlboat/phone/adapter/TestPointSelectedListAdapter;
+	38      (000000a2) move-result-object   v0
+	39      (000000a4) iget-object          v1, v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508$1;->this$0 Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;
+	40      (000000a8) invoke-static        v1, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;->access$300(Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;)Ljava/util/List;
+	41      (000000ae) move-result-object   v1
+	42      (000000b0) invoke-virtual       v0, v1, Lcom/jlboat/phone/adapter/TestPointSelectedListAdapter;->setData(Ljava/util/List;)V
+	43      (000000b6) iget-object          v0, v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508$1;->this$0 Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;
+	44      (000000ba) invoke-static        v0, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;->access$600(Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;)Ljava/util/List;
+	45      (000000c0) move-result-object   v0
+	46      (000000c2) invoke-interface     v0, Ljava/util/List;->size()I
+	47      (000000c8) move-result          v0
+	48      (000000ca) const/16             v1, 8
+	49      (000000ce) const/4              v2, 0
+	50      (000000d0) if-lez               v0, +015h
+
+handleMessage-BB@0xd4 : [ handleMessage-BB@0x11e ]
+	51      (000000d4) iget-object          v0, v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508$1;->this$0 Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;
+	52      (000000d8) invoke-static        v0, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;->access$700(Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;)Landroid/support/v7/widget/RecyclerView;
+	53      (000000de) move-result-object   v0
+	54      (000000e0) invoke-virtual       v0, v2, Landroid/support/v7/widget/RecyclerView;->setVisibility(I)V
+	55      (000000e6) iget-object          v0, v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508$1;->this$0 Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;
+	56      (000000ea) invoke-static        v0, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;->access$800(Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;)Landroid/widget/LinearLayout;
+	57      (000000f0) move-result-object   v0
+	58      (000000f2) invoke-virtual       v0, v1, Landroid/widget/LinearLayout;->setVisibility(I)V
+	59      (000000f8) goto                 +13h
+
+handleMessage-BB@0xfa : [ handleMessage-BB@0x11e ]
+	60      (000000fa) iget-object          v0, v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508$1;->this$0 Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;
+	61      (000000fe) invoke-static        v0, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;->access$800(Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;)Landroid/widget/LinearLayout;
+	62      (00000104) move-result-object   v0
+	63      (00000106) invoke-virtual       v0, v2, Landroid/widget/LinearLayout;->setVisibility(I)V
+	64      (0000010c) iget-object          v0, v3, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508$1;->this$0 Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;
+	65      (00000110) invoke-static        v0, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;->access$700(Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;)Landroid/support/v7/widget/RecyclerView;
+	66      (00000116) move-result-object   v0
+	67      (00000118) invoke-virtual       v0, v1, Landroid/support/v7/widget/RecyclerView;->setVisibility(I)V
+
+handleMessage-BB@0x11e : 
+	68      (0000011e) return-void          
+
+handleMessage-BB@0x120 : 
+	69      (00000120) packed-switch-payload 65
+

@@ -1,0 +1,19 @@
+# Lcom/boat/jrosbridge/rosbridge/operation/Subscribe;-><init>(Ljava/lang/String; Ljava/lang/String;)V [access_flags=public constructor]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:java.lang.String
+# - v3:java.lang.String
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) invoke-direct        v1, Lcom/boat/jrosbridge/rosbridge/operation/Operation;-><init>()V
+	1       (00000006) const/16             v0, 10
+	2       (0000000a) invoke-static        v0, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+	3       (00000010) move-result-object   v0
+	4       (00000012) iput-object          v0, v1, Lcom/boat/jrosbridge/rosbridge/operation/Subscribe;->queue_length Ljava/lang/Integer;
+	5       (00000016) iput-object          v2, v1, Lcom/boat/jrosbridge/rosbridge/operation/Subscribe;->topic Ljava/lang/String;
+	6       (0000001a) iput-object          v3, v1, Lcom/boat/jrosbridge/rosbridge/operation/Subscribe;->type Ljava/lang/String;
+	7       (0000001e) return-void          
+

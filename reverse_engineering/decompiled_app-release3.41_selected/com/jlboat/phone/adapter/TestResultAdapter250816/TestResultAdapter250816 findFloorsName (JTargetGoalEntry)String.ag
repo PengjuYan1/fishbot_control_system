@@ -1,0 +1,141 @@
+# Lcom/jlboat/phone/adapter/TestResultAdapter250816;->findFloorsName(J Lcom/jlboat/phone/message/map_msgs/TargetGoalEntry;)Ljava/lang/String; [access_flags=private]
+#
+# Parameters:
+# - local registers: v0...v16
+# - v17:long
+# - v18:com.jlboat.phone.message.map_msgs.TargetGoalEntry
+#
+# - return:java.lang.String
+
+findFloorsName-BB@0x0 : [ findFloorsName-BB@0xe findFloorsName-BB@0x154 ]
+	0       (00000000) move-object          v0, v15
+	1       (00000002) iget-object          v1, v0, Lcom/jlboat/phone/adapter/TestResultAdapter250816;->mMapList Lcom/boat/support/slam/entity/floors/MapList;
+	2       (00000006) const-string         v2, ""
+	3       (0000000a) if-eqz               v1, +0a5h
+
+findFloorsName-BB@0xe : [ findFloorsName-BB@0x1e findFloorsName-BB@0x154 ]
+	4       (0000000e) iget-object          v1, v0, Lcom/jlboat/phone/adapter/TestResultAdapter250816;->mMapList Lcom/boat/support/slam/entity/floors/MapList;
+	5       (00000012) invoke-virtual       v1, Lcom/boat/support/slam/entity/floors/MapList;->getFloors()Ljava/util/List;
+	6       (00000018) move-result-object   v1
+	7       (0000001a) if-eqz               v1, +09dh
+
+findFloorsName-BB@0x1e : [ findFloorsName-BB@0x22 findFloorsName-BB@0x26 ]
+	8       (0000001e) if-nez               v18, +004h
+
+findFloorsName-BB@0x22 : [ findFloorsName-BB@0x154 ]
+	9       (00000022) goto/16              +099h
+
+findFloorsName-BB@0x26 : [ findFloorsName-BB@0x4e ]
+	10      (00000026) move-wide/from16     v3, v16
+	11      (0000002a) invoke-virtual/range v18, Lcom/jlboat/phone/message/map_msgs/TargetGoalEntry;->getMapId()J
+	12      (00000030) move-result-wide     v5
+	13      (00000032) invoke-virtual/range v18, Lcom/jlboat/phone/message/map_msgs/TargetGoalEntry;->getPointId()J
+	14      (00000038) move-result-wide     v7
+	15      (0000003a) iget-object          v1, v0, Lcom/jlboat/phone/adapter/TestResultAdapter250816;->mMapList Lcom/boat/support/slam/entity/floors/MapList;
+	16      (0000003e) invoke-virtual       v1, Lcom/boat/support/slam/entity/floors/MapList;->getFloors()Ljava/util/List;
+	17      (00000044) move-result-object   v1
+	18      (00000046) invoke-interface     v1, Ljava/util/List;->iterator()Ljava/util/Iterator;
+	19      (0000004c) move-result-object   v1
+
+findFloorsName-BB@0x4e : [ findFloorsName-BB@0x5a findFloorsName-BB@0x152 ]
+	20      (0000004e) invoke-interface     v1, Ljava/util/Iterator;->hasNext()Z
+	21      (00000054) move-result          v9
+	22      (00000056) if-eqz               v9, +07eh
+
+findFloorsName-BB@0x5a : [ findFloorsName-BB@0x76 findFloorsName-BB@0x14e ]
+	23      (0000005a) invoke-interface     v1, Ljava/util/Iterator;->next()Ljava/lang/Object;
+	24      (00000060) move-result-object   v9
+	25      (00000062) check-cast           v9, Lcom/boat/support/slam/entity/floors/Floors;
+	26      (00000066) invoke-virtual       v9, Lcom/boat/support/slam/entity/floors/Floors;->getFloorId()J
+	27      (0000006c) move-result-wide     v10
+	28      (0000006e) cmp-long             v12, v10, v3
+	29      (00000072) if-nez               v12, +06eh
+
+findFloorsName-BB@0x76 : [ findFloorsName-BB@0x82 findFloorsName-BB@0x14e ]
+	30      (00000076) invoke-virtual       v9, Lcom/boat/support/slam/entity/floors/Floors;->getMaps()Ljava/util/List;
+	31      (0000007c) move-result-object   v10
+	32      (0000007e) if-eqz               v10, +068h
+
+findFloorsName-BB@0x82 : [ findFloorsName-BB@0x92 ]
+	33      (00000082) invoke-virtual       v9, Lcom/boat/support/slam/entity/floors/Floors;->getMaps()Ljava/util/List;
+	34      (00000088) move-result-object   v1
+	35      (0000008a) invoke-interface     v1, Ljava/util/List;->iterator()Ljava/util/Iterator;
+	36      (00000090) move-result-object   v1
+
+findFloorsName-BB@0x92 : [ findFloorsName-BB@0x9e findFloorsName-BB@0x144 ]
+	37      (00000092) invoke-interface     v1, Ljava/util/Iterator;->hasNext()Z
+	38      (00000098) move-result          v2
+	39      (0000009a) if-eqz               v2, +055h
+
+findFloorsName-BB@0x9e : [ findFloorsName-BB@0xba findFloorsName-BB@0x142 ]
+	40      (0000009e) invoke-interface     v1, Ljava/util/Iterator;->next()Ljava/lang/Object;
+	41      (000000a4) move-result-object   v2
+	42      (000000a6) check-cast           v2, Lcom/boat/support/slam/entity/floors/Maps;
+	43      (000000aa) invoke-virtual       v2, Lcom/boat/support/slam/entity/floors/Maps;->getMapId()J
+	44      (000000b0) move-result-wide     v10
+	45      (000000b2) cmp-long             v12, v10, v5
+	46      (000000b6) if-nez               v12, +046h
+
+findFloorsName-BB@0xba : [ findFloorsName-BB@0xc6 findFloorsName-BB@0x142 ]
+	47      (000000ba) invoke-virtual       v2, Lcom/boat/support/slam/entity/floors/Maps;->getPoints()Ljava/util/List;
+	48      (000000c0) move-result-object   v10
+	49      (000000c2) if-eqz               v10, +040h
+
+findFloorsName-BB@0xc6 : [ findFloorsName-BB@0xd6 ]
+	50      (000000c6) invoke-virtual       v2, Lcom/boat/support/slam/entity/floors/Maps;->getPoints()Ljava/util/List;
+	51      (000000cc) move-result-object   v10
+	52      (000000ce) invoke-interface     v10, Ljava/util/List;->iterator()Ljava/util/Iterator;
+	53      (000000d4) move-result-object   v10
+
+findFloorsName-BB@0xd6 : [ findFloorsName-BB@0xe2 findFloorsName-BB@0x142 ]
+	54      (000000d6) invoke-interface     v10, Ljava/util/Iterator;->hasNext()Z
+	55      (000000dc) move-result          v11
+	56      (000000de) if-eqz               v11, +032h
+
+findFloorsName-BB@0xe2 : [ findFloorsName-BB@0xfe findFloorsName-BB@0x140 ]
+	57      (000000e2) invoke-interface     v10, Ljava/util/Iterator;->next()Ljava/lang/Object;
+	58      (000000e8) move-result-object   v11
+	59      (000000ea) check-cast           v11, Lcom/boat/support/slam/entity/floors/Points;
+	60      (000000ee) invoke-virtual       v11, Lcom/boat/support/slam/entity/floors/Points;->getPointId()J
+	61      (000000f4) move-result-wide     v12
+	62      (000000f6) cmp-long             v14, v12, v7
+	63      (000000fa) if-nez               v14, +023h
+
+findFloorsName-BB@0xfe : 
+	64      (000000fe) new-instance         v1, Ljava/lang/StringBuilder;
+	65      (00000102) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	66      (00000108) const-string         v10, "floorName:"
+	67      (0000010c) invoke-virtual       v1, v10, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	68      (00000112) move-result-object   v1
+	69      (00000114) invoke-virtual       v9, Lcom/boat/support/slam/entity/floors/Floors;->getFloorName()Ljava/lang/String;
+	70      (0000011a) move-result-object   v10
+	71      (0000011c) invoke-virtual       v1, v10, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	72      (00000122) move-result-object   v1
+	73      (00000124) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	74      (0000012a) move-result-object   v1
+	75      (0000012c) const-string         v10, "TAG"
+	76      (00000130) invoke-static        v10, v1, Lcom/boat/jrosbridge/message/Log;->d(Ljava/lang/String; Ljava/lang/String;)V
+	77      (00000136) invoke-virtual       v9, Lcom/boat/support/slam/entity/floors/Floors;->getFloorName()Ljava/lang/String;
+	78      (0000013c) move-result-object   v1
+	79      (0000013e) return-object        v1
+
+findFloorsName-BB@0x140 : [ findFloorsName-BB@0xd6 ]
+	80      (00000140) goto                 -35h
+
+findFloorsName-BB@0x142 : [ findFloorsName-BB@0x92 ]
+	81      (00000142) goto                 -58h
+
+findFloorsName-BB@0x144 : 
+	82      (00000144) invoke-virtual       v9, Lcom/boat/support/slam/entity/floors/Floors;->getFloorName()Ljava/lang/String;
+	83      (0000014a) move-result-object   v1
+	84      (0000014c) return-object        v1
+
+findFloorsName-BB@0x14e : [ findFloorsName-BB@0x4e ]
+	85      (0000014e) goto/16              -080h
+
+findFloorsName-BB@0x152 : 
+	86      (00000152) return-object        v2
+
+findFloorsName-BB@0x154 : 
+	87      (00000154) return-object        v2
+

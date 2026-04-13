@@ -1,0 +1,103 @@
+# Lcom/jlboat/phone/activity/MapEditRegionActivity;->checkOkVis()V [access_flags=private]
+#
+# Parameters:
+# local registers: v0...v22
+#
+# - return:void
+
+checkOkVis-BB@0x0 : [ checkOkVis-BB@0x10 checkOkVis-BB@0x3a ]
+	0       (00000000) move-object/from16   v11, v22
+	1       (00000004) const/4              v12, 0
+	2       (00000006) iget                 v0, v11, Lcom/jlboat/phone/activity/MapEditRegionActivity;->itemType I
+	3       (0000000a) const/4              v1, 2
+	4       (0000000c) if-eq                v0, v1, +017h
+
+checkOkVis-BB@0x10 : [ checkOkVis-BB@0x1a checkOkVis-BB@0x3a ]
+	5       (00000010) iget                 v0, v11, Lcom/jlboat/phone/activity/MapEditRegionActivity;->itemType I
+	6       (00000014) const/4              v1, 3
+	7       (00000016) if-eq                v0, v1, +012h
+
+checkOkVis-BB@0x1a : [ checkOkVis-BB@0x24 checkOkVis-BB@0x3a ]
+	8       (0000001a) iget                 v0, v11, Lcom/jlboat/phone/activity/MapEditRegionActivity;->itemType I
+	9       (0000001e) const/4              v1, 5
+	10      (00000020) if-eq                v0, v1, +00dh
+
+checkOkVis-BB@0x24 : [ checkOkVis-BB@0x2e checkOkVis-BB@0x30 ]
+	11      (00000024) iget                 v0, v11, Lcom/jlboat/phone/activity/MapEditRegionActivity;->itemType I
+	12      (00000028) const/4              v1, 6
+	13      (0000002a) if-ne                v0, v1, +003h
+
+checkOkVis-BB@0x2e : [ checkOkVis-BB@0x3a ]
+	14      (0000002e) goto                 +6h
+
+checkOkVis-BB@0x30 : [ checkOkVis-BB@0x44 ]
+	15      (00000030) const/4              v0, 1
+	16      (00000032) const/4              v1, 0
+	17      (00000034) move                 v13, v0
+	18      (00000036) move                 v14, v1
+	19      (00000038) goto                 +6h
+
+checkOkVis-BB@0x3a : [ checkOkVis-BB@0x44 ]
+	20      (0000003a) const/16             v1, 8
+	21      (0000003e) const/4              v0, 0
+	22      (00000040) move                 v13, v0
+	23      (00000042) move                 v14, v1
+
+checkOkVis-BB@0x44 : [ checkOkVis-BB@0x4e checkOkVis-BB@0x74 ]
+	24      (00000044) iget                 v0, v11, Lcom/jlboat/phone/activity/MapEditRegionActivity;->itemType I
+	25      (00000048) const/4              v1, 1
+	26      (0000004a) if-ne                v0, v1, +015h
+
+checkOkVis-BB@0x4e : [ checkOkVis-BB@0x9a ]
+	27      (0000004e) const/4              v0, 0
+	28      (00000050) const/4              v1, 1
+	29      (00000052) const/4              v2, 1
+	30      (00000054) const/16             v3, 8
+	31      (00000058) const/4              v4, 0
+	32      (0000005a) const/4              v5, 0
+	33      (0000005c) move                 v15, v0
+	34      (0000005e) move/from16          v16, v1
+	35      (00000062) move/from16          v17, v2
+	36      (00000066) move/from16          v18, v3
+	37      (0000006a) move/from16          v19, v4
+	38      (0000006e) move/from16          v20, v5
+	39      (00000072) goto                 +14h
+
+checkOkVis-BB@0x74 : [ checkOkVis-BB@0x9a ]
+	40      (00000074) const/4              v2, 0
+	41      (00000076) const/4              v1, 0
+	42      (00000078) const/4              v0, 1
+	43      (0000007a) const/4              v3, 0
+	44      (0000007c) const/16             v5, 8
+	45      (00000080) const/16             v4, 8
+	46      (00000084) move                 v15, v0
+	47      (00000086) move/from16          v16, v1
+	48      (0000008a) move/from16          v17, v2
+	49      (0000008e) move/from16          v18, v3
+	50      (00000092) move/from16          v19, v4
+	51      (00000096) move/from16          v20, v5
+
+checkOkVis-BB@0x9a : 
+	52      (0000009a) new-instance         v10, Landroid/os/Handler;
+	53      (0000009e) invoke-static        Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
+	54      (000000a4) move-result-object   v0
+	55      (000000a6) invoke-direct        v10, v0, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+	56      (000000ac) new-instance         v9, Lcom/jlboat/phone/activity/MapEditRegionActivity$$ExternalSyntheticLambda0;
+	57      (000000b0) move-object          v0, v9
+	58      (000000b2) move-object/from16   v1, v22
+	59      (000000b6) move/from16          v2, v19
+	60      (000000ba) move/from16          v3, v20
+	61      (000000be) move                 v4, v12
+	62      (000000c0) move/from16          v5, v18
+	63      (000000c4) move                 v6, v14
+	64      (000000c6) move                 v7, v15
+	65      (000000c8) move                 v8, v13
+	66      (000000ca) move-object          v11, v9
+	67      (000000cc) move/from16          v9, v16
+	68      (000000d0) move/from16          v21, v12
+	69      (000000d4) move-object          v12, v10
+	70      (000000d6) move/from16          v10, v17
+	71      (000000da) invoke-direct/range  v0 ... v10, Lcom/jlboat/phone/activity/MapEditRegionActivity$$ExternalSyntheticLambda0;-><init>(Lcom/jlboat/phone/activity/MapEditRegionActivity; I I I I I Z Z Z Z)V
+	72      (000000e0) invoke-virtual       v12, v11, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+	73      (000000e6) return-void          
+

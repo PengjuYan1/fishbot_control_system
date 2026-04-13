@@ -1,0 +1,39 @@
+# Lcom/boat/support/slam/SlamManager;->navigationTo(I Ljava/lang/String; Ljava/lang/String; Lcom/boat/support/slam/IResponseListener;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:int
+# - v5:java.lang.String
+# - v6:java.lang.String
+# - v7:com.boat.support.slam.IResponseListener
+#
+# - return:void
+
+navigationTo-BB@0x0 : [ navigationTo-BB@0xc navigationTo-BB@0xe ]
+	0       (00000000) invoke-virtual       v3, Lcom/boat/support/slam/SlamManager;->isNavigationInited()Z
+	1       (00000006) move-result          v0
+	2       (00000008) if-nez               v0, +003h
+
+navigationTo-BB@0xc : 
+	3       (0000000c) return-void          
+
+navigationTo-BB@0xe : [ navigationTo-BB@0x16 navigationTo-BB@0x32 ]
+	4       (0000000e) iget-object          v0, v3, Lcom/boat/support/slam/SlamManager;->slamService Lcom/boat/support/slam/ISlamService;
+	5       (00000012) if-eqz               v0, +010h
+
+navigationTo-BB@0x16 : [ navigationTo-BB@0x32 ]
+	6       (00000016) iget-object          v0, v3, Lcom/boat/support/slam/SlamManager;->slamService Lcom/boat/support/slam/ISlamService;
+	7       (0000001a) invoke-interface     v0, v4, v5, v6, v7, Lcom/boat/support/slam/ISlamService;->navigationTo(I Ljava/lang/String; Ljava/lang/String; Lcom/boat/support/slam/IResponseListener;)V
+	8       (00000020) goto                 +9h
+	16:1f
+	(Landroid/os/RemoteException; -> 22 navigationTo-BB@0x22)
+
+navigationTo-BB@0x22 : [ navigationTo-BB@0x32 ]
+	9       (00000022) move-exception       v0
+	10      (00000024) const-string         v1, "SlamManager"
+	11      (00000028) const-string         v2, "navigationTo: "
+	12      (0000002c) invoke-static        v1, v2, v0, Landroid/util/Log;->w(Ljava/lang/String; Ljava/lang/String; Ljava/lang/Throwable;)I
+
+navigationTo-BB@0x32 : 
+	13      (00000032) return-void          
+

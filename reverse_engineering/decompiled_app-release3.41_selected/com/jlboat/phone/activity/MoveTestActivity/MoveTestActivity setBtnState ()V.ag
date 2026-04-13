@@ -1,0 +1,30 @@
+# Lcom/jlboat/phone/activity/MoveTestActivity;->setBtnState()V [access_flags=private]
+#
+# Parameters:
+# local registers: v0...v2
+#
+# - return:void
+
+setBtnState-BB@0x0 : 
+	0       (00000000) const/4              v0, 0
+	1       (00000002) iput-boolean         v0, v2, Lcom/jlboat/phone/activity/MoveTestActivity;->isMoveRun Z
+	2       (00000006) iget-object          v0, v2, Lcom/jlboat/phone/activity/MoveTestActivity;->oneMeterBtn Landroid/widget/Button;
+	3       (0000000a) const/4              v1, 1
+	4       (0000000c) invoke-virtual       v0, v1, Landroid/widget/Button;->setEnabled(Z)V
+	5       (00000012) iget-object          v0, v2, Lcom/jlboat/phone/activity/MoveTestActivity;->oneMeterBackBtn Landroid/widget/Button;
+	6       (00000016) invoke-virtual       v0, v1, Landroid/widget/Button;->setEnabled(Z)V
+	7       (0000001c) iget-object          v0, v2, Lcom/jlboat/phone/activity/MoveTestActivity;->leftTurn360Btn Landroid/widget/Button;
+	8       (00000020) invoke-virtual       v0, v1, Landroid/widget/Button;->setEnabled(Z)V
+	9       (00000026) iget-object          v0, v2, Lcom/jlboat/phone/activity/MoveTestActivity;->rightTurn360Btn Landroid/widget/Button;
+	10      (0000002a) invoke-virtual       v0, v1, Landroid/widget/Button;->setEnabled(Z)V
+	11      (00000030) iget-object          v0, v2, Lcom/jlboat/phone/activity/MoveTestActivity;->oneMeterBtn Landroid/widget/Button;
+	12      (00000034) const                v1, 2131165271
+	13      (0000003a) invoke-virtual       v0, v1, Landroid/widget/Button;->setBackgroundResource(I)V
+	14      (00000040) iget-object          v0, v2, Lcom/jlboat/phone/activity/MoveTestActivity;->oneMeterBackBtn Landroid/widget/Button;
+	15      (00000044) invoke-virtual       v0, v1, Landroid/widget/Button;->setBackgroundResource(I)V
+	16      (0000004a) iget-object          v0, v2, Lcom/jlboat/phone/activity/MoveTestActivity;->leftTurn360Btn Landroid/widget/Button;
+	17      (0000004e) invoke-virtual       v0, v1, Landroid/widget/Button;->setBackgroundResource(I)V
+	18      (00000054) iget-object          v0, v2, Lcom/jlboat/phone/activity/MoveTestActivity;->rightTurn360Btn Landroid/widget/Button;
+	19      (00000058) invoke-virtual       v0, v1, Landroid/widget/Button;->setBackgroundResource(I)V
+	20      (0000005e) return-void          
+

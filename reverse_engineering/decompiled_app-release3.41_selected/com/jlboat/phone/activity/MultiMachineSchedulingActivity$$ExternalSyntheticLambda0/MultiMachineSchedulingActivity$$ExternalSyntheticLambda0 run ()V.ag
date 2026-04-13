@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity$$ExternalSyntheticLambda0;->run()V [access_flags=public final]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:void
+
+run-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity$$ExternalSyntheticLambda0;->f$0 Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;
+	1       (00000004) invoke-virtual       v0, Lcom/jlboat/phone/activity/MultiMachineSchedulingActivity;->lambda$onResume$0$com-jlboat-phone-activity-MultiMachineSchedulingActivity()V
+	2       (0000000a) return-void          
+

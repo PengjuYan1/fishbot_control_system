@@ -1,0 +1,174 @@
+# Lcom/jlboat/phone/activity/MoveTestActivity$1;->handleMessage(Landroid/os/Message;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v4
+# - v5:android.os.Message
+#
+# - return:void
+
+handleMessage-BB@0x0 : [ D:handleMessage-BB@0x12 100:handleMessage-BB@0x9c 101:handleMessage-BB@0x46 102:handleMessage-BB@0x2e 103:handleMessage-BB@0x16 ]
+	0       (00000000) invoke-super         v4, v5, Landroid/os/Handler;->handleMessage(Landroid/os/Message;)V
+	1       (00000006) iget                 v0, v5, Landroid/os/Message;->what I
+	2       (0000000a) const/4              v1, 1
+	3       (0000000c) packed-switch        v0, +0000122h
+
+handleMessage-BB@0x12 : [ handleMessage-BB@0x24e ]
+	4       (00000012) goto/16              +11eh
+
+handleMessage-BB@0x16 : [ handleMessage-BB@0x24e ]
+	5       (00000016) const-string         v0, "测试取消"
+	6       (0000001a) invoke-static        v0, Lcom/jlboat/phone/util/Utils;->toast(Ljava/lang/String;)V
+	7       (00000020) iget-object          v0, v4, Lcom/jlboat/phone/activity/MoveTestActivity$1;->this$0 Lcom/jlboat/phone/activity/MoveTestActivity;
+	8       (00000024) invoke-static        v0, Lcom/jlboat/phone/activity/MoveTestActivity;->access$1000(Lcom/jlboat/phone/activity/MoveTestActivity;)V
+	9       (0000002a) goto/16              +112h
+
+handleMessage-BB@0x2e : [ handleMessage-BB@0x24e ]
+	10      (0000002e) const-string         v0, "测试完成"
+	11      (00000032) invoke-static        v0, Lcom/jlboat/phone/util/Utils;->toast(Ljava/lang/String;)V
+	12      (00000038) iget-object          v0, v4, Lcom/jlboat/phone/activity/MoveTestActivity$1;->this$0 Lcom/jlboat/phone/activity/MoveTestActivity;
+	13      (0000003c) invoke-static        v0, Lcom/jlboat/phone/activity/MoveTestActivity;->access$1000(Lcom/jlboat/phone/activity/MoveTestActivity;)V
+	14      (00000042) goto/16              +106h
+
+handleMessage-BB@0x46 : [ handleMessage-BB@0x24e ]
+	15      (00000046) iget-object          v0, v4, Lcom/jlboat/phone/activity/MoveTestActivity$1;->this$0 Lcom/jlboat/phone/activity/MoveTestActivity;
+	16      (0000004a) invoke-static        v0, Lcom/jlboat/phone/activity/MoveTestActivity;->access$800(Lcom/jlboat/phone/activity/MoveTestActivity;)Lcom/jlboat/phone/adapter/MoveResultAdapter;
+	17      (00000050) move-result-object   v0
+	18      (00000052) iget-object          v2, v4, Lcom/jlboat/phone/activity/MoveTestActivity$1;->this$0 Lcom/jlboat/phone/activity/MoveTestActivity;
+	19      (00000056) invoke-static        v2, Lcom/jlboat/phone/activity/MoveTestActivity;->access$100(Lcom/jlboat/phone/activity/MoveTestActivity;)Ljava/util/List;
+	20      (0000005c) move-result-object   v2
+	21      (0000005e) iget-object          v3, v4, Lcom/jlboat/phone/activity/MoveTestActivity$1;->this$0 Lcom/jlboat/phone/activity/MoveTestActivity;
+	22      (00000062) invoke-static        v3, Lcom/jlboat/phone/activity/MoveTestActivity;->access$700(Lcom/jlboat/phone/activity/MoveTestActivity;)I
+	23      (00000068) move-result          v3
+	24      (0000006a) invoke-virtual       v0, v2, v3, Lcom/jlboat/phone/adapter/MoveResultAdapter;->setData(Ljava/util/List; I)V
+	25      (00000070) iget-object          v0, v4, Lcom/jlboat/phone/activity/MoveTestActivity$1;->this$0 Lcom/jlboat/phone/activity/MoveTestActivity;
+	26      (00000074) invoke-static        v0, Lcom/jlboat/phone/activity/MoveTestActivity;->access$900(Lcom/jlboat/phone/activity/MoveTestActivity;)Landroid/support/v7/widget/RecyclerView;
+	27      (0000007a) move-result-object   v0
+	28      (0000007c) iget-object          v2, v4, Lcom/jlboat/phone/activity/MoveTestActivity$1;->this$0 Lcom/jlboat/phone/activity/MoveTestActivity;
+	29      (00000080) invoke-static        v2, Lcom/jlboat/phone/activity/MoveTestActivity;->access$100(Lcom/jlboat/phone/activity/MoveTestActivity;)Ljava/util/List;
+	30      (00000086) move-result-object   v2
+	31      (00000088) invoke-interface     v2, Ljava/util/List;->size()I
+	32      (0000008e) move-result          v2
+	33      (00000090) sub-int/2addr        v2, v1
+	34      (00000092) invoke-virtual       v0, v2, Landroid/support/v7/widget/RecyclerView;->scrollToPosition(I)V
+	35      (00000098) goto/16              +0dbh
+
+handleMessage-BB@0x9c : [ D:handleMessage-BB@0xd6 1:handleMessage-BB@0x1b8 2:handleMessage-BB@0x16e 3:handleMessage-BB@0x124 4:handleMessage-BB@0xda ]
+	36      (0000009c) iget-object          v0, v4, Lcom/jlboat/phone/activity/MoveTestActivity$1;->this$0 Lcom/jlboat/phone/activity/MoveTestActivity;
+	37      (000000a0) invoke-static        v0, v1, Lcom/jlboat/phone/activity/MoveTestActivity;->access$002(Lcom/jlboat/phone/activity/MoveTestActivity; Z)Z
+	38      (000000a6) iget-object          v0, v4, Lcom/jlboat/phone/activity/MoveTestActivity$1;->this$0 Lcom/jlboat/phone/activity/MoveTestActivity;
+	39      (000000aa) invoke-static        v0, Lcom/jlboat/phone/activity/MoveTestActivity;->access$100(Lcom/jlboat/phone/activity/MoveTestActivity;)Ljava/util/List;
+	40      (000000b0) move-result-object   v0
+	41      (000000b2) invoke-interface     v0, Ljava/util/List;->clear()V
+	42      (000000b8) iget-object          v0, v4, Lcom/jlboat/phone/activity/MoveTestActivity$1;->this$0 Lcom/jlboat/phone/activity/MoveTestActivity;
+	43      (000000bc) invoke-static        v0, Lcom/jlboat/phone/activity/MoveTestActivity;->access$200(Lcom/jlboat/phone/activity/MoveTestActivity;)I
+	44      (000000c2) move-result          v0
+	45      (000000c4) const                v1, 2131165274
+	46      (000000ca) const                v2, 2131165273
+	47      (000000d0) packed-switch        v0, +00000cch
+
+handleMessage-BB@0xd6 : [ handleMessage-BB@0x202 ]
+	48      (000000d6) goto/16              +096h
+
+handleMessage-BB@0xda : [ handleMessage-BB@0x202 ]
+	49      (000000da) iget-object          v0, v4, Lcom/jlboat/phone/activity/MoveTestActivity$1;->this$0 Lcom/jlboat/phone/activity/MoveTestActivity;
+	50      (000000de) invoke-static        v0, Lcom/jlboat/phone/activity/MoveTestActivity;->access$300(Lcom/jlboat/phone/activity/MoveTestActivity;)Landroid/widget/Button;
+	51      (000000e4) move-result-object   v0
+	52      (000000e6) invoke-virtual       v0, v2, Landroid/widget/Button;->setBackgroundResource(I)V
+	53      (000000ec) iget-object          v0, v4, Lcom/jlboat/phone/activity/MoveTestActivity$1;->this$0 Lcom/jlboat/phone/activity/MoveTestActivity;
+	54      (000000f0) invoke-static        v0, Lcom/jlboat/phone/activity/MoveTestActivity;->access$400(Lcom/jlboat/phone/activity/MoveTestActivity;)Landroid/widget/Button;
+	55      (000000f6) move-result-object   v0
+	56      (000000f8) invoke-virtual       v0, v2, Landroid/widget/Button;->setBackgroundResource(I)V
+	57      (000000fe) iget-object          v0, v4, Lcom/jlboat/phone/activity/MoveTestActivity$1;->this$0 Lcom/jlboat/phone/activity/MoveTestActivity;
+	58      (00000102) invoke-static        v0, Lcom/jlboat/phone/activity/MoveTestActivity;->access$500(Lcom/jlboat/phone/activity/MoveTestActivity;)Landroid/widget/Button;
+	59      (00000108) move-result-object   v0
+	60      (0000010a) invoke-virtual       v0, v2, Landroid/widget/Button;->setBackgroundResource(I)V
+	61      (00000110) iget-object          v0, v4, Lcom/jlboat/phone/activity/MoveTestActivity$1;->this$0 Lcom/jlboat/phone/activity/MoveTestActivity;
+	62      (00000114) invoke-static        v0, Lcom/jlboat/phone/activity/MoveTestActivity;->access$600(Lcom/jlboat/phone/activity/MoveTestActivity;)Landroid/widget/Button;
+	63      (0000011a) move-result-object   v0
+	64      (0000011c) invoke-virtual       v0, v1, Landroid/widget/Button;->setBackgroundResource(I)V
+	65      (00000122) goto                 +70h
+
+handleMessage-BB@0x124 : [ handleMessage-BB@0x202 ]
+	66      (00000124) iget-object          v0, v4, Lcom/jlboat/phone/activity/MoveTestActivity$1;->this$0 Lcom/jlboat/phone/activity/MoveTestActivity;
+	67      (00000128) invoke-static        v0, Lcom/jlboat/phone/activity/MoveTestActivity;->access$300(Lcom/jlboat/phone/activity/MoveTestActivity;)Landroid/widget/Button;
+	68      (0000012e) move-result-object   v0
+	69      (00000130) invoke-virtual       v0, v2, Landroid/widget/Button;->setBackgroundResource(I)V
+	70      (00000136) iget-object          v0, v4, Lcom/jlboat/phone/activity/MoveTestActivity$1;->this$0 Lcom/jlboat/phone/activity/MoveTestActivity;
+	71      (0000013a) invoke-static        v0, Lcom/jlboat/phone/activity/MoveTestActivity;->access$400(Lcom/jlboat/phone/activity/MoveTestActivity;)Landroid/widget/Button;
+	72      (00000140) move-result-object   v0
+	73      (00000142) invoke-virtual       v0, v2, Landroid/widget/Button;->setBackgroundResource(I)V
+	74      (00000148) iget-object          v0, v4, Lcom/jlboat/phone/activity/MoveTestActivity$1;->this$0 Lcom/jlboat/phone/activity/MoveTestActivity;
+	75      (0000014c) invoke-static        v0, Lcom/jlboat/phone/activity/MoveTestActivity;->access$500(Lcom/jlboat/phone/activity/MoveTestActivity;)Landroid/widget/Button;
+	76      (00000152) move-result-object   v0
+	77      (00000154) invoke-virtual       v0, v1, Landroid/widget/Button;->setBackgroundResource(I)V
+	78      (0000015a) iget-object          v0, v4, Lcom/jlboat/phone/activity/MoveTestActivity$1;->this$0 Lcom/jlboat/phone/activity/MoveTestActivity;
+	79      (0000015e) invoke-static        v0, Lcom/jlboat/phone/activity/MoveTestActivity;->access$600(Lcom/jlboat/phone/activity/MoveTestActivity;)Landroid/widget/Button;
+	80      (00000164) move-result-object   v0
+	81      (00000166) invoke-virtual       v0, v2, Landroid/widget/Button;->setBackgroundResource(I)V
+	82      (0000016c) goto                 +4bh
+
+handleMessage-BB@0x16e : [ handleMessage-BB@0x202 ]
+	83      (0000016e) iget-object          v0, v4, Lcom/jlboat/phone/activity/MoveTestActivity$1;->this$0 Lcom/jlboat/phone/activity/MoveTestActivity;
+	84      (00000172) invoke-static        v0, Lcom/jlboat/phone/activity/MoveTestActivity;->access$300(Lcom/jlboat/phone/activity/MoveTestActivity;)Landroid/widget/Button;
+	85      (00000178) move-result-object   v0
+	86      (0000017a) invoke-virtual       v0, v2, Landroid/widget/Button;->setBackgroundResource(I)V
+	87      (00000180) iget-object          v0, v4, Lcom/jlboat/phone/activity/MoveTestActivity$1;->this$0 Lcom/jlboat/phone/activity/MoveTestActivity;
+	88      (00000184) invoke-static        v0, Lcom/jlboat/phone/activity/MoveTestActivity;->access$400(Lcom/jlboat/phone/activity/MoveTestActivity;)Landroid/widget/Button;
+	89      (0000018a) move-result-object   v0
+	90      (0000018c) invoke-virtual       v0, v1, Landroid/widget/Button;->setBackgroundResource(I)V
+	91      (00000192) iget-object          v0, v4, Lcom/jlboat/phone/activity/MoveTestActivity$1;->this$0 Lcom/jlboat/phone/activity/MoveTestActivity;
+	92      (00000196) invoke-static        v0, Lcom/jlboat/phone/activity/MoveTestActivity;->access$500(Lcom/jlboat/phone/activity/MoveTestActivity;)Landroid/widget/Button;
+	93      (0000019c) move-result-object   v0
+	94      (0000019e) invoke-virtual       v0, v2, Landroid/widget/Button;->setBackgroundResource(I)V
+	95      (000001a4) iget-object          v0, v4, Lcom/jlboat/phone/activity/MoveTestActivity$1;->this$0 Lcom/jlboat/phone/activity/MoveTestActivity;
+	96      (000001a8) invoke-static        v0, Lcom/jlboat/phone/activity/MoveTestActivity;->access$600(Lcom/jlboat/phone/activity/MoveTestActivity;)Landroid/widget/Button;
+	97      (000001ae) move-result-object   v0
+	98      (000001b0) invoke-virtual       v0, v2, Landroid/widget/Button;->setBackgroundResource(I)V
+	99      (000001b6) goto                 +26h
+
+handleMessage-BB@0x1b8 : [ handleMessage-BB@0x202 ]
+	100     (000001b8) iget-object          v0, v4, Lcom/jlboat/phone/activity/MoveTestActivity$1;->this$0 Lcom/jlboat/phone/activity/MoveTestActivity;
+	101     (000001bc) invoke-static        v0, Lcom/jlboat/phone/activity/MoveTestActivity;->access$300(Lcom/jlboat/phone/activity/MoveTestActivity;)Landroid/widget/Button;
+	102     (000001c2) move-result-object   v0
+	103     (000001c4) invoke-virtual       v0, v1, Landroid/widget/Button;->setBackgroundResource(I)V
+	104     (000001ca) iget-object          v0, v4, Lcom/jlboat/phone/activity/MoveTestActivity$1;->this$0 Lcom/jlboat/phone/activity/MoveTestActivity;
+	105     (000001ce) invoke-static        v0, Lcom/jlboat/phone/activity/MoveTestActivity;->access$400(Lcom/jlboat/phone/activity/MoveTestActivity;)Landroid/widget/Button;
+	106     (000001d4) move-result-object   v0
+	107     (000001d6) invoke-virtual       v0, v2, Landroid/widget/Button;->setBackgroundResource(I)V
+	108     (000001dc) iget-object          v0, v4, Lcom/jlboat/phone/activity/MoveTestActivity$1;->this$0 Lcom/jlboat/phone/activity/MoveTestActivity;
+	109     (000001e0) invoke-static        v0, Lcom/jlboat/phone/activity/MoveTestActivity;->access$500(Lcom/jlboat/phone/activity/MoveTestActivity;)Landroid/widget/Button;
+	110     (000001e6) move-result-object   v0
+	111     (000001e8) invoke-virtual       v0, v2, Landroid/widget/Button;->setBackgroundResource(I)V
+	112     (000001ee) iget-object          v0, v4, Lcom/jlboat/phone/activity/MoveTestActivity$1;->this$0 Lcom/jlboat/phone/activity/MoveTestActivity;
+	113     (000001f2) invoke-static        v0, Lcom/jlboat/phone/activity/MoveTestActivity;->access$600(Lcom/jlboat/phone/activity/MoveTestActivity;)Landroid/widget/Button;
+	114     (000001f8) move-result-object   v0
+	115     (000001fa) invoke-virtual       v0, v2, Landroid/widget/Button;->setBackgroundResource(I)V
+	116     (00000200) nop                  
+
+handleMessage-BB@0x202 : [ handleMessage-BB@0x24e ]
+	117     (00000202) iget-object          v0, v4, Lcom/jlboat/phone/activity/MoveTestActivity$1;->this$0 Lcom/jlboat/phone/activity/MoveTestActivity;
+	118     (00000206) invoke-static        v0, Lcom/jlboat/phone/activity/MoveTestActivity;->access$300(Lcom/jlboat/phone/activity/MoveTestActivity;)Landroid/widget/Button;
+	119     (0000020c) move-result-object   v0
+	120     (0000020e) const/4              v1, 0
+	121     (00000210) invoke-virtual       v0, v1, Landroid/widget/Button;->setEnabled(Z)V
+	122     (00000216) iget-object          v0, v4, Lcom/jlboat/phone/activity/MoveTestActivity$1;->this$0 Lcom/jlboat/phone/activity/MoveTestActivity;
+	123     (0000021a) invoke-static        v0, Lcom/jlboat/phone/activity/MoveTestActivity;->access$400(Lcom/jlboat/phone/activity/MoveTestActivity;)Landroid/widget/Button;
+	124     (00000220) move-result-object   v0
+	125     (00000222) invoke-virtual       v0, v1, Landroid/widget/Button;->setEnabled(Z)V
+	126     (00000228) iget-object          v0, v4, Lcom/jlboat/phone/activity/MoveTestActivity$1;->this$0 Lcom/jlboat/phone/activity/MoveTestActivity;
+	127     (0000022c) invoke-static        v0, Lcom/jlboat/phone/activity/MoveTestActivity;->access$500(Lcom/jlboat/phone/activity/MoveTestActivity;)Landroid/widget/Button;
+	128     (00000232) move-result-object   v0
+	129     (00000234) invoke-virtual       v0, v1, Landroid/widget/Button;->setEnabled(Z)V
+	130     (0000023a) iget-object          v0, v4, Lcom/jlboat/phone/activity/MoveTestActivity$1;->this$0 Lcom/jlboat/phone/activity/MoveTestActivity;
+	131     (0000023e) invoke-static        v0, Lcom/jlboat/phone/activity/MoveTestActivity;->access$600(Lcom/jlboat/phone/activity/MoveTestActivity;)Landroid/widget/Button;
+	132     (00000244) move-result-object   v0
+	133     (00000246) invoke-virtual       v0, v1, Landroid/widget/Button;->setEnabled(Z)V
+	134     (0000024c) nop                  
+
+handleMessage-BB@0x24e : 
+	135     (0000024e) return-void          
+
+handleMessage-BB@0x250 : 
+	136     (00000250) packed-switch-payload 64 65 66 67
+	137     (00000268) packed-switch-payload 1 2 3 4
+

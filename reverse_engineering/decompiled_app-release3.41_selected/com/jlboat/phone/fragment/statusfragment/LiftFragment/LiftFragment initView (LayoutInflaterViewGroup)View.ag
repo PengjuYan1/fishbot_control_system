@@ -1,0 +1,50 @@
+# Lcom/jlboat/phone/fragment/statusfragment/LiftFragment;->initView(Landroid/view/LayoutInflater; Landroid/view/ViewGroup;)Landroid/view/View; [access_flags=protected]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:android.view.LayoutInflater
+# - v4:android.view.ViewGroup
+#
+# - return:android.view.View
+
+initView-BB@0x0 : [ initView-BB@0x68 initView-BB@0x72 ]
+	0       (00000000) const-string         v0, "LiftFragment"
+	1       (00000004) const-string         v1, "initView called"
+	2       (00000008) invoke-static        v0, v1, Lcom/boat/jrosbridge/message/Log;->d(Ljava/lang/String; Ljava/lang/String;)V
+	3       (0000000e) const                v0, 2131361871
+	4       (00000014) const/4              v1, 0
+	5       (00000016) invoke-virtual       v3, v0, v4, v1, Landroid/view/LayoutInflater;->inflate(I Landroid/view/ViewGroup; Z)Landroid/view/View;
+	6       (0000001c) move-result-object   v0
+	7       (0000001e) const                v1, 2131230956
+	8       (00000024) invoke-virtual       v0, v1, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	9       (0000002a) move-result-object   v1
+	10      (0000002c) check-cast           v1, Landroid/widget/TextView;
+	11      (00000030) iput-object          v1, v2, Lcom/jlboat/phone/fragment/statusfragment/LiftFragment;->lift_no_tv Landroid/widget/TextView;
+	12      (00000034) const                v1, 2131230949
+	13      (0000003a) invoke-virtual       v0, v1, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	14      (00000040) move-result-object   v1
+	15      (00000042) check-cast           v1, Landroid/widget/Button;
+	16      (00000046) iput-object          v1, v2, Lcom/jlboat/phone/fragment/statusfragment/LiftFragment;->jacking_tv Landroid/widget/Button;
+	17      (0000004a) const                v1, 2131230880
+	18      (00000050) invoke-virtual       v0, v1, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	19      (00000056) move-result-object   v1
+	20      (00000058) check-cast           v1, Landroid/widget/Button;
+	21      (0000005c) iput-object          v1, v2, Lcom/jlboat/phone/fragment/statusfragment/LiftFragment;->drop_tv Landroid/widget/Button;
+	22      (00000060) iget-object          v1, v2, Lcom/jlboat/phone/fragment/statusfragment/LiftFragment;->jacking_tv Landroid/widget/Button;
+	23      (00000064) if-eqz               v1, +007h
+
+initView-BB@0x68 : [ initView-BB@0x72 ]
+	24      (00000068) iget-object          v1, v2, Lcom/jlboat/phone/fragment/statusfragment/LiftFragment;->jacking_tv Landroid/widget/Button;
+	25      (0000006c) invoke-virtual       v1, v2, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+initView-BB@0x72 : [ initView-BB@0x7a initView-BB@0x84 ]
+	26      (00000072) iget-object          v1, v2, Lcom/jlboat/phone/fragment/statusfragment/LiftFragment;->drop_tv Landroid/widget/Button;
+	27      (00000076) if-eqz               v1, +007h
+
+initView-BB@0x7a : [ initView-BB@0x84 ]
+	28      (0000007a) iget-object          v1, v2, Lcom/jlboat/phone/fragment/statusfragment/LiftFragment;->drop_tv Landroid/widget/Button;
+	29      (0000007e) invoke-virtual       v1, v2, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+initView-BB@0x84 : 
+	30      (00000084) return-object        v0
+

@@ -1,0 +1,11 @@
+# Lcom/boat/jrosbridge/message/visualization_msgs/Marker;->getPOINTS()B [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:byte
+
+getPOINTS-BB@0x0 : 
+	0       (00000000) iget-byte            v0, v1, Lcom/boat/jrosbridge/message/visualization_msgs/Marker;->POINTS B
+	1       (00000004) return               v0
+

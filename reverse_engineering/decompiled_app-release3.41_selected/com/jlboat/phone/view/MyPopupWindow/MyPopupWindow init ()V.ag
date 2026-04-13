@@ -1,0 +1,80 @@
+# Lcom/jlboat/phone/view/MyPopupWindow;->init()V [access_flags=private]
+#
+# Parameters:
+# local registers: v0...v7
+#
+# - return:void
+
+init-BB@0x0 : [ init-BB@0xa8 init-BB@0xba ]
+	0       (00000000) iget-object          v0, v7, Lcom/jlboat/phone/view/MyPopupWindow;->mContext Landroid/content/Context;
+	1       (00000004) const-string         v1, "layout_inflater"
+	2       (00000008) invoke-virtual       v0, v1, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+	3       (0000000e) move-result-object   v0
+	4       (00000010) check-cast           v0, Landroid/view/LayoutInflater;
+	5       (00000014) const                v1, 2131361930
+	6       (0000001a) const/4              v2, 0
+	7       (0000001c) invoke-virtual       v0, v1, v2, Landroid/view/LayoutInflater;->inflate(I Landroid/view/ViewGroup;)Landroid/view/View;
+	8       (00000022) move-result-object   v1
+	9       (00000024) iput-object          v1, v7, Lcom/jlboat/phone/view/MyPopupWindow;->mView Landroid/view/View;
+	10      (00000028) iget-object          v1, v7, Lcom/jlboat/phone/view/MyPopupWindow;->mView Landroid/view/View;
+	11      (0000002c) const                v2, 2131231105
+	12      (00000032) invoke-virtual       v1, v2, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	13      (00000038) move-result-object   v1
+	14      (0000003a) check-cast           v1, Landroid/widget/TextView;
+	15      (0000003e) iget-object          v2, v7, Lcom/jlboat/phone/view/MyPopupWindow;->mTitle Ljava/lang/String;
+	16      (00000042) invoke-virtual       v1, v2, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+	17      (00000048) iget-object          v2, v7, Lcom/jlboat/phone/view/MyPopupWindow;->mView Landroid/view/View;
+	18      (0000004c) const                v3, 2131231104
+	19      (00000052) invoke-virtual       v2, v3, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	20      (00000058) move-result-object   v2
+	21      (0000005a) check-cast           v2, Landroid/widget/TextView;
+	22      (0000005e) iget-object          v3, v7, Lcom/jlboat/phone/view/MyPopupWindow;->mContent Ljava/lang/String;
+	23      (00000062) invoke-virtual       v2, v3, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+	24      (00000068) iget-object          v3, v7, Lcom/jlboat/phone/view/MyPopupWindow;->mView Landroid/view/View;
+	25      (0000006c) const                v4, 2131231103
+	26      (00000072) invoke-virtual       v3, v4, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	27      (00000078) move-result-object   v3
+	28      (0000007a) check-cast           v3, Landroid/widget/Button;
+	29      (0000007e) iget-object          v4, v7, Lcom/jlboat/phone/view/MyPopupWindow;->mBtnStr Ljava/lang/String;
+	30      (00000082) invoke-virtual       v3, v4, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
+	31      (00000088) iget-object          v4, v7, Lcom/jlboat/phone/view/MyPopupWindow;->mView Landroid/view/View;
+	32      (0000008c) const                v5, 2131231102
+	33      (00000092) invoke-virtual       v4, v5, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	34      (00000098) move-result-object   v4
+	35      (0000009a) check-cast           v4, Landroid/widget/Button;
+	36      (0000009e) iget-boolean         v5, v7, Lcom/jlboat/phone/view/MyPopupWindow;->mCancelBtn Z
+	37      (000000a2) const/4              v6, 0
+	38      (000000a4) if-eqz               v5, +00bh
+
+init-BB@0xa8 : [ init-BB@0xd4 ]
+	39      (000000a8) invoke-virtual       v4, v6, Landroid/widget/Button;->setVisibility(I)V
+	40      (000000ae) iget-object          v5, v7, Lcom/jlboat/phone/view/MyPopupWindow;->mCancleListener Landroid/view/View$OnClickListener;
+	41      (000000b2) invoke-virtual       v4, v5, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	42      (000000b8) goto                 +eh
+
+init-BB@0xba : [ init-BB@0xd4 ]
+	43      (000000ba) const/16             v5, 8
+	44      (000000be) invoke-virtual       v4, v5, Landroid/widget/Button;->setVisibility(I)V
+	45      (000000c4) new-instance         v5, Lcom/jlboat/phone/view/MyPopupWindow$1;
+	46      (000000c8) invoke-direct        v5, v7, Lcom/jlboat/phone/view/MyPopupWindow$1;-><init>(Lcom/jlboat/phone/view/MyPopupWindow;)V
+	47      (000000ce) invoke-virtual       v4, v5, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+init-BB@0xd4 : 
+	48      (000000d4) iget-object          v5, v7, Lcom/jlboat/phone/view/MyPopupWindow;->mListener Landroid/view/View$OnClickListener;
+	49      (000000d8) invoke-virtual       v3, v5, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	50      (000000de) iget-object          v5, v7, Lcom/jlboat/phone/view/MyPopupWindow;->mView Landroid/view/View;
+	51      (000000e2) invoke-virtual       v7, v5, Lcom/jlboat/phone/view/MyPopupWindow;->setContentView(Landroid/view/View;)V
+	52      (000000e8) const                v5, 2131558756
+	53      (000000ee) invoke-virtual       v7, v5, Lcom/jlboat/phone/view/MyPopupWindow;->setAnimationStyle(I)V
+	54      (000000f4) const/4              v5, -1
+	55      (000000f6) invoke-virtual       v7, v5, Lcom/jlboat/phone/view/MyPopupWindow;->setWidth(I)V
+	56      (000000fc) invoke-virtual       v7, v5, Lcom/jlboat/phone/view/MyPopupWindow;->setHeight(I)V
+	57      (00000102) iget-boolean         v5, v7, Lcom/jlboat/phone/view/MyPopupWindow;->touchWinDismiss Z
+	58      (00000106) invoke-virtual       v7, v5, Lcom/jlboat/phone/view/MyPopupWindow;->setFocusable(Z)V
+	59      (0000010c) invoke-virtual       v7, v6, Lcom/jlboat/phone/view/MyPopupWindow;->setClippingEnabled(Z)V
+	60      (00000112) iget-object          v5, v7, Lcom/jlboat/phone/view/MyPopupWindow;->mView Landroid/view/View;
+	61      (00000116) new-instance         v6, Lcom/jlboat/phone/view/MyPopupWindow$2;
+	62      (0000011a) invoke-direct        v6, v7, Lcom/jlboat/phone/view/MyPopupWindow$2;-><init>(Lcom/jlboat/phone/view/MyPopupWindow;)V
+	63      (00000120) invoke-virtual       v5, v6, Landroid/view/View;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
+	64      (00000126) return-void          
+

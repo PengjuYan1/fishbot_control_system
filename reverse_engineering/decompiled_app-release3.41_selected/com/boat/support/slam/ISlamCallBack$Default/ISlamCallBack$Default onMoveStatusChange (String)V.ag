@@ -1,0 +1,11 @@
+# Lcom/boat/support/slam/ISlamCallBack$Default;->onMoveStatusChange(Ljava/lang/String;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:java.lang.String
+#
+# - return:void
+
+onMoveStatusChange-BB@0x0 : 
+	0       (00000000) return-void          
+

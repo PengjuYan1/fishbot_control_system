@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/fragment/settingfragment/NavigationQueueFragment;->access$1500(Lcom/jlboat/phone/fragment/settingfragment/NavigationQueueFragment;)J [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:com.jlboat.phone.fragment.settingfragment.NavigationQueueFragment
+#
+# - return:long
+
+access$1500-BB@0x0 : 
+	0       (00000000) iget-wide            v0, v2, Lcom/jlboat/phone/fragment/settingfragment/NavigationQueueFragment;->mapId J
+	1       (00000004) return-wide          v0
+

@@ -1,0 +1,10 @@
+# Lcom/boat/support/slam/ISlamService$Default;->updateStatus()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v0
+#
+# - return:void
+
+updateStatus-BB@0x0 : 
+	0       (00000000) return-void          
+

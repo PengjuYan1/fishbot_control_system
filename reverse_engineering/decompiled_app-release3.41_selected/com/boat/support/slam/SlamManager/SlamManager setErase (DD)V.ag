@@ -1,0 +1,27 @@
+# Lcom/boat/support/slam/SlamManager;->setErase(D D)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:double
+# - v5:double
+#
+# - return:void
+
+setErase-BB@0x0 : [ setErase-BB@0x8 setErase-BB@0x1c ]
+	0       (00000000) iget-object          v0, v1, Lcom/boat/support/slam/SlamManager;->slamService Lcom/boat/support/slam/ISlamService;
+	1       (00000004) if-eqz               v0, +00ch
+
+setErase-BB@0x8 : [ setErase-BB@0x1c ]
+	2       (00000008) iget-object          v0, v1, Lcom/boat/support/slam/SlamManager;->slamService Lcom/boat/support/slam/ISlamService;
+	3       (0000000c) invoke-interface     v0, v2, v3, v4, v5, Lcom/boat/support/slam/ISlamService;->setErase(D D)V
+	4       (00000012) goto                 +5h
+	8:11
+	(Landroid/os/RemoteException; -> 14 setErase-BB@0x14)
+
+setErase-BB@0x14 : [ setErase-BB@0x1c ]
+	5       (00000014) move-exception       v0
+	6       (00000016) invoke-virtual       v0, Landroid/os/RemoteException;->printStackTrace()V
+
+setErase-BB@0x1c : 
+	7       (0000001c) return-void          
+

@@ -1,0 +1,101 @@
+# Lcom/boat/jrosbridge/message/Message;->typecheck(Ljava/lang/Class;)V [access_flags=private static]
+#
+# Parameters:
+# - local registers: v0...v6
+# - v7:java.lang.Class
+#
+# - return:void
+
+typecheck-BB@0x0 : [ typecheck-BB@0x14 typecheck-BB@0xc0 ]
+	0       (00000000) const-class          v0, Lcom/boat/jrosbridge/message/Message;
+	1       (00000004) invoke-virtual       v0, v7, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
+	2       (0000000a) move-result          v0
+	3       (0000000c) const-string         v1, "Class '"
+	4       (00000010) if-eqz               v0, +058h
+
+typecheck-BB@0x14 : [ typecheck-BB@0x20 typecheck-BB@0x7e ]
+	5       (00000014) invoke-static        v7, Lcom/boat/jrosbridge/message/Message;->getMessageType(Ljava/lang/Class;)Ljava/lang/String;
+	6       (0000001a) move-result-object   v0
+	7       (0000001c) if-eqz               v0, +031h
+
+typecheck-BB@0x20 : [ typecheck-BB@0x2c ]
+	8       (00000020) invoke-virtual       v7, Ljava/lang/Class;->getFields()[Ljava/lang/reflect/Field;
+	9       (00000026) move-result-object   v0
+	10      (00000028) array-length         v1, v0
+	11      (0000002a) const/4              v2, 0
+
+typecheck-BB@0x2c : [ typecheck-BB@0x30 typecheck-BB@0x7c ]
+	12      (0000002c) if-ge                v2, v1, +028h
+
+typecheck-BB@0x30 : [ typecheck-BB@0x48 typecheck-BB@0x64 ]
+	13      (00000030) aget-object          v3, v0, v2
+	14      (00000034) invoke-virtual       v3, Ljava/lang/reflect/Field;->getType()Ljava/lang/Class;
+	15      (0000003a) move-result-object   v4
+	16      (0000003c) invoke-virtual       v4, Ljava/lang/Class;->isArray()Z
+	17      (00000042) move-result          v5
+	18      (00000044) if-eqz               v5, +010h
+
+typecheck-BB@0x48 : [ typecheck-BB@0x5c typecheck-BB@0x62 ]
+	19      (00000048) invoke-virtual       v4, Ljava/lang/Class;->getComponentType()Ljava/lang/Class;
+	20      (0000004e) move-result-object   v5
+	21      (00000050) invoke-static        v5, Lcom/boat/jrosbridge/message/Message;->isPrimitive(Ljava/lang/Class;)Z
+	22      (00000056) move-result          v6
+	23      (00000058) if-nez               v6, +005h
+
+typecheck-BB@0x5c : [ typecheck-BB@0x62 ]
+	24      (0000005c) invoke-static        v5, Lcom/boat/jrosbridge/message/Message;->typecheck(Ljava/lang/Class;)V
+
+typecheck-BB@0x62 : [ typecheck-BB@0x76 ]
+	25      (00000062) goto                 +ah
+
+typecheck-BB@0x64 : [ typecheck-BB@0x70 typecheck-BB@0x76 ]
+	26      (00000064) invoke-static        v4, Lcom/boat/jrosbridge/message/Message;->isPrimitive(Ljava/lang/Class;)Z
+	27      (0000006a) move-result          v5
+	28      (0000006c) if-nez               v5, +005h
+
+typecheck-BB@0x70 : [ typecheck-BB@0x76 ]
+	29      (00000070) invoke-static        v4, Lcom/boat/jrosbridge/message/Message;->typecheck(Ljava/lang/Class;)V
+
+typecheck-BB@0x76 : [ typecheck-BB@0x2c ]
+	30      (00000076) add-int/lit8         v2, v2, 1
+	31      (0000007a) goto                 -27h
+
+typecheck-BB@0x7c : 
+	32      (0000007c) return-void          
+
+typecheck-BB@0x7e : 
+	33      (0000007e) new-instance         v0, Lcom/boat/jrosbridge/message/MessageException;
+	34      (00000082) new-instance         v2, Ljava/lang/StringBuilder;
+	35      (00000086) invoke-direct        v2, Ljava/lang/StringBuilder;-><init>()V
+	36      (0000008c) invoke-virtual       v2, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	37      (00000092) move-result-object   v1
+	38      (00000094) invoke-virtual       v7, Ljava/lang/Class;->getName()Ljava/lang/String;
+	39      (0000009a) move-result-object   v2
+	40      (0000009c) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	41      (000000a2) move-result-object   v1
+	42      (000000a4) const-string         v2, "' is missing the MessageType annotation"
+	43      (000000a8) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	44      (000000ae) move-result-object   v1
+	45      (000000b0) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	46      (000000b6) move-result-object   v1
+	47      (000000b8) invoke-direct        v0, v1, Lcom/boat/jrosbridge/message/MessageException;-><init>(Ljava/lang/String;)V
+	48      (000000be) throw                v0
+
+typecheck-BB@0xc0 : 
+	49      (000000c0) new-instance         v0, Lcom/boat/jrosbridge/message/MessageException;
+	50      (000000c4) new-instance         v2, Ljava/lang/StringBuilder;
+	51      (000000c8) invoke-direct        v2, Ljava/lang/StringBuilder;-><init>()V
+	52      (000000ce) invoke-virtual       v2, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	53      (000000d4) move-result-object   v1
+	54      (000000d6) invoke-virtual       v7, Ljava/lang/Class;->getName()Ljava/lang/String;
+	55      (000000dc) move-result-object   v2
+	56      (000000de) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	57      (000000e4) move-result-object   v1
+	58      (000000e6) const-string         v2, "' does not extend Message"
+	59      (000000ea) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	60      (000000f0) move-result-object   v1
+	61      (000000f2) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	62      (000000f8) move-result-object   v1
+	63      (000000fa) invoke-direct        v0, v1, Lcom/boat/jrosbridge/message/MessageException;-><init>(Ljava/lang/String;)V
+	64      (00000100) throw                v0
+

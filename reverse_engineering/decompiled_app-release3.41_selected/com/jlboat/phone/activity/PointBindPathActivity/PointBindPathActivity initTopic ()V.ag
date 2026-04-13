@@ -1,0 +1,14 @@
+# Lcom/jlboat/phone/activity/PointBindPathActivity;->initTopic()V [access_flags=private]
+#
+# Parameters:
+# local registers: v0...v2
+#
+# - return:void
+
+initTopic-BB@0x0 : 
+	0       (00000000) iget-object          v0, v2, Lcom/jlboat/phone/activity/PointBindPathActivity;->spiritTopicListener Lcom/jlboat/phone/communication/SpiritTopicListener;
+	1       (00000004) new-instance         v1, Lcom/jlboat/phone/activity/PointBindPathActivity$2;
+	2       (00000008) invoke-direct        v1, v2, Lcom/jlboat/phone/activity/PointBindPathActivity$2;-><init>(Lcom/jlboat/phone/activity/PointBindPathActivity;)V
+	3       (0000000e) invoke-virtual       v0, v1, Lcom/jlboat/phone/communication/SpiritTopicListener;->getWallUpdateMsg(Lcom/boat/jrosbridge/MessageListener;)V
+	4       (00000014) return-void          
+

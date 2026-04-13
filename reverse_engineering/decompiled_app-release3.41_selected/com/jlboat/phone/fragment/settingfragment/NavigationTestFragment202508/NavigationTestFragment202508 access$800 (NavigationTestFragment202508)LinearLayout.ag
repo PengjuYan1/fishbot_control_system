@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;->access$800(Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;)Landroid/widget/LinearLayout; [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.fragment.settingfragment.NavigationTestFragment202508
+#
+# - return:android.widget.LinearLayout
+
+access$800-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment202508;->navNopointTipLl Landroid/widget/LinearLayout;
+	1       (00000004) return-object        v0
+

@@ -1,0 +1,11 @@
+# Lcom/boat/support/slam/entity/floors/ShapeAreas;->getEllipse()Lcom/boat/support/slam/entity/floors/Ellipse; [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:com.boat.support.slam.entity.floors.Ellipse
+
+getEllipse-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/boat/support/slam/entity/floors/ShapeAreas;->ellipse Lcom/boat/support/slam/entity/floors/Ellipse;
+	1       (00000004) return-object        v0
+

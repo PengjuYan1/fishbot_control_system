@@ -1,0 +1,53 @@
+# Lcom/jlboat/phone/adapter/NavPointListAdapter;->onBindViewHolder(Lcom/jlboat/phone/adapter/NavPointListAdapter$MyHolder; I)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:com.jlboat.phone.adapter.NavPointListAdapter$MyHolder
+# - v5:int
+#
+# - return:void
+
+onBindViewHolder-BB@0x0 : [ onBindViewHolder-BB@0x38 onBindViewHolder-BB@0x6a ]
+	0       (00000000) iget-object          v0, v3, Lcom/jlboat/phone/adapter/NavPointListAdapter;->mPointList Ljava/util/List;
+	1       (00000004) invoke-interface     v0, v5, Ljava/util/List;->get(I)Ljava/lang/Object;
+	2       (0000000a) move-result-object   v0
+	3       (0000000c) check-cast           v0, Lcom/boat/support/slam/entity/floors/Points;
+	4       (00000010) iput-object          v0, v3, Lcom/jlboat/phone/adapter/NavPointListAdapter;->point Lcom/boat/support/slam/entity/floors/Points;
+	5       (00000014) iget-object          v0, v3, Lcom/jlboat/phone/adapter/NavPointListAdapter;->point Lcom/boat/support/slam/entity/floors/Points;
+	6       (00000018) invoke-virtual       v0, Lcom/boat/support/slam/entity/floors/Points;->getPointName()Ljava/lang/String;
+	7       (0000001e) move-result-object   v0
+	8       (00000020) invoke-virtual       v0, Ljava/lang/String;->trim()Ljava/lang/String;
+	9       (00000026) move-result-object   v0
+	10      (00000028) const-string         v1, ""
+	11      (0000002c) invoke-virtual       v0, v1, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	12      (00000032) move-result          v0
+	13      (00000034) if-eqz               v0, +01bh
+
+onBindViewHolder-BB@0x38 : [ onBindViewHolder-BB@0x80 ]
+	14      (00000038) iget-object          v0, v4, Lcom/jlboat/phone/adapter/NavPointListAdapter$MyHolder;->tv Landroid/widget/TextView;
+	15      (0000003c) new-instance         v1, Ljava/lang/StringBuilder;
+	16      (00000040) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	17      (00000046) const-string         v2, "未命名导航点"
+	18      (0000004a) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	19      (00000050) move-result-object   v1
+	20      (00000052) invoke-virtual       v1, v5, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	21      (00000058) move-result-object   v1
+	22      (0000005a) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	23      (00000060) move-result-object   v1
+	24      (00000062) invoke-virtual       v0, v1, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+	25      (00000068) goto                 +ch
+
+onBindViewHolder-BB@0x6a : [ onBindViewHolder-BB@0x80 ]
+	26      (0000006a) iget-object          v0, v4, Lcom/jlboat/phone/adapter/NavPointListAdapter$MyHolder;->tv Landroid/widget/TextView;
+	27      (0000006e) iget-object          v1, v3, Lcom/jlboat/phone/adapter/NavPointListAdapter;->point Lcom/boat/support/slam/entity/floors/Points;
+	28      (00000072) invoke-virtual       v1, Lcom/boat/support/slam/entity/floors/Points;->getPointName()Ljava/lang/String;
+	29      (00000078) move-result-object   v1
+	30      (0000007a) invoke-virtual       v0, v1, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+onBindViewHolder-BB@0x80 : 
+	31      (00000080) iget-object          v0, v4, Lcom/jlboat/phone/adapter/NavPointListAdapter$MyHolder;->itemView Landroid/view/View;
+	32      (00000084) new-instance         v1, Lcom/jlboat/phone/adapter/NavPointListAdapter$1;
+	33      (00000088) invoke-direct        v1, v3, v5, Lcom/jlboat/phone/adapter/NavPointListAdapter$1;-><init>(Lcom/jlboat/phone/adapter/NavPointListAdapter; I)V
+	34      (0000008e) invoke-virtual       v0, v1, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	35      (00000094) return-void          
+

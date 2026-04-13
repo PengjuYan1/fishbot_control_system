@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/adapter/DiyPathListAdapter;->setOnLongItemClickListener(Lcom/jlboat/phone/adapter/DiyPathListAdapter$OnItemLongClickListener;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.adapter.DiyPathListAdapter$OnItemLongClickListener
+#
+# - return:void
+
+setOnLongItemClickListener-BB@0x0 : 
+	0       (00000000) iput-object          v1, v0, Lcom/jlboat/phone/adapter/DiyPathListAdapter;->mItemLongClickListener Lcom/jlboat/phone/adapter/DiyPathListAdapter$OnItemLongClickListener;
+	1       (00000004) return-void          
+

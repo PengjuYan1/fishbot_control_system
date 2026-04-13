@@ -1,0 +1,33 @@
+# Lcom/boat/manager/NetWorkManager$3;->onFailure(Lokhttp3/Call; Ljava/io/IOException;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:okhttp3.Call
+# - v4:java.io.IOException
+#
+# - return:void
+
+onFailure-BB@0x0 : [ onFailure-BB@0x8 onFailure-BB@0x4a ]
+	0       (00000000) iget-object          v0, v2, Lcom/boat/manager/NetWorkManager$3;->val$callback Lcom/boat/manager/NetWorkManager$CallBack;
+	1       (00000004) if-eqz               v0, +023h
+
+onFailure-BB@0x8 : [ onFailure-BB@0x4a ]
+	2       (00000008) new-instance         v0, Ljava/lang/StringBuilder;
+	3       (0000000c) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	4       (00000012) const-string         v1, "onFailure: onError response  "
+	5       (00000016) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	6       (0000001c) move-result-object   v0
+	7       (0000001e) invoke-virtual       v4, Ljava/io/IOException;->toString()Ljava/lang/String;
+	8       (00000024) move-result-object   v1
+	9       (00000026) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	10      (0000002c) move-result-object   v0
+	11      (0000002e) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	12      (00000034) move-result-object   v0
+	13      (00000036) const-string         v1, "catalpa "
+	14      (0000003a) invoke-static        v1, v0, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	15      (00000040) iget-object          v0, v2, Lcom/boat/manager/NetWorkManager$3;->val$callback Lcom/boat/manager/NetWorkManager$CallBack;
+	16      (00000044) invoke-interface     v0, Lcom/boat/manager/NetWorkManager$CallBack;->onError()V
+
+onFailure-BB@0x4a : 
+	17      (0000004a) return-void          
+

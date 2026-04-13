@@ -1,0 +1,17 @@
+# Lcom/boat/support/slam/entity/floors/SelectedTestPoint;->hashCode()I [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v3
+#
+# - return:int
+
+hashCode-BB@0x0 : 
+	0       (00000000) iget-object          v0, v3, Lcom/boat/support/slam/entity/floors/SelectedTestPoint;->point Lcom/boat/support/slam/entity/floors/Points;
+	1       (00000004) const/4              v1, 1
+	2       (00000006) new-array            v1, v1, [Ljava/lang/Object;
+	3       (0000000a) const/4              v2, 0
+	4       (0000000c) aput-object          v0, v1, v2
+	5       (00000010) invoke-static        v1, Ljava/util/Objects;->hash([Ljava/lang/Object;)I
+	6       (00000016) move-result          v0
+	7       (00000018) return               v0
+

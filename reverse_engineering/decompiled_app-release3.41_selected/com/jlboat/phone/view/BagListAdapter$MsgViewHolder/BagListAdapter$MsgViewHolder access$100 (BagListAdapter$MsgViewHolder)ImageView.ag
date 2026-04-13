@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/view/BagListAdapter$MsgViewHolder;->access$100(Lcom/jlboat/phone/view/BagListAdapter$MsgViewHolder;)Landroid/widget/ImageView; [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.view.BagListAdapter$MsgViewHolder
+#
+# - return:android.widget.ImageView
+
+access$100-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/jlboat/phone/view/BagListAdapter$MsgViewHolder;->upload Landroid/widget/ImageView;
+	1       (00000004) return-object        v0
+

@@ -1,0 +1,71 @@
+# Lcom/jlboat/phone/view/loading/BaseLoading;->startViewAnim(F F J)Landroid/animation/ValueAnimator; [access_flags=private]
+#
+# Parameters:
+# - local registers: v0...v5
+# - v6:float
+# - v7:float
+# - v8:long
+#
+# - return:android.animation.ValueAnimator
+
+startViewAnim-BB@0x0 : [ startViewAnim-BB@0x5a startViewAnim-BB@0x66 ]
+	0       (00000000) const/4              v0, 2
+	1       (00000002) new-array            v1, v0, [F
+	2       (00000006) const/4              v2, 0
+	3       (00000008) aput                 v5, v1, v2
+	4       (0000000c) const/4              v2, 1
+	5       (0000000e) aput                 v6, v1, v2
+	6       (00000012) invoke-static        v1, Landroid/animation/ValueAnimator;->ofFloat([F)Landroid/animation/ValueAnimator;
+	7       (00000018) move-result-object   v1
+	8       (0000001a) iput-object          v1, v4, Lcom/jlboat/phone/view/loading/BaseLoading;->valueAnimator Landroid/animation/ValueAnimator;
+	9       (0000001e) iget-object          v1, v4, Lcom/jlboat/phone/view/loading/BaseLoading;->valueAnimator Landroid/animation/ValueAnimator;
+	10      (00000022) invoke-virtual       v1, v7, v8, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
+	11      (00000028) iget-object          v1, v4, Lcom/jlboat/phone/view/loading/BaseLoading;->valueAnimator Landroid/animation/ValueAnimator;
+	12      (0000002c) new-instance         v3, Landroid/view/animation/LinearInterpolator;
+	13      (00000030) invoke-direct        v3, Landroid/view/animation/LinearInterpolator;-><init>()V
+	14      (00000036) invoke-virtual       v1, v3, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+	15      (0000003c) iget-object          v1, v4, Lcom/jlboat/phone/view/loading/BaseLoading;->valueAnimator Landroid/animation/ValueAnimator;
+	16      (00000040) invoke-virtual       v4, Lcom/jlboat/phone/view/loading/BaseLoading;->SetAnimRepeatCount()I
+	17      (00000046) move-result          v3
+	18      (00000048) invoke-virtual       v1, v3, Landroid/animation/ValueAnimator;->setRepeatCount(I)V
+	19      (0000004e) invoke-virtual       v4, Lcom/jlboat/phone/view/loading/BaseLoading;->SetAnimRepeatMode()I
+	20      (00000054) move-result          v1
+	21      (00000056) if-ne                v2, v1, +008h
+
+startViewAnim-BB@0x5a : [ startViewAnim-BB@0x7c ]
+	22      (0000005a) iget-object          v0, v4, Lcom/jlboat/phone/view/loading/BaseLoading;->valueAnimator Landroid/animation/ValueAnimator;
+	23      (0000005e) invoke-virtual       v0, v2, Landroid/animation/ValueAnimator;->setRepeatMode(I)V
+	24      (00000064) goto                 +ch
+
+startViewAnim-BB@0x66 : [ startViewAnim-BB@0x72 startViewAnim-BB@0x7c ]
+	25      (00000066) invoke-virtual       v4, Lcom/jlboat/phone/view/loading/BaseLoading;->SetAnimRepeatMode()I
+	26      (0000006c) move-result          v1
+	27      (0000006e) if-ne                v0, v1, +007h
+
+startViewAnim-BB@0x72 : [ startViewAnim-BB@0x7c ]
+	28      (00000072) iget-object          v1, v4, Lcom/jlboat/phone/view/loading/BaseLoading;->valueAnimator Landroid/animation/ValueAnimator;
+	29      (00000076) invoke-virtual       v1, v0, Landroid/animation/ValueAnimator;->setRepeatMode(I)V
+
+startViewAnim-BB@0x7c : [ startViewAnim-BB@0xb4 startViewAnim-BB@0xc4 ]
+	30      (0000007c) iget-object          v0, v4, Lcom/jlboat/phone/view/loading/BaseLoading;->valueAnimator Landroid/animation/ValueAnimator;
+	31      (00000080) new-instance         v1, Lcom/jlboat/phone/view/loading/BaseLoading$1;
+	32      (00000084) invoke-direct        v1, v4, Lcom/jlboat/phone/view/loading/BaseLoading$1;-><init>(Lcom/jlboat/phone/view/loading/BaseLoading;)V
+	33      (0000008a) invoke-virtual       v0, v1, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
+	34      (00000090) iget-object          v0, v4, Lcom/jlboat/phone/view/loading/BaseLoading;->valueAnimator Landroid/animation/ValueAnimator;
+	35      (00000094) new-instance         v1, Lcom/jlboat/phone/view/loading/BaseLoading$2;
+	36      (00000098) invoke-direct        v1, v4, Lcom/jlboat/phone/view/loading/BaseLoading$2;-><init>(Lcom/jlboat/phone/view/loading/BaseLoading;)V
+	37      (0000009e) invoke-virtual       v0, v1, Landroid/animation/ValueAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
+	38      (000000a4) iget-object          v0, v4, Lcom/jlboat/phone/view/loading/BaseLoading;->valueAnimator Landroid/animation/ValueAnimator;
+	39      (000000a8) invoke-virtual       v0, Landroid/animation/ValueAnimator;->isRunning()Z
+	40      (000000ae) move-result          v0
+	41      (000000b0) if-nez               v0, +00ah
+
+startViewAnim-BB@0xb4 : [ startViewAnim-BB@0xc4 ]
+	42      (000000b4) invoke-virtual       v4, Lcom/jlboat/phone/view/loading/BaseLoading;->AinmIsRunning()V
+	43      (000000ba) iget-object          v0, v4, Lcom/jlboat/phone/view/loading/BaseLoading;->valueAnimator Landroid/animation/ValueAnimator;
+	44      (000000be) invoke-virtual       v0, Landroid/animation/ValueAnimator;->start()V
+
+startViewAnim-BB@0xc4 : 
+	45      (000000c4) iget-object          v0, v4, Lcom/jlboat/phone/view/loading/BaseLoading;->valueAnimator Landroid/animation/ValueAnimator;
+	46      (000000c8) return-object        v0
+

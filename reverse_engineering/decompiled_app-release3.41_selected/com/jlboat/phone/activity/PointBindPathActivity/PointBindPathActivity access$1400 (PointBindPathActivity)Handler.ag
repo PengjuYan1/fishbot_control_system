@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/activity/PointBindPathActivity;->access$1400(Lcom/jlboat/phone/activity/PointBindPathActivity;)Landroid/os/Handler; [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.activity.PointBindPathActivity
+#
+# - return:android.os.Handler
+
+access$1400-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/jlboat/phone/activity/PointBindPathActivity;->handler Landroid/os/Handler;
+	1       (00000004) return-object        v0
+

@@ -1,0 +1,13 @@
+# Lcom/jlboat/phone/controller/JlNaviManager;->access$1602(Lcom/jlboat/phone/controller/JlNaviManager; Lcom/jlboat/phone/message/map_msgs/TargetGoal;)Lcom/jlboat/phone/message/map_msgs/TargetGoal; [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v-1
+# - v0:com.jlboat.phone.controller.JlNaviManager
+# - v1:com.jlboat.phone.message.map_msgs.TargetGoal
+#
+# - return:com.jlboat.phone.message.map_msgs.TargetGoal
+
+access$1602-BB@0x0 : 
+	0       (00000000) iput-object          v1, v0, Lcom/jlboat/phone/controller/JlNaviManager;->targetGoal Lcom/jlboat/phone/message/map_msgs/TargetGoal;
+	1       (00000004) return-object        v1
+

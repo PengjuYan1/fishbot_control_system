@@ -1,0 +1,62 @@
+# Lcom/jlboat/phone/adapter/LiftQueueAdapter$MyResHolder;-><init>(Lcom/jlboat/phone/adapter/LiftQueueAdapter; Landroid/view/View;)V [access_flags=public constructor]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:com.jlboat.phone.adapter.LiftQueueAdapter
+# - v4:android.view.View
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) iput-object          v3, v2, Lcom/jlboat/phone/adapter/LiftQueueAdapter$MyResHolder;->this$0 Lcom/jlboat/phone/adapter/LiftQueueAdapter;
+	1       (00000004) invoke-direct        v2, v4, Landroid/support/v7/widget/RecyclerView$ViewHolder;-><init>(Landroid/view/View;)V
+	2       (0000000a) const                v0, 2131231157
+	3       (00000010) invoke-virtual       v4, v0, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	4       (00000016) move-result-object   v0
+	5       (00000018) check-cast           v0, Landroid/widget/TextView;
+	6       (0000001c) iput-object          v0, v2, Lcom/jlboat/phone/adapter/LiftQueueAdapter$MyResHolder;->nameTv Landroid/widget/TextView;
+	7       (00000020) const                v0, 2131231153
+	8       (00000026) invoke-virtual       v4, v0, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	9       (0000002c) move-result-object   v0
+	10      (0000002e) check-cast           v0, Landroid/widget/TextView;
+	11      (00000032) iput-object          v0, v2, Lcom/jlboat/phone/adapter/LiftQueueAdapter$MyResHolder;->floorsTv Landroid/widget/TextView;
+	12      (00000036) const                v0, 2131231159
+	13      (0000003c) invoke-virtual       v4, v0, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	14      (00000042) move-result-object   v0
+	15      (00000044) check-cast           v0, Landroid/widget/TextView;
+	16      (00000048) iput-object          v0, v2, Lcom/jlboat/phone/adapter/LiftQueueAdapter$MyResHolder;->stateTv Landroid/widget/TextView;
+	17      (0000004c) const                v0, 2131231148
+	18      (00000052) invoke-virtual       v4, v0, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	19      (00000058) move-result-object   v0
+	20      (0000005a) check-cast           v0, Landroid/widget/TextView;
+	21      (0000005e) iput-object          v0, v2, Lcom/jlboat/phone/adapter/LiftQueueAdapter$MyResHolder;->bindNameTv Landroid/widget/TextView;
+	22      (00000062) const                v0, 2131231147
+	23      (00000068) invoke-virtual       v4, v0, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	24      (0000006e) move-result-object   v0
+	25      (00000070) check-cast           v0, Landroid/widget/TextView;
+	26      (00000074) iput-object          v0, v2, Lcom/jlboat/phone/adapter/LiftQueueAdapter$MyResHolder;->bindFloorsTv Landroid/widget/TextView;
+	27      (00000078) const                v0, 2131231162
+	28      (0000007e) invoke-virtual       v4, v0, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	29      (00000084) move-result-object   v0
+	30      (00000086) check-cast           v0, Landroid/widget/TextView;
+	31      (0000008a) iput-object          v0, v2, Lcom/jlboat/phone/adapter/LiftQueueAdapter$MyResHolder;->notesTv Landroid/widget/TextView;
+	32      (0000008e) const                v0, 2131231163
+	33      (00000094) invoke-virtual       v4, v0, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	34      (0000009a) move-result-object   v0
+	35      (0000009c) check-cast           v0, Landroid/widget/TextView;
+	36      (000000a0) iput-object          v0, v2, Lcom/jlboat/phone/adapter/LiftQueueAdapter$MyResHolder;->typeTv Landroid/widget/TextView;
+	37      (000000a4) const                v0, 2131231158
+	38      (000000aa) invoke-virtual       v4, v0, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	39      (000000b0) move-result-object   v0
+	40      (000000b2) check-cast           v0, Landroid/widget/Button;
+	41      (000000b6) iput-object          v0, v2, Lcom/jlboat/phone/adapter/LiftQueueAdapter$MyResHolder;->delQueueBtu Landroid/widget/Button;
+	42      (000000ba) iget-object          v0, v2, Lcom/jlboat/phone/adapter/LiftQueueAdapter$MyResHolder;->delQueueBtu Landroid/widget/Button;
+	43      (000000be) new-instance         v1, Lcom/jlboat/phone/adapter/LiftQueueAdapter$MyResHolder$1;
+	44      (000000c2) invoke-direct        v1, v2, v3, Lcom/jlboat/phone/adapter/LiftQueueAdapter$MyResHolder$1;-><init>(Lcom/jlboat/phone/adapter/LiftQueueAdapter$MyResHolder; Lcom/jlboat/phone/adapter/LiftQueueAdapter;)V
+	45      (000000c8) invoke-virtual       v0, v1, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	46      (000000ce) const                v0, 2131231155
+	47      (000000d4) invoke-virtual       v4, v0, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	48      (000000da) move-result-object   v0
+	49      (000000dc) iput-object          v0, v2, Lcom/jlboat/phone/adapter/LiftQueueAdapter$MyResHolder;->line Landroid/view/View;
+	50      (000000e0) return-void          
+

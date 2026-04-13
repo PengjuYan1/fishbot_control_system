@@ -1,0 +1,142 @@
+# Lcom/jlboat/phone/activity/DiyPointPathActivity;->onCreate(Landroid/os/Bundle;)V [access_flags=protected]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:android.os.Bundle
+#
+# - return:void
+
+onCreate-BB@0x0 : 
+	0       (00000000) const                v0, 2131361893
+	1       (00000006) const                v1, 2131493099
+	2       (0000000c) invoke-virtual       v2, v0, v1, Lcom/jlboat/phone/activity/DiyPointPathActivity;->initTitleBar(I I)V
+	3       (00000012) invoke-super         v2, v3, Lcom/jlboat/phone/base/BaseFullActivity;->onCreate(Landroid/os/Bundle;)V
+	4       (00000018) const                v0, 2131230986
+	5       (0000001e) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/DiyPointPathActivity;->findViewById(I)Landroid/view/View;
+	6       (00000024) move-result-object   v0
+	7       (00000026) check-cast           v0, Lcom/jlboat/phone/view/MapView;
+	8       (0000002a) iput-object          v0, v2, Lcom/jlboat/phone/activity/DiyPointPathActivity;->mapView Lcom/jlboat/phone/view/MapView;
+	9       (0000002e) const                v0, 2131231359
+	10      (00000034) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/DiyPointPathActivity;->findViewById(I)Landroid/view/View;
+	11      (0000003a) move-result-object   v0
+	12      (0000003c) check-cast           v0, Lcom/jlboat/phone/view/JoystickView;
+	13      (00000040) iput-object          v0, v2, Lcom/jlboat/phone/activity/DiyPointPathActivity;->virtualJoystickView Lcom/jlboat/phone/view/JoystickView;
+	14      (00000044) const                v0, 2131230945
+	15      (0000004a) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/DiyPointPathActivity;->findViewById(I)Landroid/view/View;
+	16      (00000050) move-result-object   v0
+	17      (00000052) check-cast           v0, Landroid/widget/ImageView;
+	18      (00000056) iput-object          v0, v2, Lcom/jlboat/phone/activity/DiyPointPathActivity;->iv_mark_diy Landroid/widget/ImageView;
+	19      (0000005a) const                v0, 2131231280
+	20      (00000060) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/DiyPointPathActivity;->findViewById(I)Landroid/view/View;
+	21      (00000066) move-result-object   v0
+	22      (00000068) check-cast           v0, Landroid/widget/Switch;
+	23      (0000006c) iput-object          v0, v2, Lcom/jlboat/phone/activity/DiyPointPathActivity;->sw_divp_isauto_point Landroid/widget/Switch;
+	24      (00000070) const                v0, 2131231281
+	25      (00000076) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/DiyPointPathActivity;->findViewById(I)Landroid/view/View;
+	26      (0000007c) move-result-object   v0
+	27      (0000007e) check-cast           v0, Landroid/widget/Switch;
+	28      (00000082) iput-object          v0, v2, Lcom/jlboat/phone/activity/DiyPointPathActivity;->sw_divp_isshow_pointid Landroid/widget/Switch;
+	29      (00000086) const                v0, 2131230749
+	30      (0000008c) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/DiyPointPathActivity;->findViewById(I)Landroid/view/View;
+	31      (00000092) move-result-object   v0
+	32      (00000094) check-cast           v0, Landroid/widget/RadioGroup;
+	33      (00000098) iput-object          v0, v2, Lcom/jlboat/phone/activity/DiyPointPathActivity;->linePointModeRadioGroup_pp Landroid/widget/RadioGroup;
+	34      (0000009c) const                v0, 2131230792
+	35      (000000a2) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/DiyPointPathActivity;->findViewById(I)Landroid/view/View;
+	36      (000000a8) move-result-object   v0
+	37      (000000aa) check-cast           v0, Landroid/widget/Button;
+	38      (000000ae) iput-object          v0, v2, Lcom/jlboat/phone/activity/DiyPointPathActivity;->bt_add_start_p Landroid/widget/Button;
+	39      (000000b2) const                v0, 2131230820
+	40      (000000b8) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/DiyPointPathActivity;->findViewById(I)Landroid/view/View;
+	41      (000000be) move-result-object   v0
+	42      (000000c0) check-cast           v0, Landroid/widget/Button;
+	43      (000000c4) iput-object          v0, v2, Lcom/jlboat/phone/activity/DiyPointPathActivity;->bt_navi_dpp_stop Landroid/widget/Button;
+	44      (000000c8) const                v0, 2131230967
+	45      (000000ce) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/DiyPointPathActivity;->findViewById(I)Landroid/view/View;
+	46      (000000d4) move-result-object   v0
+	47      (000000d6) check-cast           v0, Landroid/widget/LinearLayout;
+	48      (000000da) iput-object          v0, v2, Lcom/jlboat/phone/activity/DiyPointPathActivity;->ll_bt_cs_p Landroid/widget/LinearLayout;
+	49      (000000de) const                v0, 2131230797
+	50      (000000e4) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/DiyPointPathActivity;->findViewById(I)Landroid/view/View;
+	51      (000000ea) move-result-object   v0
+	52      (000000ec) check-cast           v0, Landroid/widget/Button;
+	53      (000000f0) iput-object          v0, v2, Lcom/jlboat/phone/activity/DiyPointPathActivity;->btCancel Landroid/widget/Button;
+	54      (000000f4) const                v0, 2131230790
+	55      (000000fa) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/DiyPointPathActivity;->findViewById(I)Landroid/view/View;
+	56      (00000100) move-result-object   v0
+	57      (00000102) check-cast           v0, Landroid/widget/Button;
+	58      (00000106) iput-object          v0, v2, Lcom/jlboat/phone/activity/DiyPointPathActivity;->btAddPoint Landroid/widget/Button;
+	59      (0000010a) const                v0, 2131230807
+	60      (00000110) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/DiyPointPathActivity;->findViewById(I)Landroid/view/View;
+	61      (00000116) move-result-object   v0
+	62      (00000118) check-cast           v0, Landroid/widget/Button;
+	63      (0000011c) iput-object          v0, v2, Lcom/jlboat/phone/activity/DiyPointPathActivity;->btLineDefConfig Landroid/widget/Button;
+	64      (00000120) const                v0, 2131231043
+	65      (00000126) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/DiyPointPathActivity;->findViewById(I)Landroid/view/View;
+	66      (0000012c) move-result-object   v0
+	67      (0000012e) check-cast           v0, Landroid/support/v7/widget/RecyclerView;
+	68      (00000132) iput-object          v0, v2, Lcom/jlboat/phone/activity/DiyPointPathActivity;->ng_list_ry Landroid/support/v7/widget/RecyclerView;
+	69      (00000136) const                v0, 2131231039
+	70      (0000013c) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/DiyPointPathActivity;->findViewById(I)Landroid/view/View;
+	71      (00000142) move-result-object   v0
+	72      (00000144) check-cast           v0, Landroid/support/v7/widget/RecyclerView;
+	73      (00000148) iput-object          v0, v2, Lcom/jlboat/phone/activity/DiyPointPathActivity;->navi_list_ry Landroid/support/v7/widget/RecyclerView;
+	74      (0000014c) iget-object          v0, v2, Lcom/jlboat/phone/activity/DiyPointPathActivity;->ng_list_ry Landroid/support/v7/widget/RecyclerView;
+	75      (00000150) new-instance         v1, Landroid/support/v7/widget/LinearLayoutManager;
+	76      (00000154) invoke-direct        v1, v2, Landroid/support/v7/widget/LinearLayoutManager;-><init>(Landroid/content/Context;)V
+	77      (0000015a) invoke-virtual       v0, v1, Landroid/support/v7/widget/RecyclerView;->setLayoutManager(Landroid/support/v7/widget/RecyclerView$LayoutManager;)V
+	78      (00000160) iget-object          v0, v2, Lcom/jlboat/phone/activity/DiyPointPathActivity;->navi_list_ry Landroid/support/v7/widget/RecyclerView;
+	79      (00000164) new-instance         v1, Landroid/support/v7/widget/LinearLayoutManager;
+	80      (00000168) invoke-direct        v1, v2, Landroid/support/v7/widget/LinearLayoutManager;-><init>(Landroid/content/Context;)V
+	81      (0000016e) invoke-virtual       v0, v1, Landroid/support/v7/widget/RecyclerView;->setLayoutManager(Landroid/support/v7/widget/RecyclerView$LayoutManager;)V
+	82      (00000174) new-instance         v0, Lcom/jlboat/phone/adapter/NgLineListAdapter;
+	83      (00000178) invoke-direct        v0, v2, Lcom/jlboat/phone/adapter/NgLineListAdapter;-><init>(Landroid/content/Context;)V
+	84      (0000017e) iput-object          v0, v2, Lcom/jlboat/phone/activity/DiyPointPathActivity;->ngLineListAdapter Lcom/jlboat/phone/adapter/NgLineListAdapter;
+	85      (00000182) iget-object          v0, v2, Lcom/jlboat/phone/activity/DiyPointPathActivity;->ng_list_ry Landroid/support/v7/widget/RecyclerView;
+	86      (00000186) iget-object          v1, v2, Lcom/jlboat/phone/activity/DiyPointPathActivity;->ngLineListAdapter Lcom/jlboat/phone/adapter/NgLineListAdapter;
+	87      (0000018a) invoke-virtual       v0, v1, Landroid/support/v7/widget/RecyclerView;->setAdapter(Landroid/support/v7/widget/RecyclerView$Adapter;)V
+	88      (00000190) iget-object          v0, v2, Lcom/jlboat/phone/activity/DiyPointPathActivity;->ngLineListAdapter Lcom/jlboat/phone/adapter/NgLineListAdapter;
+	89      (00000194) new-instance         v1, Lcom/jlboat/phone/activity/DiyPointPathActivity$2;
+	90      (00000198) invoke-direct        v1, v2, Lcom/jlboat/phone/activity/DiyPointPathActivity$2;-><init>(Lcom/jlboat/phone/activity/DiyPointPathActivity;)V
+	91      (0000019e) invoke-virtual       v0, v1, Lcom/jlboat/phone/adapter/NgLineListAdapter;->setOnclickItem(Lcom/jlboat/phone/adapter/NgLineListAdapter$OnClick;)V
+	92      (000001a4) iget-object          v0, v2, Lcom/jlboat/phone/activity/DiyPointPathActivity;->ngLineListAdapter Lcom/jlboat/phone/adapter/NgLineListAdapter;
+	93      (000001a8) new-instance         v1, Lcom/jlboat/phone/activity/DiyPointPathActivity$3;
+	94      (000001ac) invoke-direct        v1, v2, Lcom/jlboat/phone/activity/DiyPointPathActivity$3;-><init>(Lcom/jlboat/phone/activity/DiyPointPathActivity;)V
+	95      (000001b2) invoke-virtual       v0, v1, Lcom/jlboat/phone/adapter/NgLineListAdapter;->setOnLingclickItem(Lcom/jlboat/phone/adapter/NgLineListAdapter$OnLongClick;)V
+	96      (000001b8) new-instance         v0, Lcom/jlboat/phone/adapter/NaviListAdapter;
+	97      (000001bc) invoke-direct        v0, v2, Lcom/jlboat/phone/adapter/NaviListAdapter;-><init>(Landroid/content/Context;)V
+	98      (000001c2) iput-object          v0, v2, Lcom/jlboat/phone/activity/DiyPointPathActivity;->naviListAdapter Lcom/jlboat/phone/adapter/NaviListAdapter;
+	99      (000001c6) iget-object          v0, v2, Lcom/jlboat/phone/activity/DiyPointPathActivity;->navi_list_ry Landroid/support/v7/widget/RecyclerView;
+	100     (000001ca) iget-object          v1, v2, Lcom/jlboat/phone/activity/DiyPointPathActivity;->naviListAdapter Lcom/jlboat/phone/adapter/NaviListAdapter;
+	101     (000001ce) invoke-virtual       v0, v1, Landroid/support/v7/widget/RecyclerView;->setAdapter(Landroid/support/v7/widget/RecyclerView$Adapter;)V
+	102     (000001d4) iget-object          v0, v2, Lcom/jlboat/phone/activity/DiyPointPathActivity;->naviListAdapter Lcom/jlboat/phone/adapter/NaviListAdapter;
+	103     (000001d8) new-instance         v1, Lcom/jlboat/phone/activity/DiyPointPathActivity$4;
+	104     (000001dc) invoke-direct        v1, v2, Lcom/jlboat/phone/activity/DiyPointPathActivity$4;-><init>(Lcom/jlboat/phone/activity/DiyPointPathActivity;)V
+	105     (000001e2) invoke-virtual       v0, v1, Lcom/jlboat/phone/adapter/NaviListAdapter;->setOnLingclickItem(Lcom/jlboat/phone/adapter/NaviListAdapter$OnClick;)V
+	106     (000001e8) iget-object          v0, v2, Lcom/jlboat/phone/activity/DiyPointPathActivity;->linePointModeRadioGroup_pp Landroid/widget/RadioGroup;
+	107     (000001ec) new-instance         v1, Lcom/jlboat/phone/activity/DiyPointPathActivity$5;
+	108     (000001f0) invoke-direct        v1, v2, Lcom/jlboat/phone/activity/DiyPointPathActivity$5;-><init>(Lcom/jlboat/phone/activity/DiyPointPathActivity;)V
+	109     (000001f6) invoke-virtual       v0, v1, Landroid/widget/RadioGroup;->setOnCheckedChangeListener(Landroid/widget/RadioGroup$OnCheckedChangeListener;)V
+	110     (000001fc) iget-object          v0, v2, Lcom/jlboat/phone/activity/DiyPointPathActivity;->sw_divp_isauto_point Landroid/widget/Switch;
+	111     (00000200) new-instance         v1, Lcom/jlboat/phone/activity/DiyPointPathActivity$6;
+	112     (00000204) invoke-direct        v1, v2, Lcom/jlboat/phone/activity/DiyPointPathActivity$6;-><init>(Lcom/jlboat/phone/activity/DiyPointPathActivity;)V
+	113     (0000020a) invoke-virtual       v0, v1, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+	114     (00000210) iget-object          v0, v2, Lcom/jlboat/phone/activity/DiyPointPathActivity;->sw_divp_isauto_point Landroid/widget/Switch;
+	115     (00000214) const/4              v1, 1
+	116     (00000216) invoke-virtual       v0, v1, Landroid/widget/Switch;->setChecked(Z)V
+	117     (0000021c) iget-object          v0, v2, Lcom/jlboat/phone/activity/DiyPointPathActivity;->sw_divp_isshow_pointid Landroid/widget/Switch;
+	118     (00000220) new-instance         v1, Lcom/jlboat/phone/activity/DiyPointPathActivity$7;
+	119     (00000224) invoke-direct        v1, v2, Lcom/jlboat/phone/activity/DiyPointPathActivity$7;-><init>(Lcom/jlboat/phone/activity/DiyPointPathActivity;)V
+	120     (0000022a) invoke-virtual       v0, v1, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+	121     (00000230) iget-object          v0, v2, Lcom/jlboat/phone/activity/DiyPointPathActivity;->bt_add_start_p Landroid/widget/Button;
+	122     (00000234) invoke-virtual       v0, v2, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	123     (0000023a) iget-object          v0, v2, Lcom/jlboat/phone/activity/DiyPointPathActivity;->bt_navi_dpp_stop Landroid/widget/Button;
+	124     (0000023e) invoke-virtual       v0, v2, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	125     (00000244) iget-object          v0, v2, Lcom/jlboat/phone/activity/DiyPointPathActivity;->btCancel Landroid/widget/Button;
+	126     (00000248) invoke-virtual       v0, v2, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	127     (0000024e) iget-object          v0, v2, Lcom/jlboat/phone/activity/DiyPointPathActivity;->btAddPoint Landroid/widget/Button;
+	128     (00000252) invoke-virtual       v0, v2, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	129     (00000258) iget-object          v0, v2, Lcom/jlboat/phone/activity/DiyPointPathActivity;->btLineDefConfig Landroid/widget/Button;
+	130     (0000025c) invoke-virtual       v0, v2, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	131     (00000262) return-void          
+

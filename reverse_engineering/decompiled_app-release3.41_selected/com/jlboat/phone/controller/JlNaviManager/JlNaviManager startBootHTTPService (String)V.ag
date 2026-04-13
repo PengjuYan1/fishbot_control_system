@@ -1,0 +1,25 @@
+# Lcom/jlboat/phone/controller/JlNaviManager;->startBootHTTPService(Ljava/lang/String;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:java.lang.String
+#
+# - return:void
+
+startBootHTTPService-BB@0x0 : 
+	0       (00000000) const-string         v0, "start service"
+	1       (00000004) invoke-virtual       v3, v0, Lcom/jlboat/phone/controller/JlNaviManager;->toast(Ljava/lang/String;)V
+	2       (0000000a) new-instance         v0, Landroid/content/Intent;
+	3       (0000000e) invoke-direct        v0, Landroid/content/Intent;-><init>()V
+	4       (00000014) const-string         v1, "com.boat.push"
+	5       (00000018) const-string         v2, "com.boat.service.PushHttpService"
+	6       (0000001c) invoke-virtual       v0, v1, v2, Landroid/content/Intent;->setClassName(Ljava/lang/String; Ljava/lang/String;)Landroid/content/Intent;
+	7       (00000022) const-string         v1, "com.boat.push.action.map_config"
+	8       (00000026) invoke-virtual       v0, v1, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
+	9       (0000002c) const-string         v1, "com.boat.push.action.map_config_key"
+	10      (00000030) invoke-virtual       v0, v1, v4, Landroid/content/Intent;->putExtra(Ljava/lang/String; Ljava/lang/String;)Landroid/content/Intent;
+	11      (00000036) invoke-virtual       v3, Lcom/jlboat/phone/controller/JlNaviManager;->getApp()Lcom/boat/base/BaseApplication;
+	12      (0000003c) move-result-object   v1
+	13      (0000003e) invoke-virtual       v1, v0, Lcom/boat/base/BaseApplication;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
+	14      (00000044) return-void          
+

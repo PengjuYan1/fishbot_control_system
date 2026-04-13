@@ -1,0 +1,29 @@
+# Lcom/jlboat/phone/util/ROSColor;->fromInt(I)Lcom/jlboat/phone/util/ROSColor; [access_flags=public static]
+#
+# Parameters:
+# - local registers: v0...v4
+# - v5:int
+#
+# - return:com.jlboat.phone.util.ROSColor
+
+fromInt-BB@0x0 : 
+	0       (00000000) shr-int/lit8         v0, v5, 24
+	1       (00000004) and-int/lit16        v0, v0, 255
+	2       (00000008) int-to-float         v0, v0
+	3       (0000000a) const/high16         v1, 1132396544
+	4       (0000000e) div-float/2addr      v0, v1
+	5       (00000010) shr-int/lit8         v2, v5, 16
+	6       (00000014) and-int/lit16        v2, v2, 255
+	7       (00000018) int-to-float         v2, v2
+	8       (0000001a) div-float/2addr      v2, v1
+	9       (0000001c) shr-int/lit8         v3, v5, 8
+	10      (00000020) and-int/lit16        v3, v3, 255
+	11      (00000024) int-to-float         v3, v3
+	12      (00000026) div-float/2addr      v3, v1
+	13      (00000028) and-int/lit16        v4, v5, 255
+	14      (0000002c) int-to-float         v4, v4
+	15      (0000002e) div-float/2addr      v4, v1
+	16      (00000030) new-instance         v1, Lcom/jlboat/phone/util/ROSColor;
+	17      (00000034) invoke-direct        v1, v2, v3, v4, v0, Lcom/jlboat/phone/util/ROSColor;-><init>(F F F F)V
+	18      (0000003a) return-object        v1
+

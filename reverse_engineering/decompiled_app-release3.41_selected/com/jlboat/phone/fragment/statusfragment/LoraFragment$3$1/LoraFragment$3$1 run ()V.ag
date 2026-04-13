@@ -1,0 +1,55 @@
+# Lcom/jlboat/phone/fragment/statusfragment/LoraFragment$3$1;->run()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v4
+#
+# - return:void
+
+run-BB@0x0 : [ run-BB@0x1e run-BB@0x62 ]
+	0       (00000000) iget-object          v0, v4, Lcom/jlboat/phone/fragment/statusfragment/LoraFragment$3$1;->val$config Lcom/jlboat/phone/message/map_msgs/Config;
+	1       (00000004) invoke-virtual       v0, Lcom/jlboat/phone/message/map_msgs/Config;->getConfigValue()Ljava/lang/String;
+	2       (0000000a) move-result-object   v0
+	3       (0000000c) const-string         v1, "True"
+	4       (00000010) invoke-virtual       v0, v1, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	5       (00000016) move-result          v0
+	6       (00000018) const/4              v1, 0
+	7       (0000001a) if-eqz               v0, +024h
+
+run-BB@0x1e : [ run-BB@0x8e ]
+	8       (0000001e) iget-object          v0, v4, Lcom/jlboat/phone/fragment/statusfragment/LoraFragment$3$1;->this$1 Lcom/jlboat/phone/fragment/statusfragment/LoraFragment$3;
+	9       (00000022) iget-object          v0, v0, Lcom/jlboat/phone/fragment/statusfragment/LoraFragment$3;->this$0 Lcom/jlboat/phone/fragment/statusfragment/LoraFragment;
+	10      (00000026) invoke-static        v0, Lcom/jlboat/phone/fragment/statusfragment/LoraFragment;->access$400(Lcom/jlboat/phone/fragment/statusfragment/LoraFragment;)Landroid/widget/Button;
+	11      (0000002c) move-result-object   v0
+	12      (0000002e) iget-object          v2, v4, Lcom/jlboat/phone/fragment/statusfragment/LoraFragment$3$1;->this$1 Lcom/jlboat/phone/fragment/statusfragment/LoraFragment$3;
+	13      (00000032) iget-object          v2, v2, Lcom/jlboat/phone/fragment/statusfragment/LoraFragment$3;->this$0 Lcom/jlboat/phone/fragment/statusfragment/LoraFragment;
+	14      (00000036) const                v3, 2131492938
+	15      (0000003c) invoke-virtual       v2, v3, Lcom/jlboat/phone/fragment/statusfragment/LoraFragment;->getString(I)Ljava/lang/String;
+	16      (00000042) move-result-object   v2
+	17      (00000044) invoke-virtual       v0, v2, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
+	18      (0000004a) iget-object          v0, v4, Lcom/jlboat/phone/fragment/statusfragment/LoraFragment$3$1;->this$1 Lcom/jlboat/phone/fragment/statusfragment/LoraFragment$3;
+	19      (0000004e) iget-object          v0, v0, Lcom/jlboat/phone/fragment/statusfragment/LoraFragment$3;->this$0 Lcom/jlboat/phone/fragment/statusfragment/LoraFragment;
+	20      (00000052) invoke-static        v0, Lcom/jlboat/phone/fragment/statusfragment/LoraFragment;->access$500(Lcom/jlboat/phone/fragment/statusfragment/LoraFragment;)Landroid/widget/LinearLayout;
+	21      (00000058) move-result-object   v0
+	22      (0000005a) invoke-virtual       v0, v1, Landroid/widget/LinearLayout;->setVisibility(I)V
+	23      (00000060) goto                 +17h
+
+run-BB@0x62 : [ run-BB@0x8e ]
+	24      (00000062) iget-object          v0, v4, Lcom/jlboat/phone/fragment/statusfragment/LoraFragment$3$1;->this$1 Lcom/jlboat/phone/fragment/statusfragment/LoraFragment$3;
+	25      (00000066) iget-object          v0, v0, Lcom/jlboat/phone/fragment/statusfragment/LoraFragment$3;->this$0 Lcom/jlboat/phone/fragment/statusfragment/LoraFragment;
+	26      (0000006a) invoke-static        v0, Lcom/jlboat/phone/fragment/statusfragment/LoraFragment;->access$400(Lcom/jlboat/phone/fragment/statusfragment/LoraFragment;)Landroid/widget/Button;
+	27      (00000070) move-result-object   v0
+	28      (00000072) iget-object          v2, v4, Lcom/jlboat/phone/fragment/statusfragment/LoraFragment$3$1;->this$1 Lcom/jlboat/phone/fragment/statusfragment/LoraFragment$3;
+	29      (00000076) iget-object          v2, v2, Lcom/jlboat/phone/fragment/statusfragment/LoraFragment$3;->this$0 Lcom/jlboat/phone/fragment/statusfragment/LoraFragment;
+	30      (0000007a) const                v3, 2131492939
+	31      (00000080) invoke-virtual       v2, v3, Lcom/jlboat/phone/fragment/statusfragment/LoraFragment;->getString(I)Ljava/lang/String;
+	32      (00000086) move-result-object   v2
+	33      (00000088) invoke-virtual       v0, v2, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
+
+run-BB@0x8e : 
+	34      (0000008e) iget-object          v0, v4, Lcom/jlboat/phone/fragment/statusfragment/LoraFragment$3$1;->this$1 Lcom/jlboat/phone/fragment/statusfragment/LoraFragment$3;
+	35      (00000092) iget-object          v0, v0, Lcom/jlboat/phone/fragment/statusfragment/LoraFragment$3;->this$0 Lcom/jlboat/phone/fragment/statusfragment/LoraFragment;
+	36      (00000096) invoke-static        v0, Lcom/jlboat/phone/fragment/statusfragment/LoraFragment;->access$400(Lcom/jlboat/phone/fragment/statusfragment/LoraFragment;)Landroid/widget/Button;
+	37      (0000009c) move-result-object   v0
+	38      (0000009e) invoke-virtual       v0, v1, Landroid/widget/Button;->setVisibility(I)V
+	39      (000000a4) return-void          
+

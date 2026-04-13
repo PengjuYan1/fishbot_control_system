@@ -1,0 +1,47 @@
+# Lcom/jlboat/phone/view/loading/MyLoading;->init()V [access_flags=private]
+#
+# Parameters:
+# local registers: v0...v3
+#
+# - return:void
+
+init-BB@0x0 : 
+	0       (00000000) iget-object          v0, v3, Lcom/jlboat/phone/view/loading/MyLoading;->mContext Landroid/content/Context;
+	1       (00000004) const-string         v1, "layout_inflater"
+	2       (00000008) invoke-virtual       v0, v1, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+	3       (0000000e) move-result-object   v0
+	4       (00000010) check-cast           v0, Landroid/view/LayoutInflater;
+	5       (00000014) const                v1, 2131361885
+	6       (0000001a) const/4              v2, 0
+	7       (0000001c) invoke-virtual       v0, v1, v2, Landroid/view/LayoutInflater;->inflate(I Landroid/view/ViewGroup;)Landroid/view/View;
+	8       (00000022) move-result-object   v1
+	9       (00000024) iput-object          v1, v3, Lcom/jlboat/phone/view/loading/MyLoading;->mView Landroid/view/View;
+	10      (00000028) iget-object          v1, v3, Lcom/jlboat/phone/view/loading/MyLoading;->mView Landroid/view/View;
+	11      (0000002c) const                v2, 2131230975
+	12      (00000032) invoke-virtual       v1, v2, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	13      (00000038) move-result-object   v1
+	14      (0000003a) check-cast           v1, Lcom/jlboat/phone/view/loading/LoadingView;
+	15      (0000003e) iput-object          v1, v3, Lcom/jlboat/phone/view/loading/MyLoading;->loading Lcom/jlboat/phone/view/loading/LoadingView;
+	16      (00000042) iget-object          v1, v3, Lcom/jlboat/phone/view/loading/MyLoading;->loading Lcom/jlboat/phone/view/loading/LoadingView;
+	17      (00000046) invoke-virtual       v1, Lcom/jlboat/phone/view/loading/LoadingView;->startAnim()V
+	18      (0000004c) iget-object          v1, v3, Lcom/jlboat/phone/view/loading/MyLoading;->mView Landroid/view/View;
+	19      (00000050) const                v2, 2131231310
+	20      (00000056) invoke-virtual       v1, v2, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	21      (0000005c) move-result-object   v1
+	22      (0000005e) check-cast           v1, Landroid/widget/TextView;
+	23      (00000062) iput-object          v1, v3, Lcom/jlboat/phone/view/loading/MyLoading;->tipText Landroid/widget/TextView;
+	24      (00000066) iget-object          v1, v3, Lcom/jlboat/phone/view/loading/MyLoading;->tipText Landroid/widget/TextView;
+	25      (0000006a) iget-object          v2, v3, Lcom/jlboat/phone/view/loading/MyLoading;->mText Ljava/lang/String;
+	26      (0000006e) invoke-virtual       v1, v2, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+	27      (00000074) iget-object          v1, v3, Lcom/jlboat/phone/view/loading/MyLoading;->mView Landroid/view/View;
+	28      (00000078) invoke-virtual       v3, v1, Lcom/jlboat/phone/view/loading/MyLoading;->setContentView(Landroid/view/View;)V
+	29      (0000007e) const                v1, 2131558756
+	30      (00000084) invoke-virtual       v3, v1, Lcom/jlboat/phone/view/loading/MyLoading;->setAnimationStyle(I)V
+	31      (0000008a) const/4              v1, -1
+	32      (0000008c) invoke-virtual       v3, v1, Lcom/jlboat/phone/view/loading/MyLoading;->setWidth(I)V
+	33      (00000092) invoke-virtual       v3, v1, Lcom/jlboat/phone/view/loading/MyLoading;->setHeight(I)V
+	34      (00000098) const/4              v1, 0
+	35      (0000009a) invoke-virtual       v3, v1, Lcom/jlboat/phone/view/loading/MyLoading;->setFocusable(Z)V
+	36      (000000a0) invoke-virtual       v3, v1, Lcom/jlboat/phone/view/loading/MyLoading;->setClippingEnabled(Z)V
+	37      (000000a6) return-void          
+

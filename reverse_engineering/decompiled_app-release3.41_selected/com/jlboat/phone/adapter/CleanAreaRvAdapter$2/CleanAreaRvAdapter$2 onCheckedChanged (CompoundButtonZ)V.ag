@@ -1,0 +1,25 @@
+# Lcom/jlboat/phone/adapter/CleanAreaRvAdapter$2;->onCheckedChanged(Landroid/widget/CompoundButton; Z)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:android.widget.CompoundButton
+# - v5:boolean
+#
+# - return:void
+
+onCheckedChanged-BB@0x0 : [ onCheckedChanged-BB@0x10 onCheckedChanged-BB@0x26 ]
+	0       (00000000) iget-object          v0, v3, Lcom/jlboat/phone/adapter/CleanAreaRvAdapter$2;->this$0 Lcom/jlboat/phone/adapter/CleanAreaRvAdapter;
+	1       (00000004) invoke-static        v0, Lcom/jlboat/phone/adapter/CleanAreaRvAdapter;->access$300(Lcom/jlboat/phone/adapter/CleanAreaRvAdapter;)Lcom/jlboat/phone/adapter/CleanAreaRvAdapter$OnCheckedChangeListener;
+	2       (0000000a) move-result-object   v0
+	3       (0000000c) if-eqz               v0, +00dh
+
+onCheckedChanged-BB@0x10 : [ onCheckedChanged-BB@0x26 ]
+	4       (00000010) iget-object          v0, v3, Lcom/jlboat/phone/adapter/CleanAreaRvAdapter$2;->this$0 Lcom/jlboat/phone/adapter/CleanAreaRvAdapter;
+	5       (00000014) invoke-static        v0, Lcom/jlboat/phone/adapter/CleanAreaRvAdapter;->access$300(Lcom/jlboat/phone/adapter/CleanAreaRvAdapter;)Lcom/jlboat/phone/adapter/CleanAreaRvAdapter$OnCheckedChangeListener;
+	6       (0000001a) move-result-object   v0
+	7       (0000001c) iget-wide            v1, v3, Lcom/jlboat/phone/adapter/CleanAreaRvAdapter$2;->val$id J
+	8       (00000020) invoke-interface     v0, v1, v2, v5, Lcom/jlboat/phone/adapter/CleanAreaRvAdapter$OnCheckedChangeListener;->onCheckedChanged(J Z)V
+
+onCheckedChanged-BB@0x26 : 
+	9       (00000026) return-void          
+

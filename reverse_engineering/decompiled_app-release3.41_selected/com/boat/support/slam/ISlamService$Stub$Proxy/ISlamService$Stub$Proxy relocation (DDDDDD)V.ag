@@ -1,0 +1,123 @@
+# Lcom/boat/support/slam/ISlamService$Stub$Proxy;->relocation(D D D D D D)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v22
+# - v23:double
+# - v24:double
+# - v25:double
+# - v26:double
+# - v27:double
+# - v28:double
+#
+# - return:void
+
+relocation-BB@0x0 : [ relocation-BB@0x10 ]
+	0       (00000000) invoke-static        Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+	1       (00000006) move-result-object   v1
+	2       (00000008) invoke-static        Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+	3       (0000000e) move-result-object   v2
+
+relocation-BB@0x10 : [ relocation-BB@0x28 ]
+	4       (00000010) const-string         v0, "com.boat.support.slam.ISlamService"
+	5       (00000014) invoke-virtual       v1, v0, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+	6       (0000001a) move-wide/from16     v3, v17
+	7       (0000001e) invoke-virtual       v1, v3, v4, Landroid/os/Parcel;->writeDouble(D)V
+	8       (00000024) move-wide/from16     v5, v19
+	10:23
+	(Ljava/lang/Throwable; -> ae relocation-BB@0xae)
+
+relocation-BB@0x28 : [ relocation-BB@0x32 ]
+	9       (00000028) invoke-virtual       v1, v5, v6, Landroid/os/Parcel;->writeDouble(D)V
+	10      (0000002e) move-wide/from16     v7, v21
+	28:2d
+	(Ljava/lang/Throwable; -> a6 relocation-BB@0xa6)
+
+relocation-BB@0x32 : [ relocation-BB@0x3c ]
+	11      (00000032) invoke-virtual       v1, v7, v8, Landroid/os/Parcel;->writeDouble(D)V
+	12      (00000038) move-wide/from16     v9, v23
+	32:37
+	(Ljava/lang/Throwable; -> 9e relocation-BB@0x9e)
+
+relocation-BB@0x3c : [ relocation-BB@0x46 ]
+	13      (0000003c) invoke-virtual       v1, v9, v10, Landroid/os/Parcel;->writeDouble(D)V
+	14      (00000042) move-wide/from16     v11, v25
+	3c:41
+	(Ljava/lang/Throwable; -> 96 relocation-BB@0x96)
+
+relocation-BB@0x46 : [ relocation-BB@0x50 ]
+	15      (00000046) invoke-virtual       v1, v11, v12, Landroid/os/Parcel;->writeDouble(D)V
+	16      (0000004c) move-wide/from16     v13, v27
+	46:4b
+	(Ljava/lang/Throwable; -> 8e relocation-BB@0x8e)
+
+relocation-BB@0x50 : [ relocation-BB@0x5a ]
+	17      (00000050) invoke-virtual       v1, v13, v14, Landroid/os/Parcel;->writeDouble(D)V
+	18      (00000056) move-object/from16   v15, v16
+	50:55
+	(Ljava/lang/Throwable; -> 86 relocation-BB@0x86)
+
+relocation-BB@0x5a : 
+	19      (0000005a) iget-object          v0, v15, Lcom/boat/support/slam/ISlamService$Stub$Proxy;->mRemote Landroid/os/IBinder;
+	20      (0000005e) const/16             v3, 58
+	21      (00000062) const/4              v4, 0
+	22      (00000064) invoke-interface     v0, v3, v1, v2, v4, Landroid/os/IBinder;->transact(I Landroid/os/Parcel; Landroid/os/Parcel; I)Z
+	23      (0000006a) move-result          v0
+	24      (0000006c) invoke-virtual       v2, Landroid/os/Parcel;->readException()V
+	25      (00000072) invoke-virtual       v2, Landroid/os/Parcel;->recycle()V
+	26      (00000078) invoke-virtual       v1, Landroid/os/Parcel;->recycle()V
+	27      (0000007e) nop                  
+	28      (00000080) return-void          
+	5a:71
+	(Ljava/lang/Throwable; -> 82 relocation-BB@0x82)
+
+relocation-BB@0x82 : [ relocation-BB@0xc8 ]
+	29      (00000082) move-exception       v0
+	30      (00000084) goto                 +22h
+
+relocation-BB@0x86 : [ relocation-BB@0xc8 ]
+	31      (00000086) move-exception       v0
+	32      (00000088) move-object/from16   v15, v16
+	33      (0000008c) goto                 +1eh
+
+relocation-BB@0x8e : [ relocation-BB@0xc4 ]
+	34      (0000008e) move-exception       v0
+	35      (00000090) move-object/from16   v15, v16
+	36      (00000094) goto                 +18h
+
+relocation-BB@0x96 : [ relocation-BB@0xc0 ]
+	37      (00000096) move-exception       v0
+	38      (00000098) move-object/from16   v15, v16
+	39      (0000009c) goto                 +12h
+
+relocation-BB@0x9e : [ relocation-BB@0xbc ]
+	40      (0000009e) move-exception       v0
+	41      (000000a0) move-object/from16   v15, v16
+	42      (000000a4) goto                 +ch
+
+relocation-BB@0xa6 : [ relocation-BB@0xb8 ]
+	43      (000000a6) move-exception       v0
+	44      (000000a8) move-object/from16   v15, v16
+	45      (000000ac) goto                 +6h
+
+relocation-BB@0xae : [ relocation-BB@0xb8 ]
+	46      (000000ae) move-exception       v0
+	47      (000000b0) move-object/from16   v15, v16
+	48      (000000b4) move-wide/from16     v5, v19
+
+relocation-BB@0xb8 : [ relocation-BB@0xbc ]
+	49      (000000b8) move-wide/from16     v7, v21
+
+relocation-BB@0xbc : [ relocation-BB@0xc0 ]
+	50      (000000bc) move-wide/from16     v9, v23
+
+relocation-BB@0xc0 : [ relocation-BB@0xc4 ]
+	51      (000000c0) move-wide/from16     v11, v25
+
+relocation-BB@0xc4 : [ relocation-BB@0xc8 ]
+	52      (000000c4) move-wide/from16     v13, v27
+
+relocation-BB@0xc8 : 
+	53      (000000c8) invoke-virtual       v2, Landroid/os/Parcel;->recycle()V
+	54      (000000ce) invoke-virtual       v1, Landroid/os/Parcel;->recycle()V
+	55      (000000d4) throw                v0
+

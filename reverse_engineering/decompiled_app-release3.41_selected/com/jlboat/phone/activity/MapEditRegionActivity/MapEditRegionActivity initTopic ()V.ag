@@ -1,0 +1,14 @@
+# Lcom/jlboat/phone/activity/MapEditRegionActivity;->initTopic()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v2
+#
+# - return:void
+
+initTopic-BB@0x0 : 
+	0       (00000000) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapEditRegionActivity;->spiritTopicListener Lcom/jlboat/phone/communication/SpiritTopicListener;
+	1       (00000004) new-instance         v1, Lcom/jlboat/phone/activity/MapEditRegionActivity$7;
+	2       (00000008) invoke-direct        v1, v2, Lcom/jlboat/phone/activity/MapEditRegionActivity$7;-><init>(Lcom/jlboat/phone/activity/MapEditRegionActivity;)V
+	3       (0000000e) invoke-virtual       v0, v1, Lcom/jlboat/phone/communication/SpiritTopicListener;->getWallUpdateMsg(Lcom/boat/jrosbridge/MessageListener;)V
+	4       (00000014) return-void          
+

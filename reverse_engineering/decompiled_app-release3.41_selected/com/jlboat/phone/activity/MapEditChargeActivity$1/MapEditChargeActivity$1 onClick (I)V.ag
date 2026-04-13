@@ -1,0 +1,16 @@
+# Lcom/jlboat/phone/activity/MapEditChargeActivity$1;->onClick(I)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:int
+#
+# - return:void
+
+onClick-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/jlboat/phone/activity/MapEditChargeActivity$1;->this$0 Lcom/jlboat/phone/activity/MapEditChargeActivity;
+	1       (00000004) iget-object          v0, v0, Lcom/jlboat/phone/activity/MapEditChargeActivity;->selectedPointList Ljava/util/List;
+	2       (00000008) invoke-interface     v0, v2, Ljava/util/List;->remove(I)Ljava/lang/Object;
+	3       (0000000e) iget-object          v0, v1, Lcom/jlboat/phone/activity/MapEditChargeActivity$1;->this$0 Lcom/jlboat/phone/activity/MapEditChargeActivity;
+	4       (00000012) invoke-static        v0, Lcom/jlboat/phone/activity/MapEditChargeActivity;->access$000(Lcom/jlboat/phone/activity/MapEditChargeActivity;)V
+	5       (00000018) return-void          
+

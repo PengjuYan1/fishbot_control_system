@@ -1,0 +1,20 @@
+# Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;-><init>(Landroid/content/Context;)V [access_flags=public constructor]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:android.content.Context
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) invoke-direct        v1, Landroid/support/v7/widget/RecyclerView$Adapter;-><init>()V
+	1       (00000006) new-instance         v0, Ljava/util/ArrayList;
+	2       (0000000a) invoke-direct        v0, Ljava/util/ArrayList;-><init>()V
+	3       (00000010) iput-object          v0, v1, Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;->listData Ljava/util/List;
+	4       (00000014) const/4              v0, 0
+	5       (00000016) iput                 v0, v1, Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;->TYPE_GROUP I
+	6       (0000001a) const/4              v0, 1
+	7       (0000001c) iput                 v0, v1, Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;->TYPE_FRIEND I
+	8       (00000020) iput-object          v2, v1, Lcom/jlboat/phone/adapter/RvFloorPointListAdapter;->context Landroid/content/Context;
+	9       (00000024) return-void          
+

@@ -1,0 +1,73 @@
+# Lcom/jlboat/phone/activity/MapEditRegionActivity;->digloagRid(I)V [access_flags=private]
+#
+# Parameters:
+# - local registers: v0...v7
+# - v8:int
+#
+# - return:void
+
+digloagRid-BB@0x0 : [ digloagRid-BB@0x92 digloagRid-BB@0xa8 ]
+	0       (00000000) new-instance         v0, Landroid/app/AlertDialog$Builder;
+	1       (00000004) invoke-direct        v0, v7, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+	2       (0000000a) invoke-virtual       v7, Lcom/jlboat/phone/activity/MapEditRegionActivity;->getLayoutInflater()Landroid/view/LayoutInflater;
+	3       (00000010) move-result-object   v1
+	4       (00000012) const                v2, 2131361854
+	5       (00000018) const/4              v3, 0
+	6       (0000001a) invoke-virtual       v1, v2, v3, Landroid/view/LayoutInflater;->inflate(I Landroid/view/ViewGroup;)Landroid/view/View;
+	7       (00000020) move-result-object   v1
+	8       (00000022) invoke-virtual       v0, v1, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
+	9       (00000028) invoke-virtual       v0, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+	10      (0000002e) move-result-object   v2
+	11      (00000030) const                v3, 2131231328
+	12      (00000036) invoke-virtual       v1, v3, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	13      (0000003c) move-result-object   v3
+	14      (0000003e) check-cast           v3, Landroid/widget/TextView;
+	15      (00000042) const                v4, 2131231224
+	16      (00000048) invoke-virtual       v1, v4, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	17      (0000004e) move-result-object   v4
+	18      (00000050) check-cast           v4, Landroid/support/v7/widget/RecyclerView;
+	19      (00000054) new-instance         v5, Landroid/support/v7/widget/LinearLayoutManager;
+	20      (00000058) invoke-direct        v5, v7, Landroid/support/v7/widget/LinearLayoutManager;-><init>(Landroid/content/Context;)V
+	21      (0000005e) invoke-virtual       v4, v5, Landroid/support/v7/widget/RecyclerView;->setLayoutManager(Landroid/support/v7/widget/RecyclerView$LayoutManager;)V
+	22      (00000064) new-instance         v5, Lcom/jlboat/phone/adapter/NaviListAdapter;
+	23      (00000068) invoke-direct        v5, v7, Lcom/jlboat/phone/adapter/NaviListAdapter;-><init>(Landroid/content/Context;)V
+	24      (0000006e) invoke-virtual       v4, v5, Landroid/support/v7/widget/RecyclerView;->setAdapter(Landroid/support/v7/widget/RecyclerView$Adapter;)V
+	25      (00000074) new-instance         v6, Lcom/jlboat/phone/activity/MapEditRegionActivity$9;
+	26      (00000078) invoke-direct        v6, v7, v8, v2, Lcom/jlboat/phone/activity/MapEditRegionActivity$9;-><init>(Lcom/jlboat/phone/activity/MapEditRegionActivity; I Landroid/app/AlertDialog;)V
+	27      (0000007e) invoke-virtual       v5, v6, Lcom/jlboat/phone/adapter/NaviListAdapter;->setOnLingclickItem(Lcom/jlboat/phone/adapter/NaviListAdapter$OnClick;)V
+	28      (00000084) iget-object          v6, v7, Lcom/jlboat/phone/activity/MapEditRegionActivity;->pointsList Ljava/util/List;
+	29      (00000088) invoke-virtual       v5, v6, Lcom/jlboat/phone/adapter/NaviListAdapter;->setListData(Ljava/util/List;)V
+	30      (0000008e) if-nez               v8, +00dh
+
+digloagRid-BB@0x92 : [ digloagRid-BB@0xde ]
+	31      (00000092) const                v6, 2131493197
+	32      (00000098) invoke-virtual       v7, v6, Lcom/jlboat/phone/activity/MapEditRegionActivity;->getResString(I)Ljava/lang/String;
+	33      (0000009e) move-result-object   v6
+	34      (000000a0) invoke-virtual       v3, v6, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+	35      (000000a6) goto                 +1ch
+
+digloagRid-BB@0xa8 : [ digloagRid-BB@0xae digloagRid-BB@0xc4 ]
+	36      (000000a8) const/4              v6, 1
+	37      (000000aa) if-ne                v8, v6, +00dh
+
+digloagRid-BB@0xae : [ digloagRid-BB@0xde ]
+	38      (000000ae) const                v6, 2131493036
+	39      (000000b4) invoke-virtual       v7, v6, Lcom/jlboat/phone/activity/MapEditRegionActivity;->getResString(I)Ljava/lang/String;
+	40      (000000ba) move-result-object   v6
+	41      (000000bc) invoke-virtual       v3, v6, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+	42      (000000c2) goto                 +eh
+
+digloagRid-BB@0xc4 : [ digloagRid-BB@0xca digloagRid-BB@0xde ]
+	43      (000000c4) const/4              v6, 2
+	44      (000000c6) if-ne                v8, v6, +00ch
+
+digloagRid-BB@0xca : [ digloagRid-BB@0xde ]
+	45      (000000ca) const                v6, 2131493397
+	46      (000000d0) invoke-virtual       v7, v6, Lcom/jlboat/phone/activity/MapEditRegionActivity;->getResString(I)Ljava/lang/String;
+	47      (000000d6) move-result-object   v6
+	48      (000000d8) invoke-virtual       v3, v6, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+digloagRid-BB@0xde : 
+	49      (000000de) invoke-virtual       v2, Landroid/app/AlertDialog;->show()V
+	50      (000000e4) return-void          
+

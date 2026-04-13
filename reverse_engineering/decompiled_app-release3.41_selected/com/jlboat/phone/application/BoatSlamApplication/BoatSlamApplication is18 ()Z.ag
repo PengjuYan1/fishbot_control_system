@@ -1,0 +1,41 @@
+# Lcom/jlboat/phone/application/BoatSlamApplication;->is18()Z [access_flags=public static]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:boolean
+
+is18-BB@0x0 : [ is18-BB@0x14 is18-BB@0x42 ]
+	0       (00000000) sget-object          v0, Lcom/jlboat/phone/application/BoatSlamApplication;->classis_channel Ljava/lang/String;
+	1       (00000004) const-string         v1, "086000000302"
+	2       (00000008) invoke-virtual       v0, v1, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	3       (0000000e) move-result          v0
+	4       (00000010) if-nez               v0, +019h
+
+is18-BB@0x14 : [ is18-BB@0x28 is18-BB@0x42 ]
+	5       (00000014) sget-object          v0, Lcom/jlboat/phone/application/BoatSlamApplication;->classis_channel Ljava/lang/String;
+	6       (00000018) const-string         v1, "086000000204"
+	7       (0000001c) invoke-virtual       v0, v1, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	8       (00000022) move-result          v0
+	9       (00000024) if-nez               v0, +00fh
+
+is18-BB@0x28 : [ is18-BB@0x3c is18-BB@0x3e ]
+	10      (00000028) sget-object          v0, Lcom/jlboat/phone/application/BoatSlamApplication;->classis_channel Ljava/lang/String;
+	11      (0000002c) const-string         v1, "086000000702"
+	12      (00000030) invoke-virtual       v0, v1, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	13      (00000036) move-result          v0
+	14      (00000038) if-eqz               v0, +003h
+
+is18-BB@0x3c : [ is18-BB@0x42 ]
+	15      (0000003c) goto                 +3h
+
+is18-BB@0x3e : [ is18-BB@0x44 ]
+	16      (0000003e) const/4              v0, 0
+	17      (00000040) goto                 +2h
+
+is18-BB@0x42 : [ is18-BB@0x44 ]
+	18      (00000042) const/4              v0, 1
+
+is18-BB@0x44 : 
+	19      (00000044) return               v0
+

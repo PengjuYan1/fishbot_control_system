@@ -1,0 +1,36 @@
+# Lcom/jlboat/phone/activity/TestResultActivity202508;->onBackPressed()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v7
+#
+# - return:void
+
+onBackPressed-BB@0x0 : [ onBackPressed-BB@0x10 onBackPressed-BB@0x18 ]
+	0       (00000000) invoke-static        Ljava/lang/System;->currentTimeMillis()J
+	1       (00000006) move-result-wide     v0
+	2       (00000008) iget-boolean         v2, v7, Lcom/jlboat/phone/activity/TestResultActivity202508;->isEnd Z
+	3       (0000000c) if-eqz               v2, +006h
+
+onBackPressed-BB@0x10 : [ onBackPressed-BB@0x42 ]
+	4       (00000010) invoke-virtual       v7, Lcom/jlboat/phone/activity/TestResultActivity202508;->finish()V
+	5       (00000016) goto                 +16h
+
+onBackPressed-BB@0x18 : [ onBackPressed-BB@0x2c onBackPressed-BB@0x3c ]
+	6       (00000018) iget-wide            v2, v7, Lcom/jlboat/phone/activity/TestResultActivity202508;->firstTime J
+	7       (0000001c) sub-long             v2, v0, v2
+	8       (00000020) const-wide/16        v4, 2000
+	9       (00000024) cmp-long             v6, v2, v4
+	10      (00000028) if-lez               v6, +00ah
+
+onBackPressed-BB@0x2c : [ onBackPressed-BB@0x42 ]
+	11      (0000002c) const-string         v2, "再点一次返回,测试程序不会停止"
+	12      (00000030) invoke-static        v2, Lcom/jlboat/phone/util/Utils;->toast(Ljava/lang/String;)V
+	13      (00000036) iput-wide            v0, v7, Lcom/jlboat/phone/activity/TestResultActivity202508;->firstTime J
+	14      (0000003a) goto                 +4h
+
+onBackPressed-BB@0x3c : [ onBackPressed-BB@0x42 ]
+	15      (0000003c) invoke-virtual       v7, Lcom/jlboat/phone/activity/TestResultActivity202508;->finish()V
+
+onBackPressed-BB@0x42 : 
+	16      (00000042) return-void          
+

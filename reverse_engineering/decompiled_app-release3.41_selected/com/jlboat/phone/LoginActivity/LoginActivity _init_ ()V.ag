@@ -1,0 +1,25 @@
+# Lcom/jlboat/phone/LoginActivity;-><init>()V [access_flags=public constructor]
+#
+# Parameters:
+# local registers: v0...v3
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) invoke-direct        v3, Landroid/support/v7/app/AppCompatActivity;-><init>()V
+	1       (00000006) const-string         v0, "android.permission.ACCESS_NETWORK_STATE"
+	2       (0000000a) const-string         v1, "android.permission.ACCESS_FINE_LOCATION"
+	3       (0000000e) filled-new-array     v0, v1, [Ljava/lang/String;
+	4       (00000014) move-result-object   v0
+	5       (00000016) iput-object          v0, v3, Lcom/jlboat/phone/LoginActivity;->permissions [Ljava/lang/String;
+	6       (0000001a) const/4              v0, 0
+	7       (0000001c) iput-boolean         v0, v3, Lcom/jlboat/phone/LoginActivity;->isdestory Z
+	8       (00000020) const-wide/16        v1, 0
+	9       (00000024) iput-wide            v1, v3, Lcom/jlboat/phone/LoginActivity;->firstTime J
+	10      (00000028) iput                 v0, v3, Lcom/jlboat/phone/LoginActivity;->count I
+	11      (0000002c) iput-wide            v1, v3, Lcom/jlboat/phone/LoginActivity;->time J
+	12      (00000030) new-instance         v0, Lcom/jlboat/phone/LoginActivity$1;
+	13      (00000034) invoke-direct        v0, v3, Lcom/jlboat/phone/LoginActivity$1;-><init>(Lcom/jlboat/phone/LoginActivity;)V
+	14      (0000003a) iput-object          v0, v3, Lcom/jlboat/phone/LoginActivity;->receiver Landroid/content/BroadcastReceiver;
+	15      (0000003e) return-void          
+

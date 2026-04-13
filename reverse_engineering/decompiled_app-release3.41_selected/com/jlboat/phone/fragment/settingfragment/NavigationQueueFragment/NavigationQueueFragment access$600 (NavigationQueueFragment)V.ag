@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/fragment/settingfragment/NavigationQueueFragment;->access$600(Lcom/jlboat/phone/fragment/settingfragment/NavigationQueueFragment;)V [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v-1
+# - v0:com.jlboat.phone.fragment.settingfragment.NavigationQueueFragment
+#
+# - return:void
+
+access$600-BB@0x0 : 
+	0       (00000000) invoke-direct        v0, Lcom/jlboat/phone/fragment/settingfragment/NavigationQueueFragment;->addNaviQueueListEntries()V
+	1       (00000006) return-void          
+

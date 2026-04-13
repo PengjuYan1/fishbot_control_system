@@ -1,0 +1,42 @@
+# Lcom/jlboat/phone/activity/MapActivity$36;->onClick(Landroid/view/View;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v5
+# - v6:android.view.View
+#
+# - return:void
+
+onClick-BB@0x0 : [ onClick-BB@0x16 ]
+	0       (00000000) new-instance         v0, Ljava/util/LinkedList;
+	1       (00000004) invoke-direct        v0, Ljava/util/LinkedList;-><init>()V
+	2       (0000000a) iget-object          v1, v5, Lcom/jlboat/phone/activity/MapActivity$36;->val$selectedPointList Ljava/util/List;
+	3       (0000000e) invoke-interface     v1, Ljava/util/List;->iterator()Ljava/util/Iterator;
+	4       (00000014) move-result-object   v1
+
+onClick-BB@0x16 : [ onClick-BB@0x22 onClick-BB@0x46 ]
+	5       (00000016) invoke-interface     v1, Ljava/util/Iterator;->hasNext()Z
+	6       (0000001c) move-result          v2
+	7       (0000001e) if-eqz               v2, +014h
+
+onClick-BB@0x22 : [ onClick-BB@0x16 ]
+	8       (00000022) invoke-interface     v1, Ljava/util/Iterator;->next()Ljava/lang/Object;
+	9       (00000028) move-result-object   v2
+	10      (0000002a) check-cast           v2, Lcom/boat/support/slam/entity/floors/Floors;
+	11      (0000002e) invoke-virtual       v2, Lcom/boat/support/slam/entity/floors/Floors;->getFloorId()J
+	12      (00000034) move-result-wide     v3
+	13      (00000036) invoke-static        v3, v4, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+	14      (0000003c) move-result-object   v3
+	15      (0000003e) invoke-interface     v0, v3, Ljava/util/List;->add(Ljava/lang/Object;)Z
+	16      (00000044) goto                 -17h
+
+onClick-BB@0x46 : 
+	17      (00000046) iget-object          v1, v5, Lcom/jlboat/phone/activity/MapActivity$36;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	18      (0000004a) invoke-static        v1, Lcom/jlboat/phone/activity/MapActivity;->access$2100(Lcom/jlboat/phone/activity/MapActivity;)Lcom/jlboat/phone/communication/SpiritServiceClient;
+	19      (00000050) move-result-object   v1
+	20      (00000052) new-instance         v2, Lcom/jlboat/phone/activity/MapActivity$36$1;
+	21      (00000056) invoke-direct        v2, v5, Lcom/jlboat/phone/activity/MapActivity$36$1;-><init>(Lcom/jlboat/phone/activity/MapActivity$36;)V
+	22      (0000005c) invoke-virtual       v1, v0, v2, Lcom/jlboat/phone/communication/SpiritServiceClient;->setChargingPriority(Ljava/util/List; Lcom/boat/jrosbridge/MessageListener;)V
+	23      (00000062) iget-object          v1, v5, Lcom/jlboat/phone/activity/MapActivity$36;->val$alertDialog Landroid/app/AlertDialog;
+	24      (00000066) invoke-virtual       v1, Landroid/app/AlertDialog;->dismiss()V
+	25      (0000006c) return-void          
+

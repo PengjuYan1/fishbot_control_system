@@ -1,0 +1,323 @@
+# Lcom/jlboat/phone/activity/MapEditRegionActivity$4;->longclick(Lcom/boat/support/slam/entity/floors/Region; I)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v15
+# - v16:com.boat.support.slam.entity.floors.Region
+# - v17:int
+#
+# - return:void
+
+longclick-BB@0x0 : [ longclick-BB@0x38 longclick-BB@0x52 ]
+	0       (00000000) move-object          v0, v15
+	1       (00000002) new-instance         v1, Landroid/app/AlertDialog$Builder;
+	2       (00000006) iget-object          v2, v0, Lcom/jlboat/phone/activity/MapEditRegionActivity$4;->this$0 Lcom/jlboat/phone/activity/MapEditRegionActivity;
+	3       (0000000a) invoke-direct        v1, v2, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+	4       (00000010) iget-object          v2, v0, Lcom/jlboat/phone/activity/MapEditRegionActivity$4;->this$0 Lcom/jlboat/phone/activity/MapEditRegionActivity;
+	5       (00000014) invoke-virtual       v2, Lcom/jlboat/phone/activity/MapEditRegionActivity;->getResources()Landroid/content/res/Resources;
+	6       (0000001a) move-result-object   v2
+	7       (0000001c) const                v3, 2131493139
+	8       (00000022) invoke-virtual       v2, v3, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+	9       (00000028) move-result-object   v2
+	10      (0000002a) invoke-virtual/range v16, Lcom/boat/support/slam/entity/floors/Region;->getType()I
+	11      (00000030) move-result          v4
+	12      (00000032) const/4              v5, 1
+	13      (00000034) if-ne                v4, v5, +00fh
+
+longclick-BB@0x38 : [ longclick-BB@0x52 ]
+	14      (00000038) iget-object          v4, v0, Lcom/jlboat/phone/activity/MapEditRegionActivity$4;->this$0 Lcom/jlboat/phone/activity/MapEditRegionActivity;
+	15      (0000003c) invoke-virtual       v4, Lcom/jlboat/phone/activity/MapEditRegionActivity;->getResources()Landroid/content/res/Resources;
+	16      (00000042) move-result-object   v4
+	17      (00000044) const                v5, 2131493034
+	18      (0000004a) invoke-virtual       v4, v5, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+	19      (00000050) move-result-object   v2
+
+longclick-BB@0x52 : [ longclick-BB@0x60 longclick-BB@0x7a ]
+	20      (00000052) invoke-virtual/range v16, Lcom/boat/support/slam/entity/floors/Region;->getType()I
+	21      (00000058) move-result          v4
+	22      (0000005a) const/4              v5, 2
+	23      (0000005c) if-ne                v4, v5, +00fh
+
+longclick-BB@0x60 : [ longclick-BB@0x7a ]
+	24      (00000060) iget-object          v4, v0, Lcom/jlboat/phone/activity/MapEditRegionActivity$4;->this$0 Lcom/jlboat/phone/activity/MapEditRegionActivity;
+	25      (00000064) invoke-virtual       v4, Lcom/jlboat/phone/activity/MapEditRegionActivity;->getResources()Landroid/content/res/Resources;
+	26      (0000006a) move-result-object   v4
+	27      (0000006c) const                v5, 2131493086
+	28      (00000072) invoke-virtual       v4, v5, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+	29      (00000078) move-result-object   v2
+
+longclick-BB@0x7a : [ longclick-BB@0x88 longclick-BB@0xa2 ]
+	30      (0000007a) invoke-virtual/range v16, Lcom/boat/support/slam/entity/floors/Region;->getType()I
+	31      (00000080) move-result          v4
+	32      (00000082) const/4              v5, 3
+	33      (00000084) if-ne                v4, v5, +00fh
+
+longclick-BB@0x88 : [ longclick-BB@0xa2 ]
+	34      (00000088) iget-object          v4, v0, Lcom/jlboat/phone/activity/MapEditRegionActivity$4;->this$0 Lcom/jlboat/phone/activity/MapEditRegionActivity;
+	35      (0000008c) invoke-virtual       v4, Lcom/jlboat/phone/activity/MapEditRegionActivity;->getResources()Landroid/content/res/Resources;
+	36      (00000092) move-result-object   v4
+	37      (00000094) const                v5, 2131493184
+	38      (0000009a) invoke-virtual       v4, v5, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+	39      (000000a0) move-result-object   v2
+
+longclick-BB@0xa2 : [ longclick-BB@0xb0 longclick-BB@0xca ]
+	40      (000000a2) invoke-virtual/range v16, Lcom/boat/support/slam/entity/floors/Region;->getType()I
+	41      (000000a8) move-result          v4
+	42      (000000aa) const/4              v5, 4
+	43      (000000ac) if-ne                v4, v5, +00fh
+
+longclick-BB@0xb0 : [ longclick-BB@0xca ]
+	44      (000000b0) iget-object          v4, v0, Lcom/jlboat/phone/activity/MapEditRegionActivity$4;->this$0 Lcom/jlboat/phone/activity/MapEditRegionActivity;
+	45      (000000b4) invoke-virtual       v4, Lcom/jlboat/phone/activity/MapEditRegionActivity;->getResources()Landroid/content/res/Resources;
+	46      (000000ba) move-result-object   v4
+	47      (000000bc) const                v5, 2131492907
+	48      (000000c2) invoke-virtual       v4, v5, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+	49      (000000c8) move-result-object   v2
+
+longclick-BB@0xca : [ longclick-BB@0xd8 longclick-BB@0xf2 ]
+	50      (000000ca) invoke-virtual/range v16, Lcom/boat/support/slam/entity/floors/Region;->getType()I
+	51      (000000d0) move-result          v4
+	52      (000000d2) const/4              v5, 5
+	53      (000000d4) if-ne                v4, v5, +00fh
+
+longclick-BB@0xd8 : [ longclick-BB@0xf2 ]
+	54      (000000d8) iget-object          v4, v0, Lcom/jlboat/phone/activity/MapEditRegionActivity$4;->this$0 Lcom/jlboat/phone/activity/MapEditRegionActivity;
+	55      (000000dc) invoke-virtual       v4, Lcom/jlboat/phone/activity/MapEditRegionActivity;->getResources()Landroid/content/res/Resources;
+	56      (000000e2) move-result-object   v4
+	57      (000000e4) const                v5, 2131493041
+	58      (000000ea) invoke-virtual       v4, v5, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+	59      (000000f0) move-result-object   v2
+
+longclick-BB@0xf2 : [ longclick-BB@0x100 longclick-BB@0x11a ]
+	60      (000000f2) invoke-virtual/range v16, Lcom/boat/support/slam/entity/floors/Region;->getType()I
+	61      (000000f8) move-result          v4
+	62      (000000fa) const/4              v5, 6
+	63      (000000fc) if-ne                v4, v5, +00fh
+
+longclick-BB@0x100 : [ longclick-BB@0x11a ]
+	64      (00000100) iget-object          v4, v0, Lcom/jlboat/phone/activity/MapEditRegionActivity$4;->this$0 Lcom/jlboat/phone/activity/MapEditRegionActivity;
+	65      (00000104) invoke-virtual       v4, Lcom/jlboat/phone/activity/MapEditRegionActivity;->getResources()Landroid/content/res/Resources;
+	66      (0000010a) move-result-object   v4
+	67      (0000010c) const                v5, 2131492909
+	68      (00000112) invoke-virtual       v4, v5, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+	69      (00000118) move-result-object   v2
+
+longclick-BB@0x11a : [ longclick-BB@0x18e longclick-BB@0x1b8 ]
+	70      (0000011a) iget-object          v4, v0, Lcom/jlboat/phone/activity/MapEditRegionActivity$4;->this$0 Lcom/jlboat/phone/activity/MapEditRegionActivity;
+	71      (0000011e) invoke-virtual       v4, Lcom/jlboat/phone/activity/MapEditRegionActivity;->getResources()Landroid/content/res/Resources;
+	72      (00000124) move-result-object   v4
+	73      (00000126) invoke-virtual       v4, v3, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+	74      (0000012c) move-result-object   v4
+	75      (0000012e) iget-object          v5, v0, Lcom/jlboat/phone/activity/MapEditRegionActivity$4;->this$0 Lcom/jlboat/phone/activity/MapEditRegionActivity;
+	76      (00000132) invoke-virtual       v5, Lcom/jlboat/phone/activity/MapEditRegionActivity;->getResources()Landroid/content/res/Resources;
+	77      (00000138) move-result-object   v5
+	78      (0000013a) invoke-virtual       v5, v3, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+	79      (00000140) move-result-object   v5
+	80      (00000142) iget-object          v6, v0, Lcom/jlboat/phone/activity/MapEditRegionActivity$4;->this$0 Lcom/jlboat/phone/activity/MapEditRegionActivity;
+	81      (00000146) invoke-virtual       v6, Lcom/jlboat/phone/activity/MapEditRegionActivity;->getResources()Landroid/content/res/Resources;
+	82      (0000014c) move-result-object   v6
+	83      (0000014e) invoke-virtual       v6, v3, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+	84      (00000154) move-result-object   v6
+	85      (00000156) iget-object          v7, v0, Lcom/jlboat/phone/activity/MapEditRegionActivity$4;->this$0 Lcom/jlboat/phone/activity/MapEditRegionActivity;
+	86      (0000015a) invoke-virtual       v7, Lcom/jlboat/phone/activity/MapEditRegionActivity;->getResources()Landroid/content/res/Resources;
+	87      (00000160) move-result-object   v7
+	88      (00000162) invoke-virtual       v7, v3, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+	89      (00000168) move-result-object   v7
+	90      (0000016a) iget-object          v8, v0, Lcom/jlboat/phone/activity/MapEditRegionActivity$4;->this$0 Lcom/jlboat/phone/activity/MapEditRegionActivity;
+	91      (0000016e) invoke-virtual       v8, Lcom/jlboat/phone/activity/MapEditRegionActivity;->getResources()Landroid/content/res/Resources;
+	92      (00000174) move-result-object   v8
+	93      (00000176) invoke-virtual       v8, v3, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+	94      (0000017c) move-result-object   v3
+	95      (0000017e) invoke-virtual/range v16, Lcom/boat/support/slam/entity/floors/Region;->getRegionProperty1()I
+	96      (00000184) move-result          v8
+	97      (00000186) const-string         v9, ""
+	98      (0000018a) if-eqz               v8, +017h
+
+longclick-BB@0x18e : [ longclick-BB@0x1b8 ]
+	99      (0000018e) new-instance         v8, Ljava/lang/StringBuilder;
+	100     (00000192) invoke-direct        v8, Ljava/lang/StringBuilder;-><init>()V
+	101     (00000198) invoke-virtual/range v16, Lcom/boat/support/slam/entity/floors/Region;->getRegionProperty1()I
+	102     (0000019e) move-result          v10
+	103     (000001a0) invoke-virtual       v8, v10, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	104     (000001a6) move-result-object   v8
+	105     (000001a8) invoke-virtual       v8, v9, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	106     (000001ae) move-result-object   v8
+	107     (000001b0) invoke-virtual       v8, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	108     (000001b6) move-result-object   v7
+
+longclick-BB@0x1b8 : [ longclick-BB@0x1c4 longclick-BB@0x1ee ]
+	109     (000001b8) invoke-virtual/range v16, Lcom/boat/support/slam/entity/floors/Region;->getRegionProperty2()I
+	110     (000001be) move-result          v8
+	111     (000001c0) if-eqz               v8, +017h
+
+longclick-BB@0x1c4 : [ longclick-BB@0x1ee ]
+	112     (000001c4) new-instance         v8, Ljava/lang/StringBuilder;
+	113     (000001c8) invoke-direct        v8, Ljava/lang/StringBuilder;-><init>()V
+	114     (000001ce) invoke-virtual/range v16, Lcom/boat/support/slam/entity/floors/Region;->getRegionProperty2()I
+	115     (000001d4) move-result          v10
+	116     (000001d6) invoke-virtual       v8, v10, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	117     (000001dc) move-result-object   v8
+	118     (000001de) invoke-virtual       v8, v9, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	119     (000001e4) move-result-object   v8
+	120     (000001e6) invoke-virtual       v8, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	121     (000001ec) move-result-object   v3
+
+longclick-BB@0x1ee : [ longclick-BB@0x202 ]
+	122     (000001ee) iget-object          v8, v0, Lcom/jlboat/phone/activity/MapEditRegionActivity$4;->this$0 Lcom/jlboat/phone/activity/MapEditRegionActivity;
+	123     (000001f2) invoke-static        v8, Lcom/jlboat/phone/activity/MapEditRegionActivity;->access$500(Lcom/jlboat/phone/activity/MapEditRegionActivity;)Ljava/util/List;
+	124     (000001f8) move-result-object   v8
+	125     (000001fa) invoke-interface     v8, Ljava/util/List;->iterator()Ljava/util/Iterator;
+	126     (00000200) move-result-object   v8
+
+longclick-BB@0x202 : [ longclick-BB@0x20e longclick-BB@0x27c ]
+	127     (00000202) invoke-interface     v8, Ljava/util/Iterator;->hasNext()Z
+	128     (00000208) move-result          v9
+	129     (0000020a) if-eqz               v9, +039h
+
+longclick-BB@0x20e : [ longclick-BB@0x232 longclick-BB@0x23a ]
+	130     (0000020e) invoke-interface     v8, Ljava/util/Iterator;->next()Ljava/lang/Object;
+	131     (00000214) move-result-object   v9
+	132     (00000216) check-cast           v9, Lcom/boat/support/slam/entity/floors/Points;
+	133     (0000021a) invoke-virtual/range v16, Lcom/boat/support/slam/entity/floors/Region;->getStartPointId()J
+	134     (00000220) move-result-wide     v10
+	135     (00000222) invoke-virtual       v9, Lcom/boat/support/slam/entity/floors/Points;->getPointId()J
+	136     (00000228) move-result-wide     v12
+	137     (0000022a) cmp-long             v14, v10, v12
+	138     (0000022e) if-nez               v14, +006h
+
+longclick-BB@0x232 : [ longclick-BB@0x23a ]
+	139     (00000232) invoke-virtual       v9, Lcom/boat/support/slam/entity/floors/Points;->getPointName()Ljava/lang/String;
+	140     (00000238) move-result-object   v4
+
+longclick-BB@0x23a : [ longclick-BB@0x252 longclick-BB@0x25a ]
+	141     (0000023a) invoke-virtual/range v16, Lcom/boat/support/slam/entity/floors/Region;->getEndPointId()J
+	142     (00000240) move-result-wide     v10
+	143     (00000242) invoke-virtual       v9, Lcom/boat/support/slam/entity/floors/Points;->getPointId()J
+	144     (00000248) move-result-wide     v12
+	145     (0000024a) cmp-long             v14, v10, v12
+	146     (0000024e) if-nez               v14, +006h
+
+longclick-BB@0x252 : [ longclick-BB@0x25a ]
+	147     (00000252) invoke-virtual       v9, Lcom/boat/support/slam/entity/floors/Points;->getPointName()Ljava/lang/String;
+	148     (00000258) move-result-object   v5
+
+longclick-BB@0x25a : [ longclick-BB@0x272 longclick-BB@0x27a ]
+	149     (0000025a) invoke-virtual/range v16, Lcom/boat/support/slam/entity/floors/Region;->getWaitPointId()J
+	150     (00000260) move-result-wide     v10
+	151     (00000262) invoke-virtual       v9, Lcom/boat/support/slam/entity/floors/Points;->getPointId()J
+	152     (00000268) move-result-wide     v12
+	153     (0000026a) cmp-long             v14, v10, v12
+	154     (0000026e) if-nez               v14, +006h
+
+longclick-BB@0x272 : [ longclick-BB@0x27a ]
+	155     (00000272) invoke-virtual       v9, Lcom/boat/support/slam/entity/floors/Points;->getPointName()Ljava/lang/String;
+	156     (00000278) move-result-object   v6
+
+longclick-BB@0x27a : [ longclick-BB@0x202 ]
+	157     (0000027a) goto                 -3ch
+
+longclick-BB@0x27c : 
+	158     (0000027c) new-instance         v8, Ljava/lang/StringBuilder;
+	159     (00000280) invoke-direct        v8, Ljava/lang/StringBuilder;-><init>()V
+	160     (00000286) iget-object          v9, v0, Lcom/jlboat/phone/activity/MapEditRegionActivity$4;->this$0 Lcom/jlboat/phone/activity/MapEditRegionActivity;
+	161     (0000028a) const                v10, 2131493029
+	162     (00000290) invoke-virtual       v9, v10, Lcom/jlboat/phone/activity/MapEditRegionActivity;->getResString(I)Ljava/lang/String;
+	163     (00000296) move-result-object   v9
+	164     (00000298) invoke-virtual       v8, v9, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	165     (0000029e) move-result-object   v8
+	166     (000002a0) const-string         v9, " "
+	167     (000002a4) invoke-virtual       v8, v9, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	168     (000002aa) move-result-object   v8
+	169     (000002ac) move/from16          v10, v17
+	170     (000002b0) invoke-virtual       v8, v10, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	171     (000002b6) move-result-object   v8
+	172     (000002b8) invoke-virtual       v8, v9, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	173     (000002be) move-result-object   v8
+	174     (000002c0) invoke-virtual       v8, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	175     (000002c6) move-result-object   v8
+	176     (000002c8) const-string         v11, " ?
+"
+	177     (000002cc) invoke-virtual       v8, v11, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	178     (000002d2) move-result-object   v8
+	179     (000002d4) invoke-virtual       v8, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	180     (000002da) move-result-object   v8
+	181     (000002dc) invoke-virtual       v1, v8, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+	182     (000002e2) new-instance         v8, Ljava/lang/StringBuilder;
+	183     (000002e6) invoke-direct        v8, Ljava/lang/StringBuilder;-><init>()V
+	184     (000002ec) iget-object          v11, v0, Lcom/jlboat/phone/activity/MapEditRegionActivity$4;->this$0 Lcom/jlboat/phone/activity/MapEditRegionActivity;
+	185     (000002f0) const                v12, 2131493197
+	186     (000002f6) invoke-virtual       v11, v12, Lcom/jlboat/phone/activity/MapEditRegionActivity;->getResString(I)Ljava/lang/String;
+	187     (000002fc) move-result-object   v11
+	188     (000002fe) invoke-virtual       v8, v11, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	189     (00000304) move-result-object   v8
+	190     (00000306) invoke-virtual       v8, v9, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	191     (0000030c) move-result-object   v8
+	192     (0000030e) invoke-virtual       v8, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	193     (00000314) move-result-object   v8
+	194     (00000316) const-string         v11, "   "
+	195     (0000031a) invoke-virtual       v8, v11, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	196     (00000320) move-result-object   v8
+	197     (00000322) iget-object          v12, v0, Lcom/jlboat/phone/activity/MapEditRegionActivity$4;->this$0 Lcom/jlboat/phone/activity/MapEditRegionActivity;
+	198     (00000326) const                v13, 2131493036
+	199     (0000032c) invoke-virtual       v12, v13, Lcom/jlboat/phone/activity/MapEditRegionActivity;->getResString(I)Ljava/lang/String;
+	200     (00000332) move-result-object   v12
+	201     (00000334) invoke-virtual       v8, v12, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	202     (0000033a) move-result-object   v8
+	203     (0000033c) invoke-virtual       v8, v9, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	204     (00000342) move-result-object   v8
+	205     (00000344) invoke-virtual       v8, v5, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	206     (0000034a) move-result-object   v8
+	207     (0000034c) invoke-virtual       v8, v11, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	208     (00000352) move-result-object   v8
+	209     (00000354) iget-object          v12, v0, Lcom/jlboat/phone/activity/MapEditRegionActivity$4;->this$0 Lcom/jlboat/phone/activity/MapEditRegionActivity;
+	210     (00000358) const                v13, 2131493397
+	211     (0000035e) invoke-virtual       v12, v13, Lcom/jlboat/phone/activity/MapEditRegionActivity;->getResString(I)Ljava/lang/String;
+	212     (00000364) move-result-object   v12
+	213     (00000366) invoke-virtual       v8, v12, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	214     (0000036c) move-result-object   v8
+	215     (0000036e) invoke-virtual       v8, v9, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	216     (00000374) move-result-object   v8
+	217     (00000376) invoke-virtual       v8, v6, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	218     (0000037c) move-result-object   v8
+	219     (0000037e) const-string         v12, " 
+"
+	220     (00000382) invoke-virtual       v8, v12, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	221     (00000388) move-result-object   v8
+	222     (0000038a) iget-object          v12, v0, Lcom/jlboat/phone/activity/MapEditRegionActivity$4;->this$0 Lcom/jlboat/phone/activity/MapEditRegionActivity;
+	223     (0000038e) const                v13, 2131493073
+	224     (00000394) invoke-virtual       v12, v13, Lcom/jlboat/phone/activity/MapEditRegionActivity;->getResString(I)Ljava/lang/String;
+	225     (0000039a) move-result-object   v12
+	226     (0000039c) invoke-virtual       v8, v12, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	227     (000003a2) move-result-object   v8
+	228     (000003a4) invoke-virtual       v8, v9, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	229     (000003aa) move-result-object   v8
+	230     (000003ac) invoke-virtual       v8, v7, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	231     (000003b2) move-result-object   v8
+	232     (000003b4) invoke-virtual       v8, v11, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	233     (000003ba) move-result-object   v8
+	234     (000003bc) iget-object          v12, v0, Lcom/jlboat/phone/activity/MapEditRegionActivity$4;->this$0 Lcom/jlboat/phone/activity/MapEditRegionActivity;
+	235     (000003c0) const                v13, 2131493074
+	236     (000003c6) invoke-virtual       v12, v13, Lcom/jlboat/phone/activity/MapEditRegionActivity;->getResString(I)Ljava/lang/String;
+	237     (000003cc) move-result-object   v12
+	238     (000003ce) invoke-virtual       v8, v12, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	239     (000003d4) move-result-object   v8
+	240     (000003d6) invoke-virtual       v8, v9, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	241     (000003dc) move-result-object   v8
+	242     (000003de) invoke-virtual       v8, v3, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	243     (000003e4) move-result-object   v8
+	244     (000003e6) invoke-virtual       v8, v11, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	245     (000003ec) move-result-object   v8
+	246     (000003ee) invoke-virtual       v8, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	247     (000003f4) move-result-object   v8
+	248     (000003f6) invoke-virtual       v1, v8, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+	249     (000003fc) new-instance         v8, Lcom/jlboat/phone/activity/MapEditRegionActivity$4$1;
+	250     (00000400) move-object/from16   v9, v16
+	251     (00000404) invoke-direct        v8, v15, v9, Lcom/jlboat/phone/activity/MapEditRegionActivity$4$1;-><init>(Lcom/jlboat/phone/activity/MapEditRegionActivity$4; Lcom/boat/support/slam/entity/floors/Region;)V
+	252     (0000040a) const                v11, 2131493023
+	253     (00000410) invoke-virtual       v1, v11, v8, Landroid/app/AlertDialog$Builder;->setPositiveButton(I Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+	254     (00000416) new-instance         v8, Lcom/jlboat/phone/activity/MapEditRegionActivity$4$2;
+	255     (0000041a) invoke-direct        v8, v15, Lcom/jlboat/phone/activity/MapEditRegionActivity$4$2;-><init>(Lcom/jlboat/phone/activity/MapEditRegionActivity$4;)V
+	256     (00000420) const                v11, 2131493007
+	257     (00000426) invoke-virtual       v1, v11, v8, Landroid/app/AlertDialog$Builder;->setNegativeButton(I Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+	258     (0000042c) invoke-virtual       v1, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
+	259     (00000432) return-void          
+

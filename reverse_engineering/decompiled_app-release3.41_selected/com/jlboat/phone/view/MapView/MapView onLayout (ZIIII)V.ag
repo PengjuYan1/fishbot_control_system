@@ -1,0 +1,30 @@
+# Lcom/jlboat/phone/view/MapView;->onLayout(Z I I I I)V [access_flags=protected]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:boolean
+# - v5:int
+# - v6:int
+# - v7:int
+# - v8:int
+#
+# - return:void
+
+onLayout-BB@0x0 : [ onLayout-BB@0xa onLayout-BB@0x26 ]
+	0       (00000000) invoke-super/range   v3 ... v8, Landroid/view/View;->onLayout(Z I I I I)V
+	1       (00000006) if-eqz               v4, +010h
+
+onLayout-BB@0xa : [ onLayout-BB@0x12 onLayout-BB@0x26 ]
+	2       (0000000a) iget-object          v0, v3, Lcom/jlboat/phone/view/MapView;->sourceBitmap Landroid/graphics/Bitmap;
+	3       (0000000e) if-eqz               v0, +00ch
+
+onLayout-BB@0x12 : [ onLayout-BB@0x26 ]
+	4       (00000012) new-instance         v0, Lcom/jlboat/phone/view/TouchEvenHandler;
+	5       (00000016) iget-object          v1, v3, Lcom/jlboat/phone/view/MapView;->sourceBitmap Landroid/graphics/Bitmap;
+	6       (0000001a) const/4              v2, 0
+	7       (0000001c) invoke-direct        v0, v3, v1, v2, Lcom/jlboat/phone/view/TouchEvenHandler;-><init>(Landroid/view/View; Landroid/graphics/Bitmap; Z)V
+	8       (00000022) iput-object          v0, v3, Lcom/jlboat/phone/view/MapView;->touchEvenHandler Lcom/jlboat/phone/view/TouchEvenHandler;
+
+onLayout-BB@0x26 : 
+	9       (00000026) return-void          
+

@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/adapter/RegionListAdapter;->access$100(Lcom/jlboat/phone/adapter/RegionListAdapter;)Lcom/jlboat/phone/adapter/RegionListAdapter$OnClick; [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.adapter.RegionListAdapter
+#
+# - return:com.jlboat.phone.adapter.RegionListAdapter$OnClick
+
+access$100-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/jlboat/phone/adapter/RegionListAdapter;->onclick Lcom/jlboat/phone/adapter/RegionListAdapter$OnClick;
+	1       (00000004) return-object        v0
+

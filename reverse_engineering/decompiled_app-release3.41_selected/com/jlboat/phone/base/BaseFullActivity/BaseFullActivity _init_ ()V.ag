@@ -1,0 +1,24 @@
+# Lcom/jlboat/phone/base/BaseFullActivity;-><init>()V [access_flags=public constructor]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) invoke-direct        v1, Landroid/support/v7/app/AppCompatActivity;-><init>()V
+	1       (00000006) const/4              v0, 1
+	2       (00000008) iput-boolean         v0, v1, Lcom/jlboat/phone/base/BaseFullActivity;->mState Z
+	3       (0000000c) iput-boolean         v0, v1, Lcom/jlboat/phone/base/BaseFullActivity;->IS_SHOW_ERR_IMG Z
+	4       (00000010) iput-boolean         v0, v1, Lcom/jlboat/phone/base/BaseFullActivity;->isShowBattery Z
+	5       (00000014) new-instance         v0, Lcom/jlboat/phone/base/BaseFullActivity$1;
+	6       (00000018) invoke-direct        v0, v1, Lcom/jlboat/phone/base/BaseFullActivity$1;-><init>(Lcom/jlboat/phone/base/BaseFullActivity;)V
+	7       (0000001e) iput-object          v0, v1, Lcom/jlboat/phone/base/BaseFullActivity;->mHandler Landroid/os/Handler;
+	8       (00000022) new-instance         v0, Lcom/jlboat/phone/base/BaseFullActivity$2;
+	9       (00000026) invoke-direct        v0, v1, Lcom/jlboat/phone/base/BaseFullActivity$2;-><init>(Lcom/jlboat/phone/base/BaseFullActivity;)V
+	10      (0000002c) iput-object          v0, v1, Lcom/jlboat/phone/base/BaseFullActivity;->mReceiver Landroid/content/BroadcastReceiver;
+	11      (00000030) new-instance         v0, Lcom/jlboat/phone/base/BaseFullActivity$3;
+	12      (00000034) invoke-direct        v0, v1, Lcom/jlboat/phone/base/BaseFullActivity$3;-><init>(Lcom/jlboat/phone/base/BaseFullActivity;)V
+	13      (0000003a) iput-object          v0, v1, Lcom/jlboat/phone/base/BaseFullActivity;->voiceReceiver Landroid/content/BroadcastReceiver;
+	14      (0000003e) return-void          
+

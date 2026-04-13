@@ -1,0 +1,39 @@
+# Lcom/boat/support/slam/ISlamService$Stub$Proxy;->dance(I Lcom/boat/support/slam/IResponseListener;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v5
+# - v6:int
+# - v7:com.boat.support.slam.IResponseListener
+#
+# - return:void
+
+dance-BB@0x0 : [ dance-BB@0x10 ]
+	0       (00000000) invoke-static        Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+	1       (00000006) move-result-object   v0
+	2       (00000008) invoke-static        Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+	3       (0000000e) move-result-object   v1
+
+dance-BB@0x10 : 
+	4       (00000010) const-string         v2, "com.boat.support.slam.ISlamService"
+	5       (00000014) invoke-virtual       v0, v2, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+	6       (0000001a) invoke-virtual       v0, v6, Landroid/os/Parcel;->writeInt(I)V
+	7       (00000020) invoke-virtual       v0, v7, Landroid/os/Parcel;->writeStrongInterface(Landroid/os/IInterface;)V
+	8       (00000026) iget-object          v2, v5, Lcom/boat/support/slam/ISlamService$Stub$Proxy;->mRemote Landroid/os/IBinder;
+	9       (0000002a) const/16             v3, 57
+	10      (0000002e) const/4              v4, 0
+	11      (00000030) invoke-interface     v2, v3, v0, v1, v4, Landroid/os/IBinder;->transact(I Landroid/os/Parcel; Landroid/os/Parcel; I)Z
+	12      (00000036) move-result          v2
+	13      (00000038) invoke-virtual       v1, Landroid/os/Parcel;->readException()V
+	14      (0000003e) invoke-virtual       v1, Landroid/os/Parcel;->recycle()V
+	15      (00000044) invoke-virtual       v0, Landroid/os/Parcel;->recycle()V
+	16      (0000004a) nop                  
+	17      (0000004c) return-void          
+	10:3d
+	(Ljava/lang/Throwable; -> 4e dance-BB@0x4e)
+
+dance-BB@0x4e : 
+	18      (0000004e) move-exception       v2
+	19      (00000050) invoke-virtual       v1, Landroid/os/Parcel;->recycle()V
+	20      (00000056) invoke-virtual       v0, Landroid/os/Parcel;->recycle()V
+	21      (0000005c) throw                v2
+

@@ -1,0 +1,24 @@
+# Lcom/jlboat/phone/activity/MapActivity$21;->onClick(Landroid/view/View;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v7
+# - v8:android.view.View
+#
+# - return:void
+
+onClick-BB@0x0 : 
+	0       (00000000) iget-object          v0, v7, Lcom/jlboat/phone/activity/MapActivity$21;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	1       (00000004) iget-object          v1, v7, Lcom/jlboat/phone/activity/MapActivity$21;->val$localDataFloor Lcom/boat/support/slam/entity/floors/Floors;
+	2       (00000008) invoke-virtual       v1, Lcom/boat/support/slam/entity/floors/Floors;->getFloorId()J
+	3       (0000000e) move-result-wide     v1
+	4       (00000010) iget-object          v3, v7, Lcom/jlboat/phone/activity/MapActivity$21;->val$localMap Lcom/boat/support/slam/entity/floors/Maps;
+	5       (00000014) invoke-virtual       v3, Lcom/boat/support/slam/entity/floors/Maps;->getMapId()J
+	6       (0000001a) move-result-wide     v3
+	7       (0000001c) iget-object          v5, v7, Lcom/jlboat/phone/activity/MapActivity$21;->val$frd Lcom/boat/support/slam/entity/floors/Points;
+	8       (00000020) invoke-virtual       v5, Lcom/boat/support/slam/entity/floors/Points;->getPointId()J
+	9       (00000026) move-result-wide     v5
+	10      (00000028) invoke-static/range  v0 ... v6, Lcom/jlboat/phone/activity/MapActivity;->access$3900(Lcom/jlboat/phone/activity/MapActivity; J J J)V
+	11      (0000002e) iget-object          v0, v7, Lcom/jlboat/phone/activity/MapActivity$21;->val$alertDialog Landroid/app/AlertDialog;
+	12      (00000032) invoke-virtual       v0, Landroid/app/AlertDialog;->cancel()V
+	13      (00000038) return-void          
+

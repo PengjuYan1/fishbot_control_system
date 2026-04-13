@@ -1,0 +1,21 @@
+# Lcom/jlboat/phone/activity/MapCleanAreaActivity$3$1;->onClick(Landroid/content/DialogInterface; I)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:android.content.DialogInterface
+# - v5:int
+#
+# - return:void
+
+onClick-BB@0x0 : 
+	0       (00000000) invoke-interface     v4, Landroid/content/DialogInterface;->dismiss()V
+	1       (00000006) new-instance         v0, Lworld_canvas_msgs18/SetCleanAreaEnty;
+	2       (0000000a) invoke-direct        v0, Lworld_canvas_msgs18/SetCleanAreaEnty;-><init>()V
+	3       (00000010) iget-wide            v1, v3, Lcom/jlboat/phone/activity/MapCleanAreaActivity$3$1;->val$id J
+	4       (00000014) invoke-virtual       v0, v1, v2, Lworld_canvas_msgs18/SetCleanAreaEnty;->setCleanAreaId(J)V
+	5       (0000001a) iget-object          v1, v3, Lcom/jlboat/phone/activity/MapCleanAreaActivity$3$1;->this$1 Lcom/jlboat/phone/activity/MapCleanAreaActivity$3;
+	6       (0000001e) iget-object          v1, v1, Lcom/jlboat/phone/activity/MapCleanAreaActivity$3;->this$0 Lcom/jlboat/phone/activity/MapCleanAreaActivity;
+	7       (00000022) const/4              v2, 0
+	8       (00000024) invoke-static        v1, v2, v0, Lcom/jlboat/phone/activity/MapCleanAreaActivity;->access$200(Lcom/jlboat/phone/activity/MapCleanAreaActivity; Z Lworld_canvas_msgs18/SetCleanAreaEnty;)V
+	9       (0000002a) return-void          
+

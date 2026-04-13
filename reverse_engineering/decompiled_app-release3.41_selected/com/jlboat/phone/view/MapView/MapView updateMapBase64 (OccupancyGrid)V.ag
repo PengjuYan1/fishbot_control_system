@@ -1,0 +1,80 @@
+# Lcom/jlboat/phone/view/MapView;->updateMapBase64(Lcom/boat/jrosbridge/message/nav_msgs/OccupancyGrid;)V [access_flags=private]
+#
+# Parameters:
+# - local registers: v0...v8
+# - v9:com.boat.jrosbridge.message.nav_msgs.OccupancyGrid
+#
+# - return:void
+
+updateMapBase64-BB@0x0 : [ updateMapBase64-BB@0xba updateMapBase64-BB@0xd0 ]
+	0       (00000000) invoke-virtual       v9, Lcom/boat/jrosbridge/message/nav_msgs/OccupancyGrid;->getInfo()Lcom/boat/jrosbridge/message/nav_msgs/MapMetaData;
+	1       (00000006) move-result-object   v0
+	2       (00000008) invoke-virtual       v0, Lcom/boat/jrosbridge/message/nav_msgs/MapMetaData;->getResolution()F
+	3       (0000000e) move-result          v0
+	4       (00000010) invoke-virtual       v9, Lcom/boat/jrosbridge/message/nav_msgs/OccupancyGrid;->getInfo()Lcom/boat/jrosbridge/message/nav_msgs/MapMetaData;
+	5       (00000016) move-result-object   v1
+	6       (00000018) invoke-virtual       v1, Lcom/boat/jrosbridge/message/nav_msgs/MapMetaData;->getWidth()I
+	7       (0000001e) move-result          v1
+	8       (00000020) invoke-virtual       v9, Lcom/boat/jrosbridge/message/nav_msgs/OccupancyGrid;->getInfo()Lcom/boat/jrosbridge/message/nav_msgs/MapMetaData;
+	9       (00000026) move-result-object   v2
+	10      (00000028) invoke-virtual       v2, Lcom/boat/jrosbridge/message/nav_msgs/MapMetaData;->getHeight()I
+	11      (0000002e) move-result          v2
+	12      (00000030) iput                 v0, v8, Lcom/jlboat/phone/view/MapView;->resolution F
+	13      (00000034) iput                 v1, v8, Lcom/jlboat/phone/view/MapView;->bitmap_width I
+	14      (00000038) iput                 v2, v8, Lcom/jlboat/phone/view/MapView;->bitmap_height I
+	15      (0000003c) invoke-virtual       v9, Lcom/boat/jrosbridge/message/nav_msgs/OccupancyGrid;->getInfo()Lcom/boat/jrosbridge/message/nav_msgs/MapMetaData;
+	16      (00000042) move-result-object   v3
+	17      (00000044) invoke-virtual       v3, Lcom/boat/jrosbridge/message/nav_msgs/MapMetaData;->getOrigin()Lcom/boat/jrosbridge/message/geometry_msgs/Pose;
+	18      (0000004a) move-result-object   v3
+	19      (0000004c) invoke-virtual       v3, Lcom/boat/jrosbridge/message/geometry_msgs/Pose;->getPosition()Lcom/boat/jrosbridge/message/geometry_msgs/Point;
+	20      (00000052) move-result-object   v3
+	21      (00000054) iput-object          v3, v8, Lcom/jlboat/phone/view/MapView;->leftBootmPoint Lcom/boat/jrosbridge/message/geometry_msgs/Point;
+	22      (00000058) iget-object          v3, v8, Lcom/jlboat/phone/view/MapView;->leftBootmPoint Lcom/boat/jrosbridge/message/geometry_msgs/Point;
+	23      (0000005c) invoke-virtual       v3, Lcom/boat/jrosbridge/message/geometry_msgs/Point;->getX()D
+	24      (00000062) move-result-wide     v3
+	25      (00000064) float-to-double      v5, v0
+	26      (00000066) div-double/2addr     v3, v5
+	27      (00000068) double-to-float      v3, v3
+	28      (0000006a) const/4              v4, 0
+	29      (0000006c) sub-float/2addr      v4, v3
+	30      (0000006e) iput                 v4, v8, Lcom/jlboat/phone/view/MapView;->origin_for_pixe_x F
+	31      (00000072) iget                 v3, v8, Lcom/jlboat/phone/view/MapView;->bitmap_height I
+	32      (00000076) int-to-float         v3, v3
+	33      (00000078) iget-object          v4, v8, Lcom/jlboat/phone/view/MapView;->leftBootmPoint Lcom/boat/jrosbridge/message/geometry_msgs/Point;
+	34      (0000007c) invoke-virtual       v4, Lcom/boat/jrosbridge/message/geometry_msgs/Point;->getY()D
+	35      (00000082) move-result-wide     v4
+	36      (00000084) float-to-double      v6, v0
+	37      (00000086) div-double/2addr     v4, v6
+	38      (00000088) double-to-float      v4, v4
+	39      (0000008a) add-float/2addr      v3, v4
+	40      (0000008c) iput                 v3, v8, Lcom/jlboat/phone/view/MapView;->origin_for_pixe_y F
+	41      (00000090) invoke-virtual       v9, Lcom/boat/jrosbridge/message/nav_msgs/OccupancyGrid;->getDataS()Ljava/lang/String;
+	42      (00000096) move-result-object   v3
+	43      (00000098) const/4              v4, 0
+	44      (0000009a) invoke-static        v3, v4, Landroid/util/Base64;->decode(Ljava/lang/String; I)[B
+	45      (000000a0) move-result-object   v3
+	46      (000000a2) array-length         v5, v3
+	47      (000000a4) invoke-static        v3, v4, v5, Landroid/graphics/BitmapFactory;->decodeByteArray([B I I)Landroid/graphics/Bitmap;
+	48      (000000aa) move-result-object   v4
+	49      (000000ac) iput-object          v4, v8, Lcom/jlboat/phone/view/MapView;->sourceBitmap Landroid/graphics/Bitmap;
+	50      (000000b0) iget-object          v4, v8, Lcom/jlboat/phone/view/MapView;->touchEvenHandler Lcom/jlboat/phone/view/TouchEvenHandler;
+	51      (000000b4) const/4              v5, 1
+	52      (000000b6) if-eqz               v4, +00dh
+
+updateMapBase64-BB@0xba : [ updateMapBase64-BB@0xc2 updateMapBase64-BB@0xd0 ]
+	53      (000000ba) iget-boolean         v4, v8, Lcom/jlboat/phone/view/MapView;->map_ready Z
+	54      (000000be) if-nez               v4, +009h
+
+updateMapBase64-BB@0xc2 : [ updateMapBase64-BB@0xd0 ]
+	55      (000000c2) iget-object          v4, v8, Lcom/jlboat/phone/view/MapView;->touchEvenHandler Lcom/jlboat/phone/view/TouchEvenHandler;
+	56      (000000c6) iget-object          v6, v8, Lcom/jlboat/phone/view/MapView;->sourceBitmap Landroid/graphics/Bitmap;
+	57      (000000ca) invoke-virtual       v4, v6, v5, Lcom/jlboat/phone/view/TouchEvenHandler;->updatemap(Landroid/graphics/Bitmap; Z)V
+
+updateMapBase64-BB@0xd0 : 
+	58      (000000d0) iput-boolean         v5, v8, Lcom/jlboat/phone/view/MapView;->map_ready Z
+	59      (000000d4) iput-boolean         v5, v8, Lcom/jlboat/phone/view/MapView;->ishuizhiMap Z
+	60      (000000d8) new-instance         v4, Lcom/jlboat/phone/view/MapView$2;
+	61      (000000dc) invoke-direct        v4, v8, Lcom/jlboat/phone/view/MapView$2;-><init>(Lcom/jlboat/phone/view/MapView;)V
+	62      (000000e2) invoke-virtual       v8, v4, Lcom/jlboat/phone/view/MapView;->post(Ljava/lang/Runnable;)Z
+	63      (000000e8) return-void          
+

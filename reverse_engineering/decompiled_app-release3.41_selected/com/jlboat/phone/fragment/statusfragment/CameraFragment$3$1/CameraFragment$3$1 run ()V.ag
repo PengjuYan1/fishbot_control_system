@@ -1,0 +1,48 @@
+# Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$3$1;->run()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v4
+#
+# - return:void
+
+run-BB@0x0 : 
+	0       (00000000) new-instance         v0, Landroid/app/AlertDialog$Builder;
+	1       (00000004) iget-object          v1, v4, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$3$1;->this$1 Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$3;
+	2       (00000008) iget-object          v1, v1, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$3;->this$0 Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;
+	3       (0000000c) invoke-virtual       v1, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;->getContext()Landroid/content/Context;
+	4       (00000012) move-result-object   v1
+	5       (00000014) invoke-direct        v0, v1, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+	6       (0000001a) new-instance         v1, Ljava/lang/StringBuilder;
+	7       (0000001e) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	8       (00000024) iget-object          v2, v4, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$3$1;->this$1 Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$3;
+	9       (00000028) iget-object          v2, v2, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$3;->this$0 Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;
+	10      (0000002c) invoke-virtual       v2, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;->getResources()Landroid/content/res/Resources;
+	11      (00000032) move-result-object   v2
+	12      (00000034) const                v3, 2131493005
+	13      (0000003a) invoke-virtual       v2, v3, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+	14      (00000040) move-result-object   v2
+	15      (00000042) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	16      (00000048) move-result-object   v1
+	17      (0000004a) iget-object          v2, v4, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$3$1;->this$1 Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$3;
+	18      (0000004e) iget-object          v2, v2, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$3;->this$0 Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;
+	19      (00000052) invoke-virtual       v2, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;->getResources()Landroid/content/res/Resources;
+	20      (00000058) move-result-object   v2
+	21      (0000005a) const                v3, 2131493015
+	22      (00000060) invoke-virtual       v2, v3, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+	23      (00000066) move-result-object   v2
+	24      (00000068) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	25      (0000006e) move-result-object   v1
+	26      (00000070) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	27      (00000076) move-result-object   v1
+	28      (00000078) invoke-virtual       v0, v1, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+	29      (0000007e) new-instance         v1, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$3$1$1;
+	30      (00000082) invoke-direct        v1, v4, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$3$1$1;-><init>(Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$3$1;)V
+	31      (00000088) const                v2, 2131493023
+	32      (0000008e) invoke-virtual       v0, v2, v1, Landroid/app/AlertDialog$Builder;->setPositiveButton(I Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+	33      (00000094) new-instance         v1, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$3$1$2;
+	34      (00000098) invoke-direct        v1, v4, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$3$1$2;-><init>(Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$3$1;)V
+	35      (0000009e) const                v2, 2131493007
+	36      (000000a4) invoke-virtual       v0, v2, v1, Landroid/app/AlertDialog$Builder;->setNegativeButton(I Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+	37      (000000aa) invoke-virtual       v0, Landroid/app/AlertDialog$Builder;->show()Landroid/app/AlertDialog;
+	38      (000000b0) return-void          
+

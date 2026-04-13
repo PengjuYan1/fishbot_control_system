@@ -1,0 +1,14 @@
+# Lcom/jlboat/phone/activity/MapExpansionActivity$2;->longlick(Landroid/view/View; Lcom/boat/support/slam/entity/floors/Floors; Lcom/boat/support/slam/entity/floors/Maps; Lcom/boat/support/slam/entity/floors/Points;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:android.view.View
+# - v2:com.boat.support.slam.entity.floors.Floors
+# - v3:com.boat.support.slam.entity.floors.Maps
+# - v4:com.boat.support.slam.entity.floors.Points
+#
+# - return:void
+
+longlick-BB@0x0 : 
+	0       (00000000) return-void          
+

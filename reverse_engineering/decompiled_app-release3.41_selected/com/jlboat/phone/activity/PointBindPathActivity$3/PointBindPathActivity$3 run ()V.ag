@@ -1,0 +1,91 @@
+# Lcom/jlboat/phone/activity/PointBindPathActivity$3;->run()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v8
+#
+# - return:void
+
+run-BB@0x0 : [ run-BB@0x8 ]
+	0       (00000000) invoke-super         v8, Ljava/lang/Thread;->run()V
+	1       (00000006) const/4              v0, 0
+
+run-BB@0x8 : [ run-BB@0x1e run-BB@0xda ]
+	2       (00000008) iget-object          v1, v8, Lcom/jlboat/phone/activity/PointBindPathActivity$3;->this$0 Lcom/jlboat/phone/activity/PointBindPathActivity;
+	3       (0000000c) iget-object          v1, v1, Lcom/jlboat/phone/activity/PointBindPathActivity;->newAddPos Ljava/util/List;
+	4       (00000010) invoke-interface     v1, Ljava/util/List;->size()I
+	5       (00000016) move-result          v1
+	6       (00000018) const/4              v2, 0
+	7       (0000001a) if-ge                v0, v1, +060h
+
+run-BB@0x1e : [ run-BB@0xc4 ]
+	8       (0000001e) new-instance         v1, Lworld_canvas_msgs18/DiyPathEnty;
+	9       (00000022) invoke-direct        v1, Lworld_canvas_msgs18/DiyPathEnty;-><init>()V
+	10      (00000028) new-instance         v3, Lcom/jlboat/phone/message/map_msgs/GlobalPlanPoints;
+	11      (0000002c) invoke-direct        v3, Lcom/jlboat/phone/message/map_msgs/GlobalPlanPoints;-><init>()V
+	12      (00000032) iget-object          v4, v8, Lcom/jlboat/phone/activity/PointBindPathActivity$3;->this$0 Lcom/jlboat/phone/activity/PointBindPathActivity;
+	13      (00000036) iget-object          v4, v4, Lcom/jlboat/phone/activity/PointBindPathActivity;->newAddPos Ljava/util/List;
+	14      (0000003a) invoke-interface     v4, v0, Ljava/util/List;->get(I)Ljava/lang/Object;
+	15      (00000040) move-result-object   v4
+	16      (00000042) check-cast           v4, Ljava/util/Map;
+	17      (00000046) const-string         v5, "start"
+	18      (0000004a) invoke-interface     v4, v5, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+	19      (00000050) move-result-object   v4
+	20      (00000052) check-cast           v4, Lcom/boat/support/slam/entity/floors/Points;
+	21      (00000056) iget-object          v5, v8, Lcom/jlboat/phone/activity/PointBindPathActivity$3;->this$0 Lcom/jlboat/phone/activity/PointBindPathActivity;
+	22      (0000005a) iget-object          v5, v5, Lcom/jlboat/phone/activity/PointBindPathActivity;->newAddPos Ljava/util/List;
+	23      (0000005e) invoke-interface     v5, v0, Ljava/util/List;->get(I)Ljava/lang/Object;
+	24      (00000064) move-result-object   v5
+	25      (00000066) check-cast           v5, Ljava/util/Map;
+	26      (0000006a) const-string         v6, "end"
+	27      (0000006e) invoke-interface     v5, v6, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+	28      (00000074) move-result-object   v5
+	29      (00000076) check-cast           v5, Lcom/boat/support/slam/entity/floors/Points;
+	30      (0000007a) invoke-virtual       v4, Lcom/boat/support/slam/entity/floors/Points;->getPointId()J
+	31      (00000080) move-result-wide     v6
+	32      (00000082) invoke-virtual       v3, v6, v7, Lcom/jlboat/phone/message/map_msgs/GlobalPlanPoints;->setPointIdA(J)V
+	33      (00000088) invoke-virtual       v5, Lcom/boat/support/slam/entity/floors/Points;->getPointId()J
+	34      (0000008e) move-result-wide     v6
+	35      (00000090) invoke-virtual       v3, v6, v7, Lcom/jlboat/phone/message/map_msgs/GlobalPlanPoints;->setPointIdB(J)V
+	36      (00000096) invoke-virtual       v1, v3, Lworld_canvas_msgs18/DiyPathEnty;->setAddPoint(Lcom/jlboat/phone/message/map_msgs/GlobalPlanPoints;)V
+	37      (0000009c) iget-object          v6, v8, Lcom/jlboat/phone/activity/PointBindPathActivity$3;->this$0 Lcom/jlboat/phone/activity/PointBindPathActivity;
+	38      (000000a0) invoke-static        v6, Lcom/jlboat/phone/activity/PointBindPathActivity;->access$200(Lcom/jlboat/phone/activity/PointBindPathActivity;)Lcom/boat/support/slam/entity/floors/GlobalPlans;
+	39      (000000a6) move-result-object   v6
+	40      (000000a8) invoke-virtual       v6, Lcom/boat/support/slam/entity/floors/GlobalPlans;->getGlobalplanId()J
+	41      (000000ae) move-result-wide     v6
+	42      (000000b0) invoke-virtual       v1, v6, v7, Lworld_canvas_msgs18/DiyPathEnty;->setGlobalplanId(J)V
+	43      (000000b6) iget-object          v6, v8, Lcom/jlboat/phone/activity/PointBindPathActivity$3;->this$0 Lcom/jlboat/phone/activity/PointBindPathActivity;
+	44      (000000ba) invoke-static        v6, v1, v2, Lcom/jlboat/phone/activity/PointBindPathActivity;->access$1600(Lcom/jlboat/phone/activity/PointBindPathActivity; Lworld_canvas_msgs18/DiyPathEnty; I)V
+	45      (000000c0) const-wide/16        v6, 500
+
+run-BB@0xc4 : [ run-BB@0xd4 ]
+	46      (000000c4) invoke-static        v6, v7, Lcom/jlboat/phone/activity/PointBindPathActivity$3;->sleep(J)V
+	47      (000000ca) goto                 +5h
+	c4:c9
+	(Ljava/lang/InterruptedException; -> cc run-BB@0xcc)
+
+run-BB@0xcc : [ run-BB@0xd4 ]
+	48      (000000cc) move-exception       v2
+	49      (000000ce) invoke-virtual       v2, Ljava/lang/InterruptedException;->printStackTrace()V
+
+run-BB@0xd4 : [ run-BB@0x8 ]
+	50      (000000d4) add-int/lit8         v0, v0, 1
+	51      (000000d8) goto                 -68h
+
+run-BB@0xda : 
+	52      (000000da) iget-object          v0, v8, Lcom/jlboat/phone/activity/PointBindPathActivity$3;->this$0 Lcom/jlboat/phone/activity/PointBindPathActivity;
+	53      (000000de) iget-object          v0, v0, Lcom/jlboat/phone/activity/PointBindPathActivity;->newAddPos Ljava/util/List;
+	54      (000000e2) invoke-interface     v0, Ljava/util/List;->clear()V
+	55      (000000e8) iget-object          v0, v8, Lcom/jlboat/phone/activity/PointBindPathActivity$3;->this$0 Lcom/jlboat/phone/activity/PointBindPathActivity;
+	56      (000000ec) invoke-static        v0, v2, Lcom/jlboat/phone/activity/PointBindPathActivity;->access$1702(Lcom/jlboat/phone/activity/PointBindPathActivity; I)I
+	57      (000000f2) iget-object          v0, v8, Lcom/jlboat/phone/activity/PointBindPathActivity$3;->this$0 Lcom/jlboat/phone/activity/PointBindPathActivity;
+	58      (000000f6) invoke-static        v0, Lcom/jlboat/phone/activity/PointBindPathActivity;->access$1400(Lcom/jlboat/phone/activity/PointBindPathActivity;)Landroid/os/Handler;
+	59      (000000fc) move-result-object   v0
+	60      (000000fe) const/16             v1, 1003
+	61      (00000102) invoke-virtual       v0, v1, Landroid/os/Handler;->sendEmptyMessage(I)Z
+	62      (00000108) iget-object          v0, v8, Lcom/jlboat/phone/activity/PointBindPathActivity$3;->this$0 Lcom/jlboat/phone/activity/PointBindPathActivity;
+	63      (0000010c) invoke-static        v0, Lcom/jlboat/phone/activity/PointBindPathActivity;->access$1400(Lcom/jlboat/phone/activity/PointBindPathActivity;)Landroid/os/Handler;
+	64      (00000112) move-result-object   v0
+	65      (00000114) const/16             v1, 1002
+	66      (00000118) invoke-virtual       v0, v1, Landroid/os/Handler;->sendEmptyMessage(I)Z
+	67      (0000011e) return-void          
+

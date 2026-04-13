@@ -1,0 +1,38 @@
+# Lcom/boat/support/slam/IBitmapService$Stub$Proxy;->getOriginX()D [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v5
+#
+# - return:double
+
+getOriginX-BB@0x0 : [ getOriginX-BB@0x10 ]
+	0       (00000000) invoke-static        Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+	1       (00000006) move-result-object   v0
+	2       (00000008) invoke-static        Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+	3       (0000000e) move-result-object   v1
+
+getOriginX-BB@0x10 : 
+	4       (00000010) const-string         v2, "com.boat.support.slam.IBitmapService"
+	5       (00000014) invoke-virtual       v0, v2, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+	6       (0000001a) iget-object          v2, v5, Lcom/boat/support/slam/IBitmapService$Stub$Proxy;->mRemote Landroid/os/IBinder;
+	7       (0000001e) const/4              v3, 3
+	8       (00000020) const/4              v4, 0
+	9       (00000022) invoke-interface     v2, v3, v0, v1, v4, Landroid/os/IBinder;->transact(I Landroid/os/Parcel; Landroid/os/Parcel; I)Z
+	10      (00000028) move-result          v2
+	11      (0000002a) invoke-virtual       v1, Landroid/os/Parcel;->readException()V
+	12      (00000030) invoke-virtual       v1, Landroid/os/Parcel;->readDouble()D
+	13      (00000036) move-result-wide     v3
+	14      (00000038) move-wide            v2, v3
+	15      (0000003a) invoke-virtual       v1, Landroid/os/Parcel;->recycle()V
+	16      (00000040) invoke-virtual       v0, Landroid/os/Parcel;->recycle()V
+	17      (00000046) nop                  
+	18      (00000048) return-wide          v2
+	10:37
+	(Ljava/lang/Throwable; -> 4a getOriginX-BB@0x4a)
+
+getOriginX-BB@0x4a : 
+	19      (0000004a) move-exception       v2
+	20      (0000004c) invoke-virtual       v1, Landroid/os/Parcel;->recycle()V
+	21      (00000052) invoke-virtual       v0, Landroid/os/Parcel;->recycle()V
+	22      (00000058) throw                v2
+

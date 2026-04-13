@@ -1,0 +1,11 @@
+# Lcartographer_ros_msgs/SubmapTexture;->getCells()[B [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:byte[]
+
+getCells-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcartographer_ros_msgs/SubmapTexture;->cells [B
+	1       (00000004) return-object        v0
+

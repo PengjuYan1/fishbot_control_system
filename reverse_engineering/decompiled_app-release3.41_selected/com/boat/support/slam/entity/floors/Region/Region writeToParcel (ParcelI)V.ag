@@ -1,0 +1,30 @@
+# Lcom/boat/support/slam/entity/floors/Region;->writeToParcel(Landroid/os/Parcel; I)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:android.os.Parcel
+# - v4:int
+#
+# - return:void
+
+writeToParcel-BB@0x0 : 
+	0       (00000000) iget-wide            v0, v2, Lcom/boat/support/slam/entity/floors/Region;->regionId J
+	1       (00000004) invoke-virtual       v3, v0, v1, Landroid/os/Parcel;->writeLong(J)V
+	2       (0000000a) iget                 v0, v2, Lcom/boat/support/slam/entity/floors/Region;->type I
+	3       (0000000e) invoke-virtual       v3, v0, Landroid/os/Parcel;->writeInt(I)V
+	4       (00000014) iget                 v0, v2, Lcom/boat/support/slam/entity/floors/Region;->orderNum I
+	5       (00000018) invoke-virtual       v3, v0, Landroid/os/Parcel;->writeInt(I)V
+	6       (0000001e) iget-wide            v0, v2, Lcom/boat/support/slam/entity/floors/Region;->startPointId J
+	7       (00000022) invoke-virtual       v3, v0, v1, Landroid/os/Parcel;->writeLong(J)V
+	8       (00000028) iget-wide            v0, v2, Lcom/boat/support/slam/entity/floors/Region;->endPointId J
+	9       (0000002c) invoke-virtual       v3, v0, v1, Landroid/os/Parcel;->writeLong(J)V
+	10      (00000032) iget-wide            v0, v2, Lcom/boat/support/slam/entity/floors/Region;->waitPointId J
+	11      (00000036) invoke-virtual       v3, v0, v1, Landroid/os/Parcel;->writeLong(J)V
+	12      (0000003c) iget-object          v0, v2, Lcom/boat/support/slam/entity/floors/Region;->points Ljava/util/List;
+	13      (00000040) invoke-virtual       v3, v0, Landroid/os/Parcel;->writeTypedList(Ljava/util/List;)V
+	14      (00000046) iget                 v0, v2, Lcom/boat/support/slam/entity/floors/Region;->regionProperty1 I
+	15      (0000004a) invoke-virtual       v3, v0, Landroid/os/Parcel;->writeInt(I)V
+	16      (00000050) iget                 v0, v2, Lcom/boat/support/slam/entity/floors/Region;->regionProperty2 I
+	17      (00000054) invoke-virtual       v3, v0, Landroid/os/Parcel;->writeInt(I)V
+	18      (0000005a) return-void          
+

@@ -1,0 +1,45 @@
+# Lcom/jlboat/phone/fragment/settingfragment/NavFnRosFragment;->date(Ljava/util/List;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:java.util.List
+#
+# - return:void
+
+date-BB@0x0 : 
+	0       (00000000) iput-object          v4, v3, Lcom/jlboat/phone/fragment/settingfragment/NavFnRosFragment;->aaa Ljava/util/List;
+	1       (00000004) new-instance         v0, Lcom/jlboat/phone/adapter/ConfigListAdapter;
+	2       (00000008) iget-object          v1, v3, Lcom/jlboat/phone/fragment/settingfragment/NavFnRosFragment;->mContext Landroid/content/Context;
+	3       (0000000c) invoke-direct        v0, v1, Lcom/jlboat/phone/adapter/ConfigListAdapter;-><init>(Landroid/content/Context;)V
+	4       (00000012) iput-object          v0, v3, Lcom/jlboat/phone/fragment/settingfragment/NavFnRosFragment;->adapter Lcom/jlboat/phone/adapter/ConfigListAdapter;
+	5       (00000016) iget-object          v0, v3, Lcom/jlboat/phone/fragment/settingfragment/NavFnRosFragment;->rv3 Landroid/support/v7/widget/RecyclerView;
+	6       (0000001a) const                v1, 2131165277
+	7       (00000020) invoke-virtual       v0, v1, Landroid/support/v7/widget/RecyclerView;->setBackgroundColor(I)V
+	8       (00000026) iget-object          v0, v3, Lcom/jlboat/phone/fragment/settingfragment/NavFnRosFragment;->rv3 Landroid/support/v7/widget/RecyclerView;
+	9       (0000002a) new-instance         v1, Landroid/support/v7/widget/LinearLayoutManager;
+	10      (0000002e) iget-object          v2, v3, Lcom/jlboat/phone/fragment/settingfragment/NavFnRosFragment;->mContext Landroid/content/Context;
+	11      (00000032) invoke-direct        v1, v2, Landroid/support/v7/widget/LinearLayoutManager;-><init>(Landroid/content/Context;)V
+	12      (00000038) invoke-virtual       v0, v1, Landroid/support/v7/widget/RecyclerView;->setLayoutManager(Landroid/support/v7/widget/RecyclerView$LayoutManager;)V
+	13      (0000003e) iget-object          v0, v3, Lcom/jlboat/phone/fragment/settingfragment/NavFnRosFragment;->rv3 Landroid/support/v7/widget/RecyclerView;
+	14      (00000042) iget-object          v1, v3, Lcom/jlboat/phone/fragment/settingfragment/NavFnRosFragment;->adapter Lcom/jlboat/phone/adapter/ConfigListAdapter;
+	15      (00000046) invoke-virtual       v0, v1, Landroid/support/v7/widget/RecyclerView;->setAdapter(Landroid/support/v7/widget/RecyclerView$Adapter;)V
+	16      (0000004c) iget-object          v0, v3, Lcom/jlboat/phone/fragment/settingfragment/NavFnRosFragment;->adapter Lcom/jlboat/phone/adapter/ConfigListAdapter;
+	17      (00000050) iget-object          v1, v3, Lcom/jlboat/phone/fragment/settingfragment/NavFnRosFragment;->aaa Ljava/util/List;
+	18      (00000054) const/4              v2, 3
+	19      (00000056) invoke-virtual       v0, v1, v2, Lcom/jlboat/phone/adapter/ConfigListAdapter;->setMdata(Ljava/util/List; I)V
+	20      (0000005c) sget-object          v0, Lcom/jlboat/phone/view/WidgetView;->TAG Ljava/lang/String;
+	21      (00000060) new-instance         v1, Ljava/lang/StringBuilder;
+	22      (00000064) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	23      (0000006a) const-string         v2, "time: "
+	24      (0000006e) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	25      (00000074) move-result-object   v1
+	26      (00000076) iget-object          v2, v3, Lcom/jlboat/phone/fragment/settingfragment/NavFnRosFragment;->aaa Ljava/util/List;
+	27      (0000007a) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+	28      (00000080) move-result-object   v1
+	29      (00000082) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	30      (00000088) move-result-object   v1
+	31      (0000008a) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	32      (00000090) iget-object          v0, v3, Lcom/jlboat/phone/fragment/settingfragment/NavFnRosFragment;->adapter Lcom/jlboat/phone/adapter/ConfigListAdapter;
+	33      (00000094) invoke-virtual       v0, Lcom/jlboat/phone/adapter/ConfigListAdapter;->notifyDataSetChanged()V
+	34      (0000009a) return-void          
+

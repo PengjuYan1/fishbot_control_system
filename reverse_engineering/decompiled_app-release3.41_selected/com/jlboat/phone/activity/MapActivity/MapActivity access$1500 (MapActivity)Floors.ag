@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/activity/MapActivity;->access$1500(Lcom/jlboat/phone/activity/MapActivity;)Lcom/boat/support/slam/entity/floors/Floors; [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.activity.MapActivity
+#
+# - return:com.boat.support.slam.entity.floors.Floors
+
+access$1500-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/jlboat/phone/activity/MapActivity;->currentFloor Lcom/boat/support/slam/entity/floors/Floors;
+	1       (00000004) return-object        v0
+

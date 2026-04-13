@@ -1,0 +1,60 @@
+# Lcom/jlboat/phone/controller/JlNaviManager;->goNavito(Ljava/lang/String;)V [access_flags=private]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:java.lang.String
+#
+# - return:void
+
+goNavito-BB@0x0 : [ goNavito-BB@0x34 goNavito-BB@0x5e ]
+	0       (00000000) new-instance         v0, Ljava/lang/StringBuilder;
+	1       (00000004) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	2       (0000000a) const-string         v1, "ros导航任务 goNavito: name = "
+	3       (0000000e) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	4       (00000014) move-result-object   v0
+	5       (00000016) invoke-virtual       v0, v3, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	6       (0000001c) move-result-object   v0
+	7       (0000001e) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	8       (00000024) move-result-object   v0
+	9       (00000026) invoke-virtual       v2, v0, Lcom/jlboat/phone/controller/JlNaviManager;->toast(Ljava/lang/String;)V
+	10      (0000002c) iget-boolean         v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->connectStatus Z
+	11      (00000030) if-eqz               v0, +017h
+
+goNavito-BB@0x34 : [ goNavito-BB@0x3c goNavito-BB@0x3e ]
+	12      (00000034) iget-boolean         v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->isNavigationInited Z
+	13      (00000038) if-nez               v0, +003h
+
+goNavito-BB@0x3c : [ goNavito-BB@0x5e ]
+	14      (0000003c) goto                 +11h
+
+goNavito-BB@0x3e : 
+	15      (0000003e) iput-object          v3, v2, Lcom/jlboat/phone/controller/JlNaviManager;->naviGoalPointName Ljava/lang/String;
+	16      (00000042) invoke-direct        v2, Lcom/jlboat/phone/controller/JlNaviManager;->onNaviToPointListener()V
+	17      (00000048) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->spiritServiceClient Lcom/jlboat/phone/communication/SpiritServiceClient;
+	18      (0000004c) new-instance         v1, Lcom/jlboat/phone/controller/JlNaviManager$14;
+	19      (00000050) invoke-direct        v1, v2, Lcom/jlboat/phone/controller/JlNaviManager$14;-><init>(Lcom/jlboat/phone/controller/JlNaviManager;)V
+	20      (00000056) invoke-virtual       v0, v3, v1, Lcom/jlboat/phone/communication/SpiritServiceClient;->setGoalServiceResponseListener(Ljava/lang/String; Lcom/boat/jrosbridge/MessageListener;)V
+	21      (0000005c) return-void          
+
+goNavito-BB@0x5e : [ goNavito-BB@0x74 goNavito-BB@0x8c ]
+	22      (0000005e) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->TAG Ljava/lang/String;
+	23      (00000062) const-string         v1, "goNavito: 初始化未成功 不可以进行数据请求 goNavito"
+	24      (00000066) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	25      (0000006c) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->navigationToResponseListener Lcom/boat/support/slam/IResponseListener;
+	26      (00000070) if-eqz               v0, +00eh
+
+goNavito-BB@0x74 : [ goNavito-BB@0x8c ]
+	27      (00000074) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->navigationToResponseListener Lcom/boat/support/slam/IResponseListener;
+	28      (00000078) const-string         v1, "navigation RemoteException"
+	29      (0000007c) invoke-interface     v0, v1, Lcom/boat/support/slam/IResponseListener;->onFailed(Ljava/lang/String;)V
+	30      (00000082) goto                 +5h
+	74:81
+	(Landroid/os/RemoteException; -> 84 goNavito-BB@0x84)
+
+goNavito-BB@0x84 : [ goNavito-BB@0x8c ]
+	31      (00000084) move-exception       v0
+	32      (00000086) invoke-virtual       v0, Landroid/os/RemoteException;->printStackTrace()V
+
+goNavito-BB@0x8c : 
+	33      (0000008c) return-void          
+

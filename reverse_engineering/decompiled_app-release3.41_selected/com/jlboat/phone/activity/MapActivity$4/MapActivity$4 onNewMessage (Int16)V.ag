@@ -1,0 +1,36 @@
+# Lcom/jlboat/phone/activity/MapActivity$4;->onNewMessage(Lcom/boat/jrosbridge/message/std_msgs/Int16;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:com.boat.jrosbridge.message.std_msgs.Int16
+#
+# - return:void
+
+onNewMessage-BB@0x0 : [ onNewMessage-BB@0x10 onNewMessage-BB@0x3e ]
+	0       (00000000) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity$4;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	1       (00000004) invoke-static        v0, Lcom/jlboat/phone/activity/MapActivity;->access$500(Lcom/jlboat/phone/activity/MapActivity;)Z
+	2       (0000000a) move-result          v0
+	3       (0000000c) if-eqz               v0, +019h
+
+onNewMessage-BB@0x10 : [ onNewMessage-BB@0x34 onNewMessage-BB@0x3e ]
+	4       (00000010) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity$4;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	5       (00000014) const/4              v1, 0
+	6       (00000016) invoke-static        v0, v1, Lcom/jlboat/phone/activity/MapActivity;->access$502(Lcom/jlboat/phone/activity/MapActivity; Z)Z
+	7       (0000001c) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity$4;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	8       (00000020) invoke-static        v0, Lcom/jlboat/phone/activity/MapActivity;->access$600(Lcom/jlboat/phone/activity/MapActivity;)V
+	9       (00000026) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity$4;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	10      (0000002a) iget                 v0, v0, Lcom/jlboat/phone/activity/MapActivity;->isFinish I
+	11      (0000002e) const/4              v1, 2
+	12      (00000030) if-ne                v0, v1, +007h
+
+onNewMessage-BB@0x34 : [ onNewMessage-BB@0x3e ]
+	13      (00000034) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity$4;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	14      (00000038) invoke-virtual       v0, Lcom/jlboat/phone/activity/MapActivity;->finish()V
+
+onNewMessage-BB@0x3e : 
+	15      (0000003e) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapActivity$4;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	16      (00000042) new-instance         v1, Lcom/jlboat/phone/activity/MapActivity$4$1;
+	17      (00000046) invoke-direct        v1, v2, v3, Lcom/jlboat/phone/activity/MapActivity$4$1;-><init>(Lcom/jlboat/phone/activity/MapActivity$4; Lcom/boat/jrosbridge/message/std_msgs/Int16;)V
+	18      (0000004c) invoke-virtual       v0, v1, Lcom/jlboat/phone/activity/MapActivity;->runOnUiThread(Ljava/lang/Runnable;)V
+	19      (00000052) return-void          
+

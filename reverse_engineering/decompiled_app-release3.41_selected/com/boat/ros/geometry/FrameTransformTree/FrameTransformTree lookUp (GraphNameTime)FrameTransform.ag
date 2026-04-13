@@ -1,0 +1,14 @@
+# Lcom/boat/ros/geometry/FrameTransformTree;->lookUp(Lorg/ros/namespace/GraphName; Lcom/boat/jrosbridge/message/Time;)Lcom/boat/ros/geometry/FrameTransform; [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:org.ros.namespace.GraphName
+# - v3:com.boat.jrosbridge.message.Time
+#
+# - return:com.boat.ros.geometry.FrameTransform
+
+lookUp-BB@0x0 : 
+	0       (00000000) invoke-direct        v1, v2, v3, Lcom/boat/ros/geometry/FrameTransformTree;->get(Lorg/ros/namespace/GraphName; Lcom/boat/jrosbridge/message/Time;)Lcom/boat/ros/geometry/FrameTransform;
+	1       (00000006) move-result-object   v0
+	2       (00000008) return-object        v0
+

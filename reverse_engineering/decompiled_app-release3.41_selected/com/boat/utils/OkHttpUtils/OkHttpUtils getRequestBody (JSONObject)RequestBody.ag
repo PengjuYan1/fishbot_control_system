@@ -1,0 +1,18 @@
+# Lcom/boat/utils/OkHttpUtils;->getRequestBody(Lorg/json/JSONObject;)Lokhttp3/RequestBody; [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:org.json.JSONObject
+#
+# - return:okhttp3.RequestBody
+
+getRequestBody-BB@0x0 : 
+	0       (00000000) const-string         v0, "application/json; charset=utf-8"
+	1       (00000004) invoke-static        v0, Lokhttp3/MediaType;->parse(Ljava/lang/String;)Lokhttp3/MediaType;
+	2       (0000000a) move-result-object   v0
+	3       (0000000c) invoke-virtual       v3, Lorg/json/JSONObject;->toString()Ljava/lang/String;
+	4       (00000012) move-result-object   v1
+	5       (00000014) invoke-static        v0, v1, Lokhttp3/RequestBody;->create(Lokhttp3/MediaType; Ljava/lang/String;)Lokhttp3/RequestBody;
+	6       (0000001a) move-result-object   v0
+	7       (0000001c) return-object        v0
+

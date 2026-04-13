@@ -1,0 +1,39 @@
+# Lcom/jlboat/phone/controller/JlNaviManager$25;->onNewMessage(Lcom/jlboat/phone/message/map_msgs/DeleteTestPointResponse;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v4
+# - v5:com.jlboat.phone.message.map_msgs.DeleteTestPointResponse
+#
+# - return:void
+
+onNewMessage-BB@0x0 : 
+	0       (00000000) iget-object          v0, v4, Lcom/jlboat/phone/controller/JlNaviManager$25;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	1       (00000004) invoke-static        v0, Lcom/jlboat/phone/controller/JlNaviManager;->access$000(Lcom/jlboat/phone/controller/JlNaviManager;)Ljava/lang/String;
+	2       (0000000a) move-result-object   v0
+	3       (0000000c) new-instance         v1, Ljava/lang/StringBuilder;
+	4       (00000010) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	5       (00000016) const-string         v2, "onSuccess: getResult()"
+	6       (0000001a) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	7       (00000020) move-result-object   v1
+	8       (00000022) invoke-virtual       v5, Lcom/jlboat/phone/message/map_msgs/DeleteTestPointResponse;->getResult()J
+	9       (00000028) move-result-wide     v2
+	10      (0000002a) invoke-virtual       v1, v2, v3, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+	11      (00000030) move-result-object   v1
+	12      (00000032) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	13      (00000038) move-result-object   v1
+	14      (0000003a) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	15      (00000040) iget-object          v0, v4, Lcom/jlboat/phone/controller/JlNaviManager$25;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	16      (00000044) new-instance         v1, Ljava/lang/StringBuilder;
+	17      (00000048) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	18      (0000004e) const-string         v2, "删除地点成功"
+	19      (00000052) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	20      (00000058) move-result-object   v1
+	21      (0000005a) invoke-virtual       v5, Lcom/jlboat/phone/message/map_msgs/DeleteTestPointResponse;->getResult()J
+	22      (00000060) move-result-wide     v2
+	23      (00000062) invoke-virtual       v1, v2, v3, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+	24      (00000068) move-result-object   v1
+	25      (0000006a) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	26      (00000070) move-result-object   v1
+	27      (00000072) invoke-virtual       v0, v1, Lcom/jlboat/phone/controller/JlNaviManager;->toast(Ljava/lang/String;)V
+	28      (00000078) return-void          
+

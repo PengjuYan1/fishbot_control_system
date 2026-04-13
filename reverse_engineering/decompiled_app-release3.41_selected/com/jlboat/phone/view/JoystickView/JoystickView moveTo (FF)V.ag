@@ -1,0 +1,68 @@
+# Lcom/jlboat/phone/view/JoystickView;->moveTo(F F)V [access_flags=private]
+#
+# Parameters:
+# - local registers: v0...v5
+# - v6:float
+# - v7:float
+#
+# - return:void
+
+moveTo-BB@0x0 : [ moveTo-BB@0x3c moveTo-BB@0x3e ]
+	0       (00000000) iput                 v6, v5, Lcom/jlboat/phone/view/JoystickView;->posX F
+	1       (00000004) iput                 v7, v5, Lcom/jlboat/phone/view/JoystickView;->posY F
+	2       (00000008) iput                 v6, v5, Lcom/jlboat/phone/view/JoystickView;->posX F
+	3       (0000000c) iput                 v7, v5, Lcom/jlboat/phone/view/JoystickView;->posY F
+	4       (00000010) const                v0, 1053609165
+	5       (00000016) mul-float            v0, v0, v7
+	6       (0000001a) neg-float            v1, v6
+	7       (0000001c) const                v2, 1058642330
+	8       (00000022) mul-float            v1, v1, v2
+	9       (00000026) invoke-static        v0, Ljava/lang/Math;->abs(F)F
+	10      (0000002c) move-result          v2
+	11      (0000002e) const                v3, 1028443341
+	12      (00000034) cmpg-float           v2, v2, v3
+	13      (00000038) if-gez               v2, +003h
+
+moveTo-BB@0x3c : [ moveTo-BB@0x3e ]
+	14      (0000003c) const/4              v0, 0
+
+moveTo-BB@0x3e : [ moveTo-BB@0x4e moveTo-BB@0x50 ]
+	15      (0000003e) invoke-static        v1, Ljava/lang/Math;->abs(F)F
+	16      (00000044) move-result          v2
+	17      (00000046) cmpg-float           v2, v2, v3
+	18      (0000004a) if-gez               v2, +003h
+
+moveTo-BB@0x4e : [ moveTo-BB@0x50 ]
+	19      (0000004e) const/4              v1, 0
+
+moveTo-BB@0x50 : 
+	20      (00000050) iget-object          v2, v5, Lcom/jlboat/phone/view/JoystickView;->currentVelocityCommand Lcom/boat/jrosbridge/message/geometry_msgs/Twist;
+	21      (00000054) invoke-virtual       v2, Lcom/boat/jrosbridge/message/geometry_msgs/Twist;->getLinear()Lcom/boat/jrosbridge/message/geometry_msgs/Vector3;
+	22      (0000005a) move-result-object   v2
+	23      (0000005c) float-to-double      v3, v0
+	24      (0000005e) invoke-virtual       v2, v3, v4, Lcom/boat/jrosbridge/message/geometry_msgs/Vector3;->setX(D)V
+	25      (00000064) iget-object          v2, v5, Lcom/jlboat/phone/view/JoystickView;->currentVelocityCommand Lcom/boat/jrosbridge/message/geometry_msgs/Twist;
+	26      (00000068) invoke-virtual       v2, Lcom/boat/jrosbridge/message/geometry_msgs/Twist;->getLinear()Lcom/boat/jrosbridge/message/geometry_msgs/Vector3;
+	27      (0000006e) move-result-object   v2
+	28      (00000070) const-wide/16        v3, 0
+	29      (00000074) invoke-virtual       v2, v3, v4, Lcom/boat/jrosbridge/message/geometry_msgs/Vector3;->setY(D)V
+	30      (0000007a) iget-object          v2, v5, Lcom/jlboat/phone/view/JoystickView;->currentVelocityCommand Lcom/boat/jrosbridge/message/geometry_msgs/Twist;
+	31      (0000007e) invoke-virtual       v2, Lcom/boat/jrosbridge/message/geometry_msgs/Twist;->getLinear()Lcom/boat/jrosbridge/message/geometry_msgs/Vector3;
+	32      (00000084) move-result-object   v2
+	33      (00000086) invoke-virtual       v2, v3, v4, Lcom/boat/jrosbridge/message/geometry_msgs/Vector3;->setZ(D)V
+	34      (0000008c) iget-object          v2, v5, Lcom/jlboat/phone/view/JoystickView;->currentVelocityCommand Lcom/boat/jrosbridge/message/geometry_msgs/Twist;
+	35      (00000090) invoke-virtual       v2, Lcom/boat/jrosbridge/message/geometry_msgs/Twist;->getAngular()Lcom/boat/jrosbridge/message/geometry_msgs/Vector3;
+	36      (00000096) move-result-object   v2
+	37      (00000098) invoke-virtual       v2, v3, v4, Lcom/boat/jrosbridge/message/geometry_msgs/Vector3;->setX(D)V
+	38      (0000009e) iget-object          v2, v5, Lcom/jlboat/phone/view/JoystickView;->currentVelocityCommand Lcom/boat/jrosbridge/message/geometry_msgs/Twist;
+	39      (000000a2) invoke-virtual       v2, Lcom/boat/jrosbridge/message/geometry_msgs/Twist;->getAngular()Lcom/boat/jrosbridge/message/geometry_msgs/Vector3;
+	40      (000000a8) move-result-object   v2
+	41      (000000aa) invoke-virtual       v2, v3, v4, Lcom/boat/jrosbridge/message/geometry_msgs/Vector3;->setY(D)V
+	42      (000000b0) iget-object          v2, v5, Lcom/jlboat/phone/view/JoystickView;->currentVelocityCommand Lcom/boat/jrosbridge/message/geometry_msgs/Twist;
+	43      (000000b4) invoke-virtual       v2, Lcom/boat/jrosbridge/message/geometry_msgs/Twist;->getAngular()Lcom/boat/jrosbridge/message/geometry_msgs/Vector3;
+	44      (000000ba) move-result-object   v2
+	45      (000000bc) float-to-double      v3, v1
+	46      (000000be) invoke-virtual       v2, v3, v4, Lcom/boat/jrosbridge/message/geometry_msgs/Vector3;->setZ(D)V
+	47      (000000c4) invoke-virtual       v5, Lcom/jlboat/phone/view/JoystickView;->invalidate()V
+	48      (000000ca) return-void          
+

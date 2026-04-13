@@ -1,0 +1,21 @@
+# Lcom/jlboat/phone/view/TouchEvenHandler;->updatemap(Landroid/graphics/Bitmap; Z)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:android.graphics.Bitmap
+# - v3:boolean
+#
+# - return:void
+
+updatemap-BB@0x0 : [ updatemap-BB@0xe updatemap-BB@0x18 ]
+	0       (00000000) iput-object          v2, v1, Lcom/jlboat/phone/view/TouchEvenHandler;->sourceBitmap Landroid/graphics/Bitmap;
+	1       (00000004) invoke-direct        v1, Lcom/jlboat/phone/view/TouchEvenHandler;->initBitmap()V
+	2       (0000000a) if-nez               v3, +007h
+
+updatemap-BB@0xe : [ updatemap-BB@0x18 ]
+	3       (0000000e) iget-object          v0, v1, Lcom/jlboat/phone/view/TouchEvenHandler;->view Landroid/view/View;
+	4       (00000012) invoke-virtual       v0, Landroid/view/View;->invalidate()V
+
+updatemap-BB@0x18 : 
+	5       (00000018) return-void          
+

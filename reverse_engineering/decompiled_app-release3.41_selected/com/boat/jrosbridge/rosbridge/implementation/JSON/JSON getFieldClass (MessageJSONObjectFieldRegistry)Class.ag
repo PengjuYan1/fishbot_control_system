@@ -1,0 +1,50 @@
+# Lcom/boat/jrosbridge/rosbridge/implementation/JSON;->getFieldClass(Lcom/boat/jrosbridge/message/Message; Lorg/json/simple/JSONObject; Ljava/lang/reflect/Field; Lcom/boat/jrosbridge/rosbridge/implementation/Registry;)Ljava/lang/Class; [access_flags=public static]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:com.boat.jrosbridge.message.Message
+# - v4:org.json.simple.JSONObject
+# - v5:java.lang.reflect.Field
+# - v6:com.boat.jrosbridge.rosbridge.implementation.Registry
+#
+# - return:java.lang.Class
+
+getFieldClass-BB@0x0 : [ getFieldClass-BB@0x14 getFieldClass-BB@0x24 ]
+	0       (00000000) invoke-virtual       v5, Ljava/lang/reflect/Field;->getType()Ljava/lang/Class;
+	1       (00000006) move-result-object   v0
+	2       (00000008) invoke-virtual       v0, Ljava/lang/Class;->isArray()Z
+	3       (0000000e) move-result          v1
+	4       (00000010) if-eqz               v1, +00ah
+
+getFieldClass-BB@0x14 : [ getFieldClass-BB@0x24 ]
+	5       (00000014) invoke-virtual       v5, Ljava/lang/reflect/Field;->getType()Ljava/lang/Class;
+	6       (0000001a) move-result-object   v1
+	7       (0000001c) invoke-virtual       v1, Ljava/lang/Class;->getComponentType()Ljava/lang/Class;
+	8       (00000022) move-result-object   v0
+
+getFieldClass-BB@0x24 : [ getFieldClass-BB@0x30 getFieldClass-BB@0x66 ]
+	9       (00000024) invoke-static        v5, Lcom/boat/jrosbridge/rosbridge/indication/Indication;->isIndicated(Ljava/lang/reflect/Field;)Z
+	10      (0000002a) move-result          v1
+	11      (0000002c) if-eqz               v1, +01dh
+
+getFieldClass-BB@0x30 : [ getFieldClass-BB@0x34 getFieldClass-BB@0x66 ]
+	12      (00000030) if-eqz               v4, +01bh
+
+getFieldClass-BB@0x34 : [ getFieldClass-BB@0x66 ]
+	13      (00000034) invoke-virtual       v3, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+	14      (0000003a) move-result-object   v1
+	15      (0000003c) invoke-virtual       v3, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+	16      (00000042) move-result-object   v2
+	17      (00000044) invoke-static        v2, Lcom/boat/jrosbridge/rosbridge/indication/Indication;->getIndicatorName(Ljava/lang/Class;)Ljava/lang/String;
+	18      (0000004a) move-result-object   v2
+	19      (0000004c) invoke-virtual       v4, v2, Lorg/json/simple/JSONObject;->get(Ljava/lang/Object;)Ljava/lang/Object;
+	20      (00000052) move-result-object   v2
+	21      (00000054) check-cast           v2, Ljava/lang/String;
+	22      (00000058) invoke-virtual       v6, v1, v2, Lcom/boat/jrosbridge/rosbridge/implementation/Registry;->lookup(Ljava/lang/Class; Ljava/lang/String;)Ljava/lang/Object;
+	23      (0000005e) move-result-object   v1
+	24      (00000060) move-object          v0, v1
+	25      (00000062) check-cast           v0, Ljava/lang/Class;
+
+getFieldClass-BB@0x66 : 
+	26      (00000066) return-object        v0
+

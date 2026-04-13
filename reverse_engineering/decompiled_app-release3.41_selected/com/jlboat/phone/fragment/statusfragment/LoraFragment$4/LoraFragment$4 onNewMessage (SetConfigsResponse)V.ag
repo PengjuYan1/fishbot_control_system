@@ -1,0 +1,24 @@
+# Lcom/jlboat/phone/fragment/statusfragment/LoraFragment$4;->onNewMessage(Lcom/jlboat/phone/message/map_msgs/SetConfigsResponse;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:com.jlboat.phone.message.map_msgs.SetConfigsResponse
+#
+# - return:void
+
+onNewMessage-BB@0x0 : [ onNewMessage-BB@0xc onNewMessage-BB@0x1a ]
+	0       (00000000) invoke-virtual       v3, Lcom/jlboat/phone/message/map_msgs/SetConfigsResponse;->getStatus()I
+	1       (00000006) move-result          v0
+	2       (00000008) if-nez               v0, +009h
+
+onNewMessage-BB@0xc : [ onNewMessage-BB@0x1a ]
+	3       (0000000c) iget-object          v0, v2, Lcom/jlboat/phone/fragment/statusfragment/LoraFragment$4;->this$0 Lcom/jlboat/phone/fragment/statusfragment/LoraFragment;
+	4       (00000010) const-string         v1, "ok"
+	5       (00000014) invoke-static        v0, v1, Lcom/jlboat/phone/fragment/statusfragment/LoraFragment;->access$700(Lcom/jlboat/phone/fragment/statusfragment/LoraFragment; Ljava/lang/CharSequence;)V
+
+onNewMessage-BB@0x1a : 
+	6       (0000001a) iget-object          v0, v2, Lcom/jlboat/phone/fragment/statusfragment/LoraFragment$4;->this$0 Lcom/jlboat/phone/fragment/statusfragment/LoraFragment;
+	7       (0000001e) const/16             v1, 9
+	8       (00000022) invoke-virtual       v0, v1, Lcom/jlboat/phone/fragment/statusfragment/LoraFragment;->getConfigs(I)V
+	9       (00000028) return-void          
+

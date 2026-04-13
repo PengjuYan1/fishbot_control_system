@@ -1,0 +1,16 @@
+# Lcom/jlboat/phone/controller/JlNaviManager;->setLocationAuto()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v4
+#
+# - return:void
+
+setLocationAuto-BB@0x0 : 
+	0       (00000000) iget-object          v0, v4, Lcom/jlboat/phone/controller/JlNaviManager;->spiritServiceClient Lcom/jlboat/phone/communication/SpiritServiceClient;
+	1       (00000004) new-instance         v1, Lcom/jlboat/phone/controller/JlNaviManager$70;
+	2       (00000008) invoke-direct        v1, v4, Lcom/jlboat/phone/controller/JlNaviManager$70;-><init>(Lcom/jlboat/phone/controller/JlNaviManager;)V
+	3       (0000000e) const/4              v2, 0
+	4       (00000010) const/4              v3, 3
+	5       (00000012) invoke-virtual       v0, v2, v3, v1, Lcom/jlboat/phone/communication/SpiritServiceClient;->setScaleTestService(I I Lcom/boat/jrosbridge/MessageListener;)V
+	6       (00000018) return-void          
+

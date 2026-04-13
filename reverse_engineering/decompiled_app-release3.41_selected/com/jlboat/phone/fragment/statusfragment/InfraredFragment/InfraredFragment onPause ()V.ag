@@ -1,0 +1,16 @@
+# Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment;->onPause()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:void
+
+onPause-BB@0x0 : 
+	0       (00000000) invoke-super         v1, Lcom/jlboat/phone/base/BaseFragment;->onPause()V
+	1       (00000006) iget-object          v0, v1, Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment;->irSubscriber Lcom/boat/jrosbridge/Topic;
+	2       (0000000a) invoke-virtual       v0, Lcom/boat/jrosbridge/Topic;->unsubscribe()V
+	3       (00000010) const/4              v0, 1
+	4       (00000012) iput-boolean         v0, v1, Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment;->isOpen Z
+	5       (00000016) invoke-direct        v1, Lcom/jlboat/phone/fragment/statusfragment/InfraredFragment;->setInfraredStatus()V
+	6       (0000001c) return-void          
+

@@ -1,0 +1,50 @@
+# Lcom/jlboat/phone/service/SpiritTopicListenerUtils$15;->onNewMessage(Lcom/boat/jrosbridge/message/std_msgs/Int16;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v4
+# - v5:com.boat.jrosbridge.message.std_msgs.Int16
+#
+# - return:void
+
+onNewMessage-BB@0x0 : [ onNewMessage-BB@0xc onNewMessage-BB@0xe ]
+	0       (00000000) invoke-virtual       v5, Lcom/boat/jrosbridge/message/std_msgs/Int16;->getData()S
+	1       (00000006) move-result          v0
+	2       (00000008) if-nez               v0, +003h
+
+onNewMessage-BB@0xc : 
+	3       (0000000c) return-void          
+
+onNewMessage-BB@0xe : [ onNewMessage-BB@0x1a onNewMessage-BB@0x32 ]
+	4       (0000000e) const/16             v1, 118
+	5       (00000012) const/16             v2, 13
+	6       (00000016) if-ne                v0, v1, +00eh
+
+onNewMessage-BB@0x1a : 
+	7       (0000001a) sget-object          v1, Lcom/jlboat/phone/application/BoatSlamApplication;->mApplication Lcom/jlboat/phone/application/BoatSlamApplication;
+	8       (0000001e) invoke-static        v1, v2, Lcom/boat/utils/ReportExceptionInformationUtils;->deleteWarnMsg(Lcom/jlboat/phone/application/BoatSlamApplication; I)V
+	9       (00000024) iget-object          v1, v4, Lcom/jlboat/phone/service/SpiritTopicListenerUtils$15;->this$0 Lcom/jlboat/phone/service/SpiritTopicListenerUtils;
+	10      (00000028) const/4              v2, 1
+	11      (0000002a) invoke-static        v1, v2, Lcom/jlboat/phone/service/SpiritTopicListenerUtils;->access$1202(Lcom/jlboat/phone/service/SpiritTopicListenerUtils; Z)Z
+	12      (00000030) return-void          
+
+onNewMessage-BB@0x32 : [ onNewMessage-BB@0x3a onNewMessage-BB@0x64 ]
+	13      (00000032) const/16             v1, 117
+	14      (00000036) if-ne                v0, v1, +017h
+
+onNewMessage-BB@0x3a : [ onNewMessage-BB@0x4a onNewMessage-BB@0x64 ]
+	15      (0000003a) iget-object          v1, v4, Lcom/jlboat/phone/service/SpiritTopicListenerUtils$15;->this$0 Lcom/jlboat/phone/service/SpiritTopicListenerUtils;
+	16      (0000003e) invoke-static        v1, Lcom/jlboat/phone/service/SpiritTopicListenerUtils;->access$1200(Lcom/jlboat/phone/service/SpiritTopicListenerUtils;)Z
+	17      (00000044) move-result          v1
+	18      (00000046) if-eqz               v1, +00fh
+
+onNewMessage-BB@0x4a : [ onNewMessage-BB@0x64 ]
+	19      (0000004a) iget-object          v1, v4, Lcom/jlboat/phone/service/SpiritTopicListenerUtils$15;->this$0 Lcom/jlboat/phone/service/SpiritTopicListenerUtils;
+	20      (0000004e) const/4              v3, 0
+	21      (00000050) invoke-static        v1, v3, Lcom/jlboat/phone/service/SpiritTopicListenerUtils;->access$1202(Lcom/jlboat/phone/service/SpiritTopicListenerUtils; Z)Z
+	22      (00000056) sget-object          v1, Lcom/jlboat/phone/application/BoatSlamApplication;->mApplication Lcom/jlboat/phone/application/BoatSlamApplication;
+	23      (0000005a) const-string         v3, "机器人避障摄像头出现故障,有可能连线出现问题!"
+	24      (0000005e) invoke-static        v1, v0, v2, v3, Lcom/boat/utils/ReportExceptionInformationUtils;->showWarnMsg(Landroid/content/Context; I I Ljava/lang/String;)V
+
+onNewMessage-BB@0x64 : 
+	25      (00000064) return-void          
+

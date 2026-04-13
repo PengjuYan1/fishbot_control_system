@@ -1,0 +1,11 @@
+# Lcom/boat/jrosbridge/message/geometry_msgs/TwistWithCovariance;->getCovariance()[D [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:double[]
+
+getCovariance-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/boat/jrosbridge/message/geometry_msgs/TwistWithCovariance;->covariance [D
+	1       (00000004) return-object        v0
+

@@ -1,0 +1,19 @@
+# Lcom/boat/jrosbridge/rosbridge/implementation/ROSBridgeWebSocketClient;->onOpen(Lorg/java_websocket/handshake/ServerHandshake;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:org.java_websocket.handshake.ServerHandshake
+#
+# - return:void
+
+onOpen-BB@0x0 : [ onOpen-BB@0x8 onOpen-BB@0x12 ]
+	0       (00000000) iget-object          v0, v1, Lcom/boat/jrosbridge/rosbridge/implementation/ROSBridgeWebSocketClient;->listener Lcom/boat/jrosbridge/ROSClient$ConnectionStatusListener;
+	1       (00000004) if-eqz               v0, +007h
+
+onOpen-BB@0x8 : [ onOpen-BB@0x12 ]
+	2       (00000008) iget-object          v0, v1, Lcom/boat/jrosbridge/rosbridge/implementation/ROSBridgeWebSocketClient;->listener Lcom/boat/jrosbridge/ROSClient$ConnectionStatusListener;
+	3       (0000000c) invoke-interface     v0, Lcom/boat/jrosbridge/ROSClient$ConnectionStatusListener;->onConnect()V
+
+onOpen-BB@0x12 : 
+	4       (00000012) return-void          
+

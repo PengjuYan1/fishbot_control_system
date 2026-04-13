@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/view/MapView;->access$100(Lcom/jlboat/phone/view/MapView;)Lcom/boat/base/BaseApplication; [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.view.MapView
+#
+# - return:com.boat.base.BaseApplication
+
+access$100-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/jlboat/phone/view/MapView;->mApp Lcom/boat/base/BaseApplication;
+	1       (00000004) return-object        v0
+

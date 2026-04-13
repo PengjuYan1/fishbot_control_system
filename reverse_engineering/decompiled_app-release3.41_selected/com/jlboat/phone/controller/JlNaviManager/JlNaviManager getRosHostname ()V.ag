@@ -1,0 +1,183 @@
+# Lcom/jlboat/phone/controller/JlNaviManager;->getRosHostname()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v14
+#
+# - return:void
+
+getRosHostname-BB@0x0 : [ getRosHostname-BB@0x1e ]
+	0       (00000000) const-string         v0, "getRosHostname: 查找到网卡ip"
+	1       (00000004) const-string         v1, "getRosHostname: 未查找到 三秒后重新查找 "
+	2       (00000008) iget-object          v2, v14, Lcom/jlboat/phone/controller/JlNaviManager;->TAG Ljava/lang/String;
+	3       (0000000c) const-string         v3, "getRosHostname: 开始查找网卡ip"
+	4       (00000010) invoke-static        v2, v3, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	5       (00000016) const/4              v2, 2
+	6       (00000018) const-wide/16        v3, 3000
+	7       (0000001c) const/4              v5, 1
+
+getRosHostname-BB@0x1e : [ getRosHostname-BB@0x36 ]
+	8       (0000001e) invoke-static        Ljava/net/NetworkInterface;->getNetworkInterfaces()Ljava/util/Enumeration;
+	9       (00000024) move-result-object   v6
+	10      (00000026) invoke-static        v6, Ljava/util/Collections;->list(Ljava/util/Enumeration;)Ljava/util/ArrayList;
+	11      (0000002c) move-result-object   v6
+	12      (0000002e) invoke-virtual       v6, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+	13      (00000034) move-result-object   v6
+	1e:79
+	(Ljava/net/SocketException; -> 114 getRosHostname-BB@0x114)
+	(Ljava/lang/Throwable; -> 110 getRosHostname-BB@0x110)
+
+getRosHostname-BB@0x36 : [ getRosHostname-BB@0x42 getRosHostname-BB@0x106 ]
+	14      (00000036) invoke-interface     v6, Ljava/util/Iterator;->hasNext()Z
+	15      (0000003c) move-result          v7
+	16      (0000003e) if-eqz               v7, +064h
+	1e:79
+	(Ljava/net/SocketException; -> 114 getRosHostname-BB@0x114)
+	(Ljava/lang/Throwable; -> 110 getRosHostname-BB@0x110)
+
+getRosHostname-BB@0x42 : [ getRosHostname-BB@0x5a getRosHostname-BB@0x104 ]
+	17      (00000042) invoke-interface     v6, Ljava/util/Iterator;->next()Ljava/lang/Object;
+	18      (00000048) move-result-object   v7
+	19      (0000004a) check-cast           v7, Ljava/net/NetworkInterface;
+	20      (0000004e) invoke-virtual       v7, Ljava/net/NetworkInterface;->isUp()Z
+	21      (00000054) move-result          v8
+	22      (00000056) if-eqz               v8, +057h
+	1e:79
+	(Ljava/net/SocketException; -> 114 getRosHostname-BB@0x114)
+	(Ljava/lang/Throwable; -> 110 getRosHostname-BB@0x110)
+
+getRosHostname-BB@0x5a : [ getRosHostname-BB@0x66 getRosHostname-BB@0x104 ]
+	23      (0000005a) invoke-virtual       v7, Ljava/net/NetworkInterface;->isLoopback()Z
+	24      (00000060) move-result          v8
+	25      (00000062) if-nez               v8, +051h
+	1e:79
+	(Ljava/net/SocketException; -> 114 getRosHostname-BB@0x114)
+	(Ljava/lang/Throwable; -> 110 getRosHostname-BB@0x110)
+
+getRosHostname-BB@0x66 : [ getRosHostname-BB@0x7a ]
+	26      (00000066) invoke-virtual       v7, Ljava/net/NetworkInterface;->getName()Ljava/lang/String;
+	27      (0000006c) move-result-object   v8
+	28      (0000006e) invoke-static        v8, Ljava/net/NetworkInterface;->getByName(Ljava/lang/String;)Ljava/net/NetworkInterface;
+	29      (00000074) move-result-object   v8
+	30      (00000076) const-string         v9, ""
+	1e:79
+	(Ljava/net/SocketException; -> 114 getRosHostname-BB@0x114)
+	(Ljava/lang/Throwable; -> 110 getRosHostname-BB@0x110)
+
+getRosHostname-BB@0x7a : [ getRosHostname-BB@0xc0 ]
+	31      (0000007a) invoke-static        v8, Lcom/jlboat/phone/controller/JlNaviManager;->newNonLoopbackForNetworkInterface(Ljava/net/NetworkInterface;)Ljava/net/InetAddress;
+	32      (00000080) move-result-object   v10
+	33      (00000082) invoke-virtual       v10, Ljava/net/InetAddress;->getHostAddress()Ljava/lang/String;
+	34      (00000088) move-result-object   v10
+	35      (0000008a) move-object          v9, v10
+	36      (0000008c) goto                 +1ah
+	7a:89
+	(Ljava/lang/Exception; -> 8e getRosHostname-BB@0x8e)
+	(Ljava/net/SocketException; -> 114 getRosHostname-BB@0x114)
+	(Ljava/lang/Throwable; -> 110 getRosHostname-BB@0x110)
+
+getRosHostname-BB@0x8e : [ getRosHostname-BB@0x90 ]
+	37      (0000008e) move-exception       v10
+
+getRosHostname-BB@0x90 : [ getRosHostname-BB@0xc0 ]
+	38      (00000090) iget-object          v11, v14, Lcom/jlboat/phone/controller/JlNaviManager;->TAG Ljava/lang/String;
+	39      (00000094) new-instance         v12, Ljava/lang/StringBuilder;
+	40      (00000098) invoke-direct        v12, Ljava/lang/StringBuilder;-><init>()V
+	41      (0000009e) const-string         v13, "init: InetAddressFactoryException: "
+	42      (000000a2) invoke-virtual       v12, v13, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	43      (000000a8) move-result-object   v12
+	44      (000000aa) invoke-virtual       v12, v9, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	45      (000000b0) move-result-object   v12
+	46      (000000b2) invoke-virtual       v12, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	47      (000000b8) move-result-object   v12
+	48      (000000ba) invoke-static        v11, v12, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	90:103
+	(Ljava/net/SocketException; -> 114 getRosHostname-BB@0x114)
+	(Ljava/lang/Throwable; -> 110 getRosHostname-BB@0x110)
+
+getRosHostname-BB@0xc0 : [ getRosHostname-BB@0x100 getRosHostname-BB@0x104 ]
+	49      (000000c0) iget-object          v10, v14, Lcom/jlboat/phone/controller/JlNaviManager;->TAG Ljava/lang/String;
+	50      (000000c4) new-instance         v11, Ljava/lang/StringBuilder;
+	51      (000000c8) invoke-direct        v11, Ljava/lang/StringBuilder;-><init>()V
+	52      (000000ce) const-string         v12, "init: hosthosthost: "
+	53      (000000d2) invoke-virtual       v11, v12, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	54      (000000d8) move-result-object   v11
+	55      (000000da) invoke-virtual       v11, v9, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	56      (000000e0) move-result-object   v11
+	57      (000000e2) invoke-virtual       v11, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	58      (000000e8) move-result-object   v11
+	59      (000000ea) invoke-static        v10, v11, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	60      (000000f0) sget-object          v10, Lcom/jlboat/phone/application/BoatSlamApplication;->route_ip Ljava/lang/String;
+	61      (000000f4) invoke-virtual       v9, v10, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+	62      (000000fa) move-result          v10
+	63      (000000fc) if-eqz               v10, +004h
+	90:103
+	(Ljava/net/SocketException; -> 114 getRosHostname-BB@0x114)
+	(Ljava/lang/Throwable; -> 110 getRosHostname-BB@0x110)
+
+getRosHostname-BB@0x100 : [ getRosHostname-BB@0x104 ]
+	64      (00000100) iput-boolean         v5, v14, Lcom/jlboat/phone/controller/JlNaviManager;->hasIP Z
+	90:103
+	(Ljava/net/SocketException; -> 114 getRosHostname-BB@0x114)
+	(Ljava/lang/Throwable; -> 110 getRosHostname-BB@0x110)
+
+getRosHostname-BB@0x104 : [ getRosHostname-BB@0x36 ]
+	65      (00000104) goto                 -67h
+
+getRosHostname-BB@0x106 : [ getRosHostname-BB@0x10e getRosHostname-BB@0x13a ]
+	66      (00000106) iget-boolean         v6, v14, Lcom/jlboat/phone/controller/JlNaviManager;->hasIP Z
+	67      (0000010a) if-eqz               v6, +018h
+
+getRosHostname-BB@0x10e : [ getRosHostname-BB@0x124 ]
+	68      (0000010e) goto                 +bh
+
+getRosHostname-BB@0x110 : [ getRosHostname-BB@0x152 ]
+	69      (00000110) move-exception       v6
+	70      (00000112) goto                 +20h
+
+getRosHostname-BB@0x114 : [ getRosHostname-BB@0x116 ]
+	71      (00000114) move-exception       v6
+
+getRosHostname-BB@0x116 : [ getRosHostname-BB@0x124 getRosHostname-BB@0x13a ]
+	72      (00000116) invoke-virtual       v6, Ljava/net/SocketException;->printStackTrace()V
+	73      (0000011c) iget-boolean         v6, v14, Lcom/jlboat/phone/controller/JlNaviManager;->hasIP Z
+	74      (00000120) if-eqz               v6, +00dh
+	116:11b
+	(Ljava/lang/Throwable; -> 110 getRosHostname-BB@0x110)
+
+getRosHostname-BB@0x124 : [ getRosHostname-BB@0x150 ]
+	75      (00000124) iget-object          v1, v14, Lcom/jlboat/phone/controller/JlNaviManager;->TAG Ljava/lang/String;
+	76      (00000128) invoke-static        v1, v0, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	77      (0000012e) iget-object          v0, v14, Lcom/jlboat/phone/controller/JlNaviManager;->mHandler Landroid/os/Handler;
+	78      (00000132) invoke-virtual       v0, v2, Landroid/os/Handler;->sendEmptyMessage(I)Z
+	79      (00000138) goto                 +ch
+
+getRosHostname-BB@0x13a : [ getRosHostname-BB@0x150 ]
+	80      (0000013a) iget-object          v0, v14, Lcom/jlboat/phone/controller/JlNaviManager;->TAG Ljava/lang/String;
+	81      (0000013e) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	82      (00000144) iget-object          v0, v14, Lcom/jlboat/phone/controller/JlNaviManager;->mHandler Landroid/os/Handler;
+	83      (00000148) invoke-virtual       v0, v5, v3, v4, Landroid/os/Handler;->sendEmptyMessageDelayed(I J)Z
+	84      (0000014e) nop                  
+
+getRosHostname-BB@0x150 : 
+	85      (00000150) return-void          
+
+getRosHostname-BB@0x152 : [ getRosHostname-BB@0x15a getRosHostname-BB@0x170 ]
+	86      (00000152) iget-boolean         v7, v14, Lcom/jlboat/phone/controller/JlNaviManager;->hasIP Z
+	87      (00000156) if-eqz               v7, +00dh
+
+getRosHostname-BB@0x15a : [ getRosHostname-BB@0x184 ]
+	88      (0000015a) iget-object          v1, v14, Lcom/jlboat/phone/controller/JlNaviManager;->TAG Ljava/lang/String;
+	89      (0000015e) invoke-static        v1, v0, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	90      (00000164) iget-object          v0, v14, Lcom/jlboat/phone/controller/JlNaviManager;->mHandler Landroid/os/Handler;
+	91      (00000168) invoke-virtual       v0, v2, Landroid/os/Handler;->sendEmptyMessage(I)Z
+	92      (0000016e) goto                 +bh
+
+getRosHostname-BB@0x170 : [ getRosHostname-BB@0x184 ]
+	93      (00000170) iget-object          v0, v14, Lcom/jlboat/phone/controller/JlNaviManager;->TAG Ljava/lang/String;
+	94      (00000174) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	95      (0000017a) iget-object          v0, v14, Lcom/jlboat/phone/controller/JlNaviManager;->mHandler Landroid/os/Handler;
+	96      (0000017e) invoke-virtual       v0, v5, v3, v4, Landroid/os/Handler;->sendEmptyMessageDelayed(I J)Z
+
+getRosHostname-BB@0x184 : 
+	97      (00000184) throw                v6
+

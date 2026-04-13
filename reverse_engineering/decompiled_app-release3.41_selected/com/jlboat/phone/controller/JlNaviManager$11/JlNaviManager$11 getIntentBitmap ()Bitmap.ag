@@ -1,0 +1,11 @@
+# Lcom/jlboat/phone/controller/JlNaviManager$11;->getIntentBitmap()Landroid/graphics/Bitmap; [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:android.graphics.Bitmap
+
+getIntentBitmap-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/jlboat/phone/controller/JlNaviManager$11;->val$data Landroid/graphics/Bitmap;
+	1       (00000004) return-object        v0
+

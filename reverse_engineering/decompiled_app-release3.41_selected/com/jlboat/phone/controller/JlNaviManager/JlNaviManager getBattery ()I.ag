@@ -1,0 +1,22 @@
+# Lcom/jlboat/phone/controller/JlNaviManager;->getBattery()I [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v2
+#
+# - return:int
+
+getBattery-BB@0x0 : 
+	0       (00000000) new-instance         v0, Ljava/lang/StringBuilder;
+	1       (00000004) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	2       (0000000a) const-string         v1, "currentBattery: "
+	3       (0000000e) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	4       (00000014) move-result-object   v0
+	5       (00000016) iget                 v1, v2, Lcom/jlboat/phone/controller/JlNaviManager;->currentBattery I
+	6       (0000001a) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	7       (00000020) move-result-object   v0
+	8       (00000022) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	9       (00000028) move-result-object   v0
+	10      (0000002a) invoke-virtual       v2, v0, Lcom/jlboat/phone/controller/JlNaviManager;->toast(Ljava/lang/String;)V
+	11      (00000030) iget                 v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->currentBattery I
+	12      (00000034) return               v0
+

@@ -1,0 +1,62 @@
+# Lcom/jlboat/phone/activity/PointBindPathActivity$BindPointItemCL;->onClick(I Ljava/lang/String;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v10
+# - v11:int
+# - v12:java.lang.String
+#
+# - return:void
+
+onClick-BB@0x0 : 
+	0       (00000000) iget-object          v0, v10, Lcom/jlboat/phone/activity/PointBindPathActivity$BindPointItemCL;->this$0 Lcom/jlboat/phone/activity/PointBindPathActivity;
+	1       (00000004) new-instance         v9, Lcom/jlboat/phone/view/MyPopupWindow;
+	2       (00000008) iget-object          v2, v10, Lcom/jlboat/phone/activity/PointBindPathActivity$BindPointItemCL;->this$0 Lcom/jlboat/phone/activity/PointBindPathActivity;
+	3       (0000000c) iget-object          v1, v10, Lcom/jlboat/phone/activity/PointBindPathActivity$BindPointItemCL;->this$0 Lcom/jlboat/phone/activity/PointBindPathActivity;
+	4       (00000010) const                v3, 2131493085
+	5       (00000016) invoke-virtual       v1, v3, Lcom/jlboat/phone/activity/PointBindPathActivity;->getResString(I)Ljava/lang/String;
+	6       (0000001c) move-result-object   v3
+	7       (0000001e) new-instance         v1, Ljava/lang/StringBuilder;
+	8       (00000022) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	9       (00000028) iget-object          v4, v10, Lcom/jlboat/phone/activity/PointBindPathActivity$BindPointItemCL;->this$0 Lcom/jlboat/phone/activity/PointBindPathActivity;
+	10      (0000002c) const                v5, 2131493083
+	11      (00000032) invoke-virtual       v4, v5, Lcom/jlboat/phone/activity/PointBindPathActivity;->getResString(I)Ljava/lang/String;
+	12      (00000038) move-result-object   v4
+	13      (0000003a) invoke-virtual       v1, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	14      (00000040) move-result-object   v1
+	15      (00000042) invoke-virtual       v1, v12, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	16      (00000048) move-result-object   v1
+	17      (0000004a) iget-object          v4, v10, Lcom/jlboat/phone/activity/PointBindPathActivity$BindPointItemCL;->this$0 Lcom/jlboat/phone/activity/PointBindPathActivity;
+	18      (0000004e) const                v5, 2131493082
+	19      (00000054) invoke-virtual       v4, v5, Lcom/jlboat/phone/activity/PointBindPathActivity;->getResString(I)Ljava/lang/String;
+	20      (0000005a) move-result-object   v4
+	21      (0000005c) invoke-virtual       v1, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	22      (00000062) move-result-object   v1
+	23      (00000064) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	24      (0000006a) move-result-object   v4
+	25      (0000006c) iget-object          v1, v10, Lcom/jlboat/phone/activity/PointBindPathActivity$BindPointItemCL;->this$0 Lcom/jlboat/phone/activity/PointBindPathActivity;
+	26      (00000070) const                v5, 2131493080
+	27      (00000076) invoke-virtual       v1, v5, Lcom/jlboat/phone/activity/PointBindPathActivity;->getResString(I)Ljava/lang/String;
+	28      (0000007c) move-result-object   v5
+	29      (0000007e) new-instance         v7, Lcom/jlboat/phone/activity/PointBindPathActivity$BindPointItemCL$1;
+	30      (00000082) invoke-direct        v7, v10, v11, Lcom/jlboat/phone/activity/PointBindPathActivity$BindPointItemCL$1;-><init>(Lcom/jlboat/phone/activity/PointBindPathActivity$BindPointItemCL; I)V
+	31      (00000088) new-instance         v8, Lcom/jlboat/phone/activity/PointBindPathActivity$BindPointItemCL$2;
+	32      (0000008c) invoke-direct        v8, v10, Lcom/jlboat/phone/activity/PointBindPathActivity$BindPointItemCL$2;-><init>(Lcom/jlboat/phone/activity/PointBindPathActivity$BindPointItemCL;)V
+	33      (00000092) const/4              v6, 1
+	34      (00000094) move-object          v1, v9
+	35      (00000096) invoke-direct/range  v1 ... v8, Lcom/jlboat/phone/view/MyPopupWindow;-><init>(Landroid/content/Context; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Z Landroid/view/View$OnClickListener; Landroid/view/View$OnClickListener;)V
+	36      (0000009c) invoke-static        v0, v9, Lcom/jlboat/phone/activity/PointBindPathActivity;->access$2002(Lcom/jlboat/phone/activity/PointBindPathActivity; Lcom/jlboat/phone/view/MyPopupWindow;)Lcom/jlboat/phone/view/MyPopupWindow;
+	37      (000000a2) iget-object          v0, v10, Lcom/jlboat/phone/activity/PointBindPathActivity$BindPointItemCL;->this$0 Lcom/jlboat/phone/activity/PointBindPathActivity;
+	38      (000000a6) invoke-static        v0, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
+	39      (000000ac) move-result-object   v0
+	40      (000000ae) const                v1, 2131361929
+	41      (000000b4) const/4              v2, 0
+	42      (000000b6) invoke-virtual       v0, v1, v2, Landroid/view/LayoutInflater;->inflate(I Landroid/view/ViewGroup;)Landroid/view/View;
+	43      (000000bc) move-result-object   v0
+	44      (000000be) iget-object          v1, v10, Lcom/jlboat/phone/activity/PointBindPathActivity$BindPointItemCL;->this$0 Lcom/jlboat/phone/activity/PointBindPathActivity;
+	45      (000000c2) invoke-static        v1, Lcom/jlboat/phone/activity/PointBindPathActivity;->access$2000(Lcom/jlboat/phone/activity/PointBindPathActivity;)Lcom/jlboat/phone/view/MyPopupWindow;
+	46      (000000c8) move-result-object   v1
+	47      (000000ca) const/16             v2, 17
+	48      (000000ce) const/4              v3, 0
+	49      (000000d0) invoke-virtual       v1, v0, v2, v3, v3, Lcom/jlboat/phone/view/MyPopupWindow;->showAtLocation(Landroid/view/View; I I I)V
+	50      (000000d6) return-void          
+

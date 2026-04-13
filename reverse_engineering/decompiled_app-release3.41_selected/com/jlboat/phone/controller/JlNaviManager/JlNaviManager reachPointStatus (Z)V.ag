@@ -1,0 +1,45 @@
+# Lcom/jlboat/phone/controller/JlNaviManager;->reachPointStatus(Z)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:boolean
+#
+# - return:void
+
+reachPointStatus-BB@0x0 : [ reachPointStatus-BB@0x8 reachPointStatus-BB@0x60 ]
+	0       (00000000) iget-boolean         v0, v3, Lcom/jlboat/phone/controller/JlNaviManager;->connectStatus Z
+	1       (00000004) if-eqz               v0, +02eh
+
+reachPointStatus-BB@0x8 : [ reachPointStatus-BB@0x10 reachPointStatus-BB@0x12 ]
+	2       (00000008) iget-boolean         v0, v3, Lcom/jlboat/phone/controller/JlNaviManager;->isNavigationInited Z
+	3       (0000000c) if-nez               v0, +003h
+
+reachPointStatus-BB@0x10 : [ reachPointStatus-BB@0x60 ]
+	4       (00000010) goto                 +28h
+
+reachPointStatus-BB@0x12 : 
+	5       (00000012) iget-object          v0, v3, Lcom/jlboat/phone/controller/JlNaviManager;->TAG Ljava/lang/String;
+	6       (00000016) new-instance         v1, Ljava/lang/StringBuilder;
+	7       (0000001a) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	8       (00000020) const-string         v2, "reachPointStatus: isStart = "
+	9       (00000024) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	10      (0000002a) move-result-object   v1
+	11      (0000002c) invoke-virtual       v1, v4, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+	12      (00000032) move-result-object   v1
+	13      (00000034) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	14      (0000003a) move-result-object   v1
+	15      (0000003c) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	16      (00000042) new-instance         v0, Lcom/boat/jrosbridge/message/std_msgs/Int16;
+	17      (00000046) invoke-direct        v0, Lcom/boat/jrosbridge/message/std_msgs/Int16;-><init>()V
+	18      (0000004c) int-to-short         v1, v4
+	19      (0000004e) invoke-virtual       v0, v1, Lcom/boat/jrosbridge/message/std_msgs/Int16;->setData(S)V
+	20      (00000054) iget-object          v1, v3, Lcom/jlboat/phone/controller/JlNaviManager;->reachPointStatus Lcom/boat/jrosbridge/Topic;
+	21      (00000058) invoke-virtual       v1, v0, Lcom/boat/jrosbridge/Topic;->publish(Lcom/boat/jrosbridge/message/Message;)V
+	22      (0000005e) return-void          
+
+reachPointStatus-BB@0x60 : 
+	23      (00000060) iget-object          v0, v3, Lcom/jlboat/phone/controller/JlNaviManager;->TAG Ljava/lang/String;
+	24      (00000064) const-string         v1, "reachPointStatus: 初始化未成功 不可以发起到点io"
+	25      (00000068) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	26      (0000006e) return-void          
+

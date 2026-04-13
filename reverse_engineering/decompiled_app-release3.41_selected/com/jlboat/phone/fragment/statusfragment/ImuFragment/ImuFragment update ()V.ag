@@ -1,0 +1,23 @@
+# Lcom/jlboat/phone/fragment/statusfragment/ImuFragment;->update()V [access_flags=private synchronized]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:void
+
+update-BB@0x0 : [ update-BB@0x2 ]
+	0       (00000000) monitor-enter        v1
+
+update-BB@0x2 : 
+	1       (00000002) iget-object          v0, v1, Lcom/jlboat/phone/fragment/statusfragment/ImuFragment;->addDataAdapter Lcom/jlboat/phone/adapter/AddDataAdapter;
+	2       (00000006) invoke-virtual       v0, Lcom/jlboat/phone/adapter/AddDataAdapter;->notifyDataSetChanged()V
+	3       (0000000c) monitor-exit         v1
+	4       (0000000e) return-void          
+	2:b
+	(Ljava/lang/Throwable; -> 10 update-BB@0x10)
+
+update-BB@0x10 : 
+	5       (00000010) move-exception       v0
+	6       (00000012) monitor-exit         v1
+	7       (00000014) throw                v0
+

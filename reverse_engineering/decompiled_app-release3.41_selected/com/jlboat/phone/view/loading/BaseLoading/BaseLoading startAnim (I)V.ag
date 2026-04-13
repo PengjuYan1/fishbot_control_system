@@ -1,0 +1,16 @@
+# Lcom/jlboat/phone/view/loading/BaseLoading;->startAnim(I)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v4
+# - v5:int
+#
+# - return:void
+
+startAnim-BB@0x0 : 
+	0       (00000000) invoke-virtual       v4, Lcom/jlboat/phone/view/loading/BaseLoading;->stopAnim()V
+	1       (00000006) const/high16         v0, 1065353216
+	2       (0000000a) int-to-long          v1, v5
+	3       (0000000c) const/4              v3, 0
+	4       (0000000e) invoke-direct        v4, v3, v0, v1, v2, Lcom/jlboat/phone/view/loading/BaseLoading;->startViewAnim(F F J)Landroid/animation/ValueAnimator;
+	5       (00000014) return-void          
+

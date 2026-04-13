@@ -1,0 +1,15 @@
+# Lcom/jlboat/phone/view/MapView;->setSelectedGlobalPlans(J)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:long
+#
+# - return:void
+
+setSelectedGlobalPlans-BB@0x0 : 
+	0       (00000000) iput-wide            v2, v1, Lcom/jlboat/phone/view/MapView;->selectedGpId J
+	1       (00000004) new-instance         v0, Lcom/jlboat/phone/view/MapView$8;
+	2       (00000008) invoke-direct        v0, v1, Lcom/jlboat/phone/view/MapView$8;-><init>(Lcom/jlboat/phone/view/MapView;)V
+	3       (0000000e) invoke-virtual       v1, v0, Lcom/jlboat/phone/view/MapView;->post(Ljava/lang/Runnable;)Z
+	4       (00000014) return-void          
+

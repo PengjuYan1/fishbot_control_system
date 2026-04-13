@@ -1,0 +1,23 @@
+# Lcom/jlboat/phone/adapter/TestResultAdapter250816;->getItemCount()I [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:int
+
+getItemCount-BB@0x0 : [ getItemCount-BB@0x8 getItemCount-BB@0x16 ]
+	0       (00000000) iget-object          v0, v1, Lcom/jlboat/phone/adapter/TestResultAdapter250816;->mWrappedList Ljava/util/List;
+	1       (00000004) if-eqz               v0, +009h
+
+getItemCount-BB@0x8 : [ getItemCount-BB@0x18 ]
+	2       (00000008) iget-object          v0, v1, Lcom/jlboat/phone/adapter/TestResultAdapter250816;->mWrappedList Ljava/util/List;
+	3       (0000000c) invoke-interface     v0, Ljava/util/List;->size()I
+	4       (00000012) move-result          v0
+	5       (00000014) goto                 +2h
+
+getItemCount-BB@0x16 : [ getItemCount-BB@0x18 ]
+	6       (00000016) const/4              v0, 0
+
+getItemCount-BB@0x18 : 
+	7       (00000018) return               v0
+

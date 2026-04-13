@@ -1,0 +1,17 @@
+# Lcom/jlboat/phone/base/BaseFullActivity$5;->onClick(Landroid/view/View;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:android.view.View
+#
+# - return:void
+
+onClick-BB@0x0 : 
+	0       (00000000) new-instance         v0, Landroid/content/Intent;
+	1       (00000004) iget-object          v1, v3, Lcom/jlboat/phone/base/BaseFullActivity$5;->this$0 Lcom/jlboat/phone/base/BaseFullActivity;
+	2       (00000008) const-class          v2, Lcom/jlboat/phone/activity/ErrorMessageActivity;
+	3       (0000000c) invoke-direct        v0, v1, v2, Landroid/content/Intent;-><init>(Landroid/content/Context; Ljava/lang/Class;)V
+	4       (00000012) iget-object          v1, v3, Lcom/jlboat/phone/base/BaseFullActivity$5;->this$0 Lcom/jlboat/phone/base/BaseFullActivity;
+	5       (00000016) invoke-virtual       v1, v0, Lcom/jlboat/phone/base/BaseFullActivity;->startActivity(Landroid/content/Intent;)V
+	6       (0000001c) return-void          
+

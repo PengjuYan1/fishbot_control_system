@@ -1,0 +1,16 @@
+# Lcom/boat/support/slam/entity/floors/Position;->writeToParcel(Landroid/os/Parcel; I)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:android.os.Parcel
+# - v4:int
+#
+# - return:void
+
+writeToParcel-BB@0x0 : 
+	0       (00000000) iget-wide            v0, v2, Lcom/boat/support/slam/entity/floors/Position;->y D
+	1       (00000004) invoke-virtual       v3, v0, v1, Landroid/os/Parcel;->writeDouble(D)V
+	2       (0000000a) iget-wide            v0, v2, Lcom/boat/support/slam/entity/floors/Position;->x D
+	3       (0000000e) invoke-virtual       v3, v0, v1, Landroid/os/Parcel;->writeDouble(D)V
+	4       (00000014) return-void          
+

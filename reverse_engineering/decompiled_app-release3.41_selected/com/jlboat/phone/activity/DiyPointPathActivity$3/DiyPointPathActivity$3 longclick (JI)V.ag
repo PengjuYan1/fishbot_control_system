@@ -1,0 +1,199 @@
+# Lcom/jlboat/phone/activity/DiyPointPathActivity$3;->longclick(J I)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v23
+# - v24:long
+# - v25:int
+#
+# - return:void
+
+longclick-BB@0x0 : [ longclick-BB@0x170 longclick-BB@0x17c ]
+	0       (00000000) move-object/from16   v9, v22
+	1       (00000004) move/from16          v10, v25
+	2       (00000008) iget-object          v0, v9, Lcom/jlboat/phone/activity/DiyPointPathActivity$3;->this$0 Lcom/jlboat/phone/activity/DiyPointPathActivity;
+	3       (0000000c) invoke-virtual       v0, Lcom/jlboat/phone/activity/DiyPointPathActivity;->getLayoutInflater()Landroid/view/LayoutInflater;
+	4       (00000012) move-result-object   v0
+	5       (00000014) const                v1, 2131361850
+	6       (0000001a) const/4              v2, 0
+	7       (0000001c) invoke-virtual       v0, v1, v2, Landroid/view/LayoutInflater;->inflate(I Landroid/view/ViewGroup;)Landroid/view/View;
+	8       (00000022) move-result-object   v11
+	9       (00000024) new-instance         v0, Landroid/app/AlertDialog$Builder;
+	10      (00000028) iget-object          v1, v9, Lcom/jlboat/phone/activity/DiyPointPathActivity$3;->this$0 Lcom/jlboat/phone/activity/DiyPointPathActivity;
+	11      (0000002c) invoke-direct        v0, v1, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+	12      (00000032) move-object          v12, v0
+	13      (00000034) invoke-virtual       v12, v11, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
+	14      (0000003a) invoke-virtual       v12, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+	15      (00000040) move-result-object   v13
+	16      (00000042) const                v0, 2131231342
+	17      (00000048) invoke-virtual       v11, v0, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	18      (0000004e) move-result-object   v0
+	19      (00000050) move-object          v14, v0
+	20      (00000052) check-cast           v14, Landroid/widget/TextView;
+	21      (00000056) const                v0, 2131231260
+	22      (0000005c) invoke-virtual       v11, v0, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	23      (00000062) move-result-object   v0
+	24      (00000064) move-object          v15, v0
+	25      (00000066) check-cast           v15, Landroid/widget/Spinner;
+	26      (0000006a) const                v0, 2131231169
+	27      (00000070) invoke-virtual       v11, v0, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	28      (00000076) move-result-object   v0
+	29      (00000078) move-object          v8, v0
+	30      (0000007a) check-cast           v8, Landroid/widget/RadioGroup;
+	31      (0000007e) const                v0, 2131230910
+	32      (00000084) invoke-virtual       v11, v0, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	33      (0000008a) move-result-object   v0
+	34      (0000008c) move-object          v6, v0
+	35      (0000008e) check-cast           v6, Landroid/widget/EditText;
+	36      (00000092) const                v0, 2131230911
+	37      (00000098) invoke-virtual       v11, v0, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	38      (0000009e) move-result-object   v0
+	39      (000000a0) move-object          v7, v0
+	40      (000000a2) check-cast           v7, Landroid/widget/EditText;
+	41      (000000a6) const                v0, 2131230798
+	42      (000000ac) invoke-virtual       v11, v0, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	43      (000000b2) move-result-object   v0
+	44      (000000b4) move-object          v5, v0
+	45      (000000b6) check-cast           v5, Landroid/widget/Button;
+	46      (000000ba) const                v0, 2131230796
+	47      (000000c0) invoke-virtual       v11, v0, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	48      (000000c6) move-result-object   v0
+	49      (000000c8) move-object          v4, v0
+	50      (000000ca) check-cast           v4, Landroid/widget/Button;
+	51      (000000ce) const                v0, 2131230827
+	52      (000000d4) invoke-virtual       v11, v0, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	53      (000000da) move-result-object   v0
+	54      (000000dc) move-object          v3, v0
+	55      (000000de) check-cast           v3, Landroid/widget/Button;
+	56      (000000e2) new-instance         v0, Ljava/lang/StringBuilder;
+	57      (000000e6) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	58      (000000ec) const-string         v1, "路线: "
+	59      (000000f0) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	60      (000000f6) move-result-object   v0
+	61      (000000f8) invoke-virtual       v0, v10, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	62      (000000fe) move-result-object   v0
+	63      (00000100) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	64      (00000106) move-result-object   v0
+	65      (00000108) invoke-virtual       v14, v0, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+	66      (0000010e) iget-object          v0, v9, Lcom/jlboat/phone/activity/DiyPointPathActivity$3;->this$0 Lcom/jlboat/phone/activity/DiyPointPathActivity;
+	67      (00000112) invoke-static        v0, Lcom/jlboat/phone/activity/DiyPointPathActivity;->access$500(Lcom/jlboat/phone/activity/DiyPointPathActivity;)Ljava/util/List;
+	68      (00000118) move-result-object   v0
+	69      (0000011a) add-int/lit8         v1, v10, -1
+	70      (0000011e) invoke-interface     v0, v1, Ljava/util/List;->get(I)Ljava/lang/Object;
+	71      (00000124) move-result-object   v0
+	72      (00000126) check-cast           v0, Lcom/jlboat/phone/bean/NgNline;
+	73      (0000012a) invoke-virtual       v0, Lcom/jlboat/phone/bean/NgNline;->getnLine()Lcom/boat/support/slam/entity/floors/NLine;
+	74      (00000130) move-result-object   v0
+	75      (00000132) invoke-virtual       v0, Lcom/boat/support/slam/entity/floors/NLine;->getType()I
+	76      (00000138) move-result          v0
+	77      (0000013a) invoke-virtual       v15, v0, Landroid/widget/Spinner;->setSelection(I)V
+	78      (00000140) iget-object          v0, v9, Lcom/jlboat/phone/activity/DiyPointPathActivity$3;->this$0 Lcom/jlboat/phone/activity/DiyPointPathActivity;
+	79      (00000144) invoke-static        v0, Lcom/jlboat/phone/activity/DiyPointPathActivity;->access$500(Lcom/jlboat/phone/activity/DiyPointPathActivity;)Ljava/util/List;
+	80      (0000014a) move-result-object   v0
+	81      (0000014c) add-int/lit8         v1, v10, -1
+	82      (00000150) invoke-interface     v0, v1, Ljava/util/List;->get(I)Ljava/lang/Object;
+	83      (00000156) move-result-object   v0
+	84      (00000158) check-cast           v0, Lcom/jlboat/phone/bean/NgNline;
+	85      (0000015c) invoke-virtual       v0, Lcom/jlboat/phone/bean/NgNline;->getnLine()Lcom/boat/support/slam/entity/floors/NLine;
+	86      (00000162) move-result-object   v0
+	87      (00000164) invoke-virtual       v0, Lcom/boat/support/slam/entity/floors/NLine;->getDirection()I
+	88      (0000016a) move-result          v2
+	89      (0000016c) if-nez               v2, +008h
+
+longclick-BB@0x170 : [ longclick-BB@0x17c ]
+	90      (00000170) const                v0, 2131231124
+	91      (00000176) invoke-virtual       v8, v0, Landroid/widget/RadioGroup;->check(I)V
+
+longclick-BB@0x17c : [ longclick-BB@0x182 longclick-BB@0x18e ]
+	92      (0000017c) const/4              v0, 1
+	93      (0000017e) if-ne                v2, v0, +008h
+
+longclick-BB@0x182 : [ longclick-BB@0x18e ]
+	94      (00000182) const                v0, 2131231125
+	95      (00000188) invoke-virtual       v8, v0, Landroid/widget/RadioGroup;->check(I)V
+
+longclick-BB@0x18e : [ longclick-BB@0x194 longclick-BB@0x1a0 ]
+	96      (0000018e) const/4              v0, 2
+	97      (00000190) if-ne                v2, v0, +008h
+
+longclick-BB@0x194 : [ longclick-BB@0x1a0 ]
+	98      (00000194) const                v0, 2131231126
+	99      (0000019a) invoke-virtual       v8, v0, Landroid/widget/RadioGroup;->check(I)V
+
+longclick-BB@0x1a0 : 
+	100     (000001a0) new-instance         v0, Ljava/lang/StringBuilder;
+	101     (000001a4) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	102     (000001aa) iget-object          v1, v9, Lcom/jlboat/phone/activity/DiyPointPathActivity$3;->this$0 Lcom/jlboat/phone/activity/DiyPointPathActivity;
+	103     (000001ae) invoke-static        v1, Lcom/jlboat/phone/activity/DiyPointPathActivity;->access$500(Lcom/jlboat/phone/activity/DiyPointPathActivity;)Ljava/util/List;
+	104     (000001b4) move-result-object   v1
+	105     (000001b6) move/from16          v16, v2
+	106     (000001ba) add-int/lit8         v2, v10, -1
+	107     (000001be) invoke-interface     v1, v2, Ljava/util/List;->get(I)Ljava/lang/Object;
+	108     (000001c4) move-result-object   v1
+	109     (000001c6) check-cast           v1, Lcom/jlboat/phone/bean/NgNline;
+	110     (000001ca) invoke-virtual       v1, Lcom/jlboat/phone/bean/NgNline;->getnLine()Lcom/boat/support/slam/entity/floors/NLine;
+	111     (000001d0) move-result-object   v1
+	112     (000001d2) invoke-virtual       v1, Lcom/boat/support/slam/entity/floors/NLine;->getSpeed()F
+	113     (000001d8) move-result          v1
+	114     (000001da) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+	115     (000001e0) move-result-object   v0
+	116     (000001e2) const-string         v1, ""
+	117     (000001e6) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	118     (000001ec) move-result-object   v0
+	119     (000001ee) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	120     (000001f4) move-result-object   v0
+	121     (000001f6) invoke-virtual       v6, v0, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+	122     (000001fc) new-instance         v0, Ljava/lang/StringBuilder;
+	123     (00000200) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	124     (00000206) iget-object          v2, v9, Lcom/jlboat/phone/activity/DiyPointPathActivity$3;->this$0 Lcom/jlboat/phone/activity/DiyPointPathActivity;
+	125     (0000020a) invoke-static        v2, Lcom/jlboat/phone/activity/DiyPointPathActivity;->access$500(Lcom/jlboat/phone/activity/DiyPointPathActivity;)Ljava/util/List;
+	126     (00000210) move-result-object   v2
+	127     (00000212) move-object/from16   v17, v3
+	128     (00000216) add-int/lit8         v3, v10, -1
+	129     (0000021a) invoke-interface     v2, v3, Ljava/util/List;->get(I)Ljava/lang/Object;
+	130     (00000220) move-result-object   v2
+	131     (00000222) check-cast           v2, Lcom/jlboat/phone/bean/NgNline;
+	132     (00000226) invoke-virtual       v2, Lcom/jlboat/phone/bean/NgNline;->getnLine()Lcom/boat/support/slam/entity/floors/NLine;
+	133     (0000022c) move-result-object   v2
+	134     (0000022e) invoke-virtual       v2, Lcom/boat/support/slam/entity/floors/NLine;->getWeight()F
+	135     (00000234) move-result          v2
+	136     (00000236) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+	137     (0000023c) move-result-object   v0
+	138     (0000023e) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	139     (00000244) move-result-object   v0
+	140     (00000246) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	141     (0000024c) move-result-object   v0
+	142     (0000024e) invoke-virtual       v7, v0, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+	143     (00000254) new-instance         v0, Lcom/jlboat/phone/activity/DiyPointPathActivity$3$1;
+	144     (00000258) invoke-direct        v0, v9, Lcom/jlboat/phone/activity/DiyPointPathActivity$3$1;-><init>(Lcom/jlboat/phone/activity/DiyPointPathActivity$3;)V
+	145     (0000025e) invoke-virtual       v15, v0, Landroid/widget/Spinner;->setOnItemSelectedListener(Landroid/widget/AdapterView$OnItemSelectedListener;)V
+	146     (00000264) new-instance         v0, Lcom/jlboat/phone/activity/DiyPointPathActivity$3$2;
+	147     (00000268) invoke-direct        v0, v9, Lcom/jlboat/phone/activity/DiyPointPathActivity$3$2;-><init>(Lcom/jlboat/phone/activity/DiyPointPathActivity$3;)V
+	148     (0000026e) invoke-virtual       v8, v0, Landroid/widget/RadioGroup;->setOnCheckedChangeListener(Landroid/widget/RadioGroup$OnCheckedChangeListener;)V
+	149     (00000274) new-instance         v0, Lcom/jlboat/phone/activity/DiyPointPathActivity$3$3;
+	150     (00000278) move-wide/from16     v2, v23
+	151     (0000027c) invoke-direct        v0, v9, v13, v2, v3, Lcom/jlboat/phone/activity/DiyPointPathActivity$3$3;-><init>(Lcom/jlboat/phone/activity/DiyPointPathActivity$3; Landroid/app/AlertDialog; J)V
+	152     (00000282) invoke-virtual       v5, v0, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	153     (00000288) new-instance         v0, Lcom/jlboat/phone/activity/DiyPointPathActivity$3$4;
+	154     (0000028c) invoke-direct        v0, v9, v13, Lcom/jlboat/phone/activity/DiyPointPathActivity$3$4;-><init>(Lcom/jlboat/phone/activity/DiyPointPathActivity$3; Landroid/app/AlertDialog;)V
+	155     (00000292) invoke-virtual       v4, v0, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	156     (00000298) new-instance         v1, Lcom/jlboat/phone/activity/DiyPointPathActivity$3$5;
+	157     (0000029c) move-object          v0, v1
+	158     (0000029e) move-object          v9, v1
+	159     (000002a0) move-object/from16   v1, v22
+	160     (000002a4) move-object          v2, v8
+	161     (000002a6) move-object/from16   v10, v17
+	162     (000002aa) move-object          v3, v6
+	163     (000002ac) move-object/from16   v17, v4
+	164     (000002b0) move-object          v4, v7
+	165     (000002b2) move-object/from16   v18, v5
+	166     (000002b6) move-object          v5, v13
+	167     (000002b8) move-object/from16   v19, v6
+	168     (000002bc) move-object/from16   v20, v7
+	169     (000002c0) move-wide/from16     v6, v23
+	170     (000002c4) move-object/from16   v21, v8
+	171     (000002c8) move-object          v8, v15
+	172     (000002ca) invoke-direct/range  v0 ... v8, Lcom/jlboat/phone/activity/DiyPointPathActivity$3$5;-><init>(Lcom/jlboat/phone/activity/DiyPointPathActivity$3; Landroid/widget/RadioGroup; Landroid/widget/EditText; Landroid/widget/EditText; Landroid/app/AlertDialog; J Landroid/widget/Spinner;)V
+	173     (000002d0) invoke-virtual       v10, v9, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	174     (000002d6) invoke-virtual       v13, Landroid/app/AlertDialog;->show()V
+	175     (000002dc) return-void          
+

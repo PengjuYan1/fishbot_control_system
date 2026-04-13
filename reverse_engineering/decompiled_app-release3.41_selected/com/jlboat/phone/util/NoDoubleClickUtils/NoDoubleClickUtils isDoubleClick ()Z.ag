@@ -1,0 +1,43 @@
+# Lcom/jlboat/phone/util/NoDoubleClickUtils;->isDoubleClick()Z [access_flags=public static synchronized]
+#
+# Parameters:
+# local registers: v0...v7
+#
+# - return:boolean
+
+isDoubleClick-BB@0x0 : [ isDoubleClick-BB@0x6 ]
+	0       (00000000) const-class          v0, Lcom/jlboat/phone/util/NoDoubleClickUtils;
+	1       (00000004) monitor-enter        v0
+
+isDoubleClick-BB@0x6 : [ isDoubleClick-BB@0x22 isDoubleClick-BB@0x26 ]
+	2       (00000006) invoke-static        Ljava/lang/System;->currentTimeMillis()J
+	3       (0000000c) move-result-wide     v1
+	4       (0000000e) sget-wide            v3, Lcom/jlboat/phone/util/NoDoubleClickUtils;->lastClickTime J
+	5       (00000012) sub-long             v3, v1, v3
+	6       (00000016) const-wide/16        v5, 500
+	7       (0000001a) cmp-long             v7, v3, v5
+	8       (0000001e) if-lez               v7, +004h
+	6:2b
+	(Ljava/lang/Throwable; -> 30 isDoubleClick-BB@0x30)
+
+isDoubleClick-BB@0x22 : [ isDoubleClick-BB@0x28 ]
+	9       (00000022) const/4              v3, 0
+	10      (00000024) goto                 +2h
+	6:2b
+	(Ljava/lang/Throwable; -> 30 isDoubleClick-BB@0x30)
+
+isDoubleClick-BB@0x26 : [ isDoubleClick-BB@0x28 ]
+	11      (00000026) const/4              v3, 1
+	6:2b
+	(Ljava/lang/Throwable; -> 30 isDoubleClick-BB@0x30)
+
+isDoubleClick-BB@0x28 : 
+	12      (00000028) sput-wide            v1, Lcom/jlboat/phone/util/NoDoubleClickUtils;->lastClickTime J
+	13      (0000002c) monitor-exit         v0
+	14      (0000002e) return               v3
+
+isDoubleClick-BB@0x30 : 
+	15      (00000030) move-exception       v1
+	16      (00000032) monitor-exit         v0
+	17      (00000034) throw                v1
+

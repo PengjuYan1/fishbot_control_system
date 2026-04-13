@@ -1,0 +1,79 @@
+# Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment$1$4;->run()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v7
+#
+# - return:void
+
+run-BB@0x0 : 
+	0       (00000000) iget-object          v0, v7, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment$1$4;->this$1 Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment$1;
+	1       (00000004) iget-object          v0, v0, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment$1;->this$0 Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment;
+	2       (00000008) invoke-static        v0, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment;->access$000(Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment;)Landroid/content/Context;
+	3       (0000000e) move-result-object   v0
+	4       (00000010) const                v1, 2131493303
+	5       (00000016) invoke-virtual       v0, v1, Landroid/content/Context;->getString(I)Ljava/lang/String;
+	6       (0000001c) move-result-object   v0
+	7       (0000001e) invoke-static        v0, Lcom/jlboat/phone/util/Utils;->toast(Ljava/lang/String;)V
+	8       (00000024) iget-object          v0, v7, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment$1$4;->this$1 Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment$1;
+	9       (00000028) iget-object          v0, v0, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment$1;->this$0 Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment;
+	10      (0000002c) invoke-static        v0, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment;->access$300(Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment;)Landroid/widget/TextView;
+	11      (00000032) move-result-object   v0
+	12      (00000034) new-instance         v1, Ljava/lang/StringBuilder;
+	13      (00000038) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	14      (0000003e) const-string         v2, ": "
+	15      (00000042) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	16      (00000048) move-result-object   v1
+	17      (0000004a) iget-object          v3, v7, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment$1$4;->val$c Lcom/jlboat/phone/message/map_msgs/CalculateOdomResponse;
+	18      (0000004e) invoke-virtual       v3, Lcom/jlboat/phone/message/map_msgs/CalculateOdomResponse;->getRightmotor_ratio()F
+	19      (00000054) move-result          v3
+	20      (00000056) invoke-static        v3, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+	21      (0000005c) move-result-object   v3
+	22      (0000005e) const/4              v4, 1
+	23      (00000060) new-array            v5, v4, [Ljava/lang/Object;
+	24      (00000064) const/4              v6, 0
+	25      (00000066) aput-object          v3, v5, v6
+	26      (0000006a) const-string         v3, "%.2f"
+	27      (0000006e) invoke-static        v3, v5, Ljava/lang/String;->format(Ljava/lang/String; [Ljava/lang/Object;)Ljava/lang/String;
+	28      (00000074) move-result-object   v5
+	29      (00000076) invoke-virtual       v1, v5, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	30      (0000007c) move-result-object   v1
+	31      (0000007e) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	32      (00000084) move-result-object   v1
+	33      (00000086) invoke-virtual       v0, v1, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+	34      (0000008c) iget-object          v0, v7, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment$1$4;->this$1 Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment$1;
+	35      (00000090) iget-object          v0, v0, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment$1;->this$0 Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment;
+	36      (00000094) invoke-static        v0, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment;->access$400(Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment;)Landroid/widget/TextView;
+	37      (0000009a) move-result-object   v0
+	38      (0000009c) new-instance         v1, Ljava/lang/StringBuilder;
+	39      (000000a0) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	40      (000000a6) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	41      (000000ac) move-result-object   v1
+	42      (000000ae) iget-object          v2, v7, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment$1$4;->val$c Lcom/jlboat/phone/message/map_msgs/CalculateOdomResponse;
+	43      (000000b2) invoke-virtual       v2, Lcom/jlboat/phone/message/map_msgs/CalculateOdomResponse;->getLeftmotor_ratio()F
+	44      (000000b8) move-result          v2
+	45      (000000ba) invoke-static        v2, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+	46      (000000c0) move-result-object   v2
+	47      (000000c2) new-array            v4, v4, [Ljava/lang/Object;
+	48      (000000c6) aput-object          v2, v4, v6
+	49      (000000ca) invoke-static        v3, v4, Ljava/lang/String;->format(Ljava/lang/String; [Ljava/lang/Object;)Ljava/lang/String;
+	50      (000000d0) move-result-object   v2
+	51      (000000d2) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	52      (000000d8) move-result-object   v1
+	53      (000000da) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	54      (000000e0) move-result-object   v1
+	55      (000000e2) invoke-virtual       v0, v1, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+	56      (000000e8) iget-object          v0, v7, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment$1$4;->this$1 Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment$1;
+	57      (000000ec) iget-object          v0, v0, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment$1;->this$0 Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment;
+	58      (000000f0) invoke-static        v0, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment;->access$500(Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment;)Landroid/widget/LinearLayout;
+	59      (000000f6) move-result-object   v0
+	60      (000000f8) invoke-virtual       v0, v6, Landroid/widget/LinearLayout;->setVisibility(I)V
+	61      (000000fe) iget-object          v0, v7, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment$1$4;->this$1 Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment$1;
+	62      (00000102) iget-object          v0, v0, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment$1;->this$0 Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment;
+	63      (00000106) invoke-static        v0, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment;->access$100(Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment;)Ljava/util/List;
+	64      (0000010c) move-result-object   v0
+	65      (0000010e) invoke-interface     v0, Ljava/util/List;->clear()V
+	66      (00000114) iget-object          v0, v7, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment$1$4;->this$1 Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment$1;
+	67      (00000118) iget-object          v0, v0, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment$1;->this$0 Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment;
+	68      (0000011c) invoke-static        v0, v6, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment;->access$202(Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment; I)I
+	69      (00000122) return-void          
+

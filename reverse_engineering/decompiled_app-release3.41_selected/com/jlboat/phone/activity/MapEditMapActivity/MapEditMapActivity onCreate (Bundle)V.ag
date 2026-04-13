@@ -1,0 +1,61 @@
+# Lcom/jlboat/phone/activity/MapEditMapActivity;->onCreate(Landroid/os/Bundle;)V [access_flags=protected]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:android.os.Bundle
+#
+# - return:void
+
+onCreate-BB@0x0 : 
+	0       (00000000) const                v0, 2131361895
+	1       (00000006) const                v1, 2131492931
+	2       (0000000c) invoke-virtual       v2, v0, v1, Lcom/jlboat/phone/activity/MapEditMapActivity;->initTitleBar(I I)V
+	3       (00000012) const                v0, 2131230984
+	4       (00000018) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/MapEditMapActivity;->findViewById(I)Landroid/view/View;
+	5       (0000001e) move-result-object   v0
+	6       (00000020) check-cast           v0, Lcom/jlboat/phone/view/MapView;
+	7       (00000024) iput-object          v0, v2, Lcom/jlboat/phone/activity/MapEditMapActivity;->mapView Lcom/jlboat/phone/view/MapView;
+	8       (00000028) const                v0, 2131230823
+	9       (0000002e) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/MapEditMapActivity;->findViewById(I)Landroid/view/View;
+	10      (00000034) move-result-object   v0
+	11      (00000036) check-cast           v0, Landroid/widget/Button;
+	12      (0000003a) iput-object          v0, v2, Lcom/jlboat/phone/activity/MapEditMapActivity;->bt_save_update_map Landroid/widget/Button;
+	13      (0000003e) const                v0, 2131230946
+	14      (00000044) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/MapEditMapActivity;->findViewById(I)Landroid/view/View;
+	15      (0000004a) move-result-object   v0
+	16      (0000004c) check-cast           v0, Landroid/widget/ImageView;
+	17      (00000050) iput-object          v0, v2, Lcom/jlboat/phone/activity/MapEditMapActivity;->iv_rectangle Landroid/widget/ImageView;
+	18      (00000054) const                v0, 2131231131
+	19      (0000005a) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/MapEditMapActivity;->findViewById(I)Landroid/view/View;
+	20      (00000060) move-result-object   v0
+	21      (00000062) check-cast           v0, Landroid/widget/RadioButton;
+	22      (00000066) iput-object          v0, v2, Lcom/jlboat/phone/activity/MapEditMapActivity;->rb_low_mode Landroid/widget/RadioButton;
+	23      (0000006a) const                v0, 2131231139
+	24      (00000070) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/MapEditMapActivity;->findViewById(I)Landroid/view/View;
+	25      (00000076) move-result-object   v0
+	26      (00000078) check-cast           v0, Landroid/widget/RadioButton;
+	27      (0000007c) iput-object          v0, v2, Lcom/jlboat/phone/activity/MapEditMapActivity;->rb_med_mode Landroid/widget/RadioButton;
+	28      (00000080) const                v0, 2131231129
+	29      (00000086) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/MapEditMapActivity;->findViewById(I)Landroid/view/View;
+	30      (0000008c) move-result-object   v0
+	31      (0000008e) check-cast           v0, Landroid/widget/RadioButton;
+	32      (00000092) iput-object          v0, v2, Lcom/jlboat/phone/activity/MapEditMapActivity;->rb_height_mode Landroid/widget/RadioButton;
+	33      (00000096) const                v0, 2131231118
+	34      (0000009c) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/MapEditMapActivity;->findViewById(I)Landroid/view/View;
+	35      (000000a2) move-result-object   v0
+	36      (000000a4) check-cast           v0, Landroid/widget/RadioButton;
+	37      (000000a8) iput-object          v0, v2, Lcom/jlboat/phone/activity/MapEditMapActivity;->rb_close_mode Landroid/widget/RadioButton;
+	38      (000000ac) invoke-super         v2, v3, Lcom/jlboat/phone/base/BaseFullActivity;->onCreate(Landroid/os/Bundle;)V
+	39      (000000b2) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapEditMapActivity;->rb_low_mode Landroid/widget/RadioButton;
+	40      (000000b6) invoke-virtual       v0, v2, Landroid/widget/RadioButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	41      (000000bc) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapEditMapActivity;->rb_med_mode Landroid/widget/RadioButton;
+	42      (000000c0) invoke-virtual       v0, v2, Landroid/widget/RadioButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	43      (000000c6) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapEditMapActivity;->rb_height_mode Landroid/widget/RadioButton;
+	44      (000000ca) invoke-virtual       v0, v2, Landroid/widget/RadioButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	45      (000000d0) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapEditMapActivity;->rb_close_mode Landroid/widget/RadioButton;
+	46      (000000d4) invoke-virtual       v0, v2, Landroid/widget/RadioButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	47      (000000da) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapEditMapActivity;->bt_save_update_map Landroid/widget/Button;
+	48      (000000de) invoke-virtual       v0, v2, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	49      (000000e4) invoke-direct        v2, Lcom/jlboat/phone/activity/MapEditMapActivity;->init()V
+	50      (000000ea) return-void          
+

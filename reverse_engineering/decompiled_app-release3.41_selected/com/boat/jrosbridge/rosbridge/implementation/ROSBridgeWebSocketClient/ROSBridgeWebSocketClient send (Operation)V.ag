@@ -1,0 +1,49 @@
+# Lcom/boat/jrosbridge/rosbridge/implementation/ROSBridgeWebSocketClient;->send(Lcom/boat/jrosbridge/rosbridge/operation/Operation;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v4
+# - v5:com.boat.jrosbridge.rosbridge.operation.Operation
+#
+# - return:void
+
+send-BB@0x0 : [ send-BB@0x14 send-BB@0x40 ]
+	0       (00000000) invoke-virtual       v5, Lcom/boat/jrosbridge/rosbridge/operation/Operation;->toJSON()Ljava/lang/String;
+	1       (00000006) move-result-object   v0
+	2       (00000008) iget-boolean         v1, v4, Lcom/boat/jrosbridge/rosbridge/implementation/ROSBridgeWebSocketClient;->debug Z
+	3       (0000000c) const-string         v2, "ROSWebSocketClient"
+	4       (00000010) if-eqz               v1, +018h
+
+send-BB@0x14 : [ send-BB@0x40 ]
+	5       (00000014) new-instance         v1, Ljava/lang/StringBuilder;
+	6       (00000018) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	7       (0000001e) const-string         v3, " ROS<<<<<< "
+	8       (00000022) invoke-virtual       v1, v3, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	9       (00000028) move-result-object   v1
+	10      (0000002a) invoke-virtual       v1, v0, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	11      (00000030) move-result-object   v1
+	12      (00000032) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	13      (00000038) move-result-object   v1
+	14      (0000003a) invoke-static        v2, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+
+send-BB@0x40 : [ send-BB@0x4c send-BB@0x7a ]
+	15      (00000040) invoke-virtual       v4, Lcom/boat/jrosbridge/rosbridge/implementation/ROSBridgeWebSocketClient;->isClosed()Z
+	16      (00000046) move-result          v1
+	17      (00000048) if-eqz               v1, +019h
+
+send-BB@0x4c : 
+	18      (0000004c) new-instance         v1, Ljava/lang/StringBuilder;
+	19      (00000050) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	20      (00000056) const-string         v3, " 发送数据失败 "
+	21      (0000005a) invoke-virtual       v1, v3, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	22      (00000060) move-result-object   v1
+	23      (00000062) invoke-virtual       v1, v0, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	24      (00000068) move-result-object   v1
+	25      (0000006a) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	26      (00000070) move-result-object   v1
+	27      (00000072) invoke-static        v2, v1, Landroid/util/Log;->w(Ljava/lang/String; Ljava/lang/String;)I
+	28      (00000078) return-void          
+
+send-BB@0x7a : 
+	29      (0000007a) invoke-virtual       v4, v0, Lcom/boat/jrosbridge/rosbridge/implementation/ROSBridgeWebSocketClient;->send(Ljava/lang/String;)V
+	30      (00000080) return-void          
+

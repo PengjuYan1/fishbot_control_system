@@ -1,0 +1,22 @@
+# Lcom/jlboat/phone/view/MapView;->clearPoints()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v2
+#
+# - return:void
+
+clearPoints-BB@0x0 : [ clearPoints-BB@0x16 clearPoints-BB@0x24 ]
+	0       (00000000) const-string         v0, "MapView"
+	1       (00000004) const-string         v1, "清空路线轨迹"
+	2       (00000008) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	3       (0000000e) iget-object          v0, v2, Lcom/jlboat/phone/view/MapView;->points Ljava/util/List;
+	4       (00000012) if-eqz               v0, +009h
+
+clearPoints-BB@0x16 : [ clearPoints-BB@0x24 ]
+	5       (00000016) new-instance         v0, Ljava/util/ArrayList;
+	6       (0000001a) invoke-direct        v0, Ljava/util/ArrayList;-><init>()V
+	7       (00000020) iput-object          v0, v2, Lcom/jlboat/phone/view/MapView;->points Ljava/util/List;
+
+clearPoints-BB@0x24 : 
+	8       (00000024) return-void          
+

@@ -1,0 +1,15 @@
+# Lcom/jlboat/phone/activity/TestFragmentActivity;->onCreate(Landroid/os/Bundle;)V [access_flags=protected]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:android.os.Bundle
+#
+# - return:void
+
+onCreate-BB@0x0 : 
+	0       (00000000) invoke-super         v1, v2, Lcom/jlboat/phone/base/BaseFullActivity;->onCreate(Landroid/os/Bundle;)V
+	1       (00000006) const                v0, 2131361831
+	2       (0000000c) invoke-virtual       v1, v0, Lcom/jlboat/phone/activity/TestFragmentActivity;->setContentView(I)V
+	3       (00000012) invoke-direct        v1, Lcom/jlboat/phone/activity/TestFragmentActivity;->initData()V
+	4       (00000018) return-void          
+

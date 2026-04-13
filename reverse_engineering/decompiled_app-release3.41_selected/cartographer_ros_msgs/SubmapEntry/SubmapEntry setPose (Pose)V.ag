@@ -1,0 +1,12 @@
+# Lcartographer_ros_msgs/SubmapEntry;->setPose(Lcom/boat/jrosbridge/message/geometry_msgs/Pose;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.boat.jrosbridge.message.geometry_msgs.Pose
+#
+# - return:void
+
+setPose-BB@0x0 : 
+	0       (00000000) iput-object          v1, v0, Lcartographer_ros_msgs/SubmapEntry;->pose Lcom/boat/jrosbridge/message/geometry_msgs/Pose;
+	1       (00000004) return-void          
+

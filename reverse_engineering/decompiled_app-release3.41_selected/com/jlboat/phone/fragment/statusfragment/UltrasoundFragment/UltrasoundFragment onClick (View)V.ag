@@ -1,0 +1,62 @@
+# Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->onClick(Landroid/view/View;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:android.view.View
+#
+# - return:void
+
+onClick-BB@0x0 : [ onClick-BB@0x12 onClick-BB@0x1a ]
+	0       (00000000) invoke-virtual       v4, Landroid/view/View;->getId()I
+	1       (00000006) move-result          v0
+	2       (00000008) const                v1, 2131231249
+	3       (0000000e) if-ne                v0, v1, +006h
+
+onClick-BB@0x12 : [ onClick-BB@0xbe ]
+	4       (00000012) invoke-direct        v3, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->saveSonar()V
+	5       (00000018) goto                 +53h
+
+onClick-BB@0x1a : [ onClick-BB@0x24 onClick-BB@0xbe ]
+	6       (0000001a) const                v1, 2131230765
+	7       (00000020) if-ne                v0, v1, +04fh
+
+onClick-BB@0x24 : [ onClick-BB@0xbe ]
+	8       (00000024) iget-object          v1, v3, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->back_sw Landroid/widget/Switch;
+	9       (00000028) iget-object          v2, v3, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->all_sw Landroid/widget/Switch;
+	10      (0000002c) invoke-virtual       v2, Landroid/widget/Switch;->isChecked()Z
+	11      (00000032) move-result          v2
+	12      (00000034) invoke-virtual       v1, v2, Landroid/widget/Switch;->setEnabled(Z)V
+	13      (0000003a) iget-object          v1, v3, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->up_sw Landroid/widget/Switch;
+	14      (0000003e) iget-object          v2, v3, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->all_sw Landroid/widget/Switch;
+	15      (00000042) invoke-virtual       v2, Landroid/widget/Switch;->isChecked()Z
+	16      (00000048) move-result          v2
+	17      (0000004a) invoke-virtual       v1, v2, Landroid/widget/Switch;->setEnabled(Z)V
+	18      (00000050) iget-object          v1, v3, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->left_sw Landroid/widget/Switch;
+	19      (00000054) iget-object          v2, v3, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->all_sw Landroid/widget/Switch;
+	20      (00000058) invoke-virtual       v2, Landroid/widget/Switch;->isChecked()Z
+	21      (0000005e) move-result          v2
+	22      (00000060) invoke-virtual       v1, v2, Landroid/widget/Switch;->setEnabled(Z)V
+	23      (00000066) iget-object          v1, v3, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->leftm_sw Landroid/widget/Switch;
+	24      (0000006a) iget-object          v2, v3, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->all_sw Landroid/widget/Switch;
+	25      (0000006e) invoke-virtual       v2, Landroid/widget/Switch;->isChecked()Z
+	26      (00000074) move-result          v2
+	27      (00000076) invoke-virtual       v1, v2, Landroid/widget/Switch;->setEnabled(Z)V
+	28      (0000007c) iget-object          v1, v3, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->right_sw Landroid/widget/Switch;
+	29      (00000080) iget-object          v2, v3, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->all_sw Landroid/widget/Switch;
+	30      (00000084) invoke-virtual       v2, Landroid/widget/Switch;->isChecked()Z
+	31      (0000008a) move-result          v2
+	32      (0000008c) invoke-virtual       v1, v2, Landroid/widget/Switch;->setEnabled(Z)V
+	33      (00000092) iget-object          v1, v3, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->rightm_sw Landroid/widget/Switch;
+	34      (00000096) iget-object          v2, v3, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->all_sw Landroid/widget/Switch;
+	35      (0000009a) invoke-virtual       v2, Landroid/widget/Switch;->isChecked()Z
+	36      (000000a0) move-result          v2
+	37      (000000a2) invoke-virtual       v1, v2, Landroid/widget/Switch;->setEnabled(Z)V
+	38      (000000a8) iget-object          v1, v3, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->front_sw Landroid/widget/Switch;
+	39      (000000ac) iget-object          v2, v3, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->all_sw Landroid/widget/Switch;
+	40      (000000b0) invoke-virtual       v2, Landroid/widget/Switch;->isChecked()Z
+	41      (000000b6) move-result          v2
+	42      (000000b8) invoke-virtual       v1, v2, Landroid/widget/Switch;->setEnabled(Z)V
+
+onClick-BB@0xbe : 
+	43      (000000be) return-void          
+

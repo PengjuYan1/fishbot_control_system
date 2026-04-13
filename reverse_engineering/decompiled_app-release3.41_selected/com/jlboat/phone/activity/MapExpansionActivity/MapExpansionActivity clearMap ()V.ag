@@ -1,0 +1,21 @@
+# Lcom/jlboat/phone/activity/MapExpansionActivity;->clearMap()V [access_flags=private]
+#
+# Parameters:
+# local registers: v0...v2
+#
+# - return:void
+
+clearMap-BB@0x0 : 
+	0       (00000000) const                v0, 2131493116
+	1       (00000006) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/MapExpansionActivity;->getResString(I)Ljava/lang/String;
+	2       (0000000c) move-result-object   v0
+	3       (0000000e) const                v1, 2131493117
+	4       (00000014) invoke-virtual       v2, v1, Lcom/jlboat/phone/activity/MapExpansionActivity;->getResString(I)Ljava/lang/String;
+	5       (0000001a) move-result-object   v1
+	6       (0000001c) invoke-direct        v2, v0, v1, Lcom/jlboat/phone/activity/MapExpansionActivity;->safeShowWaitingDialog(Ljava/lang/CharSequence; Ljava/lang/CharSequence;)V
+	7       (00000022) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapExpansionActivity;->spiritServiceClient Lcom/jlboat/phone/communication/SpiritServiceClient;
+	8       (00000026) new-instance         v1, Lcom/jlboat/phone/activity/MapExpansionActivity$21;
+	9       (0000002a) invoke-direct        v1, v2, Lcom/jlboat/phone/activity/MapExpansionActivity$21;-><init>(Lcom/jlboat/phone/activity/MapExpansionActivity;)V
+	10      (00000030) invoke-virtual       v0, v1, Lcom/jlboat/phone/communication/SpiritServiceClient;->clearMapService(Lcom/boat/jrosbridge/MessageListener;)V
+	11      (00000036) return-void          
+

@@ -1,0 +1,35 @@
+# Lcom/boat/jrosbridge/rosbridge/implementation/JSON;->convertStringToJSONObject(Ljava/lang/String;)Lorg/json/simple/JSONObject; [access_flags=private static]
+#
+# Parameters:
+# - local registers: v0...v5
+# - v6:java.lang.String
+#
+# - return:org.json.simple.JSONObject
+
+convertStringToJSONObject-BB@0x0 : [ convertStringToJSONObject-BB@0x16 ]
+	0       (00000000) const/4              v0, 0
+	1       (00000002) new-instance         v1, Ljava/io/StringReader;
+	2       (00000006) invoke-direct        v1, v6, Ljava/io/StringReader;-><init>(Ljava/lang/String;)V
+	3       (0000000c) new-instance         v2, Lorg/json/simple/parser/JSONParser;
+	4       (00000010) invoke-direct        v2, Lorg/json/simple/parser/JSONParser;-><init>()V
+
+convertStringToJSONObject-BB@0x16 : [ convertStringToJSONObject-BB@0x3a ]
+	5       (00000016) invoke-virtual       v2, v1, Lorg/json/simple/parser/JSONParser;->parse(Ljava/io/Reader;)Ljava/lang/Object;
+	6       (0000001c) move-result-object   v3
+	7       (0000001e) check-cast           v3, Lorg/json/simple/JSONObject;
+	8       (00000022) move-object          v0, v3
+	9       (00000024) goto                 +bh
+	16:21
+	(Ljava/lang/Throwable; -> 26 convertStringToJSONObject-BB@0x26)
+
+convertStringToJSONObject-BB@0x26 : [ convertStringToJSONObject-BB@0x3a ]
+	10      (00000026) move-exception       v3
+	11      (00000028) sget-object          v4, Ljava/lang/System;->out Ljava/io/PrintStream;
+	12      (0000002c) invoke-virtual       v3, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+	13      (00000032) move-result-object   v5
+	14      (00000034) invoke-virtual       v4, v5, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+
+convertStringToJSONObject-BB@0x3a : 
+	15      (0000003a) invoke-virtual       v1, Ljava/io/StringReader;->close()V
+	16      (00000040) return-object        v0
+

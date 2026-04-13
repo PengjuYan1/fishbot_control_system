@@ -1,0 +1,43 @@
+# Lcom/jlboat/phone/view/loading/LoadingView;->onMeasure(I I)V [access_flags=protected]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:int
+# - v4:int
+#
+# - return:void
+
+onMeasure-BB@0x0 : [ onMeasure-BB@0x1a onMeasure-BB@0x2a ]
+	0       (00000000) invoke-super         v2, v3, v4, Lcom/jlboat/phone/view/loading/BaseLoading;->onMeasure(I I)V
+	1       (00000006) invoke-virtual       v2, Lcom/jlboat/phone/view/loading/LoadingView;->getMeasuredWidth()I
+	2       (0000000c) move-result          v0
+	3       (0000000e) invoke-virtual       v2, Lcom/jlboat/phone/view/loading/LoadingView;->getHeight()I
+	4       (00000014) move-result          v1
+	5       (00000016) if-le                v0, v1, +00ah
+
+onMeasure-BB@0x1a : [ onMeasure-BB@0x38 ]
+	6       (0000001a) invoke-virtual       v2, Lcom/jlboat/phone/view/loading/LoadingView;->getMeasuredHeight()I
+	7       (00000020) move-result          v0
+	8       (00000022) int-to-float         v0, v0
+	9       (00000024) iput                 v0, v2, Lcom/jlboat/phone/view/loading/LoadingView;->mWidth F
+	10      (00000028) goto                 +8h
+
+onMeasure-BB@0x2a : [ onMeasure-BB@0x38 ]
+	11      (0000002a) invoke-virtual       v2, Lcom/jlboat/phone/view/loading/LoadingView;->getMeasuredWidth()I
+	12      (00000030) move-result          v0
+	13      (00000032) int-to-float         v0, v0
+	14      (00000034) iput                 v0, v2, Lcom/jlboat/phone/view/loading/LoadingView;->mWidth F
+
+onMeasure-BB@0x38 : 
+	15      (00000038) const/high16         v0, 1092616192
+	16      (0000003c) invoke-virtual       v2, v0, Lcom/jlboat/phone/view/loading/LoadingView;->dip2px(F)I
+	17      (00000042) move-result          v0
+	18      (00000044) int-to-float         v0, v0
+	19      (00000046) iput                 v0, v2, Lcom/jlboat/phone/view/loading/LoadingView;->mPadding F
+	20      (0000004a) const/high16         v0, 1077936128
+	21      (0000004e) invoke-virtual       v2, v0, Lcom/jlboat/phone/view/loading/LoadingView;->dip2px(F)I
+	22      (00000054) move-result          v0
+	23      (00000056) int-to-float         v0, v0
+	24      (00000058) iput                 v0, v2, Lcom/jlboat/phone/view/loading/LoadingView;->mEyeWidth F
+	25      (0000005c) return-void          
+

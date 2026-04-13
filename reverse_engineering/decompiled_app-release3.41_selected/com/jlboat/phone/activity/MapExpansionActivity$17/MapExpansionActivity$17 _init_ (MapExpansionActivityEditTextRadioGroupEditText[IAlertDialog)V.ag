@@ -1,0 +1,23 @@
+# Lcom/jlboat/phone/activity/MapExpansionActivity$17;-><init>(Lcom/jlboat/phone/activity/MapExpansionActivity; Landroid/widget/EditText; Landroid/widget/RadioGroup; Landroid/widget/EditText; [I Landroid/app/AlertDialog;)V [access_flags=constructor]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.activity.MapExpansionActivity
+# - v2:android.widget.EditText
+# - v3:android.widget.RadioGroup
+# - v4:android.widget.EditText
+# - v5:int[]
+# - v6:android.app.AlertDialog
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) iput-object          v1, v0, Lcom/jlboat/phone/activity/MapExpansionActivity$17;->this$0 Lcom/jlboat/phone/activity/MapExpansionActivity;
+	1       (00000004) iput-object          v2, v0, Lcom/jlboat/phone/activity/MapExpansionActivity$17;->val$editFloorText Landroid/widget/EditText;
+	2       (00000008) iput-object          v3, v0, Lcom/jlboat/phone/activity/MapExpansionActivity$17;->val$radioGroup Landroid/widget/RadioGroup;
+	3       (0000000c) iput-object          v4, v0, Lcom/jlboat/phone/activity/MapExpansionActivity$17;->val$editText Landroid/widget/EditText;
+	4       (00000010) iput-object          v5, v0, Lcom/jlboat/phone/activity/MapExpansionActivity$17;->val$selectFloorIndex [I
+	5       (00000014) iput-object          v6, v0, Lcom/jlboat/phone/activity/MapExpansionActivity$17;->val$alertDialog Landroid/app/AlertDialog;
+	6       (00000018) invoke-direct        v0, Ljava/lang/Object;-><init>()V
+	7       (0000001e) return-void          
+

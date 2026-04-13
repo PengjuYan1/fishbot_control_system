@@ -1,0 +1,80 @@
+# Lcom/boat/jrosbridge/message/Message;->register(Ljava/lang/Class; Ljava/util/Map;)V [access_flags=public static]
+#
+# Parameters:
+# - local registers: v0...v4
+# - v5:java.lang.Class
+# - v6:java.util.Map
+#
+# - return:void
+
+register-BB@0x0 : [ register-BB@0x1e register-BB@0xa2 ]
+	0       (00000000) invoke-static        v5, Lcom/boat/jrosbridge/message/Message;->typecheck(Ljava/lang/Class;)V
+	1       (00000006) invoke-static        v5, Lcom/boat/jrosbridge/message/Message;->getMessageType(Ljava/lang/Class;)Ljava/lang/String;
+	2       (0000000c) move-result-object   v0
+	3       (0000000e) invoke-interface     v6, v0, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+	4       (00000014) move-result-object   v1
+	5       (00000016) check-cast           v1, Ljava/lang/Class;
+	6       (0000001a) if-eqz               v1, +044h
+	0:a7
+	(Lcom/boat/jrosbridge/message/MessageException; -> ac register-BB@0xac)
+
+register-BB@0x1e : [ register-BB@0x2a register-BB@0x2c ]
+	7       (0000001e) invoke-virtual       v1, v5, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+	8       (00000024) move-result          v2
+	9       (00000026) if-eqz               v2, +003h
+	0:a7
+	(Lcom/boat/jrosbridge/message/MessageException; -> ac register-BB@0xac)
+
+register-BB@0x2a : [ register-BB@0xa2 ]
+	10      (0000002a) goto                 +3ch
+	0:a7
+	(Lcom/boat/jrosbridge/message/MessageException; -> ac register-BB@0xac)
+
+register-BB@0x2c : 
+	11      (0000002c) new-instance         v2, Lcom/boat/jrosbridge/message/MessageException;
+	12      (00000030) new-instance         v3, Ljava/lang/StringBuilder;
+	13      (00000034) invoke-direct        v3, Ljava/lang/StringBuilder;-><init>()V
+	14      (0000003a) const-string         v4, "Message String '"
+	15      (0000003e) invoke-virtual       v3, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	16      (00000044) move-result-object   v3
+	17      (00000046) invoke-virtual       v3, v0, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	18      (0000004c) move-result-object   v3
+	19      (0000004e) const-string         v4, "' is assigned to two different classes ("
+	20      (00000052) invoke-virtual       v3, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	21      (00000058) move-result-object   v3
+	22      (0000005a) invoke-virtual       v5, Ljava/lang/Class;->getName()Ljava/lang/String;
+	23      (00000060) move-result-object   v4
+	24      (00000062) invoke-virtual       v3, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	25      (00000068) move-result-object   v3
+	26      (0000006a) const-string         v4, " and "
+	27      (0000006e) invoke-virtual       v3, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	28      (00000074) move-result-object   v3
+	29      (00000076) invoke-virtual       v1, Ljava/lang/Class;->getName()Ljava/lang/String;
+	30      (0000007c) move-result-object   v4
+	31      (0000007e) invoke-virtual       v3, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	32      (00000084) move-result-object   v3
+	33      (00000086) const-string         v4, ")"
+	34      (0000008a) invoke-virtual       v3, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	35      (00000090) move-result-object   v3
+	36      (00000092) invoke-virtual       v3, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	37      (00000098) move-result-object   v3
+	38      (0000009a) invoke-direct        v2, v3, Lcom/boat/jrosbridge/message/MessageException;-><init>(Ljava/lang/String;)V
+	39      (000000a0) throw                v2
+	0:a7
+	(Lcom/boat/jrosbridge/message/MessageException; -> ac register-BB@0xac)
+
+register-BB@0xa2 : [ register-BB@0xc0 ]
+	40      (000000a2) invoke-interface     v6, v0, v5, Ljava/util/Map;->put(Ljava/lang/Object; Ljava/lang/Object;)Ljava/lang/Object;
+	41      (000000a8) nop                  
+	42      (000000aa) goto                 +bh
+
+register-BB@0xac : [ register-BB@0xc0 ]
+	43      (000000ac) move-exception       v0
+	44      (000000ae) sget-object          v1, Ljava/lang/System;->out Ljava/io/PrintStream;
+	45      (000000b2) invoke-virtual       v0, Lcom/boat/jrosbridge/message/MessageException;->getMessage()Ljava/lang/String;
+	46      (000000b8) move-result-object   v2
+	47      (000000ba) invoke-virtual       v1, v2, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+
+register-BB@0xc0 : 
+	48      (000000c0) return-void          
+

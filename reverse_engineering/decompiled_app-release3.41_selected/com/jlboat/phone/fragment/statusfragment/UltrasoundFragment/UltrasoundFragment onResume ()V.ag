@@ -1,0 +1,18 @@
+# Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->onResume()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v2
+#
+# - return:void
+
+onResume-BB@0x0 : 
+	0       (00000000) invoke-super         v2, Lcom/jlboat/phone/base/BaseFragment;->onResume()V
+	1       (00000006) iget-object          v0, v2, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->all_sw Landroid/widget/Switch;
+	2       (0000000a) const/4              v1, 0
+	3       (0000000c) invoke-virtual       v0, v1, Landroid/widget/Switch;->setEnabled(Z)V
+	4       (00000012) iget-object          v0, v2, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->ll_con Landroid/widget/LinearLayout;
+	5       (00000016) const/16             v1, 8
+	6       (0000001a) invoke-virtual       v0, v1, Landroid/widget/LinearLayout;->setVisibility(I)V
+	7       (00000020) invoke-direct        v2, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;->getSonar()V
+	8       (00000026) return-void          
+

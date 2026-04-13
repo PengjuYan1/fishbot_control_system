@@ -1,0 +1,35 @@
+# Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;->findType(Ljava/lang/String; [Lcom/boat/jrosbridge/message/rosapi/TypeDef;)Lcom/boat/jrosbridge/message/rosapi/TypeDef; [access_flags=private]
+#
+# Parameters:
+# - local registers: v0...v5
+# - v6:java.lang.String
+# - v7:com.boat.jrosbridge.message.rosapi.TypeDef[]
+#
+# - return:com.boat.jrosbridge.message.rosapi.TypeDef
+
+findType-BB@0x0 : [ findType-BB@0x6 ]
+	0       (00000000) const/4              v0, 0
+	1       (00000002) array-length         v1, v7
+	2       (00000004) const/4              v2, 0
+
+findType-BB@0x6 : [ findType-BB@0xa findType-BB@0x28 ]
+	3       (00000006) if-ge                v2, v1, +011h
+
+findType-BB@0xa : [ findType-BB@0x1e findType-BB@0x22 ]
+	4       (0000000a) aget-object          v3, v7, v2
+	5       (0000000e) iget-object          v4, v3, Lcom/boat/jrosbridge/message/rosapi/TypeDef;->type Ljava/lang/String;
+	6       (00000012) invoke-virtual       v4, v6, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+	7       (00000018) move-result          v4
+	8       (0000001a) if-eqz               v4, +004h
+
+findType-BB@0x1e : [ findType-BB@0x28 ]
+	9       (0000001e) move-object          v0, v3
+	10      (00000020) goto                 +4h
+
+findType-BB@0x22 : [ findType-BB@0x6 ]
+	11      (00000022) add-int/lit8         v2, v2, 1
+	12      (00000026) goto                 -10h
+
+findType-BB@0x28 : 
+	13      (00000028) return-object        v0
+

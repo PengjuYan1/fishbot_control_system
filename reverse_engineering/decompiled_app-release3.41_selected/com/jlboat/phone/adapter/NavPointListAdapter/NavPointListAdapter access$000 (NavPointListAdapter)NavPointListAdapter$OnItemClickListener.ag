@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/adapter/NavPointListAdapter;->access$000(Lcom/jlboat/phone/adapter/NavPointListAdapter;)Lcom/jlboat/phone/adapter/NavPointListAdapter$OnItemClickListener; [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.adapter.NavPointListAdapter
+#
+# - return:com.jlboat.phone.adapter.NavPointListAdapter$OnItemClickListener
+
+access$000-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/jlboat/phone/adapter/NavPointListAdapter;->mItemClickListener Lcom/jlboat/phone/adapter/NavPointListAdapter$OnItemClickListener;
+	1       (00000004) return-object        v0
+

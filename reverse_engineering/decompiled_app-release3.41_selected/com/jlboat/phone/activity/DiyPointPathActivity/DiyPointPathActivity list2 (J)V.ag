@@ -1,0 +1,74 @@
+# Lcom/jlboat/phone/activity/DiyPointPathActivity;->list2(J)V [access_flags=private]
+#
+# Parameters:
+# - local registers: v0...v8
+# - v9:long
+#
+# - return:void
+
+list2-BB@0x0 : [ list2-BB@0x1e list2-BB@0xba ]
+	0       (00000000) invoke-static        Ljava/lang/System;->currentTimeMillis()J
+	1       (00000006) move-result-wide     v0
+	2       (00000008) iget-wide            v2, v7, Lcom/jlboat/phone/activity/DiyPointPathActivity;->firstTimeAddNgline J
+	3       (0000000c) sub-long             v2, v0, v2
+	4       (00000010) iget                 v4, v7, Lcom/jlboat/phone/activity/DiyPointPathActivity;->timeout I
+	5       (00000014) int-to-long          v4, v4
+	6       (00000016) cmp-long             v6, v2, v4
+	7       (0000001a) if-lez               v6, +050h
+
+list2-BB@0x1e : [ list2-BB@0x34 list2-BB@0x3e ]
+	8       (0000001e) iput-wide            v0, v7, Lcom/jlboat/phone/activity/DiyPointPathActivity;->firstTimeAddNgline J
+	9       (00000022) iget-object          v2, v7, Lcom/jlboat/phone/activity/DiyPointPathActivity;->linkedListId Ljava/util/LinkedList;
+	10      (00000026) invoke-virtual       v2, Ljava/util/LinkedList;->size()I
+	11      (0000002c) move-result          v2
+	12      (0000002e) const/4              v3, 2
+	13      (00000030) if-ne                v2, v3, +007h
+
+list2-BB@0x34 : [ list2-BB@0x3e ]
+	14      (00000034) iget-object          v2, v7, Lcom/jlboat/phone/activity/DiyPointPathActivity;->linkedListId Ljava/util/LinkedList;
+	15      (00000038) invoke-virtual       v2, Ljava/util/LinkedList;->removeFirst()Ljava/lang/Object;
+
+list2-BB@0x3e : [ list2-BB@0x60 list2-BB@0x9c ]
+	16      (0000003e) iget-object          v2, v7, Lcom/jlboat/phone/activity/DiyPointPathActivity;->linkedListId Ljava/util/LinkedList;
+	17      (00000042) invoke-static        v8, v9, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+	18      (00000048) move-result-object   v4
+	19      (0000004a) invoke-virtual       v2, v4, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
+	20      (00000050) iget-object          v2, v7, Lcom/jlboat/phone/activity/DiyPointPathActivity;->linkedListId Ljava/util/LinkedList;
+	21      (00000054) invoke-virtual       v2, Ljava/util/LinkedList;->size()I
+	22      (0000005a) move-result          v2
+	23      (0000005c) if-ne                v2, v3, +020h
+
+list2-BB@0x60 : [ list2-BB@0xb8 ]
+	24      (00000060) iget-object          v2, v7, Lcom/jlboat/phone/activity/DiyPointPathActivity;->linkedListId Ljava/util/LinkedList;
+	25      (00000064) const/4              v3, 0
+	26      (00000066) invoke-virtual       v2, v3, Ljava/util/LinkedList;->get(I)Ljava/lang/Object;
+	27      (0000006c) move-result-object   v2
+	28      (0000006e) check-cast           v2, Ljava/lang/Long;
+	29      (00000072) invoke-virtual       v2, Ljava/lang/Long;->longValue()J
+	30      (00000078) move-result-wide     v2
+	31      (0000007a) iget-object          v4, v7, Lcom/jlboat/phone/activity/DiyPointPathActivity;->linkedListId Ljava/util/LinkedList;
+	32      (0000007e) const/4              v5, 1
+	33      (00000080) invoke-virtual       v4, v5, Ljava/util/LinkedList;->get(I)Ljava/lang/Object;
+	34      (00000086) move-result-object   v4
+	35      (00000088) check-cast           v4, Ljava/lang/Long;
+	36      (0000008c) invoke-virtual       v4, Ljava/lang/Long;->longValue()J
+	37      (00000092) move-result-wide     v4
+	38      (00000094) invoke-direct        v7, v2, v3, v4, v5, Lcom/jlboat/phone/activity/DiyPointPathActivity;->addNGPointLine(J J)V
+	39      (0000009a) goto                 +fh
+
+list2-BB@0x9c : [ list2-BB@0xb8 ]
+	40      (0000009c) iget-object          v2, v7, Lcom/jlboat/phone/activity/DiyPointPathActivity;->linesList Ljava/util/List;
+	41      (000000a0) iget-object          v3, v7, Lcom/jlboat/phone/activity/DiyPointPathActivity;->pathPoint Lcom/boat/support/slam/entity/floors/Lines;
+	42      (000000a4) invoke-interface     v2, v3, Ljava/util/List;->add(Ljava/lang/Object;)Z
+	43      (000000aa) iget-object          v2, v7, Lcom/jlboat/phone/activity/DiyPointPathActivity;->mapView Lcom/jlboat/phone/view/MapView;
+	44      (000000ae) iget-object          v3, v7, Lcom/jlboat/phone/activity/DiyPointPathActivity;->linesList Ljava/util/List;
+	45      (000000b2) invoke-virtual       v2, v3, Lcom/jlboat/phone/view/MapView;->setLinesStyle(Ljava/util/List;)V
+
+list2-BB@0xb8 : 
+	46      (000000b8) return-void          
+
+list2-BB@0xba : 
+	47      (000000ba) const                v2, 2131493271
+	48      (000000c0) invoke-virtual       v7, v2, Lcom/jlboat/phone/activity/DiyPointPathActivity;->toast(I)V
+	49      (000000c6) return-void          
+

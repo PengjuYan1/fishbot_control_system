@@ -1,0 +1,39 @@
+# Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;->disconnect()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:void
+
+disconnect-BB@0x0 : [ disconnect-BB@0x10 disconnect-BB@0x34 ]
+	0       (00000000) iget-object          v0, v1, Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;->client Lcom/boat/jrosbridge/rosbridge/implementation/ROSBridgeWebSocketClient;
+	1       (00000004) invoke-virtual       v0, Lcom/boat/jrosbridge/rosbridge/implementation/ROSBridgeWebSocketClient;->isClosing()Z
+	2       (0000000a) move-result          v0
+	3       (0000000c) if-nez               v0, +014h
+
+disconnect-BB@0x10 : [ disconnect-BB@0x20 disconnect-BB@0x22 ]
+	4       (00000010) iget-object          v0, v1, Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;->client Lcom/boat/jrosbridge/rosbridge/implementation/ROSBridgeWebSocketClient;
+	5       (00000014) invoke-virtual       v0, Lcom/boat/jrosbridge/rosbridge/implementation/ROSBridgeWebSocketClient;->isClosed()Z
+	6       (0000001a) move-result          v0
+	7       (0000001c) if-eqz               v0, +003h
+
+disconnect-BB@0x20 : [ disconnect-BB@0x34 ]
+	8       (00000020) goto                 +ah
+
+disconnect-BB@0x22 : [ disconnect-BB@0x30 ]
+	9       (00000022) iget-object          v0, v1, Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;->client Lcom/boat/jrosbridge/rosbridge/implementation/ROSBridgeWebSocketClient;
+	10      (00000026) invoke-virtual       v0, Lcom/boat/jrosbridge/rosbridge/implementation/ROSBridgeWebSocketClient;->closeBlocking()V
+	11      (0000002c) goto                 +2h
+	22:2b
+	(Ljava/lang/InterruptedException; -> 2e disconnect-BB@0x2e)
+
+disconnect-BB@0x2e : [ disconnect-BB@0x30 ]
+	12      (0000002e) move-exception       v0
+
+disconnect-BB@0x30 : 
+	13      (00000030) nop                  
+	14      (00000032) return-void          
+
+disconnect-BB@0x34 : 
+	15      (00000034) return-void          
+

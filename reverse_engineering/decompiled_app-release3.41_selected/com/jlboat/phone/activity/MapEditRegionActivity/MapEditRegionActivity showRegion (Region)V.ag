@@ -1,0 +1,116 @@
+# Lcom/jlboat/phone/activity/MapEditRegionActivity;->showRegion(Lcom/boat/support/slam/entity/floors/Region;)V [access_flags=private]
+#
+# Parameters:
+# - local registers: v0...v7
+# - v8:com.boat.support.slam.entity.floors.Region
+#
+# - return:void
+
+showRegion-BB@0x0 : [ showRegion-BB@0x10 showRegion-BB@0x44 ]
+	0       (00000000) invoke-virtual       v8, Lcom/boat/support/slam/entity/floors/Region;->getRegionProperty1()I
+	1       (00000006) move-result          v0
+	2       (00000008) const-string         v1, ""
+	3       (0000000c) if-eqz               v0, +01ch
+
+showRegion-BB@0x10 : [ showRegion-BB@0x44 ]
+	4       (00000010) iget-object          v0, v7, Lcom/jlboat/phone/activity/MapEditRegionActivity;->mark_one_tv Landroid/widget/EditText;
+	5       (00000014) new-instance         v2, Ljava/lang/StringBuilder;
+	6       (00000018) invoke-direct        v2, Ljava/lang/StringBuilder;-><init>()V
+	7       (0000001e) invoke-virtual       v8, Lcom/boat/support/slam/entity/floors/Region;->getRegionProperty1()I
+	8       (00000024) move-result          v3
+	9       (00000026) invoke-virtual       v2, v3, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	10      (0000002c) move-result-object   v2
+	11      (0000002e) invoke-virtual       v2, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	12      (00000034) move-result-object   v2
+	13      (00000036) invoke-virtual       v2, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	14      (0000003c) move-result-object   v2
+	15      (0000003e) invoke-virtual       v0, v2, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+
+showRegion-BB@0x44 : [ showRegion-BB@0x50 showRegion-BB@0x84 ]
+	16      (00000044) invoke-virtual       v8, Lcom/boat/support/slam/entity/floors/Region;->getRegionProperty2()I
+	17      (0000004a) move-result          v0
+	18      (0000004c) if-eqz               v0, +01ch
+
+showRegion-BB@0x50 : [ showRegion-BB@0x84 ]
+	19      (00000050) iget-object          v0, v7, Lcom/jlboat/phone/activity/MapEditRegionActivity;->mark_two_tv Landroid/widget/EditText;
+	20      (00000054) new-instance         v2, Ljava/lang/StringBuilder;
+	21      (00000058) invoke-direct        v2, Ljava/lang/StringBuilder;-><init>()V
+	22      (0000005e) invoke-virtual       v8, Lcom/boat/support/slam/entity/floors/Region;->getRegionProperty2()I
+	23      (00000064) move-result          v3
+	24      (00000066) invoke-virtual       v2, v3, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	25      (0000006c) move-result-object   v2
+	26      (0000006e) invoke-virtual       v2, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	27      (00000074) move-result-object   v1
+	28      (00000076) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	29      (0000007c) move-result-object   v1
+	30      (0000007e) invoke-virtual       v0, v1, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+
+showRegion-BB@0x84 : [ showRegion-BB@0x90 ]
+	31      (00000084) iget-object          v0, v7, Lcom/jlboat/phone/activity/MapEditRegionActivity;->pointsList Ljava/util/List;
+	32      (00000088) invoke-interface     v0, Ljava/util/List;->iterator()Ljava/util/Iterator;
+	33      (0000008e) move-result-object   v0
+
+showRegion-BB@0x90 : [ showRegion-BB@0x9c showRegion-BB@0x128 ]
+	34      (00000090) invoke-interface     v0, Ljava/util/Iterator;->hasNext()Z
+	35      (00000096) move-result          v1
+	36      (00000098) if-eqz               v1, +048h
+
+showRegion-BB@0x9c : [ showRegion-BB@0xc0 showRegion-BB@0xd2 ]
+	37      (0000009c) invoke-interface     v0, Ljava/util/Iterator;->next()Ljava/lang/Object;
+	38      (000000a2) move-result-object   v1
+	39      (000000a4) check-cast           v1, Lcom/boat/support/slam/entity/floors/Points;
+	40      (000000a8) invoke-virtual       v8, Lcom/boat/support/slam/entity/floors/Region;->getStartPointId()J
+	41      (000000ae) move-result-wide     v2
+	42      (000000b0) invoke-virtual       v1, Lcom/boat/support/slam/entity/floors/Points;->getPointId()J
+	43      (000000b6) move-result-wide     v4
+	44      (000000b8) cmp-long             v6, v2, v4
+	45      (000000bc) if-nez               v6, +00bh
+
+showRegion-BB@0xc0 : [ showRegion-BB@0xd2 ]
+	46      (000000c0) iget-object          v2, v7, Lcom/jlboat/phone/activity/MapEditRegionActivity;->start_rid_tv Landroid/widget/TextView;
+	47      (000000c4) invoke-virtual       v1, Lcom/boat/support/slam/entity/floors/Points;->getPointName()Ljava/lang/String;
+	48      (000000ca) move-result-object   v3
+	49      (000000cc) invoke-virtual       v2, v3, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+showRegion-BB@0xd2 : [ showRegion-BB@0xea showRegion-BB@0xfc ]
+	50      (000000d2) invoke-virtual       v8, Lcom/boat/support/slam/entity/floors/Region;->getEndPointId()J
+	51      (000000d8) move-result-wide     v2
+	52      (000000da) invoke-virtual       v1, Lcom/boat/support/slam/entity/floors/Points;->getPointId()J
+	53      (000000e0) move-result-wide     v4
+	54      (000000e2) cmp-long             v6, v2, v4
+	55      (000000e6) if-nez               v6, +00bh
+
+showRegion-BB@0xea : [ showRegion-BB@0xfc ]
+	56      (000000ea) iget-object          v2, v7, Lcom/jlboat/phone/activity/MapEditRegionActivity;->end_rid_tv Landroid/widget/TextView;
+	57      (000000ee) invoke-virtual       v1, Lcom/boat/support/slam/entity/floors/Points;->getPointName()Ljava/lang/String;
+	58      (000000f4) move-result-object   v3
+	59      (000000f6) invoke-virtual       v2, v3, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+showRegion-BB@0xfc : [ showRegion-BB@0x114 showRegion-BB@0x126 ]
+	60      (000000fc) invoke-virtual       v8, Lcom/boat/support/slam/entity/floors/Region;->getWaitPointId()J
+	61      (00000102) move-result-wide     v2
+	62      (00000104) invoke-virtual       v1, Lcom/boat/support/slam/entity/floors/Points;->getPointId()J
+	63      (0000010a) move-result-wide     v4
+	64      (0000010c) cmp-long             v6, v2, v4
+	65      (00000110) if-nez               v6, +00bh
+
+showRegion-BB@0x114 : [ showRegion-BB@0x126 ]
+	66      (00000114) iget-object          v2, v7, Lcom/jlboat/phone/activity/MapEditRegionActivity;->wait_rid_tv Landroid/widget/TextView;
+	67      (00000118) invoke-virtual       v1, Lcom/boat/support/slam/entity/floors/Points;->getPointName()Ljava/lang/String;
+	68      (0000011e) move-result-object   v3
+	69      (00000120) invoke-virtual       v2, v3, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+showRegion-BB@0x126 : [ showRegion-BB@0x90 ]
+	70      (00000126) goto                 -4bh
+
+showRegion-BB@0x128 : 
+	71      (00000128) iget-object          v0, v7, Lcom/jlboat/phone/activity/MapEditRegionActivity;->ok Landroid/widget/Button;
+	72      (0000012c) const/16             v1, 8
+	73      (00000130) invoke-virtual       v0, v1, Landroid/widget/Button;->setVisibility(I)V
+	74      (00000136) iget-object          v0, v7, Lcom/jlboat/phone/activity/MapEditRegionActivity;->add Landroid/widget/Button;
+	75      (0000013a) const/4              v2, 0
+	76      (0000013c) invoke-virtual       v0, v2, Landroid/widget/Button;->setVisibility(I)V
+	77      (00000142) iget-object          v0, v7, Lcom/jlboat/phone/activity/MapEditRegionActivity;->ivRectangle Landroid/widget/ImageView;
+	78      (00000146) invoke-virtual       v0, v1, Landroid/widget/ImageView;->setVisibility(I)V
+	79      (0000014c) return-void          
+

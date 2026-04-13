@@ -1,0 +1,13 @@
+# Lcom/boat/base/BaseService;->getMyApplication()Lcom/boat/base/BaseApplication; [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:com.boat.base.BaseApplication
+
+getMyApplication-BB@0x0 : 
+	0       (00000000) invoke-virtual       v1, Lcom/boat/base/BaseService;->getApplication()Landroid/app/Application;
+	1       (00000006) move-result-object   v0
+	2       (00000008) check-cast           v0, Lcom/boat/base/BaseApplication;
+	3       (0000000c) return-object        v0
+

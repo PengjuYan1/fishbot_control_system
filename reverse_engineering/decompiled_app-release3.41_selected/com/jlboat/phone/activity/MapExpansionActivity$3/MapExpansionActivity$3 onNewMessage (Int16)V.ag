@@ -1,0 +1,24 @@
+# Lcom/jlboat/phone/activity/MapExpansionActivity$3;->onNewMessage(Lcom/boat/jrosbridge/message/std_msgs/Int16;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:com.boat.jrosbridge.message.std_msgs.Int16
+#
+# - return:void
+
+onNewMessage-BB@0x0 : [ onNewMessage-BB@0x10 onNewMessage-BB@0x26 ]
+	0       (00000000) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapExpansionActivity$3;->this$0 Lcom/jlboat/phone/activity/MapExpansionActivity;
+	1       (00000004) invoke-static        v0, Lcom/jlboat/phone/activity/MapExpansionActivity;->access$300(Lcom/jlboat/phone/activity/MapExpansionActivity;)Z
+	2       (0000000a) move-result          v0
+	3       (0000000c) if-eqz               v0, +00dh
+
+onNewMessage-BB@0x10 : [ onNewMessage-BB@0x26 ]
+	4       (00000010) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapExpansionActivity$3;->this$0 Lcom/jlboat/phone/activity/MapExpansionActivity;
+	5       (00000014) const/4              v1, 0
+	6       (00000016) invoke-static        v0, v1, Lcom/jlboat/phone/activity/MapExpansionActivity;->access$302(Lcom/jlboat/phone/activity/MapExpansionActivity; Z)Z
+	7       (0000001c) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapExpansionActivity$3;->this$0 Lcom/jlboat/phone/activity/MapExpansionActivity;
+	8       (00000020) invoke-static        v0, Lcom/jlboat/phone/activity/MapExpansionActivity;->access$400(Lcom/jlboat/phone/activity/MapExpansionActivity;)V
+
+onNewMessage-BB@0x26 : 
+	9       (00000026) return-void          
+

@@ -1,0 +1,647 @@
+# Lcom/jlboat/phone/view/SonarView;->onDraw(Landroid/graphics/Canvas;)V [access_flags=protected]
+#
+# Parameters:
+# - local registers: v0...v32
+# - v33:android.graphics.Canvas
+#
+# - return:void
+
+onDraw-BB@0x0 : [ onDraw-BB@0xc8 onDraw-BB@0x8ba ]
+	0       (00000000) move-object/from16   v0, v32
+	1       (00000004) move-object/from16   v7, v33
+	2       (00000008) invoke-super/range   v32 ... v33, Landroid/view/View;->onDraw(Landroid/graphics/Canvas;)V
+	3       (0000000e) invoke-virtual/range v32, Lcom/jlboat/phone/view/SonarView;->getWidth()I
+	4       (00000014) move-result          v8
+	5       (00000016) invoke-virtual/range v32, Lcom/jlboat/phone/view/SonarView;->getHeight()I
+	6       (0000001c) move-result          v9
+	7       (0000001e) div-int/lit8         v10, v8, 2
+	8       (00000022) div-int/lit8         v11, v9, 2
+	9       (00000026) add-int/lit8         v12, v10, -20
+	10      (0000002a) iget-object          v1, v0, Lcom/jlboat/phone/view/SonarView;->pa Landroid/graphics/Paint;
+	11      (0000002e) const                v2, -16711936
+	12      (00000034) invoke-virtual       v1, v2, Landroid/graphics/Paint;->setColor(I)V
+	13      (0000003a) iget-object          v1, v0, Lcom/jlboat/phone/view/SonarView;->pa Landroid/graphics/Paint;
+	14      (0000003e) const/4              v13, 1
+	15      (00000040) invoke-virtual       v1, v13, Landroid/graphics/Paint;->setAntiAlias(Z)V
+	16      (00000046) iget-object          v1, v0, Lcom/jlboat/phone/view/SonarView;->pa Landroid/graphics/Paint;
+	17      (0000004a) sget-object          v2, Landroid/graphics/Paint$Style;->STROKE Landroid/graphics/Paint$Style;
+	18      (0000004e) invoke-virtual       v1, v2, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
+	19      (00000054) iget-object          v1, v0, Lcom/jlboat/phone/view/SonarView;->pa Landroid/graphics/Paint;
+	20      (00000058) const/high16         v2, 1077936128
+	21      (0000005c) invoke-virtual       v1, v2, Landroid/graphics/Paint;->setStrokeWidth(F)V
+	22      (00000062) int-to-float         v1, v10
+	23      (00000064) int-to-float         v2, v11
+	24      (00000066) int-to-float         v3, v12
+	25      (00000068) iget-object          v4, v0, Lcom/jlboat/phone/view/SonarView;->pa Landroid/graphics/Paint;
+	26      (0000006c) invoke-virtual       v7, v1, v2, v3, v4, Landroid/graphics/Canvas;->drawCircle(F F F Landroid/graphics/Paint;)V
+	27      (00000072) new-instance         v1, Landroid/graphics/Path;
+	28      (00000076) invoke-direct        v1, Landroid/graphics/Path;-><init>()V
+	29      (0000007c) move-object          v14, v1
+	30      (0000007e) int-to-float         v1, v10
+	31      (00000080) add-int/lit8         v2, v11, -50
+	32      (00000084) int-to-float         v2, v2
+	33      (00000086) invoke-virtual       v14, v1, v2, Landroid/graphics/Path;->moveTo(F F)V
+	34      (0000008c) add-int/lit8         v1, v10, -20
+	35      (00000090) int-to-float         v1, v1
+	36      (00000092) add-int/lit8         v2, v11, 30
+	37      (00000096) int-to-float         v2, v2
+	38      (00000098) invoke-virtual       v14, v1, v2, Landroid/graphics/Path;->lineTo(F F)V
+	39      (0000009e) add-int/lit8         v1, v10, 20
+	40      (000000a2) int-to-float         v1, v1
+	41      (000000a4) add-int/lit8         v2, v11, 30
+	42      (000000a8) int-to-float         v2, v2
+	43      (000000aa) invoke-virtual       v14, v1, v2, Landroid/graphics/Path;->lineTo(F F)V
+	44      (000000b0) invoke-virtual       v14, Landroid/graphics/Path;->close()V
+	45      (000000b6) iget-object          v1, v0, Lcom/jlboat/phone/view/SonarView;->circle Landroid/graphics/Paint;
+	46      (000000ba) invoke-virtual       v7, v14, v1, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path; Landroid/graphics/Paint;)V
+	47      (000000c0) iget-boolean         v1, v0, Lcom/jlboat/phone/view/SonarView;->hasdata Z
+	48      (000000c4) if-eqz               v1, +3fbh
+
+onDraw-BB@0xc8 : [ onDraw-BB@0x8c8 ]
+	49      (000000c8) int-to-double        v1, v10
+	50      (000000ca) iget                 v3, v0, Lcom/jlboat/phone/view/SonarView;->left_angel F
+	51      (000000ce) float-to-double      v3, v3
+	52      (000000d0) invoke-static        v3, v4, Ljava/lang/Math;->cos(D)D
+	53      (000000d6) move-result-wide     v3
+	54      (000000d8) iget-object          v5, v0, Lcom/jlboat/phone/view/SonarView;->ints Ljava/util/List;
+	55      (000000dc) const/4              v15, 2
+	56      (000000de) invoke-interface     v5, v15, Ljava/util/List;->get(I)Ljava/lang/Object;
+	57      (000000e4) move-result-object   v5
+	58      (000000e6) check-cast           v5, Ljava/lang/Integer;
+	59      (000000ea) invoke-virtual       v5, Ljava/lang/Integer;->intValue()I
+	60      (000000f0) move-result          v5
+	61      (000000f2) mul-int              v5, v5, v12
+	62      (000000f6) iget                 v6, v0, Lcom/jlboat/phone/view/SonarView;->sonar_max I
+	63      (000000fa) div-int/2addr        v5, v6
+	64      (000000fc) int-to-double        v5, v5
+	65      (000000fe) mul-double           v3, v3, v5
+	66      (00000102) sub-double/2addr     v1, v3
+	67      (00000104) double-to-int        v6, v1
+	68      (00000106) int-to-double        v1, v11
+	69      (00000108) iget                 v3, v0, Lcom/jlboat/phone/view/SonarView;->left_angel F
+	70      (0000010c) float-to-double      v3, v3
+	71      (0000010e) invoke-static        v3, v4, Ljava/lang/Math;->sin(D)D
+	72      (00000114) move-result-wide     v3
+	73      (00000116) iget-object          v5, v0, Lcom/jlboat/phone/view/SonarView;->ints Ljava/util/List;
+	74      (0000011a) invoke-interface     v5, v15, Ljava/util/List;->get(I)Ljava/lang/Object;
+	75      (00000120) move-result-object   v5
+	76      (00000122) check-cast           v5, Ljava/lang/Integer;
+	77      (00000126) invoke-virtual       v5, Ljava/lang/Integer;->intValue()I
+	78      (0000012c) move-result          v5
+	79      (0000012e) mul-int              v5, v5, v12
+	80      (00000132) iget                 v13, v0, Lcom/jlboat/phone/view/SonarView;->sonar_max I
+	81      (00000136) div-int/2addr        v5, v13
+	82      (00000138) move-object/from16   v17, v14
+	83      (0000013c) int-to-double        v13, v5
+	84      (0000013e) mul-double           v3, v3, v13
+	85      (00000142) sub-double/2addr     v1, v3
+	86      (00000144) double-to-int        v13, v1
+	87      (00000146) int-to-float         v2, v10
+	88      (00000148) int-to-float         v3, v11
+	89      (0000014a) int-to-float         v4, v6
+	90      (0000014c) int-to-float         v5, v13
+	91      (0000014e) iget-object          v14, v0, Lcom/jlboat/phone/view/SonarView;->mLinePaint Landroid/graphics/Paint;
+	92      (00000152) move-object/from16   v1, v33
+	93      (00000156) move                 v15, v6
+	94      (00000158) move-object          v6, v14
+	95      (0000015a) invoke-virtual/range v1 ... v6, Landroid/graphics/Canvas;->drawLine(F F F F Landroid/graphics/Paint;)V
+	96      (00000160) int-to-float         v1, v15
+	97      (00000162) int-to-float         v2, v13
+	98      (00000164) iget-object          v3, v0, Lcom/jlboat/phone/view/SonarView;->circle Landroid/graphics/Paint;
+	99      (00000168) const/high16         v14, 1088421888
+	100     (0000016c) invoke-virtual       v7, v1, v2, v14, v3, Landroid/graphics/Canvas;->drawCircle(F F F Landroid/graphics/Paint;)V
+	101     (00000172) new-instance         v1, Ljava/lang/StringBuilder;
+	102     (00000176) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	103     (0000017c) invoke-virtual/range v32, Lcom/jlboat/phone/view/SonarView;->getResources()Landroid/content/res/Resources;
+	104     (00000182) move-result-object   v2
+	105     (00000184) const                v3, 2131493187
+	106     (0000018a) invoke-virtual       v2, v3, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+	107     (00000190) move-result-object   v2
+	108     (00000192) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	109     (00000198) move-result-object   v1
+	110     (0000019a) const-string         v6, "("
+	111     (0000019e) invoke-virtual       v1, v6, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	112     (000001a4) move-result-object   v1
+	113     (000001a6) iget-object          v2, v0, Lcom/jlboat/phone/view/SonarView;->ints Ljava/util/List;
+	114     (000001aa) const/4              v3, 2
+	115     (000001ac) invoke-interface     v2, v3, Ljava/util/List;->get(I)Ljava/lang/Object;
+	116     (000001b2) move-result-object   v2
+	117     (000001b4) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+	118     (000001ba) move-result-object   v1
+	119     (000001bc) const-string         v5, ")"
+	120     (000001c0) invoke-virtual       v1, v5, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	121     (000001c6) move-result-object   v1
+	122     (000001c8) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	123     (000001ce) move-result-object   v1
+	124     (000001d0) int-to-double        v2, v10
+	125     (000001d2) iget                 v4, v0, Lcom/jlboat/phone/view/SonarView;->left_angel F
+	126     (000001d6) move/from16          v18, v15
+	127     (000001da) float-to-double      v14, v4
+	128     (000001dc) invoke-static        v14, v15, Ljava/lang/Math;->cos(D)D
+	129     (000001e2) move-result-wide     v14
+	130     (000001e4) move-object/from16   v19, v5
+	131     (000001e8) int-to-double        v4, v12
+	132     (000001ea) mul-double           v14, v14, v4
+	133     (000001ee) sub-double/2addr     v2, v14
+	134     (000001f0) double-to-int        v2, v2
+	135     (000001f2) int-to-float         v2, v2
+	136     (000001f4) int-to-double        v3, v11
+	137     (000001f6) iget                 v5, v0, Lcom/jlboat/phone/view/SonarView;->left_angel F
+	138     (000001fa) float-to-double      v14, v5
+	139     (000001fc) invoke-static        v14, v15, Ljava/lang/Math;->sin(D)D
+	140     (00000202) move-result-wide     v14
+	141     (00000204) move-object/from16   v20, v6
+	142     (00000208) int-to-double        v5, v12
+	143     (0000020a) mul-double           v14, v14, v5
+	144     (0000020e) sub-double/2addr     v3, v14
+	145     (00000210) double-to-int        v3, v3
+	146     (00000212) int-to-float         v3, v3
+	147     (00000214) iget-object          v4, v0, Lcom/jlboat/phone/view/SonarView;->mLinePaint Landroid/graphics/Paint;
+	148     (00000218) invoke-virtual       v7, v1, v2, v3, v4, Landroid/graphics/Canvas;->drawText(Ljava/lang/String; F F Landroid/graphics/Paint;)V
+	149     (0000021e) int-to-double        v1, v10
+	150     (00000220) iget                 v3, v0, Lcom/jlboat/phone/view/SonarView;->leftm_angel F
+	151     (00000224) float-to-double      v3, v3
+	152     (00000226) invoke-static        v3, v4, Ljava/lang/Math;->cos(D)D
+	153     (0000022c) move-result-wide     v3
+	154     (0000022e) iget-object          v5, v0, Lcom/jlboat/phone/view/SonarView;->ints Ljava/util/List;
+	155     (00000232) const/4              v14, 4
+	156     (00000234) invoke-interface     v5, v14, Ljava/util/List;->get(I)Ljava/lang/Object;
+	157     (0000023a) move-result-object   v5
+	158     (0000023c) check-cast           v5, Ljava/lang/Integer;
+	159     (00000240) invoke-virtual       v5, Ljava/lang/Integer;->intValue()I
+	160     (00000246) move-result          v5
+	161     (00000248) mul-int              v5, v5, v12
+	162     (0000024c) iget                 v6, v0, Lcom/jlboat/phone/view/SonarView;->sonar_max I
+	163     (00000250) div-int/2addr        v5, v6
+	164     (00000252) int-to-double        v5, v5
+	165     (00000254) mul-double           v3, v3, v5
+	166     (00000258) sub-double/2addr     v1, v3
+	167     (0000025a) double-to-int        v15, v1
+	168     (0000025c) int-to-double        v1, v11
+	169     (0000025e) iget                 v3, v0, Lcom/jlboat/phone/view/SonarView;->leftm_angel F
+	170     (00000262) float-to-double      v3, v3
+	171     (00000264) invoke-static        v3, v4, Ljava/lang/Math;->sin(D)D
+	172     (0000026a) move-result-wide     v3
+	173     (0000026c) iget-object          v5, v0, Lcom/jlboat/phone/view/SonarView;->ints Ljava/util/List;
+	174     (00000270) invoke-interface     v5, v14, Ljava/util/List;->get(I)Ljava/lang/Object;
+	175     (00000276) move-result-object   v5
+	176     (00000278) check-cast           v5, Ljava/lang/Integer;
+	177     (0000027c) invoke-virtual       v5, Ljava/lang/Integer;->intValue()I
+	178     (00000282) move-result          v5
+	179     (00000284) mul-int              v5, v5, v12
+	180     (00000288) iget                 v6, v0, Lcom/jlboat/phone/view/SonarView;->sonar_max I
+	181     (0000028c) div-int/2addr        v5, v6
+	182     (0000028e) int-to-double        v5, v5
+	183     (00000290) mul-double           v3, v3, v5
+	184     (00000294) sub-double/2addr     v1, v3
+	185     (00000296) double-to-int        v6, v1
+	186     (00000298) int-to-float         v2, v10
+	187     (0000029a) int-to-float         v3, v11
+	188     (0000029c) int-to-float         v4, v15
+	189     (0000029e) int-to-float         v5, v6
+	190     (000002a0) iget-object          v1, v0, Lcom/jlboat/phone/view/SonarView;->mLinePaint Landroid/graphics/Paint;
+	191     (000002a4) move-object/from16   v21, v1
+	192     (000002a8) move-object/from16   v1, v33
+	193     (000002ac) move-object/from16   v22, v19
+	194     (000002b0) move                 v14, v6
+	195     (000002b2) move-object/from16   v31, v20
+	196     (000002b6) move/from16          v20, v9
+	197     (000002ba) move-object/from16   v9, v31
+	198     (000002be) move-object/from16   v6, v21
+	199     (000002c2) invoke-virtual/range v1 ... v6, Landroid/graphics/Canvas;->drawLine(F F F F Landroid/graphics/Paint;)V
+	200     (000002c8) int-to-float         v1, v15
+	201     (000002ca) int-to-float         v2, v14
+	202     (000002cc) iget-object          v3, v0, Lcom/jlboat/phone/view/SonarView;->circle Landroid/graphics/Paint;
+	203     (000002d0) const/high16         v4, 1088421888
+	204     (000002d4) invoke-virtual       v7, v1, v2, v4, v3, Landroid/graphics/Canvas;->drawCircle(F F F Landroid/graphics/Paint;)V
+	205     (000002da) new-instance         v1, Ljava/lang/StringBuilder;
+	206     (000002de) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	207     (000002e4) invoke-virtual/range v32, Lcom/jlboat/phone/view/SonarView;->getResources()Landroid/content/res/Resources;
+	208     (000002ea) move-result-object   v2
+	209     (000002ec) const                v3, 2131493188
+	210     (000002f2) invoke-virtual       v2, v3, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+	211     (000002f8) move-result-object   v2
+	212     (000002fa) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	213     (00000300) move-result-object   v1
+	214     (00000302) invoke-virtual       v1, v9, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	215     (00000308) move-result-object   v1
+	216     (0000030a) iget-object          v2, v0, Lcom/jlboat/phone/view/SonarView;->ints Ljava/util/List;
+	217     (0000030e) const/4              v3, 4
+	218     (00000310) invoke-interface     v2, v3, Ljava/util/List;->get(I)Ljava/lang/Object;
+	219     (00000316) move-result-object   v2
+	220     (00000318) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+	221     (0000031e) move-result-object   v1
+	222     (00000320) move-object/from16   v6, v22
+	223     (00000324) invoke-virtual       v1, v6, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	224     (0000032a) move-result-object   v1
+	225     (0000032c) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	226     (00000332) move-result-object   v1
+	227     (00000334) int-to-double        v2, v10
+	228     (00000336) iget                 v4, v0, Lcom/jlboat/phone/view/SonarView;->leftm_angel F
+	229     (0000033a) float-to-double      v4, v4
+	230     (0000033c) invoke-static        v4, v5, Ljava/lang/Math;->cos(D)D
+	231     (00000342) move-result-wide     v4
+	232     (00000344) move/from16          v19, v13
+	233     (00000348) move/from16          v21, v14
+	234     (0000034c) int-to-double        v13, v12
+	235     (0000034e) mul-double           v4, v4, v13
+	236     (00000352) sub-double/2addr     v2, v4
+	237     (00000354) double-to-int        v2, v2
+	238     (00000356) int-to-float         v2, v2
+	239     (00000358) int-to-double        v3, v11
+	240     (0000035a) iget                 v5, v0, Lcom/jlboat/phone/view/SonarView;->leftm_angel F
+	241     (0000035e) float-to-double      v13, v5
+	242     (00000360) invoke-static        v13, v14, Ljava/lang/Math;->sin(D)D
+	243     (00000366) move-result-wide     v13
+	244     (00000368) int-to-double        v5, v12
+	245     (0000036a) mul-double           v13, v13, v5
+	246     (0000036e) sub-double/2addr     v3, v13
+	247     (00000370) double-to-int        v3, v3
+	248     (00000372) int-to-float         v3, v3
+	249     (00000374) iget-object          v4, v0, Lcom/jlboat/phone/view/SonarView;->mLinePaint Landroid/graphics/Paint;
+	250     (00000378) invoke-virtual       v7, v1, v2, v3, v4, Landroid/graphics/Canvas;->drawText(Ljava/lang/String; F F Landroid/graphics/Paint;)V
+	251     (0000037e) add-int/lit8         v13, v10, -10
+	252     (00000382) iget-object          v1, v0, Lcom/jlboat/phone/view/SonarView;->ints Ljava/util/List;
+	253     (00000386) const/4              v14, 0
+	254     (00000388) invoke-interface     v1, v14, Ljava/util/List;->get(I)Ljava/lang/Object;
+	255     (0000038e) move-result-object   v1
+	256     (00000390) check-cast           v1, Ljava/lang/Integer;
+	257     (00000394) invoke-virtual       v1, Ljava/lang/Integer;->intValue()I
+	258     (0000039a) move-result          v1
+	259     (0000039c) mul-int              v1, v1, v12
+	260     (000003a0) iget                 v2, v0, Lcom/jlboat/phone/view/SonarView;->sonar_max I
+	261     (000003a4) div-int/2addr        v1, v2
+	262     (000003a6) sub-int              v6, v11, v1
+	263     (000003aa) add-int/lit8         v1, v10, -10
+	264     (000003ae) int-to-float         v2, v1
+	265     (000003b0) add-int/lit8         v1, v11, -5
+	266     (000003b4) int-to-float         v3, v1
+	267     (000003b6) int-to-float         v4, v13
+	268     (000003b8) int-to-float         v5, v6
+	269     (000003ba) iget-object          v1, v0, Lcom/jlboat/phone/view/SonarView;->mLinePaint Landroid/graphics/Paint;
+	270     (000003be) move-object/from16   v23, v1
+	271     (000003c2) move-object/from16   v1, v33
+	272     (000003c6) move                 v14, v6
+	273     (000003c8) move-object/from16   v31, v22
+	274     (000003cc) move/from16          v22, v15
+	275     (000003d0) move-object/from16   v15, v31
+	276     (000003d4) move-object/from16   v6, v23
+	277     (000003d8) invoke-virtual/range v1 ... v6, Landroid/graphics/Canvas;->drawLine(F F F F Landroid/graphics/Paint;)V
+	278     (000003de) int-to-float         v1, v13
+	279     (000003e0) int-to-float         v2, v14
+	280     (000003e2) iget-object          v3, v0, Lcom/jlboat/phone/view/SonarView;->circle Landroid/graphics/Paint;
+	281     (000003e6) const/high16         v4, 1088421888
+	282     (000003ea) invoke-virtual       v7, v1, v2, v4, v3, Landroid/graphics/Canvas;->drawCircle(F F F Landroid/graphics/Paint;)V
+	283     (000003f0) new-instance         v1, Ljava/lang/StringBuilder;
+	284     (000003f4) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	285     (000003fa) invoke-virtual/range v32, Lcom/jlboat/phone/view/SonarView;->getResources()Landroid/content/res/Resources;
+	286     (00000400) move-result-object   v2
+	287     (00000402) const                v3, 2131493186
+	288     (00000408) invoke-virtual       v2, v3, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+	289     (0000040e) move-result-object   v2
+	290     (00000410) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	291     (00000416) move-result-object   v1
+	292     (00000418) invoke-virtual       v1, v9, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	293     (0000041e) move-result-object   v1
+	294     (00000420) iget-object          v2, v0, Lcom/jlboat/phone/view/SonarView;->ints Ljava/util/List;
+	295     (00000424) const/4              v3, 0
+	296     (00000426) invoke-interface     v2, v3, Ljava/util/List;->get(I)Ljava/lang/Object;
+	297     (0000042c) move-result-object   v2
+	298     (0000042e) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+	299     (00000434) move-result-object   v1
+	300     (00000436) invoke-virtual       v1, v15, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	301     (0000043c) move-result-object   v1
+	302     (0000043e) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	303     (00000444) move-result-object   v1
+	304     (00000446) add-int/lit8         v2, v10, -90
+	305     (0000044a) int-to-float         v2, v2
+	306     (0000044c) iget-object          v3, v0, Lcom/jlboat/phone/view/SonarView;->mLinePaint Landroid/graphics/Paint;
+	307     (00000450) const/high16         v6, 1108082688
+	308     (00000454) invoke-virtual       v7, v1, v2, v6, v3, Landroid/graphics/Canvas;->drawText(Ljava/lang/String; F F Landroid/graphics/Paint;)V
+	309     (0000045a) add-int/lit8         v5, v10, 10
+	310     (0000045e) iget-object          v1, v0, Lcom/jlboat/phone/view/SonarView;->ints Ljava/util/List;
+	311     (00000462) const/4              v2, 1
+	312     (00000464) invoke-interface     v1, v2, Ljava/util/List;->get(I)Ljava/lang/Object;
+	313     (0000046a) move-result-object   v1
+	314     (0000046c) check-cast           v1, Ljava/lang/Integer;
+	315     (00000470) invoke-virtual       v1, Ljava/lang/Integer;->intValue()I
+	316     (00000476) move-result          v1
+	317     (00000478) mul-int              v1, v1, v12
+	318     (0000047c) iget                 v2, v0, Lcom/jlboat/phone/view/SonarView;->sonar_max I
+	319     (00000480) div-int/2addr        v1, v2
+	320     (00000482) sub-int              v4, v11, v1
+	321     (00000486) add-int/lit8         v1, v10, 10
+	322     (0000048a) int-to-float         v2, v1
+	323     (0000048c) add-int/lit8         v1, v11, -5
+	324     (00000490) int-to-float         v3, v1
+	325     (00000492) int-to-float         v1, v5
+	326     (00000494) int-to-float         v6, v4
+	327     (00000496) move/from16          v24, v13
+	328     (0000049a) iget-object          v13, v0, Lcom/jlboat/phone/view/SonarView;->mLinePaint Landroid/graphics/Paint;
+	329     (0000049e) move/from16          v25, v1
+	330     (000004a2) move-object/from16   v1, v33
+	331     (000004a6) move/from16          v26, v14
+	332     (000004aa) move                 v14, v4
+	333     (000004ac) move/from16          v4, v25
+	334     (000004b0) move/from16          v25, v8
+	335     (000004b4) move                 v8, v5
+	336     (000004b6) move                 v5, v6
+	337     (000004b8) move/from16          v27, v11
+	338     (000004bc) const/high16         v11, 1108082688
+	339     (000004c0) move-object          v6, v13
+	340     (000004c2) invoke-virtual/range v1 ... v6, Landroid/graphics/Canvas;->drawLine(F F F F Landroid/graphics/Paint;)V
+	341     (000004c8) int-to-float         v1, v8
+	342     (000004ca) int-to-float         v2, v14
+	343     (000004cc) iget-object          v3, v0, Lcom/jlboat/phone/view/SonarView;->circle Landroid/graphics/Paint;
+	344     (000004d0) const/high16         v4, 1088421888
+	345     (000004d4) invoke-virtual       v7, v1, v2, v4, v3, Landroid/graphics/Canvas;->drawCircle(F F F Landroid/graphics/Paint;)V
+	346     (000004da) new-instance         v1, Ljava/lang/StringBuilder;
+	347     (000004de) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	348     (000004e4) invoke-virtual/range v32, Lcom/jlboat/phone/view/SonarView;->getResources()Landroid/content/res/Resources;
+	349     (000004ea) move-result-object   v2
+	350     (000004ec) const                v3, 2131493191
+	351     (000004f2) invoke-virtual       v2, v3, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+	352     (000004f8) move-result-object   v2
+	353     (000004fa) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	354     (00000500) move-result-object   v1
+	355     (00000502) invoke-virtual       v1, v9, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	356     (00000508) move-result-object   v1
+	357     (0000050a) iget-object          v2, v0, Lcom/jlboat/phone/view/SonarView;->ints Ljava/util/List;
+	358     (0000050e) const/4              v3, 1
+	359     (00000510) invoke-interface     v2, v3, Ljava/util/List;->get(I)Ljava/lang/Object;
+	360     (00000516) move-result-object   v2
+	361     (00000518) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+	362     (0000051e) move-result-object   v1
+	363     (00000520) invoke-virtual       v1, v15, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	364     (00000526) move-result-object   v1
+	365     (00000528) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	366     (0000052e) move-result-object   v1
+	367     (00000530) add-int/lit8         v2, v10, 30
+	368     (00000534) int-to-float         v2, v2
+	369     (00000536) iget-object          v3, v0, Lcom/jlboat/phone/view/SonarView;->mLinePaint Landroid/graphics/Paint;
+	370     (0000053a) invoke-virtual       v7, v1, v2, v11, v3, Landroid/graphics/Canvas;->drawText(Ljava/lang/String; F F Landroid/graphics/Paint;)V
+	371     (00000540) int-to-double        v1, v10
+	372     (00000542) iget                 v3, v0, Lcom/jlboat/phone/view/SonarView;->right_angel F
+	373     (00000546) float-to-double      v3, v3
+	374     (00000548) invoke-static        v3, v4, Ljava/lang/Math;->cos(D)D
+	375     (0000054e) move-result-wide     v3
+	376     (00000550) iget-object          v5, v0, Lcom/jlboat/phone/view/SonarView;->ints Ljava/util/List;
+	377     (00000554) const/4              v11, 3
+	378     (00000556) invoke-interface     v5, v11, Ljava/util/List;->get(I)Ljava/lang/Object;
+	379     (0000055c) move-result-object   v5
+	380     (0000055e) check-cast           v5, Ljava/lang/Integer;
+	381     (00000562) invoke-virtual       v5, Ljava/lang/Integer;->intValue()I
+	382     (00000568) move-result          v5
+	383     (0000056a) mul-int              v5, v5, v12
+	384     (0000056e) iget                 v6, v0, Lcom/jlboat/phone/view/SonarView;->sonar_max I
+	385     (00000572) div-int/2addr        v5, v6
+	386     (00000574) int-to-double        v5, v5
+	387     (00000576) mul-double           v3, v3, v5
+	388     (0000057a) sub-double/2addr     v1, v3
+	389     (0000057c) double-to-int        v13, v1
+	390     (0000057e) move/from16          v6, v27
+	391     (00000582) int-to-double        v1, v6
+	392     (00000584) iget                 v3, v0, Lcom/jlboat/phone/view/SonarView;->right_angel F
+	393     (00000588) float-to-double      v3, v3
+	394     (0000058a) invoke-static        v3, v4, Ljava/lang/Math;->sin(D)D
+	395     (00000590) move-result-wide     v3
+	396     (00000592) iget-object          v5, v0, Lcom/jlboat/phone/view/SonarView;->ints Ljava/util/List;
+	397     (00000596) invoke-interface     v5, v11, Ljava/util/List;->get(I)Ljava/lang/Object;
+	398     (0000059c) move-result-object   v5
+	399     (0000059e) check-cast           v5, Ljava/lang/Integer;
+	400     (000005a2) invoke-virtual       v5, Ljava/lang/Integer;->intValue()I
+	401     (000005a8) move-result          v5
+	402     (000005aa) mul-int              v5, v5, v12
+	403     (000005ae) iget                 v11, v0, Lcom/jlboat/phone/view/SonarView;->sonar_max I
+	404     (000005b2) div-int/2addr        v5, v11
+	405     (000005b4) move/from16          v23, v12
+	406     (000005b8) int-to-double        v11, v5
+	407     (000005ba) mul-double           v3, v3, v11
+	408     (000005be) sub-double/2addr     v1, v3
+	409     (000005c0) double-to-int        v11, v1
+	410     (000005c2) int-to-float         v2, v10
+	411     (000005c4) int-to-float         v3, v6
+	412     (000005c6) int-to-float         v4, v13
+	413     (000005c8) int-to-float         v5, v11
+	414     (000005ca) iget-object          v12, v0, Lcom/jlboat/phone/view/SonarView;->mLinePaint Landroid/graphics/Paint;
+	415     (000005ce) move-object/from16   v1, v33
+	416     (000005d2) move/from16          v27, v8
+	417     (000005d6) move                 v8, v6
+	418     (000005d8) move-object          v6, v12
+	419     (000005da) invoke-virtual/range v1 ... v6, Landroid/graphics/Canvas;->drawLine(F F F F Landroid/graphics/Paint;)V
+	420     (000005e0) int-to-float         v1, v13
+	421     (000005e2) int-to-float         v2, v11
+	422     (000005e4) iget-object          v3, v0, Lcom/jlboat/phone/view/SonarView;->circle Landroid/graphics/Paint;
+	423     (000005e8) const/high16         v4, 1088421888
+	424     (000005ec) invoke-virtual       v7, v1, v2, v4, v3, Landroid/graphics/Canvas;->drawCircle(F F F Landroid/graphics/Paint;)V
+	425     (000005f2) new-instance         v1, Ljava/lang/StringBuilder;
+	426     (000005f6) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	427     (000005fc) invoke-virtual/range v32, Lcom/jlboat/phone/view/SonarView;->getResources()Landroid/content/res/Resources;
+	428     (00000602) move-result-object   v2
+	429     (00000604) const                v3, 2131493189
+	430     (0000060a) invoke-virtual       v2, v3, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+	431     (00000610) move-result-object   v2
+	432     (00000612) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	433     (00000618) move-result-object   v1
+	434     (0000061a) invoke-virtual       v1, v9, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	435     (00000620) move-result-object   v1
+	436     (00000622) iget-object          v2, v0, Lcom/jlboat/phone/view/SonarView;->ints Ljava/util/List;
+	437     (00000626) const/4              v3, 3
+	438     (00000628) invoke-interface     v2, v3, Ljava/util/List;->get(I)Ljava/lang/Object;
+	439     (0000062e) move-result-object   v2
+	440     (00000630) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+	441     (00000636) move-result-object   v1
+	442     (00000638) invoke-virtual       v1, v15, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	443     (0000063e) move-result-object   v1
+	444     (00000640) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	445     (00000646) move-result-object   v1
+	446     (00000648) int-to-double        v2, v10
+	447     (0000064a) iget                 v4, v0, Lcom/jlboat/phone/view/SonarView;->right_angel F
+	448     (0000064e) float-to-double      v4, v4
+	449     (00000650) invoke-static        v4, v5, Ljava/lang/Math;->cos(D)D
+	450     (00000656) move-result-wide     v4
+	451     (00000658) move/from16          v16, v14
+	452     (0000065c) move/from16          v12, v23
+	453     (00000660) move/from16          v23, v13
+	454     (00000664) int-to-double        v13, v12
+	455     (00000666) mul-double           v4, v4, v13
+	456     (0000066a) sub-double/2addr     v2, v4
+	457     (0000066c) double-to-int        v2, v2
+	458     (0000066e) add-int/lit8         v2, v2, -125
+	459     (00000672) int-to-float         v2, v2
+	460     (00000674) int-to-double        v3, v8
+	461     (00000676) iget                 v5, v0, Lcom/jlboat/phone/view/SonarView;->right_angel F
+	462     (0000067a) float-to-double      v5, v5
+	463     (0000067c) invoke-static        v5, v6, Ljava/lang/Math;->sin(D)D
+	464     (00000682) move-result-wide     v5
+	465     (00000684) int-to-double        v13, v12
+	466     (00000686) mul-double           v5, v5, v13
+	467     (0000068a) sub-double/2addr     v3, v5
+	468     (0000068c) double-to-int        v3, v3
+	469     (0000068e) int-to-float         v3, v3
+	470     (00000690) iget-object          v4, v0, Lcom/jlboat/phone/view/SonarView;->mLinePaint Landroid/graphics/Paint;
+	471     (00000694) invoke-virtual       v7, v1, v2, v3, v4, Landroid/graphics/Canvas;->drawText(Ljava/lang/String; F F Landroid/graphics/Paint;)V
+	472     (0000069a) int-to-double        v1, v10
+	473     (0000069c) iget                 v3, v0, Lcom/jlboat/phone/view/SonarView;->rightm_angel F
+	474     (000006a0) float-to-double      v3, v3
+	475     (000006a2) invoke-static        v3, v4, Ljava/lang/Math;->cos(D)D
+	476     (000006a8) move-result-wide     v3
+	477     (000006aa) iget-object          v5, v0, Lcom/jlboat/phone/view/SonarView;->ints Ljava/util/List;
+	478     (000006ae) const/4              v13, 5
+	479     (000006b0) invoke-interface     v5, v13, Ljava/util/List;->get(I)Ljava/lang/Object;
+	480     (000006b6) move-result-object   v5
+	481     (000006b8) check-cast           v5, Ljava/lang/Integer;
+	482     (000006bc) invoke-virtual       v5, Ljava/lang/Integer;->intValue()I
+	483     (000006c2) move-result          v5
+	484     (000006c4) mul-int              v5, v5, v12
+	485     (000006c8) iget                 v6, v0, Lcom/jlboat/phone/view/SonarView;->sonar_max I
+	486     (000006cc) div-int/2addr        v5, v6
+	487     (000006ce) int-to-double        v5, v5
+	488     (000006d0) mul-double           v3, v3, v5
+	489     (000006d4) sub-double/2addr     v1, v3
+	490     (000006d6) double-to-int        v14, v1
+	491     (000006d8) int-to-double        v1, v8
+	492     (000006da) iget                 v3, v0, Lcom/jlboat/phone/view/SonarView;->rightm_angel F
+	493     (000006de) float-to-double      v3, v3
+	494     (000006e0) invoke-static        v3, v4, Ljava/lang/Math;->sin(D)D
+	495     (000006e6) move-result-wide     v3
+	496     (000006e8) iget-object          v5, v0, Lcom/jlboat/phone/view/SonarView;->ints Ljava/util/List;
+	497     (000006ec) invoke-interface     v5, v13, Ljava/util/List;->get(I)Ljava/lang/Object;
+	498     (000006f2) move-result-object   v5
+	499     (000006f4) check-cast           v5, Ljava/lang/Integer;
+	500     (000006f8) invoke-virtual       v5, Ljava/lang/Integer;->intValue()I
+	501     (000006fe) move-result          v5
+	502     (00000700) mul-int              v5, v5, v12
+	503     (00000704) iget                 v6, v0, Lcom/jlboat/phone/view/SonarView;->sonar_max I
+	504     (00000708) div-int/2addr        v5, v6
+	505     (0000070a) int-to-double        v5, v5
+	506     (0000070c) mul-double           v3, v3, v5
+	507     (00000710) sub-double/2addr     v1, v3
+	508     (00000712) double-to-int        v6, v1
+	509     (00000714) int-to-float         v2, v10
+	510     (00000716) int-to-float         v3, v8
+	511     (00000718) int-to-float         v4, v14
+	512     (0000071a) int-to-float         v5, v6
+	513     (0000071c) iget-object          v1, v0, Lcom/jlboat/phone/view/SonarView;->mLinePaint Landroid/graphics/Paint;
+	514     (00000720) move-object/from16   v28, v1
+	515     (00000724) move-object/from16   v1, v33
+	516     (00000728) move                 v13, v6
+	517     (0000072a) move-object/from16   v6, v28
+	518     (0000072e) invoke-virtual/range v1 ... v6, Landroid/graphics/Canvas;->drawLine(F F F F Landroid/graphics/Paint;)V
+	519     (00000734) int-to-float         v1, v14
+	520     (00000736) int-to-float         v2, v13
+	521     (00000738) iget-object          v3, v0, Lcom/jlboat/phone/view/SonarView;->circle Landroid/graphics/Paint;
+	522     (0000073c) const/high16         v4, 1088421888
+	523     (00000740) invoke-virtual       v7, v1, v2, v4, v3, Landroid/graphics/Canvas;->drawCircle(F F F Landroid/graphics/Paint;)V
+	524     (00000746) new-instance         v1, Ljava/lang/StringBuilder;
+	525     (0000074a) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	526     (00000750) invoke-virtual/range v32, Lcom/jlboat/phone/view/SonarView;->getResources()Landroid/content/res/Resources;
+	527     (00000756) move-result-object   v2
+	528     (00000758) const                v3, 2131493190
+	529     (0000075e) invoke-virtual       v2, v3, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+	530     (00000764) move-result-object   v2
+	531     (00000766) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	532     (0000076c) move-result-object   v1
+	533     (0000076e) invoke-virtual       v1, v9, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	534     (00000774) move-result-object   v1
+	535     (00000776) iget-object          v2, v0, Lcom/jlboat/phone/view/SonarView;->ints Ljava/util/List;
+	536     (0000077a) const/4              v3, 5
+	537     (0000077c) invoke-interface     v2, v3, Ljava/util/List;->get(I)Ljava/lang/Object;
+	538     (00000782) move-result-object   v2
+	539     (00000784) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+	540     (0000078a) move-result-object   v1
+	541     (0000078c) invoke-virtual       v1, v15, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	542     (00000792) move-result-object   v1
+	543     (00000794) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	544     (0000079a) move-result-object   v1
+	545     (0000079c) int-to-double        v2, v10
+	546     (0000079e) iget                 v4, v0, Lcom/jlboat/phone/view/SonarView;->rightm_angel F
+	547     (000007a2) float-to-double      v4, v4
+	548     (000007a4) invoke-static        v4, v5, Ljava/lang/Math;->cos(D)D
+	549     (000007aa) move-result-wide     v4
+	550     (000007ac) move/from16          v29, v13
+	551     (000007b0) move/from16          v28, v14
+	552     (000007b4) int-to-double        v13, v12
+	553     (000007b6) mul-double           v4, v4, v13
+	554     (000007ba) sub-double/2addr     v2, v4
+	555     (000007bc) double-to-int        v2, v2
+	556     (000007be) add-int/lit8         v2, v2, -60
+	557     (000007c2) int-to-float         v2, v2
+	558     (000007c4) int-to-double        v3, v8
+	559     (000007c6) iget                 v5, v0, Lcom/jlboat/phone/view/SonarView;->rightm_angel F
+	560     (000007ca) float-to-double      v5, v5
+	561     (000007cc) invoke-static        v5, v6, Ljava/lang/Math;->sin(D)D
+	562     (000007d2) move-result-wide     v5
+	563     (000007d4) int-to-double        v13, v12
+	564     (000007d6) mul-double           v5, v5, v13
+	565     (000007da) sub-double/2addr     v3, v5
+	566     (000007dc) double-to-int        v3, v3
+	567     (000007de) int-to-float         v3, v3
+	568     (000007e0) iget-object          v4, v0, Lcom/jlboat/phone/view/SonarView;->mLinePaint Landroid/graphics/Paint;
+	569     (000007e4) invoke-virtual       v7, v1, v2, v3, v4, Landroid/graphics/Canvas;->drawText(Ljava/lang/String; F F Landroid/graphics/Paint;)V
+	570     (000007ea) div-int/lit8         v13, v25, 2
+	571     (000007ee) iget-object          v1, v0, Lcom/jlboat/phone/view/SonarView;->ints Ljava/util/List;
+	572     (000007f2) const/4              v14, 6
+	573     (000007f4) invoke-interface     v1, v14, Ljava/util/List;->get(I)Ljava/lang/Object;
+	574     (000007fa) move-result-object   v1
+	575     (000007fc) check-cast           v1, Ljava/lang/Integer;
+	576     (00000800) invoke-virtual       v1, Ljava/lang/Integer;->intValue()I
+	577     (00000806) move-result          v1
+	578     (00000808) mul-int              v1, v1, v12
+	579     (0000080c) iget                 v2, v0, Lcom/jlboat/phone/view/SonarView;->sonar_max I
+	580     (00000810) div-int/2addr        v1, v2
+	581     (00000812) add-int              v6, v8, v1
+	582     (00000816) int-to-float         v2, v10
+	583     (00000818) int-to-float         v3, v8
+	584     (0000081a) int-to-float         v4, v13
+	585     (0000081c) int-to-float         v5, v6
+	586     (0000081e) iget-object          v1, v0, Lcom/jlboat/phone/view/SonarView;->mLinePaint Landroid/graphics/Paint;
+	587     (00000822) move-object/from16   v30, v1
+	588     (00000826) move-object/from16   v1, v33
+	589     (0000082a) move                 v14, v6
+	590     (0000082c) move-object/from16   v6, v30
+	591     (00000830) invoke-virtual/range v1 ... v6, Landroid/graphics/Canvas;->drawLine(F F F F Landroid/graphics/Paint;)V
+	592     (00000836) int-to-float         v1, v13
+	593     (00000838) int-to-float         v2, v14
+	594     (0000083a) iget-object          v3, v0, Lcom/jlboat/phone/view/SonarView;->circle Landroid/graphics/Paint;
+	595     (0000083e) const/high16         v4, 1088421888
+	596     (00000842) invoke-virtual       v7, v1, v2, v4, v3, Landroid/graphics/Canvas;->drawCircle(F F F Landroid/graphics/Paint;)V
+	597     (00000848) new-instance         v1, Ljava/lang/StringBuilder;
+	598     (0000084c) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	599     (00000852) invoke-virtual/range v32, Lcom/jlboat/phone/view/SonarView;->getResources()Landroid/content/res/Resources;
+	600     (00000858) move-result-object   v2
+	601     (0000085a) const                v3, 2131493185
+	602     (00000860) invoke-virtual       v2, v3, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+	603     (00000866) move-result-object   v2
+	604     (00000868) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	605     (0000086e) move-result-object   v1
+	606     (00000870) invoke-virtual       v1, v9, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	607     (00000876) move-result-object   v1
+	608     (00000878) iget-object          v2, v0, Lcom/jlboat/phone/view/SonarView;->ints Ljava/util/List;
+	609     (0000087c) const/4              v3, 6
+	610     (0000087e) invoke-interface     v2, v3, Ljava/util/List;->get(I)Ljava/lang/Object;
+	611     (00000884) move-result-object   v2
+	612     (00000886) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+	613     (0000088c) move-result-object   v1
+	614     (0000088e) invoke-virtual       v1, v15, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	615     (00000894) move-result-object   v1
+	616     (00000896) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	617     (0000089c) move-result-object   v1
+	618     (0000089e) add-int/lit8         v2, v10, 10
+	619     (000008a2) int-to-float         v2, v2
+	620     (000008a4) mul-int/lit8         v3, v8, 2
+	621     (000008a8) add-int/lit8         v3, v3, -20
+	622     (000008ac) int-to-float         v3, v3
+	623     (000008ae) iget-object          v4, v0, Lcom/jlboat/phone/view/SonarView;->mLinePaint Landroid/graphics/Paint;
+	624     (000008b2) invoke-virtual       v7, v1, v2, v3, v4, Landroid/graphics/Canvas;->drawText(Ljava/lang/String; F F Landroid/graphics/Paint;)V
+	625     (000008b8) goto                 +8h
+
+onDraw-BB@0x8ba : [ onDraw-BB@0x8c8 ]
+	626     (000008ba) move/from16          v25, v8
+	627     (000008be) move/from16          v20, v9
+	628     (000008c2) move                 v8, v11
+	629     (000008c4) move-object/from16   v17, v14
+
+onDraw-BB@0x8c8 : 
+	630     (000008c8) return-void          
+

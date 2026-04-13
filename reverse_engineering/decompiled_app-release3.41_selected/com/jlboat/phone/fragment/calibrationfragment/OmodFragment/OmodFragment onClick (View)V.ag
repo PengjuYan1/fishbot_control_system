@@ -1,0 +1,48 @@
+# Lcom/jlboat/phone/fragment/calibrationfragment/OmodFragment;->onClick(Landroid/view/View;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:android.view.View
+#
+# - return:void
+
+onClick-BB@0x0 : [ D:onClick-BB@0xe 2131231191:onClick-BB@0x40 2131231194:onClick-BB@0x34 2131231206:onClick-BB@0x28 2131231208:onClick-BB@0x1c 2131231209:onClick-BB@0x10 ]
+	0       (00000000) invoke-virtual       v2, Landroid/view/View;->getId()I
+	1       (00000006) move-result          v0
+	2       (00000008) sparse-switch        v0, +0000024h
+
+onClick-BB@0xe : [ onClick-BB@0x4c ]
+	3       (0000000e) goto                 +1fh
+
+onClick-BB@0x10 : [ onClick-BB@0x4c ]
+	4       (00000010) const/16             v0, 104
+	5       (00000014) invoke-direct        v1, v0, Lcom/jlboat/phone/fragment/calibrationfragment/OmodFragment;->setTest(I)V
+	6       (0000001a) goto                 +19h
+
+onClick-BB@0x1c : [ onClick-BB@0x4c ]
+	7       (0000001c) const/16             v0, 103
+	8       (00000020) invoke-direct        v1, v0, Lcom/jlboat/phone/fragment/calibrationfragment/OmodFragment;->setTest(I)V
+	9       (00000026) goto                 +13h
+
+onClick-BB@0x28 : [ onClick-BB@0x4c ]
+	10      (00000028) const/16             v0, 105
+	11      (0000002c) invoke-direct        v1, v0, Lcom/jlboat/phone/fragment/calibrationfragment/OmodFragment;->setTest(I)V
+	12      (00000032) goto                 +dh
+
+onClick-BB@0x34 : [ onClick-BB@0x4c ]
+	13      (00000034) const/16             v0, 102
+	14      (00000038) invoke-direct        v1, v0, Lcom/jlboat/phone/fragment/calibrationfragment/OmodFragment;->setTest(I)V
+	15      (0000003e) goto                 +7h
+
+onClick-BB@0x40 : [ onClick-BB@0x4c ]
+	16      (00000040) const/16             v0, 101
+	17      (00000044) invoke-direct        v1, v0, Lcom/jlboat/phone/fragment/calibrationfragment/OmodFragment;->setTest(I)V
+	18      (0000004a) nop                  
+
+onClick-BB@0x4c : 
+	19      (0000004c) return-void          
+
+onClick-BB@0x4e : 
+	20      (0000004e) nop                  
+	21      (00000050) sparse-switch-payload 7f0801d7 7f0801da 7f0801e6 7f0801e8 7f0801e9
+

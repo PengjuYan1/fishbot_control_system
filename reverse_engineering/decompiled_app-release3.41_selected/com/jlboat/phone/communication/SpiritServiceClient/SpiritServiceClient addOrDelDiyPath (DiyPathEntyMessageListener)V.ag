@@ -1,0 +1,84 @@
+# Lcom/jlboat/phone/communication/SpiritServiceClient;->addOrDelDiyPath(Lworld_canvas_msgs18/DiyPathEnty; Lcom/boat/jrosbridge/MessageListener;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v8
+# - v9:world_canvas_msgs18.DiyPathEnty
+# - v10:com.boat.jrosbridge.MessageListener
+#
+# - return:void
+
+addOrDelDiyPath-BB@0x0 : [ addOrDelDiyPath-BB@0x36 addOrDelDiyPath-BB@0xc4 ]
+	0       (00000000) new-instance         v0, Lcom/boat/jrosbridge/Service;
+	1       (00000004) sget-object          v1, Lcom/jlboat/phone/util/ServiceNames;->DiyPath Ljava/lang/String;
+	2       (00000008) const-class          v2, Lcom/jlboat/phone/message/map_msgs/SetGlobalPlanRequest;
+	3       (0000000c) const-class          v3, Lcom/jlboat/phone/message/map_msgs/SetGlobalPlanResponse;
+	4       (00000010) sget-object          v4, Lcom/jlboat/phone/application/BoatSlamApplication;->client Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;
+	5       (00000014) invoke-direct        v0, v1, v2, v3, v4, Lcom/boat/jrosbridge/Service;-><init>(Ljava/lang/String; Ljava/lang/Class; Ljava/lang/Class; Lcom/boat/jrosbridge/ROSClient;)V
+	6       (0000001a) new-instance         v1, Lcom/jlboat/phone/message/map_msgs/SetGlobalPlanRequest;
+	7       (0000001e) invoke-direct        v1, Lcom/jlboat/phone/message/map_msgs/SetGlobalPlanRequest;-><init>()V
+	8       (00000024) const/4              v2, 0
+	9       (00000026) new-array            v2, v2, [Lcom/boat/jrosbridge/message/geometry_msgs/Point;
+	10      (0000002a) invoke-virtual       v9, Lworld_canvas_msgs18/DiyPathEnty;->getLinesList()Ljava/util/List;
+	11      (00000030) move-result-object   v3
+	12      (00000032) if-eqz               v3, +049h
+
+addOrDelDiyPath-BB@0x36 : [ addOrDelDiyPath-BB@0x42 addOrDelDiyPath-BB@0xc4 ]
+	13      (00000036) invoke-interface     v3, Ljava/util/List;->size()I
+	14      (0000003c) move-result          v4
+	15      (0000003e) if-lez               v4, +043h
+
+addOrDelDiyPath-BB@0x42 : [ addOrDelDiyPath-BB@0x58 ]
+	16      (00000042) invoke-virtual       v9, Lworld_canvas_msgs18/DiyPathEnty;->getLinesList()Ljava/util/List;
+	17      (00000048) move-result-object   v4
+	18      (0000004a) invoke-interface     v4, Ljava/util/List;->size()I
+	19      (00000050) move-result          v4
+	20      (00000052) new-array            v2, v4, [Lcom/boat/jrosbridge/message/geometry_msgs/Point;
+	21      (00000056) const/4              v4, 0
+
+addOrDelDiyPath-BB@0x58 : [ addOrDelDiyPath-BB@0x6c addOrDelDiyPath-BB@0xc4 ]
+	22      (00000058) invoke-virtual       v9, Lworld_canvas_msgs18/DiyPathEnty;->getLinesList()Ljava/util/List;
+	23      (0000005e) move-result-object   v5
+	24      (00000060) invoke-interface     v5, Ljava/util/List;->size()I
+	25      (00000066) move-result          v5
+	26      (00000068) if-ge                v4, v5, +02eh
+
+addOrDelDiyPath-BB@0x6c : [ addOrDelDiyPath-BB@0x58 ]
+	27      (0000006c) new-instance         v5, Lcom/boat/jrosbridge/message/geometry_msgs/Point;
+	28      (00000070) invoke-direct        v5, Lcom/boat/jrosbridge/message/geometry_msgs/Point;-><init>()V
+	29      (00000076) invoke-virtual       v9, Lworld_canvas_msgs18/DiyPathEnty;->getLinesList()Ljava/util/List;
+	30      (0000007c) move-result-object   v6
+	31      (0000007e) invoke-interface     v6, v4, Ljava/util/List;->get(I)Ljava/lang/Object;
+	32      (00000084) move-result-object   v6
+	33      (00000086) check-cast           v6, Lcom/boat/support/slam/entity/floors/Lines;
+	34      (0000008a) invoke-virtual       v6, Lcom/boat/support/slam/entity/floors/Lines;->getX()D
+	35      (00000090) move-result-wide     v6
+	36      (00000092) invoke-virtual       v5, v6, v7, Lcom/boat/jrosbridge/message/geometry_msgs/Point;->setX(D)V
+	37      (00000098) invoke-virtual       v9, Lworld_canvas_msgs18/DiyPathEnty;->getLinesList()Ljava/util/List;
+	38      (0000009e) move-result-object   v6
+	39      (000000a0) invoke-interface     v6, v4, Ljava/util/List;->get(I)Ljava/lang/Object;
+	40      (000000a6) move-result-object   v6
+	41      (000000a8) check-cast           v6, Lcom/boat/support/slam/entity/floors/Lines;
+	42      (000000ac) invoke-virtual       v6, Lcom/boat/support/slam/entity/floors/Lines;->getY()D
+	43      (000000b2) move-result-wide     v6
+	44      (000000b4) invoke-virtual       v5, v6, v7, Lcom/boat/jrosbridge/message/geometry_msgs/Point;->setY(D)V
+	45      (000000ba) aput-object          v5, v2, v4
+	46      (000000be) add-int/lit8         v4, v4, 1
+	47      (000000c2) goto                 -35h
+
+addOrDelDiyPath-BB@0xc4 : 
+	48      (000000c4) invoke-virtual       v1, v2, Lcom/jlboat/phone/message/map_msgs/SetGlobalPlanRequest;->setPoints([Lcom/boat/jrosbridge/message/geometry_msgs/Point;)V
+	49      (000000ca) invoke-virtual       v9, Lworld_canvas_msgs18/DiyPathEnty;->getDir()J
+	50      (000000d0) move-result-wide     v4
+	51      (000000d2) invoke-virtual       v1, v4, v5, Lcom/jlboat/phone/message/map_msgs/SetGlobalPlanRequest;->setDir(J)V
+	52      (000000d8) invoke-virtual       v9, Lworld_canvas_msgs18/DiyPathEnty;->getGlobalplanName()Ljava/lang/String;
+	53      (000000de) move-result-object   v4
+	54      (000000e0) invoke-virtual       v1, v4, Lcom/jlboat/phone/message/map_msgs/SetGlobalPlanRequest;->setGlobalplanName(Ljava/lang/String;)V
+	55      (000000e6) invoke-virtual       v9, Lworld_canvas_msgs18/DiyPathEnty;->getGlobalplanId()J
+	56      (000000ec) move-result-wide     v4
+	57      (000000ee) invoke-virtual       v1, v4, v5, Lcom/jlboat/phone/message/map_msgs/SetGlobalPlanRequest;->setGlobalplanId(J)V
+	58      (000000f4) invoke-virtual       v9, Lworld_canvas_msgs18/DiyPathEnty;->getOp()J
+	59      (000000fa) move-result-wide     v4
+	60      (000000fc) invoke-virtual       v1, v4, v5, Lcom/jlboat/phone/message/map_msgs/SetGlobalPlanRequest;->setOp(J)V
+	61      (00000102) invoke-virtual       v0, v1, v10, Lcom/boat/jrosbridge/Service;->callWithHandler(Lcom/boat/jrosbridge/message/Message; Lcom/boat/jrosbridge/MessageListener;)V
+	62      (00000108) return-void          
+

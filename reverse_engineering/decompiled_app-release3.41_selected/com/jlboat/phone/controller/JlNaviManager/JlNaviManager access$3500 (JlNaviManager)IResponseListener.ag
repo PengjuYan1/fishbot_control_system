@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/controller/JlNaviManager;->access$3500(Lcom/jlboat/phone/controller/JlNaviManager;)Lcom/boat/support/slam/IResponseListener; [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.controller.JlNaviManager
+#
+# - return:com.boat.support.slam.IResponseListener
+
+access$3500-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/jlboat/phone/controller/JlNaviManager;->changeresponseListener Lcom/boat/support/slam/IResponseListener;
+	1       (00000004) return-object        v0
+

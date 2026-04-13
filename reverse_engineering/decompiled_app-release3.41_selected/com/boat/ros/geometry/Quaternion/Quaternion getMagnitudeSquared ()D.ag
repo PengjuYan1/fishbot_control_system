@@ -1,0 +1,25 @@
+# Lcom/boat/ros/geometry/Quaternion;->getMagnitudeSquared()D [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v6
+#
+# - return:double
+
+getMagnitudeSquared-BB@0x0 : 
+	0       (00000000) iget-wide            v0, v6, Lcom/boat/ros/geometry/Quaternion;->x D
+	1       (00000004) iget-wide            v2, v6, Lcom/boat/ros/geometry/Quaternion;->x D
+	2       (00000008) mul-double           v0, v0, v2
+	3       (0000000c) iget-wide            v2, v6, Lcom/boat/ros/geometry/Quaternion;->y D
+	4       (00000010) iget-wide            v4, v6, Lcom/boat/ros/geometry/Quaternion;->y D
+	5       (00000014) mul-double           v2, v2, v4
+	6       (00000018) add-double/2addr     v0, v2
+	7       (0000001a) iget-wide            v2, v6, Lcom/boat/ros/geometry/Quaternion;->z D
+	8       (0000001e) iget-wide            v4, v6, Lcom/boat/ros/geometry/Quaternion;->z D
+	9       (00000022) mul-double           v2, v2, v4
+	10      (00000026) add-double/2addr     v0, v2
+	11      (00000028) iget-wide            v2, v6, Lcom/boat/ros/geometry/Quaternion;->w D
+	12      (0000002c) iget-wide            v4, v6, Lcom/boat/ros/geometry/Quaternion;->w D
+	13      (00000030) mul-double           v2, v2, v4
+	14      (00000034) add-double/2addr     v0, v2
+	15      (00000036) return-wide          v0
+

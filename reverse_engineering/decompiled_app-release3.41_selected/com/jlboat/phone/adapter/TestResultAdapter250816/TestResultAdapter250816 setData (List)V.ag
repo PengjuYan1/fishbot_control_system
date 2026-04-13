@@ -1,0 +1,76 @@
+# Lcom/jlboat/phone/adapter/TestResultAdapter250816;->setData(Ljava/util/List;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v7
+# - v8:java.util.List
+#
+# - return:void
+
+setData-BB@0x0 : [ setData-BB@0x4a setData-BB@0x52 ]
+	0       (00000000) new-instance         v0, Ljava/lang/StringBuilder;
+	1       (00000004) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	2       (0000000a) const-string         v1, "floorName2:"
+	3       (0000000e) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	4       (00000014) move-result-object   v0
+	5       (00000016) invoke-virtual       v8, Ljava/lang/Object;->toString()Ljava/lang/String;
+	6       (0000001c) move-result-object   v1
+	7       (0000001e) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	8       (00000024) move-result-object   v0
+	9       (00000026) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	10      (0000002c) move-result-object   v0
+	11      (0000002e) const-string         v1, "TAG"
+	12      (00000032) invoke-static        v1, v0, Lcom/boat/jrosbridge/message/Log;->d(Ljava/lang/String; Ljava/lang/String;)V
+	13      (00000038) new-instance         v0, Ljava/util/ArrayList;
+	14      (0000003c) invoke-direct        v0, Ljava/util/ArrayList;-><init>()V
+	15      (00000042) iput-object          v0, v7, Lcom/jlboat/phone/adapter/TestResultAdapter250816;->mWrappedList Ljava/util/List;
+	16      (00000046) if-nez               v8, +006h
+
+setData-BB@0x4a : 
+	17      (0000004a) invoke-virtual       v7, Lcom/jlboat/phone/adapter/TestResultAdapter250816;->notifyDataSetChanged()V
+	18      (00000050) return-void          
+
+setData-BB@0x52 : [ setData-BB@0x76 ]
+	19      (00000052) new-instance         v0, Ljava/util/ArrayList;
+	20      (00000056) invoke-direct        v0, v8, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+	21      (0000005c) new-instance         v1, Lcom/jlboat/phone/adapter/TestResultAdapter250816$$ExternalSyntheticLambda0;
+	22      (00000060) invoke-direct        v1, v7, Lcom/jlboat/phone/adapter/TestResultAdapter250816$$ExternalSyntheticLambda0;-><init>(Lcom/jlboat/phone/adapter/TestResultAdapter250816;)V
+	23      (00000066) invoke-static        v0, v1, Ljava/util/Collections;->sort(Ljava/util/List; Ljava/util/Comparator;)V
+	24      (0000006c) const/4              v1, 0
+	25      (0000006e) invoke-interface     v0, Ljava/util/List;->iterator()Ljava/util/Iterator;
+	26      (00000074) move-result-object   v2
+
+setData-BB@0x76 : [ setData-BB@0x82 setData-BB@0xcc ]
+	27      (00000076) invoke-interface     v2, Ljava/util/Iterator;->hasNext()Z
+	28      (0000007c) move-result          v3
+	29      (0000007e) if-eqz               v3, +027h
+
+setData-BB@0x82 : [ setData-BB@0x9a setData-BB@0xb4 ]
+	30      (00000082) invoke-interface     v2, Ljava/util/Iterator;->next()Ljava/lang/Object;
+	31      (00000088) move-result-object   v3
+	32      (0000008a) check-cast           v3, Lcom/jlboat/phone/message/map_msgs/TargetGoalEntry;
+	33      (0000008e) invoke-direct        v7, v3, Lcom/jlboat/phone/adapter/TestResultAdapter250816;->isEntryCompleted(Lcom/jlboat/phone/message/map_msgs/TargetGoalEntry;)Z
+	34      (00000094) move-result          v4
+	35      (00000096) if-eqz               v4, +00fh
+
+setData-BB@0x9a : [ setData-BB@0xca ]
+	36      (0000009a) add-int/lit8         v1, v1, 1
+	37      (0000009e) iget-object          v4, v7, Lcom/jlboat/phone/adapter/TestResultAdapter250816;->mWrappedList Ljava/util/List;
+	38      (000000a2) new-instance         v5, Lcom/jlboat/phone/adapter/GoalEntryWithIndex;
+	39      (000000a6) invoke-direct        v5, v3, v1, Lcom/jlboat/phone/adapter/GoalEntryWithIndex;-><init>(Lcom/jlboat/phone/message/map_msgs/TargetGoalEntry; I)V
+	40      (000000ac) invoke-interface     v4, v5, Ljava/util/List;->add(Ljava/lang/Object;)Z
+	41      (000000b2) goto                 +ch
+
+setData-BB@0xb4 : [ setData-BB@0xca ]
+	42      (000000b4) iget-object          v4, v7, Lcom/jlboat/phone/adapter/TestResultAdapter250816;->mWrappedList Ljava/util/List;
+	43      (000000b8) new-instance         v5, Lcom/jlboat/phone/adapter/GoalEntryWithIndex;
+	44      (000000bc) const/4              v6, -1
+	45      (000000be) invoke-direct        v5, v3, v6, Lcom/jlboat/phone/adapter/GoalEntryWithIndex;-><init>(Lcom/jlboat/phone/message/map_msgs/TargetGoalEntry; I)V
+	46      (000000c4) invoke-interface     v4, v5, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+setData-BB@0xca : [ setData-BB@0x76 ]
+	47      (000000ca) goto                 -2ah
+
+setData-BB@0xcc : 
+	48      (000000cc) invoke-virtual       v7, Lcom/jlboat/phone/adapter/TestResultAdapter250816;->notifyDataSetChanged()V
+	49      (000000d2) return-void          
+

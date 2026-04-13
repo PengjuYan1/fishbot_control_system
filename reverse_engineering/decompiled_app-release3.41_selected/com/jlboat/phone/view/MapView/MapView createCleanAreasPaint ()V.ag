@@ -1,0 +1,29 @@
+# Lcom/jlboat/phone/view/MapView;->createCleanAreasPaint()V [access_flags=private]
+#
+# Parameters:
+# local registers: v0...v3
+#
+# - return:void
+
+createCleanAreasPaint-BB@0x0 : 
+	0       (00000000) new-instance         v0, Landroid/graphics/Paint;
+	1       (00000004) invoke-direct        v0, Landroid/graphics/Paint;-><init>()V
+	2       (0000000a) iput-object          v0, v3, Lcom/jlboat/phone/view/MapView;->cleanAreasPaint Landroid/graphics/Paint;
+	3       (0000000e) iget-object          v0, v3, Lcom/jlboat/phone/view/MapView;->cleanAreasPaint Landroid/graphics/Paint;
+	4       (00000012) const/high16         v1, 1120403456
+	5       (00000016) invoke-virtual       v0, v1, Landroid/graphics/Paint;->setTextSize(F)V
+	6       (0000001c) iget-object          v0, v3, Lcom/jlboat/phone/view/MapView;->cleanAreasPaint Landroid/graphics/Paint;
+	7       (00000020) invoke-virtual       v3, Lcom/jlboat/phone/view/MapView;->getResources()Landroid/content/res/Resources;
+	8       (00000026) move-result-object   v1
+	9       (00000028) const                v2, 2131034162
+	10      (0000002e) invoke-virtual       v1, v2, Landroid/content/res/Resources;->getColor(I)I
+	11      (00000034) move-result          v1
+	12      (00000036) invoke-virtual       v0, v1, Landroid/graphics/Paint;->setColor(I)V
+	13      (0000003c) iget-object          v0, v3, Lcom/jlboat/phone/view/MapView;->cleanAreasPaint Landroid/graphics/Paint;
+	14      (00000040) sget-object          v1, Landroid/graphics/Paint$Style;->STROKE Landroid/graphics/Paint$Style;
+	15      (00000044) invoke-virtual       v0, v1, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
+	16      (0000004a) iget-object          v0, v3, Lcom/jlboat/phone/view/MapView;->cleanAreasPaint Landroid/graphics/Paint;
+	17      (0000004e) const/high16         v1, 1077936128
+	18      (00000052) invoke-virtual       v0, v1, Landroid/graphics/Paint;->setStrokeWidth(F)V
+	19      (00000058) return-void          
+

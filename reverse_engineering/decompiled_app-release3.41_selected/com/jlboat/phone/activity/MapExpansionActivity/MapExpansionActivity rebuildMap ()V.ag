@@ -1,0 +1,19 @@
+# Lcom/jlboat/phone/activity/MapExpansionActivity;->rebuildMap()V [access_flags=private]
+#
+# Parameters:
+# local registers: v0...v2
+#
+# - return:void
+
+rebuildMap-BB@0x0 : 
+	0       (00000000) const                v0, 2131492932
+	1       (00000006) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/MapExpansionActivity;->getResString(I)Ljava/lang/String;
+	2       (0000000c) move-result-object   v0
+	3       (0000000e) const-string         v1, "loading"
+	4       (00000012) invoke-direct        v2, v0, v1, Lcom/jlboat/phone/activity/MapExpansionActivity;->safeShowWaitingDialog(Ljava/lang/CharSequence; Ljava/lang/CharSequence;)V
+	5       (00000018) iget-object          v0, v2, Lcom/jlboat/phone/activity/MapExpansionActivity;->spiritServiceClient Lcom/jlboat/phone/communication/SpiritServiceClient;
+	6       (0000001c) new-instance         v1, Lcom/jlboat/phone/activity/MapExpansionActivity$22;
+	7       (00000020) invoke-direct        v1, v2, Lcom/jlboat/phone/activity/MapExpansionActivity$22;-><init>(Lcom/jlboat/phone/activity/MapExpansionActivity;)V
+	8       (00000026) invoke-virtual       v0, v1, Lcom/jlboat/phone/communication/SpiritServiceClient;->rebuildMapService(Lcom/boat/jrosbridge/MessageListener;)V
+	9       (0000002c) return-void          
+

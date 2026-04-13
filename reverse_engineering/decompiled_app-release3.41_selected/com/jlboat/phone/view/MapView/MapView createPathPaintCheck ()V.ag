@@ -1,0 +1,26 @@
+# Lcom/jlboat/phone/view/MapView;->createPathPaintCheck()V [access_flags=private]
+#
+# Parameters:
+# local registers: v0...v3
+#
+# - return:void
+
+createPathPaintCheck-BB@0x0 : 
+	0       (00000000) new-instance         v0, Landroid/graphics/Paint;
+	1       (00000004) invoke-direct        v0, Landroid/graphics/Paint;-><init>()V
+	2       (0000000a) iput-object          v0, v3, Lcom/jlboat/phone/view/MapView;->pointPaintCheck Landroid/graphics/Paint;
+	3       (0000000e) iget-object          v0, v3, Lcom/jlboat/phone/view/MapView;->pointPaintCheck Landroid/graphics/Paint;
+	4       (00000012) invoke-virtual       v3, Lcom/jlboat/phone/view/MapView;->getResources()Landroid/content/res/Resources;
+	5       (00000018) move-result-object   v1
+	6       (0000001a) const                v2, 2131034138
+	7       (00000020) invoke-virtual       v1, v2, Landroid/content/res/Resources;->getColor(I)I
+	8       (00000026) move-result          v1
+	9       (00000028) invoke-virtual       v0, v1, Landroid/graphics/Paint;->setColor(I)V
+	10      (0000002e) iget-object          v0, v3, Lcom/jlboat/phone/view/MapView;->pointPaintCheck Landroid/graphics/Paint;
+	11      (00000032) sget-object          v1, Landroid/graphics/Paint$Style;->STROKE Landroid/graphics/Paint$Style;
+	12      (00000036) invoke-virtual       v0, v1, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
+	13      (0000003c) iget-object          v0, v3, Lcom/jlboat/phone/view/MapView;->pointPaintCheck Landroid/graphics/Paint;
+	14      (00000040) const/high16         v1, 1084227584
+	15      (00000044) invoke-virtual       v0, v1, Landroid/graphics/Paint;->setStrokeWidth(F)V
+	16      (0000004a) return-void          
+

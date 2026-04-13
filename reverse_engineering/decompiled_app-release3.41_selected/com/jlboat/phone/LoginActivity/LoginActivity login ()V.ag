@@ -1,0 +1,25 @@
+# Lcom/jlboat/phone/LoginActivity;->login()V [access_flags=private]
+#
+# Parameters:
+# local registers: v0...v3
+#
+# - return:void
+
+login-BB@0x0 : [ login-BB@0x1a login-BB@0x22 ]
+	0       (00000000) new-instance         v0, Landroid/content/Intent;
+	1       (00000004) const-class          v1, Lcom/jlboat/phone/service/ErrorMsgService;
+	2       (00000008) invoke-direct        v0, v3, v1, Landroid/content/Intent;-><init>(Landroid/content/Context; Ljava/lang/Class;)V
+	3       (0000000e) sget                 v1, Landroid/os/Build$VERSION;->SDK_INT I
+	4       (00000012) const/16             v2, 26
+	5       (00000016) if-lt                v1, v2, +006h
+
+login-BB@0x1a : [ login-BB@0x28 ]
+	6       (0000001a) invoke-virtual       v3, v0, Lcom/jlboat/phone/LoginActivity;->startForegroundService(Landroid/content/Intent;)Landroid/content/ComponentName;
+	7       (00000020) goto                 +4h
+
+login-BB@0x22 : [ login-BB@0x28 ]
+	8       (00000022) invoke-virtual       v3, v0, Lcom/jlboat/phone/LoginActivity;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
+
+login-BB@0x28 : 
+	9       (00000028) return-void          
+

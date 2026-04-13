@@ -1,0 +1,37 @@
+# Lcom/jlboat/phone/view/LaserCamera03View$1;->onNewMessage(Lcom/boat/jrosbridge/message/sensor_msgs/LaserScan;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:com.boat.jrosbridge.message.sensor_msgs.LaserScan
+#
+# - return:void
+
+onNewMessage-BB@0x0 : [ onNewMessage-BB@0x1e onNewMessage-BB@0x42 ]
+	0       (00000000) const-string         v0, "LaserCamera03View"
+	1       (00000004) const-string         v1, "onNewMessage: "
+	2       (00000008) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	3       (0000000e) iget-object          v0, v2, Lcom/jlboat/phone/view/LaserCamera03View$1;->this$0 Lcom/jlboat/phone/view/LaserCamera03View;
+	4       (00000012) invoke-static        v0, Lcom/jlboat/phone/view/LaserCamera03View;->access$000(Lcom/jlboat/phone/view/LaserCamera03View;)Lcom/jlboat/phone/view/LaserCamera03View$IHasData;
+	5       (00000018) move-result-object   v0
+	6       (0000001a) if-eqz               v0, +014h
+
+onNewMessage-BB@0x1e : [ onNewMessage-BB@0x2e onNewMessage-BB@0x42 ]
+	7       (0000001e) iget-object          v0, v2, Lcom/jlboat/phone/view/LaserCamera03View$1;->this$0 Lcom/jlboat/phone/view/LaserCamera03View;
+	8       (00000022) invoke-static        v0, Lcom/jlboat/phone/view/LaserCamera03View;->access$100(Lcom/jlboat/phone/view/LaserCamera03View;)Z
+	9       (00000028) move-result          v0
+	10      (0000002a) if-nez               v0, +00ch
+
+onNewMessage-BB@0x2e : [ onNewMessage-BB@0x42 ]
+	11      (0000002e) iget-object          v0, v2, Lcom/jlboat/phone/view/LaserCamera03View$1;->this$0 Lcom/jlboat/phone/view/LaserCamera03View;
+	12      (00000032) new-instance         v1, Lcom/jlboat/phone/view/LaserCamera03View$1$1;
+	13      (00000036) invoke-direct        v1, v2, Lcom/jlboat/phone/view/LaserCamera03View$1$1;-><init>(Lcom/jlboat/phone/view/LaserCamera03View$1;)V
+	14      (0000003c) invoke-virtual       v0, v1, Lcom/jlboat/phone/view/LaserCamera03View;->post(Ljava/lang/Runnable;)Z
+
+onNewMessage-BB@0x42 : 
+	15      (00000042) iget-object          v0, v2, Lcom/jlboat/phone/view/LaserCamera03View$1;->this$0 Lcom/jlboat/phone/view/LaserCamera03View;
+	16      (00000046) iget-object          v1, v2, Lcom/jlboat/phone/view/LaserCamera03View$1;->this$0 Lcom/jlboat/phone/view/LaserCamera03View;
+	17      (0000004a) invoke-static        v1, Lcom/jlboat/phone/view/LaserCamera03View;->access$200(Lcom/jlboat/phone/view/LaserCamera03View;)I
+	18      (00000050) move-result          v1
+	19      (00000052) invoke-static        v0, v3, v1, Lcom/jlboat/phone/view/LaserCamera03View;->access$300(Lcom/jlboat/phone/view/LaserCamera03View; Lcom/boat/jrosbridge/message/sensor_msgs/LaserScan; I)V
+	20      (00000058) return-void          
+

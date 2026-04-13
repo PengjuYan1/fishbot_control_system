@@ -1,0 +1,32 @@
+# Lcom/jlboat/phone/view/BatteryView;->setPower(F)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:float
+#
+# - return:void
+
+setPower-BB@0x0 : [ setPower-BB@0xa setPower-BB@0xc ]
+	0       (00000000) const/4              v0, 0
+	1       (00000002) cmpg-float           v1, v3, v0
+	2       (00000006) if-gez               v1, +003h
+
+setPower-BB@0xa : [ setPower-BB@0x1c ]
+	3       (0000000a) goto                 +9h
+
+setPower-BB@0xc : [ setPower-BB@0x18 setPower-BB@0x1a ]
+	4       (0000000c) const/high16         v0, 1120403456
+	5       (00000010) cmpl-float           v1, v3, v0
+	6       (00000014) if-lez               v1, +003h
+
+setPower-BB@0x18 : [ setPower-BB@0xa ]
+	7       (00000018) goto                 -7h
+
+setPower-BB@0x1a : [ setPower-BB@0x1c ]
+	8       (0000001a) move                 v0, v3
+
+setPower-BB@0x1c : 
+	9       (0000001c) iput                 v0, v2, Lcom/jlboat/phone/view/BatteryView;->mPower F
+	10      (00000020) invoke-virtual       v2, Lcom/jlboat/phone/view/BatteryView;->invalidate()V
+	11      (00000026) return-void          
+

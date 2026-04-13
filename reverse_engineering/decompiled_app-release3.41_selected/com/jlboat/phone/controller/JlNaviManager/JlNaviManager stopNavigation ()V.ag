@@ -1,0 +1,51 @@
+# Lcom/jlboat/phone/controller/JlNaviManager;->stopNavigation()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v2
+#
+# - return:void
+
+stopNavigation-BB@0x0 : [ stopNavigation-BB@0x16 stopNavigation-BB@0x52 ]
+	0       (00000000) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->TAG Ljava/lang/String;
+	1       (00000004) const-string         v1, "stopNavigation: "
+	2       (00000008) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	3       (0000000e) iget-boolean         v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->connectStatus Z
+	4       (00000012) if-eqz               v0, +020h
+
+stopNavigation-BB@0x16 : [ stopNavigation-BB@0x1e stopNavigation-BB@0x20 ]
+	5       (00000016) iget-boolean         v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->isNavigationInited Z
+	6       (0000001a) if-nez               v0, +003h
+
+stopNavigation-BB@0x1e : [ stopNavigation-BB@0x52 ]
+	7       (0000001e) goto                 +1ah
+
+stopNavigation-BB@0x20 : [ stopNavigation-BB@0x28 stopNavigation-BB@0x46 ]
+	8       (00000020) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->changeresponseListener Lcom/boat/support/slam/IResponseListener;
+	9       (00000024) if-eqz               v0, +011h
+
+stopNavigation-BB@0x28 : [ stopNavigation-BB@0x46 ]
+	10      (00000028) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->changeresponseListener Lcom/boat/support/slam/IResponseListener;
+	11      (0000002c) const-string         v1, "stop"
+	12      (00000030) invoke-interface     v0, v1, Lcom/boat/support/slam/IResponseListener;->onSuccess(Ljava/lang/String;)V
+	13      (00000036) const/4              v0, 0
+	14      (00000038) iput-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->changeresponseListener Lcom/boat/support/slam/IResponseListener;
+	15      (0000003c) goto                 +5h
+	28:3b
+	(Landroid/os/RemoteException; -> 3e stopNavigation-BB@0x3e)
+
+stopNavigation-BB@0x3e : [ stopNavigation-BB@0x46 ]
+	16      (0000003e) move-exception       v0
+	17      (00000040) invoke-virtual       v0, Landroid/os/RemoteException;->printStackTrace()V
+
+stopNavigation-BB@0x46 : 
+	18      (00000046) const/4              v0, 5
+	19      (00000048) const/4              v1, 0
+	20      (0000004a) invoke-virtual       v2, v0, v1, Lcom/jlboat/phone/controller/JlNaviManager;->setNavicmd(I I)V
+	21      (00000050) return-void          
+
+stopNavigation-BB@0x52 : 
+	22      (00000052) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->TAG Ljava/lang/String;
+	23      (00000056) const-string         v1, "stopNavigation: 初始化未成功 不能停止命令 stopNavigation"
+	24      (0000005a) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	25      (00000060) return-void          
+

@@ -1,0 +1,160 @@
+# Lcom/jlboat/phone/service/ErrorMsgService$1;->handleMessage(Landroid/os/Message;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v5
+# - v6:android.os.Message
+#
+# - return:void
+
+handleMessage-BB@0x0 : [ D:handleMessage-BB@0x1c 1:handleMessage-BB@0x204 2:handleMessage-BB@0x1e4 3:handleMessage-BB@0x19e 101:handleMessage-BB@0x152 102:handleMessage-BB@0xaa 103:handleMessage-BB@0x56 104:handleMessage-BB@0x20 ]
+	0       (00000000) invoke-super         v5, v6, Landroid/os/Handler;->handleMessage(Landroid/os/Message;)V
+	1       (00000006) iget                 v0, v6, Landroid/os/Message;->what I
+	2       (0000000a) const-string         v1, "Finish"
+	3       (0000000e) const-string         v2, "ErrorMsgService"
+	4       (00000012) const/4              v3, 1
+	5       (00000014) const/4              v4, 0
+	6       (00000016) sparse-switch        v0, +0000109h
+
+handleMessage-BB@0x1c : [ handleMessage-BB@0x224 ]
+	7       (0000001c) goto/16              +104h
+
+handleMessage-BB@0x20 : [ handleMessage-BB@0x224 ]
+	8       (00000020) new-instance         v0, Landroid/content/Intent;
+	9       (00000024) invoke-direct        v0, Landroid/content/Intent;-><init>()V
+	10      (0000002a) const-string         v1, "login_re"
+	11      (0000002e) invoke-virtual       v0, v1, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
+	12      (00000034) iget-object          v1, v5, Lcom/jlboat/phone/service/ErrorMsgService$1;->this$0 Lcom/jlboat/phone/service/ErrorMsgService;
+	13      (00000038) invoke-virtual       v1, v0, Lcom/jlboat/phone/service/ErrorMsgService;->sendBroadcast(Landroid/content/Intent;)V
+	14      (0000003e) iget-object          v1, v5, Lcom/jlboat/phone/service/ErrorMsgService$1;->this$0 Lcom/jlboat/phone/service/ErrorMsgService;
+	15      (00000042) invoke-virtual       v1, v3, Lcom/jlboat/phone/service/ErrorMsgService;->stopForeground(Z)V
+	16      (00000048) iget-object          v1, v5, Lcom/jlboat/phone/service/ErrorMsgService$1;->this$0 Lcom/jlboat/phone/service/ErrorMsgService;
+	17      (0000004c) invoke-virtual       v1, Lcom/jlboat/phone/service/ErrorMsgService;->stopSelf()V
+	18      (00000052) goto/16              +0e9h
+
+handleMessage-BB@0x56 : [ handleMessage-BB@0x224 ]
+	19      (00000056) iget-object          v0, v5, Lcom/jlboat/phone/service/ErrorMsgService$1;->this$0 Lcom/jlboat/phone/service/ErrorMsgService;
+	20      (0000005a) iget-object          v0, v0, Lcom/jlboat/phone/service/ErrorMsgService;->mContext Landroid/content/Context;
+	21      (0000005e) invoke-virtual       v0, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+	22      (00000064) move-result-object   v0
+	23      (00000066) const-string         v2, "连接断开，请重新登录"
+	24      (0000006a) invoke-static        v0, v2, v4, Landroid/widget/Toast;->makeText(Landroid/content/Context; Ljava/lang/CharSequence; I)Landroid/widget/Toast;
+	25      (00000070) move-result-object   v0
+	26      (00000072) invoke-virtual       v0, Landroid/widget/Toast;->show()V
+	27      (00000078) iget-object          v0, v5, Lcom/jlboat/phone/service/ErrorMsgService$1;->this$0 Lcom/jlboat/phone/service/ErrorMsgService;
+	28      (0000007c) invoke-virtual       v0, v3, Lcom/jlboat/phone/service/ErrorMsgService;->stopForeground(Z)V
+	29      (00000082) iget-object          v0, v5, Lcom/jlboat/phone/service/ErrorMsgService$1;->this$0 Lcom/jlboat/phone/service/ErrorMsgService;
+	30      (00000086) invoke-virtual       v0, Lcom/jlboat/phone/service/ErrorMsgService;->stopSelf()V
+	31      (0000008c) new-instance         v0, Landroid/content/Intent;
+	32      (00000090) invoke-direct        v0, Landroid/content/Intent;-><init>()V
+	33      (00000096) invoke-virtual       v0, v1, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
+	34      (0000009c) iget-object          v1, v5, Lcom/jlboat/phone/service/ErrorMsgService$1;->this$0 Lcom/jlboat/phone/service/ErrorMsgService;
+	35      (000000a0) invoke-virtual       v1, v0, Lcom/jlboat/phone/service/ErrorMsgService;->sendBroadcast(Landroid/content/Intent;)V
+	36      (000000a6) goto/16              +0bfh
+
+handleMessage-BB@0xaa : [ handleMessage-BB@0xb2 handleMessage-BB@0xd4 ]
+	37      (000000aa) sget-boolean         v0, Lcom/jlboat/phone/application/BoatSlamApplication;->hasHeart Z
+	38      (000000ae) if-eqz               v0, +013h
+
+handleMessage-BB@0xb2 : [ handleMessage-BB@0x224 ]
+	39      (000000b2) sput-boolean         v4, Lcom/jlboat/phone/application/BoatSlamApplication;->hasHeart Z
+	40      (000000b6) iget-object          v0, v5, Lcom/jlboat/phone/service/ErrorMsgService$1;->this$0 Lcom/jlboat/phone/service/ErrorMsgService;
+	41      (000000ba) invoke-static        v0, Lcom/jlboat/phone/service/ErrorMsgService;->access$000(Lcom/jlboat/phone/service/ErrorMsgService;)Landroid/os/Handler;
+	42      (000000c0) move-result-object   v0
+	43      (000000c2) const/16             v1, 102
+	44      (000000c6) const-wide/16        v2, 10000
+	45      (000000ca) invoke-virtual       v0, v1, v2, v3, Landroid/os/Handler;->sendEmptyMessageDelayed(I J)Z
+	46      (000000d0) goto/16              +0aah
+
+handleMessage-BB@0xd4 : [ handleMessage-BB@0x224 ]
+	47      (000000d4) const-string         v0, "handleMessage: 心跳消失 跳转登录"
+	48      (000000d8) invoke-static        v2, v0, Landroid/util/Log;->e(Ljava/lang/String; Ljava/lang/String;)I
+	49      (000000de) iget-object          v0, v5, Lcom/jlboat/phone/service/ErrorMsgService$1;->this$0 Lcom/jlboat/phone/service/ErrorMsgService;
+	50      (000000e2) iget-object          v0, v0, Lcom/jlboat/phone/service/ErrorMsgService;->mContext Landroid/content/Context;
+	51      (000000e6) invoke-virtual       v0, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+	52      (000000ec) move-result-object   v0
+	53      (000000ee) const-string         v1, "数据异常，请重新登录"
+	54      (000000f2) invoke-static        v0, v1, v4, Landroid/widget/Toast;->makeText(Landroid/content/Context; Ljava/lang/CharSequence; I)Landroid/widget/Toast;
+	55      (000000f8) move-result-object   v0
+	56      (000000fa) invoke-virtual       v0, Landroid/widget/Toast;->show()V
+	57      (00000100) sput-boolean         v4, Lcom/jlboat/phone/application/BoatSlamApplication;->isShutDown Z
+	58      (00000104) iget-object          v0, v5, Lcom/jlboat/phone/service/ErrorMsgService$1;->this$0 Lcom/jlboat/phone/service/ErrorMsgService;
+	59      (00000108) iput-boolean         v3, v0, Lcom/jlboat/phone/service/ErrorMsgService;->isrestar Z
+	60      (0000010c) new-instance         v0, Landroid/content/Intent;
+	61      (00000110) invoke-direct        v0, Landroid/content/Intent;-><init>()V
+	62      (00000116) iget-object          v1, v5, Lcom/jlboat/phone/service/ErrorMsgService$1;->this$0 Lcom/jlboat/phone/service/ErrorMsgService;
+	63      (0000011a) iget-object          v1, v1, Lcom/jlboat/phone/service/ErrorMsgService;->mContext Landroid/content/Context;
+	64      (0000011e) const-class          v2, Lcom/jlboat/phone/LoginActivity;
+	65      (00000122) invoke-virtual       v0, v1, v2, Landroid/content/Intent;->setClass(Landroid/content/Context; Ljava/lang/Class;)Landroid/content/Intent;
+	66      (00000128) const/high16         v1, 268435456
+	67      (0000012c) invoke-virtual       v0, v1, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+	68      (00000132) iget-object          v1, v5, Lcom/jlboat/phone/service/ErrorMsgService$1;->this$0 Lcom/jlboat/phone/service/ErrorMsgService;
+	69      (00000136) invoke-virtual       v1, v0, Lcom/jlboat/phone/service/ErrorMsgService;->startActivity(Landroid/content/Intent;)V
+	70      (0000013c) iget-object          v1, v5, Lcom/jlboat/phone/service/ErrorMsgService$1;->this$0 Lcom/jlboat/phone/service/ErrorMsgService;
+	71      (00000140) invoke-virtual       v1, v3, Lcom/jlboat/phone/service/ErrorMsgService;->stopForeground(Z)V
+	72      (00000146) iget-object          v1, v5, Lcom/jlboat/phone/service/ErrorMsgService$1;->this$0 Lcom/jlboat/phone/service/ErrorMsgService;
+	73      (0000014a) invoke-virtual       v1, Lcom/jlboat/phone/service/ErrorMsgService;->stopSelf()V
+	74      (00000150) goto                 +6ah
+
+handleMessage-BB@0x152 : [ handleMessage-BB@0x224 ]
+	75      (00000152) new-instance         v0, Landroid/content/Intent;
+	76      (00000156) invoke-direct        v0, Landroid/content/Intent;-><init>()V
+	77      (0000015c) const-string         v1, "WIFICONNECTED_STATE"
+	78      (00000160) invoke-virtual       v0, v1, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
+	79      (00000166) iget-object          v1, v5, Lcom/jlboat/phone/service/ErrorMsgService$1;->this$0 Lcom/jlboat/phone/service/ErrorMsgService;
+	80      (0000016a) invoke-static        v1, Lcom/jlboat/phone/service/ErrorMsgService;->access$100(Lcom/jlboat/phone/service/ErrorMsgService;)Z
+	81      (00000170) move-result          v1
+	82      (00000172) const-string         v2, "state"
+	83      (00000176) invoke-virtual       v0, v2, v1, Landroid/content/Intent;->putExtra(Ljava/lang/String; Z)Landroid/content/Intent;
+	84      (0000017c) iget-object          v1, v5, Lcom/jlboat/phone/service/ErrorMsgService$1;->this$0 Lcom/jlboat/phone/service/ErrorMsgService;
+	85      (00000180) invoke-static        v1, Lcom/jlboat/phone/service/ErrorMsgService;->access$200(Lcom/jlboat/phone/service/ErrorMsgService;)I
+	86      (00000186) move-result          v1
+	87      (00000188) const-string         v2, "count"
+	88      (0000018c) invoke-virtual       v0, v2, v1, Landroid/content/Intent;->putExtra(Ljava/lang/String; I)Landroid/content/Intent;
+	89      (00000192) iget-object          v1, v5, Lcom/jlboat/phone/service/ErrorMsgService$1;->this$0 Lcom/jlboat/phone/service/ErrorMsgService;
+	90      (00000196) invoke-virtual       v1, v0, Lcom/jlboat/phone/service/ErrorMsgService;->sendBroadcast(Landroid/content/Intent;)V
+	91      (0000019c) goto                 +44h
+
+handleMessage-BB@0x19e : [ handleMessage-BB@0x224 ]
+	92      (0000019e) const-string         v0, "handleMessage: wifi变化 重新登录"
+	93      (000001a2) invoke-static        v2, v0, Landroid/util/Log;->e(Ljava/lang/String; Ljava/lang/String;)I
+	94      (000001a8) sput-boolean         v4, Lcom/jlboat/phone/application/BoatSlamApplication;->isShutDown Z
+	95      (000001ac) iget-object          v0, v5, Lcom/jlboat/phone/service/ErrorMsgService$1;->this$0 Lcom/jlboat/phone/service/ErrorMsgService;
+	96      (000001b0) iput-boolean         v3, v0, Lcom/jlboat/phone/service/ErrorMsgService;->isrestar Z
+	97      (000001b4) new-instance         v0, Landroid/content/Intent;
+	98      (000001b8) invoke-direct        v0, Landroid/content/Intent;-><init>()V
+	99      (000001be) invoke-virtual       v0, v1, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
+	100     (000001c4) iget-object          v1, v5, Lcom/jlboat/phone/service/ErrorMsgService$1;->this$0 Lcom/jlboat/phone/service/ErrorMsgService;
+	101     (000001c8) invoke-virtual       v1, v0, Lcom/jlboat/phone/service/ErrorMsgService;->sendBroadcast(Landroid/content/Intent;)V
+	102     (000001ce) iget-object          v1, v5, Lcom/jlboat/phone/service/ErrorMsgService$1;->this$0 Lcom/jlboat/phone/service/ErrorMsgService;
+	103     (000001d2) invoke-virtual       v1, v3, Lcom/jlboat/phone/service/ErrorMsgService;->stopForeground(Z)V
+	104     (000001d8) iget-object          v1, v5, Lcom/jlboat/phone/service/ErrorMsgService$1;->this$0 Lcom/jlboat/phone/service/ErrorMsgService;
+	105     (000001dc) invoke-virtual       v1, Lcom/jlboat/phone/service/ErrorMsgService;->stopSelf()V
+	106     (000001e2) goto                 +21h
+
+handleMessage-BB@0x1e4 : [ handleMessage-BB@0x224 ]
+	107     (000001e4) iget-object          v0, v5, Lcom/jlboat/phone/service/ErrorMsgService$1;->this$0 Lcom/jlboat/phone/service/ErrorMsgService;
+	108     (000001e8) invoke-virtual       v0, Lcom/jlboat/phone/service/ErrorMsgService;->getApplicationContext()Landroid/content/Context;
+	109     (000001ee) move-result-object   v0
+	110     (000001f0) const-string         v1, "获取机器信息失败"
+	111     (000001f4) invoke-static        v0, v1, v4, Landroid/widget/Toast;->makeText(Landroid/content/Context; Ljava/lang/CharSequence; I)Landroid/widget/Toast;
+	112     (000001fa) move-result-object   v0
+	113     (000001fc) invoke-virtual       v0, Landroid/widget/Toast;->show()V
+	114     (00000202) goto                 +11h
+
+handleMessage-BB@0x204 : [ handleMessage-BB@0x224 ]
+	115     (00000204) iget-object          v0, v5, Lcom/jlboat/phone/service/ErrorMsgService$1;->this$0 Lcom/jlboat/phone/service/ErrorMsgService;
+	116     (00000208) invoke-virtual       v0, Lcom/jlboat/phone/service/ErrorMsgService;->getApplicationContext()Landroid/content/Context;
+	117     (0000020e) move-result-object   v0
+	118     (00000210) const-string         v1, "获取机器信息成功"
+	119     (00000214) invoke-static        v0, v1, v4, Landroid/widget/Toast;->makeText(Landroid/content/Context; Ljava/lang/CharSequence; I)Landroid/widget/Toast;
+	120     (0000021a) move-result-object   v0
+	121     (0000021c) invoke-virtual       v0, Landroid/widget/Toast;->show()V
+	122     (00000222) nop                  
+
+handleMessage-BB@0x224 : 
+	123     (00000224) return-void          
+
+handleMessage-BB@0x226 : 
+	124     (00000226) nop                  
+	125     (00000228) sparse-switch-payload 1 2 3 65 66 67 68
+

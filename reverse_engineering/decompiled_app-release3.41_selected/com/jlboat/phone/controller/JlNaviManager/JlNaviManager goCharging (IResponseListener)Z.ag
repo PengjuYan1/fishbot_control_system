@@ -1,0 +1,15 @@
+# Lcom/jlboat/phone/controller/JlNaviManager;->goCharging(Lcom/boat/support/slam/IResponseListener;)Z [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:com.boat.support.slam.IResponseListener
+#
+# - return:boolean
+
+goCharging-BB@0x0 : 
+	0       (00000000) iput-object          v2, v1, Lcom/jlboat/phone/controller/JlNaviManager;->changeresponseListener Lcom/boat/support/slam/IResponseListener;
+	1       (00000004) const/4              v0, 1
+	2       (00000006) iput-boolean         v0, v1, Lcom/jlboat/phone/controller/JlNaviManager;->isInCharging Z
+	3       (0000000a) invoke-direct        v1, v0, Lcom/jlboat/phone/controller/JlNaviManager;->setMoveMode(I)V
+	4       (00000010) return               v0
+

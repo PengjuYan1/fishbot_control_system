@@ -1,0 +1,50 @@
+# Lcom/jlboat/phone/activity/MapActivity$9;->onNewMessage(Lcom/jlboat/phone/message/map_msgs/TargetGoalEntryRunList;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v4
+# - v5:com.jlboat.phone.message.map_msgs.TargetGoalEntryRunList
+#
+# - return:void
+
+onNewMessage-BB@0x0 : [ onNewMessage-BB@0x42 onNewMessage-BB@0x84 ]
+	0       (00000000) new-instance         v0, Ljava/util/LinkedList;
+	1       (00000004) invoke-direct        v0, Ljava/util/LinkedList;-><init>()V
+	2       (0000000a) invoke-virtual       v5, Lcom/jlboat/phone/message/map_msgs/TargetGoalEntryRunList;->getHigh_goal_list()[Lcom/jlboat/phone/message/map_msgs/TargetGoalEntry;
+	3       (00000010) move-result-object   v1
+	4       (00000012) invoke-static        v1, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+	5       (00000018) move-result-object   v1
+	6       (0000001a) invoke-interface     v0, v1, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
+	7       (00000020) invoke-virtual       v5, Lcom/jlboat/phone/message/map_msgs/TargetGoalEntryRunList;->getLow_goal_list()[Lcom/jlboat/phone/message/map_msgs/TargetGoalEntry;
+	8       (00000026) move-result-object   v1
+	9       (00000028) invoke-static        v1, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+	10      (0000002e) move-result-object   v1
+	11      (00000030) invoke-interface     v0, v1, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
+	12      (00000036) invoke-interface     v0, Ljava/util/List;->isEmpty()Z
+	13      (0000003c) move-result          v1
+	14      (0000003e) if-nez               v1, +023h
+
+onNewMessage-BB@0x42 : [ onNewMessage-BB@0x56 onNewMessage-BB@0x84 ]
+	15      (00000042) invoke-interface     v0, Ljava/util/List;->iterator()Ljava/util/Iterator;
+	16      (00000048) move-result-object   v1
+	17      (0000004a) invoke-interface     v1, Ljava/util/Iterator;->hasNext()Z
+	18      (00000050) move-result          v2
+	19      (00000052) if-eqz               v2, +019h
+
+onNewMessage-BB@0x56 : [ onNewMessage-BB@0x70 onNewMessage-BB@0x84 ]
+	20      (00000056) invoke-interface     v1, Ljava/util/Iterator;->next()Ljava/lang/Object;
+	21      (0000005c) move-result-object   v1
+	22      (0000005e) check-cast           v1, Lcom/jlboat/phone/message/map_msgs/TargetGoalEntry;
+	23      (00000062) invoke-virtual       v1, Lcom/jlboat/phone/message/map_msgs/TargetGoalEntry;->getStatus()I
+	24      (00000068) move-result          v2
+	25      (0000006a) const/4              v3, 1
+	26      (0000006c) if-ne                v2, v3, +00ch
+
+onNewMessage-BB@0x70 : [ onNewMessage-BB@0x84 ]
+	27      (00000070) iget-object          v2, v4, Lcom/jlboat/phone/activity/MapActivity$9;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	28      (00000074) new-instance         v3, Lcom/jlboat/phone/activity/MapActivity$9$1;
+	29      (00000078) invoke-direct        v3, v4, v1, Lcom/jlboat/phone/activity/MapActivity$9$1;-><init>(Lcom/jlboat/phone/activity/MapActivity$9; Lcom/jlboat/phone/message/map_msgs/TargetGoalEntry;)V
+	30      (0000007e) invoke-virtual       v2, v3, Lcom/jlboat/phone/activity/MapActivity;->runOnUiThread(Ljava/lang/Runnable;)V
+
+onNewMessage-BB@0x84 : 
+	31      (00000084) return-void          
+

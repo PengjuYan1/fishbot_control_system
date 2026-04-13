@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/util/NoDoubleClickUtils;-><clinit>()V [access_flags=static constructor]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:void
+
+<clinit>-BB@0x0 : 
+	0       (00000000) const-wide/16        v0, 0
+	1       (00000004) sput-wide            v0, Lcom/jlboat/phone/util/NoDoubleClickUtils;->lastClickTime J
+	2       (00000008) return-void          
+

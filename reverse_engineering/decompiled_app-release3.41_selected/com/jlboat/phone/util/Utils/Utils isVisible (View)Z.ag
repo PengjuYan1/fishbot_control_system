@@ -1,0 +1,44 @@
+# Lcom/jlboat/phone/util/Utils;->isVisible(Landroid/view/View;)Z [access_flags=public static]
+#
+# Parameters:
+# - local registers: v0...v4
+# - v5:android.view.View
+#
+# - return:boolean
+
+isVisible-BB@0x0 : [ isVisible-BB@0x6 isVisible-BB@0x8 ]
+	0       (00000000) const/4              v0, 0
+	1       (00000002) if-nez               v5, +003h
+
+isVisible-BB@0x6 : 
+	2       (00000006) return               v0
+
+isVisible-BB@0x8 : [ isVisible-BB@0x14 isVisible-BB@0x16 ]
+	3       (00000008) invoke-virtual       v5, Landroid/view/View;->isShown()Z
+	4       (0000000e) move-result          v1
+	5       (00000010) if-nez               v1, +003h
+
+isVisible-BB@0x14 : 
+	6       (00000014) return               v0
+
+isVisible-BB@0x16 : 
+	7       (00000016) new-instance         v1, Landroid/graphics/Rect;
+	8       (0000001a) invoke-direct        v1, Landroid/graphics/Rect;-><init>()V
+	9       (00000020) invoke-virtual       v5, v1, Landroid/view/View;->getGlobalVisibleRect(Landroid/graphics/Rect;)Z
+	10      (00000026) invoke-static        Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
+	11      (0000002c) move-result-object   v2
+	12      (0000002e) invoke-virtual       v2, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+	13      (00000034) move-result-object   v2
+	14      (00000036) iget                 v2, v2, Landroid/util/DisplayMetrics;->widthPixels I
+	15      (0000003a) invoke-static        Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
+	16      (00000040) move-result-object   v3
+	17      (00000042) invoke-virtual       v3, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+	18      (00000048) move-result-object   v3
+	19      (0000004a) iget                 v3, v3, Landroid/util/DisplayMetrics;->heightPixels I
+	20      (0000004e) new-instance         v4, Landroid/graphics/Rect;
+	21      (00000052) invoke-direct        v4, v0, v0, v2, v3, Landroid/graphics/Rect;-><init>(I I I I)V
+	22      (00000058) move-object          v0, v4
+	23      (0000005a) invoke-virtual       v1, v0, Landroid/graphics/Rect;->intersect(Landroid/graphics/Rect;)Z
+	24      (00000060) move-result          v4
+	25      (00000062) return               v4
+

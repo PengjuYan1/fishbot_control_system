@@ -1,0 +1,28 @@
+# Lcom/jlboat/phone/controller/JlNaviManager$30;->onNewMessage(Lcom/jlboat/phone/message/map_msgs/SetConfigsResponse;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:com.jlboat.phone.message.map_msgs.SetConfigsResponse
+#
+# - return:void
+
+onNewMessage-BB@0x0 : [ onNewMessage-BB@0x8 onNewMessage-BB@0x1a ]
+	0       (00000000) iget                 v0, v3, Lcom/jlboat/phone/message/map_msgs/SetConfigsResponse;->status I
+	1       (00000004) if-nez               v0, +00bh
+
+onNewMessage-BB@0x8 : [ onNewMessage-BB@0x2a ]
+	2       (00000008) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager$30;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	3       (0000000c) const                v1, 2131493306
+	4       (00000012) invoke-virtual       v0, v1, Lcom/jlboat/phone/controller/JlNaviManager;->toast(I)V
+	5       (00000018) goto                 +9h
+
+onNewMessage-BB@0x1a : [ onNewMessage-BB@0x2a ]
+	6       (0000001a) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager$30;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	7       (0000001e) const                v1, 2131493305
+	8       (00000024) invoke-virtual       v0, v1, Lcom/jlboat/phone/controller/JlNaviManager;->toast(I)V
+
+onNewMessage-BB@0x2a : 
+	9       (0000002a) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager$30;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	10      (0000002e) invoke-static        v0, Lcom/jlboat/phone/controller/JlNaviManager;->access$3700(Lcom/jlboat/phone/controller/JlNaviManager;)V
+	11      (00000034) return-void          
+

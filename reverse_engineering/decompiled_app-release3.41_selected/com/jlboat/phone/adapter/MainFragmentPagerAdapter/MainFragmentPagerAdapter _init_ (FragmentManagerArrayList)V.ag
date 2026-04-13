@@ -1,0 +1,14 @@
+# Lcom/jlboat/phone/adapter/MainFragmentPagerAdapter;-><init>(Landroid/support/v4/app/FragmentManager; Ljava/util/ArrayList;)V [access_flags=public constructor]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:android.support.v4.app.FragmentManager
+# - v2:java.util.ArrayList
+#
+# - return:void
+
+<init>-BB@0x0 : 
+	0       (00000000) invoke-direct        v0, v1, Landroid/support/v4/app/FragmentPagerAdapter;-><init>(Landroid/support/v4/app/FragmentManager;)V
+	1       (00000006) iput-object          v2, v0, Lcom/jlboat/phone/adapter/MainFragmentPagerAdapter;->list Ljava/util/ArrayList;
+	2       (0000000a) return-void          
+

@@ -1,0 +1,75 @@
+# Lcom/jlboat/phone/activity/RobotMapActivity;->onCreate(Landroid/os/Bundle;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:android.os.Bundle
+#
+# - return:void
+
+onCreate-BB@0x0 : 
+	0       (00000000) invoke-super         v2, v3, Lcom/jlboat/phone/base/BaseFullActivity;->onCreate(Landroid/os/Bundle;)V
+	1       (00000006) const                v0, 2131361931
+	2       (0000000c) const                v1, 2131493093
+	3       (00000012) invoke-virtual       v2, v0, v1, Lcom/jlboat/phone/activity/RobotMapActivity;->initTitleBar(I I)V
+	4       (00000018) const                v0, 2131231359
+	5       (0000001e) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/RobotMapActivity;->findViewById(I)Landroid/view/View;
+	6       (00000024) move-result-object   v0
+	7       (00000026) check-cast           v0, Lcom/jlboat/phone/view/JoystickView;
+	8       (0000002a) iput-object          v0, v2, Lcom/jlboat/phone/activity/RobotMapActivity;->virtualJoystickView Lcom/jlboat/phone/view/JoystickView;
+	9       (0000002e) const                v0, 2131231274
+	10      (00000034) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/RobotMapActivity;->findViewById(I)Landroid/view/View;
+	11      (0000003a) move-result-object   v0
+	12      (0000003c) check-cast           v0, Landroid/widget/Button;
+	13      (00000040) iput-object          v0, v2, Lcom/jlboat/phone/activity/RobotMapActivity;->status_bt Landroid/widget/Button;
+	14      (00000044) iget-object          v0, v2, Lcom/jlboat/phone/activity/RobotMapActivity;->status_bt Landroid/widget/Button;
+	15      (00000048) const/16             v1, 8
+	16      (0000004c) invoke-virtual       v0, v1, Landroid/widget/Button;->setVisibility(I)V
+	17      (00000052) const                v0, 2131230754
+	18      (00000058) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/RobotMapActivity;->findViewById(I)Landroid/view/View;
+	19      (0000005e) move-result-object   v0
+	20      (00000060) check-cast           v0, Landroid/widget/Button;
+	21      (00000064) iput-object          v0, v2, Lcom/jlboat/phone/activity/RobotMapActivity;->addactionposi_button Landroid/widget/Button;
+	22      (00000068) const                v0, 2131230755
+	23      (0000006e) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/RobotMapActivity;->findViewById(I)Landroid/view/View;
+	24      (00000074) move-result-object   v0
+	25      (00000076) check-cast           v0, Landroid/widget/Button;
+	26      (0000007a) iput-object          v0, v2, Lcom/jlboat/phone/activity/RobotMapActivity;->addchong_button Landroid/widget/Button;
+	27      (0000007e) const                v0, 2131230757
+	28      (00000084) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/RobotMapActivity;->findViewById(I)Landroid/view/View;
+	29      (0000008a) move-result-object   v0
+	30      (0000008c) check-cast           v0, Landroid/widget/Button;
+	31      (00000090) iput-object          v0, v2, Lcom/jlboat/phone/activity/RobotMapActivity;->addposin_button Landroid/widget/Button;
+	32      (00000094) const                v0, 2131230986
+	33      (0000009a) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/RobotMapActivity;->findViewById(I)Landroid/view/View;
+	34      (000000a0) move-result-object   v0
+	35      (000000a2) check-cast           v0, Lcom/jlboat/phone/view/MapView;
+	36      (000000a6) iput-object          v0, v2, Lcom/jlboat/phone/activity/RobotMapActivity;->mapView Lcom/jlboat/phone/view/MapView;
+	37      (000000aa) const                v0, 2131230985
+	38      (000000b0) invoke-virtual       v2, v0, Lcom/jlboat/phone/activity/RobotMapActivity;->findViewById(I)Landroid/view/View;
+	39      (000000b6) move-result-object   v0
+	40      (000000b8) check-cast           v0, Landroid/support/v7/widget/RecyclerView;
+	41      (000000bc) iput-object          v0, v2, Lcom/jlboat/phone/activity/RobotMapActivity;->map_list_ry Landroid/support/v7/widget/RecyclerView;
+	42      (000000c0) iget-object          v0, v2, Lcom/jlboat/phone/activity/RobotMapActivity;->map_list_ry Landroid/support/v7/widget/RecyclerView;
+	43      (000000c4) new-instance         v1, Landroid/support/v7/widget/LinearLayoutManager;
+	44      (000000c8) invoke-direct        v1, v2, Landroid/support/v7/widget/LinearLayoutManager;-><init>(Landroid/content/Context;)V
+	45      (000000ce) invoke-virtual       v0, v1, Landroid/support/v7/widget/RecyclerView;->setLayoutManager(Landroid/support/v7/widget/RecyclerView$LayoutManager;)V
+	46      (000000d4) new-instance         v0, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;
+	47      (000000d8) invoke-direct        v0, v2, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;-><init>(Landroid/content/Context;)V
+	48      (000000de) iput-object          v0, v2, Lcom/jlboat/phone/activity/RobotMapActivity;->mapListAdapter Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;
+	49      (000000e2) iget-object          v0, v2, Lcom/jlboat/phone/activity/RobotMapActivity;->map_list_ry Landroid/support/v7/widget/RecyclerView;
+	50      (000000e6) iget-object          v1, v2, Lcom/jlboat/phone/activity/RobotMapActivity;->mapListAdapter Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;
+	51      (000000ea) invoke-virtual       v0, v1, Landroid/support/v7/widget/RecyclerView;->setAdapter(Landroid/support/v7/widget/RecyclerView$Adapter;)V
+	52      (000000f0) iget-object          v0, v2, Lcom/jlboat/phone/activity/RobotMapActivity;->mapListAdapter Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;
+	53      (000000f4) new-instance         v1, Lcom/jlboat/phone/activity/RobotMapActivity$1;
+	54      (000000f8) invoke-direct        v1, v2, Lcom/jlboat/phone/activity/RobotMapActivity$1;-><init>(Lcom/jlboat/phone/activity/RobotMapActivity;)V
+	55      (000000fe) invoke-virtual       v0, v1, Lcom/jlboat/phone/adapter/RvFloorMapListAdapter;->setOnclickItem(Lcom/jlboat/phone/adapter/RvFloorMapListAdapter$OnClick;)V
+	56      (00000104) iget-object          v0, v2, Lcom/jlboat/phone/activity/RobotMapActivity;->addactionposi_button Landroid/widget/Button;
+	57      (00000108) invoke-virtual       v0, v2, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	58      (0000010e) iget-object          v0, v2, Lcom/jlboat/phone/activity/RobotMapActivity;->addchong_button Landroid/widget/Button;
+	59      (00000112) invoke-virtual       v0, v2, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	60      (00000118) iget-object          v0, v2, Lcom/jlboat/phone/activity/RobotMapActivity;->status_bt Landroid/widget/Button;
+	61      (0000011c) invoke-virtual       v0, v2, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	62      (00000122) iget-object          v0, v2, Lcom/jlboat/phone/activity/RobotMapActivity;->addposin_button Landroid/widget/Button;
+	63      (00000126) invoke-virtual       v0, v2, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	64      (0000012c) return-void          
+

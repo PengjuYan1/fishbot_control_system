@@ -1,0 +1,26 @@
+# Lcom/jlboat/phone/communication/SpiritServiceClient;->setPublishService(I J J Lcom/boat/jrosbridge/MessageListener;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v7
+# - v8:int
+# - v9:long
+# - v10:long
+# - v11:com.boat.jrosbridge.MessageListener
+#
+# - return:void
+
+setPublishService-BB@0x0 : 
+	0       (00000000) new-instance         v0, Lcom/boat/jrosbridge/Service;
+	1       (00000004) sget-object          v1, Lcom/jlboat/phone/util/ServiceNames;->ChangeMap Ljava/lang/String;
+	2       (00000008) const-class          v2, Lcom/jlboat/phone/message/map_msgs/PublishMapRequest;
+	3       (0000000c) const-class          v3, Lcom/boat/jrosbridge/message/std_srvs/Empty;
+	4       (00000010) sget-object          v4, Lcom/jlboat/phone/application/BoatSlamApplication;->client Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;
+	5       (00000014) invoke-direct        v0, v1, v2, v3, v4, Lcom/boat/jrosbridge/Service;-><init>(Ljava/lang/String; Ljava/lang/Class; Ljava/lang/Class; Lcom/boat/jrosbridge/ROSClient;)V
+	6       (0000001a) new-instance         v1, Lcom/jlboat/phone/message/map_msgs/PublishMapRequest;
+	7       (0000001e) invoke-direct        v1, Lcom/jlboat/phone/message/map_msgs/PublishMapRequest;-><init>()V
+	8       (00000024) invoke-virtual       v1, v6, Lcom/jlboat/phone/message/map_msgs/PublishMapRequest;->setType(I)V
+	9       (0000002a) invoke-virtual       v1, v7, v8, Lcom/jlboat/phone/message/map_msgs/PublishMapRequest;->setFloorId(J)V
+	10      (00000030) invoke-virtual       v1, v9, v10, Lcom/jlboat/phone/message/map_msgs/PublishMapRequest;->setMapId(J)V
+	11      (00000036) invoke-virtual       v0, v1, v11, Lcom/boat/jrosbridge/Service;->callWithHandler(Lcom/boat/jrosbridge/message/Message; Lcom/boat/jrosbridge/MessageListener;)V
+	12      (0000003c) return-void          
+

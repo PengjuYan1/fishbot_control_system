@@ -1,0 +1,30 @@
+# Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$3;->onNewMessage(Lcom/jlboat/phone/message/map_msgs/SetConfigsResponse;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:com.jlboat.phone.message.map_msgs.SetConfigsResponse
+#
+# - return:void
+
+onNewMessage-BB@0x0 : [ onNewMessage-BB@0xc onNewMessage-BB@0x1a ]
+	0       (00000000) invoke-virtual       v3, Lcom/jlboat/phone/message/map_msgs/SetConfigsResponse;->getStatus()I
+	1       (00000006) move-result          v0
+	2       (00000008) if-nez               v0, +009h
+
+onNewMessage-BB@0xc : [ onNewMessage-BB@0x1a ]
+	3       (0000000c) iget-object          v0, v2, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$3;->this$0 Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;
+	4       (00000010) const-string         v1, "ok"
+	5       (00000014) invoke-static        v0, v1, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;->access$200(Lcom/jlboat/phone/fragment/statusfragment/CameraFragment; Ljava/lang/CharSequence;)V
+
+onNewMessage-BB@0x1a : 
+	6       (0000001a) iget-object          v0, v2, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$3;->this$0 Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;
+	7       (0000001e) invoke-static        v0, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;->access$400(Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;)Landroid/os/Handler;
+	8       (00000024) move-result-object   v0
+	9       (00000026) new-instance         v1, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$3$1;
+	10      (0000002a) invoke-direct        v1, v2, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$3$1;-><init>(Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$3;)V
+	11      (00000030) invoke-virtual       v0, v1, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+	12      (00000036) iget-object          v0, v2, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment$3;->this$0 Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;
+	13      (0000003a) const/16             v1, 9
+	14      (0000003e) invoke-virtual       v0, v1, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;->getConfigs(I)V
+	15      (00000044) return-void          
+

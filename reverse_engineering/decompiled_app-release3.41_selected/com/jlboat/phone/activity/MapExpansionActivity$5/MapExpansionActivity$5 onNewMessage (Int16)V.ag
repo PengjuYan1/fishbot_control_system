@@ -1,0 +1,91 @@
+# Lcom/jlboat/phone/activity/MapExpansionActivity$5;->onNewMessage(Lcom/boat/jrosbridge/message/std_msgs/Int16;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v5
+# - v6:com.boat.jrosbridge.message.std_msgs.Int16
+#
+# - return:void
+
+onNewMessage-BB@0x0 : [ onNewMessage-BB@0x4a onNewMessage-BB@0x6e ]
+	0       (00000000) invoke-virtual       v6, Lcom/boat/jrosbridge/message/std_msgs/Int16;->getData()S
+	1       (00000006) move-result          v0
+	2       (00000008) new-instance         v1, Ljava/lang/StringBuilder;
+	3       (0000000c) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	4       (00000012) const-string         v2, "topic getMapBuildStatusMsg: "
+	5       (00000016) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	6       (0000001c) move-result-object   v1
+	7       (0000001e) invoke-virtual       v1, v0, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	8       (00000024) move-result-object   v1
+	9       (00000026) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	10      (0000002c) move-result-object   v1
+	11      (0000002e) const-string         v2, "MapExpansionActivity"
+	12      (00000032) invoke-static        v2, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	13      (00000038) iget-object          v1, v5, Lcom/jlboat/phone/activity/MapExpansionActivity$5;->this$0 Lcom/jlboat/phone/activity/MapExpansionActivity;
+	14      (0000003c) invoke-static        v1, Lcom/jlboat/phone/activity/MapExpansionActivity;->access$900(Lcom/jlboat/phone/activity/MapExpansionActivity;)I
+	15      (00000042) move-result          v1
+	16      (00000044) const/4              v2, 2
+	17      (00000046) if-ne                v1, v2, +014h
+
+onNewMessage-BB@0x4a : [ onNewMessage-BB@0x4e onNewMessage-BB@0x6e ]
+	18      (0000004a) if-nez               v0, +012h
+
+onNewMessage-BB@0x4e : 
+	19      (0000004e) iget-object          v1, v5, Lcom/jlboat/phone/activity/MapExpansionActivity$5;->this$0 Lcom/jlboat/phone/activity/MapExpansionActivity;
+	20      (00000052) invoke-static        v1, Lcom/jlboat/phone/activity/MapExpansionActivity;->access$1800(Lcom/jlboat/phone/activity/MapExpansionActivity;)V
+	21      (00000058) iget-object          v1, v5, Lcom/jlboat/phone/activity/MapExpansionActivity$5;->this$0 Lcom/jlboat/phone/activity/MapExpansionActivity;
+	22      (0000005c) invoke-static        v1, v0, Lcom/jlboat/phone/activity/MapExpansionActivity;->access$902(Lcom/jlboat/phone/activity/MapExpansionActivity; I)I
+	23      (00000062) iget-object          v1, v5, Lcom/jlboat/phone/activity/MapExpansionActivity$5;->this$0 Lcom/jlboat/phone/activity/MapExpansionActivity;
+	24      (00000066) invoke-virtual       v1, Lcom/jlboat/phone/activity/MapExpansionActivity;->finish()V
+	25      (0000006c) return-void          
+
+onNewMessage-BB@0x6e : [ onNewMessage-BB@0x8a onNewMessage-BB@0xa6 ]
+	26      (0000006e) iget-object          v1, v5, Lcom/jlboat/phone/activity/MapExpansionActivity$5;->this$0 Lcom/jlboat/phone/activity/MapExpansionActivity;
+	27      (00000072) invoke-static        v1, v0, Lcom/jlboat/phone/activity/MapExpansionActivity;->access$902(Lcom/jlboat/phone/activity/MapExpansionActivity; I)I
+	28      (00000078) iget-object          v1, v5, Lcom/jlboat/phone/activity/MapExpansionActivity$5;->this$0 Lcom/jlboat/phone/activity/MapExpansionActivity;
+	29      (0000007c) invoke-static        v1, Lcom/jlboat/phone/activity/MapExpansionActivity;->access$500(Lcom/jlboat/phone/activity/MapExpansionActivity;)Lcom/jlboat/phone/view/MapView;
+	30      (00000082) move-result-object   v1
+	31      (00000084) const/4              v3, 0
+	32      (00000086) if-eqz               v1, +010h
+
+onNewMessage-BB@0x8a : [ onNewMessage-BB@0x9a onNewMessage-BB@0x9e ]
+	33      (0000008a) iget-object          v1, v5, Lcom/jlboat/phone/activity/MapExpansionActivity$5;->this$0 Lcom/jlboat/phone/activity/MapExpansionActivity;
+	34      (0000008e) invoke-static        v1, Lcom/jlboat/phone/activity/MapExpansionActivity;->access$500(Lcom/jlboat/phone/activity/MapExpansionActivity;)Lcom/jlboat/phone/view/MapView;
+	35      (00000094) move-result-object   v1
+	36      (00000096) if-eqz               v0, +004h
+
+onNewMessage-BB@0x9a : [ onNewMessage-BB@0xa0 ]
+	37      (0000009a) const/4              v4, 1
+	38      (0000009c) goto                 +2h
+
+onNewMessage-BB@0x9e : [ onNewMessage-BB@0xa0 ]
+	39      (0000009e) const/4              v4, 0
+
+onNewMessage-BB@0xa0 : [ onNewMessage-BB@0xa6 ]
+	40      (000000a0) invoke-virtual       v1, v4, Lcom/jlboat/phone/view/MapView;->setBuildType(Z)V
+
+onNewMessage-BB@0xa6 : [ onNewMessage-BB@0xb6 onNewMessage-BB@0xdc ]
+	41      (000000a6) iget-object          v1, v5, Lcom/jlboat/phone/activity/MapExpansionActivity$5;->this$0 Lcom/jlboat/phone/activity/MapExpansionActivity;
+	42      (000000aa) invoke-static        v1, Lcom/jlboat/phone/activity/MapExpansionActivity;->access$1900(Lcom/jlboat/phone/activity/MapExpansionActivity;)Z
+	43      (000000b0) move-result          v1
+	44      (000000b2) if-eqz               v1, +015h
+
+onNewMessage-BB@0xb6 : [ onNewMessage-BB@0xc6 onNewMessage-BB@0xd2 ]
+	45      (000000b6) iget-object          v1, v5, Lcom/jlboat/phone/activity/MapExpansionActivity$5;->this$0 Lcom/jlboat/phone/activity/MapExpansionActivity;
+	46      (000000ba) invoke-static        v1, Lcom/jlboat/phone/activity/MapExpansionActivity;->access$900(Lcom/jlboat/phone/activity/MapExpansionActivity;)I
+	47      (000000c0) move-result          v1
+	48      (000000c2) if-eq                v1, v2, +008h
+
+onNewMessage-BB@0xc6 : 
+	49      (000000c6) iget-object          v1, v5, Lcom/jlboat/phone/activity/MapExpansionActivity$5;->this$0 Lcom/jlboat/phone/activity/MapExpansionActivity;
+	50      (000000ca) invoke-static        v1, Lcom/jlboat/phone/activity/MapExpansionActivity;->access$2000(Lcom/jlboat/phone/activity/MapExpansionActivity;)V
+	51      (000000d0) return-void          
+
+onNewMessage-BB@0xd2 : [ onNewMessage-BB@0xdc ]
+	52      (000000d2) iget-object          v1, v5, Lcom/jlboat/phone/activity/MapExpansionActivity$5;->this$0 Lcom/jlboat/phone/activity/MapExpansionActivity;
+	53      (000000d6) invoke-static        v1, v3, Lcom/jlboat/phone/activity/MapExpansionActivity;->access$1902(Lcom/jlboat/phone/activity/MapExpansionActivity; Z)Z
+
+onNewMessage-BB@0xdc : 
+	54      (000000dc) iget-object          v1, v5, Lcom/jlboat/phone/activity/MapExpansionActivity$5;->this$0 Lcom/jlboat/phone/activity/MapExpansionActivity;
+	55      (000000e0) invoke-static        v1, Lcom/jlboat/phone/activity/MapExpansionActivity;->access$2100(Lcom/jlboat/phone/activity/MapExpansionActivity;)V
+	56      (000000e6) return-void          
+

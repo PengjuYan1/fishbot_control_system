@@ -1,0 +1,33 @@
+# Lcom/jlboat/phone/controller/JlNaviManager;->setEraseMode(I Lcom/boat/support/slam/IResponseListener;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:int
+# - v4:com.boat.support.slam.IResponseListener
+#
+# - return:void
+
+setEraseMode-BB@0x0 : [ setEraseMode-BB@0x8 setEraseMode-BB@0x28 ]
+	0       (00000000) iget-boolean         v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->connectStatus Z
+	1       (00000004) if-eqz               v0, +012h
+
+setEraseMode-BB@0x8 : [ setEraseMode-BB@0x10 setEraseMode-BB@0x12 ]
+	2       (00000008) iget-boolean         v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->isNavigationInited Z
+	3       (0000000c) if-nez               v0, +003h
+
+setEraseMode-BB@0x10 : [ setEraseMode-BB@0x28 ]
+	4       (00000010) goto                 +ch
+
+setEraseMode-BB@0x12 : 
+	5       (00000012) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->spiritServiceClient Lcom/jlboat/phone/communication/SpiritServiceClient;
+	6       (00000016) new-instance         v1, Lcom/jlboat/phone/controller/JlNaviManager$18;
+	7       (0000001a) invoke-direct        v1, v2, v4, Lcom/jlboat/phone/controller/JlNaviManager$18;-><init>(Lcom/jlboat/phone/controller/JlNaviManager; Lcom/boat/support/slam/IResponseListener;)V
+	8       (00000020) invoke-virtual       v0, v3, v1, Lcom/jlboat/phone/communication/SpiritServiceClient;->setEraseModeService(I Lcom/boat/jrosbridge/MessageListener;)V
+	9       (00000026) return-void          
+
+setEraseMode-BB@0x28 : 
+	10      (00000028) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager;->TAG Ljava/lang/String;
+	11      (0000002c) const-string         v1, "clearMap: 初始化未成功 不可以进行数据请求 setEraseMode"
+	12      (00000030) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	13      (00000036) return-void          
+

@@ -1,0 +1,11 @@
+# Lcom/jlboat/phone/bean/PixeMarks;->getPoseList()Ljava/util/List; [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:java.util.List
+
+getPoseList-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/jlboat/phone/bean/PixeMarks;->poseList Ljava/util/List;
+	1       (00000004) return-object        v0
+

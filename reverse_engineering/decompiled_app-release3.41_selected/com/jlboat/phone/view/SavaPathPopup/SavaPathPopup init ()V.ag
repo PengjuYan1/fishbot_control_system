@@ -1,0 +1,111 @@
+# Lcom/jlboat/phone/view/SavaPathPopup;->init()V [access_flags=private]
+#
+# Parameters:
+# local registers: v0...v6
+#
+# - return:void
+
+init-BB@0x0 : 
+	0       (00000000) iget-object          v0, v6, Lcom/jlboat/phone/view/SavaPathPopup;->mContext Landroid/content/Context;
+	1       (00000004) const-string         v1, "layout_inflater"
+	2       (00000008) invoke-virtual       v0, v1, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+	3       (0000000e) move-result-object   v0
+	4       (00000010) check-cast           v0, Landroid/view/LayoutInflater;
+	5       (00000014) const                v1, 2131361932
+	6       (0000001a) const/4              v2, 0
+	7       (0000001c) invoke-virtual       v0, v1, v2, Landroid/view/LayoutInflater;->inflate(I Landroid/view/ViewGroup;)Landroid/view/View;
+	8       (00000022) move-result-object   v1
+	9       (00000024) iput-object          v1, v6, Lcom/jlboat/phone/view/SavaPathPopup;->mView Landroid/view/View;
+	10      (00000028) iget-object          v1, v6, Lcom/jlboat/phone/view/SavaPathPopup;->mView Landroid/view/View;
+	11      (0000002c) const                v2, 2131231086
+	12      (00000032) invoke-virtual       v1, v2, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	13      (00000038) move-result-object   v1
+	14      (0000003a) check-cast           v1, Landroid/widget/EditText;
+	15      (0000003e) iput-object          v1, v6, Lcom/jlboat/phone/view/SavaPathPopup;->pathNameEt Landroid/widget/EditText;
+	16      (00000042) iget-object          v1, v6, Lcom/jlboat/phone/view/SavaPathPopup;->pathNameEt Landroid/widget/EditText;
+	17      (00000046) new-instance         v2, Lcom/jlboat/phone/view/SavaPathPopup$1;
+	18      (0000004a) invoke-direct        v2, v6, Lcom/jlboat/phone/view/SavaPathPopup$1;-><init>(Lcom/jlboat/phone/view/SavaPathPopup;)V
+	19      (00000050) invoke-virtual       v1, v2, Landroid/widget/EditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
+	20      (00000056) iget-object          v1, v6, Lcom/jlboat/phone/view/SavaPathPopup;->mView Landroid/view/View;
+	21      (0000005a) const                v2, 2131231090
+	22      (00000060) invoke-virtual       v1, v2, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	23      (00000066) move-result-object   v1
+	24      (00000068) check-cast           v1, Landroid/widget/RadioGroup;
+	25      (0000006c) iput-object          v1, v6, Lcom/jlboat/phone/view/SavaPathPopup;->rgType Landroid/widget/RadioGroup;
+	26      (00000070) iget-object          v1, v6, Lcom/jlboat/phone/view/SavaPathPopup;->mView Landroid/view/View;
+	27      (00000074) const                v2, 2131231089
+	28      (0000007a) invoke-virtual       v1, v2, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	29      (00000080) move-result-object   v1
+	30      (00000082) check-cast           v1, Landroid/widget/RadioButton;
+	31      (00000086) iput-object          v1, v6, Lcom/jlboat/phone/view/SavaPathPopup;->pathSaveRb Landroid/widget/RadioButton;
+	32      (0000008a) iget-object          v1, v6, Lcom/jlboat/phone/view/SavaPathPopup;->mView Landroid/view/View;
+	33      (0000008e) const                v2, 2131231094
+	34      (00000094) invoke-virtual       v1, v2, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	35      (0000009a) move-result-object   v1
+	36      (0000009c) check-cast           v1, Landroid/widget/RadioButton;
+	37      (000000a0) iput-object          v1, v6, Lcom/jlboat/phone/view/SavaPathPopup;->pathVerificationRb Landroid/widget/RadioButton;
+	38      (000000a4) iget-object          v1, v6, Lcom/jlboat/phone/view/SavaPathPopup;->mView Landroid/view/View;
+	39      (000000a8) const                v2, 2131231093
+	40      (000000ae) invoke-virtual       v1, v2, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	41      (000000b4) move-result-object   v1
+	42      (000000b6) check-cast           v1, Landroid/widget/RadioButton;
+	43      (000000ba) iput-object          v1, v6, Lcom/jlboat/phone/view/SavaPathPopup;->pathVerSaveExecuteRb Landroid/widget/RadioButton;
+	44      (000000be) new-instance         v1, Lcom/jlboat/phone/view/SavaPathPopup$typeRgChangeListener;
+	45      (000000c2) invoke-direct        v1, v6, Lcom/jlboat/phone/view/SavaPathPopup$typeRgChangeListener;-><init>(Lcom/jlboat/phone/view/SavaPathPopup;)V
+	46      (000000c8) iget-object          v2, v6, Lcom/jlboat/phone/view/SavaPathPopup;->rgType Landroid/widget/RadioGroup;
+	47      (000000cc) invoke-virtual       v2, v1, Landroid/widget/RadioGroup;->setOnCheckedChangeListener(Landroid/widget/RadioGroup$OnCheckedChangeListener;)V
+	48      (000000d2) iget-object          v2, v6, Lcom/jlboat/phone/view/SavaPathPopup;->mView Landroid/view/View;
+	49      (000000d6) const                v3, 2131231092
+	50      (000000dc) invoke-virtual       v2, v3, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	51      (000000e2) move-result-object   v2
+	52      (000000e4) check-cast           v2, Landroid/widget/RadioGroup;
+	53      (000000e8) iput-object          v2, v6, Lcom/jlboat/phone/view/SavaPathPopup;->pathUnidirectionalRg Landroid/widget/RadioGroup;
+	54      (000000ec) iget-object          v2, v6, Lcom/jlboat/phone/view/SavaPathPopup;->mView Landroid/view/View;
+	55      (000000f0) const                v3, 2131231343
+	56      (000000f6) invoke-virtual       v2, v3, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	57      (000000fc) move-result-object   v2
+	58      (000000fe) check-cast           v2, Landroid/widget/RadioButton;
+	59      (00000102) iput-object          v2, v6, Lcom/jlboat/phone/view/SavaPathPopup;->unidirectionalPathRb Landroid/widget/RadioButton;
+	60      (00000106) iget-object          v2, v6, Lcom/jlboat/phone/view/SavaPathPopup;->mView Landroid/view/View;
+	61      (0000010a) const                v3, 2131230775
+	62      (00000110) invoke-virtual       v2, v3, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	63      (00000116) move-result-object   v2
+	64      (00000118) check-cast           v2, Landroid/widget/RadioButton;
+	65      (0000011c) iput-object          v2, v6, Lcom/jlboat/phone/view/SavaPathPopup;->bidirectionalPathRb Landroid/widget/RadioButton;
+	66      (00000120) iget-object          v2, v6, Lcom/jlboat/phone/view/SavaPathPopup;->pathUnidirectionalRg Landroid/widget/RadioGroup;
+	67      (00000124) invoke-virtual       v2, v1, Landroid/widget/RadioGroup;->setOnCheckedChangeListener(Landroid/widget/RadioGroup$OnCheckedChangeListener;)V
+	68      (0000012a) iget-object          v2, v6, Lcom/jlboat/phone/view/SavaPathPopup;->bidirectionalPathRb Landroid/widget/RadioButton;
+	69      (0000012e) const/4              v3, 1
+	70      (00000130) invoke-virtual       v2, v3, Landroid/widget/RadioButton;->setChecked(Z)V
+	71      (00000136) iget-object          v2, v6, Lcom/jlboat/phone/view/SavaPathPopup;->mView Landroid/view/View;
+	72      (0000013a) const                v3, 2131231079
+	73      (00000140) invoke-virtual       v2, v3, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	74      (00000146) move-result-object   v2
+	75      (00000148) check-cast           v2, Landroid/widget/Button;
+	76      (0000014c) iget-object          v3, v6, Lcom/jlboat/phone/view/SavaPathPopup;->mView Landroid/view/View;
+	77      (00000150) const                v4, 2131231078
+	78      (00000156) invoke-virtual       v3, v4, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	79      (0000015c) move-result-object   v3
+	80      (0000015e) check-cast           v3, Landroid/widget/Button;
+	81      (00000162) new-instance         v4, Lcom/jlboat/phone/view/SavaPathPopup$2;
+	82      (00000166) invoke-direct        v4, v6, Lcom/jlboat/phone/view/SavaPathPopup$2;-><init>(Lcom/jlboat/phone/view/SavaPathPopup;)V
+	83      (0000016c) invoke-virtual       v3, v4, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	84      (00000172) iget-object          v4, v6, Lcom/jlboat/phone/view/SavaPathPopup;->mListener Landroid/view/View$OnClickListener;
+	85      (00000176) invoke-virtual       v2, v4, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	86      (0000017c) iget-object          v4, v6, Lcom/jlboat/phone/view/SavaPathPopup;->mView Landroid/view/View;
+	87      (00000180) invoke-virtual       v6, v4, Lcom/jlboat/phone/view/SavaPathPopup;->setContentView(Landroid/view/View;)V
+	88      (00000186) const                v4, 2131558756
+	89      (0000018c) invoke-virtual       v6, v4, Lcom/jlboat/phone/view/SavaPathPopup;->setAnimationStyle(I)V
+	90      (00000192) const/4              v4, -1
+	91      (00000194) invoke-virtual       v6, v4, Lcom/jlboat/phone/view/SavaPathPopup;->setWidth(I)V
+	92      (0000019a) invoke-virtual       v6, v4, Lcom/jlboat/phone/view/SavaPathPopup;->setHeight(I)V
+	93      (000001a0) iget-boolean         v4, v6, Lcom/jlboat/phone/view/SavaPathPopup;->touchWinDismiss Z
+	94      (000001a4) invoke-virtual       v6, v4, Lcom/jlboat/phone/view/SavaPathPopup;->setFocusable(Z)V
+	95      (000001aa) const/4              v4, 0
+	96      (000001ac) invoke-virtual       v6, v4, Lcom/jlboat/phone/view/SavaPathPopup;->setClippingEnabled(Z)V
+	97      (000001b2) iget-object          v4, v6, Lcom/jlboat/phone/view/SavaPathPopup;->mView Landroid/view/View;
+	98      (000001b6) new-instance         v5, Lcom/jlboat/phone/view/SavaPathPopup$3;
+	99      (000001ba) invoke-direct        v5, v6, Lcom/jlboat/phone/view/SavaPathPopup$3;-><init>(Lcom/jlboat/phone/view/SavaPathPopup;)V
+	100     (000001c0) invoke-virtual       v4, v5, Landroid/view/View;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
+	101     (000001c6) return-void          
+

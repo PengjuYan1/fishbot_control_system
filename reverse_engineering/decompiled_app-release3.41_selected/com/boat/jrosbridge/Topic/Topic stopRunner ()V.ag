@@ -1,0 +1,21 @@
+# Lcom/boat/jrosbridge/Topic;->stopRunner()V [access_flags=private]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:void
+
+stopRunner-BB@0x0 : [ stopRunner-BB@0x8 stopRunner-BB@0x1e ]
+	0       (00000000) iget-object          v0, v1, Lcom/boat/jrosbridge/Topic;->handlerThread Ljava/lang/Thread;
+	1       (00000004) if-eqz               v0, +00dh
+
+stopRunner-BB@0x8 : [ stopRunner-BB@0x1e ]
+	2       (00000008) iget-object          v0, v1, Lcom/boat/jrosbridge/Topic;->handlerThread Ljava/lang/Thread;
+	3       (0000000c) invoke-virtual       v0, Ljava/lang/Thread;->interrupt()V
+	4       (00000012) invoke-virtual       v1, Lcom/boat/jrosbridge/Topic;->clear()V
+	5       (00000018) const/4              v0, 0
+	6       (0000001a) iput-object          v0, v1, Lcom/boat/jrosbridge/Topic;->handlerThread Ljava/lang/Thread;
+
+stopRunner-BB@0x1e : 
+	7       (0000001e) return-void          
+

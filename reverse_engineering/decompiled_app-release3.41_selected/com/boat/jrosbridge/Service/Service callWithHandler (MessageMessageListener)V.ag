@@ -1,0 +1,13 @@
+# Lcom/boat/jrosbridge/Service;->callWithHandler(Lcom/boat/jrosbridge/message/Message; Lcom/boat/jrosbridge/MessageListener;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.boat.jrosbridge.message.Message
+# - v2:com.boat.jrosbridge.MessageListener
+#
+# - return:void
+
+callWithHandler-BB@0x0 : 
+	0       (00000000) invoke-direct        v0, v1, v2, Lcom/boat/jrosbridge/Service;->callImpl(Lcom/boat/jrosbridge/message/Message; Lcom/boat/jrosbridge/MessageListener;)Ljava/lang/String;
+	1       (00000006) return-void          
+

@@ -1,0 +1,42 @@
+# Lcom/boat/ros/geometry/LazyFrameTransform;->get()Lcom/boat/ros/geometry/FrameTransform; [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v2
+#
+# - return:com.boat.ros.geometry.FrameTransform
+
+get-BB@0x0 : [ get-BB@0x6 ]
+	0       (00000000) iget-object          v0, v2, Lcom/boat/ros/geometry/LazyFrameTransform;->mutex Ljava/lang/Object;
+	1       (00000004) monitor-enter        v0
+
+get-BB@0x6 : [ get-BB@0xe get-BB@0x16 ]
+	2       (00000006) iget-object          v1, v2, Lcom/boat/ros/geometry/LazyFrameTransform;->frameTransform Lcom/boat/ros/geometry/FrameTransform;
+	3       (0000000a) if-eqz               v1, +006h
+	6:27
+	(Ljava/lang/Throwable; -> 2e get-BB@0x2e)
+
+get-BB@0xe : 
+	4       (0000000e) iget-object          v1, v2, Lcom/boat/ros/geometry/LazyFrameTransform;->frameTransform Lcom/boat/ros/geometry/FrameTransform;
+	5       (00000012) monitor-exit         v0
+	6       (00000014) return-object        v1
+	6:27
+	(Ljava/lang/Throwable; -> 2e get-BB@0x2e)
+
+get-BB@0x16 : 
+	7       (00000016) iget-object          v1, v2, Lcom/boat/ros/geometry/LazyFrameTransform;->message Lcom/boat/jrosbridge/message/geometry_msgs/TransformStamped;
+	8       (0000001a) invoke-static        v1, Lcom/boat/ros/geometry/FrameTransform;->fromTransformStampedMessage(Lcom/boat/jrosbridge/message/geometry_msgs/TransformStamped;)Lcom/boat/ros/geometry/FrameTransform;
+	9       (00000020) move-result-object   v1
+	10      (00000022) iput-object          v1, v2, Lcom/boat/ros/geometry/LazyFrameTransform;->frameTransform Lcom/boat/ros/geometry/FrameTransform;
+	11      (00000026) monitor-exit         v0
+	12      (00000028) iget-object          v0, v2, Lcom/boat/ros/geometry/LazyFrameTransform;->frameTransform Lcom/boat/ros/geometry/FrameTransform;
+	13      (0000002c) return-object        v0
+
+get-BB@0x2e : [ get-BB@0x30 ]
+	14      (0000002e) move-exception       v1
+
+get-BB@0x30 : 
+	15      (00000030) monitor-exit         v0
+	16      (00000032) throw                v1
+	30:31
+	(Ljava/lang/Throwable; -> 2e get-BB@0x2e)
+

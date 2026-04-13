@@ -1,0 +1,37 @@
+# Lcom/boat/support/slam/IPositionResult$Stub$Proxy;->onPosition(Lcom/boat/support/slam/entity/floors/Points;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v5
+# - v6:com.boat.support.slam.entity.floors.Points
+#
+# - return:void
+
+onPosition-BB@0x0 : [ onPosition-BB@0x10 ]
+	0       (00000000) invoke-static        Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+	1       (00000006) move-result-object   v0
+	2       (00000008) invoke-static        Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
+	3       (0000000e) move-result-object   v1
+
+onPosition-BB@0x10 : 
+	4       (00000010) const-string         v2, "com.boat.support.slam.IPositionResult"
+	5       (00000014) invoke-virtual       v0, v2, Landroid/os/Parcel;->writeInterfaceToken(Ljava/lang/String;)V
+	6       (0000001a) const/4              v2, 0
+	7       (0000001c) invoke-static        v0, v6, v2, Lcom/boat/support/slam/IPositionResult$_Parcel;->access$100(Landroid/os/Parcel; Landroid/os/Parcelable; I)V
+	8       (00000022) iget-object          v3, v5, Lcom/boat/support/slam/IPositionResult$Stub$Proxy;->mRemote Landroid/os/IBinder;
+	9       (00000026) const/4              v4, 1
+	10      (00000028) invoke-interface     v3, v4, v0, v1, v2, Landroid/os/IBinder;->transact(I Landroid/os/Parcel; Landroid/os/Parcel; I)Z
+	11      (0000002e) move-result          v2
+	12      (00000030) invoke-virtual       v1, Landroid/os/Parcel;->readException()V
+	13      (00000036) invoke-virtual       v1, Landroid/os/Parcel;->recycle()V
+	14      (0000003c) invoke-virtual       v0, Landroid/os/Parcel;->recycle()V
+	15      (00000042) nop                  
+	16      (00000044) return-void          
+	10:35
+	(Ljava/lang/Throwable; -> 46 onPosition-BB@0x46)
+
+onPosition-BB@0x46 : 
+	17      (00000046) move-exception       v2
+	18      (00000048) invoke-virtual       v1, Landroid/os/Parcel;->recycle()V
+	19      (0000004e) invoke-virtual       v0, Landroid/os/Parcel;->recycle()V
+	20      (00000054) throw                v2
+

@@ -1,0 +1,79 @@
+# Lcom/boat/ros/geometry/Transform;->equals(Ljava/lang/Object;)Z [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v5
+# - v6:java.lang.Object
+#
+# - return:boolean
+
+equals-BB@0x0 : [ equals-BB@0x6 equals-BB@0x8 ]
+	0       (00000000) const/4              v0, 1
+	1       (00000002) if-ne                v5, v6, +003h
+
+equals-BB@0x6 : 
+	2       (00000006) return               v0
+
+equals-BB@0x8 : [ equals-BB@0xe equals-BB@0x10 ]
+	3       (00000008) const/4              v1, 0
+	4       (0000000a) if-nez               v6, +003h
+
+equals-BB@0xe : 
+	5       (0000000e) return               v1
+
+equals-BB@0x10 : [ equals-BB@0x24 equals-BB@0x26 ]
+	6       (00000010) invoke-virtual       v5, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+	7       (00000016) move-result-object   v2
+	8       (00000018) invoke-virtual       v6, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+	9       (0000001e) move-result-object   v3
+	10      (00000020) if-eq                v2, v3, +003h
+
+equals-BB@0x24 : 
+	11      (00000024) return               v1
+
+equals-BB@0x26 : [ equals-BB@0x34 equals-BB@0x3e ]
+	12      (00000026) move-object          v2, v6
+	13      (00000028) check-cast           v2, Lcom/boat/ros/geometry/Transform;
+	14      (0000002c) iget-object          v3, v5, Lcom/boat/ros/geometry/Transform;->rotationAndScale Lcom/boat/ros/geometry/Quaternion;
+	15      (00000030) if-nez               v3, +007h
+
+equals-BB@0x34 : [ equals-BB@0x3c equals-BB@0x54 ]
+	16      (00000034) iget-object          v3, v2, Lcom/boat/ros/geometry/Transform;->rotationAndScale Lcom/boat/ros/geometry/Quaternion;
+	17      (00000038) if-eqz               v3, +00eh
+
+equals-BB@0x3c : 
+	18      (0000003c) return               v1
+
+equals-BB@0x3e : [ equals-BB@0x52 equals-BB@0x54 ]
+	19      (0000003e) iget-object          v3, v5, Lcom/boat/ros/geometry/Transform;->rotationAndScale Lcom/boat/ros/geometry/Quaternion;
+	20      (00000042) iget-object          v4, v2, Lcom/boat/ros/geometry/Transform;->rotationAndScale Lcom/boat/ros/geometry/Quaternion;
+	21      (00000046) invoke-virtual       v3, v4, Lcom/boat/ros/geometry/Quaternion;->equals(Ljava/lang/Object;)Z
+	22      (0000004c) move-result          v3
+	23      (0000004e) if-nez               v3, +003h
+
+equals-BB@0x52 : 
+	24      (00000052) return               v1
+
+equals-BB@0x54 : [ equals-BB@0x5c equals-BB@0x66 ]
+	25      (00000054) iget-object          v3, v5, Lcom/boat/ros/geometry/Transform;->translation Lcom/boat/ros/geometry/Vector3;
+	26      (00000058) if-nez               v3, +007h
+
+equals-BB@0x5c : [ equals-BB@0x64 equals-BB@0x7c ]
+	27      (0000005c) iget-object          v3, v2, Lcom/boat/ros/geometry/Transform;->translation Lcom/boat/ros/geometry/Vector3;
+	28      (00000060) if-eqz               v3, +00eh
+
+equals-BB@0x64 : 
+	29      (00000064) return               v1
+
+equals-BB@0x66 : [ equals-BB@0x7a equals-BB@0x7c ]
+	30      (00000066) iget-object          v3, v5, Lcom/boat/ros/geometry/Transform;->translation Lcom/boat/ros/geometry/Vector3;
+	31      (0000006a) iget-object          v4, v2, Lcom/boat/ros/geometry/Transform;->translation Lcom/boat/ros/geometry/Vector3;
+	32      (0000006e) invoke-virtual       v3, v4, Lcom/boat/ros/geometry/Vector3;->equals(Ljava/lang/Object;)Z
+	33      (00000074) move-result          v3
+	34      (00000076) if-nez               v3, +003h
+
+equals-BB@0x7a : 
+	35      (0000007a) return               v1
+
+equals-BB@0x7c : 
+	36      (0000007c) return               v0
+

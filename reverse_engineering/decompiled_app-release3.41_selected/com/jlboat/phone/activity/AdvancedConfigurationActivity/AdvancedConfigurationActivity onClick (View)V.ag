@@ -1,0 +1,76 @@
+# Lcom/jlboat/phone/activity/AdvancedConfigurationActivity;->onClick(Landroid/view/View;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:android.view.View
+#
+# - return:void
+
+onClick-BB@0x0 : [ D:onClick-BB@0x12 2131230848:onClick-BB@0xaa 2131230922:onClick-BB@0x8c 2131230923:onClick-BB@0x6e 2131230924:onClick-BB@0x58 2131230958:onClick-BB@0x36 2131231040:onClick-BB@0x14 ]
+	0       (00000000) invoke-virtual       v4, Landroid/view/View;->getId()I
+	1       (00000006) move-result          v0
+	2       (00000008) const-string         v1, "type"
+	3       (0000000c) sparse-switch        v0, +0000062h
+
+onClick-BB@0x12 : [ onClick-BB@0xcc ]
+	4       (00000012) goto                 +5dh
+
+onClick-BB@0x14 : [ onClick-BB@0xcc ]
+	5       (00000014) new-instance         v0, Landroid/content/Intent;
+	6       (00000018) const-class          v2, Lcom/jlboat/phone/activity/TestFragmentActivity;
+	7       (0000001c) invoke-direct        v0, v3, v2, Landroid/content/Intent;-><init>(Landroid/content/Context; Ljava/lang/Class;)V
+	8       (00000022) const                v2, 2131493342
+	9       (00000028) invoke-virtual       v0, v1, v2, Landroid/content/Intent;->putExtra(Ljava/lang/String; I)Landroid/content/Intent;
+	10      (0000002e) invoke-virtual       v3, v0, Lcom/jlboat/phone/activity/AdvancedConfigurationActivity;->startActivity(Landroid/content/Intent;)V
+	11      (00000034) goto                 +4ch
+
+onClick-BB@0x36 : [ onClick-BB@0xcc ]
+	12      (00000036) new-instance         v0, Landroid/content/Intent;
+	13      (0000003a) const-class          v2, Lcom/jlboat/phone/activity/TestFragmentActivity;
+	14      (0000003e) invoke-direct        v0, v3, v2, Landroid/content/Intent;-><init>(Landroid/content/Context; Ljava/lang/Class;)V
+	15      (00000044) const                v2, 2131493323
+	16      (0000004a) invoke-virtual       v0, v1, v2, Landroid/content/Intent;->putExtra(Ljava/lang/String; I)Landroid/content/Intent;
+	17      (00000050) invoke-virtual       v3, v0, Lcom/jlboat/phone/activity/AdvancedConfigurationActivity;->startActivity(Landroid/content/Intent;)V
+	18      (00000056) goto                 +3bh
+
+onClick-BB@0x58 : [ onClick-BB@0xcc ]
+	19      (00000058) new-instance         v0, Landroid/content/Intent;
+	20      (0000005c) const-class          v1, Lcom/jlboat/phone/activity/GrabBagActivity;
+	21      (00000060) invoke-direct        v0, v3, v1, Landroid/content/Intent;-><init>(Landroid/content/Context; Ljava/lang/Class;)V
+	22      (00000066) invoke-virtual       v3, v0, Lcom/jlboat/phone/activity/AdvancedConfigurationActivity;->startActivity(Landroid/content/Intent;)V
+	23      (0000006c) goto                 +30h
+
+onClick-BB@0x6e : [ onClick-BB@0xcc ]
+	24      (0000006e) new-instance         v0, Landroid/content/Intent;
+	25      (00000072) const-class          v2, Lcom/jlboat/phone/activity/MoveTestActivity;
+	26      (00000076) invoke-direct        v0, v3, v2, Landroid/content/Intent;-><init>(Landroid/content/Context; Ljava/lang/Class;)V
+	27      (0000007c) const/4              v2, 1
+	28      (0000007e) invoke-virtual       v0, v1, v2, Landroid/content/Intent;->putExtra(Ljava/lang/String; I)Landroid/content/Intent;
+	29      (00000084) invoke-virtual       v3, v0, Lcom/jlboat/phone/activity/AdvancedConfigurationActivity;->startActivity(Landroid/content/Intent;)V
+	30      (0000008a) goto                 +21h
+
+onClick-BB@0x8c : [ onClick-BB@0xcc ]
+	31      (0000008c) new-instance         v0, Landroid/content/Intent;
+	32      (00000090) const-class          v2, Lcom/jlboat/phone/activity/MoveTestActivity;
+	33      (00000094) invoke-direct        v0, v3, v2, Landroid/content/Intent;-><init>(Landroid/content/Context; Ljava/lang/Class;)V
+	34      (0000009a) const/4              v2, 0
+	35      (0000009c) invoke-virtual       v0, v1, v2, Landroid/content/Intent;->putExtra(Ljava/lang/String; I)Landroid/content/Intent;
+	36      (000000a2) invoke-virtual       v3, v0, Lcom/jlboat/phone/activity/AdvancedConfigurationActivity;->startActivity(Landroid/content/Intent;)V
+	37      (000000a8) goto                 +12h
+
+onClick-BB@0xaa : [ onClick-BB@0xcc ]
+	38      (000000aa) new-instance         v0, Landroid/content/Intent;
+	39      (000000ae) const-class          v2, Lcom/jlboat/phone/activity/TestFragmentActivity;
+	40      (000000b2) invoke-direct        v0, v3, v2, Landroid/content/Intent;-><init>(Landroid/content/Context; Ljava/lang/Class;)V
+	41      (000000b8) const                v2, 2131493310
+	42      (000000be) invoke-virtual       v0, v1, v2, Landroid/content/Intent;->putExtra(Ljava/lang/String; I)Landroid/content/Intent;
+	43      (000000c4) invoke-virtual       v3, v0, Lcom/jlboat/phone/activity/AdvancedConfigurationActivity;->startActivity(Landroid/content/Intent;)V
+	44      (000000ca) nop                  
+
+onClick-BB@0xcc : 
+	45      (000000cc) return-void          
+
+onClick-BB@0xce : 
+	46      (000000ce) nop                  
+	47      (000000d0) sparse-switch-payload 7f080080 7f0800ca 7f0800cb 7f0800cc 7f0800ee 7f080140
+

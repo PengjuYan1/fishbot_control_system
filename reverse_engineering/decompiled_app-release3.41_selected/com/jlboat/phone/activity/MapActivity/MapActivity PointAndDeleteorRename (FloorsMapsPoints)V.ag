@@ -1,0 +1,576 @@
+# Lcom/jlboat/phone/activity/MapActivity;->PointAndDeleteorRename(Lcom/boat/support/slam/entity/floors/Floors; Lcom/boat/support/slam/entity/floors/Maps; Lcom/boat/support/slam/entity/floors/Points;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v44
+# - v45:com.boat.support.slam.entity.floors.Floors
+# - v46:com.boat.support.slam.entity.floors.Maps
+# - v47:com.boat.support.slam.entity.floors.Points
+#
+# - return:void
+
+PointAndDeleteorRename-BB@0x0 : [ PointAndDeleteorRename-BB@0x20a ]
+	0       (00000000) move-object/from16   v15, v44
+	1       (00000004) move-object/from16   v14, v47
+	2       (00000008) invoke-virtual/range v44, Lcom/jlboat/phone/activity/MapActivity;->getLayoutInflater()Landroid/view/LayoutInflater;
+	3       (0000000e) move-result-object   v0
+	4       (00000010) const                v1, 2131361852
+	5       (00000016) const/4              v2, 0
+	6       (00000018) invoke-virtual       v0, v1, v2, Landroid/view/LayoutInflater;->inflate(I Landroid/view/ViewGroup;)Landroid/view/View;
+	7       (0000001e) move-result-object   v13
+	8       (00000020) const                v0, 2131231328
+	9       (00000026) invoke-virtual       v13, v0, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	10      (0000002c) move-result-object   v0
+	11      (0000002e) move-object          v12, v0
+	12      (00000030) check-cast           v12, Landroid/widget/TextView;
+	13      (00000034) const                v0, 2131230907
+	14      (0000003a) invoke-virtual       v13, v0, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	15      (00000040) move-result-object   v0
+	16      (00000042) move-object          v11, v0
+	17      (00000044) check-cast           v11, Landroid/widget/EditText;
+	18      (00000048) const                v0, 2131230875
+	19      (0000004e) invoke-virtual       v13, v0, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	20      (00000054) move-result-object   v0
+	21      (00000056) move-object          v10, v0
+	22      (00000058) check-cast           v10, Landroid/widget/RadioGroup;
+	23      (0000005c) const                v0, 2131230898
+	24      (00000062) invoke-virtual       v13, v0, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	25      (00000068) move-result-object   v0
+	26      (0000006a) move-object          v9, v0
+	27      (0000006c) check-cast           v9, Landroid/widget/EditText;
+	28      (00000070) const                v0, 2131230903
+	29      (00000076) invoke-virtual       v13, v0, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	30      (0000007c) move-result-object   v0
+	31      (0000007e) move-object          v8, v0
+	32      (00000080) check-cast           v8, Landroid/widget/EditText;
+	33      (00000084) const                v0, 2131231101
+	34      (0000008a) invoke-virtual       v13, v0, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	35      (00000090) move-result-object   v0
+	36      (00000092) move-object          v7, v0
+	37      (00000094) check-cast           v7, Landroid/widget/TextView;
+	38      (00000098) const                v0, 2131230908
+	39      (0000009e) invoke-virtual       v13, v0, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	40      (000000a4) move-result-object   v0
+	41      (000000a6) move-object          v6, v0
+	42      (000000a8) check-cast           v6, Landroid/widget/EditText;
+	43      (000000ac) const                v0, 2131231256
+	44      (000000b2) invoke-virtual       v13, v0, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	45      (000000b8) move-result-object   v0
+	46      (000000ba) move-object          v5, v0
+	47      (000000bc) check-cast           v5, Landroid/widget/Spinner;
+	48      (000000c0) const                v0, 2131231257
+	49      (000000c6) invoke-virtual       v13, v0, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	50      (000000cc) move-result-object   v0
+	51      (000000ce) move-object          v4, v0
+	52      (000000d0) check-cast           v4, Landroid/widget/Spinner;
+	53      (000000d4) const                v0, 2131230801
+	54      (000000da) invoke-virtual       v13, v0, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	55      (000000e0) move-result-object   v0
+	56      (000000e2) move-object          v1, v0
+	57      (000000e4) check-cast           v1, Landroid/widget/Button;
+	58      (000000e8) const                v0, 2131230803
+	59      (000000ee) invoke-virtual       v13, v0, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	60      (000000f4) move-result-object   v0
+	61      (000000f6) check-cast           v0, Landroid/widget/Button;
+	62      (000000fa) const                v2, 2131230799
+	63      (00000100) invoke-virtual       v13, v2, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	64      (00000106) move-result-object   v2
+	65      (00000108) move-object          v3, v2
+	66      (0000010a) check-cast           v3, Landroid/widget/Button;
+	67      (0000010e) const                v2, 2131230805
+	68      (00000114) invoke-virtual       v13, v2, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	69      (0000011a) move-result-object   v2
+	70      (0000011c) check-cast           v2, Landroid/widget/TextView;
+	71      (00000120) move-object/from16   v16, v0
+	72      (00000124) const                v0, 2131230806
+	73      (0000012a) invoke-virtual       v13, v0, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	74      (00000130) move-result-object   v0
+	75      (00000132) check-cast           v0, Landroid/widget/TextView;
+	76      (00000136) move-object/from16   v17, v0
+	77      (0000013a) const                v0, 2131230793
+	78      (00000140) invoke-virtual       v13, v0, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	79      (00000146) move-result-object   v0
+	80      (00000148) check-cast           v0, Landroid/widget/TextView;
+	81      (0000014c) move-object/from16   v18, v0
+	82      (00000150) invoke-virtual/range v44, Lcom/jlboat/phone/activity/MapActivity;->getResources()Landroid/content/res/Resources;
+	83      (00000156) move-result-object   v0
+	84      (00000158) move-object/from16   v19, v2
+	85      (0000015c) const                v2, 2131493070
+	86      (00000162) invoke-virtual       v0, v2, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+	87      (00000168) move-result-object   v20
+	88      (0000016a) invoke-virtual/range v44, Lcom/jlboat/phone/activity/MapActivity;->getResources()Landroid/content/res/Resources;
+	89      (00000170) move-result-object   v0
+	90      (00000172) const                v2, 2131493071
+	91      (00000178) invoke-virtual       v0, v2, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+	92      (0000017e) move-result-object   v21
+	93      (00000180) invoke-virtual/range v44, Lcom/jlboat/phone/activity/MapActivity;->getResources()Landroid/content/res/Resources;
+	94      (00000186) move-result-object   v0
+	95      (00000188) const                v2, 2131493072
+	96      (0000018e) invoke-virtual       v0, v2, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+	97      (00000194) move-result-object   v22
+	98      (00000196) new-instance         v0, Landroid/widget/ArrayAdapter;
+	99      (0000019a) const                v2, 17367048
+	100     (000001a0) invoke-direct        v0, v15, v2, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context; I)V
+	101     (000001a6) move-object/from16   v23, v3
+	102     (000001aa) new-instance         v3, Landroid/widget/ArrayAdapter;
+	103     (000001ae) invoke-direct        v3, v15, v2, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context; I)V
+	104     (000001b4) invoke-virtual       v0, Landroid/widget/ArrayAdapter;->clear()V
+	105     (000001ba) invoke-virtual       v3, Landroid/widget/ArrayAdapter;->clear()V
+	106     (000001c0) invoke-virtual/range v44, Lcom/jlboat/phone/activity/MapActivity;->getResources()Landroid/content/res/Resources;
+	107     (000001c6) move-result-object   v2
+	108     (000001c8) move-object/from16   v24, v13
+	109     (000001cc) const                v13, 2131493233
+	110     (000001d2) invoke-virtual       v2, v13, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+	111     (000001d8) move-result-object   v2
+	112     (000001da) invoke-virtual       v0, v2, Landroid/widget/ArrayAdapter;->add(Ljava/lang/Object;)V
+	113     (000001e0) invoke-virtual/range v44, Lcom/jlboat/phone/activity/MapActivity;->getResources()Landroid/content/res/Resources;
+	114     (000001e6) move-result-object   v2
+	115     (000001e8) const                v13, 2131493234
+	116     (000001ee) invoke-virtual       v2, v13, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+	117     (000001f4) move-result-object   v2
+	118     (000001f6) invoke-virtual       v3, v2, Landroid/widget/ArrayAdapter;->add(Ljava/lang/Object;)V
+	119     (000001fc) const/4              v2, 0
+	120     (000001fe) iget-object          v13, v15, Lcom/jlboat/phone/activity/MapActivity;->currentFloors Ljava/util/List;
+	121     (00000202) invoke-interface     v13, Ljava/util/List;->iterator()Ljava/util/Iterator;
+	122     (00000208) move-result-object   v13
+
+PointAndDeleteorRename-BB@0x20a : [ PointAndDeleteorRename-BB@0x216 PointAndDeleteorRename-BB@0x23a ]
+	123     (0000020a) invoke-interface     v13, Ljava/util/Iterator;->hasNext()Z
+	124     (00000210) move-result          v25
+	125     (00000212) if-eqz               v25, +014h
+
+PointAndDeleteorRename-BB@0x216 : [ PointAndDeleteorRename-BB@0x20a ]
+	126     (00000216) invoke-interface     v13, Ljava/util/Iterator;->next()Ljava/lang/Object;
+	127     (0000021c) move-result-object   v25
+	128     (0000021e) check-cast           v25, Lcom/boat/support/slam/entity/floors/Floors;
+	129     (00000222) move-object/from16   v26, v2
+	130     (00000226) invoke-virtual/range v25, Lcom/boat/support/slam/entity/floors/Floors;->getFloorName()Ljava/lang/String;
+	131     (0000022c) move-result-object   v2
+	132     (0000022e) invoke-virtual       v0, v2, Landroid/widget/ArrayAdapter;->add(Ljava/lang/Object;)V
+	133     (00000234) move-object/from16   v2, v26
+	134     (00000238) goto                 -17h
+
+PointAndDeleteorRename-BB@0x23a : [ PointAndDeleteorRename-BB@0x262 PointAndDeleteorRename-BB@0x492 ]
+	135     (0000023a) move-object/from16   v26, v2
+	136     (0000023e) invoke-virtual       v5, v0, Landroid/widget/Spinner;->setAdapter(Landroid/widget/SpinnerAdapter;)V
+	137     (00000244) invoke-virtual       v4, v3, Landroid/widget/Spinner;->setAdapter(Landroid/widget/SpinnerAdapter;)V
+	138     (0000024a) invoke-virtual/range v47, Lcom/boat/support/slam/entity/floors/Points;->getPointId()J
+	139     (00000250) move-result-wide     v27
+	140     (00000252) const-string         v2, "MapActivity"
+	141     (00000256) const-wide/16        v29, 0
+	142     (0000025a) cmp-long             v13, v27, v29
+	143     (0000025e) if-eqz               v13, +11ah
+
+PointAndDeleteorRename-BB@0x262 : [ PointAndDeleteorRename-BB@0x272 PointAndDeleteorRename-BB@0x492 ]
+	144     (00000262) invoke-virtual/range v47, Lcom/boat/support/slam/entity/floors/Points;->getBindMapId()J
+	145     (00000268) move-result-wide     v27
+	146     (0000026a) cmp-long             v13, v27, v29
+	147     (0000026e) if-eqz               v13, +112h
+
+PointAndDeleteorRename-BB@0x272 : [ PointAndDeleteorRename-BB@0x282 PointAndDeleteorRename-BB@0x492 ]
+	148     (00000272) invoke-virtual/range v47, Lcom/boat/support/slam/entity/floors/Points;->getBindFloorId()J
+	149     (00000278) move-result-wide     v27
+	150     (0000027a) cmp-long             v13, v27, v29
+	151     (0000027e) if-eqz               v13, +10ah
+
+PointAndDeleteorRename-BB@0x282 : [ PointAndDeleteorRename-BB@0x28e ]
+	152     (00000282) iget-object          v13, v15, Lcom/jlboat/phone/activity/MapActivity;->currentFloors Ljava/util/List;
+	153     (00000286) invoke-interface     v13, Ljava/util/List;->iterator()Ljava/util/Iterator;
+	154     (0000028c) move-result-object   v13
+
+PointAndDeleteorRename-BB@0x28e : [ PointAndDeleteorRename-BB@0x29a PointAndDeleteorRename-BB@0x484 ]
+	155     (0000028e) invoke-interface     v13, Ljava/util/Iterator;->hasNext()Z
+	156     (00000294) move-result          v25
+	157     (00000296) if-eqz               v25, +0f7h
+
+PointAndDeleteorRename-BB@0x29a : [ PointAndDeleteorRename-BB@0x2be PointAndDeleteorRename-BB@0x45c ]
+	158     (0000029a) invoke-interface     v13, Ljava/util/Iterator;->next()Ljava/lang/Object;
+	159     (000002a0) move-result-object   v25
+	160     (000002a2) check-cast           v25, Lcom/boat/support/slam/entity/floors/Floors;
+	161     (000002a6) invoke-virtual/range v25, Lcom/boat/support/slam/entity/floors/Floors;->getFloorId()J
+	162     (000002ac) move-result-wide     v27
+	163     (000002ae) invoke-virtual/range v47, Lcom/boat/support/slam/entity/floors/Points;->getBindFloorId()J
+	164     (000002b4) move-result-wide     v29
+	165     (000002b6) cmp-long             v31, v27, v29
+	166     (000002ba) if-nez               v31, +0d1h
+
+PointAndDeleteorRename-BB@0x2be : [ PointAndDeleteorRename-BB@0x2ce ]
+	167     (000002be) invoke-virtual/range v25, Lcom/boat/support/slam/entity/floors/Floors;->getMaps()Ljava/util/List;
+	168     (000002c4) move-result-object   v27
+	169     (000002c6) invoke-interface/range v27, Ljava/util/List;->iterator()Ljava/util/Iterator;
+	170     (000002cc) move-result-object   v27
+
+PointAndDeleteorRename-BB@0x2ce : [ PointAndDeleteorRename-BB@0x2da PointAndDeleteorRename-BB@0x44a ]
+	171     (000002ce) invoke-interface/range v27, Ljava/util/Iterator;->hasNext()Z
+	172     (000002d4) move-result          v28
+	173     (000002d6) if-eqz               v28, +0bah
+
+PointAndDeleteorRename-BB@0x2da : [ PointAndDeleteorRename-BB@0x2fe PointAndDeleteorRename-BB@0x422 ]
+	174     (000002da) invoke-interface/range v27, Ljava/util/Iterator;->next()Ljava/lang/Object;
+	175     (000002e0) move-result-object   v28
+	176     (000002e2) check-cast           v28, Lcom/boat/support/slam/entity/floors/Maps;
+	177     (000002e6) invoke-virtual/range v47, Lcom/boat/support/slam/entity/floors/Points;->getBindMapId()J
+	178     (000002ec) move-result-wide     v29
+	179     (000002ee) invoke-virtual/range v28, Lcom/boat/support/slam/entity/floors/Maps;->getMapId()J
+	180     (000002f4) move-result-wide     v31
+	181     (000002f6) cmp-long             v33, v29, v31
+	182     (000002fa) if-nez               v33, +094h
+
+PointAndDeleteorRename-BB@0x2fe : [ PointAndDeleteorRename-BB@0x316 PointAndDeleteorRename-BB@0x422 ]
+	183     (000002fe) invoke-virtual/range v28, Lcom/boat/support/slam/entity/floors/Maps;->getMapId()J
+	184     (00000304) move-result-wide     v29
+	185     (00000306) invoke-virtual/range v25, Lcom/boat/support/slam/entity/floors/Floors;->getDefaultmap()J
+	186     (0000030c) move-result-wide     v31
+	187     (0000030e) cmp-long             v33, v29, v31
+	188     (00000312) if-nez               v33, +088h
+
+PointAndDeleteorRename-BB@0x316 : [ PointAndDeleteorRename-BB@0x364 ]
+	189     (00000316) move-object/from16   v29, v3
+	190     (0000031a) new-instance         v3, Ljava/lang/StringBuilder;
+	191     (0000031e) invoke-direct        v3, Ljava/lang/StringBuilder;-><init>()V
+	192     (00000324) move-object/from16   v30, v4
+	193     (00000328) const-string         v4, "frd.getBindPointId():"
+	194     (0000032c) invoke-virtual       v3, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	195     (00000332) move-result-object   v3
+	196     (00000334) move-object          v4, v13
+	197     (00000336) invoke-virtual/range v47, Lcom/boat/support/slam/entity/floors/Points;->getBindPointId()J
+	198     (0000033c) move-result-wide     v13
+	199     (0000033e) invoke-virtual       v3, v13, v14, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+	200     (00000344) move-result-object   v3
+	201     (00000346) invoke-virtual       v3, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	202     (0000034c) move-result-object   v3
+	203     (0000034e) invoke-static        v2, v3, Landroid/util/Log;->e(Ljava/lang/String; Ljava/lang/String;)I
+	204     (00000354) invoke-virtual/range v28, Lcom/boat/support/slam/entity/floors/Maps;->getPoints()Ljava/util/List;
+	205     (0000035a) move-result-object   v3
+	206     (0000035c) invoke-interface     v3, Ljava/util/List;->iterator()Ljava/util/Iterator;
+	207     (00000362) move-result-object   v3
+
+PointAndDeleteorRename-BB@0x364 : [ PointAndDeleteorRename-BB@0x370 PointAndDeleteorRename-BB@0x418 ]
+	208     (00000364) invoke-interface     v3, Ljava/util/Iterator;->hasNext()Z
+	209     (0000036a) move-result          v13
+	210     (0000036c) if-eqz               v13, +056h
+
+PointAndDeleteorRename-BB@0x370 : [ PointAndDeleteorRename-BB@0x394 PointAndDeleteorRename-BB@0x3fe ]
+	211     (00000370) invoke-interface     v3, Ljava/util/Iterator;->next()Ljava/lang/Object;
+	212     (00000376) move-result-object   v13
+	213     (00000378) check-cast           v13, Lcom/boat/support/slam/entity/floors/Points;
+	214     (0000037c) invoke-virtual       v13, Lcom/boat/support/slam/entity/floors/Points;->getPointId()J
+	215     (00000382) move-result-wide     v31
+	216     (00000384) invoke-virtual/range v47, Lcom/boat/support/slam/entity/floors/Points;->getBindPointId()J
+	217     (0000038a) move-result-wide     v33
+	218     (0000038c) cmp-long             v14, v31, v33
+	219     (00000390) if-nez               v14, +037h
+
+PointAndDeleteorRename-BB@0x394 : [ PointAndDeleteorRename-BB@0x3a0 PointAndDeleteorRename-BB@0x3ec ]
+	220     (00000394) invoke-virtual/range v25, Lcom/boat/support/slam/entity/floors/Floors;->getFloorName()Ljava/lang/String;
+	221     (0000039a) move-result-object   v14
+	222     (0000039c) if-eqz               v14, +028h
+
+PointAndDeleteorRename-BB@0x3a0 : [ PointAndDeleteorRename-BB@0x3e4 PointAndDeleteorRename-BB@0x3f8 ]
+	223     (000003a0) move-object/from16   v31, v3
+	224     (000003a4) invoke-virtual       v0, v14, Landroid/widget/ArrayAdapter;->getPosition(Ljava/lang/Object;)I
+	225     (000003aa) move-result          v3
+	226     (000003ac) move-object/from16   v32, v0
+	227     (000003b0) new-instance         v0, Ljava/lang/StringBuilder;
+	228     (000003b4) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	229     (000003ba) move-object/from16   v33, v4
+	230     (000003be) const-string         v4, "floorsPosition:"
+	231     (000003c2) invoke-virtual       v0, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	232     (000003c8) move-result-object   v0
+	233     (000003ca) invoke-virtual       v0, v3, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	234     (000003d0) move-result-object   v0
+	235     (000003d2) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	236     (000003d8) move-result-object   v0
+	237     (000003da) invoke-static        v2, v0, Landroid/util/Log;->e(Ljava/lang/String; Ljava/lang/String;)I
+	238     (000003e0) if-ltz               v3, +00ch
+
+PointAndDeleteorRename-BB@0x3e4 : [ PointAndDeleteorRename-BB@0x3f8 ]
+	239     (000003e4) invoke-virtual       v5, v3, Landroid/widget/Spinner;->setSelection(I)V
+	240     (000003ea) goto                 +7h
+
+PointAndDeleteorRename-BB@0x3ec : [ PointAndDeleteorRename-BB@0x3f8 ]
+	241     (000003ec) move-object/from16   v32, v0
+	242     (000003f0) move-object/from16   v31, v3
+	243     (000003f4) move-object/from16   v33, v4
+
+PointAndDeleteorRename-BB@0x3f8 : [ PointAndDeleteorRename-BB@0x40a ]
+	244     (000003f8) move-object/from16   v26, v14
+	245     (000003fc) goto                 +7h
+
+PointAndDeleteorRename-BB@0x3fe : [ PointAndDeleteorRename-BB@0x40a ]
+	246     (000003fe) move-object/from16   v32, v0
+	247     (00000402) move-object/from16   v31, v3
+	248     (00000406) move-object/from16   v33, v4
+
+PointAndDeleteorRename-BB@0x40a : [ PointAndDeleteorRename-BB@0x364 ]
+	249     (0000040a) move-object/from16   v3, v31
+	250     (0000040e) move-object/from16   v0, v32
+	251     (00000412) move-object/from16   v4, v33
+	252     (00000416) goto                 -59h
+
+PointAndDeleteorRename-BB@0x418 : [ PointAndDeleteorRename-BB@0x432 ]
+	253     (00000418) move-object/from16   v32, v0
+	254     (0000041c) move-object/from16   v33, v4
+	255     (00000420) goto                 +9h
+
+PointAndDeleteorRename-BB@0x422 : [ PointAndDeleteorRename-BB@0x432 ]
+	256     (00000422) move-object/from16   v32, v0
+	257     (00000426) move-object/from16   v29, v3
+	258     (0000042a) move-object/from16   v30, v4
+	259     (0000042e) move-object/from16   v33, v13
+
+PointAndDeleteorRename-BB@0x432 : [ PointAndDeleteorRename-BB@0x2ce ]
+	260     (00000432) move-object/from16   v14, v47
+	261     (00000436) move-object/from16   v3, v29
+	262     (0000043a) move-object/from16   v4, v30
+	263     (0000043e) move-object/from16   v0, v32
+	264     (00000442) move-object/from16   v13, v33
+	265     (00000446) goto/16              -0bch
+
+PointAndDeleteorRename-BB@0x44a : [ PointAndDeleteorRename-BB@0x46c ]
+	266     (0000044a) move-object/from16   v32, v0
+	267     (0000044e) move-object/from16   v29, v3
+	268     (00000452) move-object/from16   v30, v4
+	269     (00000456) move-object/from16   v33, v13
+	270     (0000045a) goto                 +9h
+
+PointAndDeleteorRename-BB@0x45c : [ PointAndDeleteorRename-BB@0x46c ]
+	271     (0000045c) move-object/from16   v32, v0
+	272     (00000460) move-object/from16   v29, v3
+	273     (00000464) move-object/from16   v30, v4
+	274     (00000468) move-object/from16   v33, v13
+
+PointAndDeleteorRename-BB@0x46c : [ PointAndDeleteorRename-BB@0x28e ]
+	275     (0000046c) move-object/from16   v14, v47
+	276     (00000470) move-object/from16   v3, v29
+	277     (00000474) move-object/from16   v4, v30
+	278     (00000478) move-object/from16   v0, v32
+	279     (0000047c) move-object/from16   v13, v33
+	280     (00000480) goto/16              -0f9h
+
+PointAndDeleteorRename-BB@0x484 : [ PointAndDeleteorRename-BB@0x49e ]
+	281     (00000484) move-object/from16   v32, v0
+	282     (00000488) move-object/from16   v29, v3
+	283     (0000048c) move-object/from16   v30, v4
+	284     (00000490) goto                 +7h
+
+PointAndDeleteorRename-BB@0x492 : [ PointAndDeleteorRename-BB@0x49e ]
+	285     (00000492) move-object/from16   v32, v0
+	286     (00000496) move-object/from16   v29, v3
+	287     (0000049a) move-object/from16   v30, v4
+
+PointAndDeleteorRename-BB@0x49e : [ PointAndDeleteorRename-BB@0x586 PointAndDeleteorRename-BB@0x592 ]
+	288     (0000049e) const                v0, 2131492991
+	289     (000004a4) invoke-virtual       v15, v0, Lcom/jlboat/phone/activity/MapActivity;->getResString(I)Ljava/lang/String;
+	290     (000004aa) move-result-object   v0
+	291     (000004ac) invoke-virtual       v1, v0, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
+	292     (000004b2) new-instance         v0, Ljava/lang/StringBuilder;
+	293     (000004b6) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	294     (000004bc) const                v3, 2131492995
+	295     (000004c2) invoke-virtual       v15, v3, Lcom/jlboat/phone/activity/MapActivity;->getResString(I)Ljava/lang/String;
+	296     (000004c8) move-result-object   v3
+	297     (000004ca) invoke-virtual       v0, v3, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	298     (000004d0) move-result-object   v0
+	299     (000004d2) invoke-virtual/range v45, Lcom/boat/support/slam/entity/floors/Floors;->getFloorName()Ljava/lang/String;
+	300     (000004d8) move-result-object   v3
+	301     (000004da) invoke-virtual       v0, v3, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	302     (000004e0) move-result-object   v0
+	303     (000004e2) const-string         v3, " , "
+	304     (000004e6) invoke-virtual       v0, v3, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	305     (000004ec) move-result-object   v0
+	306     (000004ee) const                v3, 2131493002
+	307     (000004f4) invoke-virtual       v15, v3, Lcom/jlboat/phone/activity/MapActivity;->getResString(I)Ljava/lang/String;
+	308     (000004fa) move-result-object   v3
+	309     (000004fc) invoke-virtual       v0, v3, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	310     (00000502) move-result-object   v0
+	311     (00000504) invoke-virtual/range v46, Lcom/boat/support/slam/entity/floors/Maps;->getMapName()Ljava/lang/String;
+	312     (0000050a) move-result-object   v3
+	313     (0000050c) invoke-virtual       v0, v3, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	314     (00000512) move-result-object   v0
+	315     (00000514) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	316     (0000051a) move-result-object   v0
+	317     (0000051c) invoke-virtual       v12, v0, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+	318     (00000522) invoke-virtual/range v47, Lcom/boat/support/slam/entity/floors/Points;->getPointName()Ljava/lang/String;
+	319     (00000528) move-result-object   v0
+	320     (0000052a) invoke-virtual       v11, v0, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+	321     (00000530) invoke-virtual/range v47, Lcom/boat/support/slam/entity/floors/Points;->getCargoRegionType()Ljava/lang/String;
+	322     (00000536) move-result-object   v0
+	323     (00000538) invoke-virtual       v6, v0, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+	324     (0000053e) invoke-virtual/range v47, Lcom/boat/support/slam/entity/floors/Points;->getDeviceType()I
+	325     (00000544) move-result          v14
+	326     (00000546) new-instance         v0, Ljava/lang/StringBuilder;
+	327     (0000054a) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	328     (00000550) const-string         v3, "PointAndDeleteorRename: deviceType "
+	329     (00000554) invoke-virtual       v0, v3, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	330     (0000055a) move-result-object   v0
+	331     (0000055c) invoke-virtual       v0, v14, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	332     (00000562) move-result-object   v0
+	333     (00000564) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	334     (0000056a) move-result-object   v0
+	335     (0000056c) invoke-static        v2, v0, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	336     (00000572) const                v0, 2131230870
+	337     (00000578) invoke-virtual       v10, v0, Landroid/widget/RadioGroup;->check(I)V
+	338     (0000057e) const/16             v0, 11
+	339     (00000582) if-ne                v14, v0, +008h
+
+PointAndDeleteorRename-BB@0x586 : [ PointAndDeleteorRename-BB@0x592 ]
+	340     (00000586) const                v0, 2131230871
+	341     (0000058c) invoke-virtual       v10, v0, Landroid/widget/RadioGroup;->check(I)V
+
+PointAndDeleteorRename-BB@0x592 : [ PointAndDeleteorRename-BB@0x59a PointAndDeleteorRename-BB@0x5a6 ]
+	342     (00000592) const/16             v0, 12
+	343     (00000596) if-ne                v14, v0, +008h
+
+PointAndDeleteorRename-BB@0x59a : [ PointAndDeleteorRename-BB@0x5a6 ]
+	344     (0000059a) const                v0, 2131230872
+	345     (000005a0) invoke-virtual       v10, v0, Landroid/widget/RadioGroup;->check(I)V
+
+PointAndDeleteorRename-BB@0x5a6 : [ PointAndDeleteorRename-BB@0x5ae PointAndDeleteorRename-BB@0x5ba ]
+	346     (000005a6) const/16             v0, 21
+	347     (000005aa) if-ne                v14, v0, +008h
+
+PointAndDeleteorRename-BB@0x5ae : [ PointAndDeleteorRename-BB@0x5ba ]
+	348     (000005ae) const                v0, 2131230873
+	349     (000005b4) invoke-virtual       v10, v0, Landroid/widget/RadioGroup;->check(I)V
+
+PointAndDeleteorRename-BB@0x5ba : [ PointAndDeleteorRename-BB@0x5c2 PointAndDeleteorRename-BB@0x5ce ]
+	350     (000005ba) const/16             v0, 22
+	351     (000005be) if-ne                v14, v0, +008h
+
+PointAndDeleteorRename-BB@0x5c2 : [ PointAndDeleteorRename-BB@0x5ce ]
+	352     (000005c2) const                v0, 2131230874
+	353     (000005c8) invoke-virtual       v10, v0, Landroid/widget/RadioGroup;->check(I)V
+
+PointAndDeleteorRename-BB@0x5ce : 
+	354     (000005ce) invoke-virtual/range v47, Lcom/boat/support/slam/entity/floors/Points;->getDeviceID()Ljava/lang/String;
+	355     (000005d4) move-result-object   v0
+	356     (000005d6) invoke-virtual       v9, v0, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+	357     (000005dc) invoke-virtual/range v47, Lcom/boat/support/slam/entity/floors/Points;->getLedWarnID()Ljava/lang/String;
+	358     (000005e2) move-result-object   v0
+	359     (000005e4) invoke-virtual       v8, v0, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+	360     (000005ea) move-object/from16   v13, v47
+	361     (000005ee) invoke-direct        v15, v13, Lcom/jlboat/phone/activity/MapActivity;->getstring(Lcom/boat/support/slam/entity/floors/Points;)Ljava/lang/String;
+	362     (000005f4) move-result-object   v0
+	363     (000005f6) invoke-virtual       v7, v0, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+	364     (000005fc) const/4              v0, 0
+	365     (000005fe) filled-new-array     v0, [I
+	366     (00000604) move-result-object   v2
+	367     (00000606) move-object/from16   v4, v19
+	368     (0000060a) filled-new-array     v0, [I
+	369     (00000610) move-result-object   v0
+	370     (00000612) const-string         v3, ""
+	371     (00000616) filled-new-array     v3, [Ljava/lang/String;
+	372     (0000061c) move-result-object   v19
+	373     (0000061e) move-object/from16   v25, v19
+	374     (00000622) filled-new-array     v3, [Ljava/lang/String;
+	375     (00000628) move-result-object   v3
+	376     (0000062a) move-object/from16   v35, v23
+	377     (0000062e) move-object/from16   v19, v29
+	378     (00000632) move/from16          v23, v14
+	379     (00000636) new-instance         v14, Lcom/jlboat/phone/activity/MapActivity$19;
+	380     (0000063a) move-object          v13, v0
+	381     (0000063c) move-object/from16   v36, v16
+	382     (00000640) move-object/from16   v37, v17
+	383     (00000644) move-object/from16   v38, v18
+	384     (00000648) move-object/from16   v16, v32
+	385     (0000064c) move-object          v0, v14
+	386     (0000064e) move-object/from16   v39, v1
+	387     (00000652) move-object/from16   v1, v44
+	388     (00000656) move-object/from16   v40, v4
+	389     (0000065a) move-object/from16   v17, v30
+	390     (0000065e) move-object          v4, v5
+	391     (00000660) move-object/from16   v18, v13
+	392     (00000664) move-object          v13, v5
+	393     (00000666) move-object/from16   v5, v19
+	394     (0000066a) move-object/from16   v27, v6
+	395     (0000066e) move-object/from16   v6, v20
+	396     (00000672) move-object/from16   v41, v7
+	397     (00000676) move-object/from16   v7, v21
+	398     (0000067a) move-object/from16   v28, v8
+	399     (0000067e) move-object/from16   v8, v22
+	400     (00000682) move-object/from16   v29, v9
+	401     (00000686) move-object/from16   v9, v47
+	402     (0000068a) move-object/from16   v42, v10
+	403     (0000068e) move-object/from16   v10, v45
+	404     (00000692) move-object/from16   v30, v11
+	405     (00000696) move-object/from16   v11, v46
+	406     (0000069a) move-object/from16   v31, v12
+	407     (0000069e) move-object/from16   v12, v17
+	408     (000006a2) invoke-direct/range  v0 ... v12, Lcom/jlboat/phone/activity/MapActivity$19;-><init>(Lcom/jlboat/phone/activity/MapActivity; [I [Ljava/lang/String; Landroid/widget/Spinner; Landroid/widget/ArrayAdapter; Ljava/lang/String; Ljava/lang/String; Ljava/lang/String; Lcom/boat/support/slam/entity/floors/Points; Lcom/boat/support/slam/entity/floors/Floors; Lcom/boat/support/slam/entity/floors/Maps; Landroid/widget/Spinner;)V
+	409     (000006a8) invoke-virtual       v13, v14, Landroid/widget/Spinner;->setOnItemSelectedListener(Landroid/widget/AdapterView$OnItemSelectedListener;)V
+	410     (000006ae) new-instance         v0, Lcom/jlboat/phone/activity/MapActivity$20;
+	411     (000006b2) move-object/from16   v1, v17
+	412     (000006b6) move-object/from16   v10, v18
+	413     (000006ba) move-object/from16   v14, v25
+	414     (000006be) invoke-direct        v0, v15, v10, v14, v1, Lcom/jlboat/phone/activity/MapActivity$20;-><init>(Lcom/jlboat/phone/activity/MapActivity; [I [Ljava/lang/String; Landroid/widget/Spinner;)V
+	415     (000006c4) invoke-virtual       v1, v0, Landroid/widget/Spinner;->setOnItemSelectedListener(Landroid/widget/AdapterView$OnItemSelectedListener;)V
+	416     (000006ca) new-instance         v0, Landroid/app/AlertDialog$Builder;
+	417     (000006ce) invoke-direct        v0, v15, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+	418     (000006d4) move-object/from16   v12, v24
+	419     (000006d8) invoke-virtual       v0, v12, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
+	420     (000006de) invoke-virtual       v0, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+	421     (000006e4) move-result-object   v11
+	422     (000006e6) new-instance         v9, Lcom/jlboat/phone/activity/MapActivity$21;
+	423     (000006ea) move-object          v4, v9
+	424     (000006ec) move-object/from16   v5, v44
+	425     (000006f0) move-object/from16   v6, v45
+	426     (000006f4) move-object/from16   v7, v46
+	427     (000006f8) move-object/from16   v8, v47
+	428     (000006fc) move-object/from16   v17, v0
+	429     (00000700) move-object          v0, v9
+	430     (00000702) move-object          v9, v11
+	431     (00000704) invoke-direct/range  v4 ... v9, Lcom/jlboat/phone/activity/MapActivity$21;-><init>(Lcom/jlboat/phone/activity/MapActivity; Lcom/boat/support/slam/entity/floors/Floors; Lcom/boat/support/slam/entity/floors/Maps; Lcom/boat/support/slam/entity/floors/Points; Landroid/app/AlertDialog;)V
+	432     (0000070a) move-object/from16   v9, v39
+	433     (0000070e) invoke-virtual       v9, v0, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	434     (00000714) new-instance         v0, Lcom/jlboat/phone/activity/MapActivity$22;
+	435     (00000718) move-object/from16   v10, v47
+	436     (0000071c) invoke-direct        v0, v15, v10, Lcom/jlboat/phone/activity/MapActivity$22;-><init>(Lcom/jlboat/phone/activity/MapActivity; Lcom/boat/support/slam/entity/floors/Points;)V
+	437     (00000722) move-object/from16   v8, v42
+	438     (00000726) invoke-virtual       v8, v0, Landroid/widget/RadioGroup;->setOnCheckedChangeListener(Landroid/widget/RadioGroup$OnCheckedChangeListener;)V
+	439     (0000072c) new-instance         v0, Lcom/jlboat/phone/activity/MapActivity$23;
+	440     (00000730) move-object          v4, v0
+	441     (00000732) move-object/from16   v6, v30
+	442     (00000736) move-object/from16   v7, v27
+	443     (0000073a) move-object/from16   v24, v8
+	444     (0000073e) move-object/from16   v8, v46
+	445     (00000742) move-object/from16   v25, v9
+	446     (00000746) move-object/from16   v9, v47
+	447     (0000074a) move-object          v10, v2
+	448     (0000074c) move-object/from16   v32, v11
+	449     (00000750) move-object          v11, v14
+	450     (00000752) move-object/from16   v33, v12
+	451     (00000756) move-object/from16   v12, v28
+	452     (0000075a) move-object/from16   v34, v2
+	453     (0000075e) move-object          v2, v13
+	454     (00000760) move-object/from16   v13, v45
+	455     (00000764) move-object/from16   v39, v3
+	456     (00000768) move-object/from16   v42, v14
+	457     (0000076c) move-object/from16   v3, v47
+	458     (00000770) move-object/from16   v14, v29
+	459     (00000774) move-object/from16   v43, v1
+	460     (00000778) move-object          v1, v15
+	461     (0000077a) move-object/from16   v15, v32
+	462     (0000077e) invoke-direct/range  v4 ... v15, Lcom/jlboat/phone/activity/MapActivity$23;-><init>(Lcom/jlboat/phone/activity/MapActivity; Landroid/widget/EditText; Landroid/widget/EditText; Lcom/boat/support/slam/entity/floors/Maps; Lcom/boat/support/slam/entity/floors/Points; [I [Ljava/lang/String; Landroid/widget/EditText; Lcom/boat/support/slam/entity/floors/Floors; Landroid/widget/EditText; Landroid/app/AlertDialog;)V
+	463     (00000784) move-object/from16   v4, v36
+	464     (00000788) invoke-virtual       v4, v0, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	465     (0000078e) new-instance         v0, Lcom/jlboat/phone/activity/MapActivity$24;
+	466     (00000792) move-object/from16   v5, v32
+	467     (00000796) invoke-direct        v0, v1, v5, Lcom/jlboat/phone/activity/MapActivity$24;-><init>(Lcom/jlboat/phone/activity/MapActivity; Landroid/app/AlertDialog;)V
+	468     (0000079c) move-object/from16   v6, v35
+	469     (000007a0) invoke-virtual       v6, v0, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	470     (000007a6) new-instance         v0, Lcom/jlboat/phone/activity/MapActivity$25;
+	471     (000007aa) move-object/from16   v7, v41
+	472     (000007ae) invoke-direct        v0, v1, v3, v7, Lcom/jlboat/phone/activity/MapActivity$25;-><init>(Lcom/jlboat/phone/activity/MapActivity; Lcom/boat/support/slam/entity/floors/Points; Landroid/widget/TextView;)V
+	473     (000007b4) move-object/from16   v8, v40
+	474     (000007b8) invoke-virtual       v8, v0, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	475     (000007be) new-instance         v0, Lcom/jlboat/phone/activity/MapActivity$26;
+	476     (000007c2) invoke-direct        v0, v1, v3, v7, Lcom/jlboat/phone/activity/MapActivity$26;-><init>(Lcom/jlboat/phone/activity/MapActivity; Lcom/boat/support/slam/entity/floors/Points; Landroid/widget/TextView;)V
+	477     (000007c8) move-object/from16   v9, v37
+	478     (000007cc) invoke-virtual       v9, v0, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	479     (000007d2) new-instance         v0, Lcom/jlboat/phone/activity/MapActivity$27;
+	480     (000007d6) move-object/from16   v10, v43
+	481     (000007da) invoke-direct        v0, v1, v2, v10, Lcom/jlboat/phone/activity/MapActivity$27;-><init>(Lcom/jlboat/phone/activity/MapActivity; Landroid/widget/Spinner; Landroid/widget/Spinner;)V
+	482     (000007e0) move-object/from16   v11, v38
+	483     (000007e4) invoke-virtual       v11, v0, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	484     (000007ea) invoke-virtual       v5, Landroid/app/AlertDialog;->show()V
+	485     (000007f0) return-void          
+

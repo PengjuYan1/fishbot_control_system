@@ -1,0 +1,49 @@
+# Lcom/jlboat/phone/activity/RobotMapActivity$4;->onNewMessage(Lcom/boat/jrosbridge/message/std_msgs/Int16;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:com.boat.jrosbridge.message.std_msgs.Int16
+#
+# - return:void
+
+onNewMessage-BB@0x0 : [ onNewMessage-BB@0x4e onNewMessage-BB@0x6a ]
+	0       (00000000) invoke-virtual       v4, Lcom/boat/jrosbridge/message/std_msgs/Int16;->getData()S
+	1       (00000006) move-result          v0
+	2       (00000008) new-instance         v1, Ljava/lang/StringBuilder;
+	3       (0000000c) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	4       (00000012) const-string         v2, "topic getMapBuildStatusMsg: "
+	5       (00000016) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	6       (0000001c) move-result-object   v1
+	7       (0000001e) invoke-virtual       v1, v0, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	8       (00000024) move-result-object   v1
+	9       (00000026) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	10      (0000002c) move-result-object   v1
+	11      (0000002e) const-string         v2, "RobotMapActivity"
+	12      (00000032) invoke-static        v2, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	13      (00000038) invoke-static        v0, Lcom/jlboat/phone/activity/RobotMapActivity;->access$902(I)I
+	14      (0000003e) iget-object          v1, v3, Lcom/jlboat/phone/activity/RobotMapActivity$4;->this$0 Lcom/jlboat/phone/activity/RobotMapActivity;
+	15      (00000042) invoke-static        v1, Lcom/jlboat/phone/activity/RobotMapActivity;->access$500(Lcom/jlboat/phone/activity/RobotMapActivity;)Lcom/jlboat/phone/view/MapView;
+	16      (00000048) move-result-object   v1
+	17      (0000004a) if-eqz               v1, +010h
+
+onNewMessage-BB@0x4e : [ onNewMessage-BB@0x5e onNewMessage-BB@0x62 ]
+	18      (0000004e) iget-object          v1, v3, Lcom/jlboat/phone/activity/RobotMapActivity$4;->this$0 Lcom/jlboat/phone/activity/RobotMapActivity;
+	19      (00000052) invoke-static        v1, Lcom/jlboat/phone/activity/RobotMapActivity;->access$500(Lcom/jlboat/phone/activity/RobotMapActivity;)Lcom/jlboat/phone/view/MapView;
+	20      (00000058) move-result-object   v1
+	21      (0000005a) if-eqz               v0, +004h
+
+onNewMessage-BB@0x5e : [ onNewMessage-BB@0x64 ]
+	22      (0000005e) const/4              v2, 1
+	23      (00000060) goto                 +2h
+
+onNewMessage-BB@0x62 : [ onNewMessage-BB@0x64 ]
+	24      (00000062) const/4              v2, 0
+
+onNewMessage-BB@0x64 : [ onNewMessage-BB@0x6a ]
+	25      (00000064) invoke-virtual       v1, v2, Lcom/jlboat/phone/view/MapView;->setBuildType(Z)V
+
+onNewMessage-BB@0x6a : 
+	26      (0000006a) iget-object          v1, v3, Lcom/jlboat/phone/activity/RobotMapActivity$4;->this$0 Lcom/jlboat/phone/activity/RobotMapActivity;
+	27      (0000006e) invoke-static        v1, Lcom/jlboat/phone/activity/RobotMapActivity;->access$1800(Lcom/jlboat/phone/activity/RobotMapActivity;)V
+	28      (00000074) return-void          
+

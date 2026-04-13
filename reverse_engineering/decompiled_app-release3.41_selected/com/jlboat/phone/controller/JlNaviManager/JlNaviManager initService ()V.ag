@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/controller/JlNaviManager;->initService()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v0
+#
+# - return:void
+
+initService-BB@0x0 : 
+	0       (00000000) invoke-virtual       v0, Lcom/jlboat/phone/controller/JlNaviManager;->initTopic()V
+	1       (00000006) invoke-direct        v0, Lcom/jlboat/phone/controller/JlNaviManager;->IssuedCocoNum()V
+	2       (0000000c) return-void          
+

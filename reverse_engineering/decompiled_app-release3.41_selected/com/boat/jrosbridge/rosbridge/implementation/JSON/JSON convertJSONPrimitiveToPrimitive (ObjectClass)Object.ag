@@ -1,0 +1,170 @@
+# Lcom/boat/jrosbridge/rosbridge/implementation/JSON;->convertJSONPrimitiveToPrimitive(Ljava/lang/Object; Ljava/lang/Class;)Ljava/lang/Object; [access_flags=public static]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:java.lang.Object
+# - v5:java.lang.Class
+#
+# - return:java.lang.Object
+
+convertJSONPrimitiveToPrimitive-BB@0x0 : [ convertJSONPrimitiveToPrimitive-BB@0xe convertJSONPrimitiveToPrimitive-BB@0x1e ]
+	0       (00000000) move-object          v0, v4
+	1       (00000002) invoke-virtual       v5, Ljava/lang/Class;->isPrimitive()Z
+	2       (00000008) move-result          v1
+	3       (0000000a) if-nez               v1, +00ah
+
+convertJSONPrimitiveToPrimitive-BB@0xe : [ convertJSONPrimitiveToPrimitive-BB@0x1e convertJSONPrimitiveToPrimitive-BB@0x192 ]
+	4       (0000000e) const-class          v1, Ljava/lang/Number;
+	5       (00000012) invoke-virtual       v1, v5, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
+	6       (00000018) move-result          v1
+	7       (0000001a) if-eqz               v1, +0bch
+
+convertJSONPrimitiveToPrimitive-BB@0x1e : [ convertJSONPrimitiveToPrimitive-BB@0x2e convertJSONPrimitiveToPrimitive-BB@0x178 ]
+	8       (0000001e) sget-object          v1, Ljava/lang/Double;->TYPE Ljava/lang/Class;
+	9       (00000022) invoke-virtual       v5, v1, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+	10      (00000028) move-result          v1
+	11      (0000002a) if-nez               v1, +0a7h
+
+convertJSONPrimitiveToPrimitive-BB@0x2e : [ convertJSONPrimitiveToPrimitive-BB@0x3e convertJSONPrimitiveToPrimitive-BB@0x42 ]
+	12      (0000002e) const-class          v1, Ljava/lang/Double;
+	13      (00000032) invoke-virtual       v5, v1, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+	14      (00000038) move-result          v1
+	15      (0000003a) if-eqz               v1, +004h
+
+convertJSONPrimitiveToPrimitive-BB@0x3e : [ convertJSONPrimitiveToPrimitive-BB@0x178 ]
+	16      (0000003e) goto/16              +09dh
+
+convertJSONPrimitiveToPrimitive-BB@0x42 : [ convertJSONPrimitiveToPrimitive-BB@0x52 convertJSONPrimitiveToPrimitive-BB@0x15c ]
+	17      (00000042) sget-object          v1, Ljava/lang/Float;->TYPE Ljava/lang/Class;
+	18      (00000046) invoke-virtual       v5, v1, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+	19      (0000004c) move-result          v1
+	20      (0000004e) if-nez               v1, +087h
+
+convertJSONPrimitiveToPrimitive-BB@0x52 : [ convertJSONPrimitiveToPrimitive-BB@0x62 convertJSONPrimitiveToPrimitive-BB@0x66 ]
+	21      (00000052) const-class          v1, Ljava/lang/Float;
+	22      (00000056) invoke-virtual       v5, v1, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+	23      (0000005c) move-result          v1
+	24      (0000005e) if-eqz               v1, +004h
+
+convertJSONPrimitiveToPrimitive-BB@0x62 : [ convertJSONPrimitiveToPrimitive-BB@0x15c ]
+	25      (00000062) goto/16              +07dh
+
+convertJSONPrimitiveToPrimitive-BB@0x66 : [ convertJSONPrimitiveToPrimitive-BB@0x76 convertJSONPrimitiveToPrimitive-BB@0x140 ]
+	26      (00000066) sget-object          v1, Ljava/lang/Long;->TYPE Ljava/lang/Class;
+	27      (0000006a) invoke-virtual       v5, v1, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+	28      (00000070) move-result          v1
+	29      (00000072) if-nez               v1, +067h
+
+convertJSONPrimitiveToPrimitive-BB@0x76 : [ convertJSONPrimitiveToPrimitive-BB@0x86 convertJSONPrimitiveToPrimitive-BB@0x88 ]
+	30      (00000076) const-class          v1, Ljava/lang/Long;
+	31      (0000007a) invoke-virtual       v5, v1, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+	32      (00000080) move-result          v1
+	33      (00000082) if-eqz               v1, +003h
+
+convertJSONPrimitiveToPrimitive-BB@0x86 : [ convertJSONPrimitiveToPrimitive-BB@0x140 ]
+	34      (00000086) goto                 +5dh
+
+convertJSONPrimitiveToPrimitive-BB@0x88 : [ convertJSONPrimitiveToPrimitive-BB@0x98 convertJSONPrimitiveToPrimitive-BB@0x124 ]
+	35      (00000088) sget-object          v1, Ljava/lang/Integer;->TYPE Ljava/lang/Class;
+	36      (0000008c) invoke-virtual       v1, v5, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+	37      (00000092) move-result          v1
+	38      (00000094) if-nez               v1, +048h
+
+convertJSONPrimitiveToPrimitive-BB@0x98 : [ convertJSONPrimitiveToPrimitive-BB@0xa8 convertJSONPrimitiveToPrimitive-BB@0xaa ]
+	39      (00000098) const-class          v1, Ljava/lang/Integer;
+	40      (0000009c) invoke-virtual       v5, v1, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+	41      (000000a2) move-result          v1
+	42      (000000a4) if-eqz               v1, +003h
+
+convertJSONPrimitiveToPrimitive-BB@0xa8 : [ convertJSONPrimitiveToPrimitive-BB@0x124 ]
+	43      (000000a8) goto                 +3eh
+
+convertJSONPrimitiveToPrimitive-BB@0xaa : [ convertJSONPrimitiveToPrimitive-BB@0xba convertJSONPrimitiveToPrimitive-BB@0x108 ]
+	44      (000000aa) sget-object          v1, Ljava/lang/Short;->TYPE Ljava/lang/Class;
+	45      (000000ae) invoke-virtual       v5, v1, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+	46      (000000b4) move-result          v1
+	47      (000000b6) if-nez               v1, +029h
+
+convertJSONPrimitiveToPrimitive-BB@0xba : [ convertJSONPrimitiveToPrimitive-BB@0xca convertJSONPrimitiveToPrimitive-BB@0xcc ]
+	48      (000000ba) const-class          v1, Ljava/lang/Short;
+	49      (000000be) invoke-virtual       v5, v1, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+	50      (000000c4) move-result          v1
+	51      (000000c6) if-eqz               v1, +003h
+
+convertJSONPrimitiveToPrimitive-BB@0xca : [ convertJSONPrimitiveToPrimitive-BB@0x108 ]
+	52      (000000ca) goto                 +1fh
+
+convertJSONPrimitiveToPrimitive-BB@0xcc : [ convertJSONPrimitiveToPrimitive-BB@0xdc convertJSONPrimitiveToPrimitive-BB@0xec ]
+	53      (000000cc) sget-object          v1, Ljava/lang/Byte;->TYPE Ljava/lang/Class;
+	54      (000000d0) invoke-virtual       v5, v1, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+	55      (000000d6) move-result          v1
+	56      (000000d8) if-nez               v1, +00ah
+
+convertJSONPrimitiveToPrimitive-BB@0xdc : [ convertJSONPrimitiveToPrimitive-BB@0xec convertJSONPrimitiveToPrimitive-BB@0x192 ]
+	57      (000000dc) const-class          v1, Ljava/lang/Byte;
+	58      (000000e0) invoke-virtual       v5, v1, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+	59      (000000e6) move-result          v1
+	60      (000000e8) if-eqz               v1, +055h
+
+convertJSONPrimitiveToPrimitive-BB@0xec : [ convertJSONPrimitiveToPrimitive-BB@0x192 ]
+	61      (000000ec) new-instance         v1, Ljava/lang/Byte;
+	62      (000000f0) move-object          v2, v4
+	63      (000000f2) check-cast           v2, Ljava/lang/Number;
+	64      (000000f6) invoke-virtual       v2, Ljava/lang/Number;->byteValue()B
+	65      (000000fc) move-result          v2
+	66      (000000fe) invoke-direct        v1, v2, Ljava/lang/Byte;-><init>(B)V
+	67      (00000104) move-object          v0, v1
+	68      (00000106) goto                 +46h
+
+convertJSONPrimitiveToPrimitive-BB@0x108 : [ convertJSONPrimitiveToPrimitive-BB@0x192 ]
+	69      (00000108) new-instance         v1, Ljava/lang/Short;
+	70      (0000010c) move-object          v2, v4
+	71      (0000010e) check-cast           v2, Ljava/lang/Number;
+	72      (00000112) invoke-virtual       v2, Ljava/lang/Number;->shortValue()S
+	73      (00000118) move-result          v2
+	74      (0000011a) invoke-direct        v1, v2, Ljava/lang/Short;-><init>(S)V
+	75      (00000120) move-object          v0, v1
+	76      (00000122) goto                 +38h
+
+convertJSONPrimitiveToPrimitive-BB@0x124 : [ convertJSONPrimitiveToPrimitive-BB@0x192 ]
+	77      (00000124) new-instance         v1, Ljava/lang/Integer;
+	78      (00000128) move-object          v2, v4
+	79      (0000012a) check-cast           v2, Ljava/lang/Number;
+	80      (0000012e) invoke-virtual       v2, Ljava/lang/Number;->intValue()I
+	81      (00000134) move-result          v2
+	82      (00000136) invoke-direct        v1, v2, Ljava/lang/Integer;-><init>(I)V
+	83      (0000013c) move-object          v0, v1
+	84      (0000013e) goto                 +2ah
+
+convertJSONPrimitiveToPrimitive-BB@0x140 : [ convertJSONPrimitiveToPrimitive-BB@0x192 ]
+	85      (00000140) new-instance         v1, Ljava/lang/Long;
+	86      (00000144) move-object          v2, v4
+	87      (00000146) check-cast           v2, Ljava/lang/Number;
+	88      (0000014a) invoke-virtual       v2, Ljava/lang/Number;->longValue()J
+	89      (00000150) move-result-wide     v2
+	90      (00000152) invoke-direct        v1, v2, v3, Ljava/lang/Long;-><init>(J)V
+	91      (00000158) move-object          v0, v1
+	92      (0000015a) goto                 +1ch
+
+convertJSONPrimitiveToPrimitive-BB@0x15c : [ convertJSONPrimitiveToPrimitive-BB@0x192 ]
+	93      (0000015c) new-instance         v1, Ljava/lang/Float;
+	94      (00000160) move-object          v2, v4
+	95      (00000162) check-cast           v2, Ljava/lang/Number;
+	96      (00000166) invoke-virtual       v2, Ljava/lang/Number;->floatValue()F
+	97      (0000016c) move-result          v2
+	98      (0000016e) invoke-direct        v1, v2, Ljava/lang/Float;-><init>(F)V
+	99      (00000174) move-object          v0, v1
+	100     (00000176) goto                 +eh
+
+convertJSONPrimitiveToPrimitive-BB@0x178 : [ convertJSONPrimitiveToPrimitive-BB@0x192 ]
+	101     (00000178) new-instance         v1, Ljava/lang/Double;
+	102     (0000017c) move-object          v2, v4
+	103     (0000017e) check-cast           v2, Ljava/lang/Number;
+	104     (00000182) invoke-virtual       v2, Ljava/lang/Number;->doubleValue()D
+	105     (00000188) move-result-wide     v2
+	106     (0000018a) invoke-direct        v1, v2, v3, Ljava/lang/Double;-><init>(D)V
+	107     (00000190) move-object          v0, v1
+
+convertJSONPrimitiveToPrimitive-BB@0x192 : 
+	108     (00000192) return-object        v0
+

@@ -1,0 +1,23 @@
+# Lcom/boat/ros/geometry/Vector3;->add(Lcom/boat/ros/geometry/Vector3;)Lcom/boat/ros/geometry/Vector3; [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v10
+# - v11:com.boat.ros.geometry.Vector3
+#
+# - return:com.boat.ros.geometry.Vector3
+
+add-BB@0x0 : 
+	0       (00000000) new-instance         v7, Lcom/boat/ros/geometry/Vector3;
+	1       (00000004) iget-wide            v0, v10, Lcom/boat/ros/geometry/Vector3;->x D
+	2       (00000008) iget-wide            v2, v11, Lcom/boat/ros/geometry/Vector3;->x D
+	3       (0000000c) add-double           v1, v0, v2
+	4       (00000010) iget-wide            v3, v10, Lcom/boat/ros/geometry/Vector3;->y D
+	5       (00000014) iget-wide            v5, v11, Lcom/boat/ros/geometry/Vector3;->y D
+	6       (00000018) add-double/2addr     v3, v5
+	7       (0000001a) iget-wide            v5, v10, Lcom/boat/ros/geometry/Vector3;->z D
+	8       (0000001e) iget-wide            v8, v11, Lcom/boat/ros/geometry/Vector3;->z D
+	9       (00000022) add-double/2addr     v5, v8
+	10      (00000024) move-object          v0, v7
+	11      (00000026) invoke-direct/range  v0 ... v6, Lcom/boat/ros/geometry/Vector3;-><init>(D D D)V
+	12      (0000002c) return-object        v7
+

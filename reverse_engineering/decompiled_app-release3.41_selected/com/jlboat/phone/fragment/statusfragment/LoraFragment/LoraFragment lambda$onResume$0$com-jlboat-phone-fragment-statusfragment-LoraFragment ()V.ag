@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/fragment/statusfragment/LoraFragment;->lambda$onResume$0$com-jlboat-phone-fragment-statusfragment-LoraFragment()V [access_flags=synthetic]
+#
+# Parameters:
+# local registers: v0...v1
+#
+# - return:void
+
+lambda$onResume$0$com-jlboat-phone-fragment-statusfragment-LoraFragment-BB@0x0 : 
+	0       (00000000) const/16             v0, 9
+	1       (00000004) invoke-virtual       v1, v0, Lcom/jlboat/phone/fragment/statusfragment/LoraFragment;->getConfigs(I)V
+	2       (0000000a) return-void          
+

@@ -1,0 +1,25 @@
+# Lcom/jlboat/phone/controller/JlNaviManager;->onMapUpdateListener()V [access_flags=private]
+#
+# Parameters:
+# local registers: v0...v4
+#
+# - return:void
+
+onMapUpdateListener-BB@0x0 : 
+	0       (00000000) new-instance         v0, Landroid/os/Message;
+	1       (00000004) invoke-direct        v0, Landroid/os/Message;-><init>()V
+	2       (0000000a) const/16             v1, 100
+	3       (0000000e) iput                 v1, v0, Landroid/os/Message;->what I
+	4       (00000012) new-instance         v1, Landroid/os/Bundle;
+	5       (00000016) invoke-direct        v1, Landroid/os/Bundle;-><init>()V
+	6       (0000001c) const-string         v2, "code"
+	7       (00000020) const/16             v3, 1013
+	8       (00000024) invoke-virtual       v1, v2, v3, Landroid/os/Bundle;->putInt(Ljava/lang/String; I)V
+	9       (0000002a) const-string         v2, "data"
+	10      (0000002e) const-string         v3, ""
+	11      (00000032) invoke-virtual       v1, v2, v3, Landroid/os/Bundle;->putString(Ljava/lang/String; Ljava/lang/String;)V
+	12      (00000038) invoke-virtual       v0, v1, Landroid/os/Message;->setData(Landroid/os/Bundle;)V
+	13      (0000003e) iget-object          v2, v4, Lcom/jlboat/phone/controller/JlNaviManager;->mHandler Landroid/os/Handler;
+	14      (00000042) invoke-virtual       v2, v0, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
+	15      (00000048) return-void          
+

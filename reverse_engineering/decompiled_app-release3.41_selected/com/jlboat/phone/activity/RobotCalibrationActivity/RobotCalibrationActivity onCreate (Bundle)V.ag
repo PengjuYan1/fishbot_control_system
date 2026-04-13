@@ -1,0 +1,87 @@
+# Lcom/jlboat/phone/activity/RobotCalibrationActivity;->onCreate(Landroid/os/Bundle;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v4
+# - v5:android.os.Bundle
+#
+# - return:void
+
+onCreate-BB@0x0 : 
+	0       (00000000) invoke-super         v4, v5, Lcom/jlboat/phone/base/BaseFullActivity;->onCreate(Landroid/os/Bundle;)V
+	1       (00000006) const                v0, 2131361822
+	2       (0000000c) const                v1, 2131493155
+	3       (00000012) invoke-virtual       v4, v0, v1, Lcom/jlboat/phone/activity/RobotCalibrationActivity;->initTitleBar(I I)V
+	4       (00000018) const                v0, 2131230837
+	5       (0000001e) invoke-virtual       v4, v0, Lcom/jlboat/phone/activity/RobotCalibrationActivity;->findViewById(I)Landroid/view/View;
+	6       (00000024) move-result-object   v0
+	7       (00000026) check-cast           v0, Landroid/widget/Button;
+	8       (0000002a) iput-object          v0, v4, Lcom/jlboat/phone/activity/RobotCalibrationActivity;->calibration_odom Landroid/widget/Button;
+	9       (0000002e) const                v0, 2131230834
+	10      (00000034) invoke-virtual       v4, v0, Lcom/jlboat/phone/activity/RobotCalibrationActivity;->findViewById(I)Landroid/view/View;
+	11      (0000003a) move-result-object   v0
+	12      (0000003c) check-cast           v0, Landroid/widget/Button;
+	13      (00000040) iput-object          v0, v4, Lcom/jlboat/phone/activity/RobotCalibrationActivity;->calibration_camera Landroid/widget/Button;
+	14      (00000044) const                v0, 2131230836
+	15      (0000004a) invoke-virtual       v4, v0, Lcom/jlboat/phone/activity/RobotCalibrationActivity;->findViewById(I)Landroid/view/View;
+	16      (00000050) move-result-object   v0
+	17      (00000052) check-cast           v0, Landroid/widget/Button;
+	18      (00000056) iput-object          v0, v4, Lcom/jlboat/phone/activity/RobotCalibrationActivity;->calibration_laser Landroid/widget/Button;
+	19      (0000005a) const                v0, 2131230835
+	20      (00000060) invoke-virtual       v4, v0, Lcom/jlboat/phone/activity/RobotCalibrationActivity;->findViewById(I)Landroid/view/View;
+	21      (00000066) move-result-object   v0
+	22      (00000068) check-cast           v0, Landroid/widget/Button;
+	23      (0000006c) iput-object          v0, v4, Lcom/jlboat/phone/activity/RobotCalibrationActivity;->calibration_imu Landroid/widget/Button;
+	24      (00000070) const                v0, 2131231358
+	25      (00000076) invoke-virtual       v4, v0, Lcom/jlboat/phone/activity/RobotCalibrationActivity;->findViewById(I)Landroid/view/View;
+	26      (0000007c) move-result-object   v0
+	27      (0000007e) check-cast           v0, Landroid/support/v4/view/ViewPager;
+	28      (00000082) iput-object          v0, v4, Lcom/jlboat/phone/activity/RobotCalibrationActivity;->mPager Landroid/support/v4/view/ViewPager;
+	29      (00000086) const                v0, 2131231165
+	30      (0000008c) invoke-virtual       v4, v0, Lcom/jlboat/phone/activity/RobotCalibrationActivity;->findViewById(I)Landroid/view/View;
+	31      (00000092) move-result-object   v0
+	32      (00000094) check-cast           v0, Landroid/widget/RadioGroup;
+	33      (00000098) iput-object          v0, v4, Lcom/jlboat/phone/activity/RobotCalibrationActivity;->mGroup Landroid/widget/RadioGroup;
+	34      (0000009c) new-instance         v0, Lcom/jlboat/phone/fragment/calibrationfragment/OmodFragment;
+	35      (000000a0) invoke-direct        v0, Lcom/jlboat/phone/fragment/calibrationfragment/OmodFragment;-><init>()V
+	36      (000000a6) iput-object          v0, v4, Lcom/jlboat/phone/activity/RobotCalibrationActivity;->omodFragment Lcom/jlboat/phone/fragment/calibrationfragment/OmodFragment;
+	37      (000000aa) new-instance         v0, Lcom/jlboat/phone/fragment/calibrationfragment/LaserFragment;
+	38      (000000ae) invoke-direct        v0, Lcom/jlboat/phone/fragment/calibrationfragment/LaserFragment;-><init>()V
+	39      (000000b4) iput-object          v0, v4, Lcom/jlboat/phone/activity/RobotCalibrationActivity;->laserFragment Lcom/jlboat/phone/fragment/calibrationfragment/LaserFragment;
+	40      (000000b8) new-instance         v0, Lcom/jlboat/phone/fragment/calibrationfragment/CameraFragment;
+	41      (000000bc) invoke-direct        v0, Lcom/jlboat/phone/fragment/calibrationfragment/CameraFragment;-><init>()V
+	42      (000000c2) iput-object          v0, v4, Lcom/jlboat/phone/activity/RobotCalibrationActivity;->cameraFragment Lcom/jlboat/phone/fragment/calibrationfragment/CameraFragment;
+	43      (000000c6) new-instance         v0, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment;
+	44      (000000ca) invoke-direct        v0, Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment;-><init>()V
+	45      (000000d0) iput-object          v0, v4, Lcom/jlboat/phone/activity/RobotCalibrationActivity;->imuFragment Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment;
+	46      (000000d4) new-instance         v0, Ljava/util/ArrayList;
+	47      (000000d8) invoke-direct        v0, Ljava/util/ArrayList;-><init>()V
+	48      (000000de) iget-object          v1, v4, Lcom/jlboat/phone/activity/RobotCalibrationActivity;->omodFragment Lcom/jlboat/phone/fragment/calibrationfragment/OmodFragment;
+	49      (000000e2) invoke-virtual       v0, v1, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+	50      (000000e8) iget-object          v1, v4, Lcom/jlboat/phone/activity/RobotCalibrationActivity;->laserFragment Lcom/jlboat/phone/fragment/calibrationfragment/LaserFragment;
+	51      (000000ec) invoke-virtual       v0, v1, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+	52      (000000f2) iget-object          v1, v4, Lcom/jlboat/phone/activity/RobotCalibrationActivity;->cameraFragment Lcom/jlboat/phone/fragment/calibrationfragment/CameraFragment;
+	53      (000000f6) invoke-virtual       v0, v1, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+	54      (000000fc) iget-object          v1, v4, Lcom/jlboat/phone/activity/RobotCalibrationActivity;->imuFragment Lcom/jlboat/phone/fragment/calibrationfragment/ImuFragment;
+	55      (00000100) invoke-virtual       v0, v1, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+	56      (00000106) iget-object          v1, v4, Lcom/jlboat/phone/activity/RobotCalibrationActivity;->mPager Landroid/support/v4/view/ViewPager;
+	57      (0000010a) new-instance         v2, Lcom/jlboat/phone/adapter/MainFragmentPagerAdapter;
+	58      (0000010e) invoke-virtual       v4, Lcom/jlboat/phone/activity/RobotCalibrationActivity;->getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;
+	59      (00000114) move-result-object   v3
+	60      (00000116) invoke-direct        v2, v3, v0, Lcom/jlboat/phone/adapter/MainFragmentPagerAdapter;-><init>(Landroid/support/v4/app/FragmentManager; Ljava/util/ArrayList;)V
+	61      (0000011c) invoke-virtual       v1, v2, Landroid/support/v4/view/ViewPager;->setAdapter(Landroid/support/v4/view/PagerAdapter;)V
+	62      (00000122) iget-object          v1, v4, Lcom/jlboat/phone/activity/RobotCalibrationActivity;->mPager Landroid/support/v4/view/ViewPager;
+	63      (00000126) const/4              v2, 4
+	64      (00000128) invoke-virtual       v1, v2, Landroid/support/v4/view/ViewPager;->setCurrentItem(I)V
+	65      (0000012e) iget-object          v1, v4, Lcom/jlboat/phone/activity/RobotCalibrationActivity;->mPager Landroid/support/v4/view/ViewPager;
+	66      (00000132) invoke-virtual       v1, v2, Landroid/support/v4/view/ViewPager;->setOffscreenPageLimit(I)V
+	67      (00000138) iget-object          v1, v4, Lcom/jlboat/phone/activity/RobotCalibrationActivity;->mPager Landroid/support/v4/view/ViewPager;
+	68      (0000013c) new-instance         v2, Lcom/jlboat/phone/activity/RobotCalibrationActivity$myOnPageChangeListener;
+	69      (00000140) const/4              v3, 0
+	70      (00000142) invoke-direct        v2, v4, v3, Lcom/jlboat/phone/activity/RobotCalibrationActivity$myOnPageChangeListener;-><init>(Lcom/jlboat/phone/activity/RobotCalibrationActivity; Lcom/jlboat/phone/activity/RobotCalibrationActivity$1;)V
+	71      (00000148) invoke-virtual       v1, v2, Landroid/support/v4/view/ViewPager;->setOnPageChangeListener(Landroid/support/v4/view/ViewPager$OnPageChangeListener;)V
+	72      (0000014e) iget-object          v1, v4, Lcom/jlboat/phone/activity/RobotCalibrationActivity;->mGroup Landroid/widget/RadioGroup;
+	73      (00000152) new-instance         v2, Lcom/jlboat/phone/activity/RobotCalibrationActivity$myCheckChangeListener;
+	74      (00000156) invoke-direct        v2, v4, v3, Lcom/jlboat/phone/activity/RobotCalibrationActivity$myCheckChangeListener;-><init>(Lcom/jlboat/phone/activity/RobotCalibrationActivity; Lcom/jlboat/phone/activity/RobotCalibrationActivity$1;)V
+	75      (0000015c) invoke-virtual       v1, v2, Landroid/widget/RadioGroup;->setOnCheckedChangeListener(Landroid/widget/RadioGroup$OnCheckedChangeListener;)V
+	76      (00000162) return-void          
+

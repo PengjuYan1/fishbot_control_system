@@ -1,0 +1,38 @@
+# Lcom/jlboat/phone/view/WidgetView;->onTouchEvent(Landroid/view/MotionEvent;)Z [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:android.view.MotionEvent
+#
+# - return:boolean
+
+onTouchEvent-BB@0x0 : [ onTouchEvent-BB@0x16 onTouchEvent-BB@0x46 ]
+	0       (00000000) sget-object          v0, Lcom/jlboat/phone/view/WidgetView;->TAG Ljava/lang/String;
+	1       (00000004) const-string         v1, "onTouchEvent: "
+	2       (00000008) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	3       (0000000e) iget-boolean         v0, v2, Lcom/jlboat/phone/view/WidgetView;->editMode Z
+	4       (00000012) if-eqz               v0, +01ah
+
+onTouchEvent-BB@0x16 : [ onTouchEvent-BB@0x24 onTouchEvent-BB@0x30 ]
+	5       (00000016) invoke-virtual       v3, Landroid/view/MotionEvent;->getAction()I
+	6       (0000001c) move-result          v0
+	7       (0000001e) const/4              v1, 1
+	8       (00000020) if-ne                v0, v1, +008h
+
+onTouchEvent-BB@0x24 : [ onTouchEvent-BB@0x30 ]
+	9       (00000024) const/4              v0, 0
+	10      (00000026) iput-boolean         v0, v2, Lcom/jlboat/phone/view/WidgetView;->shouldHighlight Z
+	11      (0000002a) invoke-virtual       v2, Lcom/jlboat/phone/view/WidgetView;->invalidate()V
+
+onTouchEvent-BB@0x30 : 
+	12      (00000030) iget-object          v0, v2, Lcom/jlboat/phone/view/WidgetView;->editModeGestureDetector Landroid/view/GestureDetector;
+	13      (00000034) invoke-virtual       v0, v3, Landroid/view/GestureDetector;->onTouchEvent(Landroid/view/MotionEvent;)Z
+	14      (0000003a) iget-object          v0, v2, Lcom/jlboat/phone/view/WidgetView;->editModeScaleGestureDetector Landroid/view/ScaleGestureDetector;
+	15      (0000003e) invoke-virtual       v0, v3, Landroid/view/ScaleGestureDetector;->onTouchEvent(Landroid/view/MotionEvent;)Z
+	16      (00000044) return               v1
+
+onTouchEvent-BB@0x46 : 
+	17      (00000046) invoke-super         v2, v3, Landroid/view/ViewGroup;->onTouchEvent(Landroid/view/MotionEvent;)Z
+	18      (0000004c) move-result          v0
+	19      (0000004e) return               v0
+

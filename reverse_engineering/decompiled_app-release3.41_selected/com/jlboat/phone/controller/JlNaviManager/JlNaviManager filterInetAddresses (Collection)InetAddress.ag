@@ -1,0 +1,40 @@
+# Lcom/jlboat/phone/controller/JlNaviManager;->filterInetAddresses(Ljava/util/Collection;)Ljava/net/InetAddress; [access_flags=private static]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:java.util.Collection
+#
+# - return:java.net.InetAddress
+
+filterInetAddresses-BB@0x0 : [ filterInetAddresses-BB@0x8 ]
+	0       (00000000) invoke-interface     v3, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+	1       (00000006) move-result-object   v0
+
+filterInetAddresses-BB@0x8 : [ filterInetAddresses-BB@0x14 filterInetAddresses-BB@0x3c ]
+	2       (00000008) invoke-interface     v0, Ljava/util/Iterator;->hasNext()Z
+	3       (0000000e) move-result          v1
+	4       (00000010) if-eqz               v1, +016h
+
+filterInetAddresses-BB@0x14 : [ filterInetAddresses-BB@0x2c filterInetAddresses-BB@0x3a ]
+	5       (00000014) invoke-interface     v0, Ljava/util/Iterator;->next()Ljava/lang/Object;
+	6       (0000001a) move-result-object   v1
+	7       (0000001c) check-cast           v1, Ljava/net/InetAddress;
+	8       (00000020) invoke-virtual       v1, Ljava/net/InetAddress;->isLoopbackAddress()Z
+	9       (00000026) move-result          v2
+	10      (00000028) if-nez               v2, +009h
+
+filterInetAddresses-BB@0x2c : [ filterInetAddresses-BB@0x38 filterInetAddresses-BB@0x3a ]
+	11      (0000002c) invoke-static        v1, Lcom/jlboat/phone/controller/JlNaviManager;->isIpv4(Ljava/net/InetAddress;)Z
+	12      (00000032) move-result          v2
+	13      (00000034) if-eqz               v2, +003h
+
+filterInetAddresses-BB@0x38 : 
+	14      (00000038) return-object        v1
+
+filterInetAddresses-BB@0x3a : [ filterInetAddresses-BB@0x8 ]
+	15      (0000003a) goto                 -19h
+
+filterInetAddresses-BB@0x3c : 
+	16      (0000003c) const/4              v0, 0
+	17      (0000003e) return-object        v0
+

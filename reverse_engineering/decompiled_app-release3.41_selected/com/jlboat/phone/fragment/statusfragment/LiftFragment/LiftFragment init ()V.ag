@@ -1,0 +1,28 @@
+# Lcom/jlboat/phone/fragment/statusfragment/LiftFragment;->init()V [access_flags=protected]
+#
+# Parameters:
+# local registers: v0...v4
+#
+# - return:void
+
+init-BB@0x0 : 
+	0       (00000000) new-instance         v0, Lcom/boat/jrosbridge/Topic;
+	1       (00000004) const-class          v1, Lcom/boat/jrosbridge/message/std_msgs/Int16;
+	2       (00000008) sget-object          v2, Lcom/jlboat/phone/application/BoatSlamApplication;->client Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;
+	3       (0000000c) const-string         v3, "jacking_status"
+	4       (00000010) invoke-direct        v0, v3, v1, v2, Lcom/boat/jrosbridge/Topic;-><init>(Ljava/lang/String; Ljava/lang/Class; Lcom/boat/jrosbridge/ROSClient;)V
+	5       (00000016) iput-object          v0, v4, Lcom/jlboat/phone/fragment/statusfragment/LiftFragment;->jackingStatus Lcom/boat/jrosbridge/Topic;
+	6       (0000001a) iget-object          v0, v4, Lcom/jlboat/phone/fragment/statusfragment/LiftFragment;->jackingStatus Lcom/boat/jrosbridge/Topic;
+	7       (0000001e) invoke-virtual       v0, Lcom/boat/jrosbridge/Topic;->advertise()V
+	8       (00000024) new-instance         v0, Lcom/boat/jrosbridge/Topic;
+	9       (00000028) const-class          v1, Lcom/boat/jrosbridge/message/std_msgs/Int16;
+	10      (0000002c) sget-object          v2, Lcom/jlboat/phone/application/BoatSlamApplication;->client Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;
+	11      (00000030) const-string         v3, "current_jacking_status"
+	12      (00000034) invoke-direct        v0, v3, v1, v2, Lcom/boat/jrosbridge/Topic;-><init>(Ljava/lang/String; Ljava/lang/Class; Lcom/boat/jrosbridge/ROSClient;)V
+	13      (0000003a) iput-object          v0, v4, Lcom/jlboat/phone/fragment/statusfragment/LiftFragment;->jackingStatusSubscriber Lcom/boat/jrosbridge/Topic;
+	14      (0000003e) iget-object          v0, v4, Lcom/jlboat/phone/fragment/statusfragment/LiftFragment;->jackingStatusSubscriber Lcom/boat/jrosbridge/Topic;
+	15      (00000042) new-instance         v1, Lcom/jlboat/phone/fragment/statusfragment/LiftFragment$1;
+	16      (00000046) invoke-direct        v1, v4, Lcom/jlboat/phone/fragment/statusfragment/LiftFragment$1;-><init>(Lcom/jlboat/phone/fragment/statusfragment/LiftFragment;)V
+	17      (0000004c) invoke-virtual       v0, v1, Lcom/boat/jrosbridge/Topic;->subscribe(Lcom/boat/jrosbridge/MessageListener;)V
+	18      (00000052) return-void          
+

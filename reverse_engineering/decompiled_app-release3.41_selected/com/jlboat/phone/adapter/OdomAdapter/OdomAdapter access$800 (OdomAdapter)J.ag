@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/adapter/OdomAdapter;->access$800(Lcom/jlboat/phone/adapter/OdomAdapter;)J [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:com.jlboat.phone.adapter.OdomAdapter
+#
+# - return:long
+
+access$800-BB@0x0 : 
+	0       (00000000) iget-wide            v0, v2, Lcom/jlboat/phone/adapter/OdomAdapter;->status J
+	1       (00000004) return-wide          v0
+

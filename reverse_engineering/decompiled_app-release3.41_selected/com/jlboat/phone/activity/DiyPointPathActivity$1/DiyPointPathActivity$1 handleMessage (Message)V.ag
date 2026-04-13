@@ -1,0 +1,69 @@
+# Lcom/jlboat/phone/activity/DiyPointPathActivity$1;->handleMessage(Landroid/os/Message;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:android.os.Message
+#
+# - return:void
+
+handleMessage-BB@0x0 : [ D:handleMessage-BB@0x10 1:handleMessage-BB@0x90 2:handleMessage-BB@0x8e 3:handleMessage-BB@0x8c 4:handleMessage-BB@0x46 ]
+	0       (00000000) invoke-super         v3, v4, Landroid/os/Handler;->handleMessage(Landroid/os/Message;)V
+	1       (00000006) iget                 v0, v4, Landroid/os/Message;->what I
+	2       (0000000a) packed-switch        v0, +0000045h
+
+handleMessage-BB@0x10 : 
+	3       (00000010) new-instance         v0, Ljava/lang/IllegalStateException;
+	4       (00000014) new-instance         v1, Ljava/lang/StringBuilder;
+	5       (00000018) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	6       (0000001e) const-string         v2, "Unexpected value: "
+	7       (00000022) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	8       (00000028) move-result-object   v1
+	9       (0000002a) iget                 v2, v4, Landroid/os/Message;->what I
+	10      (0000002e) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+	11      (00000034) move-result-object   v1
+	12      (00000036) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	13      (0000003c) move-result-object   v1
+	14      (0000003e) invoke-direct        v0, v1, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+	15      (00000044) throw                v0
+
+handleMessage-BB@0x46 : [ handleMessage-BB@0x6a handleMessage-BB@0x78 ]
+	16      (00000046) iget-object          v0, v3, Lcom/jlboat/phone/activity/DiyPointPathActivity$1;->this$0 Lcom/jlboat/phone/activity/DiyPointPathActivity;
+	17      (0000004a) invoke-static        v0, Lcom/jlboat/phone/activity/DiyPointPathActivity;->access$300(Lcom/jlboat/phone/activity/DiyPointPathActivity;)Lcom/jlboat/phone/adapter/NaviListAdapter;
+	18      (00000050) move-result-object   v0
+	19      (00000052) iget-object          v1, v3, Lcom/jlboat/phone/activity/DiyPointPathActivity$1;->this$0 Lcom/jlboat/phone/activity/DiyPointPathActivity;
+	20      (00000056) invoke-static        v1, Lcom/jlboat/phone/activity/DiyPointPathActivity;->access$000(Lcom/jlboat/phone/activity/DiyPointPathActivity;)Landroid/widget/Switch;
+	21      (0000005c) move-result-object   v1
+	22      (0000005e) invoke-virtual       v1, Landroid/widget/Switch;->isChecked()Z
+	23      (00000064) move-result          v1
+	24      (00000066) if-eqz               v1, +009h
+
+handleMessage-BB@0x6a : [ handleMessage-BB@0x84 ]
+	25      (0000006a) iget-object          v1, v3, Lcom/jlboat/phone/activity/DiyPointPathActivity$1;->this$0 Lcom/jlboat/phone/activity/DiyPointPathActivity;
+	26      (0000006e) invoke-static        v1, Lcom/jlboat/phone/activity/DiyPointPathActivity;->access$100(Lcom/jlboat/phone/activity/DiyPointPathActivity;)Ljava/util/List;
+	27      (00000074) move-result-object   v1
+	28      (00000076) goto                 +7h
+
+handleMessage-BB@0x78 : [ handleMessage-BB@0x84 ]
+	29      (00000078) iget-object          v1, v3, Lcom/jlboat/phone/activity/DiyPointPathActivity$1;->this$0 Lcom/jlboat/phone/activity/DiyPointPathActivity;
+	30      (0000007c) invoke-static        v1, Lcom/jlboat/phone/activity/DiyPointPathActivity;->access$200(Lcom/jlboat/phone/activity/DiyPointPathActivity;)Ljava/util/List;
+	31      (00000082) move-result-object   v1
+
+handleMessage-BB@0x84 : [ handleMessage-BB@0x92 ]
+	32      (00000084) invoke-virtual       v0, v1, Lcom/jlboat/phone/adapter/NaviListAdapter;->setListData(Ljava/util/List;)V
+	33      (0000008a) goto                 +4h
+
+handleMessage-BB@0x8c : [ handleMessage-BB@0x92 ]
+	34      (0000008c) goto                 +3h
+
+handleMessage-BB@0x8e : [ handleMessage-BB@0x92 ]
+	35      (0000008e) goto                 +2h
+
+handleMessage-BB@0x90 : [ handleMessage-BB@0x92 ]
+	36      (00000090) nop                  
+
+handleMessage-BB@0x92 : 
+	37      (00000092) return-void          
+
+handleMessage-BB@0x94 : 
+	38      (00000094) packed-switch-payload 1 2 3 4
+

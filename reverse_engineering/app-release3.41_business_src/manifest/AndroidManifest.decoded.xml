@@ -1,0 +1,56 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="81" android:versionName="3.4.1" android:compileSdkVersion="28" android:compileSdkVersionCodename="9" package="com.jlboat.deliverphone" platformBuildVersionCode="28" platformBuildVersionName="9">
+  <uses-sdk android:minSdkVersion="22" android:targetSdkVersion="28"/>
+  <uses-permission android:name="android.permission.INTERNET"/>
+  <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+  <uses-permission android:name="android.permission.WAKE_LOCK"/>
+  <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+  <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+  <application android:theme="@7F0D0005" android:label="@7F0C002C" android:icon="@7F0B000C" android:name="com.jlboat.phone.application.BoatSlamApplication" android:debuggable="true" android:extractNativeLibs="true" android:usesCleartextTraffic="true" android:appComponentFactory="android.support.v4.app.CoreComponentFactory">
+    <meta-data android:name="android.max_aspect" android:value="2.400000"/>
+    <activity android:name="com.jlboat.phone.activity.SettingActivity" android:launchMode="0" android:screenOrientation="6"/>
+    <activity android:name="com.jlboat.phone.activity.PointBindPathActivity" android:launchMode="0" android:screenOrientation="6"/>
+    <activity android:name="com.jlboat.phone.activity.StatusActivity" android:launchMode="0" android:screenOrientation="6"/>
+    <activity android:name="com.jlboat.phone.activity.MapActivity" android:launchMode="0" android:screenOrientation="6"/>
+    <activity android:name="com.jlboat.phone.activity.MultiMachineSchedulingActivity" android:launchMode="0" android:screenOrientation="6"/>
+    <activity android:name="com.jlboat.phone.LoginActivity" android:launchMode="0" android:screenOrientation="6">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN"/>
+        <category android:name="android.intent.category.LAUNCHER"/>
+      </intent-filter>
+    </activity>
+    <activity android:name="com.jlboat.phone.activity.ErrorMessageActivity" android:launchMode="0" android:screenOrientation="6"/>
+    <activity android:name="com.jlboat.phone.activity.GrabBagActivity" android:launchMode="0" android:screenOrientation="6"/>
+    <activity android:name="com.jlboat.phone.activity.AdvancedConfigurationActivity" android:launchMode="0" android:screenOrientation="6"/>
+    <activity android:name="com.jlboat.phone.MainActivity" android:launchMode="0" android:screenOrientation="6"/>
+    <activity android:name="com.jlboat.phone.activity.BasicSettingActivity" android:launchMode="0" android:screenOrientation="6"/>
+    <activity android:name="com.jlboat.phone.activity.RobotCalibrationActivity" android:launchMode="0" android:screenOrientation="6"/>
+    <activity android:name="com.jlboat.phone.activity.RobotWifiActivity" android:launchMode="0" android:screenOrientation="6"/>
+    <activity android:name="com.jlboat.phone.activity.RobotMapActivity" android:launchMode="0" android:screenOrientation="6"/>
+    <activity android:name="com.jlboat.phone.activity.MapControlActivity" android:launchMode="0" android:screenOrientation="6"/>
+    <activity android:name="com.jlboat.phone.activity.MapEditActivity" android:launchMode="0" android:screenOrientation="6"/>
+    <activity android:name="com.jlboat.phone.activity.MapEditMapActivity2025" android:launchMode="0" android:screenOrientation="6"/>
+    <activity android:name="com.jlboat.phone.activity.MapEditMapActivity" android:launchMode="0" android:screenOrientation="6"/>
+    <activity android:name="com.jlboat.phone.activity.MapEditRegionActivity" android:launchMode="0" android:screenOrientation="6"/>
+    <activity android:name="com.jlboat.phone.activity.MapEditShapeActivity" android:launchMode="0" android:screenOrientation="6"/>
+    <activity android:name="com.jlboat.phone.activity.MapEditChargeActivity" android:launchMode="0" android:screenOrientation="6"/>
+    <activity android:name="com.jlboat.phone.activity.MapExpansionActivity" android:launchMode="0" android:screenOrientation="6"/>
+    <activity android:name="com.jlboat.phone.activity.MapRepositionActivity" android:launchMode="0" android:screenOrientation="6"/>
+    <activity android:name="com.jlboat.phone.activity.DiyPathActivity" android:launchMode="0" android:screenOrientation="6"/>
+    <activity android:name="com.jlboat.phone.activity.DiyPointPathActivity" android:launchMode="0" android:screenOrientation="6"/>
+    <activity android:name="com.jlboat.phone.activity.MoveTestActivity" android:launchMode="0" android:screenOrientation="6"/>
+    <activity android:name="com.jlboat.phone.activity.TestResultActivity" android:launchMode="0" android:screenOrientation="6"/>
+    <activity android:name="com.jlboat.phone.activity.TestResultActivity202508" android:launchMode="0" android:screenOrientation="6"/>
+    <activity android:name="com.jlboat.phone.fragment.settingfragment.NavigationTestFragment2025lift" android:launchMode="0" android:screenOrientation="6"/>
+    <activity android:name="com.jlboat.phone.fragment.settingfragment.NavigationQueueFragment" android:launchMode="0" android:screenOrientation="6"/>
+    <activity android:name="com.jlboat.phone.activity.TestFragmentActivity" android:launchMode="0" android:screenOrientation="6"/>
+    <activity android:name="com.jlboat.phone.activity.MapCleanAreaActivity" android:launchMode="0" android:screenOrientation="6"/>
+    <service android:name="com.jlboat.phone.service.ErrorMsgService"/>
+    <service android:name="com.jlboat.phone.service.JlBoatService" android:enabled="true" android:exported="true" android:directBootAware="true"/>
+    <service android:name="com.jlboat.phone.service.DownloadFileService" android:enabled="true" android:exported="true"/>
+  </application>
+</manifest>

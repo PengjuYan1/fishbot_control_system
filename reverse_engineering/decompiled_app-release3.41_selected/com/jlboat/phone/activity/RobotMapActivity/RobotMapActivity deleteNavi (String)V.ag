@@ -1,0 +1,28 @@
+# Lcom/jlboat/phone/activity/RobotMapActivity;->deleteNavi(Ljava/lang/String;)V [access_flags=private]
+#
+# Parameters:
+# - local registers: v0...v10
+# - v11:java.lang.String
+#
+# - return:void
+
+deleteNavi-BB@0x0 : 
+	0       (00000000) const                v0, 2131493121
+	1       (00000006) invoke-virtual       v10, v0, Lcom/jlboat/phone/activity/RobotMapActivity;->getResString(I)Ljava/lang/String;
+	2       (0000000c) move-result-object   v0
+	3       (0000000e) const                v1, 2131493120
+	4       (00000014) invoke-virtual       v10, v1, Lcom/jlboat/phone/activity/RobotMapActivity;->getResString(I)Ljava/lang/String;
+	5       (0000001a) move-result-object   v1
+	6       (0000001c) invoke-direct        v10, v0, v1, Lcom/jlboat/phone/activity/RobotMapActivity;->safeShowWaitingDialog(Ljava/lang/CharSequence; Ljava/lang/CharSequence;)V
+	7       (00000022) iget-object          v2, v10, Lcom/jlboat/phone/activity/RobotMapActivity;->spiritServiceClient Lcom/jlboat/phone/communication/SpiritServiceClient;
+	8       (00000026) iget-object          v0, v10, Lcom/jlboat/phone/activity/RobotMapActivity;->localMapList Lcom/boat/support/slam/entity/floors/MapList;
+	9       (0000002a) invoke-virtual       v0, Lcom/boat/support/slam/entity/floors/MapList;->getDefaultFloor()J
+	10      (00000030) move-result-wide     v3
+	11      (00000032) iget-wide            v5, v10, Lcom/jlboat/phone/activity/RobotMapActivity;->currentMapId J
+	12      (00000036) invoke-static        v11, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+	13      (0000003c) move-result-wide     v7
+	14      (0000003e) new-instance         v9, Lcom/jlboat/phone/activity/RobotMapActivity$19;
+	15      (00000042) invoke-direct        v9, v10, Lcom/jlboat/phone/activity/RobotMapActivity$19;-><init>(Lcom/jlboat/phone/activity/RobotMapActivity;)V
+	16      (00000048) invoke-virtual/range v2 ... v9, Lcom/jlboat/phone/communication/SpiritServiceClient;->deletePonsintService(J J J Lcom/boat/jrosbridge/MessageListener;)V
+	17      (0000004e) return-void          
+

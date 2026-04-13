@@ -1,0 +1,302 @@
+# Lcom/jlboat/phone/controller/JlNaviManager;->checkOffLineHasStatus()V [access_flags=private]
+#
+# Parameters:
+# local registers: v0...v4
+#
+# - return:void
+
+checkOffLineHasStatus-BB@0x0 : [ checkOffLineHasStatus-BB@0x18e checkOffLineHasStatus-BB@0x1a8 ]
+	0       (00000000) iget-object          v0, v4, Lcom/jlboat/phone/controller/JlNaviManager;->TAG Ljava/lang/String;
+	1       (00000004) new-instance         v1, Ljava/lang/StringBuilder;
+	2       (00000008) invoke-direct        v1, Ljava/lang/StringBuilder;-><init>()V
+	3       (0000000e) const-string         v2, "checkOffLineHasStatus: 
+连接状态是否需要更新: "
+	4       (00000012) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	5       (00000018) move-result-object   v1
+	6       (0000001a) iget-boolean         v2, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentConnectStatusIsOffLineUpdate Z
+	7       (0000001e) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+	8       (00000024) move-result-object   v1
+	9       (00000026) const-string         v2, "
+检查初始化状态是否需要上报: "
+	10      (0000002a) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	11      (00000030) move-result-object   v1
+	12      (00000032) iget-boolean         v2, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentInitStatusIsOffLineUpdate Z
+	13      (00000036) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+	14      (0000003c) move-result-object   v1
+	15      (0000003e) const-string         v2, "
+检查急停状态码是否需要上报: "
+	16      (00000042) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	17      (00000048) move-result-object   v1
+	18      (0000004a) iget-boolean         v2, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentElsStatusIsOffLineUpdate Z
+	19      (0000004e) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+	20      (00000054) move-result-object   v1
+	21      (00000056) const-string         v2, "
+检查电机锁状态码是否需要上报: "
+	22      (0000005a) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	23      (00000060) move-result-object   v1
+	24      (00000062) iget-boolean         v2, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentMotorEnableStatusIsOffLineUpdate Z
+	25      (00000066) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+	26      (0000006c) move-result-object   v1
+	27      (0000006e) const-string         v2, "
+检查定位码是否需要上报: "
+	28      (00000072) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	29      (00000078) move-result-object   v1
+	30      (0000007a) iget-boolean         v2, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentLocationStatusIsOffLineUpdate Z
+	31      (0000007e) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+	32      (00000084) move-result-object   v1
+	33      (00000086) const-string         v2, "
+检查虚拟墙状态是否需要上报: "
+	34      (0000008a) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	35      (00000090) move-result-object   v1
+	36      (00000092) iget-boolean         v2, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentVirtualStatusIsOffLineUpdate Z
+	37      (00000096) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+	38      (0000009c) move-result-object   v1
+	39      (0000009e) const-string         v2, "
+当前地图加载是否完成的状态是否需要上报: "
+	40      (000000a2) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	41      (000000a8) move-result-object   v1
+	42      (000000aa) iget-boolean         v2, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentMapLoadStatusIsOffLineUpdate Z
+	43      (000000ae) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+	44      (000000b4) move-result-object   v1
+	45      (000000b6) const-string         v2, "
+当前雷达状态是否需要上报: "
+	46      (000000ba) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	47      (000000c0) move-result-object   v1
+	48      (000000c2) iget-boolean         v2, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentLidarStatusIsOffLineUpdate Z
+	49      (000000c6) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+	50      (000000cc) move-result-object   v1
+	51      (000000ce) const-string         v2, "
+当前32主板状态是否需要上报: "
+	52      (000000d2) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	53      (000000d8) move-result-object   v1
+	54      (000000da) iget-boolean         v2, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentStm32StatusIsOffLineUpdate Z
+	55      (000000de) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+	56      (000000e4) move-result-object   v1
+	57      (000000e6) const-string         v2, "
+当里程计码是否需要上报: "
+	58      (000000ea) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	59      (000000f0) move-result-object   v1
+	60      (000000f2) iget-boolean         v2, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentOdomStatusIsOffLineUpdate Z
+	61      (000000f6) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+	62      (000000fc) move-result-object   v1
+	63      (000000fe) const-string         v2, "
+当里底盘联网状态否需要上报: "
+	64      (00000102) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	65      (00000108) move-result-object   v1
+	66      (0000010a) iget-boolean         v2, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentNaviNetWorkStatusIsOffLineUpdate Z
+	67      (0000010e) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+	68      (00000114) move-result-object   v1
+	69      (00000116) const-string         v2, "
+imu: "
+	70      (0000011a) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	71      (00000120) move-result-object   v1
+	72      (00000122) iget-boolean         v2, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentImuStatusIsOffLineUpdate Z
+	73      (00000126) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+	74      (0000012c) move-result-object   v1
+	75      (0000012e) const-string         v2, "
+sonar: "
+	76      (00000132) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	77      (00000138) move-result-object   v1
+	78      (0000013a) iget-boolean         v2, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentSonarStatusIsOffLineUpdate Z
+	79      (0000013e) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+	80      (00000144) move-result-object   v1
+	81      (00000146) const-string         v2, "
+左轮状态码上报检查: "
+	82      (0000014a) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	83      (00000150) move-result-object   v1
+	84      (00000152) iget-boolean         v2, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentLeftMotorStatusIsOffLineUpdate Z
+	85      (00000156) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+	86      (0000015c) move-result-object   v1
+	87      (0000015e) const-string         v2, "
+右轮状态码上报检查: "
+	88      (00000162) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	89      (00000168) move-result-object   v1
+	90      (0000016a) iget-boolean         v2, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentRightMotorStatusIsOffLineUpdate Z
+	91      (0000016e) invoke-virtual       v1, v2, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+	92      (00000174) move-result-object   v1
+	93      (00000176) invoke-virtual       v1, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	94      (0000017c) move-result-object   v1
+	95      (0000017e) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	96      (00000184) iget-boolean         v0, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentConnectStatusIsOffLineUpdate Z
+	97      (00000188) const/4              v1, 0
+	98      (0000018a) if-eqz               v0, +00fh
+
+checkOffLineHasStatus-BB@0x18e : [ checkOffLineHasStatus-BB@0x1a8 ]
+	99      (0000018e) invoke-virtual       v4, Lcom/jlboat/phone/controller/JlNaviManager;->getApp()Lcom/boat/base/BaseApplication;
+	100     (00000194) move-result-object   v0
+	101     (00000196) iget                 v2, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentConnectStatus I
+	102     (0000019a) iget-object          v3, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentConnectStatusMsg Ljava/lang/String;
+	103     (0000019e) invoke-static        v0, v2, v3, Lcom/boat/utils/ReportExceptionInformationUtils;->uploadWarn(Landroid/content/Context; I Ljava/lang/String;)V
+	104     (000001a4) iput-boolean         v1, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentConnectStatusIsOffLineUpdate Z
+
+checkOffLineHasStatus-BB@0x1a8 : [ checkOffLineHasStatus-BB@0x1b0 checkOffLineHasStatus-BB@0x1ca ]
+	105     (000001a8) iget-boolean         v0, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentInitStatusIsOffLineUpdate Z
+	106     (000001ac) if-eqz               v0, +00fh
+
+checkOffLineHasStatus-BB@0x1b0 : [ checkOffLineHasStatus-BB@0x1ca ]
+	107     (000001b0) invoke-virtual       v4, Lcom/jlboat/phone/controller/JlNaviManager;->getApp()Lcom/boat/base/BaseApplication;
+	108     (000001b6) move-result-object   v0
+	109     (000001b8) iget                 v2, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentInitStatus I
+	110     (000001bc) iget-object          v3, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentInitStatusMsg Ljava/lang/String;
+	111     (000001c0) invoke-static        v0, v2, v3, Lcom/boat/utils/ReportExceptionInformationUtils;->uploadWarn(Landroid/content/Context; I Ljava/lang/String;)V
+	112     (000001c6) iput-boolean         v1, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentInitStatusIsOffLineUpdate Z
+
+checkOffLineHasStatus-BB@0x1ca : [ checkOffLineHasStatus-BB@0x1d2 checkOffLineHasStatus-BB@0x1ec ]
+	113     (000001ca) iget-boolean         v0, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentElsStatusIsOffLineUpdate Z
+	114     (000001ce) if-eqz               v0, +00fh
+
+checkOffLineHasStatus-BB@0x1d2 : [ checkOffLineHasStatus-BB@0x1ec ]
+	115     (000001d2) invoke-virtual       v4, Lcom/jlboat/phone/controller/JlNaviManager;->getApp()Lcom/boat/base/BaseApplication;
+	116     (000001d8) move-result-object   v0
+	117     (000001da) iget                 v2, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentElsStatus I
+	118     (000001de) iget-object          v3, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentElsStatusMsg Ljava/lang/String;
+	119     (000001e2) invoke-static        v0, v2, v3, Lcom/boat/utils/ReportExceptionInformationUtils;->uploadWarn(Landroid/content/Context; I Ljava/lang/String;)V
+	120     (000001e8) iput-boolean         v1, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentElsStatusIsOffLineUpdate Z
+
+checkOffLineHasStatus-BB@0x1ec : [ checkOffLineHasStatus-BB@0x1f4 checkOffLineHasStatus-BB@0x20e ]
+	121     (000001ec) iget-boolean         v0, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentMotorEnableStatusIsOffLineUpdate Z
+	122     (000001f0) if-eqz               v0, +00fh
+
+checkOffLineHasStatus-BB@0x1f4 : [ checkOffLineHasStatus-BB@0x20e ]
+	123     (000001f4) invoke-virtual       v4, Lcom/jlboat/phone/controller/JlNaviManager;->getApp()Lcom/boat/base/BaseApplication;
+	124     (000001fa) move-result-object   v0
+	125     (000001fc) iget                 v2, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentMotorEnabledStatus I
+	126     (00000200) iget-object          v3, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentMotorEnabledMsg Ljava/lang/String;
+	127     (00000204) invoke-static        v0, v2, v3, Lcom/boat/utils/ReportExceptionInformationUtils;->uploadWarn(Landroid/content/Context; I Ljava/lang/String;)V
+	128     (0000020a) iput-boolean         v1, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentMotorEnableStatusIsOffLineUpdate Z
+
+checkOffLineHasStatus-BB@0x20e : [ checkOffLineHasStatus-BB@0x216 checkOffLineHasStatus-BB@0x230 ]
+	129     (0000020e) iget-boolean         v0, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentLocationStatusIsOffLineUpdate Z
+	130     (00000212) if-eqz               v0, +00fh
+
+checkOffLineHasStatus-BB@0x216 : [ checkOffLineHasStatus-BB@0x230 ]
+	131     (00000216) invoke-virtual       v4, Lcom/jlboat/phone/controller/JlNaviManager;->getApp()Lcom/boat/base/BaseApplication;
+	132     (0000021c) move-result-object   v0
+	133     (0000021e) iget                 v2, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentLocationStatus I
+	134     (00000222) iget-object          v3, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentLocationStatusMsg Ljava/lang/String;
+	135     (00000226) invoke-static        v0, v2, v3, Lcom/boat/utils/ReportExceptionInformationUtils;->uploadWarn(Landroid/content/Context; I Ljava/lang/String;)V
+	136     (0000022c) iput-boolean         v1, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentLocationStatusIsOffLineUpdate Z
+
+checkOffLineHasStatus-BB@0x230 : [ checkOffLineHasStatus-BB@0x238 checkOffLineHasStatus-BB@0x252 ]
+	137     (00000230) iget-boolean         v0, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentVirtualStatusIsOffLineUpdate Z
+	138     (00000234) if-eqz               v0, +00fh
+
+checkOffLineHasStatus-BB@0x238 : [ checkOffLineHasStatus-BB@0x252 ]
+	139     (00000238) invoke-virtual       v4, Lcom/jlboat/phone/controller/JlNaviManager;->getApp()Lcom/boat/base/BaseApplication;
+	140     (0000023e) move-result-object   v0
+	141     (00000240) iget                 v2, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentVirtualStatus I
+	142     (00000244) iget-object          v3, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentVirtualStatusMsg Ljava/lang/String;
+	143     (00000248) invoke-static        v0, v2, v3, Lcom/boat/utils/ReportExceptionInformationUtils;->uploadWarn(Landroid/content/Context; I Ljava/lang/String;)V
+	144     (0000024e) iput-boolean         v1, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentVirtualStatusIsOffLineUpdate Z
+
+checkOffLineHasStatus-BB@0x252 : [ checkOffLineHasStatus-BB@0x25a checkOffLineHasStatus-BB@0x274 ]
+	145     (00000252) iget-boolean         v0, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentMapLoadStatusIsOffLineUpdate Z
+	146     (00000256) if-eqz               v0, +00fh
+
+checkOffLineHasStatus-BB@0x25a : [ checkOffLineHasStatus-BB@0x274 ]
+	147     (0000025a) invoke-virtual       v4, Lcom/jlboat/phone/controller/JlNaviManager;->getApp()Lcom/boat/base/BaseApplication;
+	148     (00000260) move-result-object   v0
+	149     (00000262) iget                 v2, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentMapLoadStatus I
+	150     (00000266) iget-object          v3, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentMapLoadStatusMsg Ljava/lang/String;
+	151     (0000026a) invoke-static        v0, v2, v3, Lcom/boat/utils/ReportExceptionInformationUtils;->uploadWarn(Landroid/content/Context; I Ljava/lang/String;)V
+	152     (00000270) iput-boolean         v1, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentMapLoadStatusIsOffLineUpdate Z
+
+checkOffLineHasStatus-BB@0x274 : [ checkOffLineHasStatus-BB@0x27c checkOffLineHasStatus-BB@0x296 ]
+	153     (00000274) iget-boolean         v0, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentLidarStatusIsOffLineUpdate Z
+	154     (00000278) if-eqz               v0, +00fh
+
+checkOffLineHasStatus-BB@0x27c : [ checkOffLineHasStatus-BB@0x296 ]
+	155     (0000027c) invoke-virtual       v4, Lcom/jlboat/phone/controller/JlNaviManager;->getApp()Lcom/boat/base/BaseApplication;
+	156     (00000282) move-result-object   v0
+	157     (00000284) iget                 v2, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentLidarStatus I
+	158     (00000288) iget-object          v3, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentLidarStatusMsg Ljava/lang/String;
+	159     (0000028c) invoke-static        v0, v2, v3, Lcom/boat/utils/ReportExceptionInformationUtils;->uploadWarn(Landroid/content/Context; I Ljava/lang/String;)V
+	160     (00000292) iput-boolean         v1, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentLidarStatusIsOffLineUpdate Z
+
+checkOffLineHasStatus-BB@0x296 : [ checkOffLineHasStatus-BB@0x29e checkOffLineHasStatus-BB@0x2b8 ]
+	161     (00000296) iget-boolean         v0, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentStm32StatusIsOffLineUpdate Z
+	162     (0000029a) if-eqz               v0, +00fh
+
+checkOffLineHasStatus-BB@0x29e : [ checkOffLineHasStatus-BB@0x2b8 ]
+	163     (0000029e) invoke-virtual       v4, Lcom/jlboat/phone/controller/JlNaviManager;->getApp()Lcom/boat/base/BaseApplication;
+	164     (000002a4) move-result-object   v0
+	165     (000002a6) iget                 v2, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentStm32Status I
+	166     (000002aa) iget-object          v3, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentStm32StatusMsg Ljava/lang/String;
+	167     (000002ae) invoke-static        v0, v2, v3, Lcom/boat/utils/ReportExceptionInformationUtils;->uploadWarn(Landroid/content/Context; I Ljava/lang/String;)V
+	168     (000002b4) iput-boolean         v1, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentStm32StatusIsOffLineUpdate Z
+
+checkOffLineHasStatus-BB@0x2b8 : [ checkOffLineHasStatus-BB@0x2c0 checkOffLineHasStatus-BB@0x2da ]
+	169     (000002b8) iget-boolean         v0, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentOdomStatusIsOffLineUpdate Z
+	170     (000002bc) if-eqz               v0, +00fh
+
+checkOffLineHasStatus-BB@0x2c0 : [ checkOffLineHasStatus-BB@0x2da ]
+	171     (000002c0) invoke-virtual       v4, Lcom/jlboat/phone/controller/JlNaviManager;->getApp()Lcom/boat/base/BaseApplication;
+	172     (000002c6) move-result-object   v0
+	173     (000002c8) iget                 v2, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentOdomStatus I
+	174     (000002cc) iget-object          v3, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentOdomStatusMsg Ljava/lang/String;
+	175     (000002d0) invoke-static        v0, v2, v3, Lcom/boat/utils/ReportExceptionInformationUtils;->uploadWarn(Landroid/content/Context; I Ljava/lang/String;)V
+	176     (000002d6) iput-boolean         v1, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentOdomStatusIsOffLineUpdate Z
+
+checkOffLineHasStatus-BB@0x2da : [ checkOffLineHasStatus-BB@0x2e2 checkOffLineHasStatus-BB@0x2fc ]
+	177     (000002da) iget-boolean         v0, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentNaviNetWorkStatusIsOffLineUpdate Z
+	178     (000002de) if-eqz               v0, +00fh
+
+checkOffLineHasStatus-BB@0x2e2 : [ checkOffLineHasStatus-BB@0x2fc ]
+	179     (000002e2) invoke-virtual       v4, Lcom/jlboat/phone/controller/JlNaviManager;->getApp()Lcom/boat/base/BaseApplication;
+	180     (000002e8) move-result-object   v0
+	181     (000002ea) iget                 v2, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentNaviNetWorkStatus I
+	182     (000002ee) iget-object          v3, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentNaviNetWorkStatusMsg Ljava/lang/String;
+	183     (000002f2) invoke-static        v0, v2, v3, Lcom/boat/utils/ReportExceptionInformationUtils;->uploadWarn(Landroid/content/Context; I Ljava/lang/String;)V
+	184     (000002f8) iput-boolean         v1, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentNaviNetWorkStatusIsOffLineUpdate Z
+
+checkOffLineHasStatus-BB@0x2fc : [ checkOffLineHasStatus-BB@0x304 checkOffLineHasStatus-BB@0x31e ]
+	185     (000002fc) iget-boolean         v0, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentImuStatusIsOffLineUpdate Z
+	186     (00000300) if-eqz               v0, +00fh
+
+checkOffLineHasStatus-BB@0x304 : [ checkOffLineHasStatus-BB@0x31e ]
+	187     (00000304) invoke-virtual       v4, Lcom/jlboat/phone/controller/JlNaviManager;->getApp()Lcom/boat/base/BaseApplication;
+	188     (0000030a) move-result-object   v0
+	189     (0000030c) iget                 v2, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentImuStatus I
+	190     (00000310) iget-object          v3, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentImuStatusMsg Ljava/lang/String;
+	191     (00000314) invoke-static        v0, v2, v3, Lcom/boat/utils/ReportExceptionInformationUtils;->uploadWarn(Landroid/content/Context; I Ljava/lang/String;)V
+	192     (0000031a) iput-boolean         v1, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentImuStatusIsOffLineUpdate Z
+
+checkOffLineHasStatus-BB@0x31e : [ checkOffLineHasStatus-BB@0x326 checkOffLineHasStatus-BB@0x340 ]
+	193     (0000031e) iget-boolean         v0, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentSonarStatusIsOffLineUpdate Z
+	194     (00000322) if-eqz               v0, +00fh
+
+checkOffLineHasStatus-BB@0x326 : [ checkOffLineHasStatus-BB@0x340 ]
+	195     (00000326) invoke-virtual       v4, Lcom/jlboat/phone/controller/JlNaviManager;->getApp()Lcom/boat/base/BaseApplication;
+	196     (0000032c) move-result-object   v0
+	197     (0000032e) iget                 v2, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentSonarStatus I
+	198     (00000332) iget-object          v3, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentSonarStatusMsg Ljava/lang/String;
+	199     (00000336) invoke-static        v0, v2, v3, Lcom/boat/utils/ReportExceptionInformationUtils;->uploadWarn(Landroid/content/Context; I Ljava/lang/String;)V
+	200     (0000033c) iput-boolean         v1, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentSonarStatusIsOffLineUpdate Z
+
+checkOffLineHasStatus-BB@0x340 : [ checkOffLineHasStatus-BB@0x348 checkOffLineHasStatus-BB@0x362 ]
+	201     (00000340) iget-boolean         v0, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentLeftMotorStatusIsOffLineUpdate Z
+	202     (00000344) if-eqz               v0, +00fh
+
+checkOffLineHasStatus-BB@0x348 : [ checkOffLineHasStatus-BB@0x362 ]
+	203     (00000348) invoke-virtual       v4, Lcom/jlboat/phone/controller/JlNaviManager;->getApp()Lcom/boat/base/BaseApplication;
+	204     (0000034e) move-result-object   v0
+	205     (00000350) iget                 v2, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentLeftMotorStatus I
+	206     (00000354) iget-object          v3, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentLeftMotorStatusMsg Ljava/lang/String;
+	207     (00000358) invoke-static        v0, v2, v3, Lcom/boat/utils/ReportExceptionInformationUtils;->uploadWarn(Landroid/content/Context; I Ljava/lang/String;)V
+	208     (0000035e) iput-boolean         v1, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentLeftMotorStatusIsOffLineUpdate Z
+
+checkOffLineHasStatus-BB@0x362 : [ checkOffLineHasStatus-BB@0x36a checkOffLineHasStatus-BB@0x384 ]
+	209     (00000362) iget-boolean         v0, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentRightMotorStatusIsOffLineUpdate Z
+	210     (00000366) if-eqz               v0, +00fh
+
+checkOffLineHasStatus-BB@0x36a : [ checkOffLineHasStatus-BB@0x384 ]
+	211     (0000036a) invoke-virtual       v4, Lcom/jlboat/phone/controller/JlNaviManager;->getApp()Lcom/boat/base/BaseApplication;
+	212     (00000370) move-result-object   v0
+	213     (00000372) iget                 v2, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentRightMotorStatus I
+	214     (00000376) iget-object          v3, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentRightMotorStatusMsg Ljava/lang/String;
+	215     (0000037a) invoke-static        v0, v2, v3, Lcom/boat/utils/ReportExceptionInformationUtils;->uploadWarn(Landroid/content/Context; I Ljava/lang/String;)V
+	216     (00000380) iput-boolean         v1, v4, Lcom/jlboat/phone/controller/JlNaviManager;->currentRightMotorStatusIsOffLineUpdate Z
+
+checkOffLineHasStatus-BB@0x384 : 
+	217     (00000384) return-void          
+

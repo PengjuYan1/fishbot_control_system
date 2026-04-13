@@ -1,0 +1,12 @@
+# Lcartographer_ros_msgs/SubmapEntry;->setIsFrozen(Z)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:boolean
+#
+# - return:void
+
+setIsFrozen-BB@0x0 : 
+	0       (00000000) iput-boolean         v1, v0, Lcartographer_ros_msgs/SubmapEntry;->is_frozen Z
+	1       (00000004) return-void          
+

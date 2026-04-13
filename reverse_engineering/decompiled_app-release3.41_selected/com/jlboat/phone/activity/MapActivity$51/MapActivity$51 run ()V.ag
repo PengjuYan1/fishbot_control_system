@@ -1,0 +1,122 @@
+# Lcom/jlboat/phone/activity/MapActivity$51;->run()V [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v5
+#
+# - return:void
+
+run-BB@0x0 : [ run-BB@0x16 run-BB@0x9e ]
+	0       (00000000) iget-object          v0, v5, Lcom/jlboat/phone/activity/MapActivity$51;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	1       (00000004) invoke-static        v0, Lcom/jlboat/phone/activity/MapActivity;->access$800(Lcom/jlboat/phone/activity/MapActivity;)I
+	2       (0000000a) move-result          v0
+	3       (0000000c) const/4              v1, 0
+	4       (0000000e) const/16             v2, 8
+	5       (00000012) if-nez               v0, +046h
+
+run-BB@0x16 : [ run-BB@0x1a0 ]
+	6       (00000016) iget-object          v0, v5, Lcom/jlboat/phone/activity/MapActivity$51;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	7       (0000001a) invoke-static        v0, Lcom/jlboat/phone/activity/MapActivity;->access$4500(Lcom/jlboat/phone/activity/MapActivity;)Landroid/widget/Button;
+	8       (00000020) move-result-object   v0
+	9       (00000022) invoke-virtual       v0, v2, Landroid/widget/Button;->setVisibility(I)V
+	10      (00000028) iget-object          v0, v5, Lcom/jlboat/phone/activity/MapActivity$51;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	11      (0000002c) invoke-static        v0, Lcom/jlboat/phone/activity/MapActivity;->access$4500(Lcom/jlboat/phone/activity/MapActivity;)Landroid/widget/Button;
+	12      (00000032) move-result-object   v0
+	13      (00000034) iget-object          v2, v5, Lcom/jlboat/phone/activity/MapActivity$51;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	14      (00000038) const                v3, 2131492946
+	15      (0000003e) invoke-virtual       v2, v3, Lcom/jlboat/phone/activity/MapActivity;->getResString(I)Ljava/lang/String;
+	16      (00000044) move-result-object   v2
+	17      (00000046) invoke-virtual       v0, v2, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
+	18      (0000004c) iget-object          v0, v5, Lcom/jlboat/phone/activity/MapActivity$51;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	19      (00000050) invoke-static        v0, Lcom/jlboat/phone/activity/MapActivity;->access$4600(Lcom/jlboat/phone/activity/MapActivity;)Landroid/widget/Button;
+	20      (00000056) move-result-object   v0
+	21      (00000058) invoke-virtual       v0, v1, Landroid/widget/Button;->setVisibility(I)V
+	22      (0000005e) iget-object          v0, v5, Lcom/jlboat/phone/activity/MapActivity$51;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	23      (00000062) new-instance         v1, Lcom/boat/jrosbridge/Topic;
+	24      (00000066) sget-object          v2, Lcom/jlboat/phone/util/TopicNames;->LocationStatus Ljava/lang/String;
+	25      (0000006a) const-class          v3, Lcom/boat/jrosbridge/message/std_msgs/Int16;
+	26      (0000006e) sget-object          v4, Lcom/jlboat/phone/application/BoatSlamApplication;->client Lcom/boat/jrosbridge/rosbridge/ROSBridgeClient;
+	27      (00000072) invoke-direct        v1, v2, v3, v4, Lcom/boat/jrosbridge/Topic;-><init>(Ljava/lang/String; Ljava/lang/Class; Lcom/boat/jrosbridge/ROSClient;)V
+	28      (00000078) invoke-static        v0, v1, Lcom/jlboat/phone/activity/MapActivity;->access$4702(Lcom/jlboat/phone/activity/MapActivity; Lcom/boat/jrosbridge/Topic;)Lcom/boat/jrosbridge/Topic;
+	29      (0000007e) iget-object          v0, v5, Lcom/jlboat/phone/activity/MapActivity$51;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	30      (00000082) invoke-static        v0, Lcom/jlboat/phone/activity/MapActivity;->access$4700(Lcom/jlboat/phone/activity/MapActivity;)Lcom/boat/jrosbridge/Topic;
+	31      (00000088) move-result-object   v0
+	32      (0000008a) new-instance         v1, Lcom/jlboat/phone/activity/MapActivity$51$1;
+	33      (0000008e) invoke-direct        v1, v5, Lcom/jlboat/phone/activity/MapActivity$51$1;-><init>(Lcom/jlboat/phone/activity/MapActivity$51;)V
+	34      (00000094) invoke-virtual       v0, v1, Lcom/boat/jrosbridge/Topic;->subscribe(Lcom/boat/jrosbridge/MessageListener;)V
+	35      (0000009a) goto/16              +083h
+
+run-BB@0x9e : [ run-BB@0xb0 run-BB@0x12e ]
+	36      (0000009e) iget-object          v0, v5, Lcom/jlboat/phone/activity/MapActivity$51;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	37      (000000a2) invoke-static        v0, Lcom/jlboat/phone/activity/MapActivity;->access$800(Lcom/jlboat/phone/activity/MapActivity;)I
+	38      (000000a8) move-result          v0
+	39      (000000aa) const/4              v3, 1
+	40      (000000ac) if-ne                v0, v3, +041h
+
+run-BB@0xb0 : [ run-BB@0x11a run-BB@0x1a0 ]
+	41      (000000b0) iget-object          v0, v5, Lcom/jlboat/phone/activity/MapActivity$51;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	42      (000000b4) invoke-static        v0, Lcom/jlboat/phone/activity/MapActivity;->access$4500(Lcom/jlboat/phone/activity/MapActivity;)Landroid/widget/Button;
+	43      (000000ba) move-result-object   v0
+	44      (000000bc) invoke-virtual       v0, v1, Landroid/widget/Button;->setVisibility(I)V
+	45      (000000c2) iget-object          v0, v5, Lcom/jlboat/phone/activity/MapActivity$51;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	46      (000000c6) invoke-static        v0, Lcom/jlboat/phone/activity/MapActivity;->access$4500(Lcom/jlboat/phone/activity/MapActivity;)Landroid/widget/Button;
+	47      (000000cc) move-result-object   v0
+	48      (000000ce) iget-object          v1, v5, Lcom/jlboat/phone/activity/MapActivity$51;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	49      (000000d2) const                v3, 2131492952
+	50      (000000d8) invoke-virtual       v1, v3, Lcom/jlboat/phone/activity/MapActivity;->getResString(I)Ljava/lang/String;
+	51      (000000de) move-result-object   v1
+	52      (000000e0) invoke-virtual       v0, v1, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
+	53      (000000e6) iget-object          v0, v5, Lcom/jlboat/phone/activity/MapActivity$51;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	54      (000000ea) invoke-static        v0, Lcom/jlboat/phone/activity/MapActivity;->access$4600(Lcom/jlboat/phone/activity/MapActivity;)Landroid/widget/Button;
+	55      (000000f0) move-result-object   v0
+	56      (000000f2) invoke-virtual       v0, v2, Landroid/widget/Button;->setVisibility(I)V
+	57      (000000f8) iget-object          v0, v5, Lcom/jlboat/phone/activity/MapActivity$51;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	58      (000000fc) invoke-static        v0, Lcom/jlboat/phone/activity/MapActivity;->access$4900(Lcom/jlboat/phone/activity/MapActivity;)Landroid/widget/Button;
+	59      (00000102) move-result-object   v0
+	60      (00000104) invoke-virtual       v0, v2, Landroid/widget/Button;->setVisibility(I)V
+	61      (0000010a) iget-object          v0, v5, Lcom/jlboat/phone/activity/MapActivity$51;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	62      (0000010e) invoke-static        v0, Lcom/jlboat/phone/activity/MapActivity;->access$4700(Lcom/jlboat/phone/activity/MapActivity;)Lcom/boat/jrosbridge/Topic;
+	63      (00000114) move-result-object   v0
+	64      (00000116) if-eqz               v0, +045h
+
+run-BB@0x11a : [ run-BB@0x1a0 ]
+	65      (0000011a) iget-object          v0, v5, Lcom/jlboat/phone/activity/MapActivity$51;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	66      (0000011e) invoke-static        v0, Lcom/jlboat/phone/activity/MapActivity;->access$4700(Lcom/jlboat/phone/activity/MapActivity;)Lcom/boat/jrosbridge/Topic;
+	67      (00000124) move-result-object   v0
+	68      (00000126) invoke-virtual       v0, Lcom/boat/jrosbridge/Topic;->unsubscribe()V
+	69      (0000012c) goto                 +3ah
+
+run-BB@0x12e : [ run-BB@0x140 run-BB@0x1a0 ]
+	70      (0000012e) iget-object          v0, v5, Lcom/jlboat/phone/activity/MapActivity$51;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	71      (00000132) invoke-static        v0, Lcom/jlboat/phone/activity/MapActivity;->access$800(Lcom/jlboat/phone/activity/MapActivity;)I
+	72      (00000138) move-result          v0
+	73      (0000013a) const/4              v2, 2
+	74      (0000013c) if-ne                v0, v2, +032h
+
+run-BB@0x140 : [ run-BB@0x18e run-BB@0x1a0 ]
+	75      (00000140) iget-object          v0, v5, Lcom/jlboat/phone/activity/MapActivity$51;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	76      (00000144) invoke-static        v0, Lcom/jlboat/phone/activity/MapActivity;->access$4600(Lcom/jlboat/phone/activity/MapActivity;)Landroid/widget/Button;
+	77      (0000014a) move-result-object   v0
+	78      (0000014c) invoke-virtual       v0, v1, Landroid/widget/Button;->setVisibility(I)V
+	79      (00000152) iget-object          v0, v5, Lcom/jlboat/phone/activity/MapActivity$51;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	80      (00000156) new-instance         v1, Landroid/content/Intent;
+	81      (0000015a) iget-object          v2, v5, Lcom/jlboat/phone/activity/MapActivity$51;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	82      (0000015e) const-class          v3, Lcom/jlboat/phone/activity/MapExpansionActivity;
+	83      (00000162) invoke-direct        v1, v2, v3, Landroid/content/Intent;-><init>(Landroid/content/Context; Ljava/lang/Class;)V
+	84      (00000168) invoke-virtual       v0, v1, Lcom/jlboat/phone/activity/MapActivity;->startActivity(Landroid/content/Intent;)V
+	85      (0000016e) iget-object          v0, v5, Lcom/jlboat/phone/activity/MapActivity$51;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	86      (00000172) const                v1, 2131493282
+	87      (00000178) invoke-virtual       v0, v1, Lcom/jlboat/phone/activity/MapActivity;->toast(I)V
+	88      (0000017e) iget-object          v0, v5, Lcom/jlboat/phone/activity/MapActivity$51;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	89      (00000182) invoke-static        v0, Lcom/jlboat/phone/activity/MapActivity;->access$4700(Lcom/jlboat/phone/activity/MapActivity;)Lcom/boat/jrosbridge/Topic;
+	90      (00000188) move-result-object   v0
+	91      (0000018a) if-eqz               v0, +00bh
+
+run-BB@0x18e : [ run-BB@0x1a0 ]
+	92      (0000018e) iget-object          v0, v5, Lcom/jlboat/phone/activity/MapActivity$51;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	93      (00000192) invoke-static        v0, Lcom/jlboat/phone/activity/MapActivity;->access$4700(Lcom/jlboat/phone/activity/MapActivity;)Lcom/boat/jrosbridge/Topic;
+	94      (00000198) move-result-object   v0
+	95      (0000019a) invoke-virtual       v0, Lcom/boat/jrosbridge/Topic;->unsubscribe()V
+
+run-BB@0x1a0 : 
+	96      (000001a0) return-void          
+

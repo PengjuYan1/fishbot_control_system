@@ -1,0 +1,142 @@
+# Lcom/jlboat/phone/view/TouchEvenHandler;->initBitmap()V [access_flags=private]
+#
+# Parameters:
+# local registers: v0...v7
+#
+# - return:void
+
+initBitmap-BB@0x0 : [ initBitmap-BB@0x8 initBitmap-BB@0x180 ]
+	0       (00000000) iget-object          v0, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->sourceBitmap Landroid/graphics/Bitmap;
+	1       (00000004) if-eqz               v0, +0beh
+
+initBitmap-BB@0x8 : [ initBitmap-BB@0x56 initBitmap-BB@0x84 ]
+	2       (00000008) iget-object          v0, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->matrix Landroid/graphics/Matrix;
+	3       (0000000c) invoke-virtual       v0, Landroid/graphics/Matrix;->reset()V
+	4       (00000012) iget-object          v0, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->savedMatrix Landroid/graphics/Matrix;
+	5       (00000016) iget-object          v1, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->matrix Landroid/graphics/Matrix;
+	6       (0000001a) invoke-virtual       v0, v1, Landroid/graphics/Matrix;->set(Landroid/graphics/Matrix;)V
+	7       (00000020) iget-object          v0, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->matrix1 Landroid/graphics/Matrix;
+	8       (00000024) iget-object          v1, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->savedMatrix Landroid/graphics/Matrix;
+	9       (00000028) invoke-virtual       v0, v1, Landroid/graphics/Matrix;->set(Landroid/graphics/Matrix;)V
+	10      (0000002e) iget-object          v0, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->sourceBitmap Landroid/graphics/Bitmap;
+	11      (00000032) invoke-virtual       v0, Landroid/graphics/Bitmap;->getWidth()I
+	12      (00000038) move-result          v0
+	13      (0000003a) iget-object          v1, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->sourceBitmap Landroid/graphics/Bitmap;
+	14      (0000003e) invoke-virtual       v1, Landroid/graphics/Bitmap;->getHeight()I
+	15      (00000044) move-result          v1
+	16      (00000046) iget                 v2, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->widthScreen I
+	17      (0000004a) const/high16         v3, 1065353216
+	18      (0000004e) const/high16         v4, 1073741824
+	19      (00000052) if-gt                v0, v2, +019h
+
+initBitmap-BB@0x56 : [ initBitmap-BB@0x5e initBitmap-BB@0x60 ]
+	20      (00000056) iget                 v2, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->heightScreen I
+	21      (0000005a) if-le                v1, v2, +003h
+
+initBitmap-BB@0x5e : [ initBitmap-BB@0x84 ]
+	22      (0000005e) goto                 +13h
+
+initBitmap-BB@0x60 : [ initBitmap-BB@0x164 ]
+	23      (00000060) iget                 v2, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->widthScreen I
+	24      (00000064) sub-int/2addr        v2, v0
+	25      (00000066) int-to-float         v2, v2
+	26      (00000068) div-float/2addr      v2, v4
+	27      (0000006a) iget                 v5, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->heightScreen I
+	28      (0000006e) sub-int/2addr        v5, v1
+	29      (00000070) int-to-float         v5, v5
+	30      (00000072) div-float/2addr      v5, v4
+	31      (00000074) iget-object          v4, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->matrix1 Landroid/graphics/Matrix;
+	32      (00000078) invoke-virtual       v4, v2, v5, Landroid/graphics/Matrix;->postTranslate(F F)Z
+	33      (0000007e) iput                 v3, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->initRatio F
+	34      (00000082) goto                 +71h
+
+initBitmap-BB@0x84 : [ initBitmap-BB@0x8e initBitmap-BB@0xc6 ]
+	35      (00000084) iget                 v2, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->widthScreen I
+	36      (00000088) const/4              v5, 0
+	37      (0000008a) if-le                v0, v2, +01eh
+
+initBitmap-BB@0x8e : [ initBitmap-BB@0x164 ]
+	38      (0000008e) iget                 v2, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->widthScreen I
+	39      (00000092) int-to-float         v2, v2
+	40      (00000094) int-to-float         v6, v0
+	41      (00000096) mul-float            v6, v6, v3
+	42      (0000009a) div-float/2addr      v2, v6
+	43      (0000009c) iget                 v3, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->heightScreen I
+	44      (000000a0) int-to-float         v3, v3
+	45      (000000a2) int-to-float         v6, v1
+	46      (000000a4) mul-float            v6, v6, v2
+	47      (000000a8) sub-float/2addr      v3, v6
+	48      (000000aa) div-float/2addr      v3, v4
+	49      (000000ac) iget-object          v4, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->matrix1 Landroid/graphics/Matrix;
+	50      (000000b0) invoke-virtual       v4, v2, v2, Landroid/graphics/Matrix;->postScale(F F)Z
+	51      (000000b6) iget-object          v4, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->matrix1 Landroid/graphics/Matrix;
+	52      (000000ba) invoke-virtual       v4, v5, v3, Landroid/graphics/Matrix;->postTranslate(F F)Z
+	53      (000000c0) iput                 v2, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->initRatio F
+	54      (000000c4) goto                 +50h
+
+initBitmap-BB@0xc6 : [ initBitmap-BB@0xce initBitmap-BB@0x106 ]
+	55      (000000c6) iget                 v2, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->heightScreen I
+	56      (000000ca) if-le                v1, v2, +01eh
+
+initBitmap-BB@0xce : [ initBitmap-BB@0x164 ]
+	57      (000000ce) iget                 v2, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->heightScreen I
+	58      (000000d2) int-to-float         v2, v2
+	59      (000000d4) int-to-float         v6, v1
+	60      (000000d6) mul-float            v6, v6, v3
+	61      (000000da) div-float/2addr      v2, v6
+	62      (000000dc) iget-object          v3, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->matrix1 Landroid/graphics/Matrix;
+	63      (000000e0) invoke-virtual       v3, v2, v2, Landroid/graphics/Matrix;->postScale(F F)Z
+	64      (000000e6) iget                 v3, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->widthScreen I
+	65      (000000ea) int-to-float         v3, v3
+	66      (000000ec) int-to-float         v6, v0
+	67      (000000ee) mul-float            v6, v6, v2
+	68      (000000f2) sub-float/2addr      v3, v6
+	69      (000000f4) div-float/2addr      v3, v4
+	70      (000000f6) iget-object          v4, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->matrix1 Landroid/graphics/Matrix;
+	71      (000000fa) invoke-virtual       v4, v3, v5, Landroid/graphics/Matrix;->postTranslate(F F)Z
+	72      (00000100) iput                 v2, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->initRatio F
+	73      (00000104) goto                 +30h
+
+initBitmap-BB@0x106 : [ initBitmap-BB@0x164 ]
+	74      (00000106) int-to-float         v2, v0
+	75      (00000108) mul-float            v2, v2, v3
+	76      (0000010c) iget                 v5, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->widthScreen I
+	77      (00000110) int-to-float         v5, v5
+	78      (00000112) div-float/2addr      v2, v5
+	79      (00000114) int-to-float         v5, v1
+	80      (00000116) mul-float            v5, v5, v3
+	81      (0000011a) iget                 v3, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->heightScreen I
+	82      (0000011e) int-to-float         v3, v3
+	83      (00000120) div-float/2addr      v5, v3
+	84      (00000122) invoke-static        v2, v5, Ljava/lang/Math;->max(F F)F
+	85      (00000128) move-result          v2
+	86      (0000012a) iget-object          v3, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->matrix1 Landroid/graphics/Matrix;
+	87      (0000012e) invoke-virtual       v3, v2, v2, Landroid/graphics/Matrix;->postScale(F F)Z
+	88      (00000134) iget                 v3, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->widthScreen I
+	89      (00000138) int-to-float         v3, v3
+	90      (0000013a) int-to-float         v5, v0
+	91      (0000013c) mul-float            v5, v5, v2
+	92      (00000140) sub-float/2addr      v3, v5
+	93      (00000142) div-float/2addr      v3, v4
+	94      (00000144) iget                 v5, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->heightScreen I
+	95      (00000148) int-to-float         v5, v5
+	96      (0000014a) int-to-float         v6, v1
+	97      (0000014c) mul-float            v6, v6, v2
+	98      (00000150) sub-float/2addr      v5, v6
+	99      (00000152) div-float/2addr      v5, v4
+	100     (00000154) iget-object          v4, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->matrix1 Landroid/graphics/Matrix;
+	101     (00000158) invoke-virtual       v4, v3, v5, Landroid/graphics/Matrix;->postTranslate(F F)Z
+	102     (0000015e) iput                 v2, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->initRatio F
+	103     (00000162) nop                  
+
+initBitmap-BB@0x164 : [ initBitmap-BB@0x180 ]
+	104     (00000164) iget-object          v2, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->matrix Landroid/graphics/Matrix;
+	105     (00000168) iget-object          v3, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->matrix1 Landroid/graphics/Matrix;
+	106     (0000016c) invoke-virtual       v2, v3, Landroid/graphics/Matrix;->set(Landroid/graphics/Matrix;)V
+	107     (00000172) iget-object          v2, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->matrix Landroid/graphics/Matrix;
+	108     (00000176) iget-object          v3, v7, Lcom/jlboat/phone/view/TouchEvenHandler;->values [F
+	109     (0000017a) invoke-virtual       v2, v3, Landroid/graphics/Matrix;->getValues([F)V
+
+initBitmap-BB@0x180 : 
+	110     (00000180) return-void          
+

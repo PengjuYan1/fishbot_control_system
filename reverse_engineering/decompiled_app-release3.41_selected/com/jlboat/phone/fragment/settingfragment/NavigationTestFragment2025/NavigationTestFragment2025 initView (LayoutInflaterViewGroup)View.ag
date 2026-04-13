@@ -1,0 +1,141 @@
+# Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;->initView(Landroid/view/LayoutInflater; Landroid/view/ViewGroup;)Landroid/view/View; [access_flags=protected]
+#
+# Parameters:
+# - local registers: v0...v7
+# - v8:android.view.LayoutInflater
+# - v9:android.view.ViewGroup
+#
+# - return:android.view.View
+
+initView-BB@0x0 : [ initView-BB@0xd8 initView-BB@0xf8 ]
+	0       (00000000) new-instance         v0, Lcom/jlboat/phone/communication/SpiritServiceClient;
+	1       (00000004) invoke-direct        v0, Lcom/jlboat/phone/communication/SpiritServiceClient;-><init>()V
+	2       (0000000a) iput-object          v0, v7, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;->spiritServiceClient Lcom/jlboat/phone/communication/SpiritServiceClient;
+	3       (0000000e) new-instance         v0, Lcom/jlboat/phone/communication/SpiritTopicListener;
+	4       (00000012) invoke-direct        v0, Lcom/jlboat/phone/communication/SpiritTopicListener;-><init>()V
+	5       (00000018) iput-object          v0, v7, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;->spiritTopicListener Lcom/jlboat/phone/communication/SpiritTopicListener;
+	6       (0000001c) const                v0, 2131361865
+	7       (00000022) const/4              v1, 0
+	8       (00000024) invoke-virtual       v8, v0, v9, v1, Landroid/view/LayoutInflater;->inflate(I Landroid/view/ViewGroup; Z)Landroid/view/View;
+	9       (0000002a) move-result-object   v0
+	10      (0000002c) const                v2, 2131231259
+	11      (00000032) invoke-virtual       v0, v2, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	12      (00000038) move-result-object   v2
+	13      (0000003a) check-cast           v2, Landroid/widget/Spinner;
+	14      (0000003e) iput-object          v2, v7, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;->floorSpinner Landroid/widget/Spinner;
+	15      (00000042) const                v2, 2131231287
+	16      (00000048) invoke-virtual       v0, v2, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	17      (0000004e) move-result-object   v2
+	18      (00000050) check-cast           v2, Landroid/widget/EditText;
+	19      (00000054) iput-object          v2, v7, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;->testNaviWaitTimeBt Landroid/widget/EditText;
+	20      (00000058) iget-object          v2, v7, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;->testNaviWaitTimeBt Landroid/widget/EditText;
+	21      (0000005c) const/4              v3, 6
+	22      (0000005e) invoke-virtual       v2, v3, Landroid/widget/EditText;->setImeOptions(I)V
+	23      (00000064) iget-object          v2, v7, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;->testNaviWaitTimeBt Landroid/widget/EditText;
+	24      (00000068) new-instance         v4, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025$2;
+	25      (0000006c) invoke-direct        v4, v7, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025$2;-><init>(Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;)V
+	26      (00000072) invoke-virtual       v2, v4, Landroid/widget/EditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
+	27      (00000078) const                v2, 2131231289
+	28      (0000007e) invoke-virtual       v0, v2, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	29      (00000084) move-result-object   v2
+	30      (00000086) check-cast           v2, Landroid/widget/CheckBox;
+	31      (0000008a) iput-object          v2, v7, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;->testTypeLooperCb Landroid/widget/CheckBox;
+	32      (0000008e) iget-object          v2, v7, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;->testTypeLooperCb Landroid/widget/CheckBox;
+	33      (00000092) invoke-virtual       v2, v7, Landroid/widget/CheckBox;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+	34      (00000098) const                v2, 2131231038
+	35      (0000009e) invoke-virtual       v0, v2, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	36      (000000a4) move-result-object   v2
+	37      (000000a6) check-cast           v2, Landroid/widget/Button;
+	38      (000000aa) iput-object          v2, v7, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;->navTestBtn Landroid/widget/Button;
+	39      (000000ae) const                v2, 2131230849
+	40      (000000b4) invoke-virtual       v0, v2, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	41      (000000ba) move-result-object   v2
+	42      (000000bc) check-cast           v2, Landroid/widget/Button;
+	43      (000000c0) iput-object          v2, v7, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;->chargeTestBtn Landroid/widget/Button;
+	44      (000000c4) sget                 v2, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;->mType I
+	45      (000000c8) const/4              v4, 1
+	46      (000000ca) const/16             v5, 8
+	47      (000000ce) const                v6, 2131493223
+	48      (000000d4) if-ne                v2, v4, +012h
+
+initView-BB@0xd8 : [ initView-BB@0x116 ]
+	49      (000000d8) iget-object          v2, v7, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;->testTypeLooperCb Landroid/widget/CheckBox;
+	50      (000000dc) invoke-virtual       v2, v6, Landroid/widget/CheckBox;->setText(I)V
+	51      (000000e2) iget-object          v2, v7, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;->chargeTestBtn Landroid/widget/Button;
+	52      (000000e6) invoke-virtual       v2, v1, Landroid/widget/Button;->setVisibility(I)V
+	53      (000000ec) iget-object          v1, v7, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;->navTestBtn Landroid/widget/Button;
+	54      (000000f0) invoke-virtual       v1, v5, Landroid/widget/Button;->setVisibility(I)V
+	55      (000000f6) goto                 +10h
+
+initView-BB@0xf8 : [ initView-BB@0x116 ]
+	56      (000000f8) iget-object          v2, v7, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;->testTypeLooperCb Landroid/widget/CheckBox;
+	57      (000000fc) invoke-virtual       v2, v6, Landroid/widget/CheckBox;->setText(I)V
+	58      (00000102) iget-object          v2, v7, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;->navTestBtn Landroid/widget/Button;
+	59      (00000106) invoke-virtual       v2, v1, Landroid/widget/Button;->setVisibility(I)V
+	60      (0000010c) iget-object          v1, v7, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;->chargeTestBtn Landroid/widget/Button;
+	61      (00000110) invoke-virtual       v1, v5, Landroid/widget/Button;->setVisibility(I)V
+
+initView-BB@0x116 : 
+	62      (00000116) const                v1, 2131231037
+	63      (0000011c) invoke-virtual       v0, v1, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	64      (00000122) move-result-object   v1
+	65      (00000124) check-cast           v1, Landroid/widget/LinearLayout;
+	66      (00000128) iput-object          v1, v7, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;->navSelectMapNameLl Landroid/widget/LinearLayout;
+	67      (0000012c) const                v1, 2131231032
+	68      (00000132) invoke-virtual       v0, v1, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	69      (00000138) move-result-object   v1
+	70      (0000013a) check-cast           v1, Landroid/widget/TextView;
+	71      (0000013e) iput-object          v1, v7, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;->navCurrentmapNameTv Landroid/widget/TextView;
+	72      (00000142) const                v1, 2131231031
+	73      (00000148) invoke-virtual       v0, v1, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	74      (0000014e) move-result-object   v1
+	75      (00000150) check-cast           v1, Landroid/support/v7/widget/RecyclerView;
+	76      (00000154) iput-object          v1, v7, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;->navAllPointRv Landroid/support/v7/widget/RecyclerView;
+	77      (00000158) const                v1, 2131231036
+	78      (0000015e) invoke-virtual       v0, v1, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	79      (00000164) move-result-object   v1
+	80      (00000166) check-cast           v1, Landroid/support/v7/widget/RecyclerView;
+	81      (0000016a) iput-object          v1, v7, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;->navSelectedPointRv Landroid/support/v7/widget/RecyclerView;
+	82      (0000016e) const                v1, 2131231034
+	83      (00000174) invoke-virtual       v0, v1, Landroid/view/View;->findViewById(I)Landroid/view/View;
+	84      (0000017a) move-result-object   v1
+	85      (0000017c) check-cast           v1, Landroid/widget/LinearLayout;
+	86      (00000180) iput-object          v1, v7, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;->navNopointTipLl Landroid/widget/LinearLayout;
+	87      (00000184) iget-object          v1, v7, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;->navTestBtn Landroid/widget/Button;
+	88      (00000188) invoke-virtual       v1, v7, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	89      (0000018e) iget-object          v1, v7, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;->chargeTestBtn Landroid/widget/Button;
+	90      (00000192) invoke-virtual       v1, v7, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+	91      (00000198) iget-object          v1, v7, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;->navAllPointRv Landroid/support/v7/widget/RecyclerView;
+	92      (0000019c) new-instance         v2, Landroid/support/v7/widget/GridLayoutManager;
+	93      (000001a0) invoke-virtual       v7, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;->getActivity()Landroid/support/v4/app/FragmentActivity;
+	94      (000001a6) move-result-object   v4
+	95      (000001a8) invoke-direct        v2, v4, v3, Landroid/support/v7/widget/GridLayoutManager;-><init>(Landroid/content/Context; I)V
+	96      (000001ae) invoke-virtual       v1, v2, Landroid/support/v7/widget/RecyclerView;->setLayoutManager(Landroid/support/v7/widget/RecyclerView$LayoutManager;)V
+	97      (000001b4) iget-object          v1, v7, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;->navSelectedPointRv Landroid/support/v7/widget/RecyclerView;
+	98      (000001b8) new-instance         v2, Landroid/support/v7/widget/GridLayoutManager;
+	99      (000001bc) invoke-virtual       v7, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;->getActivity()Landroid/support/v4/app/FragmentActivity;
+	100     (000001c2) move-result-object   v4
+	101     (000001c4) invoke-direct        v2, v4, v3, Landroid/support/v7/widget/GridLayoutManager;-><init>(Landroid/content/Context; I)V
+	102     (000001ca) invoke-virtual       v1, v2, Landroid/support/v7/widget/RecyclerView;->setLayoutManager(Landroid/support/v7/widget/RecyclerView$LayoutManager;)V
+	103     (000001d0) new-instance         v1, Lcom/jlboat/phone/adapter/TestPointListAdapter;
+	104     (000001d4) invoke-direct        v1, Lcom/jlboat/phone/adapter/TestPointListAdapter;-><init>()V
+	105     (000001da) iput-object          v1, v7, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;->testPointListAdapter Lcom/jlboat/phone/adapter/TestPointListAdapter;
+	106     (000001de) new-instance         v1, Lcom/jlboat/phone/adapter/TestPointSelectedListAdapter;
+	107     (000001e2) invoke-direct        v1, Lcom/jlboat/phone/adapter/TestPointSelectedListAdapter;-><init>()V
+	108     (000001e8) iput-object          v1, v7, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;->testPointSelectedListAdapter Lcom/jlboat/phone/adapter/TestPointSelectedListAdapter;
+	109     (000001ec) iget-object          v1, v7, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;->navSelectedPointRv Landroid/support/v7/widget/RecyclerView;
+	110     (000001f0) iget-object          v2, v7, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;->testPointSelectedListAdapter Lcom/jlboat/phone/adapter/TestPointSelectedListAdapter;
+	111     (000001f4) invoke-virtual       v1, v2, Landroid/support/v7/widget/RecyclerView;->setAdapter(Landroid/support/v7/widget/RecyclerView$Adapter;)V
+	112     (000001fa) iget-object          v1, v7, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;->testPointSelectedListAdapter Lcom/jlboat/phone/adapter/TestPointSelectedListAdapter;
+	113     (000001fe) new-instance         v2, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025$MyNavSelectRvItemClick;
+	114     (00000202) invoke-direct        v2, v7, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025$MyNavSelectRvItemClick;-><init>(Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;)V
+	115     (00000208) invoke-virtual       v1, v2, Lcom/jlboat/phone/adapter/TestPointSelectedListAdapter;->setOnItemClickListener(Lcom/jlboat/phone/adapter/TestPointSelectedListAdapter$OnItemClickListener;)V
+	116     (0000020e) iget-object          v1, v7, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;->testPointListAdapter Lcom/jlboat/phone/adapter/TestPointListAdapter;
+	117     (00000212) new-instance         v2, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025$MyNavRvItemClick;
+	118     (00000216) invoke-direct        v2, v7, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025$MyNavRvItemClick;-><init>(Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;)V
+	119     (0000021c) invoke-virtual       v1, v2, Lcom/jlboat/phone/adapter/TestPointListAdapter;->setOnItemClickListener(Lcom/jlboat/phone/adapter/TestPointListAdapter$OnItemClickListener;)V
+	120     (00000222) iget-object          v1, v7, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;->navAllPointRv Landroid/support/v7/widget/RecyclerView;
+	121     (00000226) iget-object          v2, v7, Lcom/jlboat/phone/fragment/settingfragment/NavigationTestFragment2025;->testPointListAdapter Lcom/jlboat/phone/adapter/TestPointListAdapter;
+	122     (0000022a) invoke-virtual       v1, v2, Landroid/support/v7/widget/RecyclerView;->setAdapter(Landroid/support/v7/widget/RecyclerView$Adapter;)V
+	123     (00000230) return-object        v0
+

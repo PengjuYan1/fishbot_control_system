@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/view/MapView;->access$1000(Lcom/jlboat/phone/view/MapView;)Lcom/boat/ros/geometry/Quaternion; [access_flags=static synthetic]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.view.MapView
+#
+# - return:com.boat.ros.geometry.Quaternion
+
+access$1000-BB@0x0 : 
+	0       (00000000) iget-object          v0, v1, Lcom/jlboat/phone/view/MapView;->robotOrientation Lcom/boat/ros/geometry/Quaternion;
+	1       (00000004) return-object        v0
+

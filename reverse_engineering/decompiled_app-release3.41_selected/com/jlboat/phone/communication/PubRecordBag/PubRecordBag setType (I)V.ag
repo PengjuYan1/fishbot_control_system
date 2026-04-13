@@ -1,0 +1,27 @@
+# Lcom/jlboat/phone/communication/PubRecordBag;->setType(I)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:int
+#
+# - return:void
+
+setType-BB@0x0 : [ setType-BB@0x8 setType-BB@0x12 ]
+	0       (00000000) iget-object          v0, v2, Lcom/jlboat/phone/communication/PubRecordBag;->grabagPublisher Lcom/boat/jrosbridge/Topic;
+	1       (00000004) if-nez               v0, +007h
+
+setType-BB@0x8 : [ setType-BB@0x10 setType-BB@0x12 ]
+	2       (00000008) iget-object          v0, v2, Lcom/jlboat/phone/communication/PubRecordBag;->grabaglocal Lcom/jlboat/phone/message/map_msgs/RecordBag;
+	3       (0000000c) if-nez               v0, +003h
+
+setType-BB@0x10 : 
+	4       (00000010) return-void          
+
+setType-BB@0x12 : 
+	5       (00000012) iget-object          v0, v2, Lcom/jlboat/phone/communication/PubRecordBag;->grabaglocal Lcom/jlboat/phone/message/map_msgs/RecordBag;
+	6       (00000016) invoke-virtual       v0, v3, Lcom/jlboat/phone/message/map_msgs/RecordBag;->setType(I)V
+	7       (0000001c) iget-object          v0, v2, Lcom/jlboat/phone/communication/PubRecordBag;->grabagPublisher Lcom/boat/jrosbridge/Topic;
+	8       (00000020) iget-object          v1, v2, Lcom/jlboat/phone/communication/PubRecordBag;->grabaglocal Lcom/jlboat/phone/message/map_msgs/RecordBag;
+	9       (00000024) invoke-virtual       v0, v1, Lcom/boat/jrosbridge/Topic;->publish(Lcom/boat/jrosbridge/message/Message;)V
+	10      (0000002a) return-void          
+

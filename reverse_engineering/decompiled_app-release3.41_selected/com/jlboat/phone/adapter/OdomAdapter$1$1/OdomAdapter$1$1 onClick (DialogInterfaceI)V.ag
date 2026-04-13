@@ -1,0 +1,57 @@
+# Lcom/jlboat/phone/adapter/OdomAdapter$1$1;->onClick(Landroid/content/DialogInterface; I)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v4
+# - v5:android.content.DialogInterface
+# - v6:int
+#
+# - return:void
+
+onClick-BB@0x0 : 
+	0       (00000000) invoke-interface     v5, Landroid/content/DialogInterface;->dismiss()V
+	1       (00000006) iget-object          v0, v4, Lcom/jlboat/phone/adapter/OdomAdapter$1$1;->val$editText1 Landroid/widget/EditText;
+	2       (0000000a) invoke-virtual       v0, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+	3       (00000010) move-result-object   v0
+	4       (00000012) invoke-virtual       v0, Ljava/lang/Object;->toString()Ljava/lang/String;
+	5       (00000018) move-result-object   v0
+	6       (0000001a) iget-object          v1, v4, Lcom/jlboat/phone/adapter/OdomAdapter$1$1;->this$1 Lcom/jlboat/phone/adapter/OdomAdapter$1;
+	7       (0000001e) iget-object          v1, v1, Lcom/jlboat/phone/adapter/OdomAdapter$1;->this$0 Lcom/jlboat/phone/adapter/OdomAdapter;
+	8       (00000022) invoke-static        v1, Lcom/jlboat/phone/adapter/OdomAdapter;->access$400(Lcom/jlboat/phone/adapter/OdomAdapter;)Ljava/util/List;
+	9       (00000028) move-result-object   v1
+	10      (0000002a) iget-object          v2, v4, Lcom/jlboat/phone/adapter/OdomAdapter$1$1;->this$1 Lcom/jlboat/phone/adapter/OdomAdapter$1;
+	11      (0000002e) iget                 v2, v2, Lcom/jlboat/phone/adapter/OdomAdapter$1;->val$position I
+	12      (00000032) invoke-interface     v1, v2, Ljava/util/List;->get(I)Ljava/lang/Object;
+	13      (00000038) move-result-object   v1
+	14      (0000003a) check-cast           v1, Lcom/jlboat/phone/message/map_msgs/Config;
+	15      (0000003e) iget-object          v2, v4, Lcom/jlboat/phone/adapter/OdomAdapter$1$1;->this$1 Lcom/jlboat/phone/adapter/OdomAdapter$1;
+	16      (00000042) iget-object          v2, v2, Lcom/jlboat/phone/adapter/OdomAdapter$1;->this$0 Lcom/jlboat/phone/adapter/OdomAdapter;
+	17      (00000046) invoke-static        v2, Lcom/jlboat/phone/adapter/OdomAdapter;->access$100(Lcom/jlboat/phone/adapter/OdomAdapter;)Ljava/lang/String;
+	18      (0000004c) move-result-object   v2
+	19      (0000004e) invoke-virtual       v1, v2, Lcom/jlboat/phone/message/map_msgs/Config;->setConfigName(Ljava/lang/String;)V
+	20      (00000054) iget-object          v1, v4, Lcom/jlboat/phone/adapter/OdomAdapter$1$1;->this$1 Lcom/jlboat/phone/adapter/OdomAdapter$1;
+	21      (00000058) iget-object          v1, v1, Lcom/jlboat/phone/adapter/OdomAdapter$1;->this$0 Lcom/jlboat/phone/adapter/OdomAdapter;
+	22      (0000005c) invoke-static        v1, Lcom/jlboat/phone/adapter/OdomAdapter;->access$400(Lcom/jlboat/phone/adapter/OdomAdapter;)Ljava/util/List;
+	23      (00000062) move-result-object   v1
+	24      (00000064) iget-object          v2, v4, Lcom/jlboat/phone/adapter/OdomAdapter$1$1;->this$1 Lcom/jlboat/phone/adapter/OdomAdapter$1;
+	25      (00000068) iget                 v2, v2, Lcom/jlboat/phone/adapter/OdomAdapter$1;->val$position I
+	26      (0000006c) invoke-interface     v1, v2, Ljava/util/List;->get(I)Ljava/lang/Object;
+	27      (00000072) move-result-object   v1
+	28      (00000074) check-cast           v1, Lcom/jlboat/phone/message/map_msgs/Config;
+	29      (00000078) invoke-virtual       v1, v0, Lcom/jlboat/phone/message/map_msgs/Config;->setConfigValue(Ljava/lang/String;)V
+	30      (0000007e) new-instance         v1, Ljava/util/LinkedList;
+	31      (00000082) invoke-direct        v1, Ljava/util/LinkedList;-><init>()V
+	32      (00000088) iget-object          v2, v4, Lcom/jlboat/phone/adapter/OdomAdapter$1$1;->this$1 Lcom/jlboat/phone/adapter/OdomAdapter$1;
+	33      (0000008c) iget-object          v2, v2, Lcom/jlboat/phone/adapter/OdomAdapter$1;->this$0 Lcom/jlboat/phone/adapter/OdomAdapter;
+	34      (00000090) invoke-static        v2, Lcom/jlboat/phone/adapter/OdomAdapter;->access$400(Lcom/jlboat/phone/adapter/OdomAdapter;)Ljava/util/List;
+	35      (00000096) move-result-object   v2
+	36      (00000098) iget-object          v3, v4, Lcom/jlboat/phone/adapter/OdomAdapter$1$1;->this$1 Lcom/jlboat/phone/adapter/OdomAdapter$1;
+	37      (0000009c) iget                 v3, v3, Lcom/jlboat/phone/adapter/OdomAdapter$1;->val$position I
+	38      (000000a0) invoke-interface     v2, v3, Ljava/util/List;->get(I)Ljava/lang/Object;
+	39      (000000a6) move-result-object   v2
+	40      (000000a8) check-cast           v2, Lcom/jlboat/phone/message/map_msgs/Config;
+	41      (000000ac) invoke-interface     v1, v2, Ljava/util/List;->add(Ljava/lang/Object;)Z
+	42      (000000b2) iget-object          v2, v4, Lcom/jlboat/phone/adapter/OdomAdapter$1$1;->this$1 Lcom/jlboat/phone/adapter/OdomAdapter$1;
+	43      (000000b6) iget-object          v2, v2, Lcom/jlboat/phone/adapter/OdomAdapter$1;->this$0 Lcom/jlboat/phone/adapter/OdomAdapter;
+	44      (000000ba) invoke-static        v2, v1, Lcom/jlboat/phone/adapter/OdomAdapter;->access$500(Lcom/jlboat/phone/adapter/OdomAdapter; Ljava/util/List;)V
+	45      (000000c0) return-void          
+

@@ -1,0 +1,55 @@
+# Lcom/jlboat/phone/activity/MapActivity$25;->onClick(Landroid/view/View;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v5
+# - v6:android.view.View
+#
+# - return:void
+
+onClick-BB@0x0 : [ onClick-BB@0x52 onClick-BB@0x66 ]
+	0       (00000000) new-instance         v0, Lcom/boat/support/slam/entity/floors/Position;
+	1       (00000004) invoke-direct        v0, Lcom/boat/support/slam/entity/floors/Position;-><init>()V
+	2       (0000000a) iget-object          v1, v5, Lcom/jlboat/phone/activity/MapActivity$25;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	3       (0000000e) invoke-static        v1, Lcom/jlboat/phone/activity/MapActivity;->access$900(Lcom/jlboat/phone/activity/MapActivity;)Lcom/jlboat/phone/view/MapView;
+	4       (00000014) move-result-object   v1
+	5       (00000016) invoke-virtual       v1, Lcom/jlboat/phone/view/MapView;->getRosRobotPoint()Lcom/boat/support/slam/entity/floors/Lines;
+	6       (0000001c) move-result-object   v1
+	7       (0000001e) invoke-virtual       v1, Lcom/boat/support/slam/entity/floors/Lines;->getX()D
+	8       (00000024) move-result-wide     v2
+	9       (00000026) invoke-virtual       v0, v2, v3, Lcom/boat/support/slam/entity/floors/Position;->setX(D)V
+	10      (0000002c) invoke-virtual       v1, Lcom/boat/support/slam/entity/floors/Lines;->getY()D
+	11      (00000032) move-result-wide     v2
+	12      (00000034) invoke-static        v2, v3, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
+	13      (0000003a) move-result-object   v2
+	14      (0000003c) invoke-virtual       v0, v2, Lcom/boat/support/slam/entity/floors/Position;->setY(Ljava/lang/Double;)V
+	15      (00000042) iget-object          v2, v5, Lcom/jlboat/phone/activity/MapActivity$25;->val$frd Lcom/boat/support/slam/entity/floors/Points;
+	16      (00000046) invoke-virtual       v2, Lcom/boat/support/slam/entity/floors/Points;->getWaitPoints()Ljava/util/List;
+	17      (0000004c) move-result-object   v2
+	18      (0000004e) if-eqz               v2, +00ch
+
+onClick-BB@0x52 : [ onClick-BB@0x8c ]
+	19      (00000052) iget-object          v2, v5, Lcom/jlboat/phone/activity/MapActivity$25;->val$frd Lcom/boat/support/slam/entity/floors/Points;
+	20      (00000056) invoke-virtual       v2, Lcom/boat/support/slam/entity/floors/Points;->getWaitPoints()Ljava/util/List;
+	21      (0000005c) move-result-object   v2
+	22      (0000005e) invoke-interface     v2, v0, Ljava/util/List;->add(Ljava/lang/Object;)Z
+	23      (00000064) goto                 +14h
+
+onClick-BB@0x66 : [ onClick-BB@0x8c ]
+	24      (00000066) iget-object          v2, v5, Lcom/jlboat/phone/activity/MapActivity$25;->val$frd Lcom/boat/support/slam/entity/floors/Points;
+	25      (0000006a) new-instance         v3, Ljava/util/LinkedList;
+	26      (0000006e) invoke-direct        v3, Ljava/util/LinkedList;-><init>()V
+	27      (00000074) invoke-virtual       v2, v3, Lcom/boat/support/slam/entity/floors/Points;->setWaitPoints(Ljava/util/List;)V
+	28      (0000007a) iget-object          v2, v5, Lcom/jlboat/phone/activity/MapActivity$25;->val$frd Lcom/boat/support/slam/entity/floors/Points;
+	29      (0000007e) invoke-virtual       v2, Lcom/boat/support/slam/entity/floors/Points;->getWaitPoints()Ljava/util/List;
+	30      (00000084) move-result-object   v2
+	31      (00000086) invoke-interface     v2, v0, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+onClick-BB@0x8c : 
+	32      (0000008c) iget-object          v2, v5, Lcom/jlboat/phone/activity/MapActivity$25;->val$point_wait_et Landroid/widget/TextView;
+	33      (00000090) iget-object          v3, v5, Lcom/jlboat/phone/activity/MapActivity$25;->this$0 Lcom/jlboat/phone/activity/MapActivity;
+	34      (00000094) iget-object          v4, v5, Lcom/jlboat/phone/activity/MapActivity$25;->val$frd Lcom/boat/support/slam/entity/floors/Points;
+	35      (00000098) invoke-static        v3, v4, Lcom/jlboat/phone/activity/MapActivity;->access$4100(Lcom/jlboat/phone/activity/MapActivity; Lcom/boat/support/slam/entity/floors/Points;)Ljava/lang/String;
+	36      (0000009e) move-result-object   v3
+	37      (000000a0) invoke-virtual       v2, v3, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+	38      (000000a6) return-void          
+

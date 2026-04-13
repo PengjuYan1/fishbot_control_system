@@ -1,0 +1,19 @@
+# Lcom/jlboat/phone/controller/JlNaviManager$46;->onNewMessage(Lcom/boat/jrosbridge/message/std_msgs/Int32;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v2
+# - v3:com.boat.jrosbridge.message.std_msgs.Int32
+#
+# - return:void
+
+onNewMessage-BB@0x0 : 
+	0       (00000000) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager$46;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	1       (00000004) invoke-static        v0, Lcom/jlboat/phone/controller/JlNaviManager;->access$000(Lcom/jlboat/phone/controller/JlNaviManager;)Ljava/lang/String;
+	2       (0000000a) move-result-object   v0
+	3       (0000000c) const-string         v1, "topic getWallUpdateMsg: 收到地图数据更新"
+	4       (00000010) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	5       (00000016) iget-object          v0, v2, Lcom/jlboat/phone/controller/JlNaviManager$46;->this$0 Lcom/jlboat/phone/controller/JlNaviManager;
+	6       (0000001a) const/4              v1, 0
+	7       (0000001c) invoke-virtual       v0, v1, Lcom/jlboat/phone/controller/JlNaviManager;->getFloor(Lcom/boat/support/slam/IResponseListener;)V
+	8       (00000022) return-void          
+

@@ -1,0 +1,102 @@
+# Lcom/jlboat/phone/message/map_msgs/CargoAtoBEntry;->toString()Ljava/lang/String; [access_flags=public]
+#
+# Parameters:
+# local registers: v0...v3
+#
+# - return:java.lang.String
+
+toString-BB@0x0 : 
+	0       (00000000) new-instance         v0, Ljava/lang/StringBuilder;
+	1       (00000004) invoke-direct        v0, Ljava/lang/StringBuilder;-><init>()V
+	2       (0000000a) const-string         v1, "CargoAtoBEntry{floor_id="
+	3       (0000000e) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	4       (00000014) move-result-object   v0
+	5       (00000016) iget-wide            v1, v3, Lcom/jlboat/phone/message/map_msgs/CargoAtoBEntry;->floor_id J
+	6       (0000001a) invoke-virtual       v0, v1, v2, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+	7       (00000020) move-result-object   v0
+	8       (00000022) const-string         v1, ", map_id="
+	9       (00000026) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	10      (0000002c) move-result-object   v0
+	11      (0000002e) iget-object          v1, v3, Lcom/jlboat/phone/message/map_msgs/CargoAtoBEntry;->map_id Ljava/lang/Long;
+	12      (00000032) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+	13      (00000038) move-result-object   v0
+	14      (0000003a) const-string         v1, ", point_id="
+	15      (0000003e) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	16      (00000044) move-result-object   v0
+	17      (00000046) iget-object          v1, v3, Lcom/jlboat/phone/message/map_msgs/CargoAtoBEntry;->point_id Ljava/lang/Long;
+	18      (0000004a) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+	19      (00000050) move-result-object   v0
+	20      (00000052) const-string         v1, ", point_name='"
+	21      (00000056) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	22      (0000005c) move-result-object   v0
+	23      (0000005e) iget-object          v1, v3, Lcom/jlboat/phone/message/map_msgs/CargoAtoBEntry;->point_name Ljava/lang/String;
+	24      (00000062) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	25      (00000068) move-result-object   v0
+	26      (0000006a) const/16             v1, 39
+	27      (0000006e) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+	28      (00000074) move-result-object   v0
+	29      (00000076) const-string         v2, ", floor_name='"
+	30      (0000007a) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	31      (00000080) move-result-object   v0
+	32      (00000082) iget-object          v2, v3, Lcom/jlboat/phone/message/map_msgs/CargoAtoBEntry;->floor_name Ljava/lang/String;
+	33      (00000086) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	34      (0000008c) move-result-object   v0
+	35      (0000008e) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+	36      (00000094) move-result-object   v0
+	37      (00000096) const-string         v2, ", map_name='"
+	38      (0000009a) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	39      (000000a0) move-result-object   v0
+	40      (000000a2) iget-object          v2, v3, Lcom/jlboat/phone/message/map_msgs/CargoAtoBEntry;->map_name Ljava/lang/String;
+	41      (000000a6) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	42      (000000ac) move-result-object   v0
+	43      (000000ae) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+	44      (000000b4) move-result-object   v0
+	45      (000000b6) const-string         v2, ", bind_floor_id="
+	46      (000000ba) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	47      (000000c0) move-result-object   v0
+	48      (000000c2) iget-object          v2, v3, Lcom/jlboat/phone/message/map_msgs/CargoAtoBEntry;->bind_floor_id Ljava/lang/Long;
+	49      (000000c6) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+	50      (000000cc) move-result-object   v0
+	51      (000000ce) const-string         v2, ", bind_map_id="
+	52      (000000d2) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	53      (000000d8) move-result-object   v0
+	54      (000000da) iget-object          v2, v3, Lcom/jlboat/phone/message/map_msgs/CargoAtoBEntry;->bind_map_id Ljava/lang/Long;
+	55      (000000de) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+	56      (000000e4) move-result-object   v0
+	57      (000000e6) const-string         v2, ", bind_point_id="
+	58      (000000ea) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	59      (000000f0) move-result-object   v0
+	60      (000000f2) iget-object          v2, v3, Lcom/jlboat/phone/message/map_msgs/CargoAtoBEntry;->bind_point_id Ljava/lang/Long;
+	61      (000000f6) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+	62      (000000fc) move-result-object   v0
+	63      (000000fe) const-string         v2, ", bind_point_name='"
+	64      (00000102) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	65      (00000108) move-result-object   v0
+	66      (0000010a) iget-object          v2, v3, Lcom/jlboat/phone/message/map_msgs/CargoAtoBEntry;->bind_point_name Ljava/lang/String;
+	67      (0000010e) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	68      (00000114) move-result-object   v0
+	69      (00000116) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+	70      (0000011c) move-result-object   v0
+	71      (0000011e) const-string         v2, ", bind_floor_name='"
+	72      (00000122) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	73      (00000128) move-result-object   v0
+	74      (0000012a) iget-object          v2, v3, Lcom/jlboat/phone/message/map_msgs/CargoAtoBEntry;->bind_floor_name Ljava/lang/String;
+	75      (0000012e) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	76      (00000134) move-result-object   v0
+	77      (00000136) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+	78      (0000013c) move-result-object   v0
+	79      (0000013e) const-string         v2, ", bind_map_name='"
+	80      (00000142) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	81      (00000148) move-result-object   v0
+	82      (0000014a) iget-object          v2, v3, Lcom/jlboat/phone/message/map_msgs/CargoAtoBEntry;->bind_map_name Ljava/lang/String;
+	83      (0000014e) invoke-virtual       v0, v2, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	84      (00000154) move-result-object   v0
+	85      (00000156) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+	86      (0000015c) move-result-object   v0
+	87      (0000015e) const/16             v1, 125
+	88      (00000162) invoke-virtual       v0, v1, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+	89      (00000168) move-result-object   v0
+	90      (0000016a) invoke-virtual       v0, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	91      (00000170) move-result-object   v0
+	92      (00000172) return-object        v0
+

@@ -1,0 +1,112 @@
+# Lcom/jlboat/phone/activity/StatusActivity;->onCreate(Landroid/os/Bundle;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v5
+# - v6:android.os.Bundle
+#
+# - return:void
+
+onCreate-BB@0x0 : 
+	0       (00000000) invoke-super         v5, v6, Lcom/jlboat/phone/base/BaseFullActivity;->onCreate(Landroid/os/Bundle;)V
+	1       (00000006) const                v0, 2131361829
+	2       (0000000c) const                v1, 2131493331
+	3       (00000012) invoke-virtual       v5, v0, v1, Lcom/jlboat/phone/activity/StatusActivity;->initTitleBar(I I)V
+	4       (00000018) const                v0, 2131230825
+	5       (0000001e) invoke-virtual       v5, v0, Lcom/jlboat/phone/activity/StatusActivity;->findViewById(I)Landroid/view/View;
+	6       (00000024) move-result-object   v0
+	7       (00000026) check-cast           v0, Landroid/widget/Button;
+	8       (0000002a) iput-object          v0, v5, Lcom/jlboat/phone/activity/StatusActivity;->bt_sonar Landroid/widget/Button;
+	9       (0000002e) const                v0, 2131231354
+	10      (00000034) invoke-virtual       v5, v0, Lcom/jlboat/phone/activity/StatusActivity;->findViewById(I)Landroid/view/View;
+	11      (0000003a) move-result-object   v0
+	12      (0000003c) check-cast           v0, Landroid/widget/Button;
+	13      (00000040) iput-object          v0, v5, Lcom/jlboat/phone/activity/StatusActivity;->update_ultrasound Landroid/widget/Button;
+	14      (00000044) const                v0, 2131231350
+	15      (0000004a) invoke-virtual       v5, v0, Lcom/jlboat/phone/activity/StatusActivity;->findViewById(I)Landroid/view/View;
+	16      (00000050) move-result-object   v1
+	17      (00000052) check-cast           v1, Landroid/widget/Button;
+	18      (00000056) iput-object          v1, v5, Lcom/jlboat/phone/activity/StatusActivity;->update_laser Landroid/widget/Button;
+	19      (0000005a) const                v1, 2131231358
+	20      (00000060) invoke-virtual       v5, v1, Lcom/jlboat/phone/activity/StatusActivity;->findViewById(I)Landroid/view/View;
+	21      (00000066) move-result-object   v1
+	22      (00000068) check-cast           v1, Landroid/support/v4/view/ViewPager;
+	23      (0000006c) iput-object          v1, v5, Lcom/jlboat/phone/activity/StatusActivity;->mPager Landroid/support/v4/view/ViewPager;
+	24      (00000070) const                v1, 2131231165
+	25      (00000076) invoke-virtual       v5, v1, Lcom/jlboat/phone/activity/StatusActivity;->findViewById(I)Landroid/view/View;
+	26      (0000007c) move-result-object   v1
+	27      (0000007e) check-cast           v1, Landroid/widget/RadioGroup;
+	28      (00000082) iput-object          v1, v5, Lcom/jlboat/phone/activity/StatusActivity;->mGroup Landroid/widget/RadioGroup;
+	29      (00000086) new-instance         v1, Lcom/jlboat/phone/fragment/statusfragment/LaserFragment;
+	30      (0000008a) invoke-direct        v1, Lcom/jlboat/phone/fragment/statusfragment/LaserFragment;-><init>()V
+	31      (00000090) iput-object          v1, v5, Lcom/jlboat/phone/activity/StatusActivity;->laserFragment Lcom/jlboat/phone/fragment/statusfragment/LaserFragment;
+	32      (00000094) new-instance         v1, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;
+	33      (00000098) invoke-direct        v1, Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;-><init>()V
+	34      (0000009e) iput-object          v1, v5, Lcom/jlboat/phone/activity/StatusActivity;->cameraFragment Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;
+	35      (000000a2) new-instance         v1, Lcom/jlboat/phone/fragment/statusfragment/OdomFragment;
+	36      (000000a6) invoke-direct        v1, Lcom/jlboat/phone/fragment/statusfragment/OdomFragment;-><init>()V
+	37      (000000ac) iput-object          v1, v5, Lcom/jlboat/phone/activity/StatusActivity;->odomFragment Lcom/jlboat/phone/fragment/statusfragment/OdomFragment;
+	38      (000000b0) new-instance         v1, Lcom/jlboat/phone/fragment/statusfragment/ImuFragment;
+	39      (000000b4) invoke-direct        v1, Lcom/jlboat/phone/fragment/statusfragment/ImuFragment;-><init>()V
+	40      (000000ba) iput-object          v1, v5, Lcom/jlboat/phone/activity/StatusActivity;->imuFragment Lcom/jlboat/phone/fragment/statusfragment/ImuFragment;
+	41      (000000be) new-instance         v1, Lcom/jlboat/phone/fragment/statusfragment/SonarFragment;
+	42      (000000c2) invoke-direct        v1, Lcom/jlboat/phone/fragment/statusfragment/SonarFragment;-><init>()V
+	43      (000000c8) iput-object          v1, v5, Lcom/jlboat/phone/activity/StatusActivity;->sonarFragment Lcom/jlboat/phone/fragment/statusfragment/SonarFragment;
+	44      (000000cc) new-instance         v1, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;
+	45      (000000d0) invoke-direct        v1, Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;-><init>()V
+	46      (000000d6) iput-object          v1, v5, Lcom/jlboat/phone/activity/StatusActivity;->ultrasoundFragment Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;
+	47      (000000da) new-instance         v1, Lcom/jlboat/phone/fragment/statusfragment/LiftFragment;
+	48      (000000de) invoke-direct        v1, Lcom/jlboat/phone/fragment/statusfragment/LiftFragment;-><init>()V
+	49      (000000e4) iput-object          v1, v5, Lcom/jlboat/phone/activity/StatusActivity;->liftFragment Lcom/jlboat/phone/fragment/statusfragment/LiftFragment;
+	50      (000000e8) new-instance         v1, Lcom/jlboat/phone/fragment/statusfragment/AvoidFillFragment;
+	51      (000000ec) invoke-direct        v1, Lcom/jlboat/phone/fragment/statusfragment/AvoidFillFragment;-><init>()V
+	52      (000000f2) iput-object          v1, v5, Lcom/jlboat/phone/activity/StatusActivity;->avoidFillFragment Lcom/jlboat/phone/fragment/statusfragment/AvoidFillFragment;
+	53      (000000f6) new-instance         v1, Lcom/jlboat/phone/fragment/statusfragment/LoraFragment;
+	54      (000000fa) invoke-direct        v1, Lcom/jlboat/phone/fragment/statusfragment/LoraFragment;-><init>()V
+	55      (00000100) iput-object          v1, v5, Lcom/jlboat/phone/activity/StatusActivity;->loraFragment Lcom/jlboat/phone/fragment/statusfragment/LoraFragment;
+	56      (00000104) new-instance         v1, Ljava/util/ArrayList;
+	57      (00000108) invoke-direct        v1, Ljava/util/ArrayList;-><init>()V
+	58      (0000010e) iget-object          v2, v5, Lcom/jlboat/phone/activity/StatusActivity;->laserFragment Lcom/jlboat/phone/fragment/statusfragment/LaserFragment;
+	59      (00000112) invoke-virtual       v1, v2, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+	60      (00000118) iget-object          v2, v5, Lcom/jlboat/phone/activity/StatusActivity;->cameraFragment Lcom/jlboat/phone/fragment/statusfragment/CameraFragment;
+	61      (0000011c) invoke-virtual       v1, v2, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+	62      (00000122) iget-object          v2, v5, Lcom/jlboat/phone/activity/StatusActivity;->odomFragment Lcom/jlboat/phone/fragment/statusfragment/OdomFragment;
+	63      (00000126) invoke-virtual       v1, v2, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+	64      (0000012c) iget-object          v2, v5, Lcom/jlboat/phone/activity/StatusActivity;->imuFragment Lcom/jlboat/phone/fragment/statusfragment/ImuFragment;
+	65      (00000130) invoke-virtual       v1, v2, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+	66      (00000136) iget-object          v2, v5, Lcom/jlboat/phone/activity/StatusActivity;->liftFragment Lcom/jlboat/phone/fragment/statusfragment/LiftFragment;
+	67      (0000013a) invoke-virtual       v1, v2, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+	68      (00000140) iget-object          v2, v5, Lcom/jlboat/phone/activity/StatusActivity;->avoidFillFragment Lcom/jlboat/phone/fragment/statusfragment/AvoidFillFragment;
+	69      (00000144) invoke-virtual       v1, v2, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+	70      (0000014a) iget-object          v2, v5, Lcom/jlboat/phone/activity/StatusActivity;->loraFragment Lcom/jlboat/phone/fragment/statusfragment/LoraFragment;
+	71      (0000014e) invoke-virtual       v1, v2, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+	72      (00000154) iget-object          v2, v5, Lcom/jlboat/phone/activity/StatusActivity;->sonarFragment Lcom/jlboat/phone/fragment/statusfragment/SonarFragment;
+	73      (00000158) invoke-virtual       v1, v2, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+	74      (0000015e) iget-object          v2, v5, Lcom/jlboat/phone/activity/StatusActivity;->ultrasoundFragment Lcom/jlboat/phone/fragment/statusfragment/UltrasoundFragment;
+	75      (00000162) invoke-virtual       v1, v2, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+	76      (00000168) iget-object          v2, v5, Lcom/jlboat/phone/activity/StatusActivity;->mPager Landroid/support/v4/view/ViewPager;
+	77      (0000016c) new-instance         v3, Lcom/jlboat/phone/adapter/MainFragmentPagerAdapter;
+	78      (00000170) invoke-virtual       v5, Lcom/jlboat/phone/activity/StatusActivity;->getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;
+	79      (00000176) move-result-object   v4
+	80      (00000178) invoke-direct        v3, v4, v1, Lcom/jlboat/phone/adapter/MainFragmentPagerAdapter;-><init>(Landroid/support/v4/app/FragmentManager; Ljava/util/ArrayList;)V
+	81      (0000017e) invoke-virtual       v2, v3, Landroid/support/v4/view/ViewPager;->setAdapter(Landroid/support/v4/view/PagerAdapter;)V
+	82      (00000184) iget-object          v2, v5, Lcom/jlboat/phone/activity/StatusActivity;->mPager Landroid/support/v4/view/ViewPager;
+	83      (00000188) const/4              v3, 0
+	84      (0000018a) const/4              v4, 1
+	85      (0000018c) invoke-virtual       v2, v3, v4, Landroid/support/v4/view/ViewPager;->setCurrentItem(I Z)V
+	86      (00000192) iget-object          v2, v5, Lcom/jlboat/phone/activity/StatusActivity;->mPager Landroid/support/v4/view/ViewPager;
+	87      (00000196) invoke-virtual       v1, Ljava/util/ArrayList;->size()I
+	88      (0000019c) move-result          v3
+	89      (0000019e) invoke-virtual       v2, v3, Landroid/support/v4/view/ViewPager;->setOffscreenPageLimit(I)V
+	90      (000001a4) iget-object          v2, v5, Lcom/jlboat/phone/activity/StatusActivity;->mPager Landroid/support/v4/view/ViewPager;
+	91      (000001a8) new-instance         v3, Lcom/jlboat/phone/activity/StatusActivity$myOnPageChangeListener;
+	92      (000001ac) const/4              v4, 0
+	93      (000001ae) invoke-direct        v3, v5, v4, Lcom/jlboat/phone/activity/StatusActivity$myOnPageChangeListener;-><init>(Lcom/jlboat/phone/activity/StatusActivity; Lcom/jlboat/phone/activity/StatusActivity$1;)V
+	94      (000001b4) invoke-virtual       v2, v3, Landroid/support/v4/view/ViewPager;->setOnPageChangeListener(Landroid/support/v4/view/ViewPager$OnPageChangeListener;)V
+	95      (000001ba) iget-object          v2, v5, Lcom/jlboat/phone/activity/StatusActivity;->mGroup Landroid/widget/RadioGroup;
+	96      (000001be) new-instance         v3, Lcom/jlboat/phone/activity/StatusActivity$myCheckChangeListener;
+	97      (000001c2) invoke-direct        v3, v5, v4, Lcom/jlboat/phone/activity/StatusActivity$myCheckChangeListener;-><init>(Lcom/jlboat/phone/activity/StatusActivity; Lcom/jlboat/phone/activity/StatusActivity$1;)V
+	98      (000001c8) invoke-virtual       v2, v3, Landroid/widget/RadioGroup;->setOnCheckedChangeListener(Landroid/widget/RadioGroup$OnCheckedChangeListener;)V
+	99      (000001ce) iget-object          v2, v5, Lcom/jlboat/phone/activity/StatusActivity;->mGroup Landroid/widget/RadioGroup;
+	100     (000001d2) invoke-virtual       v2, v0, Landroid/widget/RadioGroup;->check(I)V
+	101     (000001d8) return-void          
+

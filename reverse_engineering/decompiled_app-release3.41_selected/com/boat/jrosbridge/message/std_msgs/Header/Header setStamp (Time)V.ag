@@ -1,0 +1,12 @@
+# Lcom/boat/jrosbridge/message/std_msgs/Header;->setStamp(Lcom/boat/jrosbridge/message/Time;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.boat.jrosbridge.message.Time
+#
+# - return:void
+
+setStamp-BB@0x0 : 
+	0       (00000000) iput-object          v1, v0, Lcom/boat/jrosbridge/message/std_msgs/Header;->stamp Lcom/boat/jrosbridge/message/Time;
+	1       (00000004) return-void          
+

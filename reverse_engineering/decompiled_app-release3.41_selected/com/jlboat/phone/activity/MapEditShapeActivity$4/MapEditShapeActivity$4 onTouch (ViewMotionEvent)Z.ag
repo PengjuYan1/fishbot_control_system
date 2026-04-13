@@ -1,0 +1,120 @@
+# Lcom/jlboat/phone/activity/MapEditShapeActivity$4;->onTouch(Landroid/view/View; Landroid/view/MotionEvent;)Z [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v5
+# - v6:android.view.View
+# - v7:android.view.MotionEvent
+#
+# - return:boolean
+
+onTouch-BB@0x0 : [ D:onTouch-BB@0x12 0:onTouch-BB@0x102 1:onTouch-BB@0x12 2:onTouch-BB@0x42 3:onTouch-BB@0x12 4:onTouch-BB@0x12 5:onTouch-BB@0x1a 6:onTouch-BB@0x16 ]
+	0       (00000000) invoke-virtual       v7, Landroid/view/MotionEvent;->getAction()I
+	1       (00000006) move-result          v0
+	2       (00000008) and-int/lit16        v0, v0, 255
+	3       (0000000c) packed-switch        v0, +00000b4h
+
+onTouch-BB@0x12 : [ onTouch-BB@0x16e ]
+	4       (00000012) goto/16              +0aeh
+
+onTouch-BB@0x16 : [ onTouch-BB@0x16e ]
+	5       (00000016) goto/16              +0ach
+
+onTouch-BB@0x1a : [ onTouch-BB@0x16e ]
+	6       (0000001a) iget-object          v0, v5, Lcom/jlboat/phone/activity/MapEditShapeActivity$4;->this$0 Lcom/jlboat/phone/activity/MapEditShapeActivity;
+	7       (0000001e) invoke-virtual       v7, Landroid/view/MotionEvent;->getRawX()F
+	8       (00000024) move-result          v1
+	9       (00000026) invoke-static        v0, v1, Lcom/jlboat/phone/activity/MapEditShapeActivity;->access$702(Lcom/jlboat/phone/activity/MapEditShapeActivity; F)F
+	10      (0000002c) iget-object          v0, v5, Lcom/jlboat/phone/activity/MapEditShapeActivity$4;->this$0 Lcom/jlboat/phone/activity/MapEditShapeActivity;
+	11      (00000030) invoke-virtual       v7, Landroid/view/MotionEvent;->getRawY()F
+	12      (00000036) move-result          v1
+	13      (00000038) invoke-static        v0, v1, Lcom/jlboat/phone/activity/MapEditShapeActivity;->access$802(Lcom/jlboat/phone/activity/MapEditShapeActivity; F)F
+	14      (0000003e) goto/16              +098h
+
+onTouch-BB@0x42 : [ onTouch-BB@0x16e ]
+	15      (00000042) iget-object          v0, v5, Lcom/jlboat/phone/activity/MapEditShapeActivity$4;->this$0 Lcom/jlboat/phone/activity/MapEditShapeActivity;
+	16      (00000046) invoke-virtual       v7, Landroid/view/MotionEvent;->getRawX()F
+	17      (0000004c) move-result          v1
+	18      (0000004e) invoke-static        v0, v1, Lcom/jlboat/phone/activity/MapEditShapeActivity;->access$902(Lcom/jlboat/phone/activity/MapEditShapeActivity; F)F
+	19      (00000054) iget-object          v0, v5, Lcom/jlboat/phone/activity/MapEditShapeActivity$4;->this$0 Lcom/jlboat/phone/activity/MapEditShapeActivity;
+	20      (00000058) invoke-virtual       v7, Landroid/view/MotionEvent;->getRawY()F
+	21      (0000005e) move-result          v1
+	22      (00000060) invoke-static        v0, v1, Lcom/jlboat/phone/activity/MapEditShapeActivity;->access$1002(Lcom/jlboat/phone/activity/MapEditShapeActivity; F)F
+	23      (00000066) iget-object          v0, v5, Lcom/jlboat/phone/activity/MapEditShapeActivity$4;->this$0 Lcom/jlboat/phone/activity/MapEditShapeActivity;
+	24      (0000006a) invoke-static        v0, Lcom/jlboat/phone/activity/MapEditShapeActivity;->access$400(Lcom/jlboat/phone/activity/MapEditShapeActivity;)Landroid/widget/RelativeLayout$LayoutParams;
+	25      (00000070) move-result-object   v0
+	26      (00000072) iget-object          v1, v5, Lcom/jlboat/phone/activity/MapEditShapeActivity$4;->this$0 Lcom/jlboat/phone/activity/MapEditShapeActivity;
+	27      (00000076) invoke-static        v1, Lcom/jlboat/phone/activity/MapEditShapeActivity;->access$500(Lcom/jlboat/phone/activity/MapEditShapeActivity;)F
+	28      (0000007c) move-result          v1
+	29      (0000007e) iget-object          v2, v5, Lcom/jlboat/phone/activity/MapEditShapeActivity$4;->this$0 Lcom/jlboat/phone/activity/MapEditShapeActivity;
+	30      (00000082) invoke-static        v2, Lcom/jlboat/phone/activity/MapEditShapeActivity;->access$900(Lcom/jlboat/phone/activity/MapEditShapeActivity;)F
+	31      (00000088) move-result          v2
+	32      (0000008a) iget-object          v3, v5, Lcom/jlboat/phone/activity/MapEditShapeActivity$4;->this$0 Lcom/jlboat/phone/activity/MapEditShapeActivity;
+	33      (0000008e) invoke-static        v3, Lcom/jlboat/phone/activity/MapEditShapeActivity;->access$200(Lcom/jlboat/phone/activity/MapEditShapeActivity;)F
+	34      (00000094) move-result          v3
+	35      (00000096) sub-float/2addr      v2, v3
+	36      (00000098) const/high16         v3, 1073741824
+	37      (0000009c) mul-float            v2, v2, v3
+	38      (000000a0) add-float/2addr      v1, v2
+	39      (000000a2) float-to-int         v1, v1
+	40      (000000a4) iput                 v1, v0, Landroid/widget/RelativeLayout$LayoutParams;->width I
+	41      (000000a8) iget-object          v0, v5, Lcom/jlboat/phone/activity/MapEditShapeActivity$4;->this$0 Lcom/jlboat/phone/activity/MapEditShapeActivity;
+	42      (000000ac) invoke-static        v0, Lcom/jlboat/phone/activity/MapEditShapeActivity;->access$400(Lcom/jlboat/phone/activity/MapEditShapeActivity;)Landroid/widget/RelativeLayout$LayoutParams;
+	43      (000000b2) move-result-object   v0
+	44      (000000b4) iget-object          v1, v5, Lcom/jlboat/phone/activity/MapEditShapeActivity$4;->this$0 Lcom/jlboat/phone/activity/MapEditShapeActivity;
+	45      (000000b8) invoke-static        v1, Lcom/jlboat/phone/activity/MapEditShapeActivity;->access$600(Lcom/jlboat/phone/activity/MapEditShapeActivity;)F
+	46      (000000be) move-result          v1
+	47      (000000c0) iget-object          v2, v5, Lcom/jlboat/phone/activity/MapEditShapeActivity$4;->this$0 Lcom/jlboat/phone/activity/MapEditShapeActivity;
+	48      (000000c4) invoke-static        v2, Lcom/jlboat/phone/activity/MapEditShapeActivity;->access$1000(Lcom/jlboat/phone/activity/MapEditShapeActivity;)F
+	49      (000000ca) move-result          v2
+	50      (000000cc) iget-object          v4, v5, Lcom/jlboat/phone/activity/MapEditShapeActivity$4;->this$0 Lcom/jlboat/phone/activity/MapEditShapeActivity;
+	51      (000000d0) invoke-static        v4, Lcom/jlboat/phone/activity/MapEditShapeActivity;->access$300(Lcom/jlboat/phone/activity/MapEditShapeActivity;)F
+	52      (000000d6) move-result          v4
+	53      (000000d8) sub-float/2addr      v2, v4
+	54      (000000da) mul-float            v2, v2, v3
+	55      (000000de) add-float/2addr      v1, v2
+	56      (000000e0) float-to-int         v1, v1
+	57      (000000e2) iput                 v1, v0, Landroid/widget/RelativeLayout$LayoutParams;->height I
+	58      (000000e6) iget-object          v0, v5, Lcom/jlboat/phone/activity/MapEditShapeActivity$4;->this$0 Lcom/jlboat/phone/activity/MapEditShapeActivity;
+	59      (000000ea) iget-object          v0, v0, Lcom/jlboat/phone/activity/MapEditShapeActivity;->ivRectangle Landroid/widget/ImageView;
+	60      (000000ee) iget-object          v1, v5, Lcom/jlboat/phone/activity/MapEditShapeActivity$4;->this$0 Lcom/jlboat/phone/activity/MapEditShapeActivity;
+	61      (000000f2) invoke-static        v1, Lcom/jlboat/phone/activity/MapEditShapeActivity;->access$400(Lcom/jlboat/phone/activity/MapEditShapeActivity;)Landroid/widget/RelativeLayout$LayoutParams;
+	62      (000000f8) move-result-object   v1
+	63      (000000fa) invoke-virtual       v0, v1, Landroid/widget/ImageView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+	64      (00000100) goto                 +37h
+
+onTouch-BB@0x102 : [ onTouch-BB@0x16e ]
+	65      (00000102) iget-object          v0, v5, Lcom/jlboat/phone/activity/MapEditShapeActivity$4;->this$0 Lcom/jlboat/phone/activity/MapEditShapeActivity;
+	66      (00000106) invoke-virtual       v7, Landroid/view/MotionEvent;->getRawX()F
+	67      (0000010c) move-result          v1
+	68      (0000010e) invoke-static        v0, v1, Lcom/jlboat/phone/activity/MapEditShapeActivity;->access$202(Lcom/jlboat/phone/activity/MapEditShapeActivity; F)F
+	69      (00000114) iget-object          v0, v5, Lcom/jlboat/phone/activity/MapEditShapeActivity$4;->this$0 Lcom/jlboat/phone/activity/MapEditShapeActivity;
+	70      (00000118) invoke-virtual       v7, Landroid/view/MotionEvent;->getRawY()F
+	71      (0000011e) move-result          v1
+	72      (00000120) invoke-static        v0, v1, Lcom/jlboat/phone/activity/MapEditShapeActivity;->access$302(Lcom/jlboat/phone/activity/MapEditShapeActivity; F)F
+	73      (00000126) iget-object          v0, v5, Lcom/jlboat/phone/activity/MapEditShapeActivity$4;->this$0 Lcom/jlboat/phone/activity/MapEditShapeActivity;
+	74      (0000012a) iget-object          v1, v5, Lcom/jlboat/phone/activity/MapEditShapeActivity$4;->this$0 Lcom/jlboat/phone/activity/MapEditShapeActivity;
+	75      (0000012e) iget-object          v1, v1, Lcom/jlboat/phone/activity/MapEditShapeActivity;->ivRectangle Landroid/widget/ImageView;
+	76      (00000132) invoke-virtual       v1, Landroid/widget/ImageView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+	77      (00000138) move-result-object   v1
+	78      (0000013a) check-cast           v1, Landroid/widget/RelativeLayout$LayoutParams;
+	79      (0000013e) invoke-static        v0, v1, Lcom/jlboat/phone/activity/MapEditShapeActivity;->access$402(Lcom/jlboat/phone/activity/MapEditShapeActivity; Landroid/widget/RelativeLayout$LayoutParams;)Landroid/widget/RelativeLayout$LayoutParams;
+	80      (00000144) iget-object          v0, v5, Lcom/jlboat/phone/activity/MapEditShapeActivity$4;->this$0 Lcom/jlboat/phone/activity/MapEditShapeActivity;
+	81      (00000148) invoke-virtual       v6, Landroid/view/View;->getWidth()I
+	82      (0000014e) move-result          v1
+	83      (00000150) int-to-float         v1, v1
+	84      (00000152) invoke-static        v0, v1, Lcom/jlboat/phone/activity/MapEditShapeActivity;->access$502(Lcom/jlboat/phone/activity/MapEditShapeActivity; F)F
+	85      (00000158) iget-object          v0, v5, Lcom/jlboat/phone/activity/MapEditShapeActivity$4;->this$0 Lcom/jlboat/phone/activity/MapEditShapeActivity;
+	86      (0000015c) invoke-virtual       v6, Landroid/view/View;->getHeight()I
+	87      (00000162) move-result          v1
+	88      (00000164) int-to-float         v1, v1
+	89      (00000166) invoke-static        v0, v1, Lcom/jlboat/phone/activity/MapEditShapeActivity;->access$602(Lcom/jlboat/phone/activity/MapEditShapeActivity; F)F
+	90      (0000016c) nop                  
+
+onTouch-BB@0x16e : 
+	91      (0000016e) const/4              v0, 1
+	92      (00000170) return               v0
+
+onTouch-BB@0x172 : 
+	93      (00000172) nop                  
+	94      (00000174) packed-switch-payload 0 1 2 3 4 5 6
+

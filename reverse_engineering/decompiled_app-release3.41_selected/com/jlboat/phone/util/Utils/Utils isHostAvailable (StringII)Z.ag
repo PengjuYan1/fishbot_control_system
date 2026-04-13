@@ -1,0 +1,100 @@
+# Lcom/jlboat/phone/util/Utils;->isHostAvailable(Ljava/lang/String; I I)Z [access_flags=public static]
+#
+# Parameters:
+# - local registers: v0...v3
+# - v4:java.lang.String
+# - v5:int
+# - v6:int
+#
+# - return:boolean
+
+isHostAvailable-BB@0x0 : [ isHostAvailable-BB@0x4 ]
+	0       (00000000) const-string         v0, "Connection"
+
+isHostAvailable-BB@0x4 : [ isHostAvailable-BB@0xe ]
+	1       (00000004) new-instance         v1, Ljava/net/Socket;
+	2       (00000008) invoke-direct        v1, Ljava/net/Socket;-><init>()V
+	4:d
+	(Ljava/net/ConnectException; -> 70 isHostAvailable-BB@0x70)
+	(Ljava/net/SocketTimeoutException; -> 62 isHostAvailable-BB@0x62)
+	(Ljava/net/UnknownHostException; -> 54 isHostAvailable-BB@0x54)
+	(Ljava/io/IOException; -> 46 isHostAvailable-BB@0x46)
+
+isHostAvailable-BB@0xe : [ isHostAvailable-BB@0x28 ]
+	3       (0000000e) invoke-static        v4, Ljava/net/InetAddress;->getByName(Ljava/lang/String;)Ljava/net/InetAddress;
+	4       (00000014) move-result-object   v2
+	5       (00000016) new-instance         v3, Ljava/net/InetSocketAddress;
+	6       (0000001a) invoke-direct        v3, v2, v5, Ljava/net/InetSocketAddress;-><init>(Ljava/net/InetAddress; I)V
+	7       (00000020) invoke-virtual       v1, v3, v6, Ljava/net/Socket;->connect(Ljava/net/SocketAddress; I)V
+	8       (00000026) nop                  
+	e:25
+	(Ljava/lang/Throwable; -> 32 isHostAvailable-BB@0x32)
+
+isHostAvailable-BB@0x28 : 
+	9       (00000028) invoke-virtual       v1, Ljava/net/Socket;->close()V
+	10      (0000002e) const/4              v0, 1
+	11      (00000030) return               v0
+	28:2d
+	(Ljava/net/ConnectException; -> 70 isHostAvailable-BB@0x70)
+	(Ljava/net/SocketTimeoutException; -> 62 isHostAvailable-BB@0x62)
+	(Ljava/net/UnknownHostException; -> 54 isHostAvailable-BB@0x54)
+	(Ljava/io/IOException; -> 46 isHostAvailable-BB@0x46)
+
+isHostAvailable-BB@0x32 : [ isHostAvailable-BB@0x34 ]
+	12      (00000032) move-exception       v2
+
+isHostAvailable-BB@0x34 : [ isHostAvailable-BB@0x44 ]
+	13      (00000034) invoke-virtual       v1, Ljava/net/Socket;->close()V
+	14      (0000003a) goto                 +5h
+	34:39
+	(Ljava/lang/Throwable; -> 3c isHostAvailable-BB@0x3c)
+
+isHostAvailable-BB@0x3c : [ isHostAvailable-BB@0x3e ]
+	15      (0000003c) move-exception       v3
+
+isHostAvailable-BB@0x3e : [ isHostAvailable-BB@0x44 ]
+	16      (0000003e) invoke-virtual       v2, v3, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
+	3e:45
+	(Ljava/net/ConnectException; -> 70 isHostAvailable-BB@0x70)
+	(Ljava/net/SocketTimeoutException; -> 62 isHostAvailable-BB@0x62)
+	(Ljava/net/UnknownHostException; -> 54 isHostAvailable-BB@0x54)
+	(Ljava/io/IOException; -> 46 isHostAvailable-BB@0x46)
+
+isHostAvailable-BB@0x44 : 
+	17      (00000044) throw                v2
+	3e:45
+	(Ljava/net/ConnectException; -> 70 isHostAvailable-BB@0x70)
+	(Ljava/net/SocketTimeoutException; -> 62 isHostAvailable-BB@0x62)
+	(Ljava/net/UnknownHostException; -> 54 isHostAvailable-BB@0x54)
+	(Ljava/io/IOException; -> 46 isHostAvailable-BB@0x46)
+
+isHostAvailable-BB@0x46 : [ isHostAvailable-BB@0x7e ]
+	18      (00000046) move-exception       v1
+	19      (00000048) const-string         v2, "IO Exception."
+	20      (0000004c) invoke-static        v0, v2, Landroid/util/Log;->e(Ljava/lang/String; Ljava/lang/String;)I
+	21      (00000052) goto                 +16h
+
+isHostAvailable-BB@0x54 : [ isHostAvailable-BB@0x7c ]
+	22      (00000054) move-exception       v1
+	23      (00000056) const-string         v2, "Unknown host."
+	24      (0000005a) invoke-static        v0, v2, Landroid/util/Log;->e(Ljava/lang/String; Ljava/lang/String;)I
+	25      (00000060) goto                 +eh
+
+isHostAvailable-BB@0x62 : [ isHostAvailable-BB@0x7c ]
+	26      (00000062) move-exception       v1
+	27      (00000064) const-string         v2, "Failed do to reach host in time."
+	28      (00000068) invoke-static        v0, v2, Landroid/util/Log;->e(Ljava/lang/String; Ljava/lang/String;)I
+	29      (0000006e) goto                 +7h
+
+isHostAvailable-BB@0x70 : [ isHostAvailable-BB@0x7c ]
+	30      (00000070) move-exception       v1
+	31      (00000072) const-string         v2, "Failed do to unavailable network."
+	32      (00000076) invoke-static        v0, v2, Landroid/util/Log;->e(Ljava/lang/String; Ljava/lang/String;)I
+
+isHostAvailable-BB@0x7c : [ isHostAvailable-BB@0x7e ]
+	33      (0000007c) nop                  
+
+isHostAvailable-BB@0x7e : 
+	34      (0000007e) const/4              v0, 0
+	35      (00000080) return               v0
+

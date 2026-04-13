@@ -1,0 +1,37 @@
+# Lcom/jlboat/phone/controller/JlNaviManager;->deleteMap(Ljava/lang/String;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v7
+# - v8:java.lang.String
+#
+# - return:void
+
+deleteMap-BB@0x0 : [ deleteMap-BB@0x8 deleteMap-BB@0x3c ]
+	0       (00000000) iget-boolean         v0, v7, Lcom/jlboat/phone/controller/JlNaviManager;->connectStatus Z
+	1       (00000004) if-eqz               v0, +01ch
+
+deleteMap-BB@0x8 : [ deleteMap-BB@0x10 deleteMap-BB@0x12 ]
+	2       (00000008) iget-boolean         v0, v7, Lcom/jlboat/phone/controller/JlNaviManager;->isNavigationInited Z
+	3       (0000000c) if-nez               v0, +003h
+
+deleteMap-BB@0x10 : [ deleteMap-BB@0x3c ]
+	4       (00000010) goto                 +16h
+
+deleteMap-BB@0x12 : 
+	5       (00000012) iget-object          v1, v7, Lcom/jlboat/phone/controller/JlNaviManager;->spiritServiceClient Lcom/jlboat/phone/communication/SpiritServiceClient;
+	6       (00000016) iget-object          v0, v7, Lcom/jlboat/phone/controller/JlNaviManager;->floors Lcom/boat/support/slam/entity/floors/Floors;
+	7       (0000001a) invoke-virtual       v0, Lcom/boat/support/slam/entity/floors/Floors;->getFloorId()J
+	8       (00000020) move-result-wide     v2
+	9       (00000022) invoke-static        v8, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
+	10      (00000028) move-result-wide     v4
+	11      (0000002a) new-instance         v6, Lcom/jlboat/phone/controller/JlNaviManager$20;
+	12      (0000002e) invoke-direct        v6, v7, Lcom/jlboat/phone/controller/JlNaviManager$20;-><init>(Lcom/jlboat/phone/controller/JlNaviManager;)V
+	13      (00000034) invoke-virtual/range v1 ... v6, Lcom/jlboat/phone/communication/SpiritServiceClient;->deleteMapService(J J Lcom/boat/jrosbridge/MessageListener;)V
+	14      (0000003a) return-void          
+
+deleteMap-BB@0x3c : 
+	15      (0000003c) iget-object          v0, v7, Lcom/jlboat/phone/controller/JlNaviManager;->TAG Ljava/lang/String;
+	16      (00000040) const-string         v1, "deleteMap: 初始化未成功 不可以进行数据请求 deleteMap"
+	17      (00000044) invoke-static        v0, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	18      (0000004a) return-void          
+

@@ -1,0 +1,34 @@
+# Lcom/jlboat/phone/activity/SettingActivity$10;->onNewMessage(Lcom/jlboat/phone/message/map_msgs/NavigationSafeSetResponse;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v5
+# - v6:com.jlboat.phone.message.map_msgs.NavigationSafeSetResponse
+#
+# - return:void
+
+onNewMessage-BB@0x0 : [ onNewMessage-BB@0x3a onNewMessage-BB@0x48 ]
+	0       (00000000) iget-object          v0, v5, Lcom/jlboat/phone/activity/SettingActivity$10;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	1       (00000004) invoke-static        v0, Lcom/jlboat/phone/activity/SettingActivity;->access$2100(Lcom/jlboat/phone/activity/SettingActivity;)Landroid/widget/RadioButton;
+	2       (0000000a) move-result-object   v0
+	3       (0000000c) const/4              v1, 1
+	4       (0000000e) invoke-virtual       v0, v1, Landroid/widget/RadioButton;->setEnabled(Z)V
+	5       (00000014) iget-object          v0, v5, Lcom/jlboat/phone/activity/SettingActivity$10;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	6       (00000018) invoke-static        v0, Lcom/jlboat/phone/activity/SettingActivity;->access$2200(Lcom/jlboat/phone/activity/SettingActivity;)Landroid/widget/RadioButton;
+	7       (0000001e) move-result-object   v0
+	8       (00000020) invoke-virtual       v0, v1, Landroid/widget/RadioButton;->setEnabled(Z)V
+	9       (00000026) invoke-virtual       v6, Lcom/jlboat/phone/message/map_msgs/NavigationSafeSetResponse;->getResult()J
+	10      (0000002c) move-result-wide     v0
+	11      (0000002e) const-wide/16        v2, 0
+	12      (00000032) cmp-long             v4, v0, v2
+	13      (00000036) if-nez               v4, +009h
+
+onNewMessage-BB@0x3a : [ onNewMessage-BB@0x48 ]
+	14      (0000003a) iget-object          v0, v5, Lcom/jlboat/phone/activity/SettingActivity$10;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	15      (0000003e) const-string         v1, "安全设置成功"
+	16      (00000042) invoke-virtual       v0, v1, Lcom/jlboat/phone/activity/SettingActivity;->toast(Ljava/lang/String;)V
+
+onNewMessage-BB@0x48 : 
+	17      (00000048) iget-object          v0, v5, Lcom/jlboat/phone/activity/SettingActivity$10;->this$0 Lcom/jlboat/phone/activity/SettingActivity;
+	18      (0000004c) invoke-static        v0, Lcom/jlboat/phone/activity/SettingActivity;->access$2300(Lcom/jlboat/phone/activity/SettingActivity;)V
+	19      (00000052) return-void          
+

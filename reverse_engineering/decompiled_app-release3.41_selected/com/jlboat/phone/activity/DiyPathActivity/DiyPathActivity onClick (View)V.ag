@@ -1,0 +1,224 @@
+# Lcom/jlboat/phone/activity/DiyPathActivity;->onClick(Landroid/view/View;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v11
+# - v12:android.view.View
+#
+# - return:void
+
+onClick-BB@0x0 : [ D:onClick-BB@0x1a 2131230789:onClick-BB@0x188 2131230791:onClick-BB@0xd2 2131230795:onClick-BB@0x9c 2131230822:onClick-BB@0x38 2131231277:onClick-BB@0x1e ]
+	0       (00000000) invoke-virtual       v12, Landroid/view/View;->getId()I
+	1       (00000006) move-result          v0
+	2       (00000008) const                v1, 2131493229
+	3       (0000000e) const/16             v2, 8
+	4       (00000012) const/4              v3, 0
+	5       (00000014) sparse-switch        v0, +0000132h
+
+onClick-BB@0x1a : [ onClick-BB@0x274 ]
+	6       (0000001a) goto/16              +12dh
+
+onClick-BB@0x1e : [ onClick-BB@0x274 ]
+	7       (0000001e) iget-object          v0, v11, Lcom/jlboat/phone/activity/DiyPathActivity;->spiritServiceClient Lcom/jlboat/phone/communication/SpiritServiceClient;
+	8       (00000022) new-instance         v1, Lcom/jlboat/phone/activity/DiyPathActivity$5;
+	9       (00000026) invoke-direct        v1, v11, Lcom/jlboat/phone/activity/DiyPathActivity$5;-><init>(Lcom/jlboat/phone/activity/DiyPathActivity;)V
+	10      (0000002c) const/4              v2, 4
+	11      (0000002e) invoke-virtual       v0, v2, v1, Lcom/jlboat/phone/communication/SpiritServiceClient;->executePath(I Lcom/boat/jrosbridge/MessageListener;)V
+	12      (00000034) goto/16              +120h
+
+onClick-BB@0x38 : [ onClick-BB@0x4a onClick-BB@0x5a ]
+	13      (00000038) iget-object          v0, v11, Lcom/jlboat/phone/activity/DiyPathActivity;->linesList Ljava/util/List;
+	14      (0000003c) invoke-interface     v0, Ljava/util/List;->size()I
+	15      (00000042) move-result          v0
+	16      (00000044) const/4              v1, 2
+	17      (00000046) if-ge                v0, v1, +00ah
+
+onClick-BB@0x4a : [ onClick-BB@0x274 ]
+	18      (0000004a) const                v0, 2131493273
+	19      (00000050) invoke-virtual       v11, v0, Lcom/jlboat/phone/activity/DiyPathActivity;->toast(I)V
+	20      (00000056) goto/16              +10fh
+
+onClick-BB@0x5a : [ onClick-BB@0x274 ]
+	21      (0000005a) new-instance         v0, Lcom/jlboat/phone/view/SavaPathPopup;
+	22      (0000005e) new-instance         v1, Lcom/jlboat/phone/activity/DiyPathActivity$4;
+	23      (00000062) invoke-direct        v1, v11, Lcom/jlboat/phone/activity/DiyPathActivity$4;-><init>(Lcom/jlboat/phone/activity/DiyPathActivity;)V
+	24      (00000068) invoke-direct        v0, v11, v1, Lcom/jlboat/phone/view/SavaPathPopup;-><init>(Landroid/content/Context; Landroid/view/View$OnClickListener;)V
+	25      (0000006e) iput-object          v0, v11, Lcom/jlboat/phone/activity/DiyPathActivity;->pathPopup Lcom/jlboat/phone/view/SavaPathPopup;
+	26      (00000072) invoke-static        v11, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
+	27      (00000078) move-result-object   v0
+	28      (0000007a) const                v1, 2131361892
+	29      (00000080) const/4              v2, 0
+	30      (00000082) invoke-virtual       v0, v1, v2, Landroid/view/LayoutInflater;->inflate(I Landroid/view/ViewGroup;)Landroid/view/View;
+	31      (00000088) move-result-object   v0
+	32      (0000008a) iget-object          v1, v11, Lcom/jlboat/phone/activity/DiyPathActivity;->pathPopup Lcom/jlboat/phone/view/SavaPathPopup;
+	33      (0000008e) const/16             v2, 17
+	34      (00000092) invoke-virtual       v1, v0, v2, v3, v3, Lcom/jlboat/phone/view/SavaPathPopup;->showAtLocation(Landroid/view/View; I I I)V
+	35      (00000098) goto/16              +0eeh
+
+onClick-BB@0x9c : [ onClick-BB@0x274 ]
+	36      (0000009c) iget-object          v0, v11, Lcom/jlboat/phone/activity/DiyPathActivity;->ll_bt_cs Landroid/widget/LinearLayout;
+	37      (000000a0) invoke-virtual       v0, v2, Landroid/widget/LinearLayout;->setVisibility(I)V
+	38      (000000a6) iget-object          v0, v11, Lcom/jlboat/phone/activity/DiyPathActivity;->bt_add_start Landroid/widget/Button;
+	39      (000000aa) invoke-virtual       v0, v3, Landroid/widget/Button;->setVisibility(I)V
+	40      (000000b0) iget-object          v0, v11, Lcom/jlboat/phone/activity/DiyPathActivity;->pathRv Landroid/support/v7/widget/RecyclerView;
+	41      (000000b4) invoke-virtual       v0, v3, Landroid/support/v7/widget/RecyclerView;->setVisibility(I)V
+	42      (000000ba) iget-object          v0, v11, Lcom/jlboat/phone/activity/DiyPathActivity;->bind_point_ll Landroid/widget/LinearLayout;
+	43      (000000be) invoke-virtual       v0, v3, Landroid/widget/LinearLayout;->setVisibility(I)V
+	44      (000000c4) iget-object          v0, v11, Lcom/jlboat/phone/activity/DiyPathActivity;->linesList Ljava/util/List;
+	45      (000000c8) invoke-interface     v0, Ljava/util/List;->clear()V
+	46      (000000ce) goto/16              +0d3h
+
+onClick-BB@0xd2 : [ onClick-BB@0xda onClick-BB@0x274 ]
+	47      (000000d2) iget-boolean         v0, v11, Lcom/jlboat/phone/activity/DiyPathActivity;->isNext Z
+	48      (000000d6) if-eqz               v0, +0cfh
+
+onClick-BB@0xda : [ onClick-BB@0x11c onClick-BB@0x12e ]
+	49      (000000da) iput-boolean         v3, v11, Lcom/jlboat/phone/activity/DiyPathActivity;->isNext Z
+	50      (000000de) iget-object          v0, v11, Lcom/jlboat/phone/activity/DiyPathActivity;->bt_add_start Landroid/widget/Button;
+	51      (000000e2) invoke-virtual       v0, v2, Landroid/widget/Button;->setVisibility(I)V
+	52      (000000e8) iget-object          v0, v11, Lcom/jlboat/phone/activity/DiyPathActivity;->pathRv Landroid/support/v7/widget/RecyclerView;
+	53      (000000ec) invoke-virtual       v0, v2, Landroid/support/v7/widget/RecyclerView;->setVisibility(I)V
+	54      (000000f2) iget-object          v0, v11, Lcom/jlboat/phone/activity/DiyPathActivity;->bind_point_ll Landroid/widget/LinearLayout;
+	55      (000000f6) invoke-virtual       v0, v2, Landroid/widget/LinearLayout;->setVisibility(I)V
+	56      (000000fc) iget-object          v0, v11, Lcom/jlboat/phone/activity/DiyPathActivity;->ll_bt_cs Landroid/widget/LinearLayout;
+	57      (00000100) invoke-virtual       v0, v3, Landroid/widget/LinearLayout;->setVisibility(I)V
+	58      (00000106) new-instance         v0, Ljava/util/LinkedList;
+	59      (0000010a) invoke-direct        v0, Ljava/util/LinkedList;-><init>()V
+	60      (00000110) iput-object          v0, v11, Lcom/jlboat/phone/activity/DiyPathActivity;->linesList Ljava/util/List;
+	61      (00000114) iget-boolean         v0, v11, Lcom/jlboat/phone/activity/DiyPathActivity;->isSreenModel Z
+	62      (00000118) if-eqz               v0, +00bh
+
+onClick-BB@0x11c : [ onClick-BB@0x13e ]
+	63      (0000011c) iget-object          v0, v11, Lcom/jlboat/phone/activity/DiyPathActivity;->mapView Lcom/jlboat/phone/view/MapView;
+	64      (00000120) invoke-virtual       v0, Lcom/jlboat/phone/view/MapView;->getRosMapPoint()Lcom/boat/support/slam/entity/floors/Lines;
+	65      (00000126) move-result-object   v0
+	66      (00000128) iput-object          v0, v11, Lcom/jlboat/phone/activity/DiyPathActivity;->pathPoint Lcom/boat/support/slam/entity/floors/Lines;
+	67      (0000012c) goto                 +9h
+
+onClick-BB@0x12e : [ onClick-BB@0x13e ]
+	68      (0000012e) iget-object          v0, v11, Lcom/jlboat/phone/activity/DiyPathActivity;->mapView Lcom/jlboat/phone/view/MapView;
+	69      (00000132) invoke-virtual       v0, Lcom/jlboat/phone/view/MapView;->getRosRobotPoint()Lcom/boat/support/slam/entity/floors/Lines;
+	70      (00000138) move-result-object   v0
+	71      (0000013a) iput-object          v0, v11, Lcom/jlboat/phone/activity/DiyPathActivity;->pathPoint Lcom/boat/support/slam/entity/floors/Lines;
+
+onClick-BB@0x13e : [ onClick-BB@0x146 onClick-BB@0x14a ]
+	72      (0000013e) iget-object          v0, v11, Lcom/jlboat/phone/activity/DiyPathActivity;->pathPoint Lcom/boat/support/slam/entity/floors/Lines;
+	73      (00000142) if-nez               v0, +004h
+
+onClick-BB@0x146 : [ onClick-BB@0x274 ]
+	74      (00000146) goto/16              +097h
+
+onClick-BB@0x14a : [ onClick-BB@0x274 ]
+	75      (0000014a) iget-object          v0, v11, Lcom/jlboat/phone/activity/DiyPathActivity;->linesList Ljava/util/List;
+	76      (0000014e) iget-object          v2, v11, Lcom/jlboat/phone/activity/DiyPathActivity;->pathPoint Lcom/boat/support/slam/entity/floors/Lines;
+	77      (00000152) invoke-interface     v0, v2, Ljava/util/List;->add(Ljava/lang/Object;)Z
+	78      (00000158) iget-object          v0, v11, Lcom/jlboat/phone/activity/DiyPathActivity;->mapView Lcom/jlboat/phone/view/MapView;
+	79      (0000015c) iget-object          v2, v11, Lcom/jlboat/phone/activity/DiyPathActivity;->linesList Ljava/util/List;
+	80      (00000160) invoke-virtual       v0, v2, Lcom/jlboat/phone/view/MapView;->setLinesStyle(Ljava/util/List;)V
+	81      (00000166) const/4              v9, 1
+	82      (00000168) invoke-virtual       v11, v1, Lcom/jlboat/phone/activity/DiyPathActivity;->getResString(I)Ljava/lang/String;
+	83      (0000016e) move-result-object   v10
+	84      (00000170) const-wide/16        v4, -1
+	85      (00000174) const-string         v6, ""
+	86      (00000178) const/4              v7, 2
+	87      (0000017a) const/4              v8, -1
+	88      (0000017c) move-object          v3, v11
+	89      (0000017e) invoke-direct/range  v3 ... v10, Lcom/jlboat/phone/activity/DiyPathActivity;->subOrVerData(J Ljava/lang/String; I I I Ljava/lang/String;)V
+	90      (00000184) goto/16              +078h
+
+onClick-BB@0x188 : [ onClick-BB@0x190 onClick-BB@0x274 ]
+	91      (00000188) iget-boolean         v0, v11, Lcom/jlboat/phone/activity/DiyPathActivity;->isNext Z
+	92      (0000018c) if-eqz               v0, +074h
+
+onClick-BB@0x190 : [ onClick-BB@0x19c onClick-BB@0x1ae ]
+	93      (00000190) iput-boolean         v3, v11, Lcom/jlboat/phone/activity/DiyPathActivity;->isNext Z
+	94      (00000194) iget-boolean         v0, v11, Lcom/jlboat/phone/activity/DiyPathActivity;->isSreenModel Z
+	95      (00000198) if-eqz               v0, +00bh
+
+onClick-BB@0x19c : [ onClick-BB@0x1be ]
+	96      (0000019c) iget-object          v0, v11, Lcom/jlboat/phone/activity/DiyPathActivity;->mapView Lcom/jlboat/phone/view/MapView;
+	97      (000001a0) invoke-virtual       v0, Lcom/jlboat/phone/view/MapView;->getRosMapPoint()Lcom/boat/support/slam/entity/floors/Lines;
+	98      (000001a6) move-result-object   v0
+	99      (000001a8) iput-object          v0, v11, Lcom/jlboat/phone/activity/DiyPathActivity;->pathPoint Lcom/boat/support/slam/entity/floors/Lines;
+	100     (000001ac) goto                 +9h
+
+onClick-BB@0x1ae : [ onClick-BB@0x1be ]
+	101     (000001ae) iget-object          v0, v11, Lcom/jlboat/phone/activity/DiyPathActivity;->mapView Lcom/jlboat/phone/view/MapView;
+	102     (000001b2) invoke-virtual       v0, Lcom/jlboat/phone/view/MapView;->getRosRobotPoint()Lcom/boat/support/slam/entity/floors/Lines;
+	103     (000001b8) move-result-object   v0
+	104     (000001ba) iput-object          v0, v11, Lcom/jlboat/phone/activity/DiyPathActivity;->pathPoint Lcom/boat/support/slam/entity/floors/Lines;
+
+onClick-BB@0x1be : [ onClick-BB@0x1c6 onClick-BB@0x1c8 ]
+	105     (000001be) iget-object          v0, v11, Lcom/jlboat/phone/activity/DiyPathActivity;->pathPoint Lcom/boat/support/slam/entity/floors/Lines;
+	106     (000001c2) if-nez               v0, +003h
+
+onClick-BB@0x1c6 : [ onClick-BB@0x274 ]
+	107     (000001c6) goto                 +57h
+
+onClick-BB@0x1c8 : [ onClick-BB@0x1da ]
+	108     (000001c8) const/4              v0, 1
+	109     (000001ca) iput-boolean         v0, v11, Lcom/jlboat/phone/activity/DiyPathActivity;->isAdd Z
+	110     (000001ce) iget-object          v0, v11, Lcom/jlboat/phone/activity/DiyPathActivity;->linesList Ljava/util/List;
+	111     (000001d2) invoke-interface     v0, Ljava/util/List;->iterator()Ljava/util/Iterator;
+	112     (000001d8) move-result-object   v0
+
+onClick-BB@0x1da : [ onClick-BB@0x1e6 onClick-BB@0x232 ]
+	113     (000001da) invoke-interface     v0, Ljava/util/Iterator;->hasNext()Z
+	114     (000001e0) move-result          v2
+	115     (000001e2) if-eqz               v2, +028h
+
+onClick-BB@0x1e6 : [ onClick-BB@0x20e onClick-BB@0x230 ]
+	116     (000001e6) invoke-interface     v0, Ljava/util/Iterator;->next()Ljava/lang/Object;
+	117     (000001ec) move-result-object   v2
+	118     (000001ee) check-cast           v2, Lcom/boat/support/slam/entity/floors/Lines;
+	119     (000001f2) invoke-virtual       v2, Lcom/boat/support/slam/entity/floors/Lines;->getX()D
+	120     (000001f8) move-result-wide     v4
+	121     (000001fa) iget-object          v6, v11, Lcom/jlboat/phone/activity/DiyPathActivity;->pathPoint Lcom/boat/support/slam/entity/floors/Lines;
+	122     (000001fe) invoke-virtual       v6, Lcom/boat/support/slam/entity/floors/Lines;->getX()D
+	123     (00000204) move-result-wide     v6
+	124     (00000206) cmpl-double          v8, v4, v6
+	125     (0000020a) if-nez               v8, +013h
+
+onClick-BB@0x20e : [ onClick-BB@0x22a onClick-BB@0x230 ]
+	126     (0000020e) invoke-virtual       v2, Lcom/boat/support/slam/entity/floors/Lines;->getY()D
+	127     (00000214) move-result-wide     v4
+	128     (00000216) iget-object          v6, v11, Lcom/jlboat/phone/activity/DiyPathActivity;->pathPoint Lcom/boat/support/slam/entity/floors/Lines;
+	129     (0000021a) invoke-virtual       v6, Lcom/boat/support/slam/entity/floors/Lines;->getY()D
+	130     (00000220) move-result-wide     v6
+	131     (00000222) cmpl-double          v8, v4, v6
+	132     (00000226) if-nez               v8, +005h
+
+onClick-BB@0x22a : [ onClick-BB@0x232 ]
+	133     (0000022a) iput-boolean         v3, v11, Lcom/jlboat/phone/activity/DiyPathActivity;->isAdd Z
+	134     (0000022e) goto                 +2h
+
+onClick-BB@0x230 : [ onClick-BB@0x1da ]
+	135     (00000230) goto                 -2bh
+
+onClick-BB@0x232 : [ onClick-BB@0x23a onClick-BB@0x274 ]
+	136     (00000232) iget-boolean         v0, v11, Lcom/jlboat/phone/activity/DiyPathActivity;->isAdd Z
+	137     (00000236) if-eqz               v0, +01fh
+
+onClick-BB@0x23a : [ onClick-BB@0x274 ]
+	138     (0000023a) iget-object          v0, v11, Lcom/jlboat/phone/activity/DiyPathActivity;->linesList Ljava/util/List;
+	139     (0000023e) iget-object          v2, v11, Lcom/jlboat/phone/activity/DiyPathActivity;->pathPoint Lcom/boat/support/slam/entity/floors/Lines;
+	140     (00000242) invoke-interface     v0, v2, Ljava/util/List;->add(Ljava/lang/Object;)Z
+	141     (00000248) iget-object          v0, v11, Lcom/jlboat/phone/activity/DiyPathActivity;->mapView Lcom/jlboat/phone/view/MapView;
+	142     (0000024c) iget-object          v2, v11, Lcom/jlboat/phone/activity/DiyPathActivity;->linesList Ljava/util/List;
+	143     (00000250) invoke-virtual       v0, v2, Lcom/jlboat/phone/view/MapView;->setLinesStyle(Ljava/util/List;)V
+	144     (00000256) const/4              v9, 1
+	145     (00000258) invoke-virtual       v11, v1, Lcom/jlboat/phone/activity/DiyPathActivity;->getResString(I)Ljava/lang/String;
+	146     (0000025e) move-result-object   v10
+	147     (00000260) const-wide/16        v4, -1
+	148     (00000264) const-string         v6, ""
+	149     (00000268) const/4              v7, 2
+	150     (0000026a) const/4              v8, -1
+	151     (0000026c) move-object          v3, v11
+	152     (0000026e) invoke-direct/range  v3 ... v10, Lcom/jlboat/phone/activity/DiyPathActivity;->subOrVerData(J Ljava/lang/String; I I I Ljava/lang/String;)V
+
+onClick-BB@0x274 : 
+	153     (00000274) return-void          
+
+onClick-BB@0x276 : 
+	154     (00000276) nop                  
+	155     (00000278) sparse-switch-payload 7f080045 7f080047 7f08004b 7f080066 7f08022d
+

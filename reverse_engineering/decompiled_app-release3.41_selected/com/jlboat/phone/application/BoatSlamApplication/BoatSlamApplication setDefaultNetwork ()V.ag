@@ -1,0 +1,83 @@
+# Lcom/jlboat/phone/application/BoatSlamApplication;->setDefaultNetwork()V [access_flags=public static]
+#
+# Parameters:
+# local registers: v0...v8
+#
+# - return:void
+
+setDefaultNetwork-BB@0x0 : [ setDefaultNetwork-BB@0x24 setDefaultNetwork-BB@0xd4 ]
+	0       (00000000) sget-object          v0, Lcom/jlboat/phone/application/BoatSlamApplication;->mApplication Lcom/jlboat/phone/application/BoatSlamApplication;
+	1       (00000004) const-string         v1, "connectivity"
+	2       (00000008) invoke-virtual       v0, v1, Lcom/jlboat/phone/application/BoatSlamApplication;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+	3       (0000000e) move-result-object   v0
+	4       (00000010) check-cast           v0, Landroid/net/ConnectivityManager;
+	5       (00000014) sget                 v1, Landroid/os/Build$VERSION;->SDK_INT I
+	6       (00000018) const/16             v2, 23
+	7       (0000001c) const-string         v3, "BoatSlamApplication"
+	8       (00000020) if-lt                v1, v2, +05ah
+
+setDefaultNetwork-BB@0x24 : [ setDefaultNetwork-BB@0x30 ]
+	9       (00000024) invoke-virtual       v0, Landroid/net/ConnectivityManager;->getAllNetworks()[Landroid/net/Network;
+	10      (0000002a) move-result-object   v1
+	11      (0000002c) array-length         v2, v1
+	12      (0000002e) const/4              v4, 0
+
+setDefaultNetwork-BB@0x30 : [ setDefaultNetwork-BB@0x34 setDefaultNetwork-BB@0xc8 ]
+	13      (00000030) if-ge                v4, v2, +04ch
+
+setDefaultNetwork-BB@0x34 : [ setDefaultNetwork-BB@0x44 setDefaultNetwork-BB@0xc2 ]
+	14      (00000034) aget-object          v5, v1, v4
+	15      (00000038) invoke-virtual       v0, v5, Landroid/net/ConnectivityManager;->getNetworkCapabilities(Landroid/net/Network;)Landroid/net/NetworkCapabilities;
+	16      (0000003e) move-result-object   v6
+	17      (00000040) if-eqz               v6, +041h
+
+setDefaultNetwork-BB@0x44 : [ setDefaultNetwork-BB@0x86 setDefaultNetwork-BB@0xc2 ]
+	18      (00000044) new-instance         v7, Ljava/lang/StringBuilder;
+	19      (00000048) invoke-direct        v7, Ljava/lang/StringBuilder;-><init>()V
+	20      (0000004e) const-string         v8, "Network: "
+	21      (00000052) invoke-virtual       v7, v8, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	22      (00000058) move-result-object   v7
+	23      (0000005a) invoke-virtual       v5, Landroid/net/Network;->toString()Ljava/lang/String;
+	24      (00000060) move-result-object   v8
+	25      (00000062) invoke-virtual       v7, v8, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	26      (00000068) move-result-object   v7
+	27      (0000006a) invoke-virtual       v7, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	28      (00000070) move-result-object   v7
+	29      (00000072) invoke-static        v3, v7, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	30      (00000078) const/4              v7, 3
+	31      (0000007a) invoke-virtual       v6, v7, Landroid/net/NetworkCapabilities;->hasTransport(I)Z
+	32      (00000080) move-result          v7
+	33      (00000082) if-eqz               v7, +020h
+
+setDefaultNetwork-BB@0x86 : 
+	34      (00000086) invoke-virtual       v0, v5, Landroid/net/ConnectivityManager;->bindProcessToNetwork(Landroid/net/Network;)Z
+	35      (0000008c) new-instance         v2, Ljava/lang/StringBuilder;
+	36      (00000090) invoke-direct        v2, Ljava/lang/StringBuilder;-><init>()V
+	37      (00000096) const-string         v4, "Default network set to ETHER: "
+	38      (0000009a) invoke-virtual       v2, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	39      (000000a0) move-result-object   v2
+	40      (000000a2) invoke-virtual       v5, Landroid/net/Network;->toString()Ljava/lang/String;
+	41      (000000a8) move-result-object   v4
+	42      (000000aa) invoke-virtual       v2, v4, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+	43      (000000b0) move-result-object   v2
+	44      (000000b2) invoke-virtual       v2, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	45      (000000b8) move-result-object   v2
+	46      (000000ba) invoke-static        v3, v2, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	47      (000000c0) return-void          
+
+setDefaultNetwork-BB@0xc2 : [ setDefaultNetwork-BB@0x30 ]
+	48      (000000c2) add-int/lit8         v4, v4, 1
+	49      (000000c6) goto                 -4bh
+
+setDefaultNetwork-BB@0xc8 : [ setDefaultNetwork-BB@0xde ]
+	50      (000000c8) const-string         v2, "No suitable network found for binding."
+	51      (000000cc) invoke-static        v3, v2, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+	52      (000000d2) goto                 +6h
+
+setDefaultNetwork-BB@0xd4 : [ setDefaultNetwork-BB@0xde ]
+	53      (000000d4) const-string         v1, "Android version below Marshmallow."
+	54      (000000d8) invoke-static        v3, v1, Landroid/util/Log;->d(Ljava/lang/String; Ljava/lang/String;)I
+
+setDefaultNetwork-BB@0xde : 
+	55      (000000de) return-void          
+

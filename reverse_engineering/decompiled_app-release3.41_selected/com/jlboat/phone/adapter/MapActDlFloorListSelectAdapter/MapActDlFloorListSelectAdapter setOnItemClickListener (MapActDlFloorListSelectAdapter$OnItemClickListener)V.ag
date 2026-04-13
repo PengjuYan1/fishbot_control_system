@@ -1,0 +1,12 @@
+# Lcom/jlboat/phone/adapter/MapActDlFloorListSelectAdapter;->setOnItemClickListener(Lcom/jlboat/phone/adapter/MapActDlFloorListSelectAdapter$OnItemClickListener;)V [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v0
+# - v1:com.jlboat.phone.adapter.MapActDlFloorListSelectAdapter$OnItemClickListener
+#
+# - return:void
+
+setOnItemClickListener-BB@0x0 : 
+	0       (00000000) iput-object          v1, v0, Lcom/jlboat/phone/adapter/MapActDlFloorListSelectAdapter;->mItemClickListener Lcom/jlboat/phone/adapter/MapActDlFloorListSelectAdapter$OnItemClickListener;
+	1       (00000004) return-void          
+

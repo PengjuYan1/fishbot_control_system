@@ -1,0 +1,53 @@
+# Lcom/boat/manager/NetWorkManager;->get(Ljava/lang/String;)[B [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v7
+# - v8:java.lang.String
+#
+# - return:byte[]
+
+get-BB@0x0 : [ get-BB@0x24 ]
+	0       (00000000) new-instance         v0, Lcom/boat/utils/OkHttpUtils;
+	1       (00000004) invoke-direct        v0, Lcom/boat/utils/OkHttpUtils;-><init>()V
+	2       (0000000a) invoke-virtual       v0, Lcom/boat/utils/OkHttpUtils;->getClient()Lokhttp3/OkHttpClient;
+	3       (00000010) move-result-object   v1
+	4       (00000012) invoke-virtual       v0, v8, Lcom/boat/utils/OkHttpUtils;->getJsonRequestAboutGet(Ljava/lang/String;)Lokhttp3/Request;
+	5       (00000018) move-result-object   v2
+	6       (0000001a) invoke-virtual       v0, v1, v2, Lcom/boat/utils/OkHttpUtils;->getCall(Lokhttp3/OkHttpClient; Lokhttp3/Request;)Lokhttp3/Call;
+	7       (00000020) move-result-object   v3
+	8       (00000022) const/4              v4, 0
+
+get-BB@0x24 : [ get-BB@0x30 get-BB@0x50 ]
+	9       (00000024) invoke-interface     v3, Lokhttp3/Call;->execute()Lokhttp3/Response;
+	10      (0000002a) move-result-object   v5
+	11      (0000002c) if-eqz               v5, +012h
+	24:4d
+	(Ljava/io/IOException; -> 52 get-BB@0x52)
+
+get-BB@0x30 : [ get-BB@0x3c get-BB@0x3e ]
+	12      (00000030) invoke-virtual       v5, Lokhttp3/Response;->body()Lokhttp3/ResponseBody;
+	13      (00000036) move-result-object   v6
+	14      (00000038) if-nez               v6, +003h
+	24:4d
+	(Ljava/io/IOException; -> 52 get-BB@0x52)
+
+get-BB@0x3c : [ get-BB@0x50 ]
+	15      (0000003c) goto                 +ah
+	24:4d
+	(Ljava/io/IOException; -> 52 get-BB@0x52)
+
+get-BB@0x3e : 
+	16      (0000003e) invoke-virtual       v5, Lokhttp3/Response;->body()Lokhttp3/ResponseBody;
+	17      (00000044) move-result-object   v6
+	18      (00000046) invoke-virtual       v6, Lokhttp3/ResponseBody;->bytes()[B
+	19      (0000004c) move-result-object   v4
+	20      (0000004e) return-object        v4
+
+get-BB@0x50 : 
+	21      (00000050) return-object        v4
+
+get-BB@0x52 : 
+	22      (00000052) move-exception       v5
+	23      (00000054) invoke-virtual       v5, Ljava/io/IOException;->printStackTrace()V
+	24      (0000005a) return-object        v4
+

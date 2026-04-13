@@ -1,0 +1,38 @@
+# Lcom/jlboat/phone/service/JlBoatService;->onStartCommand(Landroid/content/Intent; I I)I [access_flags=public]
+#
+# Parameters:
+# - local registers: v0...v1
+# - v2:android.content.Intent
+# - v3:int
+# - v4:int
+#
+# - return:int
+
+onStartCommand-BB@0x0 : [ onStartCommand-BB@0x4 onStartCommand-BB@0x30 ]
+	0       (00000000) if-eqz               v2, +018h
+
+onStartCommand-BB@0x4 : [ onStartCommand-BB@0x10 onStartCommand-BB@0x30 ]
+	1       (00000004) invoke-virtual       v2, Landroid/content/Intent;->getAction()Ljava/lang/String;
+	2       (0000000a) move-result-object   v0
+	3       (0000000c) if-eqz               v0, +012h
+
+onStartCommand-BB@0x10 : [ onStartCommand-BB@0x24 onStartCommand-BB@0x26 ]
+	4       (00000010) invoke-virtual       v2, Landroid/content/Intent;->getAction()Ljava/lang/String;
+	5       (00000016) move-result-object   v0
+	6       (00000018) invoke-virtual       v0, Ljava/lang/String;->isEmpty()Z
+	7       (0000001e) move-result          v0
+	8       (00000020) if-eqz               v0, +003h
+
+onStartCommand-BB@0x24 : [ onStartCommand-BB@0x30 ]
+	9       (00000024) goto                 +6h
+
+onStartCommand-BB@0x26 : 
+	10      (00000026) invoke-super         v1, v2, v3, v4, Lcom/boat/base/BaseService;->onStartCommand(Landroid/content/Intent; I I)I
+	11      (0000002c) move-result          v0
+	12      (0000002e) return               v0
+
+onStartCommand-BB@0x30 : 
+	13      (00000030) invoke-super         v1, v2, v3, v4, Lcom/boat/base/BaseService;->onStartCommand(Landroid/content/Intent; I I)I
+	14      (00000036) move-result          v0
+	15      (00000038) return               v0
+
