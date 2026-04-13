@@ -190,6 +190,43 @@
   font-size: 18px;
 }
 
+.metric-card small {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.point-form {
+  display: grid;
+  gap: 14px;
+}
+
+.point-form label {
+  display: grid;
+  gap: 6px;
+}
+
+.point-form span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.point-form input {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--ink);
+}
+
+.point-form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
 @media (max-width: 1024px) {
   .dashboard-grid {
     grid-template-columns: 1fr;
@@ -212,6 +249,10 @@
   }
 
   .metric-list {
+    grid-template-columns: 1fr;
+  }
+
+  .point-form-grid {
     grid-template-columns: 1fr;
   }
 }

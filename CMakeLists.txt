@@ -8,6 +8,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 enable_testing()
 
 find_package(SQLite3 REQUIRED)
+find_package(Threads REQUIRED)
 
 add_library(fishbot_bootstrap
     backend/bootstrap.cpp
@@ -30,9 +31,11 @@ target_link_libraries(fishbot_storage PUBLIC SQLite::SQLite3)
 add_library(fishbot_adapter
     ros_adapter/IRobotAdapter.cpp
     ros_adapter/bridge_client/RosbridgeAdapter.cpp
+    ros_adapter/bridge_client/RosbridgeWebsocketTransport.cpp
     ros_adapter/native_ros/NativeRosAdapter.cpp
 )
 target_include_directories(fishbot_adapter PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+target_link_libraries(fishbot_adapter PUBLIC Threads::Threads)
 
 add_library(fishbot_backend
     backend/app/AppServer.cpp
@@ -109,6 +112,14 @@ target_link_libraries(test_native_adapter PRIVATE fishbot_adapter)
 
 add_test(NAME NativeAdapterTest COMMAND test_native_adapter)
 set_tests_properties(NativeAdapterTest PROPERTIES WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+
+add_executable(test_rosbridge_websocket_transport
+    tests/unit/ros_adapter/test_rosbridge_websocket_transport.cpp
+)
+target_link_libraries(test_rosbridge_websocket_transport PRIVATE fishbot_adapter Threads::Threads)
+
+add_test(NAME RosbridgeWebsocketTransportTest COMMAND test_rosbridge_websocket_transport)
+set_tests_properties(RosbridgeWebsocketTransportTest PROPERTIES WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
 
 add_executable(test_health_endpoint
     tests/integration/api/test_health_endpoint.cpp

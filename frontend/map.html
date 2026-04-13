@@ -23,11 +23,57 @@
             <h2>点位编辑画布</h2>
           </div>
         </div>
-        <div class="map-canvas">
-          <div class="map-overlay-note">点击地图以设置充电点或投喂点</div>
+        <div class="map-canvas" id="point-canvas">
+          <div class="map-overlay-note" id="selection-status">点击地图以拾取坐标，再录入机器人原生点位 ID</div>
         </div>
       </section>
       <aside class="side-column">
+        <section class="panel status-panel">
+          <div class="panel-header compact">
+            <div>
+              <p class="panel-kicker">Editor</p>
+              <h2>点位录入</h2>
+            </div>
+          </div>
+          <form id="point-form" class="point-form">
+            <label>
+              <span>点位名称</span>
+              <input id="point-name" name="name" type="text" placeholder="F1 / C1">
+            </label>
+            <div class="point-form-grid">
+              <label>
+                <span>X</span>
+                <input id="point-x" name="x" type="number" step="0.01" placeholder="0.00">
+              </label>
+              <label>
+                <span>Y</span>
+                <input id="point-y" name="y" type="number" step="0.01" placeholder="0.00">
+              </label>
+              <label>
+                <span>Theta</span>
+                <input id="point-theta" name="theta" type="number" step="0.01" placeholder="0.00">
+              </label>
+            </div>
+            <div class="point-form-grid">
+              <label>
+                <span>floor_id</span>
+                <input id="point-floor-id" name="floor_id" type="number" step="1" placeholder="0">
+              </label>
+              <label>
+                <span>map_id</span>
+                <input id="point-map-id" name="map_id" type="number" step="1" placeholder="0">
+              </label>
+              <label>
+                <span>point_id</span>
+                <input id="point-point-id" name="point_id" type="number" step="1" placeholder="0">
+              </label>
+            </div>
+            <div class="task-buttons">
+              <button type="button" class="accent" id="save-feed-point">保存投喂点</button>
+              <button type="button" id="save-charge-point">保存充电点</button>
+            </div>
+          </form>
+        </section>
         <section class="panel status-panel">
           <div class="panel-header compact">
             <div>
