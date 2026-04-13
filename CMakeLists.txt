@@ -23,6 +23,13 @@ add_library(fishbot_storage
 target_include_directories(fishbot_storage PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 target_link_libraries(fishbot_storage PUBLIC SQLite::SQLite3)
 
+add_library(fishbot_adapter
+    ros_adapter/IRobotAdapter.cpp
+    ros_adapter/bridge_client/RosbridgeAdapter.cpp
+    ros_adapter/native_ros/NativeRosAdapter.cpp
+)
+target_include_directories(fishbot_adapter PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+
 add_executable(fishbot_app
     backend/main.cpp
 )
@@ -51,3 +58,27 @@ target_link_libraries(test_migrations PRIVATE fishbot_storage)
 
 add_test(NAME MigrationTest COMMAND test_migrations)
 set_tests_properties(MigrationTest PROPERTIES WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+
+add_executable(test_interface_contract
+    tests/unit/ros_adapter/test_interface_contract.cpp
+)
+target_link_libraries(test_interface_contract PRIVATE fishbot_adapter)
+
+add_test(NAME AdapterContractTest COMMAND test_interface_contract)
+set_tests_properties(AdapterContractTest PROPERTIES WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+
+add_executable(test_rosbridge_adapter
+    tests/unit/ros_adapter/test_rosbridge_adapter.cpp
+)
+target_link_libraries(test_rosbridge_adapter PRIVATE fishbot_adapter)
+
+add_test(NAME RosbridgeAdapterTest COMMAND test_rosbridge_adapter)
+set_tests_properties(RosbridgeAdapterTest PROPERTIES WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+
+add_executable(test_native_adapter
+    tests/unit/ros_adapter/test_native_adapter.cpp
+)
+target_link_libraries(test_native_adapter PRIVATE fishbot_adapter)
+
+add_test(NAME NativeAdapterTest COMMAND test_native_adapter)
+set_tests_properties(NativeAdapterTest PROPERTIES WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
