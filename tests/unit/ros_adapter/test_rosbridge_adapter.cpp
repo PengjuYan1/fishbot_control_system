@@ -4,6 +4,7 @@
 #include <functional>
 #include <iostream>
 #include <string>
+#include <sstream>
 #include <unordered_map>
 #include <vector>
 
@@ -183,6 +184,25 @@ int main() {
 
     if (transport.last_payload().find("\"data\":5") == std::string::npos) {
         std::cerr << "expected stop payload data=5\n";
+        return EXIT_FAILURE;
+    }
+
+    std::ostringstream huge_map;
+    huge_map << "{\"info\":{\"width\":500,\"height\":500,\"resolution\":0.05,"
+             << "\"origin\":{\"position\":{\"x\":-1.5,\"y\":-2.5}}},\"data\":[";
+    for (int index = 0; index < 250000; ++index) {
+        if (index > 0) {
+            huge_map << ',';
+        }
+        huge_map << '0';
+    }
+    huge_map << "]}";
+    transport.emit("/map", huge_map.str());
+
+    const auto huge_snapshot = adapter.get_map_snapshot();
+    if (huge_snapshot.width != 500 || huge_snapshot.height != 500 ||
+        huge_snapshot.occupancy_data.size() != 250000) {
+        std::cerr << "expected large /map payload to parse without crashing\n";
         return EXIT_FAILURE;
     }
 

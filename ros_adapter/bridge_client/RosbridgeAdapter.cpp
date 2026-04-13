@@ -1,5 +1,6 @@
 #include "ros_adapter/bridge_client/RosbridgeAdapter.h"
 
+#include <cctype>
 #include <cmath>
 #include <regex>
 #include <sstream>
@@ -7,38 +8,118 @@
 #include <vector>
 
 namespace {
-int extract_int_value(const std::string& payload, const std::string& key, int default_value = 0) {
-    const std::regex pattern("\"" + key + "\"\\s*:\\s*(-?[0-9]+)");
-    std::smatch match;
-    if (std::regex_search(payload, match, pattern)) {
-        return std::stoi(match[1].str());
+std::size_t find_value_start(const std::string& payload, const std::string& key) {
+    const auto token = std::string("\"") + key + "\"";
+    const auto key_pos = payload.find(token);
+    if (key_pos == std::string::npos) {
+        return std::string::npos;
     }
-    return default_value;
+
+    auto pos = payload.find(':', key_pos + token.size());
+    if (pos == std::string::npos) {
+        return std::string::npos;
+    }
+    ++pos;
+
+    while (pos < payload.size() && std::isspace(static_cast<unsigned char>(payload[pos])) != 0) {
+        ++pos;
+    }
+    return pos;
+}
+
+int extract_int_value(const std::string& payload, const std::string& key, int default_value = 0) {
+    const auto start = find_value_start(payload, key);
+    if (start == std::string::npos) {
+        return default_value;
+    }
+
+    auto end = start;
+    if (end < payload.size() && (payload[end] == '-' || payload[end] == '+')) {
+        ++end;
+    }
+    while (end < payload.size() && std::isdigit(static_cast<unsigned char>(payload[end])) != 0) {
+        ++end;
+    }
+    if (end == start || (end == start + 1 && (payload[start] == '-' || payload[start] == '+'))) {
+        return default_value;
+    }
+
+    try {
+        return std::stoi(payload.substr(start, end - start));
+    } catch (const std::exception&) {
+        return default_value;
+    }
 }
 
 double extract_double_value(const std::string& payload, const std::string& key, double default_value = 0.0) {
-    const std::regex pattern("\"" + key + "\"\\s*:\\s*(-?[0-9]+(?:\\.[0-9]+)?)");
-    std::smatch match;
-    if (std::regex_search(payload, match, pattern)) {
-        return std::stod(match[1].str());
+    const auto start = find_value_start(payload, key);
+    if (start == std::string::npos) {
+        return default_value;
     }
-    return default_value;
+
+    auto end = start;
+    if (end < payload.size() && (payload[end] == '-' || payload[end] == '+')) {
+        ++end;
+    }
+    bool saw_digit = false;
+    while (end < payload.size()) {
+        const char ch = payload[end];
+        if (std::isdigit(static_cast<unsigned char>(ch)) != 0) {
+            saw_digit = true;
+            ++end;
+            continue;
+        }
+        if (ch == '.' || ch == 'e' || ch == 'E' || ch == '-' || ch == '+') {
+            ++end;
+            continue;
+        }
+        break;
+    }
+    if (!saw_digit) {
+        return default_value;
+    }
+
+    try {
+        return std::stod(payload.substr(start, end - start));
+    } catch (const std::exception&) {
+        return default_value;
+    }
 }
 
 std::vector<int> extract_int_array(const std::string& payload, const std::string& key) {
-    const std::regex pattern("\"" + key + "\"\\s*:\\s*\\[([^\\]]*)\\]");
-    std::smatch match;
-    if (!std::regex_search(payload, match, pattern)) {
+    auto pos = find_value_start(payload, key);
+    if (pos == std::string::npos || pos >= payload.size() || payload[pos] != '[') {
         return {};
     }
+    ++pos;
 
     std::vector<int> values;
-    std::stringstream stream(match[1].str());
-    std::string item;
-    while (std::getline(stream, item, ',')) {
-        if (!item.empty()) {
-            values.push_back(std::stoi(item));
+    while (pos < payload.size()) {
+        while (pos < payload.size() &&
+               (std::isspace(static_cast<unsigned char>(payload[pos])) != 0 || payload[pos] == ',')) {
+            ++pos;
         }
+        if (pos >= payload.size() || payload[pos] == ']') {
+            break;
+        }
+
+        auto end = pos;
+        if (payload[end] == '-' || payload[end] == '+') {
+            ++end;
+        }
+        while (end < payload.size() && std::isdigit(static_cast<unsigned char>(payload[end])) != 0) {
+            ++end;
+        }
+        if (end == pos || (end == pos + 1 && (payload[pos] == '-' || payload[pos] == '+'))) {
+            break;
+        }
+
+        try {
+            values.push_back(std::stoi(payload.substr(pos, end - pos)));
+        } catch (const std::exception&) {
+            break;
+        }
+        pos = end;
     }
     return values;
 }

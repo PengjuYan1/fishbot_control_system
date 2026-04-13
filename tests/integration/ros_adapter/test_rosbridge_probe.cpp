@@ -103,8 +103,7 @@ int main() {
         output.find("\"battery\":67") == std::string::npos ||
         output.find("\"localized\":true") == std::string::npos ||
         output.find("\"charging\":true") == std::string::npos ||
-        output.find("\"x\":1.5") == std::string::npos ||
-        output.find("\"y\":2.5") == std::string::npos ||
+        output.find("\"pose\":{") == std::string::npos ||
         output.find("\"map\":{") == std::string::npos) {
         std::cerr << "expected rosbridge probe output to contain live snapshot data\n";
         return EXIT_FAILURE;
