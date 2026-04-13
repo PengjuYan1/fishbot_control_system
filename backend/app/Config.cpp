@@ -54,6 +54,18 @@ AppConfig load_config(const std::string& config_path) {
     config.adapter_mode = values["adapter_mode"];
     config.rosbridge_host = values["rosbridge_host"];
     config.rosbridge_port = std::stoi(values["rosbridge_port"]);
+    if (values.find("listen_host") != values.end()) {
+        config.listen_host = values["listen_host"];
+    }
+    if (values.find("listen_port") != values.end()) {
+        config.listen_port = std::stoi(values["listen_port"]);
+    }
+    if (values.find("static_root") != values.end()) {
+        config.static_root = values["static_root"];
+    }
+    if (values.find("database_path") != values.end()) {
+        config.database_path = values["database_path"];
+    }
     config.battery_return_threshold = std::stoi(values["battery_return_threshold"]);
     config.battery_start_threshold = std::stoi(values["battery_start_threshold"]);
     config.feed_pause_seconds = std::stoi(values["feed_pause_seconds"]);

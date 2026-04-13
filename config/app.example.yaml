@@ -1,6 +1,10 @@
 adapter_mode: rosbridge  # supported: rosbridge, native, fake
 rosbridge_host: 10.7.5.88
 rosbridge_port: 9090
+listen_host: 0.0.0.0
+listen_port: 8080
+static_root: frontend
+database_path: data/fishbot.db
 battery_return_threshold: 25
 battery_start_threshold: 35
 feed_pause_seconds: 20

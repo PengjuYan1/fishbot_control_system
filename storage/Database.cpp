@@ -1,5 +1,6 @@
 #include "storage/Database.h"
 
+#include <filesystem>
 #include <fstream>
 #include <stdexcept>
 
@@ -68,15 +69,25 @@ DatabaseHandle::~DatabaseHandle() {
 }
 
 DatabaseHandle open_test_database() {
+    return open_database(":memory:");
+}
+
+DatabaseHandle open_database(const std::string& path) {
     sqlite3* db = nullptr;
-    if (sqlite3_open(":memory:", &db) != SQLITE_OK) {
+    if (path != ":memory:") {
+        const std::filesystem::path database_path(path);
+        if (database_path.has_parent_path()) {
+            std::filesystem::create_directories(database_path.parent_path());
+        }
+    }
+
+    if (sqlite3_open(path.c_str(), &db) != SQLITE_OK) {
         const std::string message = db ? sqlite3_errmsg(db) : "failed to allocate sqlite database";
         if (db != nullptr) {
             sqlite3_close(db);
         }
         throw std::runtime_error(message);
     }
-
     return DatabaseHandle(db);
 }
 

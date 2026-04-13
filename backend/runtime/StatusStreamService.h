@@ -6,7 +6,6 @@
 #include <functional>
 #include <string>
 #include <thread>
-#include <vector>
 
 #include "backend/services/MapService.h"
 #include "backend/services/SystemService.h"
@@ -20,7 +19,8 @@ class StatusStreamService {
     ~StatusStreamService();
 
     std::vector<std::string> connect_client() const;
-    void subscribe(Subscriber subscriber);
+    StatusHub::SubscriptionId subscribe(Subscriber subscriber);
+    void unsubscribe(StatusHub::SubscriptionId subscription_id);
     void start(std::chrono::milliseconds interval);
     void stop();
     void poll_once();
@@ -29,7 +29,6 @@ class StatusStreamService {
     SystemService& system_service_;
     MapService& map_service_;
     StatusHub& status_hub_;
-    std::vector<Subscriber> subscribers_;
     std::atomic<bool> running_{false};
     std::thread worker_thread_;
 };

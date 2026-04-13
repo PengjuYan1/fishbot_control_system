@@ -18,6 +18,7 @@ struct DatabaseHandle {
 };
 
 DatabaseHandle open_test_database();
+DatabaseHandle open_database(const std::string& path);
 void run_migrations(const DatabaseHandle& db);
 bool table_exists(const DatabaseHandle& db, const std::string& table_name);
 

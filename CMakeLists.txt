@@ -155,6 +155,14 @@ target_link_libraries(test_status_websocket PRIVATE fishbot_backend)
 add_test(NAME StatusWebSocketTest COMMAND test_status_websocket)
 set_tests_properties(StatusWebSocketTest PROPERTIES WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
 
+add_executable(test_status_websocket_runtime
+    tests/integration/runtime/test_status_websocket_runtime.cpp
+)
+target_link_libraries(test_status_websocket_runtime PRIVATE fishbot_backend Threads::Threads)
+
+add_test(NAME StatusWebSocketRuntimeTest COMMAND test_status_websocket_runtime)
+set_tests_properties(StatusWebSocketRuntimeTest PROPERTIES WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+
 add_executable(test_status_stream_service
     tests/integration/runtime/test_status_stream_service.cpp
 )
@@ -162,6 +170,14 @@ target_link_libraries(test_status_stream_service PRIVATE fishbot_backend)
 
 add_test(NAME StatusStreamServiceTest COMMAND test_status_stream_service)
 set_tests_properties(StatusStreamServiceTest PROPERTIES WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+
+add_executable(test_http_runtime_server
+    tests/integration/runtime/test_http_runtime_server.cpp
+)
+target_link_libraries(test_http_runtime_server PRIVATE fishbot_backend Threads::Threads)
+
+add_test(NAME HttpRuntimeServerTest COMMAND test_http_runtime_server)
+set_tests_properties(HttpRuntimeServerTest PROPERTIES WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
 
 add_executable(test_map_workflow
     tests/integration/api/test_map_workflow.cpp

@@ -12,12 +12,16 @@ StatusStreamService::~StatusStreamService() {
 std::vector<std::string> StatusStreamService::connect_client() const {
     return {
         status_hub_.connect_and_get_initial_message(system_service_.get_snapshot()),
-        status_hub_.publish_map_snapshot(map_service_.get_snapshot()),
+        status_hub_.build_map_snapshot_message(map_service_.get_snapshot()),
     };
 }
 
-void StatusStreamService::subscribe(Subscriber subscriber) {
-    subscribers_.push_back(std::move(subscriber));
+StatusHub::SubscriptionId StatusStreamService::subscribe(Subscriber subscriber) {
+    return status_hub_.subscribe(std::move(subscriber));
+}
+
+void StatusStreamService::unsubscribe(StatusHub::SubscriptionId subscription_id) {
+    status_hub_.unsubscribe(subscription_id);
 }
 
 void StatusStreamService::start(std::chrono::milliseconds interval) {
@@ -41,15 +45,7 @@ void StatusStreamService::stop() {
 void StatusStreamService::poll_once() {
     const auto snapshot = system_service_.get_snapshot();
     const auto map_snapshot = map_service_.get_snapshot();
-    const std::vector<std::string> messages = {
-        status_hub_.connect_and_get_initial_message(snapshot),
-        status_hub_.publish_map_snapshot(map_snapshot),
-        status_hub_.publish_robot_pose(snapshot.pose),
-    };
-
-    for (const auto& message : messages) {
-        for (const auto& subscriber : subscribers_) {
-            subscriber(message);
-        }
-    }
+    status_hub_.publish_system_snapshot(snapshot);
+    status_hub_.publish_map_snapshot(map_snapshot);
+    status_hub_.publish_robot_pose(snapshot.pose);
 }
