@@ -18,6 +18,15 @@ SystemSnapshot SystemService::get_snapshot() const {
     snapshot.connection.last_error = last_error_;
     snapshot.connection.reconnect_attempts = reconnect_attempts_;
     snapshot.connection.adapter_mode = adapter_.mode_name();
+    snapshot.control.emergency_stopped = robot_status.emergency_stopped;
+    snapshot.control.emergency_status_code = robot_status.emergency_status_code;
+    snapshot.control.motor_locked = robot_status.motor_locked;
+    snapshot.control.motor_status_code = robot_status.motor_status_code;
+    snapshot.control.charge_status_code = robot_status.charge_status_code;
+    snapshot.control.motion_mode_code = robot_status.motion_mode_code;
+    snapshot.control.out_of_charge_status_code = robot_status.out_of_charge_status_code;
+    snapshot.control.out_machine_signal = robot_status.out_machine_signal;
+    snapshot.control.out_of_charge_result_code = robot_status.out_of_charge_result_code;
     return snapshot;
 }
 

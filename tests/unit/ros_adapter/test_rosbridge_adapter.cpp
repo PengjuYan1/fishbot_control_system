@@ -84,7 +84,13 @@ int main() {
 
     const std::vector<std::string> expected_topics = {
         "power_report",
+        "androidmsg_emergencystatus",
+        "androidmsg_motorenabledstatus",
         "androidmsg_chargestatus",
+        "motion_mode",
+        "outofcharge_status",
+        "reviceOutMachineSignal",
+        "androidmsg_outofchargepoint",
         "androidmsg_locationstatus",
         "androidmsg_navigationstatus",
         "tracked_pose",
@@ -101,8 +107,14 @@ int main() {
     }
 
     transport.emit("power_report", "{\"data\":67}");
+    transport.emit("androidmsg_emergencystatus", "{\"data\":31}");
+    transport.emit("androidmsg_motorenabledstatus", "{\"data\":33}");
     transport.emit("androidmsg_locationstatus", "{\"data\":10}");
     transport.emit("androidmsg_chargestatus", "{\"data\":45}");
+    transport.emit("motion_mode", "{\"data\":1}");
+    transport.emit("outofcharge_status", "{\"data\":1}");
+    transport.emit("reviceOutMachineSignal", "{\"data\":1}");
+    transport.emit("androidmsg_outofchargepoint", "{\"data\":49}");
     transport.emit("androidmsg_navigationstatus", "{\"data\":1}");
     transport.emit("tracked_pose", "{\"pose\":{\"position\":{\"x\":1.5,\"y\":2.5,\"z\":0.0},\"orientation\":{\"x\":0.0,\"y\":0.0,\"z\":0.247404,\"w\":0.968912}}}");
     transport.emit("/map", "{\"info\":{\"width\":3,\"height\":2,\"resolution\":0.05,\"origin\":{\"position\":{\"x\":-1.5,\"y\":-2.5}}},\"data\":[0,100,-1,0,0,100]}");
@@ -114,6 +126,15 @@ int main() {
 
     if (!adapter.get_robot_status().localized || !adapter.is_charging()) {
         std::cerr << "expected localized and charging states from subscriptions\n";
+        return EXIT_FAILURE;
+    }
+
+    const auto status = adapter.get_robot_status();
+    if (!status.emergency_stopped || !status.motor_locked ||
+        status.charge_status_code != 45 || status.motion_mode_code != 1 ||
+        status.out_of_charge_status_code != 1 || !status.out_machine_signal ||
+        status.out_of_charge_result_code != 49) {
+        std::cerr << "expected control diagnostics to update from rosbridge status topics\n";
         return EXIT_FAILURE;
     }
 

@@ -11,6 +11,10 @@ function updateDashboardStatus() {
   const taskStatusNode = document.getElementById('task-status-text');
   const taskTargetNode = document.getElementById('task-target');
   const modeNode = document.getElementById('runtime-mode');
+  const emergencyNode = document.getElementById('emergency-stop-value');
+  const motorLockNode = document.getElementById('motor-lock-value');
+  const chargeCodeNode = document.getElementById('charge-code-value');
+  const outchargeResultNode = document.getElementById('outcharge-result-value');
 
   if (batteryNode) {
     batteryNode.textContent = `${state.system.battery}%`;
@@ -40,6 +44,33 @@ function updateDashboardStatus() {
 
   if (modeNode) {
     modeNode.textContent = state.system.connection.adapter_mode || '离线';
+  }
+
+  if (emergencyNode) {
+    emergencyNode.textContent = state.system.control.emergency_stopped
+      ? `急停中 (${state.system.control.emergency_status_code})`
+      : `已解除 (${state.system.control.emergency_status_code})`;
+  }
+
+  if (motorLockNode) {
+    motorLockNode.textContent = state.system.control.motor_locked
+      ? `已锁定 (${state.system.control.motor_status_code})`
+      : `已解除 (${state.system.control.motor_status_code})`;
+  }
+
+  if (chargeCodeNode) {
+    chargeCodeNode.textContent = String(state.system.control.charge_status_code || 0);
+  }
+
+  if (outchargeResultNode) {
+    const resultCode = Number(state.system.control.out_of_charge_result_code || 0);
+    if (resultCode === 50) {
+      outchargeResultNode.textContent = '成功 (50)';
+    } else if (resultCode === 49) {
+      outchargeResultNode.textContent = '失败 (49)';
+    } else {
+      outchargeResultNode.textContent = String(resultCode);
+    }
   }
 }
 
@@ -208,7 +239,7 @@ function bindControlButtons() {
     outOfChargeButton.addEventListener('click', async () => {
       try {
         await window.fishbotApi.outOfCharge();
-        setActionFeedback('已发送脱离充电 / 解锁指令。', 'success');
+        setActionFeedback('已发送脱离充电 / 解锁指令，请观察出桩结果码是否变成 50。', 'success');
       } catch (error) {
         setActionFeedback(`脱离充电失败：${formatError(error)}`, 'error');
       }

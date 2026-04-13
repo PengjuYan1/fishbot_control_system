@@ -257,7 +257,21 @@ Pose RosbridgeAdapter::get_robot_pose() const { return pose_; }
 int RosbridgeAdapter::get_battery() const { return battery_; }
 
 RobotStatus RosbridgeAdapter::get_robot_status() const {
-    return RobotStatus{battery_, charging_, is_connected(), localized_};
+    RobotStatus status;
+    status.battery_percent = battery_;
+    status.charging = charging_;
+    status.connected = is_connected();
+    status.localized = localized_;
+    status.emergency_stopped = emergency_stopped_;
+    status.emergency_status_code = emergency_status_code_;
+    status.motor_locked = motor_locked_;
+    status.motor_status_code = motor_status_code_;
+    status.charge_status_code = charge_status_code_;
+    status.motion_mode_code = motion_mode_code_;
+    status.out_of_charge_status_code = out_of_charge_status_code_;
+    status.out_machine_signal = out_machine_signal_;
+    status.out_of_charge_result_code = out_of_charge_result_code_;
+    return status;
 }
 
 MapSnapshot RosbridgeAdapter::get_map_snapshot() const { return map_snapshot_; }
@@ -271,8 +285,20 @@ bool RosbridgeAdapter::subscribe_status_topics() {
 
     return transport_->subscribe("power_report", "std_msgs/Int16",
                [this](const std::string& payload) { handle_battery_message(payload); }) &&
+        transport_->subscribe("androidmsg_emergencystatus", "std_msgs/Int16",
+               [this](const std::string& payload) { handle_emergency_message(payload); }) &&
+        transport_->subscribe("androidmsg_motorenabledstatus", "std_msgs/Int16",
+               [this](const std::string& payload) { handle_motor_lock_message(payload); }) &&
         transport_->subscribe("androidmsg_chargestatus", "std_msgs/Int16",
                [this](const std::string& payload) { handle_charge_message(payload); }) &&
+        transport_->subscribe("motion_mode", "std_msgs/Int16",
+               [this](const std::string& payload) { handle_motion_mode_message(payload); }) &&
+        transport_->subscribe("outofcharge_status", "std_msgs/Int16",
+               [this](const std::string& payload) { handle_out_of_charge_status_message(payload); }) &&
+        transport_->subscribe("reviceOutMachineSignal", "std_msgs/Int16",
+               [this](const std::string& payload) { handle_out_machine_signal_message(payload); }) &&
+        transport_->subscribe("androidmsg_outofchargepoint", "std_msgs/Int16",
+               [this](const std::string& payload) { handle_out_of_charge_result_message(payload); }) &&
         transport_->subscribe("androidmsg_locationstatus", "std_msgs/Int16",
                [this](const std::string& payload) { handle_location_message(payload); }) &&
         transport_->subscribe("androidmsg_navigationstatus", "std_msgs/Int16",
@@ -308,8 +334,23 @@ void RosbridgeAdapter::handle_battery_message(const std::string& payload) {
 }
 
 void RosbridgeAdapter::handle_charge_message(const std::string& payload) {
-    const auto charge_state = extract_int_value(payload, "data");
-    charging_ = charge_state == 45 || charge_state == 46 || charge_state == 47 || charge_state == 48;
+    charge_status_code_ = extract_int_value(payload, "data");
+    charging_ = charge_status_code_ == 45 || charge_status_code_ == 46 ||
+        charge_status_code_ == 47 || charge_status_code_ == 48;
+}
+
+void RosbridgeAdapter::handle_emergency_message(const std::string& payload) {
+    emergency_status_code_ = extract_int_value(payload, "data");
+    emergency_stopped_ = emergency_status_code_ == 31;
+}
+
+void RosbridgeAdapter::handle_motor_lock_message(const std::string& payload) {
+    motor_status_code_ = extract_int_value(payload, "data");
+    motor_locked_ = motor_status_code_ == 33;
+}
+
+void RosbridgeAdapter::handle_motion_mode_message(const std::string& payload) {
+    motion_mode_code_ = extract_int_value(payload, "data");
 }
 
 void RosbridgeAdapter::handle_location_message(const std::string& payload) {
@@ -318,6 +359,18 @@ void RosbridgeAdapter::handle_location_message(const std::string& payload) {
 
 void RosbridgeAdapter::handle_navigation_message(const std::string& payload) {
     navigation_status_ = extract_int_value(payload, "data");
+}
+
+void RosbridgeAdapter::handle_out_of_charge_status_message(const std::string& payload) {
+    out_of_charge_status_code_ = extract_int_value(payload, "data");
+}
+
+void RosbridgeAdapter::handle_out_machine_signal_message(const std::string& payload) {
+    out_machine_signal_ = extract_int_value(payload, "data") == 1;
+}
+
+void RosbridgeAdapter::handle_out_of_charge_result_message(const std::string& payload) {
+    out_of_charge_result_code_ = extract_int_value(payload, "data");
 }
 
 void RosbridgeAdapter::handle_pose_message(const std::string& payload) {

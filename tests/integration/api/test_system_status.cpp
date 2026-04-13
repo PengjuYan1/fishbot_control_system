@@ -64,5 +64,11 @@ int main() {
         return EXIT_FAILURE;
     }
 
+    if (response.body.find("\"control\":{") == std::string::npos ||
+        response.body.find("\"motor_locked\":false") == std::string::npos) {
+        std::cerr << "expected control diagnostics in response body\n";
+        return EXIT_FAILURE;
+    }
+
     return EXIT_SUCCESS;
 }

@@ -45,7 +45,6 @@ class FakeProbeRosbridgeServer {
             acceptor_.accept(socket);
             websocket::stream<tcp::socket> ws(std::move(socket));
             ws.accept();
-
             while (!stop_requested_) {
                 boost::beast::flat_buffer buffer;
                 ws.read(buffer);
@@ -54,20 +53,19 @@ class FakeProbeRosbridgeServer {
                 if (message.find("\"op\":\"subscribe\"") == std::string::npos) {
                     continue;
                 }
-
-                if (message.find("\"topic\":\"power_report\"") != std::string::npos) {
-                    write_message(ws, "{\"op\":\"publish\",\"topic\":\"power_report\",\"msg\":{\"data\":67}}");
-                } else if (message.find("\"topic\":\"androidmsg_chargestatus\"") != std::string::npos) {
-                    write_message(ws, "{\"op\":\"publish\",\"topic\":\"androidmsg_chargestatus\",\"msg\":{\"data\":45}}");
-                } else if (message.find("\"topic\":\"androidmsg_locationstatus\"") != std::string::npos) {
-                    write_message(ws, "{\"op\":\"publish\",\"topic\":\"androidmsg_locationstatus\",\"msg\":{\"data\":10}}");
-                } else if (message.find("\"topic\":\"tracked_pose\"") != std::string::npos) {
-                    write_message(ws,
-                                  "{\"op\":\"publish\",\"topic\":\"tracked_pose\",\"msg\":{\"pose\":{\"position\":{\"x\":1.5,\"y\":2.5,\"z\":0.0},\"orientation\":{\"x\":0.0,\"y\":0.0,\"z\":0.247404,\"w\":0.968912}}}}");
-                } else if (message.find("\"topic\":\"/map\"") != std::string::npos) {
-                    write_message(ws,
-                                  "{\"op\":\"publish\",\"topic\":\"/map\",\"msg\":{\"info\":{\"width\":3,\"height\":2,\"resolution\":0.05,\"origin\":{\"position\":{\"x\":-1.5,\"y\":-2.5}}},\"data\":[0,100,-1,0,0,100]}}");
-                }
+                write_message(ws, "{\"op\":\"publish\",\"topic\":\"power_report\",\"msg\":{\"data\":67}}");
+                write_message(ws, "{\"op\":\"publish\",\"topic\":\"androidmsg_emergencystatus\",\"msg\":{\"data\":32}}");
+                write_message(ws, "{\"op\":\"publish\",\"topic\":\"androidmsg_motorenabledstatus\",\"msg\":{\"data\":34}}");
+                write_message(ws, "{\"op\":\"publish\",\"topic\":\"androidmsg_chargestatus\",\"msg\":{\"data\":45}}");
+                write_message(ws, "{\"op\":\"publish\",\"topic\":\"motion_mode\",\"msg\":{\"data\":1}}");
+                write_message(ws, "{\"op\":\"publish\",\"topic\":\"outofcharge_status\",\"msg\":{\"data\":1}}");
+                write_message(ws, "{\"op\":\"publish\",\"topic\":\"reviceOutMachineSignal\",\"msg\":{\"data\":1}}");
+                write_message(ws, "{\"op\":\"publish\",\"topic\":\"androidmsg_outofchargepoint\",\"msg\":{\"data\":50}}");
+                write_message(ws, "{\"op\":\"publish\",\"topic\":\"androidmsg_locationstatus\",\"msg\":{\"data\":10}}");
+                write_message(ws,
+                              "{\"op\":\"publish\",\"topic\":\"tracked_pose\",\"msg\":{\"pose\":{\"position\":{\"x\":1.5,\"y\":2.5,\"z\":0.0},\"orientation\":{\"x\":0.0,\"y\":0.0,\"z\":0.247404,\"w\":0.968912}}}}");
+                write_message(ws,
+                              "{\"op\":\"publish\",\"topic\":\"/map\",\"msg\":{\"info\":{\"width\":3,\"height\":2,\"resolution\":0.05,\"origin\":{\"position\":{\"x\":-1.5,\"y\":-2.5}}},\"data\":[0,100,-1,0,0,100]}}");
             }
         } catch (const std::exception&) {
         }
@@ -103,9 +101,16 @@ int main() {
         output.find("\"battery\":67") == std::string::npos ||
         output.find("\"localized\":true") == std::string::npos ||
         output.find("\"charging\":true") == std::string::npos ||
+        output.find("\"control\":{") == std::string::npos ||
+        output.find("\"out_of_charge_result_code\":50") == std::string::npos ||
         output.find("\"pose\":{") == std::string::npos ||
         output.find("\"map\":{") == std::string::npos) {
         std::cerr << "expected rosbridge probe output to contain live snapshot data\n";
+        return EXIT_FAILURE;
+    }
+
+    if (output.find("\"map\":{\"width\":") == std::string::npos) {
+        std::cerr << "expected rosbridge probe output to contain map object\n";
         return EXIT_FAILURE;
     }
 

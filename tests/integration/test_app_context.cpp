@@ -24,6 +24,10 @@ class FakeRosbridgeServer {
     explicit FakeRosbridgeServer(unsigned short port)
         : ioc_(), acceptor_(ioc_, tcp::endpoint(tcp::v4(), port)) {}
 
+    unsigned short port() const {
+        return acceptor_.local_endpoint().port();
+    }
+
     void start() {
         thread_ = std::thread([this]() { run(); });
     }
@@ -85,16 +89,15 @@ class FakeRosbridgeServer {
 }  // namespace
 
 int main() {
-    constexpr unsigned short port = 19091;
     const std::string config_path = "tests/tmp_app_context_rosbridge.yaml";
-    FakeRosbridgeServer server(port);
+    FakeRosbridgeServer server(0);
     server.start();
 
     {
         std::ofstream output(config_path);
         output << "adapter_mode: rosbridge\n";
         output << "rosbridge_host: 127.0.0.1\n";
-        output << "rosbridge_port: " << port << "\n";
+        output << "rosbridge_port: " << server.port() << "\n";
         output << "battery_return_threshold: 25\n";
         output << "battery_start_threshold: 35\n";
         output << "feed_pause_seconds: 20\n";
