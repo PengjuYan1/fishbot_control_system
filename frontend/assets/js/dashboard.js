@@ -199,6 +199,7 @@ function bindControlButtons() {
   const actionFeedbackNode = document.getElementById('action-feedback');
   let moveTimer = null;
   let activeDrivePointerId = null;
+  let activeDriveRequiresStop = false;
 
   const setActionFeedback = (message, level) => {
     if (!actionFeedbackNode) {
@@ -228,6 +229,7 @@ function bindControlButtons() {
       moveTimer = null;
     }
     activeDrivePointerId = null;
+    activeDriveRequiresStop = false;
     try {
       await window.fishbotApi.stopManualMove();
       setActionFeedback('机器人已发送停止指令。', 'success');
@@ -242,14 +244,34 @@ function bindControlButtons() {
       window.clearInterval(moveTimer);
       moveTimer = null;
     }
-    activeDrivePointerId = pointerId;
+    const isDiscreteDirectionalMove =
+      (linear !== 0 && angular === 0) || (linear === 0 && angular !== 0);
+
+    activeDrivePointerId = isDiscreteDirectionalMove ? null : pointerId;
+    activeDriveRequiresStop = !isDiscreteDirectionalMove;
     await window.fishbotApi.manualMove(linear, angular);
+    if (isDiscreteDirectionalMove) {
+      let directionLabel = '移动';
+      if (linear > 0) {
+        directionLabel = '前进';
+      } else if (linear < 0) {
+        directionLabel = '后退';
+      } else if (angular > 0) {
+        directionLabel = '左转';
+      } else if (angular < 0) {
+        directionLabel = '右转';
+      }
+      setActionFeedback(`已发送${directionLabel}指令。`, 'success');
+      return;
+    }
+
     setActionFeedback(`已发送移动指令：线速度 ${linear.toFixed(2)}，角速度 ${angular.toFixed(2)}。`, 'success');
     moveTimer = window.setInterval(() => {
       window.fishbotApi.manualMove(linear, angular).catch(async (error) => {
         window.clearInterval(moveTimer);
         moveTimer = null;
         activeDrivePointerId = null;
+        activeDriveRequiresStop = false;
         setActionFeedback(`移动失败：${formatError(error)}`, 'error');
         try {
           await window.fishbotApi.stopManualMove();
@@ -351,24 +373,29 @@ function bindControlButtons() {
       }
     });
     button.addEventListener('pointerup', async (event) => {
-      if (activeDrivePointerId === null || activeDrivePointerId === event.pointerId) {
+      if (activeDriveRequiresStop &&
+          (activeDrivePointerId === null || activeDrivePointerId === event.pointerId)) {
         await stopDriving();
       }
     });
     button.addEventListener('pointerleave', async (event) => {
-      if (activeDrivePointerId === null || activeDrivePointerId === event.pointerId) {
+      if (activeDriveRequiresStop &&
+          (activeDrivePointerId === null || activeDrivePointerId === event.pointerId)) {
         await stopDriving();
       }
     });
     button.addEventListener('pointercancel', async (event) => {
-      if (activeDrivePointerId === null || activeDrivePointerId === event.pointerId) {
+      if (activeDriveRequiresStop &&
+          (activeDrivePointerId === null || activeDrivePointerId === event.pointerId)) {
         await stopDriving();
       }
     });
   });
 
   window.addEventListener('pointerup', async (event) => {
-    if (moveTimer && (activeDrivePointerId === null || activeDrivePointerId === event.pointerId)) {
+    if (activeDriveRequiresStop &&
+        moveTimer &&
+        (activeDrivePointerId === null || activeDrivePointerId === event.pointerId)) {
       await stopDriving();
     }
   });
