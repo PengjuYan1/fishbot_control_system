@@ -20,6 +20,7 @@ target_include_directories(fishbot_bootstrap PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 add_library(fishbot_storage
     storage/Database.cpp
     storage/repositories/PointRepository.cpp
+    storage/repositories/ScheduleRepository.cpp
 )
 target_include_directories(fishbot_storage PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 target_link_libraries(fishbot_storage PUBLIC SQLite::SQLite3)
@@ -40,6 +41,12 @@ add_library(fishbot_backend
     backend/api/MapController.cpp
     backend/services/PointService.cpp
     backend/api/PointController.cpp
+    backend/services/TaskService.cpp
+    backend/api/TaskController.cpp
+    backend/services/ScheduleService.cpp
+    backend/api/ScheduleController.cpp
+    backend/scheduler/TaskScheduler.cpp
+    backend/state_machine/TaskStateMachine.cpp
     backend/websocket/StatusHub.cpp
 )
 target_include_directories(fishbot_backend PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
@@ -137,3 +144,27 @@ target_link_libraries(test_points_api PRIVATE fishbot_backend)
 
 add_test(NAME PointsApiTest COMMAND test_points_api)
 set_tests_properties(PointsApiTest PROPERTIES WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+
+add_executable(test_task_state_machine
+    tests/unit/state_machine/test_task_state_machine.cpp
+)
+target_link_libraries(test_task_state_machine PRIVATE fishbot_backend)
+
+add_test(NAME TaskStateMachineTest COMMAND test_task_state_machine)
+set_tests_properties(TaskStateMachineTest PROPERTIES WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+
+add_executable(test_manual_task_flow
+    tests/integration/api/test_manual_task_flow.cpp
+)
+target_link_libraries(test_manual_task_flow PRIVATE fishbot_backend)
+
+add_test(NAME ManualTaskFlowTest COMMAND test_manual_task_flow)
+set_tests_properties(ManualTaskFlowTest PROPERTIES WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+
+add_executable(test_schedule_trigger
+    tests/integration/api/test_schedule_trigger.cpp
+)
+target_link_libraries(test_schedule_trigger PRIVATE fishbot_backend fishbot_storage)
+
+add_test(NAME ScheduleTriggerTest COMMAND test_schedule_trigger)
+set_tests_properties(ScheduleTriggerTest PROPERTIES WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})

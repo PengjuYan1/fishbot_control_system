@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fishbot Tasks</title>
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Task Scheduling</p>
+        <h1>任务与调度管理</h1>
+      </div>
+    </header>
+    <main class="dashboard-grid">
+      <section class="panel map-stage">
+        <div class="panel-header">
+          <div>
+            <p class="panel-kicker">Schedules</p>
+            <h2>定时计划</h2>
+          </div>
+        </div>
+        <form id="schedule-form" class="task-summary">
+          <label>
+            <span>计划名称</span>
+            <input id="schedule-name" name="name" type="text" value="Morning Feed">
+          </label>
+          <label>
+            <span>Cron</span>
+            <input id="schedule-cron" name="cron" type="text" value="0 8 * * *">
+          </label>
+          <label>
+            <span>启用</span>
+            <input id="schedule-enabled" name="enabled" type="checkbox" checked>
+          </label>
+          <div class="quick-actions">
+            <button type="submit" class="accent">保存计划</button>
+          </div>
+        </form>
+      </section>
+      <aside class="side-column">
+        <section class="panel status-panel">
+          <div class="panel-header compact">
+            <div>
+              <p class="panel-kicker">Queue</p>
+              <h2>已配置任务</h2>
+            </div>
+          </div>
+          <div id="schedule-list"></div>
+        </section>
+      </aside>
+    </main>
+  </div>
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/tasks.js"></script>
+</body>
+</html>

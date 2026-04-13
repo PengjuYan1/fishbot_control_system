@@ -1,0 +1,72 @@
+#include <cstdlib>
+#include <iostream>
+
+#include "backend/api/TaskController.h"
+#include "backend/app/AppServer.h"
+#include "backend/services/TaskService.h"
+#include "ros_adapter/IRobotAdapter.h"
+#include "storage/Database.h"
+#include "storage/repositories/PointRepository.h"
+
+class FakeTaskAdapter : public IRobotAdapter {
+  public:
+    std::string mode_name() const override { return "fake"; }
+    bool connect() override { return true; }
+    void disconnect() override {}
+    bool is_connected() const override { return true; }
+    bool start_mapping() override { return true; }
+    bool stop_mapping() override { return true; }
+    bool save_map(const std::string&) override { return true; }
+    bool load_map(const std::string&) override { return true; }
+    bool navigate_to_pose(const Pose& pose) override {
+        last_goal = pose;
+        navigation_requested = true;
+        return true;
+    }
+    bool stop_navigation() override { return true; }
+    bool set_initial_pose(const Pose&) override { return true; }
+    Pose get_robot_pose() const override { return {}; }
+    int get_battery() const override { return 80; }
+    RobotStatus get_robot_status() const override { return RobotStatus{80, false, true, true}; }
+    MapSnapshot get_map_snapshot() const override { return {}; }
+    bool is_charging() const override { return false; }
+
+    Pose last_goal;
+    bool navigation_requested = false;
+};
+
+int main() {
+    auto db = open_test_database();
+    run_migrations(db);
+    PointRepository point_repository(db);
+    point_repository.insert_point(PointRecord{0, "C1", "charge", 1.0, 2.0, 0.0});
+    point_repository.insert_point(PointRecord{0, "F1", "feed", 3.0, 4.0, 1.0});
+
+    FakeTaskAdapter adapter;
+    TaskService service(adapter, point_repository);
+    AppServer server;
+    register_task_routes(server, service);
+
+    const auto response = server.handle_post("/api/tasks/start", "");
+    if (response.status != 200) {
+        std::cerr << "expected successful task start response\n";
+        return EXIT_FAILURE;
+    }
+
+    if (response.body.find("\"status\":\"running\"") == std::string::npos) {
+        std::cerr << "expected running task status\n";
+        return EXIT_FAILURE;
+    }
+
+    if (response.body.find("\"current_target_name\":\"F1\"") == std::string::npos) {
+        std::cerr << "expected first feed point to be selected\n";
+        return EXIT_FAILURE;
+    }
+
+    if (!adapter.navigation_requested || adapter.last_goal.x != 3.0 || adapter.last_goal.y != 4.0) {
+        std::cerr << "expected navigation request to first feed point\n";
+        return EXIT_FAILURE;
+    }
+
+    return EXIT_SUCCESS;
+}
