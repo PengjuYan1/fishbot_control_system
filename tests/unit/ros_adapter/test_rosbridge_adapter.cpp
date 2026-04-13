@@ -242,10 +242,11 @@ int main() {
         return EXIT_FAILURE;
     }
 
-    if (transport.last_service() != "/set_navi_cmd" ||
-        transport.last_payload().find("\"cmd\":\"1\"") == std::string::npos ||
-        transport.last_payload().find("\"distance\":80") == std::string::npos) {
-        std::cerr << "expected forward button move to use apk set_navi_cmd service\n";
+    if (transport.last_topic() != "cmd_vel" ||
+        transport.last_type() != "geometry_msgs/Twist" ||
+        transport.last_payload().find("\"x\":0.18") == std::string::npos ||
+        transport.last_payload().find("\"z\":0") == std::string::npos) {
+        std::cerr << "expected forward button move to use repeated cmd_vel teleop format\n";
         return EXIT_FAILURE;
     }
 
@@ -254,10 +255,11 @@ int main() {
         return EXIT_FAILURE;
     }
 
-    if (transport.last_service() != "/set_navi_cmd" ||
-        transport.last_payload().find("\"cmd\":\"2\"") == std::string::npos ||
-        transport.last_payload().find("\"distance\":50") == std::string::npos) {
-        std::cerr << "expected backward button move to use apk reverse command\n";
+    if (transport.last_topic() != "cmd_vel" ||
+        transport.last_type() != "geometry_msgs/Twist" ||
+        transport.last_payload().find("\"x\":-0.12") == std::string::npos ||
+        transport.last_payload().find("\"z\":0") == std::string::npos) {
+        std::cerr << "expected backward button move to use repeated cmd_vel teleop format\n";
         return EXIT_FAILURE;
     }
 
@@ -266,10 +268,11 @@ int main() {
         return EXIT_FAILURE;
     }
 
-    if (transport.last_service() != "/set_navi_cmd" ||
-        transport.last_payload().find("\"cmd\":\"3\"") == std::string::npos ||
-        transport.last_payload().find("\"distance\":15") == std::string::npos) {
-        std::cerr << "expected left turn button move to use apk rotate command\n";
+    if (transport.last_topic() != "cmd_vel" ||
+        transport.last_type() != "geometry_msgs/Twist" ||
+        transport.last_payload().find("\"x\":0") == std::string::npos ||
+        transport.last_payload().find("\"z\":-0.8") == std::string::npos) {
+        std::cerr << "expected left turn button move to use repeated cmd_vel teleop format\n";
         return EXIT_FAILURE;
     }
 
@@ -278,10 +281,11 @@ int main() {
         return EXIT_FAILURE;
     }
 
-    if (transport.last_service() != "/set_navi_cmd" ||
-        transport.last_payload().find("\"cmd\":\"4\"") == std::string::npos ||
-        transport.last_payload().find("\"distance\":15") == std::string::npos) {
-        std::cerr << "expected right turn button move to use apk rotate command\n";
+    if (transport.last_topic() != "cmd_vel" ||
+        transport.last_type() != "geometry_msgs/Twist" ||
+        transport.last_payload().find("\"x\":0") == std::string::npos ||
+        transport.last_payload().find("\"z\":0.8") == std::string::npos) {
+        std::cerr << "expected right turn button move to use repeated cmd_vel teleop format\n";
         return EXIT_FAILURE;
     }
 
@@ -290,10 +294,11 @@ int main() {
         return EXIT_FAILURE;
     }
 
-    if (transport.last_service() != "/set_navi_cmd" ||
-        transport.last_payload().find("\"cmd\":\"5\"") == std::string::npos ||
-        transport.last_payload().find("\"distance\":0") == std::string::npos) {
-        std::cerr << "expected stop move to use apk stop command\n";
+    if (transport.last_topic() != "cmd_vel" ||
+        transport.last_type() != "geometry_msgs/Twist" ||
+        transport.last_payload().find("\"x\":0") == std::string::npos ||
+        transport.last_payload().find("\"z\":0") == std::string::npos) {
+        std::cerr << "expected stop move to use zero cmd_vel\n";
         return EXIT_FAILURE;
     }
 

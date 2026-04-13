@@ -249,24 +249,6 @@ bool RosbridgeAdapter::out_of_charge() {
 }
 
 bool RosbridgeAdapter::manual_move(double linear_speed, double angular_speed) {
-    if (is_effectively_zero(linear_speed) && is_effectively_zero(angular_speed)) {
-        return call_service("/set_navi_cmd", "map_msgs/SetNaviCmd", "{\"cmd\":\"5\",\"distance\":0}");
-    }
-
-    if (!is_effectively_zero(linear_speed) && is_effectively_zero(angular_speed)) {
-        const bool forward = linear_speed > 0.0;
-        return call_service("/set_navi_cmd", "map_msgs/SetNaviCmd",
-                            forward ? "{\"cmd\":\"1\",\"distance\":80}"
-                                    : "{\"cmd\":\"2\",\"distance\":50}");
-    }
-
-    if (is_effectively_zero(linear_speed) && !is_effectively_zero(angular_speed)) {
-        const bool turn_left = angular_speed > 0.0;
-        return call_service("/set_navi_cmd", "map_msgs/SetNaviCmd",
-                            turn_left ? "{\"cmd\":\"3\",\"distance\":15}"
-                                      : "{\"cmd\":\"4\",\"distance\":15}");
-    }
-
     std::ostringstream payload;
     payload << "{\"linear\":{\"x\":" << linear_speed
             << ",\"y\":0,\"z\":0},\"angular\":{\"x\":0,\"y\":0,\"z\":"
