@@ -177,7 +177,33 @@ void PointService::schedule_native_sync() const {
 void PointService::run_native_sync_once() const {
     try {
         if (adapter_ != nullptr) {
-            sync_native_points_if_supported(*adapter_, repository_);
+            std::vector<PointRecord> native_points;
+            if (adapter_->list_native_points(&native_points)) {
+                repository_.merge_native_points(native_points);
+
+                bool native_has_charge = false;
+                bool native_has_initial = false;
+                for (const auto& point : native_points) {
+                    if (point.type == "charge" && point.point_id > 0) {
+                        native_has_charge = true;
+                    } else if (point.type == "initial" && point.point_id > 0) {
+                        native_has_initial = true;
+                    }
+                }
+
+                if (native_has_charge || native_has_initial) {
+                    const auto local_points = repository_.list_points();
+                    for (const auto& point : local_points) {
+                        if (point.id <= 0 || point.point_id > 0) {
+                            continue;
+                        }
+                        if ((native_has_charge && point.type == "charge") ||
+                            (native_has_initial && point.type == "initial")) {
+                            (void) repository_.delete_point(point.id);
+                        }
+                    }
+                }
+            }
         }
     } catch (const std::exception&) {
     }

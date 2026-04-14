@@ -81,6 +81,38 @@ void assign_default_map_ids(const std::vector<MapDescriptor>& maps, PointRecord*
     point->floor_id = maps.front().floor_id;
     point->map_id = maps.front().map_id;
 }
+
+void prune_placeholder_points(PointRepository* repository, const std::vector<PointRecord>& native_points) {
+    if (repository == nullptr) {
+        return;
+    }
+
+    bool native_has_charge = false;
+    bool native_has_initial = false;
+    for (const auto& point : native_points) {
+        if (point.type == "charge" && point.point_id > 0) {
+            native_has_charge = true;
+        } else if (point.type == "initial" && point.point_id > 0) {
+            native_has_initial = true;
+        }
+    }
+
+    if (!native_has_charge && !native_has_initial) {
+        return;
+    }
+
+    const auto local_points = repository->list_points();
+    for (const auto& point : local_points) {
+        if (point.id <= 0 || point.point_id > 0) {
+            continue;
+        }
+
+        if ((native_has_charge && point.type == "charge") ||
+            (native_has_initial && point.type == "initial")) {
+            (void) repository->delete_point(point.id);
+        }
+    }
+}
 }  // namespace
 
 MapService::MapService(IRobotAdapter& adapter, PointRepository* point_repository)
@@ -105,8 +137,17 @@ bool MapService::stop_mapping() {
     return ok;
 }
 
-bool MapService::save_map(const std::string& map_name) const {
-    return adapter_.save_map(map_name);
+bool MapService::save_map(const std::string& map_name) {
+    const bool ok = adapter_.save_map(map_name);
+    if (!ok) {
+        return false;
+    }
+
+    std::lock_guard<std::mutex> lock(state_mutex_);
+    mapping_active_ = false;
+    mapping_seed_done_ = true;
+    mapping_seed_inflight_.store(false);
+    return true;
 }
 
 std::vector<MapDescriptor> MapService::list_maps() const {
@@ -210,12 +251,7 @@ bool MapService::try_seed_mapping_points_once() {
         PointRecord created_charge;
         const auto charge_name = next_point_name(points, "C", "charge");
         if (!adapter_.create_current_pose_point(charge_name, 1, &created_charge)) {
-            const auto pose = adapter_.get_robot_pose();
-            created_charge.name = charge_name;
-            created_charge.type = "charge";
-            created_charge.x = pose.x;
-            created_charge.y = pose.y;
-            created_charge.theta = pose.theta;
+            return false;
         }
         created_charge.name = created_charge.name.empty() ? charge_name : created_charge.name;
         created_charge.type = "charge";
@@ -227,6 +263,7 @@ bool MapService::try_seed_mapping_points_once() {
     native_points.clear();
     if (adapter_.list_native_points(&native_points)) {
         point_repository_->merge_native_points(native_points);
+        prune_placeholder_points(point_repository_, native_points);
     }
 
     native_has_initial = false;
