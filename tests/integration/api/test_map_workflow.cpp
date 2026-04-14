@@ -30,10 +30,26 @@ class FakeMapAdapter : public IRobotAdapter {
     RobotStatus get_robot_status() const override { return RobotStatus{80, false, true, true}; }
     MapSnapshot get_map_snapshot() const override { return MapSnapshot{4, 3, 0.05, {0, 100, -1, 0}, -1.0, -2.0}; }
     bool is_charging() const override { return false; }
+    bool list_maps(std::vector<MapDescriptor>* maps) override {
+        if (maps == nullptr) {
+            return false;
+        }
+        *maps = {
+            MapDescriptor{1, "F1", 11, "default_map", 1, 11, 101, 102, true, true},
+        };
+        return true;
+    }
+    bool delete_map(long floor_id, long map_id) override {
+        deleted_floor = floor_id;
+        deleted_map = map_id;
+        return true;
+    }
 
     bool started = false;
     bool stopped = false;
     std::string saved_name;
+    long deleted_floor = 0;
+    long deleted_map = 0;
 };
 
 int main() {
@@ -70,6 +86,23 @@ int main() {
         snapshot_response.body.find("\"origin_x\":-1.000000") == std::string::npos ||
         snapshot_response.body.find("\"occupancy_data\":[0,100,-1,0]") == std::string::npos) {
         std::cerr << "expected map snapshot payload from adapter\n";
+        return EXIT_FAILURE;
+    }
+
+    const auto maps_response = server.handle_get("/api/maps");
+    if (maps_response.status != 200 ||
+        maps_response.body.find("\"map_name\":\"default_map\"") == std::string::npos ||
+        maps_response.body.find("\"charge_id\":101") == std::string::npos) {
+        std::cerr << "expected map list payload\n";
+        return EXIT_FAILURE;
+    }
+
+    const auto delete_map_response = server.handle_post("/api/maps/delete", "floor_id=1&map_id=11");
+    if (delete_map_response.status != 200 ||
+        adapter.deleted_floor != 1 ||
+        adapter.deleted_map != 11 ||
+        delete_map_response.body.find("\"status\":\"deleted\"") == std::string::npos) {
+        std::cerr << "expected successful delete-map response\n";
         return EXIT_FAILURE;
     }
 

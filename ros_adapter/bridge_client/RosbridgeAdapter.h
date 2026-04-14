@@ -32,6 +32,8 @@ class RosbridgeAdapter : public IRobotAdapter {
     bool is_charging() const override;
     bool create_current_pose_point(const std::string& name, long point_mode, PointRecord* point) override;
     bool list_native_points(std::vector<PointRecord>* points) override;
+    bool list_maps(std::vector<MapDescriptor>* maps) override;
+    bool delete_map(long floor_id, long map_id) override;
     bool delete_saved_point(const PointRecord& point) override;
 
   private:

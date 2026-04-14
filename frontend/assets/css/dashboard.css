@@ -326,6 +326,42 @@
   font-size: 13px;
 }
 
+.map-zoom-toolbar {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  z-index: 6;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(4px);
+}
+
+.map-zoom-toolbar button {
+  border: 1px solid rgba(16, 37, 66, 0.12);
+  border-radius: 999px;
+  min-width: 30px;
+  height: 30px;
+  background: #fff;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.map-zoom-toolbar button:active {
+  transform: scale(0.97);
+}
+
+.map-zoom-toolbar span {
+  min-width: 50px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted);
+}
+
 .side-column {
   display: grid;
   gap: 20px;
@@ -472,6 +508,8 @@
 .map-layer {
   position: absolute;
   inset: 0;
+  transform-origin: center center;
+  will-change: transform;
 }
 
 .map-grid-canvas {

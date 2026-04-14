@@ -2,6 +2,13 @@ function clampPercent(value) {
   return Math.max(0, Math.min(100, value));
 }
 
+const mapViewportState = {
+  scale: 1,
+  minScale: 0.5,
+  maxScale: 4,
+  initialized: false,
+};
+
 function fallbackPosition(x, y) {
   return {
     left: clampPercent(18 + x * 8),
@@ -30,6 +37,68 @@ function worldToPercent(map, x, y) {
 
 function positionStyle(position) {
   return `left:${position.left}%;top:${position.top}%;`;
+}
+
+function clampScale(nextScale) {
+  return Math.max(mapViewportState.minScale, Math.min(mapViewportState.maxScale, nextScale));
+}
+
+function applyMapScale() {
+  const stage = document.getElementById('map-layer');
+  if (!stage) {
+    return;
+  }
+  stage.style.transform = `scale(${mapViewportState.scale})`;
+
+  const label = document.getElementById('map-zoom-label');
+  if (label) {
+    label.textContent = `${Math.round(mapViewportState.scale * 100)}%`;
+  }
+}
+
+function setMapScale(nextScale) {
+  mapViewportState.scale = clampScale(nextScale);
+  applyMapScale();
+}
+
+function bindMapZoomControls() {
+  if (mapViewportState.initialized) {
+    return;
+  }
+  mapViewportState.initialized = true;
+
+  const zoomIn = document.getElementById('map-zoom-in');
+  const zoomOut = document.getElementById('map-zoom-out');
+  const zoomReset = document.getElementById('map-zoom-reset');
+  const canvasHost = document.getElementById('map-canvas');
+
+  if (zoomIn) {
+    zoomIn.addEventListener('click', () => {
+      setMapScale(mapViewportState.scale * 1.2);
+    });
+  }
+
+  if (zoomOut) {
+    zoomOut.addEventListener('click', () => {
+      setMapScale(mapViewportState.scale / 1.2);
+    });
+  }
+
+  if (zoomReset) {
+    zoomReset.addEventListener('click', () => {
+      setMapScale(1);
+    });
+  }
+
+  if (canvasHost) {
+    canvasHost.addEventListener('wheel', (event) => {
+      event.preventDefault();
+      const nextScale = event.deltaY < 0 ? mapViewportState.scale * 1.08 : mapViewportState.scale / 1.08;
+      setMapScale(nextScale);
+    }, { passive: false });
+  }
+
+  applyMapScale();
 }
 
 function ensureCanvas(stage) {
@@ -148,6 +217,8 @@ window.renderMapOverlay = function renderMapOverlay() {
     return;
   }
 
+  bindMapZoomControls();
+
   const state = window.fishbotStore.getState();
   const map = state.map || {};
   stage.innerHTML = '';
@@ -155,4 +226,5 @@ window.renderMapOverlay = function renderMapOverlay() {
   renderRobot(stage, map, state.robot.pose);
   renderPoints(stage, map, state.points);
   updateMapNote(map);
+  applyMapScale();
 };

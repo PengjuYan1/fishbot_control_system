@@ -36,8 +36,23 @@
         </div>
         <div class="map-canvas" id="map-canvas">
           <div class="grid-glow"></div>
+          <div class="map-zoom-toolbar">
+            <button type="button" id="map-zoom-out" title="缩小">-</button>
+            <span id="map-zoom-label">100%</span>
+            <button type="button" id="map-zoom-in" title="放大">+</button>
+            <button type="button" id="map-zoom-reset" title="重置">重置</button>
+          </div>
           <div class="map-layer" id="map-layer"></div>
           <div class="map-overlay-note" id="map-note">等待地图快照 / 机器人位置 / 点位覆盖层</div>
+        </div>
+        <div class="point-list-card">
+          <div class="panel-header compact">
+            <div>
+              <p class="panel-kicker">Maps</p>
+              <h2>地图管理</h2>
+            </div>
+          </div>
+          <div id="map-list-panel"></div>
         </div>
         <div class="point-list-card">
           <div class="panel-header compact">

@@ -23,6 +23,8 @@ std::vector<std::string> describe_adapter_contract() {
         "is_charging",
         "create_current_pose_point",
         "list_native_points",
+        "list_maps",
+        "delete_map",
         "delete_saved_point",
     };
 }

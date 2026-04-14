@@ -1,9 +1,16 @@
 #include "backend/services/TaskService.h"
 
+#include <optional>
 #include <sstream>
 #include <stdexcept>
 
 #include "backend/services/NativePointSync.h"
+
+namespace {
+bool has_native_identity(const PointRecord& point) {
+    return point.floor_id > 0 && point.map_id > 0 && point.point_id > 0;
+}
+}  // namespace
 
 TaskService::TaskService(IRobotAdapter& adapter, PointRepository& point_repository)
     : TaskService(adapter, point_repository, nullptr) {}
@@ -24,12 +31,40 @@ TaskStartResult TaskService::start_scheduled_run(const std::string&) {
 
 TaskStartResult TaskService::start_charge_return() {
     sync_native_points_if_supported(adapter_, point_repository_);
-    const auto charge_point = find_charge_point();
-    navigate_to_point(charge_point);
-    current_task_.status = "charging";
-    current_task_.current_target_name = charge_point.name;
-    last_trigger_type_ = "charge_return";
-    return current_task_;
+
+    std::optional<PointRecord> charge_point;
+    try {
+        charge_point = find_charge_point();
+    } catch (const std::runtime_error&) {
+    }
+
+    if (charge_point.has_value() && has_native_identity(*charge_point)) {
+        try {
+            navigate_to_point(*charge_point);
+            current_task_.status = "charging";
+            current_task_.current_target_name = charge_point->name;
+            last_trigger_type_ = "charge_return";
+            return current_task_;
+        } catch (const std::runtime_error&) {
+        }
+    }
+
+    if (adapter_.go_charge()) {
+        current_task_.status = "charging";
+        current_task_.current_target_name = charge_point.has_value() ? charge_point->name : "autocharge";
+        last_trigger_type_ = "charge_return";
+        return current_task_;
+    }
+
+    if (charge_point.has_value()) {
+        navigate_to_point(*charge_point);
+        current_task_.status = "charging";
+        current_task_.current_target_name = charge_point->name;
+        last_trigger_type_ = "charge_return";
+        return current_task_;
+    }
+
+    throw std::runtime_error("no_charge_point_configured");
 }
 
 TaskStartResult TaskService::current_task() const {
@@ -134,10 +169,23 @@ std::vector<PointRecord> TaskService::list_feed_points() const {
 
 PointRecord TaskService::find_charge_point() const {
     const auto points = point_repository_.list_points();
+    std::optional<PointRecord> fallback_charge;
     for (const auto& point : points) {
-        if (point.type == "charge") {
+        if (point.type != "charge") {
+            continue;
+        }
+
+        if (has_native_identity(point)) {
             return point;
         }
+
+        if (!fallback_charge.has_value()) {
+            fallback_charge = point;
+        }
+    }
+
+    if (fallback_charge.has_value()) {
+        return *fallback_charge;
     }
 
     throw std::runtime_error("no_charge_point_configured");

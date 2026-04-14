@@ -31,6 +31,7 @@ window.fishbotStore = (() => {
     },
     robot: { pose: { x: 0, y: 0, theta: 0 } },
     map: { width: 0, height: 0, resolution: 0, origin_x: 0, origin_y: 0, occupancy_data: [] },
+    maps: [],
     points: [],
   };
   const listeners = new Set();
@@ -95,6 +96,10 @@ window.fishbotStore = (() => {
         origin_y: Number(map.origin_y || 0),
         occupancy_data: Array.isArray(map.occupancy_data) ? map.occupancy_data.slice() : [],
       };
+      emit();
+    },
+    setMaps(maps) {
+      state.maps = Array.isArray(maps) ? maps.slice() : [];
       emit();
     },
     setPoints(points) {

@@ -5,6 +5,7 @@
 #include <vector>
 
 #include "backend/model/PointRecord.h"
+#include "ros_adapter/model/MapDescriptor.h"
 #include "ros_adapter/model/MapSnapshot.h"
 #include "ros_adapter/model/Pose.h"
 #include "ros_adapter/model/RobotStatus.h"
@@ -52,6 +53,15 @@ class IRobotAdapter {
     }
     virtual bool list_native_points(std::vector<PointRecord>* points) {
         (void) points;
+        return false;
+    }
+    virtual bool list_maps(std::vector<MapDescriptor>* maps) {
+        (void) maps;
+        return false;
+    }
+    virtual bool delete_map(long floor_id, long map_id) {
+        (void) floor_id;
+        (void) map_id;
         return false;
     }
     virtual bool delete_saved_point(const PointRecord& point) {

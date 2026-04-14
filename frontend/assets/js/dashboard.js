@@ -260,6 +260,29 @@ function renderPointListPanel() {
   `).join('');
 }
 
+function renderMapListPanel() {
+  const panel = document.getElementById('map-list-panel');
+  if (!panel || !window.fishbotStore) {
+    return;
+  }
+
+  const maps = window.fishbotStore.getState().maps || [];
+  if (maps.length === 0) {
+    panel.innerHTML = '<p class="point-list-empty">暂无已保存地图。</p>';
+    return;
+  }
+
+  panel.innerHTML = maps.map((map) => `
+    <div class="point-list-item">
+      <div class="point-list-copy">
+        <strong>${map.map_name || `Map-${map.map_id}`}</strong>
+        <span>floor ${map.floor_id || 0} · map ${map.map_id || 0} · charge ${map.charge_id || 0} · initial ${map.initial_id || 0}</span>
+      </div>
+      <button type="button" class="point-delete-button" data-map-delete-floor-id="${map.floor_id}" data-map-delete-map-id="${map.map_id}">删除</button>
+    </div>
+  `).join('');
+}
+
 function bindControlButtons() {
   const startMappingButton = document.getElementById('start-mapping-button');
   const saveMapButton = document.getElementById('save-map-button');
@@ -273,6 +296,7 @@ function bindControlButtons() {
   const mapEditorButton = document.getElementById('goto-map-editor-button');
   const feedEditorButton = document.getElementById('goto-map-editor-feed-button');
   const pointListPanel = document.getElementById('point-list-panel');
+  const mapListPanel = document.getElementById('map-list-panel');
   const actionFeedbackNode = document.getElementById('action-feedback');
   const maxLinearSpeed = 0.40;
   const maxAngularSpeed = 0.60;
@@ -313,8 +337,17 @@ function bindControlButtons() {
     return error.message;
   };
 
-  const refreshPoints = async () => {
-    const points = await window.fishbotApi.getPoints();
+  const refreshMaps = async () => {
+    const maps = await window.fishbotApi.getMaps();
+    window.fishbotStore.setMaps(maps || []);
+  };
+
+  const refreshMapAndPoints = async () => {
+    const [maps, points] = await Promise.all([
+      window.fishbotApi.getMaps(),
+      window.fishbotApi.getPoints(),
+    ]);
+    window.fishbotStore.setMaps(maps || []);
     window.fishbotStore.setPoints(points || []);
   };
 
@@ -485,6 +518,7 @@ function bindControlButtons() {
     startMappingButton.addEventListener('click', async () => {
       try {
         await window.fishbotApi.startMapping();
+        await refreshMaps();
         setActionFeedback('已发送开始建图指令。', 'success');
       } catch (error) {
         setActionFeedback(`开始建图失败：${formatError(error)}`, 'error');
@@ -500,6 +534,7 @@ function bindControlButtons() {
       }
       try {
         await window.fishbotApi.saveMap(name);
+        await refreshMaps();
         setActionFeedback(`地图 ${name} 已发送保存请求。`, 'success');
       } catch (error) {
         setActionFeedback(`保存地图失败：${formatError(error)}`, 'error');
@@ -637,7 +672,7 @@ function bindControlButtons() {
     mapEditorButton.addEventListener('click', async () => {
       try {
         const point = await window.fishbotApi.createCurrentChargePoint();
-        await refreshPoints();
+        await refreshMapAndPoints();
         setActionFeedback(`已按当前位置创建充电点 ${point.name || 'C?'}。`, 'success');
       } catch (error) {
         setActionFeedback(`创建充电点失败：${formatError(error)}`, 'error');
@@ -649,7 +684,7 @@ function bindControlButtons() {
     feedEditorButton.addEventListener('click', async () => {
       try {
         const point = await window.fishbotApi.createCurrentFeedPoint();
-        await refreshPoints();
+        await refreshMapAndPoints();
         setActionFeedback(`已按当前位置创建投喂点 ${point.name || 'F?'}。`, 'success');
       } catch (error) {
         setActionFeedback(`创建投喂点失败：${formatError(error)}`, 'error');
@@ -675,10 +710,37 @@ function bindControlButtons() {
 
       try {
         const point = await window.fishbotApi.deletePoint(pointId);
-        await refreshPoints();
+        await refreshMapAndPoints();
         setActionFeedback(`已删除点位 ${point.name || pointId}。`, 'success');
       } catch (error) {
         setActionFeedback(`删除点位失败：${formatError(error)}`, 'error');
+      }
+    });
+  }
+
+  if (mapListPanel) {
+    mapListPanel.addEventListener('click', async (event) => {
+      const target = event.target instanceof Element ? event.target.closest('[data-map-delete-floor-id][data-map-delete-map-id]') : null;
+      if (!target) {
+        return;
+      }
+
+      const floorId = Number(target.getAttribute('data-map-delete-floor-id') || 0);
+      const mapId = Number(target.getAttribute('data-map-delete-map-id') || 0);
+      if (!floorId || !mapId) {
+        return;
+      }
+
+      if (window.confirm && !window.confirm('确认删除该地图？对应原生地图会被删除。')) {
+        return;
+      }
+
+      try {
+        await window.fishbotApi.deleteMap(floorId, mapId);
+        await refreshMapAndPoints();
+        setActionFeedback(`已删除地图 floor ${floorId} / map ${mapId}。`, 'success');
+      } catch (error) {
+        setActionFeedback(`删除地图失败：${formatError(error)}`, 'error');
       }
     });
   }
@@ -692,12 +754,14 @@ document.addEventListener('DOMContentLoaded', async () => {
   window.fishbotStore.subscribe(() => {
     updateDashboardStatus();
     renderPointListPanel();
+    renderMapListPanel();
     if (typeof window.renderMapOverlay === 'function') {
       window.renderMapOverlay();
     }
   });
   updateDashboardStatus();
   renderPointListPanel();
+  renderMapListPanel();
   if (typeof window.renderMapOverlay === 'function') {
     window.renderMapOverlay();
   }
@@ -706,14 +770,16 @@ document.addEventListener('DOMContentLoaded', async () => {
   bindRealtimeStatusSocket();
 
   try {
-    const [status, points, map] = await Promise.all([
+    const [status, points, maps, map] = await Promise.all([
       window.fishbotApi.getSystemStatus(),
       window.fishbotApi.getPoints(),
+      window.fishbotApi.getMaps(),
       window.fishbotApi.getMapSnapshot ? window.fishbotApi.getMapSnapshot() : Promise.resolve(null),
     ]);
 
     window.fishbotStore.setSystemSnapshot(status || {});
     window.fishbotStore.setPoints(points || []);
+    window.fishbotStore.setMaps(maps || []);
     if (map) {
       window.fishbotStore.setMapSnapshot(map);
     }
@@ -726,8 +792,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         return;
       }
       try {
-        const points = await window.fishbotApi.getPoints();
+        const [points, maps] = await Promise.all([
+          window.fishbotApi.getPoints(),
+          window.fishbotApi.getMaps(),
+        ]);
         window.fishbotStore.setPoints(points || []);
+        window.fishbotStore.setMaps(maps || []);
       } catch (error) {
       }
     }, 3000);

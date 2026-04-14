@@ -3,6 +3,7 @@
 #include <chrono>
 #include <cctype>
 #include <cmath>
+#include <initializer_list>
 #include <regex>
 #include <sstream>
 #include <utility>
@@ -14,8 +15,12 @@ namespace {
 constexpr int kChargeReady = 41;
 constexpr const char* kGetMapsServiceType = "std_srvs/Trigger";
 constexpr const char* kPointSetServiceType = "map_msgs/PointSet";
+constexpr const char* kPointManuSetServiceType = "map_msgs/PointManuSet";
 constexpr const char* kDeleteTestPointServiceType = "map_msgs/DeleteTestPoint";
+constexpr const char* kSaveMapServiceType = "map_msgs/SaveMap";
+constexpr const char* kDeleteMapServiceType = "map_msgs/DeleteMap";
 constexpr const char* kListNaviPointsService = "list_navi_points";
+constexpr const char* kListNaviPointsServiceType = "map_msgs/ListNaviPoints";
 
 bool charging_blocks_manual_control(const RobotStatus& status) {
     if (status.charging) {
@@ -55,6 +60,10 @@ std::size_t find_value_start(const std::string& payload, const std::string& key)
         ++pos;
     }
     return pos;
+}
+
+bool has_key(const std::string& payload, const std::string& key) {
+    return payload.find(std::string("\"") + key + "\"") != std::string::npos;
 }
 
 int extract_int_value(const std::string& payload, const std::string& key, int default_value = 0) {
@@ -192,6 +201,39 @@ std::string extract_string_value(const std::string& payload, const std::string& 
     return "";
 }
 
+long extract_long_value_any(const std::string& payload, std::initializer_list<const char*> keys,
+                            long default_value = 0) {
+    for (const auto* key : keys) {
+        if (key != nullptr && has_key(payload, key)) {
+            return extract_long_value(payload, key, default_value);
+        }
+    }
+    return default_value;
+}
+
+double extract_double_value_any(const std::string& payload, std::initializer_list<const char*> keys,
+                                double default_value = 0.0) {
+    for (const auto* key : keys) {
+        if (key != nullptr && has_key(payload, key)) {
+            return extract_double_value(payload, key, default_value);
+        }
+    }
+    return default_value;
+}
+
+std::string extract_string_value_any(const std::string& payload, std::initializer_list<const char*> keys) {
+    for (const auto* key : keys) {
+        if (key == nullptr || !has_key(payload, key)) {
+            continue;
+        }
+        const auto value = extract_string_value(payload, key);
+        if (!value.empty()) {
+            return value;
+        }
+    }
+    return "";
+}
+
 std::vector<int> extract_int_array(const std::string& payload, const std::string& key) {
     auto pos = find_value_start(payload, key);
     if (pos == std::string::npos || pos >= payload.size() || payload[pos] != '[') {
@@ -287,8 +329,30 @@ std::vector<std::string> extract_object_array(const std::string& payload, const 
     return values;
 }
 
+std::vector<std::string> extract_object_array_any(const std::string& payload,
+                                                  std::initializer_list<const char*> keys) {
+    for (const auto* key : keys) {
+        if (key == nullptr || !has_key(payload, key)) {
+            continue;
+        }
+        const auto values = extract_object_array(payload, key);
+        if (!values.empty()) {
+            return values;
+        }
+    }
+    return {};
+}
+
 double quaternion_to_theta(double z, double w) {
     return std::atan2(2.0 * w * z, 1.0 - 2.0 * z * z);
+}
+
+double theta_to_quaternion_z(double theta) {
+    return std::sin(theta * 0.5);
+}
+
+double theta_to_quaternion_w(double theta) {
+    return std::cos(theta * 0.5);
 }
 
 bool parse_map_selector(const std::string& selector, long* floor_id, long* map_id) {
@@ -351,45 +415,103 @@ std::string json_escape(const std::string& value) {
     return escaped;
 }
 
+std::string unwrap_maps_payload(const std::string& payload) {
+    std::string maps_json = extract_string_value_any(payload, {"message", "data"});
+    if (maps_json.empty()) {
+        maps_json = payload;
+    }
+    return maps_json;
+}
+
+std::vector<MapDescriptor> parse_map_descriptors(const std::string& payload) {
+    const std::string maps_json = unwrap_maps_payload(payload);
+    const long default_floor = extract_long_value_any(maps_json, {"defaultFloor", "default_floor"}, 0);
+    const auto floors = extract_object_array_any(maps_json, {"floors", "floor_list", "floorList"});
+
+    std::vector<MapDescriptor> maps;
+    for (std::size_t floor_index = 0; floor_index < floors.size(); ++floor_index) {
+        const auto& floor_payload = floors[floor_index];
+        const long floor_id = extract_long_value_any(floor_payload, {"floorId", "floor_id", "id"}, 0);
+        if (floor_id <= 0) {
+            continue;
+        }
+
+        const std::string floor_name = extract_string_value_any(
+            floor_payload, {"floorName", "floor_name", "name"});
+        long default_map = extract_long_value_any(
+            floor_payload, {"defaultmap", "defaultMap", "default_map"}, 0);
+        const auto map_payloads = extract_object_array_any(
+            floor_payload, {"maps", "map_list", "mapList"});
+        if (!map_payloads.empty() && default_map <= 0) {
+            default_map = extract_long_value_any(map_payloads.front(), {"mapId", "map_id", "id"}, 0);
+        }
+
+        for (std::size_t map_index = 0; map_index < map_payloads.size(); ++map_index) {
+            const auto& map_payload = map_payloads[map_index];
+            const long map_id = extract_long_value_any(map_payload, {"mapId", "map_id", "id"}, 0);
+            if (map_id <= 0) {
+                continue;
+            }
+
+            MapDescriptor descriptor;
+            descriptor.floor_id = floor_id;
+            descriptor.floor_name = floor_name;
+            descriptor.map_id = map_id;
+            descriptor.map_name = extract_string_value_any(map_payload, {"mapName", "map_name", "name"});
+            descriptor.default_floor_id = default_floor;
+            descriptor.default_map_id = default_map;
+            descriptor.charge_id = extract_long_value_any(map_payload, {"chargeId", "charge_id"}, 0);
+            descriptor.initial_id = extract_long_value_any(map_payload, {"initialId", "initial_id"}, 0);
+            descriptor.is_default_floor = default_floor > 0 ? floor_id == default_floor : floor_index == 0;
+            descriptor.is_default_map = default_map > 0 ? map_id == default_map : map_index == 0;
+            maps.push_back(descriptor);
+        }
+
+        if (map_payloads.empty() && default_map > 0) {
+            MapDescriptor descriptor;
+            descriptor.floor_id = floor_id;
+            descriptor.floor_name = floor_name;
+            descriptor.map_id = default_map;
+            descriptor.default_floor_id = default_floor;
+            descriptor.default_map_id = default_map;
+            descriptor.is_default_floor = default_floor > 0 ? floor_id == default_floor : floor_index == 0;
+            descriptor.is_default_map = true;
+            maps.push_back(descriptor);
+        }
+    }
+
+    return maps;
+}
+
 bool parse_default_map_context(const std::string& payload, long* floor_id, long* map_id) {
     if (floor_id == nullptr || map_id == nullptr) {
         return false;
     }
 
-    std::string maps_json = extract_string_value(payload, "message");
-    if (maps_json.empty()) {
-        maps_json = payload;
-    }
-
-    const long default_floor = extract_long_value(maps_json, "defaultFloor", 0);
-    const auto floors = extract_object_array(maps_json, "floors");
-    if (floors.empty()) {
+    const auto maps = parse_map_descriptors(payload);
+    if (maps.empty()) {
         return false;
     }
 
-    for (const auto& floor_payload : floors) {
-        const long candidate_floor = extract_long_value(floor_payload, "floorId", 0);
-        if (default_floor > 0 && candidate_floor != default_floor) {
-            continue;
-        }
-
-        const long candidate_map = extract_long_value(floor_payload, "defaultmap", 0);
-        if (candidate_floor > 0 && candidate_map > 0) {
-            *floor_id = candidate_floor;
-            *map_id = candidate_map;
+    for (const auto& map : maps) {
+        if (map.is_default_floor && map.is_default_map) {
+            *floor_id = map.floor_id;
+            *map_id = map.map_id;
             return true;
         }
     }
 
-    const long fallback_floor = extract_long_value(floors.front(), "floorId", 0);
-    const long fallback_map = extract_long_value(floors.front(), "defaultmap", 0);
-    if (fallback_floor > 0 && fallback_map > 0) {
-        *floor_id = fallback_floor;
-        *map_id = fallback_map;
-        return true;
+    for (const auto& map : maps) {
+        if (map.is_default_floor) {
+            *floor_id = map.floor_id;
+            *map_id = map.map_id;
+            return true;
+        }
     }
 
-    return false;
+    *floor_id = maps.front().floor_id;
+    *map_id = maps.front().map_id;
+    return true;
 }
 
 bool parse_current_map_metadata(const std::string& payload, long* floor_id, long* map_id,
@@ -401,67 +523,62 @@ bool parse_current_map_metadata(const std::string& payload, long* floor_id, long
     *charge_id = 0;
     *initial_id = 0;
 
-    std::string maps_json = extract_string_value(payload, "message");
-    if (maps_json.empty()) {
-        maps_json = payload;
-    }
-
-    const long default_floor = extract_long_value(maps_json, "defaultFloor", 0);
-    const auto floors = extract_object_array(maps_json, "floors");
-    if (floors.empty()) {
+    const auto maps = parse_map_descriptors(payload);
+    if (maps.empty()) {
         return false;
     }
 
-    for (const auto& floor_payload : floors) {
-        const long candidate_floor = extract_long_value(floor_payload, "floorId", 0);
-        if (default_floor > 0 && candidate_floor != default_floor) {
-            continue;
-        }
-
-        const long default_map = extract_long_value(floor_payload, "defaultmap", 0);
-        const auto maps = extract_object_array(floor_payload, "maps");
-        if (!maps.empty()) {
-            for (const auto& map_payload : maps) {
-                const long candidate_map = extract_long_value(map_payload, "mapId", 0);
-                if (default_map > 0 && candidate_map != default_map) {
-                    continue;
-                }
-                if (candidate_floor > 0 && candidate_map > 0) {
-                    *floor_id = candidate_floor;
-                    *map_id = candidate_map;
-                    *charge_id = extract_long_value(map_payload, "chargeId", 0);
-                    *initial_id = extract_long_value(map_payload, "initialId", 0);
-                    return true;
-                }
-            }
-        }
-
-        if (candidate_floor > 0 && default_map > 0) {
-            *floor_id = candidate_floor;
-            *map_id = default_map;
+    for (const auto& map : maps) {
+        if (map.is_default_floor && map.is_default_map) {
+            *floor_id = map.floor_id;
+            *map_id = map.map_id;
+            *charge_id = map.charge_id;
+            *initial_id = map.initial_id;
             return true;
         }
     }
 
-    return parse_default_map_context(payload, floor_id, map_id);
+    for (const auto& map : maps) {
+        if (map.is_default_floor) {
+            *floor_id = map.floor_id;
+            *map_id = map.map_id;
+            *charge_id = map.charge_id;
+            *initial_id = map.initial_id;
+            return true;
+        }
+    }
+
+    *floor_id = maps.front().floor_id;
+    *map_id = maps.front().map_id;
+    *charge_id = maps.front().charge_id;
+    *initial_id = maps.front().initial_id;
+    return true;
 }
 
 PointRecord build_native_point_record(const std::string& payload, long floor_id, long map_id,
                                       long charge_id, long initial_id) {
     PointRecord point;
-    point.name = extract_string_value(payload, "point_name");
+    point.name = extract_string_value_any(payload, {"point_name", "pointName", "name"});
     point.type = "feed";
-    point.x = extract_double_value(payload, "x");
-    point.y = extract_double_value(payload, "y");
-    point.theta = extract_double_value(payload, "z");
+    point.x = extract_double_value_any(payload, {"x", "position_x"}, 0.0);
+    point.y = extract_double_value_any(payload, {"y", "position_y"}, 0.0);
+    point.theta = extract_double_value_any(payload, {"z", "theta", "yaw"}, 0.0);
     point.floor_id = floor_id;
     point.map_id = map_id;
-    point.point_id = extract_long_value(payload, "point_id", 0);
+    point.point_id = extract_long_value_any(payload, {"point_id", "pointId", "id"}, 0);
 
     if (point.point_id == charge_id) {
         point.type = "charge";
     } else if (point.point_id == initial_id) {
         point.type = "initial";
+    } else {
+        if (point.name.find("充电") != std::string::npos || point.name.find("charge") != std::string::npos ||
+            point.name.find("Charge") != std::string::npos) {
+            point.type = "charge";
+        } else if (point.name.find("初始") != std::string::npos || point.name.find("initial") != std::string::npos ||
+                   point.name.find("Initial") != std::string::npos) {
+            point.type = "initial";
+        }
     }
 
     return point;
@@ -513,7 +630,35 @@ bool RosbridgeAdapter::stop_mapping() {
 }
 
 bool RosbridgeAdapter::save_map(const std::string& map_name) {
-    return !map_name.empty();
+    if (!is_connected() || map_name.empty()) {
+        return false;
+    }
+
+    long floor_id = 0;
+    std::string floor_name = "F1";
+    std::string maps_response;
+    if (call_service("get_maps", kGetMapsServiceType, "{}", &maps_response)) {
+        const auto maps = parse_map_descriptors(maps_response);
+        for (const auto& map : maps) {
+            if (map.is_default_floor && map.is_default_map) {
+                floor_id = map.floor_id;
+                if (!map.floor_name.empty()) {
+                    floor_name = map.floor_name;
+                }
+                break;
+            }
+        }
+    }
+
+    const int save_type = floor_id > 0 ? 0 : 2;
+    std::ostringstream request;
+    request << "{\"type\":" << save_type
+            << ",\"floor_id\":" << floor_id
+            << ",\"floor_name\":\"" << json_escape(floor_name)
+            << "\",\"map_name\":\"" << json_escape(map_name) << "\"}";
+
+    std::string response;
+    return call_service("save_map", kSaveMapServiceType, request.str(), &response);
 }
 
 bool RosbridgeAdapter::load_map(const std::string& map_id) {
@@ -618,18 +763,45 @@ bool RosbridgeAdapter::create_current_pose_point(const std::string& name, long p
         return false;
     }
 
+    const Pose creation_pose = get_robot_pose();
+    long point_id = 0;
+
     std::ostringstream request;
     request << "{\"point_name\":\"" << json_escape(name)
             << "\",\"point_mode\":" << point_mode << "}";
 
     std::string point_response;
-    if (!call_service("point_set", kPointSetServiceType, request.str(), &point_response)) {
-        return false;
+    if (call_service("point_set", kPointSetServiceType, request.str(), &point_response)) {
+        point_id = extract_long_value(point_response, "result", 0);
     }
 
-    const long point_id = extract_long_value(point_response, "result", 0);
     if (point_id <= 0) {
-        return false;
+        std::ostringstream manual_request;
+        manual_request << "{\"point_name\":\"" << json_escape(name)
+                       << "\",\"point_mode\":" << point_mode
+                       << ",\"point\":{\"header\":{\"frame_id\":\"map\"},\"pose\":{\"pose\":{\"position\":{\"x\":"
+                       << creation_pose.x << ",\"y\":" << creation_pose.y
+                       << ",\"z\":0},\"orientation\":{\"x\":0,\"y\":0,\"z\":"
+                       << theta_to_quaternion_z(creation_pose.theta)
+                       << ",\"w\":" << theta_to_quaternion_w(creation_pose.theta)
+                       << "}},\"covariance\":[";
+        for (int index = 0; index < 36; ++index) {
+            if (index > 0) {
+                manual_request << ",";
+            }
+            manual_request << (index == 0 ? 1 : 0);
+        }
+        manual_request << "]}}}";
+
+        point_response.clear();
+        if (!call_service("pointmanu_set", kPointManuSetServiceType, manual_request.str(), &point_response)) {
+            return false;
+        }
+
+        point_id = extract_long_value(point_response, "result", 0);
+        if (point_id <= 0) {
+            return false;
+        }
     }
 
     std::string maps_response;
@@ -640,11 +812,10 @@ bool RosbridgeAdapter::create_current_pose_point(const std::string& name, long p
         return false;
     }
 
-    const Pose pose = get_robot_pose();
     point->name = name;
-    point->x = pose.x;
-    point->y = pose.y;
-    point->theta = pose.theta;
+    point->x = creation_pose.x;
+    point->y = creation_pose.y;
+    point->theta = creation_pose.theta;
     point->floor_id = floor_id;
     point->map_id = map_id;
     point->point_id = point_id;
@@ -667,7 +838,7 @@ bool RosbridgeAdapter::list_native_points(std::vector<PointRecord>* points) {
     }
 
     std::string points_response;
-    if (!call_service(kListNaviPointsService, "", "{}", &points_response)) {
+    if (!call_service(kListNaviPointsService, kListNaviPointsServiceType, "{}", &points_response)) {
         return false;
     }
 
@@ -680,6 +851,36 @@ bool RosbridgeAdapter::list_native_points(std::vector<PointRecord>* points) {
     }
 
     return true;
+}
+
+bool RosbridgeAdapter::list_maps(std::vector<MapDescriptor>* maps) {
+    if (!is_connected() || maps == nullptr) {
+        return false;
+    }
+
+    std::string maps_response;
+    if (!call_service("get_maps", kGetMapsServiceType, "{}", &maps_response)) {
+        return false;
+    }
+
+    *maps = parse_map_descriptors(maps_response);
+    return true;
+}
+
+bool RosbridgeAdapter::delete_map(long floor_id, long map_id) {
+    if (!is_connected() || floor_id <= 0 || map_id <= 0) {
+        return false;
+    }
+
+    std::ostringstream request;
+    request << "{\"floor_id\":" << floor_id
+            << ",\"map_id\":" << map_id << "}";
+
+    std::string response;
+    if (call_service("delete_floor", kDeleteMapServiceType, request.str(), &response)) {
+        return true;
+    }
+    return call_service("delete_map", kDeleteMapServiceType, request.str(), &response);
 }
 
 bool RosbridgeAdapter::delete_saved_point(const PointRecord& point) {

@@ -56,6 +56,31 @@ std::optional<PointRecord> first_point_by_type(const std::vector<PointRecord>& p
     }
     return std::nullopt;
 }
+
+void assign_default_map_ids(const std::vector<MapDescriptor>& maps, PointRecord* point) {
+    if (point == nullptr || (point->floor_id > 0 && point->map_id > 0) || maps.empty()) {
+        return;
+    }
+
+    for (const auto& map : maps) {
+        if (map.is_default_floor && map.is_default_map) {
+            point->floor_id = map.floor_id;
+            point->map_id = map.map_id;
+            return;
+        }
+    }
+
+    for (const auto& map : maps) {
+        if (map.is_default_floor) {
+            point->floor_id = map.floor_id;
+            point->map_id = map.map_id;
+            return;
+        }
+    }
+
+    point->floor_id = maps.front().floor_id;
+    point->map_id = maps.front().map_id;
+}
 }  // namespace
 
 MapService::MapService(IRobotAdapter& adapter, PointRepository* point_repository)
@@ -82,6 +107,18 @@ bool MapService::stop_mapping() {
 
 bool MapService::save_map(const std::string& map_name) const {
     return adapter_.save_map(map_name);
+}
+
+std::vector<MapDescriptor> MapService::list_maps() const {
+    std::vector<MapDescriptor> maps;
+    if (!adapter_.list_maps(&maps)) {
+        return {};
+    }
+    return maps;
+}
+
+bool MapService::delete_map(long floor_id, long map_id) const {
+    return adapter_.delete_map(floor_id, map_id);
 }
 
 MapSnapshot MapService::get_snapshot() const {
@@ -146,6 +183,9 @@ bool MapService::try_seed_mapping_points_once() {
         return false;
     }
 
+    std::vector<MapDescriptor> maps;
+    (void) adapter_.list_maps(&maps);
+
     std::vector<PointRecord> native_points;
     if (adapter_.list_native_points(&native_points)) {
         point_repository_->merge_native_points(native_points);
@@ -170,10 +210,16 @@ bool MapService::try_seed_mapping_points_once() {
         PointRecord created_charge;
         const auto charge_name = next_point_name(points, "C", "charge");
         if (!adapter_.create_current_pose_point(charge_name, 1, &created_charge)) {
-            return false;
+            const auto pose = adapter_.get_robot_pose();
+            created_charge.name = charge_name;
+            created_charge.type = "charge";
+            created_charge.x = pose.x;
+            created_charge.y = pose.y;
+            created_charge.theta = pose.theta;
         }
         created_charge.name = created_charge.name.empty() ? charge_name : created_charge.name;
         created_charge.type = "charge";
+        assign_default_map_ids(maps, &created_charge);
         created_charge.id = point_repository_->upsert_point(created_charge);
         charge_point = created_charge;
     }
@@ -214,6 +260,7 @@ bool MapService::try_seed_mapping_points_once() {
     initial_point.theta = charge_point->theta;
     initial_point.floor_id = charge_point->floor_id;
     initial_point.map_id = charge_point->map_id;
+    assign_default_map_ids(maps, &initial_point);
     initial_point.point_id = 0;
     point_repository_->insert_point(initial_point);
     return true;

@@ -22,6 +22,20 @@ const mockState = {
       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     ],
   },
+  maps: [
+    {
+      floor_id: 1,
+      floor_name: 'F1',
+      map_id: 11,
+      map_name: 'default_map',
+      default_floor_id: 1,
+      default_map_id: 11,
+      charge_id: 101,
+      initial_id: 102,
+      is_default_floor: true,
+      is_default_map: true,
+    },
+  ],
 };
 
 async function requestJson(path, options) {
@@ -72,6 +86,25 @@ window.fishbotApi = {
   },
   async saveMap(name) {
     return requestJson('/api/map/save', { method: 'POST', body: name || 'web_map' });
+  },
+  async getMaps() {
+    try {
+      const payload = await requestJson('/api/maps');
+      return Array.isArray(payload.maps) ? payload.maps : [];
+    } catch (error) {
+      return mockState.maps.slice();
+    }
+  },
+  async deleteMap(floorId, mapId) {
+    const body = new URLSearchParams({
+      floor_id: String(floorId),
+      map_id: String(mapId),
+    }).toString();
+    return requestJson('/api/maps/delete', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body,
+    });
   },
   async getPoints() {
     try {

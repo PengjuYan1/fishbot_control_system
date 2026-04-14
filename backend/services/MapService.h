@@ -4,9 +4,11 @@
 #include <atomic>
 #include <mutex>
 #include <string>
+#include <vector>
 
 #include "backend/model/SystemSnapshot.h"
 #include "ros_adapter/IRobotAdapter.h"
+#include "ros_adapter/model/MapDescriptor.h"
 
 class PointRepository;
 
@@ -17,6 +19,8 @@ class MapService {
     bool start_mapping();
     bool stop_mapping();
     bool save_map(const std::string& map_name) const;
+    std::vector<MapDescriptor> list_maps() const;
+    bool delete_map(long floor_id, long map_id) const;
     MapSnapshot get_snapshot() const;
     void observe_system_snapshot(const SystemSnapshot& snapshot);
 
