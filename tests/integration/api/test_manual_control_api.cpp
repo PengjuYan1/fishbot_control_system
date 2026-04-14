@@ -25,7 +25,12 @@ class FakeControlAdapter : public IRobotAdapter {
     bool set_initial_pose(const Pose&) override { return true; }
     bool out_of_charge() override {
         out_of_charge_requested = true;
-        return true;
+        ++out_of_charge_count;
+        if (out_of_charge_succeeds) {
+            charging = false;
+            charge_status_code = 41;
+        }
+        return out_of_charge_succeeds;
     }
     bool manual_move(double linear_speed, double angular_speed) override {
         move_requested = true;
@@ -36,20 +41,25 @@ class FakeControlAdapter : public IRobotAdapter {
     Pose get_robot_pose() const override { return {}; }
     int get_battery() const override { return 100; }
     RobotStatus get_robot_status() const override {
-        RobotStatus status{100, false, true, true};
+        RobotStatus status{100, charging, true, true};
         status.navigation_status_code = navigation_status_code;
+        status.charge_status_code = charge_status_code;
         return status;
     }
     MapSnapshot get_map_snapshot() const override { return {}; }
     bool is_charging() const override { return false; }
 
     bool out_of_charge_requested = false;
+    bool out_of_charge_succeeds = true;
     bool move_requested = false;
     bool stop_navigation_requested = false;
     int stop_navigation_count = 0;
+    int out_of_charge_count = 0;
     double last_linear = 0.0;
     double last_angular = 0.0;
     int navigation_status_code = 0;
+    bool charging = false;
+    int charge_status_code = 41;
 };
 
 int main() {
@@ -72,6 +82,17 @@ int main() {
     }
 
     adapter.stop_navigation_requested = false;
+
+    adapter.charging = true;
+    adapter.charge_status_code = 47;
+    adapter.move_requested = false;
+    const auto charging_move = server.handle_post("/api/control/move", "linear=0.12&angular=0.0");
+    if (charging_move.status != 200 || !adapter.out_of_charge_requested ||
+        adapter.out_of_charge_count != 2 || adapter.move_requested ||
+        adapter.stop_navigation_count != 1) {
+        std::cerr << "expected manual move in charging state to auto-request out-of-charge before driving\n";
+        return EXIT_FAILURE;
+    }
 
     const auto move = server.handle_post("/api/control/move", "linear=0.15&angular=0.6");
     if (move.status != 200 || !adapter.move_requested ||
@@ -101,6 +122,18 @@ int main() {
         std::cerr << "expected terminal navigation status to avoid redundant release loop\n";
         return EXIT_FAILURE;
     }
+
+    adapter.charging = true;
+    adapter.charge_status_code = 47;
+    adapter.out_of_charge_succeeds = false;
+    const auto failed_out_of_charge = server.handle_post("/api/control/move", "linear=0.05&angular=0.0");
+    if (failed_out_of_charge.status != 500) {
+        std::cerr << "expected charging-state move to fail when out-of-charge command cannot be sent\n";
+        return EXIT_FAILURE;
+    }
+    adapter.out_of_charge_succeeds = true;
+    adapter.charging = false;
+    adapter.charge_status_code = 41;
 
     const auto stop = server.handle_post("/api/control/stop", "");
     if (stop.status != 200 || adapter.stop_navigation_count != 4 ||

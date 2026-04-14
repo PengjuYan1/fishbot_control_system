@@ -10,6 +10,22 @@ bool navigation_still_owns_chassis(const RobotStatus& status) {
             return false;
     }
 }
+
+bool charging_still_blocks_manual_control(const RobotStatus& status) {
+    if (status.charging) {
+        return true;
+    }
+
+    switch (status.charge_status_code) {
+        case 45:
+        case 46:
+        case 47:
+        case 48:
+            return true;
+        default:
+            return false;
+    }
+}
 }  // namespace
 
 ManualControlService::ManualControlService(IRobotAdapter& adapter) : adapter_(adapter) {}
@@ -27,6 +43,12 @@ bool ManualControlService::exit_navigation_mode() {
 bool ManualControlService::move(double linear_speed, double angular_speed) {
     const bool wants_motion = linear_speed != 0.0 || angular_speed != 0.0;
     const auto robot_status = adapter_.get_robot_status();
+
+    if (wants_motion && charging_still_blocks_manual_control(robot_status)) {
+        control_session_active_ = false;
+        return adapter_.out_of_charge();
+    }
+
     const bool must_reacquire_control =
         wants_motion && (!control_session_active_ || navigation_still_owns_chassis(robot_status));
 

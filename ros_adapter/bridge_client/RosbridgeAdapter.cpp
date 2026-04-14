@@ -447,7 +447,12 @@ bool RosbridgeAdapter::set_initial_pose(const Pose& pose) {
 }
 
 bool RosbridgeAdapter::out_of_charge() {
-    return publish_topic("outofcharge", "std_msgs/Int16", "{\"data\":1}");
+    bool ok = true;
+    for (int attempt = 0; attempt < 3; ++attempt) {
+        ok = publish_topic("outofcharge", "std_msgs/Int16", "{\"data\":1}") && ok;
+        std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    }
+    return ok;
 }
 
 bool RosbridgeAdapter::manual_move(double linear_speed, double angular_speed) {
