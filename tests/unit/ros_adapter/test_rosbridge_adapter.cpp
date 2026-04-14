@@ -240,72 +240,62 @@ int main() {
 
     const auto& stop_topics = transport.published_topics();
     const auto& stop_payloads = transport.published_payloads();
-    if (stop_topics.size() < 6) {
-        std::cerr << "expected repeated stop_navigation publishes\n";
+    if (stop_topics.size() < 2) {
+        std::cerr << "expected stop_navigation publishes\n";
         return EXIT_FAILURE;
     }
 
-    if (stop_topics[stop_topics.size() - 6] != "/navi_stop" ||
-        stop_topics[stop_topics.size() - 5] != "/navi_stop" ||
-        stop_topics[stop_topics.size() - 4] != "/navi_stop" ||
-        stop_topics[stop_topics.size() - 3] != "/navi_stop" ||
-        stop_topics[stop_topics.size() - 2] != "/navi_stop" ||
+    if (stop_topics[stop_topics.size() - 2] != "/navi_stop" ||
         stop_topics.back() != "/cmd_vel") {
-        std::cerr << "expected stop_navigation to publish repeated /navi_stop then zero cmd_vel\n";
+        std::cerr << "expected stop_navigation to publish /navi_stop then zero cmd_vel\n";
         return EXIT_FAILURE;
     }
 
-    if (stop_payloads[stop_payloads.size() - 6].find("\"data\":5") == std::string::npos ||
+    if (stop_payloads[stop_payloads.size() - 2].find("\"data\":5") == std::string::npos ||
         stop_payloads.back().find("\"x\":0") == std::string::npos ||
         stop_payloads.back().find("\"z\":0") == std::string::npos) {
-        std::cerr << "expected repeated stop payload and zero velocity release\n";
+        std::cerr << "expected stop payload and zero velocity release\n";
         return EXIT_FAILURE;
     }
 
-    if (!adapter.out_of_charge()) {
-        std::cerr << "expected out_of_charge to succeed\n";
-        return EXIT_FAILURE;
-    }
-
-    const auto& outcharge_services = transport.called_services();
-    const auto& outcharge_service_payloads = transport.called_payloads();
-    if (outcharge_services.empty() || outcharge_services.back() != "/set_mode" ||
-        outcharge_service_payloads.back().find("\"mode\":0") == std::string::npos) {
-        std::cerr << "expected out_of_charge to request manual mode via /set_mode\n";
+    const auto charging_takeover = adapter.acquire_manual_control();
+    if (!charging_takeover.ok ||
+        charging_takeover.state != ManualControlAcquireState::kUndockingRequested) {
+        std::cerr << "expected acquire_manual_control to request undocking while charge is active\n";
         return EXIT_FAILURE;
     }
 
     const auto& outcharge_topics = transport.published_topics();
     const auto& outcharge_payloads = transport.published_payloads();
-    if (outcharge_topics.size() < 21) {
-        std::cerr << "expected out_of_charge to publish a full undock assist sequence\n";
+    if (outcharge_topics.size() < 5) {
+        std::cerr << "expected charging takeover to publish an undock assist sequence\n";
         return EXIT_FAILURE;
     }
 
-    if (outcharge_topics[outcharge_topics.size() - 15] != "/navi_stop" ||
-        outcharge_topics[outcharge_topics.size() - 14] != "/cmd_vel" ||
-        outcharge_topics[outcharge_topics.size() - 13] != "outofcharge" ||
-        outcharge_topics[outcharge_topics.size() - 12] != "/navi_stop" ||
-        outcharge_topics[outcharge_topics.size() - 11] != "/cmd_vel" ||
-        outcharge_topics[outcharge_topics.size() - 10] != "outofcharge" ||
-        outcharge_topics[outcharge_topics.size() - 9] != "/navi_stop" ||
-        outcharge_topics[outcharge_topics.size() - 8] != "/cmd_vel" ||
-        outcharge_topics[outcharge_topics.size() - 7] != "outofcharge" ||
-        outcharge_topics[outcharge_topics.size() - 6] != "/navi_stop" ||
-        outcharge_topics[outcharge_topics.size() - 5] != "/cmd_vel" ||
-        outcharge_topics[outcharge_topics.size() - 4] != "outofcharge" ||
-        outcharge_topics[outcharge_topics.size() - 3] != "/navi_stop" ||
+    if (outcharge_topics[outcharge_topics.size() - 3] != "/navi_stop" ||
         outcharge_topics[outcharge_topics.size() - 2] != "/cmd_vel" ||
-        outcharge_topics[outcharge_topics.size() - 1] != "outofcharge") {
-        std::cerr << "expected out_of_charge to alternate navi_stop, zero cmd_vel and outofcharge\n";
+        outcharge_topics.back() != "outofcharge") {
+        std::cerr << "expected charging takeover to publish navi_stop, zero cmd_vel and outofcharge\n";
         return EXIT_FAILURE;
     }
 
-    if (outcharge_payloads[outcharge_payloads.size() - 15].find("\"data\":5") == std::string::npos ||
-        outcharge_payloads[outcharge_payloads.size() - 14].find("\"x\":0") == std::string::npos ||
-        outcharge_payloads[outcharge_payloads.size() - 14].find("\"z\":0") == std::string::npos ||
-        outcharge_payloads[outcharge_payloads.size() - 13].find("\"data\":1") == std::string::npos) {
-        std::cerr << "expected out_of_charge release payloads to match navi_stop, zero cmd_vel and outofcharge\n";
+    if (outcharge_payloads[outcharge_payloads.size() - 3].find("\"data\":5") == std::string::npos ||
+        outcharge_payloads[outcharge_payloads.size() - 2].find("\"x\":0") == std::string::npos ||
+        outcharge_payloads[outcharge_payloads.size() - 2].find("\"z\":0") == std::string::npos ||
+        outcharge_payloads.back().find("\"data\":1") == std::string::npos) {
+        std::cerr << "expected charging takeover payloads to match navi_stop, zero cmd_vel and outofcharge\n";
+        return EXIT_FAILURE;
+    }
+
+    transport.emit("androidmsg_chargestatus", "{\"data\":41}");
+    const auto ready_takeover = adapter.acquire_manual_control();
+    if (!ready_takeover.ok || ready_takeover.state != ManualControlAcquireState::kReady) {
+        std::cerr << "expected acquire_manual_control to report ready once charging clears\n";
+        return EXIT_FAILURE;
+    }
+
+    if (!adapter.out_of_charge()) {
+        std::cerr << "expected explicit out_of_charge request to succeed\n";
         return EXIT_FAILURE;
     }
 
@@ -414,11 +404,8 @@ int main() {
     }
 
     flaky_transport.fail_service("/set_mode", 1);
-    flaky_transport.fail_publish("/navi_stop", 2);
-    flaky_transport.fail_publish("/cmd_vel", 2);
-    flaky_transport.fail_publish("outofcharge", 2);
-    if (!flaky_adapter.out_of_charge()) {
-        std::cerr << "expected out_of_charge to tolerate partial rosbridge failures when retries later succeed\n";
+    if (flaky_adapter.out_of_charge()) {
+        std::cerr << "expected out_of_charge to fail when manual takeover cannot be acquired\n";
         return EXIT_FAILURE;
     }
 

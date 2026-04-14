@@ -23,6 +23,9 @@ class FakeTraceAdapter : public IRobotAdapter {
     bool navigate_to_pose(const Pose&) override { return true; }
     bool stop_navigation() override { return true; }
     bool set_initial_pose(const Pose&) override { return true; }
+    ManualControlAcquireResult acquire_manual_control() override {
+        return ManualControlAcquireResult{true, ManualControlAcquireState::kReady};
+    }
     bool out_of_charge() override { return true; }
     bool manual_move(double, double) override { return true; }
     Pose get_robot_pose() const override { return pose_; }

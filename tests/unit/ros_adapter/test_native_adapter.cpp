@@ -10,5 +10,11 @@ int main() {
         return EXIT_FAILURE;
     }
 
+    const auto acquire = adapter.acquire_manual_control();
+    if (acquire.ok || acquire.state != ManualControlAcquireState::kFailed) {
+        std::cerr << "expected disconnected native adapter takeover to fail\n";
+        return EXIT_FAILURE;
+    }
+
     return EXIT_SUCCESS;
 }

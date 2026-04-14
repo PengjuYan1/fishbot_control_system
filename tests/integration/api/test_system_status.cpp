@@ -21,6 +21,9 @@ class FakeRobotAdapter : public IRobotAdapter {
     bool navigate_to_pose(const Pose&) override { return true; }
     bool stop_navigation() override { return true; }
     bool set_initial_pose(const Pose&) override { return true; }
+    ManualControlAcquireResult acquire_manual_control() override {
+        return ManualControlAcquireResult{true, ManualControlAcquireState::kReady};
+    }
     bool out_of_charge() override {
         out_of_charge_requested = true;
         return true;

@@ -25,6 +25,13 @@ bool NativeRosAdapter::stop_navigation() { return connected_; }
 
 bool NativeRosAdapter::set_initial_pose(const Pose&) { return connected_; }
 
+ManualControlAcquireResult NativeRosAdapter::acquire_manual_control() {
+    return ManualControlAcquireResult{
+        connected_,
+        connected_ ? ManualControlAcquireState::kReady : ManualControlAcquireState::kFailed,
+    };
+}
+
 bool NativeRosAdapter::out_of_charge() { return connected_; }
 
 bool NativeRosAdapter::manual_move(double, double) { return connected_; }

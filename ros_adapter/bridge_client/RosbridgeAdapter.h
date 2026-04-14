@@ -21,6 +21,7 @@ class RosbridgeAdapter : public IRobotAdapter {
     bool navigate_to_pose(const Pose& pose) override;
     bool stop_navigation() override;
     bool set_initial_pose(const Pose& pose) override;
+    ManualControlAcquireResult acquire_manual_control() override;
     bool out_of_charge() override;
     bool manual_move(double linear_speed, double angular_speed) override;
     Pose get_robot_pose() const override;
@@ -72,6 +73,7 @@ class RosbridgeAdapter : public IRobotAdapter {
     int navigation_status_ = 0;
     int map_status_ = 0;
     int android_map_status_ = 0;
+    long long last_manual_takeover_command_ms_ = 0;
     Pose pose_;
     MapSnapshot map_snapshot_;
 };

@@ -35,6 +35,11 @@ int main() {
         return EXIT_FAILURE;
     }
 
+    if (!contains(capabilities, "acquire_manual_control")) {
+        std::cerr << "expected acquire_manual_control capability\n";
+        return EXIT_FAILURE;
+    }
+
     if (!contains(capabilities, "manual_move")) {
         std::cerr << "expected manual_move capability\n";
         return EXIT_FAILURE;

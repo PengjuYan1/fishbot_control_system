@@ -36,6 +36,9 @@ class FakeAdapter final : public IRobotAdapter {
     bool navigate_to_pose(const Pose&) override { return true; }
     bool stop_navigation() override { return true; }
     bool set_initial_pose(const Pose&) override { return true; }
+    ManualControlAcquireResult acquire_manual_control() override {
+        return ManualControlAcquireResult{true, ManualControlAcquireState::kReady};
+    }
     bool out_of_charge() override { return true; }
     bool manual_move(double, double) override { return true; }
     int get_battery() const override { return 76; }

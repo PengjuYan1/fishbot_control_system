@@ -30,6 +30,12 @@ class FakeRobotAdapter : public IRobotAdapter {
         pose_ = pose;
         return true;
     }
+    ManualControlAcquireResult acquire_manual_control() override {
+        return ManualControlAcquireResult{
+            connected_,
+            connected_ ? ManualControlAcquireState::kReady : ManualControlAcquireState::kFailed,
+        };
+    }
     bool out_of_charge() override { return true; }
     bool manual_move(double linear_speed, double angular_speed) override {
         pose_.x += linear_speed;

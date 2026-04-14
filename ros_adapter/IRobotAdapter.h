@@ -9,6 +9,17 @@
 #include "ros_adapter/model/Pose.h"
 #include "ros_adapter/model/RobotStatus.h"
 
+enum class ManualControlAcquireState {
+    kReady,
+    kUndockingRequested,
+    kFailed,
+};
+
+struct ManualControlAcquireResult {
+    bool ok = false;
+    ManualControlAcquireState state = ManualControlAcquireState::kFailed;
+};
+
 class IRobotAdapter {
   public:
     virtual ~IRobotAdapter() = default;
@@ -24,6 +35,7 @@ class IRobotAdapter {
     virtual bool navigate_to_pose(const Pose& pose) = 0;
     virtual bool stop_navigation() = 0;
     virtual bool set_initial_pose(const Pose& pose) = 0;
+    virtual ManualControlAcquireResult acquire_manual_control() = 0;
     virtual bool out_of_charge() = 0;
     virtual bool manual_move(double linear_speed, double angular_speed) = 0;
     virtual Pose get_robot_pose() const = 0;

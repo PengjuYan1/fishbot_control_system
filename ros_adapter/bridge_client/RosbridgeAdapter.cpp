@@ -11,6 +11,29 @@
 #include <vector>
 
 namespace {
+constexpr int kChargeReady = 41;
+
+bool charging_blocks_manual_control(const RobotStatus& status) {
+    if (status.charging) {
+        return true;
+    }
+
+    switch (status.charge_status_code) {
+        case 45:
+        case 46:
+        case 47:
+        case 48:
+            return true;
+        default:
+            return false;
+    }
+}
+
+long long steady_clock_millis() {
+    return std::chrono::duration_cast<std::chrono::milliseconds>(
+        std::chrono::steady_clock::now().time_since_epoch()).count();
+}
+
 std::size_t find_value_start(const std::string& payload, const std::string& key) {
     const auto token = std::string("\"") + key + "\"";
     const auto key_pos = payload.find(token);
@@ -430,10 +453,7 @@ bool RosbridgeAdapter::navigate_to_pose(const Pose& pose) {
 bool RosbridgeAdapter::stop_navigation() {
     std::string response;
     bool ok = call_service("/set_mode", "map_msgs/SetMode", "{\"mode\":0}", &response);
-    for (int attempt = 0; attempt < 5; ++attempt) {
-        ok = publish_topic("/navi_stop", "std_msgs/Int16", "{\"data\":5}") && ok;
-        std::this_thread::sleep_for(std::chrono::milliseconds(50));
-    }
+    ok = publish_topic("/navi_stop", "std_msgs/Int16", "{\"data\":5}") && ok;
 
     std::ostringstream payload;
     payload << "{\"linear\":{\"x\":0,\"y\":0,\"z\":0},\"angular\":{\"x\":0,\"y\":0,\"z\":0}}";
@@ -446,18 +466,45 @@ bool RosbridgeAdapter::set_initial_pose(const Pose& pose) {
     return publish_topic("/initialpose", "geometry_msgs/PoseWithCovarianceStamped", payload.str());
 }
 
-bool RosbridgeAdapter::out_of_charge() {
+ManualControlAcquireResult RosbridgeAdapter::acquire_manual_control() {
+    if (!is_connected()) {
+        return ManualControlAcquireResult{false, ManualControlAcquireState::kFailed};
+    }
+
     std::string response;
     bool ok = call_service("/set_mode", "map_msgs/SetMode", "{\"mode\":0}", &response);
-    const std::string zero_velocity =
-        "{\"linear\":{\"x\":0,\"y\":0,\"z\":0},\"angular\":{\"x\":0,\"y\":0,\"z\":0}}";
-    for (int attempt = 0; attempt < 5; ++attempt) {
-        ok = publish_topic("/navi_stop", "std_msgs/Int16", "{\"data\":5}") && ok;
-        ok = publish_topic("/cmd_vel", "geometry_msgs/Twist", zero_velocity) && ok;
-        ok = publish_topic("outofcharge", "std_msgs/Int16", "{\"data\":1}") && ok;
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    ok = publish_topic("/navi_stop", "std_msgs/Int16", "{\"data\":5}") && ok;
+    ok = publish_topic("/cmd_vel", "geometry_msgs/Twist",
+                       "{\"linear\":{\"x\":0,\"y\":0,\"z\":0},\"angular\":{\"x\":0,\"y\":0,\"z\":0}}") && ok;
+
+    const auto status = get_robot_status();
+    if (!ok) {
+        return ManualControlAcquireResult{false, ManualControlAcquireState::kFailed};
     }
-    return ok;
+
+    if (charging_blocks_manual_control(status)) {
+        const auto now_ms = steady_clock_millis();
+        if (last_manual_takeover_command_ms_ == 0 ||
+            (now_ms - last_manual_takeover_command_ms_) >= 250) {
+            ok = publish_topic("outofcharge", "std_msgs/Int16", "{\"data\":1}") && ok;
+            last_manual_takeover_command_ms_ = now_ms;
+        }
+
+        return ManualControlAcquireResult{
+            ok,
+            ok ? ManualControlAcquireState::kUndockingRequested : ManualControlAcquireState::kFailed,
+        };
+    }
+
+    if (status.charge_status_code == kChargeReady || !status.charging) {
+        return ManualControlAcquireResult{true, ManualControlAcquireState::kReady};
+    }
+
+    return ManualControlAcquireResult{false, ManualControlAcquireState::kFailed};
+}
+
+bool RosbridgeAdapter::out_of_charge() {
+    return acquire_manual_control().ok;
 }
 
 bool RosbridgeAdapter::manual_move(double linear_speed, double angular_speed) {
