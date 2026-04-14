@@ -201,7 +201,6 @@ function bindControlButtons() {
   const goChargeButton = document.getElementById('go-charge-button');
   const outOfChargeButton = document.getElementById('out-of-charge-button');
   const exitNavigationModeButton = document.getElementById('exit-navigation-mode-button');
-  const manualStopButton = document.getElementById('manual-stop-button');
   const driveStopCenterButton = document.getElementById('drive-stop-center');
   const driveButtons = Array.from(document.querySelectorAll('.drive-button[data-linear]'));
   const mapEditorButton = document.getElementById('goto-map-editor-button');
@@ -363,10 +362,6 @@ function bindControlButtons() {
         setActionFeedback(`退出导航模式失败：${formatError(error)}`, 'error');
       }
     });
-  }
-
-  if (manualStopButton) {
-    manualStopButton.addEventListener('click', stopDriving);
   }
 
   if (driveStopCenterButton) {
