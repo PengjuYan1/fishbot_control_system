@@ -162,6 +162,14 @@ target_link_libraries(test_system_status PRIVATE fishbot_backend)
 add_test(NAME SystemStatusTest COMMAND test_system_status)
 set_tests_properties(SystemStatusTest PROPERTIES WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
 
+add_executable(test_system_status_trace
+    tests/integration/api/test_system_status_trace.cpp
+)
+target_link_libraries(test_system_status_trace PRIVATE fishbot_backend)
+
+add_test(NAME SystemStatusTraceTest COMMAND test_system_status_trace)
+set_tests_properties(SystemStatusTraceTest PROPERTIES WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+
 add_executable(test_manual_control_api
     tests/integration/api/test_manual_control_api.cpp
 )

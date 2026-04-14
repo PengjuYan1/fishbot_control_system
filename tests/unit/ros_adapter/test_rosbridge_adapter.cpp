@@ -3,8 +3,9 @@
 #include <cstdlib>
 #include <functional>
 #include <iostream>
-#include <string>
+#include <map>
 #include <sstream>
+#include <string>
 #include <unordered_map>
 #include <vector>
 
@@ -29,6 +30,11 @@ class FakeRosbridgeTransport : public IRosbridgeTransport {
         published_count_ += 1;
         published_topics_.push_back(topic);
         published_payloads_.push_back(payload);
+        auto it = publish_failures_remaining_.find(topic);
+        if (it != publish_failures_remaining_.end() && it->second > 0) {
+            it->second -= 1;
+            return false;
+        }
         return true;
     }
 
@@ -41,6 +47,11 @@ class FakeRosbridgeTransport : public IRosbridgeTransport {
         called_payloads_.push_back(request);
         if (response != nullptr) {
             *response = "{}";
+        }
+        auto it = service_failures_remaining_.find(service);
+        if (it != service_failures_remaining_.end() && it->second > 0) {
+            it->second -= 1;
+            return false;
         }
         return true;
     }
@@ -69,6 +80,8 @@ class FakeRosbridgeTransport : public IRosbridgeTransport {
     const std::vector<std::string>& published_payloads() const { return published_payloads_; }
     const std::vector<std::string>& called_services() const { return called_services_; }
     const std::vector<std::string>& called_payloads() const { return called_payloads_; }
+    void fail_publish(const std::string& topic, int times) { publish_failures_remaining_[topic] = times; }
+    void fail_service(const std::string& service, int times) { service_failures_remaining_[service] = times; }
 
   private:
     bool connected_ = false;
@@ -81,6 +94,8 @@ class FakeRosbridgeTransport : public IRosbridgeTransport {
     std::vector<std::string> published_payloads_;
     std::vector<std::string> called_services_;
     std::vector<std::string> called_payloads_;
+    std::map<std::string, int> publish_failures_remaining_;
+    std::map<std::string, int> service_failures_remaining_;
     std::unordered_map<std::string, MessageCallback> subscriptions_;
     std::unordered_map<std::string, std::string> subscription_types_;
 };
@@ -388,6 +403,22 @@ int main() {
     if (huge_snapshot.width != 500 || huge_snapshot.height != 500 ||
         huge_snapshot.occupancy_data.size() != 250000) {
         std::cerr << "expected large /map payload to parse without crashing\n";
+        return EXIT_FAILURE;
+    }
+
+    FakeRosbridgeTransport flaky_transport;
+    RosbridgeAdapter flaky_adapter(&flaky_transport);
+    if (!flaky_adapter.connect()) {
+        std::cerr << "expected flaky adapter connect to succeed\n";
+        return EXIT_FAILURE;
+    }
+
+    flaky_transport.fail_service("/set_mode", 1);
+    flaky_transport.fail_publish("/navi_stop", 2);
+    flaky_transport.fail_publish("/cmd_vel", 2);
+    flaky_transport.fail_publish("outofcharge", 2);
+    if (!flaky_adapter.out_of_charge()) {
+        std::cerr << "expected out_of_charge to tolerate partial rosbridge failures when retries later succeed\n";
         return EXIT_FAILURE;
     }
 
