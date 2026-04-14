@@ -11,7 +11,11 @@ bool has_native_identity(const PointRecord& point) {
     return point.floor_id > 0 && point.map_id > 0 && point.point_id > 0;
 }
 
-void try_load_map_for_point(IRobotAdapter& adapter, const std::optional<PointRecord>& point) {
+void try_load_map_for_point(IRobotAdapter& adapter, const std::optional<PointRecord>& point,
+                            bool allow_switch_map) {
+    if (!allow_switch_map) {
+        return;
+    }
     if (!point.has_value() || point->floor_id <= 0 || point->map_id <= 0) {
         return;
     }
@@ -45,7 +49,9 @@ TaskStartResult TaskService::start_charge_return() {
     } catch (const std::runtime_error&) {
     }
 
-    try_load_map_for_point(adapter_, charge_point);
+    const auto status_before_return = adapter_.get_robot_status();
+    // Avoid switching maps while already localized; force-load can drop localization and block motion.
+    try_load_map_for_point(adapter_, charge_point, !status_before_return.localized);
 
     if (charge_point.has_value() && has_native_identity(*charge_point)) {
         try {
