@@ -59,6 +59,10 @@ ManualControlCommandResult ManualControlService::out_of_charge() {
 ManualControlCommandResult ManualControlService::undock() {
     bool ok = adapter_.out_of_charge();
     if (ok) {
+        // Reinforce navigation release once during undock without making it a hard failure.
+        (void) adapter_.stop_navigation();
+    }
+    if (ok) {
         ok = adapter_.manual_move(kUndockLinearSpeed, kUndockAngularSpeed);
     }
     if (ok) {
@@ -104,6 +108,33 @@ ManualControlCommandResult ManualControlService::move(double linear_speed, doubl
 
     if (!motion_requested) {
         return stop();
+    }
+
+    const auto robot_status = adapter_.get_robot_status();
+
+    bool session_can_drive_direct = false;
+    {
+        std::lock_guard<std::mutex> lock(mutex_);
+        sync_session_from_status_locked(robot_status);
+        session_can_drive_direct =
+            session_state_.session_active &&
+            !charging_still_blocks_manual_control(robot_status) &&
+            robot_status.navigation_status_code != 1 &&
+            robot_status.navigation_status_code != 5;
+    }
+
+    if (session_can_drive_direct) {
+        if (!adapter_.manual_move(linear_speed, angular_speed)) {
+            std::lock_guard<std::mutex> lock(mutex_);
+            update_state_locked(ManualControlPhase::kReadyForDrive, linear_speed, angular_speed, true, true);
+            sync_session_from_status_locked(adapter_.get_robot_status());
+            return ManualControlCommandResult{false, snapshot_state_locked()};
+        }
+
+        std::lock_guard<std::mutex> lock(mutex_);
+        update_state_locked(ManualControlPhase::kDriving, linear_speed, angular_speed, true, true);
+        sync_session_from_status_locked(adapter_.get_robot_status());
+        return ManualControlCommandResult{true, snapshot_state_locked()};
     }
 
     if (undock_grace_active(undock_grace_deadline_)) {
