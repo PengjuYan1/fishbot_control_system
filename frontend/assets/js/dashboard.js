@@ -201,14 +201,19 @@ function bindControlButtons() {
   const goChargeButton = document.getElementById('go-charge-button');
   const outOfChargeButton = document.getElementById('out-of-charge-button');
   const exitNavigationModeButton = document.getElementById('exit-navigation-mode-button');
+  const joystickBase = document.getElementById('manual-joystick-base');
+  const joystickKnob = document.getElementById('manual-joystick-knob');
   const driveStopCenterButton = document.getElementById('drive-stop-center');
-  const driveButtons = Array.from(document.querySelectorAll('.drive-button[data-linear]'));
   const mapEditorButton = document.getElementById('goto-map-editor-button');
   const feedEditorButton = document.getElementById('goto-map-editor-feed-button');
   const actionFeedbackNode = document.getElementById('action-feedback');
+  const maxLinearSpeed = 0.30;
+  const maxAngularSpeed = 0.45;
   let moveTimer = null;
   let activeDrivePointerId = null;
   let activeDriveRequiresStop = false;
+  let currentLinearSpeed = 0;
+  let currentAngularSpeed = 0;
 
   const setActionFeedback = (message, level) => {
     if (!actionFeedbackNode) {
@@ -239,6 +244,14 @@ function bindControlButtons() {
     }
     activeDrivePointerId = null;
     activeDriveRequiresStop = false;
+    currentLinearSpeed = 0;
+    currentAngularSpeed = 0;
+    if (joystickBase) {
+      joystickBase.classList.remove('is-active');
+    }
+    if (joystickKnob) {
+      joystickKnob.style.transform = 'translate3d(0px, 0px, 0)';
+    }
     try {
       await window.fishbotApi.stopManualMove();
       setActionFeedback('已发送停止导航并释放控制权，同时下发停止速度。', 'success');
@@ -255,26 +268,18 @@ function bindControlButtons() {
     }
     activeDrivePointerId = pointerId;
     activeDriveRequiresStop = true;
+    currentLinearSpeed = linear;
+    currentAngularSpeed = angular;
     await window.fishbotApi.manualMove(linear, angular);
-    let directionLabel = '移动';
-    if (linear > 0 && angular === 0) {
-      directionLabel = '前进';
-    } else if (linear < 0 && angular === 0) {
-      directionLabel = '后退';
-    } else if (linear === 0 && angular > 0) {
-      directionLabel = '左转';
-    } else if (linear === 0 && angular < 0) {
-      directionLabel = '右转';
-    } else {
-      directionLabel = `移动：线速度 ${linear.toFixed(2)}，角速度 ${angular.toFixed(2)}`;
-    }
-    setActionFeedback(`已发送${directionLabel}指令。`, 'success');
+    setActionFeedback(`摇杆控制：线速度 ${linear.toFixed(2)}，角速度 ${angular.toFixed(2)}。`, 'success');
     moveTimer = window.setInterval(() => {
-      window.fishbotApi.manualMove(linear, angular).catch(async (error) => {
+      window.fishbotApi.manualMove(currentLinearSpeed, currentAngularSpeed).catch(async (error) => {
         window.clearInterval(moveTimer);
         moveTimer = null;
         activeDrivePointerId = null;
         activeDriveRequiresStop = false;
+        currentLinearSpeed = 0;
+        currentAngularSpeed = 0;
         setActionFeedback(`移动失败：${formatError(error)}`, 'error');
         try {
           await window.fishbotApi.stopManualMove();
@@ -282,6 +287,52 @@ function bindControlButtons() {
         }
       });
     }, 100);
+  };
+
+  const updateJoystickPosition = (clientX, clientY) => {
+    if (!joystickBase || !joystickKnob) {
+      return { linear: 0, angular: 0 };
+    }
+
+    const rect = joystickBase.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    const deltaX = clientX - centerX;
+    const deltaY = clientY - centerY;
+    const knobRadius = joystickKnob.offsetWidth / 2 || 39;
+    const movementRadius = Math.max((rect.width - knobRadius * 2) / 2, 1);
+    const distance = Math.hypot(deltaX, deltaY);
+    const scale = distance > movementRadius ? movementRadius / distance : 1;
+    const limitedX = deltaX * scale;
+    const limitedY = deltaY * scale;
+    const normalizedX = limitedX / movementRadius;
+    const normalizedY = limitedY / movementRadius;
+
+    joystickKnob.style.transform = `translate3d(${limitedX}px, ${limitedY}px, 0)`;
+
+    return {
+      linear: Number((-normalizedY * maxLinearSpeed).toFixed(3)),
+      angular: Number((-normalizedX * maxAngularSpeed).toFixed(3)),
+    };
+  };
+
+  const handleJoystickMove = async (clientX, clientY, pointerId) => {
+    if (!joystickBase) {
+      return;
+    }
+
+    const { linear, angular } = updateJoystickPosition(clientX, clientY);
+    joystickBase.classList.add('is-active');
+
+    if (!activeDriveRequiresStop) {
+      await startDriving(linear, angular, pointerId);
+      return;
+    }
+
+    activeDrivePointerId = pointerId;
+    currentLinearSpeed = linear;
+    currentAngularSpeed = angular;
+    setActionFeedback(`摇杆控制：线速度 ${linear.toFixed(2)}，角速度 ${angular.toFixed(2)}。`, 'success');
   };
 
   if (startMappingButton) {
@@ -368,43 +419,47 @@ function bindControlButtons() {
     driveStopCenterButton.addEventListener('click', stopDriving);
   }
 
-  driveButtons.forEach((button) => {
-    const linear = Number(button.dataset.linear || 0);
-    const angular = Number(button.dataset.angular || 0);
-    button.addEventListener('pointerdown', async (event) => {
+  const bindJoystickStart = (target) => {
+    if (!target) {
+      return;
+    }
+
+    target.addEventListener('pointerdown', async (event) => {
       event.preventDefault();
-      if (button.setPointerCapture && event.pointerId !== undefined) {
-        button.setPointerCapture(event.pointerId);
+      if (joystickBase && joystickBase.setPointerCapture && event.pointerId !== undefined) {
+        joystickBase.setPointerCapture(event.pointerId);
       }
       try {
-        await startDriving(linear, angular, event.pointerId);
+        await handleJoystickMove(event.clientX, event.clientY, event.pointerId);
       } catch (error) {
         setActionFeedback(`移动失败：${formatError(error)}`, 'error');
       }
     });
-    button.addEventListener('pointerup', async (event) => {
-      if (activeDriveRequiresStop &&
-          (activeDrivePointerId === null || activeDrivePointerId === event.pointerId)) {
-        await stopDriving();
+  };
+
+  bindJoystickStart(joystickBase);
+  bindJoystickStart(joystickKnob);
+
+  window.addEventListener('pointermove', async (event) => {
+    if (activeDriveRequiresStop &&
+        (activeDrivePointerId === null || activeDrivePointerId === event.pointerId)) {
+      try {
+        await handleJoystickMove(event.clientX, event.clientY, event.pointerId);
+      } catch (error) {
+        setActionFeedback(`移动失败：${formatError(error)}`, 'error');
       }
-    });
-    button.addEventListener('pointerleave', async (event) => {
-      if (activeDriveRequiresStop &&
-          (activeDrivePointerId === null || activeDrivePointerId === event.pointerId)) {
-        await stopDriving();
-      }
-    });
-    button.addEventListener('pointercancel', async (event) => {
-      if (activeDriveRequiresStop &&
-          (activeDrivePointerId === null || activeDrivePointerId === event.pointerId)) {
-        await stopDriving();
-      }
-    });
+    }
   });
 
   window.addEventListener('pointerup', async (event) => {
     if (activeDriveRequiresStop &&
-        moveTimer &&
+        (activeDrivePointerId === null || activeDrivePointerId === event.pointerId)) {
+      await stopDriving();
+    }
+  });
+
+  window.addEventListener('pointercancel', async (event) => {
+    if (activeDriveRequiresStop &&
         (activeDrivePointerId === null || activeDrivePointerId === event.pointerId)) {
       await stopDriving();
     }
