@@ -106,6 +106,21 @@ void run_migrations(const DatabaseHandle& db) {
     add_column_if_missing(db.connection, "points", "floor_id", "floor_id INTEGER NOT NULL DEFAULT 0");
     add_column_if_missing(db.connection, "points", "map_id", "map_id INTEGER NOT NULL DEFAULT 0");
     add_column_if_missing(db.connection, "points", "point_id", "point_id INTEGER NOT NULL DEFAULT 0");
+    add_column_if_missing(db.connection, "points", "point_kind",
+                          "point_kind TEXT NOT NULL DEFAULT 'navigation'");
+    add_column_if_missing(db.connection, "points", "biz_role", "biz_role TEXT NOT NULL DEFAULT ''");
+
+    exec_sql(db.connection,
+             "UPDATE points "
+             "SET point_kind = CASE "
+             "WHEN type = 'charge' THEN 'charge' "
+             "WHEN type = 'initial' THEN 'initial' "
+             "ELSE 'navigation' END "
+             "WHERE point_kind IS NULL OR point_kind = ''");
+    exec_sql(db.connection,
+             "UPDATE points "
+             "SET biz_role = CASE WHEN type = 'feed' THEN 'feed' ELSE '' END "
+             "WHERE biz_role IS NULL OR biz_role = ''");
 }
 
 bool table_exists(const DatabaseHandle& db, const std::string& table_name) {

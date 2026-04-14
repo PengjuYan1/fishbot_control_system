@@ -7,6 +7,8 @@ struct PointRecord {
     int id = 0;
     std::string name;
     std::string type;
+    std::string point_kind = "navigation";
+    std::string biz_role;
     double x = 0.0;
     double y = 0.0;
     double theta = 0.0;

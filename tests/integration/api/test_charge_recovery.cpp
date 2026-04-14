@@ -44,9 +44,34 @@ int main() {
     run_migrations(db);
 
     PointRepository point_repository(db);
-    point_repository.insert_point(PointRecord{0, "F1", "feed", 1.0, 1.0, 0.0});
-    point_repository.insert_point(PointRecord{0, "F2", "feed", 2.0, 2.0, 0.2});
-    point_repository.insert_point(PointRecord{0, "F3", "feed", 3.0, 3.0, 0.3});
+    PointRecord feed1;
+    feed1.name = "F1";
+    feed1.type = "feed";
+    feed1.point_kind = "navigation";
+    feed1.biz_role = "feed";
+    feed1.x = 1.0;
+    feed1.y = 1.0;
+    point_repository.insert_point(feed1);
+
+    PointRecord feed2;
+    feed2.name = "F2";
+    feed2.type = "feed";
+    feed2.point_kind = "navigation";
+    feed2.biz_role = "feed";
+    feed2.x = 2.0;
+    feed2.y = 2.0;
+    feed2.theta = 0.2;
+    point_repository.insert_point(feed2);
+
+    PointRecord feed3;
+    feed3.name = "F3";
+    feed3.type = "feed";
+    feed3.point_kind = "navigation";
+    feed3.biz_role = "feed";
+    feed3.x = 3.0;
+    feed3.y = 3.0;
+    feed3.theta = 0.3;
+    point_repository.insert_point(feed3);
 
     TaskRunRepository task_run_repository(db);
     FakeRecoveryAdapter adapter;

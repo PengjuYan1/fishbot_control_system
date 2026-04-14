@@ -33,6 +33,19 @@ long optional_long_value(const std::unordered_map<std::string, std::string>& val
     }
     return 0;
 }
+
+std::string canonical_type_for(const std::string& point_kind, const std::string& biz_role) {
+    if (point_kind == "charge") {
+        return "charge";
+    }
+    if (point_kind == "initial") {
+        return "initial";
+    }
+    if (biz_role == "feed") {
+        return "feed";
+    }
+    return "navigation";
+}
 }  // namespace
 
 PointService::PointService(PointRepository& repository) : repository_(repository) {}
@@ -41,19 +54,23 @@ PointService::PointService(PointRepository& repository, IRobotAdapter& adapter)
     : repository_(repository), adapter_(&adapter) {}
 
 int PointService::create_charge_point(const std::string& body) {
-    return repository_.insert_point(parse_point(body, "charge"));
+    return repository_.insert_point(parse_point(body, "charge", ""));
 }
 
 int PointService::create_feed_point(const std::string& body) {
-    return repository_.insert_point(parse_point(body, "feed"));
+    return repository_.insert_point(parse_point(body, "navigation", "feed"));
+}
+
+PointRecord PointService::create_current_initial_point() {
+    return create_current_point("initial", "", "I", 2);
 }
 
 PointRecord PointService::create_current_charge_point() {
-    return create_current_point("charge", "C", 1);
+    return create_current_point("charge", "", "C", 1);
 }
 
 PointRecord PointService::create_current_feed_point() {
-    return create_current_point("feed", "F", 0);
+    return create_current_point("navigation", "feed", "F", 0);
 }
 
 PointRecord PointService::delete_point(int id) {
@@ -82,11 +99,13 @@ std::vector<PointRecord> PointService::list_points() const {
     return repository_.list_points();
 }
 
-std::string PointService::next_point_name(const std::string& prefix, const std::string& type) const {
+std::string PointService::next_point_name(const std::string& prefix, const std::string& point_kind,
+                                         const std::string& biz_role) const {
     const auto points = repository_.list_points();
     int max_index = 0;
     for (const auto& point : points) {
-        if (point.type != type || point.name.size() <= prefix.size() || point.name.rfind(prefix, 0) != 0) {
+        if (point.point_kind != point_kind || point.biz_role != biz_role ||
+            point.name.size() <= prefix.size() || point.name.rfind(prefix, 0) != 0) {
             continue;
         }
 
@@ -110,11 +129,14 @@ std::string PointService::next_point_name(const std::string& prefix, const std::
     return prefix + std::to_string(max_index + 1);
 }
 
-PointRecord PointService::parse_point(const std::string& body, const std::string& type) const {
+PointRecord PointService::parse_point(const std::string& body, const std::string& point_kind,
+                                      const std::string& biz_role) const {
     const auto values = parse_form_encoded(body);
     PointRecord point;
     point.name = values.at("name");
-    point.type = type;
+    point.point_kind = point_kind;
+    point.biz_role = biz_role;
+    point.type = canonical_type_for(point_kind, biz_role);
     point.x = std::stod(values.at("x"));
     point.y = std::stod(values.at("y"));
     point.theta = std::stod(values.at("theta"));
@@ -124,20 +146,25 @@ PointRecord PointService::parse_point(const std::string& body, const std::string
     return point;
 }
 
-PointRecord PointService::create_current_point(const std::string& type, const std::string& prefix, long point_mode) {
+PointRecord PointService::create_current_point(const std::string& point_kind, const std::string& biz_role,
+                                               const std::string& prefix, long point_mode) {
     if (adapter_ == nullptr) {
         throw std::runtime_error("robot_adapter_unavailable");
     }
 
     PointRecord point;
-    point.name = next_point_name(prefix, type);
-    point.type = type;
+    point.name = next_point_name(prefix, point_kind, biz_role);
+    point.point_kind = point_kind;
+    point.biz_role = biz_role;
+    point.type = canonical_type_for(point_kind, biz_role);
     if (!adapter_->create_current_pose_point(point.name, point_mode, &point)) {
         throw std::runtime_error("create_current_pose_point_failed");
     }
 
-    point.name = point.name.empty() ? next_point_name(prefix, type) : point.name;
-    point.type = type;
+    point.name = point.name.empty() ? next_point_name(prefix, point_kind, biz_role) : point.name;
+    point.point_kind = point_kind;
+    point.biz_role = biz_role;
+    point.type = canonical_type_for(point_kind, biz_role);
     point.id = repository_.insert_point(point);
     return point;
 }

@@ -45,7 +45,15 @@ int main() {
     run_migrations(db);
 
     PointRepository point_repository(db);
-    point_repository.insert_point(PointRecord{0, "F1", "feed", 5.0, 6.0, 1.2});
+    PointRecord feed;
+    feed.name = "F1";
+    feed.type = "feed";
+    feed.point_kind = "navigation";
+    feed.biz_role = "feed";
+    feed.x = 5.0;
+    feed.y = 6.0;
+    feed.theta = 1.2;
+    point_repository.insert_point(feed);
 
     ScheduleRepository schedule_repository(db);
     schedule_repository.insert_schedule(ScheduleRecord{0, "Morning Feed", true, "0 8 * * *", "[]"});

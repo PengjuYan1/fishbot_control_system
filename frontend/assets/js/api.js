@@ -1,7 +1,7 @@
 const mockState = {
   points: [
-    { id: 1, name: 'C1', type: 'charge', x: 1.2, y: 2.8, theta: 0.0, floor_id: 1, map_id: 11, point_id: 101 },
-    { id: 2, name: 'F1', type: 'feed', x: 6.5, y: 9.1, theta: 1.57, floor_id: 1, map_id: 11, point_id: 201 },
+    { id: 1, name: 'C1', type: 'charge', point_kind: 'charge', biz_role: '', x: 1.2, y: 2.8, theta: 0.0, floor_id: 1, map_id: 11, point_id: 101 },
+    { id: 2, name: 'F1', type: 'feed', point_kind: 'navigation', biz_role: 'feed', x: 6.5, y: 9.1, theta: 1.57, floor_id: 1, map_id: 11, point_id: 201 },
   ],
   map: {
     width: 12,
@@ -95,6 +95,8 @@ window.fishbotApi = {
         id,
         name: payload.name,
         type,
+        point_kind: type === 'charge' ? 'charge' : 'navigation',
+        biz_role: type === 'feed' ? 'feed' : '',
         x: Number(payload.x),
         y: Number(payload.y),
         theta: Number(payload.theta),
@@ -106,24 +108,13 @@ window.fishbotApi = {
     }
   },
   async createCurrentChargePoint() {
-    try {
-      return await requestJson('/api/points/charge/current', { method: 'POST', body: '' });
-    } catch (error) {
-      const id = mockState.points.length + 1;
-      const point = { id, name: `C${mockState.points.filter((item) => item.type === 'charge').length + 1}`, type: 'charge', x: 0, y: 0, theta: 0, floor_id: 0, map_id: 0, point_id: 0 };
-      mockState.points.push(point);
-      return point;
-    }
+    return requestJson('/api/points/charge/current', { method: 'POST', body: '' });
   },
   async createCurrentFeedPoint() {
-    try {
-      return await requestJson('/api/points/feed/current', { method: 'POST', body: '' });
-    } catch (error) {
-      const id = mockState.points.length + 1;
-      const point = { id, name: `F${mockState.points.filter((item) => item.type === 'feed').length + 1}`, type: 'feed', x: 0, y: 0, theta: 0, floor_id: 0, map_id: 0, point_id: 0 };
-      mockState.points.push(point);
-      return point;
-    }
+    return requestJson('/api/points/feed/current', { method: 'POST', body: '' });
+  },
+  async createCurrentInitialPoint() {
+    return requestJson('/api/points/initial/current', { method: 'POST', body: '' });
   },
   async deletePoint(id) {
     const body = new URLSearchParams({ id: String(id) }).toString();

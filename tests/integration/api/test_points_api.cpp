@@ -37,8 +37,9 @@ int main() {
         return EXIT_FAILURE;
     }
 
-    if (points[0].type != "charge" || points[1].type != "feed") {
-        std::cerr << "expected charge/feed point types\n";
+    if (points[0].point_kind != "charge" || points[1].point_kind != "navigation" ||
+        points[0].biz_role != "" || points[1].biz_role != "feed") {
+        std::cerr << "expected charge point kind and feed business role\n";
         return EXIT_FAILURE;
     }
 
@@ -54,8 +55,10 @@ int main() {
 
     const auto list_response = server.handle_get("/api/points");
     if (list_response.body.find("\"floor_id\":10") == std::string::npos ||
-        list_response.body.find("\"point_id\":30") == std::string::npos) {
-        std::cerr << "expected point list api to expose robot ids\n";
+        list_response.body.find("\"point_id\":30") == std::string::npos ||
+        list_response.body.find("\"point_kind\":\"navigation\"") == std::string::npos ||
+        list_response.body.find("\"biz_role\":\"feed\"") == std::string::npos) {
+        std::cerr << "expected point list api to expose robot ids and new point semantics\n";
         return EXIT_FAILURE;
     }
 

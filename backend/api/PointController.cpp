@@ -19,6 +19,8 @@ std::string point_json(const PointRecord& point) {
     return std::string("{\"id\":") + std::to_string(point.id) +
         ",\"name\":\"" + point.name +
         "\",\"type\":\"" + point.type +
+        "\",\"point_kind\":\"" + point.point_kind +
+        "\",\"biz_role\":\"" + point.biz_role +
         "\",\"x\":" + std::to_string(point.x) +
         ",\"y\":" + std::to_string(point.y) +
         ",\"theta\":" + std::to_string(point.theta) +
@@ -76,6 +78,14 @@ void register_point_routes(AppServer& server, PointService& point_service) {
     server.register_post("/api/points/feed/current", [&point_service](const std::string&) {
         try {
             return HttpResponse{200, point_json(point_service.create_current_feed_point()), "application/json"};
+        } catch (const std::exception& error) {
+            return HttpResponse{500, std::string("{\"error\":\"") + error.what() + "\"}", "application/json"};
+        }
+    });
+
+    server.register_post("/api/points/initial/current", [&point_service](const std::string&) {
+        try {
+            return HttpResponse{200, point_json(point_service.create_current_initial_point()), "application/json"};
         } catch (const std::exception& error) {
             return HttpResponse{500, std::string("{\"error\":\"") + error.what() + "\"}", "application/json"};
         }

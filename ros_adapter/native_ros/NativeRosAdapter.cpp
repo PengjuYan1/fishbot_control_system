@@ -34,6 +34,8 @@ ManualControlAcquireResult NativeRosAdapter::acquire_manual_control() {
 
 bool NativeRosAdapter::out_of_charge() { return connected_; }
 
+bool NativeRosAdapter::go_charge() { return connected_; }
+
 bool NativeRosAdapter::manual_move(double, double) { return connected_; }
 
 Pose NativeRosAdapter::get_robot_pose() const { return {}; }

@@ -253,11 +253,24 @@ function renderPointListPanel() {
     <div class="point-list-item">
       <div class="point-list-copy">
         <strong>${point.name}</strong>
-        <span>${point.type === 'charge' ? '充电点' : '投喂点'} · floor ${point.floor_id || 0} · map ${point.map_id || 0} · point ${point.point_id || 0}</span>
+        <span>${describePoint(point)} · floor ${point.floor_id || 0} · map ${point.map_id || 0} · point ${point.point_id || 0}</span>
       </div>
       <button type="button" class="point-delete-button" data-point-delete-id="${point.id}">删除</button>
     </div>
   `).join('');
+}
+
+function describePoint(point) {
+  if (point.point_kind === 'charge') {
+    return '充电点';
+  }
+  if (point.point_kind === 'initial') {
+    return '初始点';
+  }
+  if (point.biz_role === 'feed') {
+    return '投喂导航点';
+  }
+  return '导航点';
 }
 
 function bindControlButtons() {
@@ -271,6 +284,7 @@ function bindControlButtons() {
   const joystickKnob = document.getElementById('manual-joystick-knob');
   const driveStopCenterButton = document.getElementById('drive-stop-center');
   const mapEditorButton = document.getElementById('goto-map-editor-button');
+  const initialPointButton = document.getElementById('set-current-initial-button');
   const feedEditorButton = document.getElementById('goto-map-editor-feed-button');
   const pointListPanel = document.getElementById('point-list-panel');
   const actionFeedbackNode = document.getElementById('action-feedback');
@@ -653,6 +667,18 @@ function bindControlButtons() {
         setActionFeedback(`已按当前位置创建投喂点 ${point.name || 'F?'}。`, 'success');
       } catch (error) {
         setActionFeedback(`创建投喂点失败：${formatError(error)}`, 'error');
+      }
+    });
+  }
+
+  if (initialPointButton) {
+    initialPointButton.addEventListener('click', async () => {
+      try {
+        const point = await window.fishbotApi.createCurrentInitialPoint();
+        await refreshPoints();
+        setActionFeedback(`已按当前位置创建初始点 ${point.name || 'I?'}。`, 'success');
+      } catch (error) {
+        setActionFeedback(`创建初始点失败：${formatError(error)}`, 'error');
       }
     });
   }
