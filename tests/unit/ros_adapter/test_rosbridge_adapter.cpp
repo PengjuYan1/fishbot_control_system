@@ -252,18 +252,45 @@ int main() {
         return EXIT_FAILURE;
     }
 
-    const auto outcharge_topics = transport.published_topics();
-    if (outcharge_topics.size() < 9 ||
-        outcharge_topics[outcharge_topics.size() - 3] != "outofcharge" ||
-        outcharge_topics[outcharge_topics.size() - 2] != "outofcharge" ||
-        outcharge_topics[outcharge_topics.size() - 1] != "outofcharge") {
-        std::cerr << "expected out_of_charge to publish repeated outofcharge commands\n";
+    const auto& outcharge_services = transport.called_services();
+    const auto& outcharge_service_payloads = transport.called_payloads();
+    if (outcharge_services.empty() || outcharge_services.back() != "/set_mode" ||
+        outcharge_service_payloads.back().find("\"mode\":0") == std::string::npos) {
+        std::cerr << "expected out_of_charge to request manual mode via /set_mode\n";
         return EXIT_FAILURE;
     }
 
-    if (transport.last_topic() != "outofcharge" ||
-        transport.last_payload().find("\"data\":1") == std::string::npos) {
-        std::cerr << "expected outofcharge publish with data=1\n";
+    const auto& outcharge_topics = transport.published_topics();
+    const auto& outcharge_payloads = transport.published_payloads();
+    if (outcharge_topics.size() < 21) {
+        std::cerr << "expected out_of_charge to publish a full undock assist sequence\n";
+        return EXIT_FAILURE;
+    }
+
+    if (outcharge_topics[outcharge_topics.size() - 15] != "/navi_stop" ||
+        outcharge_topics[outcharge_topics.size() - 14] != "/cmd_vel" ||
+        outcharge_topics[outcharge_topics.size() - 13] != "outofcharge" ||
+        outcharge_topics[outcharge_topics.size() - 12] != "/navi_stop" ||
+        outcharge_topics[outcharge_topics.size() - 11] != "/cmd_vel" ||
+        outcharge_topics[outcharge_topics.size() - 10] != "outofcharge" ||
+        outcharge_topics[outcharge_topics.size() - 9] != "/navi_stop" ||
+        outcharge_topics[outcharge_topics.size() - 8] != "/cmd_vel" ||
+        outcharge_topics[outcharge_topics.size() - 7] != "outofcharge" ||
+        outcharge_topics[outcharge_topics.size() - 6] != "/navi_stop" ||
+        outcharge_topics[outcharge_topics.size() - 5] != "/cmd_vel" ||
+        outcharge_topics[outcharge_topics.size() - 4] != "outofcharge" ||
+        outcharge_topics[outcharge_topics.size() - 3] != "/navi_stop" ||
+        outcharge_topics[outcharge_topics.size() - 2] != "/cmd_vel" ||
+        outcharge_topics[outcharge_topics.size() - 1] != "outofcharge") {
+        std::cerr << "expected out_of_charge to alternate navi_stop, zero cmd_vel and outofcharge\n";
+        return EXIT_FAILURE;
+    }
+
+    if (outcharge_payloads[outcharge_payloads.size() - 15].find("\"data\":5") == std::string::npos ||
+        outcharge_payloads[outcharge_payloads.size() - 14].find("\"x\":0") == std::string::npos ||
+        outcharge_payloads[outcharge_payloads.size() - 14].find("\"z\":0") == std::string::npos ||
+        outcharge_payloads[outcharge_payloads.size() - 13].find("\"data\":1") == std::string::npos) {
+        std::cerr << "expected out_of_charge release payloads to match navi_stop, zero cmd_vel and outofcharge\n";
         return EXIT_FAILURE;
     }
 
