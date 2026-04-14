@@ -47,13 +47,6 @@ TaskStartResult TaskService::start_charge_return() {
 
     try_load_map_for_point(adapter_, charge_point);
 
-    if (adapter_.go_charge()) {
-        current_task_.status = "charging";
-        current_task_.current_target_name = charge_point.has_value() ? charge_point->name : "autocharge";
-        last_trigger_type_ = "charge_return";
-        return current_task_;
-    }
-
     if (charge_point.has_value() && has_native_identity(*charge_point)) {
         try {
             navigate_to_point(*charge_point);
@@ -63,6 +56,13 @@ TaskStartResult TaskService::start_charge_return() {
             return current_task_;
         } catch (const std::runtime_error&) {
         }
+    }
+
+    if (adapter_.go_charge()) {
+        current_task_.status = "charging";
+        current_task_.current_target_name = charge_point.has_value() ? charge_point->name : "autocharge";
+        last_trigger_type_ = "charge_return";
+        return current_task_;
     }
 
     if (charge_point.has_value()) {
