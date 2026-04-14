@@ -19,6 +19,7 @@ class MapService {
     bool start_mapping();
     bool stop_mapping();
     bool save_map(const std::string& map_name);
+    bool load_map(long floor_id, long map_id) const;
     std::vector<MapDescriptor> list_maps() const;
     bool delete_map(long floor_id, long map_id) const;
     MapSnapshot get_snapshot() const;

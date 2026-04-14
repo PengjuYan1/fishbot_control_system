@@ -10,6 +10,13 @@ namespace {
 bool has_native_identity(const PointRecord& point) {
     return point.floor_id > 0 && point.map_id > 0 && point.point_id > 0;
 }
+
+void try_load_map_for_point(IRobotAdapter& adapter, const std::optional<PointRecord>& point) {
+    if (!point.has_value() || point->floor_id <= 0 || point->map_id <= 0) {
+        return;
+    }
+    (void) adapter.load_map(std::to_string(point->floor_id) + ":" + std::to_string(point->map_id));
+}
 }  // namespace
 
 TaskService::TaskService(IRobotAdapter& adapter, PointRepository& point_repository)
@@ -37,6 +44,8 @@ TaskStartResult TaskService::start_charge_return() {
         charge_point = find_charge_point();
     } catch (const std::runtime_error&) {
     }
+
+    try_load_map_for_point(adapter_, charge_point);
 
     if (adapter_.go_charge()) {
         current_task_.status = "charging";

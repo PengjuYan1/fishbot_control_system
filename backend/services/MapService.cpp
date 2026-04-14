@@ -150,6 +150,13 @@ bool MapService::save_map(const std::string& map_name) {
     return true;
 }
 
+bool MapService::load_map(long floor_id, long map_id) const {
+    if (floor_id <= 0 || map_id <= 0) {
+        return false;
+    }
+    return adapter_.load_map(std::to_string(floor_id) + ":" + std::to_string(map_id));
+}
+
 std::vector<MapDescriptor> MapService::list_maps() const {
     std::vector<MapDescriptor> maps;
     if (!adapter_.list_maps(&maps)) {

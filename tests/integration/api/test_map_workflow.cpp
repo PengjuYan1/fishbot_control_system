@@ -16,7 +16,10 @@ class FakeMapAdapter : public IRobotAdapter {
     bool start_mapping() override { started = true; return true; }
     bool stop_mapping() override { stopped = true; return true; }
     bool save_map(const std::string& map_name) override { saved_name = map_name; return true; }
-    bool load_map(const std::string&) override { return true; }
+    bool load_map(const std::string& selector) override {
+        loaded_selector = selector;
+        return true;
+    }
     bool navigate_to_pose(const Pose&) override { return true; }
     bool stop_navigation() override { return true; }
     bool set_initial_pose(const Pose&) override { return true; }
@@ -50,6 +53,7 @@ class FakeMapAdapter : public IRobotAdapter {
     std::string saved_name;
     long deleted_floor = 0;
     long deleted_map = 0;
+    std::string loaded_selector;
 };
 
 int main() {
@@ -73,6 +77,12 @@ int main() {
     const auto save_response = server.handle_post("/api/map/save", "pond_a");
     if (save_response.status != 200 || adapter.saved_name != "pond_a") {
         std::cerr << "expected successful save-map response\n";
+        return EXIT_FAILURE;
+    }
+
+    const auto load_response = server.handle_post("/api/map/load", "floor_id=1&map_id=11");
+    if (load_response.status != 200 || adapter.loaded_selector != "1:11") {
+        std::cerr << "expected successful map-load response\n";
         return EXIT_FAILURE;
     }
 

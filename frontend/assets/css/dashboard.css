@@ -608,6 +608,30 @@
   transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
 }
 
+.map-item-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.map-enter-button {
+  border: 1px solid rgba(31, 122, 140, 0.25);
+  border-radius: 999px;
+  padding: 8px 14px;
+  background: rgba(31, 122, 140, 0.12);
+  color: var(--sea);
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
+}
+
+.map-enter-button:hover {
+  box-shadow: 0 10px 24px rgba(16, 37, 66, 0.12);
+}
+
+.map-enter-button:active {
+  transform: translateY(1px) scale(0.98);
+}
+
 .point-delete-button:hover {
   box-shadow: 0 10px 24px rgba(16, 37, 66, 0.12);
 }

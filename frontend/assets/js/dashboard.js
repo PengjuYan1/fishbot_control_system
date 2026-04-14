@@ -275,10 +275,13 @@ function renderMapListPanel() {
   panel.innerHTML = maps.map((map) => `
     <div class="point-list-item">
       <div class="point-list-copy">
-        <strong>${map.map_name || `Map-${map.map_id}`}</strong>
+        <strong>${map.map_name || `Map-${map.map_id}`}${map.is_default_floor && map.is_default_map ? '（默认）' : ''}</strong>
         <span>floor ${map.floor_id || 0} · map ${map.map_id || 0} · charge ${map.charge_id || 0} · initial ${map.initial_id || 0}</span>
       </div>
-      <button type="button" class="point-delete-button" data-map-delete-floor-id="${map.floor_id}" data-map-delete-map-id="${map.map_id}">删除</button>
+      <div class="map-item-actions">
+        <button type="button" class="map-enter-button" data-map-enter-floor-id="${map.floor_id}" data-map-enter-map-id="${map.map_id}">进入</button>
+        <button type="button" class="point-delete-button" data-map-delete-floor-id="${map.floor_id}" data-map-delete-map-id="${map.map_id}">删除</button>
+      </div>
     </div>
   `).join('');
 }
@@ -720,6 +723,22 @@ function bindControlButtons() {
 
   if (mapListPanel) {
     mapListPanel.addEventListener('click', async (event) => {
+      const enterTarget = event.target instanceof Element ? event.target.closest('[data-map-enter-floor-id][data-map-enter-map-id]') : null;
+      if (enterTarget) {
+        const floorId = Number(enterTarget.getAttribute('data-map-enter-floor-id') || 0);
+        const mapId = Number(enterTarget.getAttribute('data-map-enter-map-id') || 0);
+        if (floorId > 0 && mapId > 0) {
+          try {
+            await window.fishbotApi.loadMap(floorId, mapId);
+            await refreshMaps();
+            setActionFeedback(`已进入地图 floor ${floorId} / map ${mapId}。`, 'success');
+          } catch (error) {
+            setActionFeedback(`进入地图失败：${formatError(error)}`, 'error');
+          }
+        }
+        return;
+      }
+
       const target = event.target instanceof Element ? event.target.closest('[data-map-delete-floor-id][data-map-delete-map-id]') : null;
       if (!target) {
         return;

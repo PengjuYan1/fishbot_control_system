@@ -87,6 +87,17 @@ window.fishbotApi = {
   async saveMap(name) {
     return requestJson('/api/map/save', { method: 'POST', body: name || 'web_map' });
   },
+  async loadMap(floorId, mapId) {
+    const body = new URLSearchParams({
+      floor_id: String(floorId),
+      map_id: String(mapId),
+    }).toString();
+    return requestJson('/api/map/load', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body,
+    });
+  },
   async getMaps() {
     try {
       const payload = await requestJson('/api/maps');

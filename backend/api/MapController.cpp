@@ -93,6 +93,31 @@ void register_map_routes(AppServer& server, MapService& map_service) {
         return HttpResponse{map_service.save_map(body) ? 200 : 500, "{\"status\":\"saved\"}", "application/json"};
     });
 
+    server.register_post("/api/map/load", [&map_service](const std::string& body) {
+        try {
+            const auto values = parse_form_encoded(body);
+            const auto floor_it = values.find("floor_id");
+            const auto map_it = values.find("map_id");
+            if (floor_it == values.end() || map_it == values.end()) {
+                return HttpResponse{400, "{\"error\":\"missing_floor_or_map_id\"}", "application/json"};
+            }
+
+            const long floor_id = std::stol(floor_it->second);
+            const long map_id = std::stol(map_it->second);
+            if (!map_service.load_map(floor_id, map_id)) {
+                return HttpResponse{500, "{\"error\":\"load_map_failed\"}", "application/json"};
+            }
+            return HttpResponse{
+                200,
+                std::string("{\"status\":\"loaded\",\"floor_id\":") + std::to_string(floor_id) +
+                    ",\"map_id\":" + std::to_string(map_id) + "}",
+                "application/json"
+            };
+        } catch (const std::exception& error) {
+            return HttpResponse{500, std::string("{\"error\":\"") + error.what() + "\"}", "application/json"};
+        }
+    });
+
     server.register_get("/api/maps", [&map_service]() {
         return HttpResponse{200, map_list_json(map_service.list_maps()), "application/json"};
     });
