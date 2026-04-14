@@ -14,8 +14,8 @@ assert(
   'expected dashboard to define a joystick base container'
 );
 assert(
-  !indexHtml.includes('id="out-of-charge-button"'),
-  'expected dashboard to remove the standalone out-of-charge button and rely on joystick auto-undock'
+  indexHtml.includes('id="undock-button"'),
+  'expected dashboard to define an explicit undock button'
 );
 assert(
   indexHtml.includes('id="manual-joystick-knob"'),
@@ -35,7 +35,6 @@ assert(
 );
 assert(
   dashboardJs.includes('manual_control') &&
-    dashboardJs.includes('undocking_requested') &&
     dashboardJs.includes('ready_for_drive') &&
     dashboardJs.includes('driving'),
   'expected dashboard joystick flow to react to backend manual control phases'
@@ -43,4 +42,9 @@ assert(
 assert(
   !dashboardJs.includes('activeDriveRequiresStop'),
   'expected dashboard joystick flow to replace the old single-flag drive state'
+);
+assert(
+  dashboardJs.includes('undock-button') &&
+    dashboardJs.includes('undockFromChargePile'),
+  'expected dashboard to call the explicit undock control path'
 );

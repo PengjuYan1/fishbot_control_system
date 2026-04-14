@@ -38,6 +38,13 @@ void register_control_routes(AppServer& server, ManualControlService& control_se
             : HttpResponse{500, "{\"error\":\"out_of_charge_failed\"}", "application/json"};
     });
 
+    server.register_post("/api/control/undock", [&control_service](const std::string&) {
+        const auto result = control_service.undock();
+        return result.ok
+            ? HttpResponse{200, build_control_response(result), "application/json"}
+            : HttpResponse{500, "{\"error\":\"undock_failed\"}", "application/json"};
+    });
+
     server.register_post("/api/control/exit-navigation-mode", [&control_service](const std::string&) {
         const auto result = control_service.exit_navigation_mode();
         return result.ok

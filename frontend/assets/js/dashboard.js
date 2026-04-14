@@ -265,6 +265,7 @@ function bindControlButtons() {
   const saveMapButton = document.getElementById('save-map-button');
   const startTaskButton = document.getElementById('start-task-button');
   const goChargeButton = document.getElementById('go-charge-button');
+  const undockButton = document.getElementById('undock-button');
   const exitNavigationModeButton = document.getElementById('exit-navigation-mode-button');
   const joystickBase = document.getElementById('manual-joystick-base');
   const joystickKnob = document.getElementById('manual-joystick-knob');
@@ -273,9 +274,9 @@ function bindControlButtons() {
   const feedEditorButton = document.getElementById('goto-map-editor-feed-button');
   const pointListPanel = document.getElementById('point-list-panel');
   const actionFeedbackNode = document.getElementById('action-feedback');
-  const maxLinearSpeed = 0.30;
-  const maxAngularSpeed = 0.45;
-  const joystickHeartbeatMs = 60;
+  const maxLinearSpeed = 0.40;
+  const maxAngularSpeed = 0.60;
+  const joystickHeartbeatMs = 40;
   let commandLoopTimer = null;
   let activePointerId = null;
   let joystickDragging = false;
@@ -534,6 +535,23 @@ function bindControlButtons() {
         setActionFeedback('已发送回充指令。', 'success');
       } catch (error) {
         setActionFeedback(`回充失败：${formatError(error)}`, 'error');
+      }
+    });
+  }
+
+  if (undockButton) {
+    undockButton.addEventListener('click', async () => {
+      try {
+        const result = await window.fishbotApi.undockFromChargePile();
+        const phase = setManualControlState(result);
+        setActionFeedback(
+          phase === 'ready_for_drive'
+            ? '脱桩完成，现可直接拖动摇杆控制。'
+            : describeManualControlPhase(phase, 'navigation'),
+          'success'
+        );
+      } catch (error) {
+        setActionFeedback(`脱离充电桩失败：${formatError(error)}`, 'error');
       }
     });
   }

@@ -114,27 +114,31 @@ int main() {
     adapter.charge_status_code = 47;
     adapter.out_of_charge_calls_to_release = 2;
     adapter.out_of_charge_count = 0;
+    adapter.out_of_charge_requested = false;
     adapter.move_requested = false;
     adapter.move_count = 0;
     adapter.acquire_manual_control_count = 0;
 
-    const auto first_drag = server.handle_post("/api/control/move", "linear=0.12&angular=0.0");
-    if (first_drag.status != 200 ||
-        adapter.acquire_manual_control_count != 1 ||
+    const auto blocked_drag = server.handle_post("/api/control/move", "linear=0.12&angular=0.0");
+    if (blocked_drag.status != 500 ||
+        adapter.acquire_manual_control_count != 0 ||
         adapter.move_requested ||
-        first_drag.body.find("\"phase\":\"undocking_requested\"") == std::string::npos) {
-        std::cerr << "expected first joystick heartbeat to trigger takeover and stay in undocking\n";
+        adapter.out_of_charge_requested) {
+        std::cerr << "expected joystick move to stay blocked during charging until explicit undock\n";
         return EXIT_FAILURE;
     }
 
-    const auto second_drag = server.handle_post("/api/control/move", "linear=0.12&angular=0.0");
-    if (second_drag.status != 200 ||
-        adapter.acquire_manual_control_count != 2 ||
-        !adapter.move_requested ||
-        adapter.last_linear != 0.12 ||
+    adapter.move_requested = false;
+    adapter.out_of_charge_requested = false;
+    adapter.move_count = 0;
+    const auto undock = server.handle_post("/api/control/undock", "");
+    if (undock.status != 200 ||
+        !adapter.out_of_charge_requested ||
+        adapter.move_count != 2 ||
+        adapter.last_linear != 0.0 ||
         adapter.last_angular != 0.0 ||
-        second_drag.body.find("\"phase\":\"driving\"") == std::string::npos) {
-        std::cerr << "expected later joystick heartbeat to drive immediately after undock is ready\n";
+        undock.body.find("\"phase\":\"ready_for_drive\"") == std::string::npos) {
+        std::cerr << "expected explicit undock request to release charge and finish in ready_for_drive\n";
         return EXIT_FAILURE;
     }
 

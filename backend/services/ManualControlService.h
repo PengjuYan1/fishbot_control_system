@@ -16,6 +16,7 @@ class ManualControlService {
     explicit ManualControlService(IRobotAdapter& adapter);
 
     ManualControlCommandResult out_of_charge();
+    ManualControlCommandResult undock();
     ManualControlCommandResult exit_navigation_mode();
     ManualControlCommandResult move(double linear_speed, double angular_speed);
     ManualControlCommandResult stop();
