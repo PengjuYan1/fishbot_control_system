@@ -712,6 +712,36 @@ bool RosbridgeAdapter::set_initial_pose(const Pose& pose) {
     return publish_topic("/initialpose", "geometry_msgs/PoseWithCovarianceStamped", payload.str());
 }
 
+bool RosbridgeAdapter::set_relocation(const Pose& pose) {
+    if (!is_connected()) {
+        return false;
+    }
+
+    std::ostringstream request;
+    request << "{\"point\":{\"header\":{\"frame_id\":\"map\"},\"pose\":{\"pose\":{\"position\":{\"x\":"
+            << pose.x << ",\"y\":" << pose.y << ",\"z\":0},\"orientation\":{\"x\":0,\"y\":0,\"z\":"
+            << theta_to_quaternion_z(pose.theta) << ",\"w\":" << theta_to_quaternion_w(pose.theta)
+            << "}},\"covariance\":[";
+    for (int index = 0; index < 36; ++index) {
+        if (index > 0) {
+            request << ",";
+        }
+        request << (index == 0 ? 1 : 0);
+    }
+    request << "]}}}";
+
+    std::string response;
+    bool ok = call_service("/set_relocation", "map_msgs/SetRelocation", request.str(), &response);
+    if (!ok) {
+        ok = call_service("set_relocation", "map_msgs/SetRelocation", request.str(), &response);
+    }
+    if (!ok) {
+        return false;
+    }
+
+    return extract_long_value(response, "result", 1) > 0;
+}
+
 ManualControlAcquireResult RosbridgeAdapter::acquire_manual_control() {
     if (!is_connected()) {
         return ManualControlAcquireResult{false, ManualControlAcquireState::kFailed};

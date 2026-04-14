@@ -295,6 +295,14 @@ target_link_libraries(test_charge_recovery PRIVATE fishbot_backend fishbot_stora
 add_test(NAME ChargeRecoveryTest COMMAND test_charge_recovery)
 set_tests_properties(ChargeRecoveryTest PROPERTIES WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
 
+add_executable(test_charge_return_relocalization
+    tests/integration/api/test_charge_return_relocalization.cpp
+)
+target_link_libraries(test_charge_return_relocalization PRIVATE fishbot_backend fishbot_storage)
+
+add_test(NAME ChargeReturnRelocalizationTest COMMAND test_charge_return_relocalization)
+set_tests_properties(ChargeReturnRelocalizationTest PROPERTIES WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+
 add_executable(test_alerts_api
     tests/integration/api/test_alerts_api.cpp
 )

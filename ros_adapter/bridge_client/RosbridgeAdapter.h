@@ -21,6 +21,7 @@ class RosbridgeAdapter : public IRobotAdapter {
     bool navigate_to_pose(const Pose& pose) override;
     bool stop_navigation() override;
     bool set_initial_pose(const Pose& pose) override;
+    bool set_relocation(const Pose& pose) override;
     ManualControlAcquireResult acquire_manual_control() override;
     bool out_of_charge() override;
     bool go_charge() override;

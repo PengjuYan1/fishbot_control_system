@@ -92,10 +92,27 @@ TaskStartResult TaskService::start_charge_return() {
             initial_pose.floor_id = relocalization_point->floor_id;
             initial_pose.map_id = relocalization_point->map_id;
             initial_pose.point_id = relocalization_point->point_id;
-            (void) adapter_.set_initial_pose(initial_pose);
 
-            std::this_thread::sleep_for(std::chrono::milliseconds(120));
-            status_before_return = adapter_.get_robot_status();
+            bool relocation_sent = adapter_.set_relocation(initial_pose);
+            if (!relocation_sent) {
+                relocation_sent = adapter_.set_initial_pose(initial_pose);
+            }
+
+            if (relocation_sent) {
+                for (int attempt = 0; attempt < 8; ++attempt) {
+                    std::this_thread::sleep_for(std::chrono::milliseconds(80));
+                    status_before_return = adapter_.get_robot_status();
+                    if (status_before_return.localized) {
+                        break;
+                    }
+                }
+            } else {
+                status_before_return = adapter_.get_robot_status();
+            }
+        }
+
+        if (!status_before_return.localized) {
+            throw std::runtime_error("not_localized_for_charge_return");
         }
     }
 
