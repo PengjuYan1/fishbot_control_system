@@ -42,6 +42,23 @@ function formatOdomStatus(control) {
   return String(code);
 }
 
+function chargingBlocksManualControl(system) {
+  const control = system.control || {};
+  if (system.charging) {
+    return true;
+  }
+
+  switch (Number(control.charge_status_code || 0)) {
+    case 45:
+    case 46:
+    case 47:
+    case 48:
+      return true;
+    default:
+      return false;
+  }
+}
+
 function formatControlBlockers(system) {
   const blockers = [];
   const control = system.control || {};
@@ -49,8 +66,8 @@ function formatControlBlockers(system) {
   if (Number(control.emergency_status_code || 0) === 31) {
     blockers.push('急停未复位');
   }
-  if (Number(control.charge_status_code || 0) === 47) {
-    blockers.push('仍在充电完成态');
+  if (chargingBlocksManualControl(system)) {
+    blockers.push(`仍在充电态 (${Number(control.charge_status_code || 0)})`);
   }
   if (Number(control.motor_status_code || 0) === 33) {
     blockers.push('电机未使能');
@@ -151,7 +168,13 @@ function updateDashboardStatus() {
 
   if (outchargeResultNode) {
     const resultCode = Number(state.system.control.out_of_charge_result_code || 0);
-    if (resultCode === 50) {
+    if (chargingBlocksManualControl(state.system)) {
+      if (resultCode > 0) {
+        outchargeResultNode.textContent = `仍在充电态，历史结果 ${resultCode}`;
+      } else {
+        outchargeResultNode.textContent = '仍在充电态';
+      }
+    } else if (resultCode === 50) {
       outchargeResultNode.textContent = '成功 (50)';
     } else if (resultCode === 49) {
       outchargeResultNode.textContent = '失败 (49)';
@@ -238,6 +261,8 @@ function bindControlButtons() {
   let activeDriveRequiresStop = false;
   let currentLinearSpeed = 0;
   let currentAngularSpeed = 0;
+  let undockAssistTimer = null;
+  let undockAssistDeadline = 0;
 
   const setActionFeedback = (message, level) => {
     if (!actionFeedbackNode) {
@@ -264,6 +289,57 @@ function bindControlButtons() {
   const refreshPoints = async () => {
     const points = await window.fishbotApi.getPoints();
     window.fishbotStore.setPoints(points || []);
+  };
+
+  const stopUndockAssist = () => {
+    if (undockAssistTimer) {
+      window.clearInterval(undockAssistTimer);
+      undockAssistTimer = null;
+    }
+    undockAssistDeadline = 0;
+  };
+
+  const requestUndockAssist = async (source) => {
+    const performAttempt = async (silent) => {
+      const system = window.fishbotStore ? window.fishbotStore.getState().system : {};
+      if (!chargingBlocksManualControl(system)) {
+        stopUndockAssist();
+        if (!silent) {
+          setActionFeedback('已检测到脱离充电态，可直接遥控。', 'success');
+        }
+        return true;
+      }
+
+      await window.fishbotApi.outOfCharge();
+      if (!silent) {
+        setActionFeedback(
+          source === 'joystick'
+            ? '正在请求脱离充电态，请保持摇杆，脱桩后会自动接管移动。'
+            : '正在持续请求脱离充电态，解除后可直接遥控。',
+          'success'
+        );
+      }
+      return true;
+    };
+
+    undockAssistDeadline = Math.max(undockAssistDeadline, Date.now() + 8000);
+    await performAttempt(false);
+
+    if (undockAssistTimer) {
+      return;
+    }
+
+    undockAssistTimer = window.setInterval(() => {
+      if (Date.now() > undockAssistDeadline) {
+        stopUndockAssist();
+        return;
+      }
+
+      performAttempt(true).catch((error) => {
+        stopUndockAssist();
+        setActionFeedback(`脱离充电失败：${formatError(error)}`, 'error');
+      });
+    }, 300);
   };
 
   const stopDriving = async () => {
@@ -353,6 +429,10 @@ function bindControlButtons() {
     const { linear, angular } = updateJoystickPosition(clientX, clientY);
     joystickBase.classList.add('is-active');
 
+    if (window.fishbotStore && chargingBlocksManualControl(window.fishbotStore.getState().system || {})) {
+      await requestUndockAssist('joystick');
+    }
+
     if (!activeDriveRequiresStop) {
       await startDriving(linear, angular, pointerId);
       return;
@@ -425,8 +505,7 @@ function bindControlButtons() {
   if (outOfChargeButton) {
     outOfChargeButton.addEventListener('click', async () => {
       try {
-        await window.fishbotApi.outOfCharge();
-        setActionFeedback('已发送脱离充电 / 解锁指令，请观察出桩结果码是否变成 50。', 'success');
+        await requestUndockAssist('button');
       } catch (error) {
         setActionFeedback(`脱离充电失败：${formatError(error)}`, 'error');
       }

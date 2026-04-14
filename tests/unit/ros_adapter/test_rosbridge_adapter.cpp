@@ -252,6 +252,15 @@ int main() {
         return EXIT_FAILURE;
     }
 
+    const auto outcharge_topics = transport.published_topics();
+    if (outcharge_topics.size() < 9 ||
+        outcharge_topics[outcharge_topics.size() - 3] != "outofcharge" ||
+        outcharge_topics[outcharge_topics.size() - 2] != "outofcharge" ||
+        outcharge_topics[outcharge_topics.size() - 1] != "outofcharge") {
+        std::cerr << "expected out_of_charge to publish repeated outofcharge commands\n";
+        return EXIT_FAILURE;
+    }
+
     if (transport.last_topic() != "outofcharge" ||
         transport.last_payload().find("\"data\":1") == std::string::npos) {
         std::cerr << "expected outofcharge publish with data=1\n";
