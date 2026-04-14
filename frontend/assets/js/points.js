@@ -16,24 +16,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     return;
   }
 
-  const describePoint = (point) => {
-    if (point.point_kind === 'charge') {
-      return '充电点';
-    }
-    if (point.point_kind === 'initial') {
-      return '初始点';
-    }
-    if (point.biz_role === 'feed') {
-      return '投喂导航点';
-    }
-    return '导航点';
-  };
-
   const renderPoints = async () => {
     const points = await (window.fishbotApi.getPoints ? window.fishbotApi.getPoints() : []);
     pointList.innerHTML = points.map((point) => (
       `<div class="metric-card">
-        <span>${describePoint(point)}</span>
+        <span>${point.type}</span>
         <strong>${point.name}</strong>
         <small>x=${Number(point.x || 0).toFixed(2)} y=${Number(point.y || 0).toFixed(2)} theta=${Number(point.theta || 0).toFixed(2)}</small>
         <small>floor_id=${point.floor_id || 0} map_id=${point.map_id || 0} point_id=${point.point_id || 0}</small>

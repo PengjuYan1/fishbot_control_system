@@ -92,19 +92,9 @@ int main() {
         return EXIT_FAILURE;
     }
 
-    const auto initial = server.handle_post("/api/points/initial/current", "");
-    if (initial.status != 200) {
-        std::cerr << "expected successful current initial point creation\n";
-        return EXIT_FAILURE;
-    }
-    if (adapter.requested_name != "I1" || adapter.requested_mode != 2) {
-        std::cerr << "expected initial point to use automatic naming and initial mode\n";
-        return EXIT_FAILURE;
-    }
-
     const auto points = repository.list_points();
-    if (points.size() != 3) {
-        std::cerr << "expected current pose routes to persist three points\n";
+    if (points.size() != 2) {
+        std::cerr << "expected current pose routes to persist two points\n";
         return EXIT_FAILURE;
     }
     if (points[0].floor_id != 101 || points[0].map_id != 202 || points[0].point_id != 301) {
@@ -115,11 +105,6 @@ int main() {
         std::cerr << "expected feed point to persist adapter returned ids\n";
         return EXIT_FAILURE;
     }
-    if (points[1].point_kind != "navigation" || points[1].biz_role != "feed" ||
-        points[2].point_kind != "initial") {
-        std::cerr << "expected current pose routes to persist split point semantics\n";
-        return EXIT_FAILURE;
-    }
 
     adapter.allow_create = false;
     const auto failure = server.handle_post("/api/points/feed/current", "");
@@ -127,7 +112,7 @@ int main() {
         std::cerr << "expected failed current pose point creation to return 500\n";
         return EXIT_FAILURE;
     }
-    if (repository.list_points().size() != 3) {
+    if (repository.list_points().size() != 2) {
         std::cerr << "expected failed current pose creation to avoid persisting partial point data\n";
         return EXIT_FAILURE;
     }

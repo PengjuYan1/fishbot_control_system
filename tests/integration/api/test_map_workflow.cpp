@@ -6,8 +6,6 @@
 #include "backend/app/AppServer.h"
 #include "backend/services/MapService.h"
 #include "ros_adapter/IRobotAdapter.h"
-#include "storage/Database.h"
-#include "storage/repositories/PointRepository.h"
 
 class FakeMapAdapter : public IRobotAdapter {
   public:
@@ -39,21 +37,14 @@ class FakeMapAdapter : public IRobotAdapter {
 };
 
 int main() {
-    auto db = open_test_database();
-    run_migrations(db);
-    PointRepository point_repository(db);
     FakeMapAdapter adapter;
-    MapService service(adapter, point_repository);
+    MapService service(adapter);
     AppServer server;
     register_map_routes(server, service);
 
     const auto start_response = server.handle_post("/api/map/start-mapping", "");
     if (start_response.status != 200 || !adapter.started) {
         std::cerr << "expected successful start-mapping response\n";
-        return EXIT_FAILURE;
-    }
-    if (start_response.body.find("\"mapping_active\":true") == std::string::npos) {
-        std::cerr << "expected start-mapping response to include active workflow\n";
         return EXIT_FAILURE;
     }
 
@@ -64,36 +55,8 @@ int main() {
     }
 
     const auto save_response = server.handle_post("/api/map/save", "pond_a");
-    if (save_response.status != 409 ||
-        save_response.body.find("map_requires_charge_and_initial_points") == std::string::npos) {
-        std::cerr << "expected save-map to be blocked until charge and initial points exist\n";
-        return EXIT_FAILURE;
-    }
-
-    PointRecord charge;
-    charge.name = "C1";
-    charge.type = "charge";
-    charge.point_kind = "charge";
-    point_repository.insert_point(charge);
-
-    PointRecord initial;
-    initial.name = "I1";
-    initial.type = "initial";
-    initial.point_kind = "initial";
-    point_repository.insert_point(initial);
-
-    const auto workflow_response = server.handle_get("/api/map/workflow");
-    if (workflow_response.status != 200 ||
-        workflow_response.body.find("\"has_charge_point\":true") == std::string::npos ||
-        workflow_response.body.find("\"has_initial_point\":true") == std::string::npos ||
-        workflow_response.body.find("\"can_save_map\":true") == std::string::npos) {
-        std::cerr << "expected workflow endpoint to reflect required system points\n";
-        return EXIT_FAILURE;
-    }
-
-    const auto successful_save_response = server.handle_post("/api/map/save", "pond_a");
-    if (successful_save_response.status != 200 || adapter.saved_name != "pond_a") {
-        std::cerr << "expected successful save-map response after system points exist\n";
+    if (save_response.status != 200 || adapter.saved_name != "pond_a") {
+        std::cerr << "expected successful save-map response\n";
         return EXIT_FAILURE;
     }
 

@@ -9,8 +9,6 @@
 #include "backend/services/SystemService.h"
 #include "backend/websocket/StatusHub.h"
 #include "ros_adapter/IRobotAdapter.h"
-#include "storage/Database.h"
-#include "storage/repositories/PointRepository.h"
 
 class FakeTraceAdapter : public IRobotAdapter {
   public:
@@ -49,12 +47,9 @@ class FakeTraceAdapter : public IRobotAdapter {
 };
 
 int main() {
-    auto db = open_test_database();
-    run_migrations(db);
-    PointRepository point_repository(db);
     FakeTraceAdapter adapter;
     SystemService system_service(adapter);
-    MapService map_service(adapter, point_repository);
+    MapService map_service(adapter);
     StatusHub hub;
     StatusStreamService stream_service(system_service, map_service, hub);
     AppServer server;

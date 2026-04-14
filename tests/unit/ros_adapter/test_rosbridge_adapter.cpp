@@ -46,8 +46,7 @@ class FakeRosbridgeTransport : public IRosbridgeTransport {
         called_services_.push_back(service);
         called_payloads_.push_back(request);
         if (response != nullptr) {
-            auto response_it = service_responses_.find(service);
-            *response = response_it != service_responses_.end() ? response_it->second : "{}";
+            *response = "{}";
         }
         auto it = service_failures_remaining_.find(service);
         if (it != service_failures_remaining_.end() && it->second > 0) {
@@ -83,9 +82,6 @@ class FakeRosbridgeTransport : public IRosbridgeTransport {
     const std::vector<std::string>& called_payloads() const { return called_payloads_; }
     void fail_publish(const std::string& topic, int times) { publish_failures_remaining_[topic] = times; }
     void fail_service(const std::string& service, int times) { service_failures_remaining_[service] = times; }
-    void set_service_response(const std::string& service, const std::string& response) {
-        service_responses_[service] = response;
-    }
 
   private:
     bool connected_ = false;
@@ -100,7 +96,6 @@ class FakeRosbridgeTransport : public IRosbridgeTransport {
     std::vector<std::string> called_payloads_;
     std::map<std::string, int> publish_failures_remaining_;
     std::map<std::string, int> service_failures_remaining_;
-    std::map<std::string, std::string> service_responses_;
     std::unordered_map<std::string, MessageCallback> subscriptions_;
     std::unordered_map<std::string, std::string> subscription_types_;
 };
@@ -379,75 +374,6 @@ int main() {
         transport.last_payload().find("\"x\":0") == std::string::npos ||
         transport.last_payload().find("\"z\":0") == std::string::npos) {
         std::cerr << "expected stop move to use zero cmd_vel\n";
-        return EXIT_FAILURE;
-    }
-
-    transport.set_service_response("point_set", "{\"result\":99}");
-    transport.set_service_response(
-        "get_maps",
-        "{\"success\":true,\"message\":\"{\\\"defaultFloor\\\":56,\\\"floors\\\":[{\\\"floorId\\\":56,\\\"defaultmap\\\":34}]}\"}");
-    PointRecord created_point;
-    if (!adapter.create_current_pose_point("C2", 1, &created_point)) {
-        std::cerr << "expected create_current_pose_point to succeed\n";
-        return EXIT_FAILURE;
-    }
-
-    if (transport.last_service() != "get_maps" || transport.last_type() != "std_srvs/Trigger") {
-        std::cerr << "expected get_maps lookup to use std_srvs/Trigger service type\n";
-        return EXIT_FAILURE;
-    }
-
-    const auto& create_services = transport.called_services();
-    const auto& create_payloads = transport.called_payloads();
-    if (create_services.size() < 2 ||
-        create_services[create_services.size() - 2] != "point_set" ||
-        create_services.back() != "get_maps") {
-        std::cerr << "expected create_current_pose_point to call point_set then get_maps\n";
-        return EXIT_FAILURE;
-    }
-
-    if (create_payloads[create_payloads.size() - 2].find("\"point_name\":\"C2\"") == std::string::npos ||
-        create_payloads[create_payloads.size() - 2].find("\"point_mode\":1") == std::string::npos) {
-        std::cerr << "expected point_set payload to include point identity\n";
-        return EXIT_FAILURE;
-    }
-
-    if (create_payloads[create_payloads.size() - 2].find("\"point\":") != std::string::npos) {
-        std::cerr << "expected point_set payload to avoid manual coordinate body\n";
-        return EXIT_FAILURE;
-    }
-
-    if (created_point.name != "C2" || created_point.floor_id != 56 ||
-        created_point.map_id != 34 || created_point.point_id != 99) {
-        std::cerr << "expected created current point to include resolved floor/map/point ids\n";
-        return EXIT_FAILURE;
-    }
-
-    if (!adapter.delete_saved_point(created_point)) {
-        std::cerr << "expected delete_saved_point to succeed\n";
-        return EXIT_FAILURE;
-    }
-
-    if (transport.last_service() != "delete_test_point" ||
-        transport.last_type() != "map_msgs/DeleteTestPoint" ||
-        transport.last_payload().find("\"floor_id\":56") == std::string::npos ||
-        transport.last_payload().find("\"map_id\":34") == std::string::npos ||
-        transport.last_payload().find("\"point_id\":99") == std::string::npos) {
-        std::cerr << "expected delete_saved_point to use apk delete_test_point contract, got service="
-                  << transport.last_service() << " type=" << transport.last_type()
-                  << " payload=" << transport.last_payload() << "\n";
-        return EXIT_FAILURE;
-    }
-
-    if (!adapter.go_charge()) {
-        std::cerr << "expected go_charge to publish apk autocharge topic\n";
-        return EXIT_FAILURE;
-    }
-
-    if (transport.last_topic() != "autocharge" ||
-        transport.last_type() != "std_msgs/Int16" ||
-        transport.last_payload().find("\"data\":1") == std::string::npos) {
-        std::cerr << "expected go_charge to publish autocharge Int16(1)\n";
         return EXIT_FAILURE;
     }
 

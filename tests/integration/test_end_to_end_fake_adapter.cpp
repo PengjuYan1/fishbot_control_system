@@ -56,21 +56,8 @@ int main() {
     auto db = open_test_database();
     run_migrations(db);
     PointRepository point_repository(db);
-    PointRecord charge;
-    charge.name = "C1";
-    charge.type = "charge";
-    charge.point_kind = "charge";
-    point_repository.insert_point(charge);
-
-    PointRecord feed;
-    feed.name = "F1";
-    feed.type = "feed";
-    feed.point_kind = "navigation";
-    feed.biz_role = "feed";
-    feed.x = 2.0;
-    feed.y = 3.0;
-    feed.theta = 0.1;
-    point_repository.insert_point(feed);
+    point_repository.insert_point(PointRecord{0, "C1", "charge", 0.0, 0.0, 0.0});
+    point_repository.insert_point(PointRecord{0, "F1", "feed", 2.0, 3.0, 0.1});
 
     TaskRunRepository task_run_repository(db);
     FakeEndToEndAdapter adapter;

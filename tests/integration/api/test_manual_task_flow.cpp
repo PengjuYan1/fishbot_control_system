@@ -29,10 +29,6 @@ class FakeTaskAdapter : public IRobotAdapter {
         return ManualControlAcquireResult{true, ManualControlAcquireState::kReady};
     }
     bool out_of_charge() override { return true; }
-    bool go_charge() override {
-        charge_requested = true;
-        return true;
-    }
     bool manual_move(double, double) override { return true; }
     Pose get_robot_pose() const override { return {}; }
     int get_battery() const override { return 80; }
@@ -42,37 +38,14 @@ class FakeTaskAdapter : public IRobotAdapter {
 
     Pose last_goal;
     bool navigation_requested = false;
-    bool charge_requested = false;
 };
 
 int main() {
     auto db = open_test_database();
     run_migrations(db);
     PointRepository point_repository(db);
-    PointRecord charge;
-    charge.name = "C1";
-    charge.type = "charge";
-    charge.point_kind = "charge";
-    charge.x = 1.0;
-    charge.y = 2.0;
-    charge.theta = 0.0;
-    charge.floor_id = 1;
-    charge.map_id = 11;
-    charge.point_id = 21;
-    point_repository.insert_point(charge);
-
-    PointRecord feed;
-    feed.name = "F1";
-    feed.type = "feed";
-    feed.point_kind = "navigation";
-    feed.biz_role = "feed";
-    feed.x = 3.0;
-    feed.y = 4.0;
-    feed.theta = 1.0;
-    feed.floor_id = 2;
-    feed.map_id = 12;
-    feed.point_id = 22;
-    point_repository.insert_point(feed);
+    point_repository.insert_point(PointRecord{0, "C1", "charge", 1.0, 2.0, 0.0, 1, 11, 21});
+    point_repository.insert_point(PointRecord{0, "F1", "feed", 3.0, 4.0, 1.0, 2, 12, 22});
 
     FakeTaskAdapter adapter;
     TaskService service(adapter, point_repository);
@@ -117,8 +90,9 @@ int main() {
         return EXIT_FAILURE;
     }
 
-    if (!adapter.charge_requested) {
-        std::cerr << "expected go-charge to trigger dedicated autocharge flow\n";
+    if (adapter.last_goal.x != 1.0 || adapter.last_goal.y != 2.0 ||
+        adapter.last_goal.floor_id != 1 || adapter.last_goal.map_id != 11 || adapter.last_goal.point_id != 21) {
+        std::cerr << "expected go-charge to navigate to configured charge point\n";
         return EXIT_FAILURE;
     }
 

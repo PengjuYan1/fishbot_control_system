@@ -1,7 +1,7 @@
 const mockState = {
   points: [
-    { id: 1, name: 'C1', type: 'charge', point_kind: 'charge', biz_role: '', x: 1.2, y: 2.8, theta: 0.0, floor_id: 1, map_id: 11, point_id: 101 },
-    { id: 2, name: 'F1', type: 'feed', point_kind: 'navigation', biz_role: 'feed', x: 6.5, y: 9.1, theta: 1.57, floor_id: 1, map_id: 11, point_id: 201 },
+    { id: 1, name: 'C1', type: 'charge', x: 1.2, y: 2.8, theta: 0.0, floor_id: 1, map_id: 11, point_id: 101 },
+    { id: 2, name: 'F1', type: 'feed', x: 6.5, y: 9.1, theta: 1.57, floor_id: 1, map_id: 11, point_id: 201 },
   ],
   map: {
     width: 12,
@@ -67,21 +67,6 @@ window.fishbotApi = {
       return { ...mockState.map };
     }
   },
-  async getMapWorkflow() {
-    try {
-      return await requestJson('/api/map/workflow');
-    } catch (error) {
-      const hasChargePoint = mockState.points.some((point) => point.point_kind === 'charge');
-      const hasInitialPoint = mockState.points.some((point) => point.point_kind === 'initial');
-      return {
-        mapping_active: false,
-        has_charge_point: hasChargePoint,
-        has_initial_point: hasInitialPoint,
-        can_save_map: hasChargePoint && hasInitialPoint,
-        next_step: '当前为本地模拟流程，请先建立充电点和初始点后再保存地图。',
-      };
-    }
-  },
   async startMapping() {
     return requestJson('/api/map/start-mapping', { method: 'POST', body: '' });
   },
@@ -110,8 +95,6 @@ window.fishbotApi = {
         id,
         name: payload.name,
         type,
-        point_kind: type === 'charge' ? 'charge' : 'navigation',
-        biz_role: type === 'feed' ? 'feed' : '',
         x: Number(payload.x),
         y: Number(payload.y),
         theta: Number(payload.theta),
@@ -123,13 +106,24 @@ window.fishbotApi = {
     }
   },
   async createCurrentChargePoint() {
-    return requestJson('/api/points/charge/current', { method: 'POST', body: '' });
+    try {
+      return await requestJson('/api/points/charge/current', { method: 'POST', body: '' });
+    } catch (error) {
+      const id = mockState.points.length + 1;
+      const point = { id, name: `C${mockState.points.filter((item) => item.type === 'charge').length + 1}`, type: 'charge', x: 0, y: 0, theta: 0, floor_id: 0, map_id: 0, point_id: 0 };
+      mockState.points.push(point);
+      return point;
+    }
   },
   async createCurrentFeedPoint() {
-    return requestJson('/api/points/feed/current', { method: 'POST', body: '' });
-  },
-  async createCurrentInitialPoint() {
-    return requestJson('/api/points/initial/current', { method: 'POST', body: '' });
+    try {
+      return await requestJson('/api/points/feed/current', { method: 'POST', body: '' });
+    } catch (error) {
+      const id = mockState.points.length + 1;
+      const point = { id, name: `F${mockState.points.filter((item) => item.type === 'feed').length + 1}`, type: 'feed', x: 0, y: 0, theta: 0, floor_id: 0, map_id: 0, point_id: 0 };
+      mockState.points.push(point);
+      return point;
+    }
   },
   async deletePoint(id) {
     const body = new URLSearchParams({ id: String(id) }).toString();

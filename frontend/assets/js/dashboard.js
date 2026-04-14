@@ -127,7 +127,6 @@ function updateDashboardStatus() {
   const manualControlPhaseNode = document.getElementById('manual-control-phase-value');
   const outchargeResultNode = document.getElementById('outcharge-result-value');
   const controlBlockerNode = document.getElementById('control-blocker-value');
-  const mapWorkflowNode = document.getElementById('map-workflow-note');
 
   if (batteryNode) {
     batteryNode.textContent = `${state.system.battery}%`;
@@ -207,12 +206,6 @@ function updateDashboardStatus() {
   if (controlBlockerNode) {
     controlBlockerNode.textContent = formatControlBlockers(state.system);
   }
-
-  if (mapWorkflowNode) {
-    const workflow = state.mapWorkflow || {};
-    const prefix = workflow.can_save_map ? '建图流程：可保存。' : '建图流程：未完成。';
-    mapWorkflowNode.textContent = workflow.next_step ? `${prefix} ${workflow.next_step}` : prefix;
-  }
 }
 
 function bindRealtimeStatusSocket() {
@@ -260,24 +253,11 @@ function renderPointListPanel() {
     <div class="point-list-item">
       <div class="point-list-copy">
         <strong>${point.name}</strong>
-        <span>${describePoint(point)} · floor ${point.floor_id || 0} · map ${point.map_id || 0} · point ${point.point_id || 0}</span>
+        <span>${point.type === 'charge' ? '充电点' : '投喂点'} · floor ${point.floor_id || 0} · map ${point.map_id || 0} · point ${point.point_id || 0}</span>
       </div>
       <button type="button" class="point-delete-button" data-point-delete-id="${point.id}">删除</button>
     </div>
   `).join('');
-}
-
-function describePoint(point) {
-  if (point.point_kind === 'charge') {
-    return '充电点';
-  }
-  if (point.point_kind === 'initial') {
-    return '初始点';
-  }
-  if (point.biz_role === 'feed') {
-    return '投喂导航点';
-  }
-  return '导航点';
 }
 
 function bindControlButtons() {
@@ -291,7 +271,6 @@ function bindControlButtons() {
   const joystickKnob = document.getElementById('manual-joystick-knob');
   const driveStopCenterButton = document.getElementById('drive-stop-center');
   const mapEditorButton = document.getElementById('goto-map-editor-button');
-  const initialPointButton = document.getElementById('set-current-initial-button');
   const feedEditorButton = document.getElementById('goto-map-editor-feed-button');
   const pointListPanel = document.getElementById('point-list-panel');
   const actionFeedbackNode = document.getElementById('action-feedback');
@@ -337,10 +316,6 @@ function bindControlButtons() {
   const refreshPoints = async () => {
     const points = await window.fishbotApi.getPoints();
     window.fishbotStore.setPoints(points || []);
-    if (window.fishbotApi.getMapWorkflow) {
-      const workflow = await window.fishbotApi.getMapWorkflow();
-      window.fishbotStore.setMapWorkflow(workflow || {});
-    }
   };
 
   const setManualControlState = (result) => {
@@ -509,11 +484,8 @@ function bindControlButtons() {
   if (startMappingButton) {
     startMappingButton.addEventListener('click', async () => {
       try {
-        const result = await window.fishbotApi.startMapping();
-        if (result && result.workflow) {
-          window.fishbotStore.setMapWorkflow(result.workflow);
-        }
-        setActionFeedback('已发送开始建图指令。请先按手册完成桩前旋转、上桩并确认充电点与初始点。', 'success');
+        await window.fishbotApi.startMapping();
+        setActionFeedback('已发送开始建图指令。', 'success');
       } catch (error) {
         setActionFeedback(`开始建图失败：${formatError(error)}`, 'error');
       }
@@ -527,10 +499,7 @@ function bindControlButtons() {
         return;
       }
       try {
-        const result = await window.fishbotApi.saveMap(name);
-        if (result && result.workflow) {
-          window.fishbotStore.setMapWorkflow(result.workflow);
-        }
+        await window.fishbotApi.saveMap(name);
         setActionFeedback(`地图 ${name} 已发送保存请求。`, 'success');
       } catch (error) {
         setActionFeedback(`保存地图失败：${formatError(error)}`, 'error');
@@ -688,18 +657,6 @@ function bindControlButtons() {
     });
   }
 
-  if (initialPointButton) {
-    initialPointButton.addEventListener('click', async () => {
-      try {
-        const point = await window.fishbotApi.createCurrentInitialPoint();
-        await refreshPoints();
-        setActionFeedback(`已按当前位置创建初始点 ${point.name || 'I?'}。`, 'success');
-      } catch (error) {
-        setActionFeedback(`创建初始点失败：${formatError(error)}`, 'error');
-      }
-    });
-  }
-
   if (pointListPanel) {
     pointListPanel.addEventListener('click', async (event) => {
       const target = event.target instanceof Element ? event.target.closest('[data-point-delete-id]') : null;
@@ -749,20 +706,16 @@ document.addEventListener('DOMContentLoaded', async () => {
   bindRealtimeStatusSocket();
 
   try {
-    const [status, points, map, workflow] = await Promise.all([
+    const [status, points, map] = await Promise.all([
       window.fishbotApi.getSystemStatus(),
       window.fishbotApi.getPoints(),
       window.fishbotApi.getMapSnapshot ? window.fishbotApi.getMapSnapshot() : Promise.resolve(null),
-      window.fishbotApi.getMapWorkflow ? window.fishbotApi.getMapWorkflow() : Promise.resolve(null),
     ]);
 
     window.fishbotStore.setSystemSnapshot(status || {});
     window.fishbotStore.setPoints(points || []);
     if (map) {
       window.fishbotStore.setMapSnapshot(map);
-    }
-    if (workflow) {
-      window.fishbotStore.setMapWorkflow(workflow);
     }
   } catch (error) {
   }

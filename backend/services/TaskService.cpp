@@ -22,9 +22,7 @@ TaskStartResult TaskService::start_scheduled_run(const std::string&) {
 
 TaskStartResult TaskService::start_charge_return() {
     const auto charge_point = find_charge_point();
-    if (!adapter_.go_charge()) {
-        throw std::runtime_error("charge_return_start_failed");
-    }
+    navigate_to_point(charge_point);
     current_task_.status = "charging";
     current_task_.current_target_name = charge_point.name;
     last_trigger_type_ = "charge_return";
@@ -119,7 +117,7 @@ std::vector<PointRecord> TaskService::list_feed_points() const {
     const auto points = point_repository_.list_points();
     std::vector<PointRecord> feed_points;
     for (const auto& point : points) {
-        if (point.point_kind == "navigation" && point.biz_role == "feed") {
+        if (point.type == "feed") {
             feed_points.push_back(point);
         }
     }
@@ -134,7 +132,7 @@ std::vector<PointRecord> TaskService::list_feed_points() const {
 PointRecord TaskService::find_charge_point() const {
     const auto points = point_repository_.list_points();
     for (const auto& point : points) {
-        if (point.point_kind == "charge") {
+        if (point.type == "charge") {
             return point;
         }
     }

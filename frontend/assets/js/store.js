@@ -31,13 +31,6 @@ window.fishbotStore = (() => {
     },
     robot: { pose: { x: 0, y: 0, theta: 0 } },
     map: { width: 0, height: 0, resolution: 0, origin_x: 0, origin_y: 0, occupancy_data: [] },
-    mapWorkflow: {
-      mapping_active: false,
-      has_charge_point: false,
-      has_initial_point: false,
-      can_save_map: false,
-      next_step: '',
-    },
     points: [],
   };
   const listeners = new Set();
@@ -101,16 +94,6 @@ window.fishbotStore = (() => {
         origin_x: Number(map.origin_x || 0),
         origin_y: Number(map.origin_y || 0),
         occupancy_data: Array.isArray(map.occupancy_data) ? map.occupancy_data.slice() : [],
-      };
-      emit();
-    },
-    setMapWorkflow(workflow) {
-      state.mapWorkflow = {
-        mapping_active: Boolean(workflow.mapping_active),
-        has_charge_point: Boolean(workflow.has_charge_point),
-        has_initial_point: Boolean(workflow.has_initial_point),
-        can_save_map: Boolean(workflow.can_save_map),
-        next_step: workflow.next_step || '',
       };
       emit();
     },

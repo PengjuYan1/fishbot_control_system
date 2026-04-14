@@ -60,7 +60,6 @@ int main() {
     PointRecord charge;
     charge.name = "C1";
     charge.type = "charge";
-    charge.point_kind = "charge";
     charge.x = 1.0;
     charge.y = 2.0;
     charge.theta = 0.3;
@@ -72,8 +71,6 @@ int main() {
     PointRecord local_only;
     local_only.name = "legacy_local";
     local_only.type = "feed";
-    local_only.point_kind = "navigation";
-    local_only.biz_role = "feed";
     const int local_only_id = repository.insert_point(local_only);
 
     const auto first_delete = server.handle_post("/api/points/delete", "id=" + std::to_string(native_point_id));
@@ -107,8 +104,6 @@ int main() {
     PointRecord failure_point;
     failure_point.name = "F9";
     failure_point.type = "feed";
-    failure_point.point_kind = "navigation";
-    failure_point.biz_role = "feed";
     failure_point.floor_id = 101;
     failure_point.map_id = 202;
     failure_point.point_id = 303;

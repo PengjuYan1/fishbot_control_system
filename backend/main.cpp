@@ -60,7 +60,7 @@ int main(int argc, char** argv) {
     }, [&control_service]() {
         return control_service.get_state();
     });
-    MapService map_service(*context.adapter, point_repository);
+    MapService map_service(*context.adapter);
     PointService point_service(point_repository, *context.adapter);
     ScheduleService schedule_service(schedule_repository);
     AlertService alert_service(event_log_repository);

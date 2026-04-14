@@ -117,9 +117,7 @@ function renderPoints(stage, map, points) {
   points.forEach((point) => {
     const position = worldToPercent(map, Number(point.x || 0), Number(point.y || 0));
     const node = document.createElement('div');
-    node.className = point.point_kind === 'charge'
-      ? 'map-point charge-point'
-      : 'map-point feed-point';
+    node.className = point.type === 'charge' ? 'map-point charge-point' : 'map-point feed-point';
     node.textContent = point.name;
     node.style.cssText = positionStyle(position);
     stage.appendChild(node);

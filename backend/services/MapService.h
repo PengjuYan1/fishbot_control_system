@@ -4,32 +4,18 @@
 #include <string>
 
 #include "ros_adapter/IRobotAdapter.h"
-#include "storage/repositories/PointRepository.h"
-
-struct MapWorkflowStatus {
-    bool mapping_active = false;
-    bool has_charge_point = false;
-    bool has_initial_point = false;
-    bool can_save_map = false;
-    std::string next_step;
-};
 
 class MapService {
   public:
-    MapService(IRobotAdapter& adapter, PointRepository& point_repository);
+    explicit MapService(IRobotAdapter& adapter);
 
-    bool start_mapping();
-    bool stop_mapping();
-    bool save_map(const std::string& map_name);
+    bool start_mapping() const;
+    bool stop_mapping() const;
+    bool save_map(const std::string& map_name) const;
     MapSnapshot get_snapshot() const;
-    MapWorkflowStatus get_workflow_status() const;
 
   private:
-    MapWorkflowStatus build_workflow_status() const;
-
     IRobotAdapter& adapter_;
-    PointRepository& point_repository_;
-    bool mapping_active_ = false;
 };
 
 #endif

@@ -4,6 +4,6 @@
 #include "backend/app/AppServer.h"
 #include "backend/services/MapService.h"
 
-void register_map_routes(AppServer& server, MapService& map_service);
+void register_map_routes(AppServer& server, const MapService& map_service);
 
 #endif

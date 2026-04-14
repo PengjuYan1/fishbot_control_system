@@ -12,10 +12,6 @@
 
 namespace {
 constexpr int kChargeReady = 41;
-constexpr const char* kGetMapsServiceType = "std_srvs/Trigger";
-constexpr const char* kPointSetServiceType = "map_msgs/PointSet";
-constexpr const char* kPointManuSetServiceType = "map_msgs/PointManuSet";
-constexpr const char* kDeleteTestPointServiceType = "map_msgs/DeleteTestPoint";
 
 bool charging_blocks_manual_control(const RobotStatus& status) {
     if (status.charging) {
@@ -511,13 +507,6 @@ bool RosbridgeAdapter::out_of_charge() {
     return acquire_manual_control().ok;
 }
 
-bool RosbridgeAdapter::go_charge() {
-    if (!is_connected()) {
-        return false;
-    }
-    return publish_topic("autocharge", "std_msgs/Int16", "{\"data\":1}");
-}
-
 bool RosbridgeAdapter::manual_move(double linear_speed, double angular_speed) {
     std::ostringstream payload;
     payload << "{\"linear\":{\"x\":" << linear_speed
@@ -531,12 +520,21 @@ bool RosbridgeAdapter::create_current_pose_point(const std::string& name, long p
         return false;
     }
 
+    const Pose pose = get_robot_pose();
+    const double half_theta = pose.theta / 2.0;
+    const double orientation_z = std::sin(half_theta);
+    const double orientation_w = std::cos(half_theta);
+
     std::ostringstream request;
     request << "{\"point_name\":\"" << json_escape(name)
-            << "\",\"point_mode\":" << point_mode << "}";
+            << "\",\"point_mode\":" << point_mode
+            << ",\"point\":{\"header\":{\"frame_id\":\"map\"},\"pose\":{\"pose\":{\"position\":{\"x\":"
+            << pose.x << ",\"y\":" << pose.y << ",\"z\":0},\"orientation\":{\"x\":0,\"y\":0,\"z\":"
+            << orientation_z << ",\"w\":" << orientation_w
+            << "}},\"covariance\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]}}}";
 
     std::string point_response;
-    if (!call_service("point_set", kPointSetServiceType, request.str(), &point_response)) {
+    if (!call_service("pointmanu_set", "", request.str(), &point_response)) {
         return false;
     }
 
@@ -548,12 +546,11 @@ bool RosbridgeAdapter::create_current_pose_point(const std::string& name, long p
     std::string maps_response;
     long floor_id = 0;
     long map_id = 0;
-    if (!call_service("get_maps", kGetMapsServiceType, "{}", &maps_response) ||
+    if (!call_service("get_maps", "", "{}", &maps_response) ||
         !parse_default_map_context(maps_response, &floor_id, &map_id)) {
         return false;
     }
 
-    const Pose pose = get_robot_pose();
     point->name = name;
     point->x = pose.x;
     point->y = pose.y;
@@ -574,7 +571,7 @@ bool RosbridgeAdapter::delete_saved_point(const PointRecord& point) {
             << ",\"map_id\":" << point.map_id
             << ",\"point_id\":" << point.point_id << "}";
     std::string response;
-    return call_service("delete_test_point", kDeleteTestPointServiceType, request.str(), &response);
+    return call_service("delete_test_point", "", request.str(), &response);
 }
 
 Pose RosbridgeAdapter::get_robot_pose() const { return pose_; }
