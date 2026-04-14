@@ -120,7 +120,7 @@ function renderPoints(stage, map, points) {
     node.className = point.type === 'charge'
       ? 'map-point charge-point'
       : point.type === 'initial'
-        ? 'map-point'
+        ? 'map-point initial-point'
         : 'map-point feed-point';
     node.textContent = point.name;
     node.style.cssText = positionStyle(position);

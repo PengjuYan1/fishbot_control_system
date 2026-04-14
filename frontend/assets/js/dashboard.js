@@ -720,13 +720,4 @@ document.addEventListener('DOMContentLoaded', async () => {
   } catch (error) {
   }
 
-  if (window.fishbotApi && window.fishbotStore) {
-    window.setInterval(async () => {
-      try {
-        const points = await window.fishbotApi.getPoints();
-        window.fishbotStore.setPoints(points || []);
-      } catch (error) {
-      }
-    }, 2000);
-  }
 });

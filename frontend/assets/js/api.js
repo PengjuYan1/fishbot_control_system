@@ -106,24 +106,10 @@ window.fishbotApi = {
     }
   },
   async createCurrentChargePoint() {
-    try {
-      return await requestJson('/api/points/charge/current', { method: 'POST', body: '' });
-    } catch (error) {
-      const id = mockState.points.length + 1;
-      const point = { id, name: `C${mockState.points.filter((item) => item.type === 'charge').length + 1}`, type: 'charge', x: 0, y: 0, theta: 0, floor_id: 0, map_id: 0, point_id: 0 };
-      mockState.points.push(point);
-      return point;
-    }
+    return requestJson('/api/points/charge/current', { method: 'POST', body: '' });
   },
   async createCurrentFeedPoint() {
-    try {
-      return await requestJson('/api/points/feed/current', { method: 'POST', body: '' });
-    } catch (error) {
-      const id = mockState.points.length + 1;
-      const point = { id, name: `F${mockState.points.filter((item) => item.type === 'feed').length + 1}`, type: 'feed', x: 0, y: 0, theta: 0, floor_id: 0, map_id: 0, point_id: 0 };
-      mockState.points.push(point);
-      return point;
-    }
+    return requestJson('/api/points/feed/current', { method: 'POST', body: '' });
   },
   async deletePoint(id) {
     const body = new URLSearchParams({ id: String(id) }).toString();

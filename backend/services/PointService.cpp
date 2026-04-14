@@ -1,8 +1,10 @@
 #include "backend/services/PointService.h"
 
+#include <chrono>
 #include <cctype>
 #include <sstream>
 #include <stdexcept>
+#include <thread>
 #include <unordered_map>
 #include <vector>
 
@@ -10,6 +12,13 @@
 #include "ros_adapter/IRobotAdapter.h"
 
 namespace {
+constexpr long long kNativeSyncCooldownMs = 3000;
+
+long long steady_clock_millis() {
+    return std::chrono::duration_cast<std::chrono::milliseconds>(
+        std::chrono::steady_clock::now().time_since_epoch()).count();
+}
+
 std::unordered_map<std::string, std::string> parse_form_encoded(const std::string& body) {
     std::unordered_map<std::string, std::string> values;
     std::stringstream stream(body);
@@ -58,10 +67,6 @@ PointRecord PointService::create_current_feed_point() {
 }
 
 PointRecord PointService::delete_point(int id) {
-    if (adapter_ != nullptr) {
-        sync_native_points_if_supported(*adapter_, repository_);
-    }
-
     const auto point = repository_.find_point(id);
     if (!point.has_value()) {
         throw std::runtime_error("point_not_found");
@@ -84,9 +89,7 @@ PointRecord PointService::delete_point(int id) {
 }
 
 std::vector<PointRecord> PointService::list_points() const {
-    if (adapter_ != nullptr) {
-        sync_native_points_if_supported(*adapter_, repository_);
-    }
+    schedule_native_sync();
     return repository_.list_points();
 }
 
@@ -147,5 +150,36 @@ PointRecord PointService::create_current_point(const std::string& type, const st
     point.name = point.name.empty() ? next_point_name(prefix, type) : point.name;
     point.type = type;
     point.id = repository_.upsert_point(point);
+    schedule_native_sync();
     return point;
+}
+
+void PointService::schedule_native_sync() const {
+    if (adapter_ == nullptr) {
+        return;
+    }
+
+    const auto now_ms = steady_clock_millis();
+    const auto last_started = native_sync_started_ms_.load();
+    if (last_started != 0 && (now_ms - last_started) < kNativeSyncCooldownMs) {
+        return;
+    }
+
+    bool expected = false;
+    if (!native_sync_inflight_.compare_exchange_strong(expected, true)) {
+        return;
+    }
+    native_sync_started_ms_.store(now_ms);
+
+    std::thread([this]() { run_native_sync_once(); }).detach();
+}
+
+void PointService::run_native_sync_once() const {
+    try {
+        if (adapter_ != nullptr) {
+            sync_native_points_if_supported(*adapter_, repository_);
+        }
+    } catch (const std::exception&) {
+    }
+    native_sync_inflight_.store(false);
 }

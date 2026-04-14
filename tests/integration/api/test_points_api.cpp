@@ -1,6 +1,8 @@
 #include <cstdlib>
+#include <chrono>
 #include <iostream>
 #include <string>
+#include <thread>
 
 #include "backend/api/PointController.h"
 #include "backend/app/AppServer.h"
@@ -69,8 +71,16 @@ int main() {
         return EXIT_FAILURE;
     }
 
-    const auto list_response = server.handle_get("/api/points");
-    const auto points = repository.list_points();
+    auto list_response = server.handle_get("/api/points");
+    std::vector<PointRecord> points;
+    for (int retry = 0; retry < 50; ++retry) {
+        points = repository.list_points();
+        if (points.size() == 3) {
+            break;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
+        list_response = server.handle_get("/api/points");
+    }
     if (points.size() != 3) {
         std::cerr << "expected synced system points to merge into stored points\n";
         return EXIT_FAILURE;

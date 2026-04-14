@@ -1,6 +1,7 @@
 #ifndef FISHBOT_BACKEND_SERVICES_POINTSERVICE_H_
 #define FISHBOT_BACKEND_SERVICES_POINTSERVICE_H_
 
+#include <atomic>
 #include <string>
 #include <vector>
 
@@ -25,9 +26,13 @@ class PointService {
     std::string next_point_name(const std::string& prefix, const std::string& type) const;
     PointRecord parse_point(const std::string& body, const std::string& type) const;
     PointRecord create_current_point(const std::string& type, const std::string& prefix, long point_mode);
+    void schedule_native_sync() const;
+    void run_native_sync_once() const;
 
     PointRepository& repository_;
     IRobotAdapter* adapter_ = nullptr;
+    mutable std::atomic<bool> native_sync_inflight_{false};
+    mutable std::atomic<long long> native_sync_started_ms_{0};
 };
 
 #endif
