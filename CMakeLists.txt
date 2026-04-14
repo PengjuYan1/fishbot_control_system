@@ -74,6 +74,11 @@ add_executable(fishbot_rosbridge_probe
 )
 target_link_libraries(fishbot_rosbridge_probe PRIVATE fishbot_adapter fishbot_bootstrap Threads::Threads)
 
+add_executable(fishbot_rosbridge_capability_probe
+    tools/rosbridge_capability_probe.cpp
+)
+target_link_libraries(fishbot_rosbridge_capability_probe PRIVATE fishbot_adapter fishbot_bootstrap Threads::Threads)
+
 add_executable(test_bootstrap
     tests/integration/test_bootstrap.cpp
 )
@@ -145,6 +150,14 @@ target_link_libraries(test_rosbridge_probe PRIVATE Threads::Threads)
 
 add_test(NAME RosbridgeProbeTest COMMAND test_rosbridge_probe)
 set_tests_properties(RosbridgeProbeTest PROPERTIES WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
+
+add_executable(test_rosbridge_capability_probe
+    tests/integration/ros_adapter/test_rosbridge_capability_probe.cpp
+)
+target_link_libraries(test_rosbridge_capability_probe PRIVATE Threads::Threads)
+
+add_test(NAME RosbridgeCapabilityProbeTest COMMAND test_rosbridge_capability_probe)
+set_tests_properties(RosbridgeCapabilityProbeTest PROPERTIES WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
 
 add_executable(test_health_endpoint
     tests/integration/api/test_health_endpoint.cpp

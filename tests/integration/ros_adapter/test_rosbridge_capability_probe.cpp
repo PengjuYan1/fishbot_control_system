@@ -1,0 +1,161 @@
+#include <atomic>
+#include <chrono>
+#include <cstdlib>
+#include <fstream>
+#include <iostream>
+#include <string>
+#include <thread>
+
+#include <boost/asio.hpp>
+#include <boost/beast/core.hpp>
+#include <boost/beast/websocket.hpp>
+
+namespace {
+namespace asio = boost::asio;
+namespace websocket = boost::beast::websocket;
+using tcp = asio::ip::tcp;
+
+std::string extract_id(const std::string& message) {
+    const auto id_token = std::string("\"id\":\"");
+    const auto start = message.find(id_token);
+    if (start == std::string::npos) {
+        return "";
+    }
+    const auto id_start = start + id_token.size();
+    const auto id_end = message.find('"', id_start);
+    if (id_end == std::string::npos) {
+        return "";
+    }
+    return message.substr(id_start, id_end - id_start);
+}
+
+class FakeCapabilityRosbridgeServer {
+  public:
+    explicit FakeCapabilityRosbridgeServer(unsigned short port)
+        : ioc_(), acceptor_(ioc_, tcp::endpoint(tcp::v4(), port)) {}
+
+    void start() { thread_ = std::thread([this]() { run(); }); }
+
+    void stop() {
+        stop_requested_ = true;
+        boost::system::error_code ignored;
+        acceptor_.close(ignored);
+        if (thread_.joinable()) {
+            thread_.join();
+        }
+    }
+
+    ~FakeCapabilityRosbridgeServer() { stop(); }
+
+  private:
+    void write_message(websocket::stream<tcp::socket>& ws, const std::string& message) {
+        ws.write(asio::buffer(message));
+    }
+
+    void write_service_response(websocket::stream<tcp::socket>& ws, const std::string& service,
+                                const std::string& values, const std::string& id) {
+        write_message(ws,
+                      std::string("{\"op\":\"service_response\",\"service\":\"") + service +
+                          "\",\"values\":" + values +
+                          ",\"result\":true,\"id\":\"" + id + "\"}");
+    }
+
+    void publish_live_snapshot(websocket::stream<tcp::socket>& ws) {
+        write_message(ws, "{\"op\":\"publish\",\"topic\":\"power_report\",\"msg\":{\"data\":88}}");
+        write_message(ws, "{\"op\":\"publish\",\"topic\":\"androidmsg_locationstatus\",\"msg\":{\"data\":10}}");
+        write_message(ws, "{\"op\":\"publish\",\"topic\":\"androidmsg_chargestatus\",\"msg\":{\"data\":41}}");
+        write_message(ws, "{\"op\":\"publish\",\"topic\":\"androidmsg_navigationstatus\",\"msg\":{\"data\":83}}");
+        write_message(ws, "{\"op\":\"publish\",\"topic\":\"motion_mode\",\"msg\":{\"data\":2}}");
+        write_message(ws,
+                      "{\"op\":\"publish\",\"topic\":\"tracked_pose\",\"msg\":{\"pose\":{\"position\":{\"x\":1.2,\"y\":-0.4,\"z\":0.0},\"orientation\":{\"x\":0.0,\"y\":0.0,\"z\":0.0,\"w\":1.0}}}}");
+        write_message(ws,
+                      "{\"op\":\"publish\",\"topic\":\"/map\",\"msg\":{\"info\":{\"width\":5,\"height\":4,\"resolution\":0.05,\"origin\":{\"position\":{\"x\":-2.0,\"y\":-1.0}}},\"data\":[0,0,0,0]}}");
+    }
+
+    void run() {
+        try {
+            tcp::socket socket(ioc_);
+            acceptor_.accept(socket);
+            websocket::stream<tcp::socket> ws(std::move(socket));
+            ws.accept();
+            while (!stop_requested_) {
+                boost::beast::flat_buffer buffer;
+                ws.read(buffer);
+                const auto message = boost::beast::buffers_to_string(buffer.data());
+
+                if (message.find("\"op\":\"call_service\"") != std::string::npos) {
+                    const auto id = extract_id(message);
+                    if (message.find("\"service\":\"/rosapi/services\"") != std::string::npos ||
+                        message.find("\"service\":\"rosapi/services\"") != std::string::npos) {
+                        write_service_response(
+                            ws,
+                            "/rosapi/services",
+                            "{\"services\":[\"/set_mode\",\"set_relocation\",\"get_maps\",\"/publish_map\","
+                            "\"navi_targegoalplan\",\"point_set\",\"pointmanu_set\",\"list_navi_points\"]}",
+                            id);
+                        continue;
+                    }
+                    if (message.find("\"service\":\"/rosapi/topics\"") != std::string::npos ||
+                        message.find("\"service\":\"rosapi/topics\"") != std::string::npos) {
+                        write_service_response(
+                            ws,
+                            "/rosapi/topics",
+                            "{\"topics\":[\"/cmd_vel\",\"/navi_stop\",\"autocharge\",\"outofcharge\",\"/initialpose\","
+                            "\"androidmsg_locationstatus\",\"androidmsg_navigationstatus\",\"androidmsg_chargestatus\","
+                            "\"tracked_pose\",\"/map\"]}",
+                            id);
+                        continue;
+                    }
+                    write_service_response(ws, "unknown", "{}", id);
+                    continue;
+                }
+
+                if (message.find("\"op\":\"subscribe\"") != std::string::npos) {
+                    publish_live_snapshot(ws);
+                    continue;
+                }
+            }
+        } catch (const std::exception&) {
+        }
+    }
+
+    asio::io_context ioc_;
+    tcp::acceptor acceptor_;
+    std::thread thread_;
+    std::atomic<bool> stop_requested_{false};
+};
+}  // namespace
+
+int main() {
+    constexpr unsigned short port = 19092;
+    FakeCapabilityRosbridgeServer server(port);
+    server.start();
+
+    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    const auto exit_code = std::system(
+        "./fishbot_rosbridge_capability_probe 127.0.0.1 19092 3000 > /tmp/fishbot_rosbridge_capability_probe.out");
+    server.stop();
+
+    if (exit_code != 0) {
+        std::cerr << "expected rosbridge capability probe tool to succeed\n";
+        return EXIT_FAILURE;
+    }
+
+    std::ifstream input("/tmp/fishbot_rosbridge_capability_probe.out");
+    const std::string output((std::istreambuf_iterator<char>(input)), std::istreambuf_iterator<char>());
+
+    if (output.find("\"services_query_ok\":true") == std::string::npos ||
+        output.find("\"topics_query_ok\":true") == std::string::npos ||
+        output.find("\"name\":\"set_relocation\",\"available\":true") == std::string::npos ||
+        output.find("\"name\":\"cmd_vel\",\"available\":true") == std::string::npos ||
+        output.find("\"required_services_available\":8") == std::string::npos ||
+        output.find("\"required_topics_available\":10") == std::string::npos ||
+        output.find("\"battery\":88") == std::string::npos ||
+        output.find("\"location_status_code\":10") == std::string::npos ||
+        output.find("\"navigation_status_code\":83") == std::string::npos) {
+        std::cerr << "expected capability probe output to include rosapi and live status checks\n";
+        return EXIT_FAILURE;
+    }
+
+    return EXIT_SUCCESS;
+}
