@@ -10,6 +10,8 @@
 #include "backend/services/ManualControlService.h"
 #include "backend/services/SystemService.h"
 #include "ros_adapter/IRobotAdapter.h"
+#include "storage/Database.h"
+#include "storage/repositories/PointRepository.h"
 
 class FakeStreamAdapter : public IRobotAdapter {
   public:
@@ -37,6 +39,9 @@ class FakeStreamAdapter : public IRobotAdapter {
 };
 
 int main() {
+    auto db = open_test_database();
+    run_migrations(db);
+    PointRepository point_repository(db);
     FakeStreamAdapter adapter;
     ManualControlService control_service(adapter);
     SystemService system_service(adapter, []() {
@@ -44,7 +49,7 @@ int main() {
     }, [&control_service]() {
         return control_service.get_state();
     });
-    MapService map_service(adapter);
+    MapService map_service(adapter, point_repository);
     StatusHub hub;
     StatusStreamService stream_service(system_service, map_service, hub);
 

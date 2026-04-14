@@ -127,6 +127,7 @@ function updateDashboardStatus() {
   const manualControlPhaseNode = document.getElementById('manual-control-phase-value');
   const outchargeResultNode = document.getElementById('outcharge-result-value');
   const controlBlockerNode = document.getElementById('control-blocker-value');
+  const mapWorkflowNode = document.getElementById('map-workflow-note');
 
   if (batteryNode) {
     batteryNode.textContent = `${state.system.battery}%`;
@@ -205,6 +206,12 @@ function updateDashboardStatus() {
 
   if (controlBlockerNode) {
     controlBlockerNode.textContent = formatControlBlockers(state.system);
+  }
+
+  if (mapWorkflowNode) {
+    const workflow = state.mapWorkflow || {};
+    const prefix = workflow.can_save_map ? '建图流程：可保存。' : '建图流程：未完成。';
+    mapWorkflowNode.textContent = workflow.next_step ? `${prefix} ${workflow.next_step}` : prefix;
   }
 }
 
@@ -330,6 +337,10 @@ function bindControlButtons() {
   const refreshPoints = async () => {
     const points = await window.fishbotApi.getPoints();
     window.fishbotStore.setPoints(points || []);
+    if (window.fishbotApi.getMapWorkflow) {
+      const workflow = await window.fishbotApi.getMapWorkflow();
+      window.fishbotStore.setMapWorkflow(workflow || {});
+    }
   };
 
   const setManualControlState = (result) => {
@@ -498,8 +509,11 @@ function bindControlButtons() {
   if (startMappingButton) {
     startMappingButton.addEventListener('click', async () => {
       try {
-        await window.fishbotApi.startMapping();
-        setActionFeedback('已发送开始建图指令。', 'success');
+        const result = await window.fishbotApi.startMapping();
+        if (result && result.workflow) {
+          window.fishbotStore.setMapWorkflow(result.workflow);
+        }
+        setActionFeedback('已发送开始建图指令。请先按手册完成桩前旋转、上桩并确认充电点与初始点。', 'success');
       } catch (error) {
         setActionFeedback(`开始建图失败：${formatError(error)}`, 'error');
       }
@@ -513,7 +527,10 @@ function bindControlButtons() {
         return;
       }
       try {
-        await window.fishbotApi.saveMap(name);
+        const result = await window.fishbotApi.saveMap(name);
+        if (result && result.workflow) {
+          window.fishbotStore.setMapWorkflow(result.workflow);
+        }
         setActionFeedback(`地图 ${name} 已发送保存请求。`, 'success');
       } catch (error) {
         setActionFeedback(`保存地图失败：${formatError(error)}`, 'error');
@@ -732,16 +749,20 @@ document.addEventListener('DOMContentLoaded', async () => {
   bindRealtimeStatusSocket();
 
   try {
-    const [status, points, map] = await Promise.all([
+    const [status, points, map, workflow] = await Promise.all([
       window.fishbotApi.getSystemStatus(),
       window.fishbotApi.getPoints(),
       window.fishbotApi.getMapSnapshot ? window.fishbotApi.getMapSnapshot() : Promise.resolve(null),
+      window.fishbotApi.getMapWorkflow ? window.fishbotApi.getMapWorkflow() : Promise.resolve(null),
     ]);
 
     window.fishbotStore.setSystemSnapshot(status || {});
     window.fishbotStore.setPoints(points || []);
     if (map) {
       window.fishbotStore.setMapSnapshot(map);
+    }
+    if (workflow) {
+      window.fishbotStore.setMapWorkflow(workflow);
     }
   } catch (error) {
   }

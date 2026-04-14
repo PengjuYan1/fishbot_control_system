@@ -67,6 +67,21 @@ window.fishbotApi = {
       return { ...mockState.map };
     }
   },
+  async getMapWorkflow() {
+    try {
+      return await requestJson('/api/map/workflow');
+    } catch (error) {
+      const hasChargePoint = mockState.points.some((point) => point.point_kind === 'charge');
+      const hasInitialPoint = mockState.points.some((point) => point.point_kind === 'initial');
+      return {
+        mapping_active: false,
+        has_charge_point: hasChargePoint,
+        has_initial_point: hasInitialPoint,
+        can_save_map: hasChargePoint && hasInitialPoint,
+        next_step: '当前为本地模拟流程，请先建立充电点和初始点后再保存地图。',
+      };
+    }
+  },
   async startMapping() {
     return requestJson('/api/map/start-mapping', { method: 'POST', body: '' });
   },

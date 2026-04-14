@@ -17,6 +17,8 @@
 #include "backend/services/SystemService.h"
 #include "backend/websocket/StatusHub.h"
 #include "ros_adapter/IRobotAdapter.h"
+#include "storage/Database.h"
+#include "storage/repositories/PointRepository.h"
 
 namespace {
 namespace asio = boost::asio;
@@ -60,9 +62,12 @@ std::string websocket_read(websocket::stream<tcp::socket>& client) {
 int main() {
     constexpr unsigned short port = 18083;
 
+    auto db = open_test_database();
+    run_migrations(db);
+    PointRepository point_repository(db);
     FakeAdapter adapter;
     SystemService system_service(adapter, []() { return TaskSummary{"idle", ""}; });
-    MapService map_service(adapter);
+    MapService map_service(adapter, point_repository);
     StatusHub status_hub;
     StatusStreamService status_stream_service(system_service, map_service, status_hub);
 
