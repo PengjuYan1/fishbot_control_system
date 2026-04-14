@@ -2,8 +2,6 @@
 
 #include <stdexcept>
 
-#include "backend/services/NativePointSync.h"
-
 namespace {
 bool has_point_kind(const std::vector<PointRecord>& points, const std::string& point_kind) {
     for (const auto& point : points) {
@@ -31,7 +29,6 @@ bool MapService::stop_mapping() {
 }
 
 bool MapService::save_map(const std::string& map_name) {
-    sync_native_points_if_supported(adapter_, point_repository_);
     const auto workflow = build_workflow_status();
     if (!workflow.can_save_map) {
         throw std::runtime_error("map_requires_charge_and_initial_points");
@@ -48,7 +45,6 @@ MapSnapshot MapService::get_snapshot() const {
 }
 
 MapWorkflowStatus MapService::get_workflow_status() const {
-    sync_native_points_if_supported(adapter_, point_repository_);
     return build_workflow_status();
 }
 

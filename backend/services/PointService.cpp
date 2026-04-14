@@ -6,7 +6,6 @@
 #include <unordered_map>
 #include <vector>
 
-#include "backend/services/NativePointSync.h"
 #include "ros_adapter/IRobotAdapter.h"
 
 namespace {
@@ -75,10 +74,6 @@ PointRecord PointService::create_current_feed_point() {
 }
 
 PointRecord PointService::delete_point(int id) {
-    if (adapter_ != nullptr) {
-        sync_native_points_if_supported(*adapter_, repository_);
-    }
-
     const auto point = repository_.find_point(id);
     if (!point.has_value()) {
         throw std::runtime_error("point_not_found");
@@ -101,9 +96,6 @@ PointRecord PointService::delete_point(int id) {
 }
 
 std::vector<PointRecord> PointService::list_points() const {
-    if (adapter_ != nullptr) {
-        sync_native_points_if_supported(*adapter_, repository_);
-    }
     return repository_.list_points();
 }
 
@@ -173,11 +165,6 @@ PointRecord PointService::create_current_point(const std::string& point_kind, co
     point.point_kind = point_kind;
     point.biz_role = biz_role;
     point.type = canonical_type_for(point_kind, biz_role);
-    point.id = repository_.upsert_point(point);
-    sync_native_points_if_supported(*adapter_, repository_);
-    const auto synced = repository_.find_by_native_identity(point.floor_id, point.map_id, point.point_id);
-    if (synced.has_value()) {
-        return *synced;
-    }
+    point.id = repository_.insert_point(point);
     return point;
 }

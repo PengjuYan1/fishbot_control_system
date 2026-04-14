@@ -1,6 +1,5 @@
 #include <cstdlib>
 #include <iostream>
-#include <thread>
 
 #include "backend/api/ControlController.h"
 #include "backend/app/AppServer.h"
@@ -132,19 +131,11 @@ int main() {
     }
 
     adapter.move_requested = false;
-    adapter.out_of_charge_succeeds = false;
-    adapter.charging = true;
-    adapter.charge_status_code = 47;
-    std::this_thread::sleep_for(std::chrono::milliseconds(1700));
     const auto move = server.handle_post("/api/control/move", "linear=0.15&angular=0.6");
     if (move.status != 200 || !adapter.move_requested ||
         adapter.last_linear != 0.15 || adapter.last_angular != 0.6 ||
         move.body.find("\"phase\":\"driving\"") == std::string::npos) {
-        std::cerr << "expected explicit undock to latch manual-ready even after charge status lingers\n";
-        return EXIT_FAILURE;
-    }
-    if (adapter.acquire_manual_control_count != 0) {
-        std::cerr << "expected latched undock move to avoid reacquiring manual control\n";
+        std::cerr << "expected joystick heartbeat to take over immediately during undock grace window\n";
         return EXIT_FAILURE;
     }
 
@@ -157,7 +148,6 @@ int main() {
     adapter.move_requested = false;
     adapter.charging = true;
     adapter.charge_status_code = 47;
-    adapter.out_of_charge_succeeds = true;
     adapter.out_of_charge_count = 0;
     adapter.out_of_charge_calls_to_release = 2;
     adapter.acquire_manual_control_count = 0;

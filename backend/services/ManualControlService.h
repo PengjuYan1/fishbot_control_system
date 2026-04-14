@@ -33,7 +33,6 @@ class ManualControlService {
     mutable std::mutex mutex_;
     ManualControlState session_state_;
     bool drive_command_active_ = false;
-    bool manual_ready_latched_ = false;
     std::chrono::steady_clock::time_point undock_grace_deadline_{};
 };
 

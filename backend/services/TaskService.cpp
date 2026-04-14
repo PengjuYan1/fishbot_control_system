@@ -3,8 +3,6 @@
 #include <sstream>
 #include <stdexcept>
 
-#include "backend/services/NativePointSync.h"
-
 TaskService::TaskService(IRobotAdapter& adapter, PointRepository& point_repository)
     : TaskService(adapter, point_repository, nullptr) {}
 
@@ -23,7 +21,6 @@ TaskStartResult TaskService::start_scheduled_run(const std::string&) {
 }
 
 TaskStartResult TaskService::start_charge_return() {
-    sync_native_points_if_supported(adapter_, point_repository_);
     const auto charge_point = find_charge_point();
     if (!adapter_.go_charge()) {
         throw std::runtime_error("charge_return_start_failed");
@@ -119,7 +116,6 @@ void TaskService::on_charge_completed(bool resume_after_charge) {
 }
 
 std::vector<PointRecord> TaskService::list_feed_points() const {
-    sync_native_points_if_supported(adapter_, point_repository_);
     const auto points = point_repository_.list_points();
     std::vector<PointRecord> feed_points;
     for (const auto& point : points) {
@@ -136,7 +132,6 @@ std::vector<PointRecord> TaskService::list_feed_points() const {
 }
 
 PointRecord TaskService::find_charge_point() const {
-    sync_native_points_if_supported(adapter_, point_repository_);
     const auto points = point_repository_.list_points();
     for (const auto& point : points) {
         if (point.point_kind == "charge") {

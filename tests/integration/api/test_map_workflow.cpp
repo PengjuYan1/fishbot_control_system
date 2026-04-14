@@ -1,7 +1,6 @@
 #include <cstdlib>
 #include <iostream>
 #include <string>
-#include <vector>
 
 #include "backend/api/MapController.h"
 #include "backend/app/AppServer.h"
@@ -33,19 +32,10 @@ class FakeMapAdapter : public IRobotAdapter {
     RobotStatus get_robot_status() const override { return RobotStatus{80, false, true, true}; }
     MapSnapshot get_map_snapshot() const override { return MapSnapshot{4, 3, 0.05, {0, 100, -1, 0}, -1.0, -2.0}; }
     bool is_charging() const override { return false; }
-    bool list_native_points(std::vector<PointRecord>* points) override {
-        if (points == nullptr) {
-            return false;
-        }
-        *points = native_points;
-        return native_sync_enabled;
-    }
 
     bool started = false;
     bool stopped = false;
     std::string saved_name;
-    bool native_sync_enabled = false;
-    std::vector<PointRecord> native_points;
 };
 
 int main() {
@@ -84,20 +74,13 @@ int main() {
     charge.name = "C1";
     charge.type = "charge";
     charge.point_kind = "charge";
-    charge.floor_id = 1;
-    charge.map_id = 11;
-    charge.point_id = 21;
-    adapter.native_points.push_back(charge);
+    point_repository.insert_point(charge);
 
     PointRecord initial;
     initial.name = "I1";
     initial.type = "initial";
     initial.point_kind = "initial";
-    initial.floor_id = 1;
-    initial.map_id = 11;
-    initial.point_id = 22;
-    adapter.native_points.push_back(initial);
-    adapter.native_sync_enabled = true;
+    point_repository.insert_point(initial);
 
     const auto workflow_response = server.handle_get("/api/map/workflow");
     if (workflow_response.status != 200 ||
@@ -111,11 +94,6 @@ int main() {
     const auto successful_save_response = server.handle_post("/api/map/save", "pond_a");
     if (successful_save_response.status != 200 || adapter.saved_name != "pond_a") {
         std::cerr << "expected successful save-map response after system points exist\n";
-        return EXIT_FAILURE;
-    }
-
-    if (point_repository.list_points().size() != 2) {
-        std::cerr << "expected workflow sync to persist native system points locally\n";
         return EXIT_FAILURE;
     }
 
