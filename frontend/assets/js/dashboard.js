@@ -53,6 +53,8 @@ function formatNavigationStatusCode(control) {
       return '3 (导航失败)';
     case 5:
       return '5 (导航停止中)';
+    case 8:
+      return '8 (全局路径规划超时/陷入困境)';
     case 52:
       return '52 (未设置充电点)';
     case 83:
@@ -113,6 +115,8 @@ function formatControlBlockers(system) {
   const navigationCode = Number(control.navigation_status_code || 0);
   if (navigationCode === 1 || navigationCode === 5) {
     blockers.push(`导航控制仍占用中 (${navigationCode})`);
+  } else if (navigationCode === 8) {
+    blockers.push('导航规划失败/超时 (8)');
   }
   if (Number(control.stm32_status_code || 0) === 17) {
     blockers.push('STM32 通讯异常');
