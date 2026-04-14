@@ -81,6 +81,7 @@ int main() {
         std::this_thread::sleep_for(std::chrono::milliseconds(10));
         list_response = server.handle_get("/api/points");
     }
+    list_response = server.handle_get("/api/points");
     if (points.size() != 3) {
         std::cerr << "expected synced system points to merge into stored points\n";
         return EXIT_FAILURE;

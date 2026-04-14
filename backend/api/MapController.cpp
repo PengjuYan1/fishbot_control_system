@@ -1,6 +1,6 @@
 #include "backend/api/MapController.h"
 
-void register_map_routes(AppServer& server, const MapService& map_service) {
+void register_map_routes(AppServer& server, MapService& map_service) {
     server.register_get("/api/map/snapshot", [&map_service]() {
         return HttpResponse{200, to_json(map_service.get_snapshot()), "application/json"};
     });

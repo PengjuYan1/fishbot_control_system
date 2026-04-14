@@ -44,6 +44,7 @@ void StatusStreamService::stop() {
 
 void StatusStreamService::poll_once() {
     const auto snapshot = system_service_.capture_snapshot();
+    map_service_.observe_system_snapshot(snapshot);
     const auto map_snapshot = map_service_.get_snapshot();
     status_hub_.publish_system_snapshot(snapshot);
     status_hub_.publish_map_snapshot(map_snapshot);
