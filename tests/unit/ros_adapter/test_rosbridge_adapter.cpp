@@ -299,6 +299,19 @@ int main() {
         return EXIT_FAILURE;
     }
 
+    transport.emit("androidmsg_chargestatus", "{\"data\":47}");
+    if (!adapter.undock_forward(1)) {
+        std::cerr << "expected explicit undock_forward request to succeed\n";
+        return EXIT_FAILURE;
+    }
+
+    if (transport.last_service() != "/set_navi_cmd" ||
+        transport.last_payload().find("\"cmd\":\"1\"") == std::string::npos ||
+        transport.last_payload().find("\"distance\":1") == std::string::npos) {
+        std::cerr << "expected undock_forward to call /set_navi_cmd with forward 1-unit command\n";
+        return EXIT_FAILURE;
+    }
+
     if (!adapter.manual_move(0.2, 0.4)) {
         std::cerr << "expected manual_move to succeed\n";
         return EXIT_FAILURE;

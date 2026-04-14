@@ -1,14 +1,7 @@
 #include "backend/services/ManualControlService.h"
 
-#include <chrono>
-#include <thread>
-
 namespace {
-constexpr double kUndockLinearSpeed = 0.30;
-constexpr double kUndockAngularSpeed = 0.0;
-constexpr auto kUndockPulseDuration = std::chrono::milliseconds(350);
-constexpr auto kUndockRetryDelay = std::chrono::milliseconds(200);
-constexpr int kUndockRetryCount = 5;
+constexpr long kUndockForwardDistanceCm = 1;
 
 bool wants_motion(double linear_speed, double angular_speed) {
     return linear_speed != 0.0 || angular_speed != 0.0;
@@ -54,56 +47,21 @@ ManualControlCommandResult ManualControlService::out_of_charge() {
 }
 
 ManualControlCommandResult ManualControlService::undock() {
+    const bool ok = adapter_.undock_forward(kUndockForwardDistanceCm);
+    const auto robot_status = adapter_.get_robot_status();
+
     {
         std::lock_guard<std::mutex> lock(mutex_);
-        update_state_locked(ManualControlPhase::kUndockingRequested, 0.0, 0.0, true, false);
-    }
-
-    RobotStatus robot_status = adapter_.get_robot_status();
-    for (int attempt = 0; attempt < kUndockRetryCount && charging_still_blocks_manual_control(robot_status);
-         ++attempt) {
-        if (!adapter_.out_of_charge()) {
-            std::lock_guard<std::mutex> lock(mutex_);
-            sync_session_from_status_locked(adapter_.get_robot_status());
-            return ManualControlCommandResult{false, snapshot_state_locked()};
-        }
-        std::this_thread::sleep_for(kUndockRetryDelay);
-        robot_status = adapter_.get_robot_status();
-    }
-
-    if (charging_still_blocks_manual_control(robot_status)) {
-        std::lock_guard<std::mutex> lock(mutex_);
+        update_state_locked(
+            ok ? ManualControlPhase::kReadyForDrive : ManualControlPhase::kUndockingRequested,
+            0.0,
+            0.0,
+            ok,
+            false);
         sync_session_from_status_locked(robot_status);
-        return ManualControlCommandResult{false, snapshot_state_locked()};
     }
 
-    const auto acquire = adapter_.acquire_manual_control();
-    if (!acquire.ok || acquire.state != ManualControlAcquireState::kReady) {
-        std::lock_guard<std::mutex> lock(mutex_);
-        sync_session_from_status_locked(adapter_.get_robot_status());
-        return ManualControlCommandResult{false, snapshot_state_locked()};
-    }
-
-    if (!adapter_.manual_move(kUndockLinearSpeed, kUndockAngularSpeed)) {
-        std::lock_guard<std::mutex> lock(mutex_);
-        sync_session_from_status_locked(adapter_.get_robot_status());
-        return ManualControlCommandResult{false, snapshot_state_locked()};
-    }
-
-    std::this_thread::sleep_for(kUndockPulseDuration);
-    if (!adapter_.manual_move(0.0, 0.0)) {
-        std::lock_guard<std::mutex> lock(mutex_);
-        sync_session_from_status_locked(adapter_.get_robot_status());
-        return ManualControlCommandResult{false, snapshot_state_locked()};
-    }
-
-    {
-        std::lock_guard<std::mutex> lock(mutex_);
-        update_state_locked(ManualControlPhase::kReadyForDrive, 0.0, 0.0, true, false);
-        sync_session_from_status_locked(adapter_.get_robot_status());
-    }
-
-    return ManualControlCommandResult{true, get_state()};
+    return ManualControlCommandResult{ok, get_state()};
 }
 
 ManualControlCommandResult ManualControlService::exit_navigation_mode() {
@@ -129,15 +87,6 @@ ManualControlCommandResult ManualControlService::move(double linear_speed, doubl
 
     if (!motion_requested) {
         return stop();
-    }
-
-    const auto robot_status = adapter_.get_robot_status();
-    if (charging_still_blocks_manual_control(robot_status)) {
-        std::lock_guard<std::mutex> lock(mutex_);
-        update_state_locked(
-            ManualControlPhase::kUndockingRequested, linear_speed, angular_speed, false, false);
-        sync_session_from_status_locked(robot_status);
-        return ManualControlCommandResult{false, snapshot_state_locked()};
     }
 
     const auto acquire = adapter_.acquire_manual_control();

@@ -507,6 +507,27 @@ bool RosbridgeAdapter::out_of_charge() {
     return acquire_manual_control().ok;
 }
 
+bool RosbridgeAdapter::undock_forward(long distance_cm) {
+    if (!is_connected() || distance_cm <= 0) {
+        return false;
+    }
+
+    std::string response;
+    bool ok = call_service("/set_mode", "map_msgs/SetMode", "{\"mode\":0}", &response);
+    ok = publish_topic("/navi_stop", "std_msgs/Int16", "{\"data\":5}") && ok;
+    ok = publish_topic("/cmd_vel", "geometry_msgs/Twist",
+                       "{\"linear\":{\"x\":0,\"y\":0,\"z\":0},\"angular\":{\"x\":0,\"y\":0,\"z\":0}}") && ok;
+
+    const auto status = get_robot_status();
+    if (charging_blocks_manual_control(status)) {
+        ok = publish_topic("outofcharge", "std_msgs/Int16", "{\"data\":1}") && ok;
+    }
+
+    std::ostringstream request;
+    request << "{\"cmd\":\"1\",\"distance\":" << distance_cm << "}";
+    return call_service("/set_navi_cmd", "map_msgs/SetNaviCmd", request.str(), &response) && ok;
+}
+
 bool RosbridgeAdapter::manual_move(double linear_speed, double angular_speed) {
     std::ostringstream payload;
     payload << "{\"linear\":{\"x\":" << linear_speed

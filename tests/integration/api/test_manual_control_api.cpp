@@ -54,6 +54,17 @@ class FakeControlAdapter : public IRobotAdapter {
         }
         return out_of_charge_succeeds;
     }
+    bool undock_forward(long distance_cm) override {
+        undock_requested = true;
+        last_undock_distance_cm = distance_cm;
+        if (!undock_succeeds) {
+            return false;
+        }
+        charging = false;
+        charge_status_code = 41;
+        navigation_status_code = 83;
+        return true;
+    }
     bool manual_move(double linear_speed, double angular_speed) override {
         move_requested = true;
         ++move_count;
@@ -75,12 +86,15 @@ class FakeControlAdapter : public IRobotAdapter {
     bool out_of_charge_requested = false;
     bool out_of_charge_succeeds = true;
     bool move_requested = false;
+    bool undock_requested = false;
+    bool undock_succeeds = true;
     bool stop_navigation_requested = false;
     int stop_navigation_count = 0;
     int out_of_charge_count = 0;
     int out_of_charge_calls_to_release = 1;
     int acquire_manual_control_count = 0;
     int move_count = 0;
+    long last_undock_distance_cm = 0;
     bool manual_move_succeeds = true;
     double last_linear = 0.0;
     double last_angular = 0.0;
@@ -115,33 +129,21 @@ int main() {
     adapter.out_of_charge_calls_to_release = 2;
     adapter.out_of_charge_count = 0;
     adapter.out_of_charge_requested = false;
+    adapter.undock_requested = false;
     adapter.move_requested = false;
     adapter.move_count = 0;
     adapter.acquire_manual_control_count = 0;
 
-    const auto blocked_drag = server.handle_post("/api/control/move", "linear=0.12&angular=0.0");
-    if (blocked_drag.status != 500 ||
-        adapter.acquire_manual_control_count != 0 ||
-        adapter.move_requested ||
-        adapter.out_of_charge_requested) {
-        std::cerr << "expected joystick move to stay blocked during charging until explicit undock\n";
+    const auto undock = server.handle_post("/api/control/undock", "");
+    if (undock.status != 200 ||
+        !adapter.undock_requested ||
+        adapter.last_undock_distance_cm != 1 ||
+        undock.body.find("\"phase\":\"ready_for_drive\"") == std::string::npos) {
+        std::cerr << "expected explicit undock request to send a 1-unit forward undock command\n";
         return EXIT_FAILURE;
     }
 
     adapter.move_requested = false;
-    adapter.out_of_charge_requested = false;
-    adapter.move_count = 0;
-    const auto undock = server.handle_post("/api/control/undock", "");
-    if (undock.status != 200 ||
-        !adapter.out_of_charge_requested ||
-        adapter.move_count != 2 ||
-        adapter.last_linear != 0.0 ||
-        adapter.last_angular != 0.0 ||
-        undock.body.find("\"phase\":\"ready_for_drive\"") == std::string::npos) {
-        std::cerr << "expected explicit undock request to release charge and finish in ready_for_drive\n";
-        return EXIT_FAILURE;
-    }
-
     adapter.move_requested = false;
     const auto move = server.handle_post("/api/control/move", "linear=0.15&angular=0.6");
     if (move.status != 200 || !adapter.move_requested ||
@@ -154,13 +156,13 @@ int main() {
     adapter.move_requested = false;
     adapter.charging = true;
     adapter.charge_status_code = 47;
-    adapter.out_of_charge_succeeds = false;
-    const auto failed_move = server.handle_post("/api/control/move", "linear=0.05&angular=0.0");
-    if (failed_move.status != 500 || adapter.move_requested) {
-        std::cerr << "expected move to fail when adapter cannot acquire manual control\n";
+    adapter.acquire_manual_control_count = 0;
+    const auto charging_move = server.handle_post("/api/control/move", "linear=0.05&angular=0.0");
+    if (charging_move.status != 200 || adapter.acquire_manual_control_count != 1 || adapter.move_requested ||
+        charging_move.body.find("\"phase\":\"undocking_requested\"") == std::string::npos) {
+        std::cerr << "expected charging move request to reuse acquire_manual_control undocking flow\n";
         return EXIT_FAILURE;
     }
-    adapter.out_of_charge_succeeds = true;
     adapter.charging = false;
     adapter.charge_status_code = 41;
 
