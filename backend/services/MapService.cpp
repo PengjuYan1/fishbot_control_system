@@ -1,5 +1,7 @@
 #include "backend/services/MapService.h"
 
+#include <stdexcept>
+
 namespace {
 bool has_point_kind(const std::vector<PointRecord>& points, const std::string& point_kind) {
     for (const auto& point : points) {
