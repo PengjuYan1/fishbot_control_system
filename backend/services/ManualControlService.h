@@ -1,6 +1,7 @@
 #ifndef FISHBOT_BACKEND_SERVICES_MANUALCONTROLSERVICE_H_
 #define FISHBOT_BACKEND_SERVICES_MANUALCONTROLSERVICE_H_
 
+#include <chrono>
 #include <mutex>
 
 #include "backend/model/ManualControlState.h"
@@ -32,6 +33,7 @@ class ManualControlService {
     mutable std::mutex mutex_;
     ManualControlState session_state_;
     bool drive_command_active_ = false;
+    std::chrono::steady_clock::time_point undock_grace_deadline_{};
 };
 
 #endif

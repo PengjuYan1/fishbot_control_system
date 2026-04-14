@@ -22,7 +22,6 @@ class NativeRosAdapter : public IRobotAdapter {
     bool set_initial_pose(const Pose& pose) override;
     ManualControlAcquireResult acquire_manual_control() override;
     bool out_of_charge() override;
-    bool undock_forward(long distance_cm) override;
     bool manual_move(double linear_speed, double angular_speed) override;
     Pose get_robot_pose() const override;
     int get_battery() const override;

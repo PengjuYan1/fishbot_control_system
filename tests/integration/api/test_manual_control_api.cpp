@@ -54,17 +54,6 @@ class FakeControlAdapter : public IRobotAdapter {
         }
         return out_of_charge_succeeds;
     }
-    bool undock_forward(long distance_cm) override {
-        undock_requested = true;
-        last_undock_distance_cm = distance_cm;
-        if (!undock_succeeds) {
-            return false;
-        }
-        charging = false;
-        charge_status_code = 41;
-        navigation_status_code = 83;
-        return true;
-    }
     bool manual_move(double linear_speed, double angular_speed) override {
         move_requested = true;
         ++move_count;
@@ -86,15 +75,12 @@ class FakeControlAdapter : public IRobotAdapter {
     bool out_of_charge_requested = false;
     bool out_of_charge_succeeds = true;
     bool move_requested = false;
-    bool undock_requested = false;
-    bool undock_succeeds = true;
     bool stop_navigation_requested = false;
     int stop_navigation_count = 0;
     int out_of_charge_count = 0;
     int out_of_charge_calls_to_release = 1;
     int acquire_manual_control_count = 0;
     int move_count = 0;
-    long last_undock_distance_cm = 0;
     bool manual_move_succeeds = true;
     double last_linear = 0.0;
     double last_angular = 0.0;
@@ -129,33 +115,41 @@ int main() {
     adapter.out_of_charge_calls_to_release = 2;
     adapter.out_of_charge_count = 0;
     adapter.out_of_charge_requested = false;
-    adapter.undock_requested = false;
     adapter.move_requested = false;
     adapter.move_count = 0;
     adapter.acquire_manual_control_count = 0;
 
     const auto undock = server.handle_post("/api/control/undock", "");
     if (undock.status != 200 ||
-        !adapter.undock_requested ||
-        adapter.last_undock_distance_cm != 1 ||
+        !adapter.out_of_charge_requested ||
+        adapter.move_count != 2 ||
+        adapter.last_linear != 0.0 ||
+        adapter.last_angular != 0.0 ||
         undock.body.find("\"phase\":\"ready_for_drive\"") == std::string::npos) {
-        std::cerr << "expected explicit undock request to send a 1-unit forward undock command\n";
+        std::cerr << "expected explicit undock request to out-of-charge, pulse forward, and settle ready_for_drive\n";
         return EXIT_FAILURE;
     }
 
-    adapter.move_requested = false;
     adapter.move_requested = false;
     const auto move = server.handle_post("/api/control/move", "linear=0.15&angular=0.6");
     if (move.status != 200 || !adapter.move_requested ||
         adapter.last_linear != 0.15 || adapter.last_angular != 0.6 ||
         move.body.find("\"phase\":\"driving\"") == std::string::npos) {
-        std::cerr << "expected direct joystick heartbeat to publish cmd_vel without backend drive loop\n";
+        std::cerr << "expected joystick heartbeat to take over immediately during undock grace window\n";
+        return EXIT_FAILURE;
+    }
+
+    const auto grace_stop = server.handle_post("/api/control/stop", "");
+    if (grace_stop.status != 200 || grace_stop.body.find("\"phase\":\"idle\"") == std::string::npos) {
+        std::cerr << "expected stop to clear undock grace session before fallback charging-path test\n";
         return EXIT_FAILURE;
     }
 
     adapter.move_requested = false;
     adapter.charging = true;
     adapter.charge_status_code = 47;
+    adapter.out_of_charge_count = 0;
+    adapter.out_of_charge_calls_to_release = 2;
     adapter.acquire_manual_control_count = 0;
     const auto charging_move = server.handle_post("/api/control/move", "linear=0.05&angular=0.0");
     if (charging_move.status != 200 || adapter.acquire_manual_control_count != 1 || adapter.move_requested ||
