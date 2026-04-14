@@ -37,6 +37,10 @@ class IRobotAdapter {
         (void) point;
         return false;
     }
+    virtual bool delete_saved_point(const PointRecord& point) {
+        (void) point;
+        return false;
+    }
 };
 
 std::vector<std::string> describe_adapter_contract();

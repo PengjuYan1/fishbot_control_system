@@ -118,6 +118,22 @@ window.fishbotApi = {
       return point;
     }
   },
+  async deletePoint(id) {
+    const body = new URLSearchParams({ id: String(id) }).toString();
+    try {
+      return await requestJson('/api/points/delete', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body,
+      });
+    } catch (error) {
+      const index = mockState.points.findIndex((point) => point.id === Number(id));
+      if (index >= 0) {
+        return mockState.points.splice(index, 1)[0];
+      }
+      throw error;
+    }
+  },
   async getSchedules() {
     return [
       { id: 1, name: 'Morning Feed', cron: '0 8 * * *', enabled: true },

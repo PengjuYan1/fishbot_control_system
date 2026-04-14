@@ -3,6 +3,18 @@
 #include <string>
 
 namespace {
+std::string form_value(const std::string& body, const std::string& key) {
+    const auto token = key + "=";
+    const auto start = body.find(token);
+    if (start == std::string::npos) {
+        return "";
+    }
+
+    const auto value_start = start + token.size();
+    const auto value_end = body.find('&', value_start);
+    return body.substr(value_start, value_end == std::string::npos ? std::string::npos : value_end - value_start);
+}
+
 std::string point_json(const PointRecord& point) {
     return std::string("{\"id\":") + std::to_string(point.id) +
         ",\"name\":\"" + point.name +
@@ -42,6 +54,15 @@ void register_point_routes(AppServer& server, PointService& point_service) {
 
     server.register_get("/api/points", [&point_service]() {
         return HttpResponse{200, point_list_json(point_service.list_points()), "application/json"};
+    });
+
+    server.register_post("/api/points/delete", [&point_service](const std::string& body) {
+        try {
+            const auto id = std::stoi(form_value(body, "id"));
+            return HttpResponse{200, point_json(point_service.delete_point(id)), "application/json"};
+        } catch (const std::exception& error) {
+            return HttpResponse{500, std::string("{\"error\":\"") + error.what() + "\"}", "application/json"};
+        }
     });
 
     server.register_post("/api/points/charge/current", [&point_service](const std::string&) {

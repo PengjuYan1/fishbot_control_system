@@ -194,6 +194,29 @@ function bindRealtimeStatusSocket() {
   };
 }
 
+function renderPointListPanel() {
+  const panel = document.getElementById('point-list-panel');
+  if (!panel || !window.fishbotStore) {
+    return;
+  }
+
+  const points = window.fishbotStore.getState().points || [];
+  if (points.length === 0) {
+    panel.innerHTML = '<p class="point-list-empty">暂无已保存点位。</p>';
+    return;
+  }
+
+  panel.innerHTML = points.map((point) => `
+    <div class="point-list-item">
+      <div class="point-list-copy">
+        <strong>${point.name}</strong>
+        <span>${point.type === 'charge' ? '充电点' : '投喂点'} · floor ${point.floor_id || 0} · map ${point.map_id || 0} · point ${point.point_id || 0}</span>
+      </div>
+      <button type="button" class="point-delete-button" data-point-delete-id="${point.id}">删除</button>
+    </div>
+  `).join('');
+}
+
 function bindControlButtons() {
   const startMappingButton = document.getElementById('start-mapping-button');
   const saveMapButton = document.getElementById('save-map-button');
@@ -206,6 +229,7 @@ function bindControlButtons() {
   const driveStopCenterButton = document.getElementById('drive-stop-center');
   const mapEditorButton = document.getElementById('goto-map-editor-button');
   const feedEditorButton = document.getElementById('goto-map-editor-feed-button');
+  const pointListPanel = document.getElementById('point-list-panel');
   const actionFeedbackNode = document.getElementById('action-feedback');
   const maxLinearSpeed = 0.30;
   const maxAngularSpeed = 0.45;
@@ -505,6 +529,32 @@ function bindControlButtons() {
       }
     });
   }
+
+  if (pointListPanel) {
+    pointListPanel.addEventListener('click', async (event) => {
+      const target = event.target instanceof Element ? event.target.closest('[data-point-delete-id]') : null;
+      if (!target) {
+        return;
+      }
+
+      const pointId = Number(target.getAttribute('data-point-delete-id') || 0);
+      if (!pointId) {
+        return;
+      }
+
+      if (window.confirm && !window.confirm('确认删除该点位？会同时删除机器人原生点位。')) {
+        return;
+      }
+
+      try {
+        const point = await window.fishbotApi.deletePoint(pointId);
+        await refreshPoints();
+        setActionFeedback(`已删除点位 ${point.name || pointId}。`, 'success');
+      } catch (error) {
+        setActionFeedback(`删除点位失败：${formatError(error)}`, 'error');
+      }
+    });
+  }
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -514,11 +564,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   window.fishbotStore.subscribe(() => {
     updateDashboardStatus();
+    renderPointListPanel();
     if (typeof window.renderMapOverlay === 'function') {
       window.renderMapOverlay();
     }
   });
   updateDashboardStatus();
+  renderPointListPanel();
   if (typeof window.renderMapOverlay === 'function') {
     window.renderMapOverlay();
   }

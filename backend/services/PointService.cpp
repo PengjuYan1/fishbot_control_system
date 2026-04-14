@@ -56,6 +56,28 @@ PointRecord PointService::create_current_feed_point() {
     return create_current_point("feed", "F", 0);
 }
 
+PointRecord PointService::delete_point(int id) {
+    const auto point = repository_.find_point(id);
+    if (!point.has_value()) {
+        throw std::runtime_error("point_not_found");
+    }
+
+    const bool has_native_identity = point->floor_id > 0 && point->map_id > 0 && point->point_id > 0;
+    if (has_native_identity) {
+        if (adapter_ == nullptr) {
+            throw std::runtime_error("robot_adapter_unavailable");
+        }
+        if (!adapter_->delete_saved_point(*point)) {
+            throw std::runtime_error("delete_saved_point_failed");
+        }
+    }
+
+    if (!repository_.delete_point(id)) {
+        throw std::runtime_error("point_not_found");
+    }
+    return *point;
+}
+
 std::vector<PointRecord> PointService::list_points() const {
     return repository_.list_points();
 }

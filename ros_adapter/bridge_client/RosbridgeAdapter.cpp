@@ -504,6 +504,19 @@ bool RosbridgeAdapter::create_current_pose_point(const std::string& name, long p
     return true;
 }
 
+bool RosbridgeAdapter::delete_saved_point(const PointRecord& point) {
+    if (!is_connected() || point.floor_id <= 0 || point.map_id <= 0 || point.point_id <= 0) {
+        return false;
+    }
+
+    std::ostringstream request;
+    request << "{\"floor_id\":" << point.floor_id
+            << ",\"map_id\":" << point.map_id
+            << ",\"point_id\":" << point.point_id << "}";
+    std::string response;
+    return call_service("delete_test_point", "", request.str(), &response);
+}
+
 Pose RosbridgeAdapter::get_robot_pose() const { return pose_; }
 
 int RosbridgeAdapter::get_battery() const { return battery_; }

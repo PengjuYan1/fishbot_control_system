@@ -18,6 +18,7 @@ class PointService {
     int create_feed_point(const std::string& body);
     PointRecord create_current_charge_point();
     PointRecord create_current_feed_point();
+    PointRecord delete_point(int id);
     std::vector<PointRecord> list_points() const;
 
   private:
