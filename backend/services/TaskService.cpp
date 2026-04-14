@@ -1,8 +1,10 @@
 #include "backend/services/TaskService.h"
 
+#include <chrono>
 #include <optional>
 #include <sstream>
 #include <stdexcept>
+#include <thread>
 
 #include "backend/services/NativePointSync.h"
 
@@ -20,6 +22,25 @@ void try_load_map_for_point(IRobotAdapter& adapter, const std::optional<PointRec
         return;
     }
     (void) adapter.load_map(std::to_string(point->floor_id) + ":" + std::to_string(point->map_id));
+}
+
+std::optional<PointRecord> find_point_by_type(const std::vector<PointRecord>& points,
+                                              const std::string& type) {
+    std::optional<PointRecord> fallback;
+    for (const auto& point : points) {
+        if (point.type != type) {
+            continue;
+        }
+
+        if (has_native_identity(point)) {
+            return point;
+        }
+
+        if (!fallback.has_value()) {
+            fallback = point;
+        }
+    }
+    return fallback;
 }
 }  // namespace
 
@@ -43,13 +64,41 @@ TaskStartResult TaskService::start_scheduled_run(const std::string&) {
 TaskStartResult TaskService::start_charge_return() {
     sync_native_points_if_supported(adapter_, point_repository_);
 
+    const auto all_points = point_repository_.list_points();
     std::optional<PointRecord> charge_point;
-    try {
-        charge_point = find_charge_point();
-    } catch (const std::runtime_error&) {
-    }
+    try { charge_point = find_charge_point(); } catch (const std::runtime_error&) {}
+
+    const auto initial_point = find_point_by_type(all_points, "initial");
 
     // APK "立即回充" path sends autocharge first instead of target-goal navigation.
+    auto status_before_return = adapter_.get_robot_status();
+
+    if (!status_before_return.localized) {
+        std::optional<PointRecord> relocalization_point;
+        if (status_before_return.charging && charge_point.has_value()) {
+            relocalization_point = charge_point;
+        } else if (initial_point.has_value()) {
+            relocalization_point = initial_point;
+        } else if (charge_point.has_value()) {
+            relocalization_point = charge_point;
+        }
+
+        if (relocalization_point.has_value()) {
+            try_load_map_for_point(adapter_, relocalization_point, true);
+            Pose initial_pose;
+            initial_pose.x = relocalization_point->x;
+            initial_pose.y = relocalization_point->y;
+            initial_pose.theta = relocalization_point->theta;
+            initial_pose.floor_id = relocalization_point->floor_id;
+            initial_pose.map_id = relocalization_point->map_id;
+            initial_pose.point_id = relocalization_point->point_id;
+            (void) adapter_.set_initial_pose(initial_pose);
+
+            std::this_thread::sleep_for(std::chrono::milliseconds(120));
+            status_before_return = adapter_.get_robot_status();
+        }
+    }
+
     if (adapter_.go_charge()) {
         current_task_.status = "charging";
         current_task_.current_target_name = charge_point.has_value() ? charge_point->name : "autocharge";
@@ -57,7 +106,6 @@ TaskStartResult TaskService::start_charge_return() {
         return current_task_;
     }
 
-    const auto status_before_return = adapter_.get_robot_status();
     // Fallback: use native charge point navigation when autocharge publish fails.
     // Avoid switching maps while already localized; force-load can drop localization and block motion.
     try_load_map_for_point(adapter_, charge_point, !status_before_return.localized);

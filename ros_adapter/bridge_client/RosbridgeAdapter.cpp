@@ -698,7 +698,17 @@ bool RosbridgeAdapter::stop_navigation() {
 
 bool RosbridgeAdapter::set_initial_pose(const Pose& pose) {
     std::ostringstream payload;
-    payload << "{\"x\":" << pose.x << ",\"y\":" << pose.y << ",\"theta\":" << pose.theta << "}";
+    payload << "{\"header\":{\"frame_id\":\"map\"},\"pose\":{\"pose\":{\"position\":{\"x\":"
+            << pose.x << ",\"y\":" << pose.y << ",\"z\":0},\"orientation\":{\"x\":0,\"y\":0,\"z\":"
+            << theta_to_quaternion_z(pose.theta) << ",\"w\":" << theta_to_quaternion_w(pose.theta)
+            << "}},\"covariance\":[";
+    for (int index = 0; index < 36; ++index) {
+        if (index > 0) {
+            payload << ",";
+        }
+        payload << (index == 0 ? 1 : 0);
+    }
+    payload << "]}}";
     return publish_topic("/initialpose", "geometry_msgs/PoseWithCovarianceStamped", payload.str());
 }
 
