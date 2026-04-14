@@ -1,9 +1,12 @@
 #include "backend/services/PointService.h"
 
+#include <cctype>
 #include <sstream>
 #include <stdexcept>
 #include <unordered_map>
 #include <vector>
+
+#include "ros_adapter/IRobotAdapter.h"
 
 namespace {
 std::unordered_map<std::string, std::string> parse_form_encoded(const std::string& body) {
@@ -34,6 +37,9 @@ long optional_long_value(const std::unordered_map<std::string, std::string>& val
 
 PointService::PointService(PointRepository& repository) : repository_(repository) {}
 
+PointService::PointService(PointRepository& repository, IRobotAdapter& adapter)
+    : repository_(repository), adapter_(&adapter) {}
+
 int PointService::create_charge_point(const std::string& body) {
     return repository_.insert_point(parse_point(body, "charge"));
 }
@@ -42,8 +48,44 @@ int PointService::create_feed_point(const std::string& body) {
     return repository_.insert_point(parse_point(body, "feed"));
 }
 
+PointRecord PointService::create_current_charge_point() {
+    return create_current_point("charge", "C", 1);
+}
+
+PointRecord PointService::create_current_feed_point() {
+    return create_current_point("feed", "F", 0);
+}
+
 std::vector<PointRecord> PointService::list_points() const {
     return repository_.list_points();
+}
+
+std::string PointService::next_point_name(const std::string& prefix, const std::string& type) const {
+    const auto points = repository_.list_points();
+    int max_index = 0;
+    for (const auto& point : points) {
+        if (point.type != type || point.name.size() <= prefix.size() || point.name.rfind(prefix, 0) != 0) {
+            continue;
+        }
+
+        bool numeric_suffix = true;
+        for (std::size_t index = prefix.size(); index < point.name.size(); ++index) {
+            if (std::isdigit(static_cast<unsigned char>(point.name[index])) == 0) {
+                numeric_suffix = false;
+                break;
+            }
+        }
+        if (!numeric_suffix) {
+            continue;
+        }
+
+        try {
+            max_index = std::max(max_index, std::stoi(point.name.substr(prefix.size())));
+        } catch (const std::exception&) {
+        }
+    }
+
+    return prefix + std::to_string(max_index + 1);
 }
 
 PointRecord PointService::parse_point(const std::string& body, const std::string& type) const {
@@ -57,5 +99,23 @@ PointRecord PointService::parse_point(const std::string& body, const std::string
     point.floor_id = optional_long_value(values, {"floor_id", "floorId"});
     point.map_id = optional_long_value(values, {"map_id", "mapId"});
     point.point_id = optional_long_value(values, {"point_id", "pointId"});
+    return point;
+}
+
+PointRecord PointService::create_current_point(const std::string& type, const std::string& prefix, long point_mode) {
+    if (adapter_ == nullptr) {
+        throw std::runtime_error("robot_adapter_unavailable");
+    }
+
+    PointRecord point;
+    point.name = next_point_name(prefix, type);
+    point.type = type;
+    if (!adapter_->create_current_pose_point(point.name, point_mode, &point)) {
+        throw std::runtime_error("create_current_pose_point_failed");
+    }
+
+    point.name = point.name.empty() ? next_point_name(prefix, type) : point.name;
+    point.type = type;
+    point.id = repository_.insert_point(point);
     return point;
 }

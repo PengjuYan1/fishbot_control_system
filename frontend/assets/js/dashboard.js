@@ -237,6 +237,11 @@ function bindControlButtons() {
     return error.message;
   };
 
+  const refreshPoints = async () => {
+    const points = await window.fishbotApi.getPoints();
+    window.fishbotStore.setPoints(points || []);
+  };
+
   const stopDriving = async () => {
     if (moveTimer) {
       window.clearInterval(moveTimer);
@@ -478,14 +483,26 @@ function bindControlButtons() {
   });
 
   if (mapEditorButton) {
-    mapEditorButton.addEventListener('click', () => {
-      window.location.href = 'map.html';
+    mapEditorButton.addEventListener('click', async () => {
+      try {
+        const point = await window.fishbotApi.createCurrentChargePoint();
+        await refreshPoints();
+        setActionFeedback(`已按当前位置创建充电点 ${point.name || 'C?'}。`, 'success');
+      } catch (error) {
+        setActionFeedback(`创建充电点失败：${formatError(error)}`, 'error');
+      }
     });
   }
 
   if (feedEditorButton) {
-    feedEditorButton.addEventListener('click', () => {
-      window.location.href = 'map.html';
+    feedEditorButton.addEventListener('click', async () => {
+      try {
+        const point = await window.fishbotApi.createCurrentFeedPoint();
+        await refreshPoints();
+        setActionFeedback(`已按当前位置创建投喂点 ${point.name || 'F?'}。`, 'success');
+      } catch (error) {
+        setActionFeedback(`创建投喂点失败：${formatError(error)}`, 'error');
+      }
     });
   }
 }

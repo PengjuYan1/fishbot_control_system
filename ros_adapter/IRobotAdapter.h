@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 
+#include "backend/model/PointRecord.h"
 #include "ros_adapter/model/MapSnapshot.h"
 #include "ros_adapter/model/Pose.h"
 #include "ros_adapter/model/RobotStatus.h"
@@ -30,6 +31,12 @@ class IRobotAdapter {
     virtual RobotStatus get_robot_status() const = 0;
     virtual MapSnapshot get_map_snapshot() const = 0;
     virtual bool is_charging() const = 0;
+    virtual bool create_current_pose_point(const std::string& name, long point_mode, PointRecord* point) {
+        (void) name;
+        (void) point_mode;
+        (void) point;
+        return false;
+    }
 };
 
 std::vector<std::string> describe_adapter_contract();

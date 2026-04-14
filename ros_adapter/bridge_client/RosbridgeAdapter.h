@@ -28,6 +28,7 @@ class RosbridgeAdapter : public IRobotAdapter {
     RobotStatus get_robot_status() const override;
     MapSnapshot get_map_snapshot() const override;
     bool is_charging() const override;
+    bool create_current_pose_point(const std::string& name, long point_mode, PointRecord* point) override;
 
   private:
     bool subscribe_status_topics();

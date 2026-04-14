@@ -3,20 +3,23 @@
 #include <string>
 
 namespace {
+std::string point_json(const PointRecord& point) {
+    return std::string("{\"id\":") + std::to_string(point.id) +
+        ",\"name\":\"" + point.name +
+        "\",\"type\":\"" + point.type +
+        "\",\"x\":" + std::to_string(point.x) +
+        ",\"y\":" + std::to_string(point.y) +
+        ",\"theta\":" + std::to_string(point.theta) +
+        ",\"floor_id\":" + std::to_string(point.floor_id) +
+        ",\"map_id\":" + std::to_string(point.map_id) +
+        ",\"point_id\":" + std::to_string(point.point_id) +
+        "}";
+}
+
 std::string point_list_json(const std::vector<PointRecord>& points) {
     std::string body = "[";
     for (std::size_t index = 0; index < points.size(); ++index) {
-        const auto& point = points[index];
-        body += std::string("{\"id\":") + std::to_string(point.id) +
-            ",\"name\":\"" + point.name +
-            "\",\"type\":\"" + point.type +
-            "\",\"x\":" + std::to_string(point.x) +
-            ",\"y\":" + std::to_string(point.y) +
-            ",\"theta\":" + std::to_string(point.theta) +
-            ",\"floor_id\":" + std::to_string(point.floor_id) +
-            ",\"map_id\":" + std::to_string(point.map_id) +
-            ",\"point_id\":" + std::to_string(point.point_id) +
-            "}";
+        body += point_json(points[index]);
         if (index + 1 < points.size()) {
             body += ",";
         }
@@ -39,5 +42,21 @@ void register_point_routes(AppServer& server, PointService& point_service) {
 
     server.register_get("/api/points", [&point_service]() {
         return HttpResponse{200, point_list_json(point_service.list_points()), "application/json"};
+    });
+
+    server.register_post("/api/points/charge/current", [&point_service](const std::string&) {
+        try {
+            return HttpResponse{200, point_json(point_service.create_current_charge_point()), "application/json"};
+        } catch (const std::exception& error) {
+            return HttpResponse{500, std::string("{\"error\":\"") + error.what() + "\"}", "application/json"};
+        }
+    });
+
+    server.register_post("/api/points/feed/current", [&point_service](const std::string&) {
+        try {
+            return HttpResponse{200, point_json(point_service.create_current_feed_point()), "application/json"};
+        } catch (const std::exception& error) {
+            return HttpResponse{500, std::string("{\"error\":\"") + error.what() + "\"}", "application/json"};
+        }
     });
 }

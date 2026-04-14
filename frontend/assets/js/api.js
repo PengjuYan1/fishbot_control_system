@@ -98,6 +98,26 @@ window.fishbotApi = {
       return { id, type };
     }
   },
+  async createCurrentChargePoint() {
+    try {
+      return await requestJson('/api/points/charge/current', { method: 'POST', body: '' });
+    } catch (error) {
+      const id = mockState.points.length + 1;
+      const point = { id, name: `C${mockState.points.filter((item) => item.type === 'charge').length + 1}`, type: 'charge', x: 0, y: 0, theta: 0, floor_id: 0, map_id: 0, point_id: 0 };
+      mockState.points.push(point);
+      return point;
+    }
+  },
+  async createCurrentFeedPoint() {
+    try {
+      return await requestJson('/api/points/feed/current', { method: 'POST', body: '' });
+    } catch (error) {
+      const id = mockState.points.length + 1;
+      const point = { id, name: `F${mockState.points.filter((item) => item.type === 'feed').length + 1}`, type: 'feed', x: 0, y: 0, theta: 0, floor_id: 0, map_id: 0, point_id: 0 };
+      mockState.points.push(point);
+      return point;
+    }
+  },
   async getSchedules() {
     return [
       { id: 1, name: 'Morning Feed', cron: '0 8 * * *', enabled: true },

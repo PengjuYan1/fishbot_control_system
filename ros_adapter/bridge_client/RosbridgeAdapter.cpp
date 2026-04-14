@@ -5,6 +5,7 @@
 #include <cmath>
 #include <regex>
 #include <sstream>
+#include <utility>
 #include <string>
 #include <thread>
 #include <vector>
@@ -53,6 +54,30 @@ int extract_int_value(const std::string& payload, const std::string& key, int de
     }
 }
 
+long extract_long_value(const std::string& payload, const std::string& key, long default_value = 0) {
+    const auto start = find_value_start(payload, key);
+    if (start == std::string::npos) {
+        return default_value;
+    }
+
+    auto end = start;
+    if (end < payload.size() && (payload[end] == '-' || payload[end] == '+')) {
+        ++end;
+    }
+    while (end < payload.size() && std::isdigit(static_cast<unsigned char>(payload[end])) != 0) {
+        ++end;
+    }
+    if (end == start || (end == start + 1 && (payload[start] == '-' || payload[start] == '+'))) {
+        return default_value;
+    }
+
+    try {
+        return std::stol(payload.substr(start, end - start));
+    } catch (const std::exception&) {
+        return default_value;
+    }
+}
+
 double extract_double_value(const std::string& payload, const std::string& key, double default_value = 0.0) {
     const auto start = find_value_start(payload, key);
     if (start == std::string::npos) {
@@ -86,6 +111,46 @@ double extract_double_value(const std::string& payload, const std::string& key, 
     } catch (const std::exception&) {
         return default_value;
     }
+}
+
+std::string extract_string_value(const std::string& payload, const std::string& key) {
+    const auto start = find_value_start(payload, key);
+    if (start == std::string::npos || start >= payload.size() || payload[start] != '"') {
+        return "";
+    }
+
+    std::string value;
+    bool escaped = false;
+    for (std::size_t pos = start + 1; pos < payload.size(); ++pos) {
+        const char ch = payload[pos];
+        if (escaped) {
+            switch (ch) {
+                case 'n':
+                    value += '\n';
+                    break;
+                case 'r':
+                    value += '\r';
+                    break;
+                case 't':
+                    value += '\t';
+                    break;
+                default:
+                    value += ch;
+                    break;
+            }
+            escaped = false;
+            continue;
+        }
+        if (ch == '\\') {
+            escaped = true;
+            continue;
+        }
+        if (ch == '"') {
+            return value;
+        }
+        value += ch;
+    }
+    return "";
 }
 
 std::vector<int> extract_int_array(const std::string& payload, const std::string& key) {
@@ -126,6 +191,63 @@ std::vector<int> extract_int_array(const std::string& payload, const std::string
     return values;
 }
 
+std::vector<std::string> extract_object_array(const std::string& payload, const std::string& key) {
+    auto pos = find_value_start(payload, key);
+    if (pos == std::string::npos || pos >= payload.size() || payload[pos] != '[') {
+        return {};
+    }
+    ++pos;
+
+    std::vector<std::string> values;
+    while (pos < payload.size()) {
+        while (pos < payload.size() &&
+               (std::isspace(static_cast<unsigned char>(payload[pos])) != 0 || payload[pos] == ',')) {
+            ++pos;
+        }
+        if (pos >= payload.size() || payload[pos] == ']') {
+            break;
+        }
+        if (payload[pos] != '{') {
+            ++pos;
+            continue;
+        }
+
+        const auto start = pos;
+        int depth = 0;
+        bool in_string = false;
+        bool escaped = false;
+        for (; pos < payload.size(); ++pos) {
+            const char ch = payload[pos];
+            if (in_string) {
+                if (escaped) {
+                    escaped = false;
+                } else if (ch == '\\') {
+                    escaped = true;
+                } else if (ch == '"') {
+                    in_string = false;
+                }
+                continue;
+            }
+
+            if (ch == '"') {
+                in_string = true;
+                continue;
+            }
+            if (ch == '{') {
+                ++depth;
+            } else if (ch == '}') {
+                --depth;
+                if (depth == 0) {
+                    values.push_back(payload.substr(start, pos - start + 1));
+                    ++pos;
+                    break;
+                }
+            }
+        }
+    }
+    return values;
+}
+
 double quaternion_to_theta(double z, double w) {
     return std::atan2(2.0 * w * z, 1.0 - 2.0 * z * z);
 }
@@ -160,6 +282,75 @@ bool parse_map_selector(const std::string& selector, long* floor_id, long* map_i
 
 bool is_effectively_zero(double value) {
     return std::abs(value) < 1e-6;
+}
+
+std::string json_escape(const std::string& value) {
+    std::string escaped;
+    escaped.reserve(value.size());
+    for (const char ch : value) {
+        switch (ch) {
+            case '\\':
+                escaped += "\\\\";
+                break;
+            case '"':
+                escaped += "\\\"";
+                break;
+            case '\n':
+                escaped += "\\n";
+                break;
+            case '\r':
+                escaped += "\\r";
+                break;
+            case '\t':
+                escaped += "\\t";
+                break;
+            default:
+                escaped += ch;
+                break;
+        }
+    }
+    return escaped;
+}
+
+bool parse_default_map_context(const std::string& payload, long* floor_id, long* map_id) {
+    if (floor_id == nullptr || map_id == nullptr) {
+        return false;
+    }
+
+    std::string maps_json = extract_string_value(payload, "message");
+    if (maps_json.empty()) {
+        maps_json = payload;
+    }
+
+    const long default_floor = extract_long_value(maps_json, "defaultFloor", 0);
+    const auto floors = extract_object_array(maps_json, "floors");
+    if (floors.empty()) {
+        return false;
+    }
+
+    for (const auto& floor_payload : floors) {
+        const long candidate_floor = extract_long_value(floor_payload, "floorId", 0);
+        if (default_floor > 0 && candidate_floor != default_floor) {
+            continue;
+        }
+
+        const long candidate_map = extract_long_value(floor_payload, "defaultmap", 0);
+        if (candidate_floor > 0 && candidate_map > 0) {
+            *floor_id = candidate_floor;
+            *map_id = candidate_map;
+            return true;
+        }
+    }
+
+    const long fallback_floor = extract_long_value(floors.front(), "floorId", 0);
+    const long fallback_map = extract_long_value(floors.front(), "defaultmap", 0);
+    if (fallback_floor > 0 && fallback_map > 0) {
+        *floor_id = fallback_floor;
+        *map_id = fallback_map;
+        return true;
+    }
+
+    return false;
 }
 }  // namespace
 
@@ -265,6 +456,52 @@ bool RosbridgeAdapter::manual_move(double linear_speed, double angular_speed) {
             << ",\"y\":0,\"z\":0},\"angular\":{\"x\":0,\"y\":0,\"z\":"
             << angular_speed << "}}";
     return publish_topic("/cmd_vel", "geometry_msgs/Twist", payload.str());
+}
+
+bool RosbridgeAdapter::create_current_pose_point(const std::string& name, long point_mode, PointRecord* point) {
+    if (point == nullptr || name.empty() || !is_connected()) {
+        return false;
+    }
+
+    const Pose pose = get_robot_pose();
+    const double half_theta = pose.theta / 2.0;
+    const double orientation_z = std::sin(half_theta);
+    const double orientation_w = std::cos(half_theta);
+
+    std::ostringstream request;
+    request << "{\"point_name\":\"" << json_escape(name)
+            << "\",\"point_mode\":" << point_mode
+            << ",\"point\":{\"header\":{\"frame_id\":\"map\"},\"pose\":{\"pose\":{\"position\":{\"x\":"
+            << pose.x << ",\"y\":" << pose.y << ",\"z\":0},\"orientation\":{\"x\":0,\"y\":0,\"z\":"
+            << orientation_z << ",\"w\":" << orientation_w
+            << "}},\"covariance\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]}}}";
+
+    std::string point_response;
+    if (!call_service("pointmanu_set", "", request.str(), &point_response)) {
+        return false;
+    }
+
+    const long point_id = extract_long_value(point_response, "result", 0);
+    if (point_id <= 0) {
+        return false;
+    }
+
+    std::string maps_response;
+    long floor_id = 0;
+    long map_id = 0;
+    if (!call_service("get_maps", "", "{}", &maps_response) ||
+        !parse_default_map_context(maps_response, &floor_id, &map_id)) {
+        return false;
+    }
+
+    point->name = name;
+    point->x = pose.x;
+    point->y = pose.y;
+    point->theta = pose.theta;
+    point->floor_id = floor_id;
+    point->map_id = map_id;
+    point->point_id = point_id;
+    return true;
 }
 
 Pose RosbridgeAdapter::get_robot_pose() const { return pose_; }

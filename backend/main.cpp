@@ -59,7 +59,7 @@ int main(int argc, char** argv) {
     });
     MapService map_service(*context.adapter);
     ManualControlService control_service(*context.adapter);
-    PointService point_service(point_repository);
+    PointService point_service(point_repository, *context.adapter);
     ScheduleService schedule_service(schedule_repository);
     AlertService alert_service(event_log_repository);
     TaskScheduler task_scheduler(schedule_repository, task_service);

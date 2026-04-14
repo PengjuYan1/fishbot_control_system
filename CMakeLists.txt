@@ -218,6 +218,14 @@ target_link_libraries(test_points_api PRIVATE fishbot_backend)
 add_test(NAME PointsApiTest COMMAND test_points_api)
 set_tests_properties(PointsApiTest PROPERTIES WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
 
+add_executable(test_current_pose_points_api
+    tests/integration/api/test_current_pose_points_api.cpp
+)
+target_link_libraries(test_current_pose_points_api PRIVATE fishbot_backend)
+
+add_test(NAME CurrentPosePointsApiTest COMMAND test_current_pose_points_api)
+set_tests_properties(CurrentPosePointsApiTest PROPERTIES WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+
 add_executable(test_task_state_machine
     tests/unit/state_machine/test_task_state_machine.cpp
 )
