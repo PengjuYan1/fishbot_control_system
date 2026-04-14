@@ -35,19 +35,27 @@ class FakeTaskAdapter : public IRobotAdapter {
     RobotStatus get_robot_status() const override { return RobotStatus{80, false, true, true}; }
     MapSnapshot get_map_snapshot() const override { return {}; }
     bool is_charging() const override { return false; }
+    bool list_native_points(std::vector<PointRecord>* points) override {
+        if (points == nullptr) {
+            return false;
+        }
+        *points = native_points;
+        return true;
+    }
 
     Pose last_goal;
     bool navigation_requested = false;
+    std::vector<PointRecord> native_points;
 };
 
 int main() {
     auto db = open_test_database();
     run_migrations(db);
     PointRepository point_repository(db);
-    point_repository.insert_point(PointRecord{0, "C1", "charge", 1.0, 2.0, 0.0, 1, 11, 21});
     point_repository.insert_point(PointRecord{0, "F1", "feed", 3.0, 4.0, 1.0, 2, 12, 22});
 
     FakeTaskAdapter adapter;
+    adapter.native_points.push_back(PointRecord{0, "C1", "charge", 1.0, 2.0, 0.0, 1, 11, 21});
     TaskService service(adapter, point_repository);
     AppServer server;
     register_task_routes(server, service);

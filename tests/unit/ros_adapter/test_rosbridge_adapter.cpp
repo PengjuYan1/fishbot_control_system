@@ -46,7 +46,8 @@ class FakeRosbridgeTransport : public IRosbridgeTransport {
         called_services_.push_back(service);
         called_payloads_.push_back(request);
         if (response != nullptr) {
-            *response = "{}";
+            auto it = service_responses_.find(service);
+            *response = it != service_responses_.end() ? it->second : "{}";
         }
         auto it = service_failures_remaining_.find(service);
         if (it != service_failures_remaining_.end() && it->second > 0) {
@@ -82,6 +83,9 @@ class FakeRosbridgeTransport : public IRosbridgeTransport {
     const std::vector<std::string>& called_payloads() const { return called_payloads_; }
     void fail_publish(const std::string& topic, int times) { publish_failures_remaining_[topic] = times; }
     void fail_service(const std::string& service, int times) { service_failures_remaining_[service] = times; }
+    void set_service_response(const std::string& service, const std::string& response) {
+        service_responses_[service] = response;
+    }
 
   private:
     bool connected_ = false;
@@ -96,6 +100,7 @@ class FakeRosbridgeTransport : public IRosbridgeTransport {
     std::vector<std::string> called_payloads_;
     std::map<std::string, int> publish_failures_remaining_;
     std::map<std::string, int> service_failures_remaining_;
+    std::map<std::string, std::string> service_responses_;
     std::unordered_map<std::string, MessageCallback> subscriptions_;
     std::unordered_map<std::string, std::string> subscription_types_;
 };
@@ -406,6 +411,28 @@ int main() {
     flaky_transport.fail_service("/set_mode", 1);
     if (flaky_adapter.out_of_charge()) {
         std::cerr << "expected out_of_charge to fail when manual takeover cannot be acquired\n";
+        return EXIT_FAILURE;
+    }
+
+    transport.set_service_response(
+        "get_maps",
+        "{\"success\":true,\"message\":\"{\\\"defaultFloor\\\":56,\\\"floors\\\":[{\\\"floorId\\\":56,\\\"defaultmap\\\":34,\\\"maps\\\":[{\\\"mapId\\\":34,\\\"chargeId\\\":99,\\\"initialId\\\":100}]}]}\"}");
+    transport.set_service_response(
+        "list_navi_points",
+        "{\"list_system_points\":[{\"point_id\":\"99\",\"point_name\":\"C1\",\"x\":1.0,\"y\":2.0,\"z\":0.1},"
+        "{\"point_id\":\"100\",\"point_name\":\"I1\",\"x\":1.1,\"y\":2.1,\"z\":0.2}],"
+        "\"list_navi_points\":[{\"point_id\":\"101\",\"point_name\":\"P1\",\"x\":3.0,\"y\":4.0,\"z\":0.3}]}");
+    std::vector<PointRecord> native_points;
+    if (!adapter.list_native_points(&native_points)) {
+        std::cerr << "expected list_native_points to succeed\n";
+        return EXIT_FAILURE;
+    }
+
+    if (native_points.size() != 3 ||
+        native_points[0].type != "charge" ||
+        native_points[1].type != "initial" ||
+        native_points[2].type != "feed") {
+        std::cerr << "expected list_native_points to classify charge, initial and navigation points\n";
         return EXIT_FAILURE;
     }
 

@@ -253,7 +253,7 @@ function renderPointListPanel() {
     <div class="point-list-item">
       <div class="point-list-copy">
         <strong>${point.name}</strong>
-        <span>${point.type === 'charge' ? '充电点' : '投喂点'} · floor ${point.floor_id || 0} · map ${point.map_id || 0} · point ${point.point_id || 0}</span>
+        <span>${point.type === 'charge' ? '充电点' : point.type === 'initial' ? '初始点' : '投喂点'} · floor ${point.floor_id || 0} · map ${point.map_id || 0} · point ${point.point_id || 0}</span>
       </div>
       <button type="button" class="point-delete-button" data-point-delete-id="${point.id}">删除</button>
     </div>
@@ -718,5 +718,15 @@ document.addEventListener('DOMContentLoaded', async () => {
       window.fishbotStore.setMapSnapshot(map);
     }
   } catch (error) {
+  }
+
+  if (window.fishbotApi && window.fishbotStore) {
+    window.setInterval(async () => {
+      try {
+        const points = await window.fishbotApi.getPoints();
+        window.fishbotStore.setPoints(points || []);
+      } catch (error) {
+      }
+    }, 2000);
   }
 });
