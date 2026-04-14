@@ -265,7 +265,6 @@ function bindControlButtons() {
   const saveMapButton = document.getElementById('save-map-button');
   const startTaskButton = document.getElementById('start-task-button');
   const goChargeButton = document.getElementById('go-charge-button');
-  const outOfChargeButton = document.getElementById('out-of-charge-button');
   const exitNavigationModeButton = document.getElementById('exit-navigation-mode-button');
   const joystickBase = document.getElementById('manual-joystick-base');
   const joystickKnob = document.getElementById('manual-joystick-knob');
@@ -340,13 +339,13 @@ function bindControlButtons() {
   const describeManualControlPhase = (phase, source) => {
     if (phase === 'undocking_requested') {
       return source === 'joystick'
-        ? '正在脱离充电态，请保持摇杆，解除后会自动接管移动。'
+        ? '正在自动出桩并接管底盘，请保持摇杆。'
         : '已发送脱离充电请求，解除后可直接遥控。';
     }
     if (phase === 'ready_for_drive') {
       return source === 'navigation'
         ? '已发送退出导航模式指令，请观察导航状态码是否退出占用态。'
-        : '底盘正在释放导航占用，保持摇杆即可在接管后开始移动。';
+        : '底盘正在释放导航占用并准备驱动，保持摇杆即可开始移动。';
     }
     if (phase === 'driving') {
       return `摇杆控制：线速度 ${currentLinearSpeed.toFixed(2)}，角速度 ${currentAngularSpeed.toFixed(2)}。`;
@@ -522,18 +521,6 @@ function bindControlButtons() {
         setActionFeedback('已发送回充指令。', 'success');
       } catch (error) {
         setActionFeedback(`回充失败：${formatError(error)}`, 'error');
-      }
-    });
-  }
-
-  if (outOfChargeButton) {
-    outOfChargeButton.addEventListener('click', async () => {
-      try {
-        const result = await window.fishbotApi.outOfCharge();
-        const phase = setManualControlState(result);
-        setActionFeedback(describeManualControlPhase(phase, 'button'), 'success');
-      } catch (error) {
-        setActionFeedback(`脱离充电失败：${formatError(error)}`, 'error');
       }
     });
   }

@@ -14,6 +14,10 @@ assert(
   'expected dashboard to define a joystick base container'
 );
 assert(
+  !indexHtml.includes('id="out-of-charge-button"'),
+  'expected dashboard to remove the standalone out-of-charge button and rely on joystick auto-undock'
+);
+assert(
   indexHtml.includes('id="manual-joystick-knob"'),
   'expected dashboard to define a joystick knob element'
 );

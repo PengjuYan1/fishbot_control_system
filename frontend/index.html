@@ -122,7 +122,6 @@
             </div>
           </div>
           <div class="control-actions">
-            <button type="button" id="out-of-charge-button">脱离充电 / 解锁</button>
             <button type="button" id="exit-navigation-mode-button">退出导航模式</button>
           </div>
           <div class="joystick-panel">
@@ -142,7 +141,7 @@
             </div>
             <button type="button" class="drive-stop-button" id="drive-stop-center">停止</button>
           </div>
-          <p class="control-note">拖动摇杆可连续控制线速度和转向。首次拖动会先尝试退出导航占用，松手后自动回中并停止。</p>
+          <p class="control-note">拖动摇杆可连续控制线速度和转向。处于充电态时会自动触发出桩并接管底盘，松手后自动回中并停止。</p>
           <p class="control-note" id="control-blocker-value">等待底盘诊断状态...</p>
           <p class="action-feedback" id="action-feedback">控制台已就绪。</p>
           <dl class="control-diagnostics">
