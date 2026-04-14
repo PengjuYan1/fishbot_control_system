@@ -42,6 +42,26 @@ function formatOdomStatus(control) {
   return String(code);
 }
 
+function formatNavigationStatusCode(control) {
+  const code = Number(control.navigation_status_code || 0);
+  switch (code) {
+    case 1:
+      return '1 (导航开始)';
+    case 2:
+      return '2 (到达目标)';
+    case 3:
+      return '3 (导航失败)';
+    case 5:
+      return '5 (导航停止中)';
+    case 52:
+      return '52 (未设置充电点)';
+    case 83:
+      return '83 (导航已取消)';
+    default:
+      return String(code);
+  }
+}
+
 function formatManualControlPhase(manualControl) {
   const phase = (manualControl && manualControl.phase) || 'idle';
   switch (phase) {
@@ -86,6 +106,9 @@ function formatControlBlockers(system) {
   }
   if (Number(control.motor_status_code || 0) === 33) {
     blockers.push('电机未使能');
+  }
+  if (Number(control.location_status_code || 0) === 9) {
+    blockers.push('定位丢失 (9)');
   }
   const navigationCode = Number(control.navigation_status_code || 0);
   if (navigationCode === 1 || navigationCode === 5) {
@@ -133,7 +156,10 @@ function updateDashboardStatus() {
   }
 
   if (localizationNode) {
-    localizationNode.textContent = state.system.localized ? '正常' : '未定位';
+    const locationCode = Number((state.system.control || {}).location_status_code || 0);
+    localizationNode.textContent = state.system.localized
+      ? `正常 (${locationCode})`
+      : `未定位 (${locationCode})`;
   }
 
   if (navigationNode) {
@@ -179,7 +205,7 @@ function updateDashboardStatus() {
   }
 
   if (navigationCodeNode) {
-    navigationCodeNode.textContent = String(state.system.control.navigation_status_code || 0);
+    navigationCodeNode.textContent = formatNavigationStatusCode(state.system.control || {});
   }
 
   if (manualControlPhaseNode) {

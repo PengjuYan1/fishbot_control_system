@@ -63,6 +63,7 @@ class RosbridgeAdapter : public IRobotAdapter {
     int battery_ = 0;
     bool charging_ = false;
     bool localized_ = false;
+    int location_status_code_ = 0;
     bool emergency_stopped_ = false;
     int emergency_status_code_ = 0;
     bool motor_locked_ = false;

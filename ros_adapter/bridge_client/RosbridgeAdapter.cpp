@@ -906,6 +906,7 @@ RobotStatus RosbridgeAdapter::get_robot_status() const {
     status.charging = charging_;
     status.connected = is_connected();
     status.localized = localized_;
+    status.location_status_code = location_status_code_;
     status.emergency_stopped = emergency_stopped_;
     status.emergency_status_code = emergency_status_code_;
     status.motor_locked = motor_locked_;
@@ -1013,7 +1014,13 @@ void RosbridgeAdapter::handle_motion_mode_message(const std::string& payload) {
 }
 
 void RosbridgeAdapter::handle_location_message(const std::string& payload) {
-    localized_ = extract_int_value(payload, "data") == 10;
+    const int location_status = extract_int_value(payload, "data");
+    location_status_code_ = location_status;
+    if (location_status == 10) {
+        localized_ = true;
+    } else if (location_status == 9) {
+        localized_ = false;
+    }
 }
 
 void RosbridgeAdapter::handle_navigation_message(const std::string& payload) {

@@ -6,6 +6,7 @@ struct RobotStatus {
     bool charging = false;
     bool connected = false;
     bool localized = false;
+    int location_status_code = 0;
     bool emergency_stopped = false;
     int emergency_status_code = 0;
     bool motor_locked = false;
