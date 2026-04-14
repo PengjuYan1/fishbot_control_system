@@ -1,8 +1,12 @@
 #include "backend/services/SystemService.h"
 
-SystemService::SystemService(IRobotAdapter& adapter, TaskSummaryProvider task_summary_provider)
+SystemService::SystemService(
+    IRobotAdapter& adapter,
+    TaskSummaryProvider task_summary_provider,
+    ManualControlStateProvider manual_control_state_provider)
     : adapter_(adapter),
-      task_summary_provider_(std::move(task_summary_provider)) {}
+      task_summary_provider_(std::move(task_summary_provider)),
+      manual_control_state_provider_(std::move(manual_control_state_provider)) {}
 
 SystemSnapshot SystemService::get_snapshot() const {
     const auto robot_status = adapter_.get_robot_status();
@@ -30,6 +34,9 @@ SystemSnapshot SystemService::get_snapshot() const {
     snapshot.control.out_of_charge_status_code = robot_status.out_of_charge_status_code;
     snapshot.control.out_machine_signal = robot_status.out_machine_signal;
     snapshot.control.out_of_charge_result_code = robot_status.out_of_charge_result_code;
+    snapshot.manual_control = manual_control_state_provider_
+        ? manual_control_state_provider_()
+        : ManualControlState{};
     return snapshot;
 }
 

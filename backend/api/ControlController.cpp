@@ -19,18 +19,29 @@ std::unordered_map<std::string, std::string> parse_form_encoded(const std::strin
     }
     return values;
 }
+
+std::string build_control_response(const ManualControlCommandResult& result) {
+    return std::string("{\"status\":\"") + to_string(result.state.phase) +
+        "\",\"phase\":\"" + to_string(result.state.phase) +
+        "\",\"desired_linear\":" + std::to_string(result.state.desired_linear) +
+        ",\"desired_angular\":" + std::to_string(result.state.desired_angular) +
+        ",\"session_active\":" + (result.state.session_active ? "true" : "false") +
+        ",\"pending_motion\":" + (result.state.pending_motion ? "true" : "false") + "}";
+}
 }  // namespace
 
 void register_control_routes(AppServer& server, ManualControlService& control_service) {
     server.register_post("/api/control/out-of-charge", [&control_service](const std::string&) {
-        return control_service.out_of_charge()
-            ? HttpResponse{200, "{\"status\":\"out_of_charge_requested\"}", "application/json"}
+        const auto result = control_service.out_of_charge();
+        return result.ok
+            ? HttpResponse{200, build_control_response(result), "application/json"}
             : HttpResponse{500, "{\"error\":\"out_of_charge_failed\"}", "application/json"};
     });
 
     server.register_post("/api/control/exit-navigation-mode", [&control_service](const std::string&) {
-        return control_service.exit_navigation_mode()
-            ? HttpResponse{200, "{\"status\":\"navigation_mode_exited\"}", "application/json"}
+        const auto result = control_service.exit_navigation_mode();
+        return result.ok
+            ? HttpResponse{200, build_control_response(result), "application/json"}
             : HttpResponse{500, "{\"error\":\"exit_navigation_mode_failed\"}", "application/json"};
     });
 
@@ -39,12 +50,9 @@ void register_control_routes(AppServer& server, ManualControlService& control_se
             const auto values = parse_form_encoded(body);
             const auto linear = std::stod(values.at("linear"));
             const auto angular = std::stod(values.at("angular"));
-            return control_service.move(linear, angular)
-                ? HttpResponse{200,
-                               std::string("{\"status\":\"moving\",\"linear\":") +
-                                   std::to_string(linear) + ",\"angular\":" +
-                                   std::to_string(angular) + "}",
-                               "application/json"}
+            const auto result = control_service.move(linear, angular);
+            return result.ok
+                ? HttpResponse{200, build_control_response(result), "application/json"}
                 : HttpResponse{500, "{\"error\":\"manual_move_failed\"}", "application/json"};
         } catch (const std::exception&) {
             return HttpResponse{400, "{\"error\":\"invalid_manual_move_request\"}", "application/json"};
@@ -52,8 +60,9 @@ void register_control_routes(AppServer& server, ManualControlService& control_se
     });
 
     server.register_post("/api/control/stop", [&control_service](const std::string&) {
-        return control_service.stop()
-            ? HttpResponse{200, "{\"status\":\"stopped\"}", "application/json"}
+        const auto result = control_service.stop();
+        return result.ok
+            ? HttpResponse{200, build_control_response(result), "application/json"}
             : HttpResponse{500, "{\"error\":\"manual_stop_failed\"}", "application/json"};
     });
 }

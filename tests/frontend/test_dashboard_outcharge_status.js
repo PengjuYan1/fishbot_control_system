@@ -17,6 +17,6 @@ assert(
   'expected dashboard out-of-charge display to consider both charge status and result code'
 );
 assert(
-  dashboardJs.includes('requestUndockAssist'),
-  'expected dashboard to keep retrying out-of-charge while waiting for undock'
+  dashboardJs.includes('manual_control') && dashboardJs.includes('undocking_requested'),
+  'expected dashboard to bind out-of-charge feedback to backend manual control session state'
 );

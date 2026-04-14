@@ -89,8 +89,10 @@ int main() {
     const auto charging_move = server.handle_post("/api/control/move", "linear=0.12&angular=0.0");
     if (charging_move.status != 200 || !adapter.out_of_charge_requested ||
         adapter.out_of_charge_count != 2 || adapter.move_requested ||
-        adapter.stop_navigation_count != 1) {
-        std::cerr << "expected manual move in charging state to auto-request out-of-charge before driving\n";
+        adapter.stop_navigation_count != 1 ||
+        charging_move.body.find("\"status\":\"undocking_requested\"") == std::string::npos ||
+        charging_move.body.find("\"phase\":\"undocking_requested\"") == std::string::npos) {
+        std::cerr << "expected charging-state move to stay in undocking phase until drive is actually allowed\n";
         return EXIT_FAILURE;
     }
 
@@ -98,8 +100,10 @@ int main() {
     if (move.status != 200 || !adapter.move_requested ||
         !adapter.stop_navigation_requested ||
         adapter.stop_navigation_count != 2 ||
-        adapter.last_linear != 0.15 || adapter.last_angular != 0.6) {
-        std::cerr << "expected manual move request to reach adapter\n";
+        adapter.last_linear != 0.15 || adapter.last_angular != 0.6 ||
+        move.body.find("\"status\":\"driving\"") == std::string::npos ||
+        move.body.find("\"phase\":\"driving\"") == std::string::npos) {
+        std::cerr << "expected manual move request to report driving only after cmd_vel is sent\n";
         return EXIT_FAILURE;
     }
 
@@ -108,7 +112,8 @@ int main() {
     const auto second_move = server.handle_post("/api/control/move", "linear=0.10&angular=0.0");
     if (second_move.status != 200 || !adapter.move_requested ||
         adapter.stop_navigation_count != 3 ||
-        adapter.last_linear != 0.10 || adapter.last_angular != 0.0) {
+        adapter.last_linear != 0.10 || adapter.last_angular != 0.0 ||
+        second_move.body.find("\"phase\":\"driving\"") == std::string::npos) {
         std::cerr << "expected repeated move to re-release control when navigation becomes active again\n";
         return EXIT_FAILURE;
     }
@@ -118,7 +123,8 @@ int main() {
     const auto terminal_nav_move = server.handle_post("/api/control/move", "linear=0.08&angular=0.0");
     if (terminal_nav_move.status != 200 || !adapter.move_requested ||
         adapter.stop_navigation_count != 3 ||
-        adapter.last_linear != 0.08 || adapter.last_angular != 0.0) {
+        adapter.last_linear != 0.08 || adapter.last_angular != 0.0 ||
+        terminal_nav_move.body.find("\"phase\":\"driving\"") == std::string::npos) {
         std::cerr << "expected terminal navigation status to avoid redundant release loop\n";
         return EXIT_FAILURE;
     }
@@ -137,8 +143,9 @@ int main() {
 
     const auto stop = server.handle_post("/api/control/stop", "");
     if (stop.status != 200 || adapter.stop_navigation_count != 4 ||
-        adapter.last_linear != 0.0 || adapter.last_angular != 0.0) {
-        std::cerr << "expected manual stop to release control and send zero velocity\n";
+        adapter.last_linear != 0.0 || adapter.last_angular != 0.0 ||
+        stop.body.find("\"phase\":\"idle\"") == std::string::npos) {
+        std::cerr << "expected manual stop to clear the control session and send zero velocity\n";
         return EXIT_FAILURE;
     }
 

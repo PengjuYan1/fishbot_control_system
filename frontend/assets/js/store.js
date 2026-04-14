@@ -21,6 +21,13 @@ window.fishbotStore = (() => {
         out_machine_signal: false,
         out_of_charge_result_code: 0,
       },
+      manual_control: {
+        phase: 'idle',
+        desired_linear: 0,
+        desired_angular: 0,
+        session_active: false,
+        pending_motion: false,
+      },
     },
     robot: { pose: { x: 0, y: 0, theta: 0 } },
     map: { width: 0, height: 0, resolution: 0, origin_x: 0, origin_y: 0, occupancy_data: [] },
@@ -61,6 +68,13 @@ window.fishbotStore = (() => {
           out_of_charge_status_code: 0,
           out_machine_signal: false,
           out_of_charge_result_code: 0,
+        },
+        manual_control: snapshot.manual_control || {
+          phase: 'idle',
+          desired_linear: 0,
+          desired_angular: 0,
+          session_active: false,
+          pending_motion: false,
         },
       };
       if (snapshot.pose) {

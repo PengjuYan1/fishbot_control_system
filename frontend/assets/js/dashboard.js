@@ -42,6 +42,21 @@ function formatOdomStatus(control) {
   return String(code);
 }
 
+function formatManualControlPhase(manualControl) {
+  const phase = (manualControl && manualControl.phase) || 'idle';
+  switch (phase) {
+    case 'undocking_requested':
+      return '脱桩中';
+    case 'ready_for_drive':
+      return '待接管';
+    case 'driving':
+      return '驱动中';
+    case 'idle':
+    default:
+      return '空闲';
+  }
+}
+
 function chargingBlocksManualControl(system) {
   const control = system.control || {};
   if (system.charging) {
@@ -109,6 +124,7 @@ function updateDashboardStatus() {
   const stm32Node = document.getElementById('stm32-status-value');
   const odomNode = document.getElementById('odom-status-value');
   const navigationCodeNode = document.getElementById('navigation-code-value');
+  const manualControlPhaseNode = document.getElementById('manual-control-phase-value');
   const outchargeResultNode = document.getElementById('outcharge-result-value');
   const controlBlockerNode = document.getElementById('control-blocker-value');
 
@@ -164,6 +180,10 @@ function updateDashboardStatus() {
 
   if (navigationCodeNode) {
     navigationCodeNode.textContent = String(state.system.control.navigation_status_code || 0);
+  }
+
+  if (manualControlPhaseNode) {
+    manualControlPhaseNode.textContent = formatManualControlPhase(state.system.manual_control);
   }
 
   if (outchargeResultNode) {
@@ -256,18 +276,23 @@ function bindControlButtons() {
   const actionFeedbackNode = document.getElementById('action-feedback');
   const maxLinearSpeed = 0.30;
   const maxAngularSpeed = 0.45;
-  let moveTimer = null;
-  let activeDrivePointerId = null;
-  let activeDriveRequiresStop = false;
+  let commandLoopTimer = null;
+  let activePointerId = null;
+  let joystickDragging = false;
+  let moveRequestInFlight = false;
+  let stopRequestInFlight = false;
   let currentLinearSpeed = 0;
   let currentAngularSpeed = 0;
-  let undockAssistTimer = null;
-  let undockAssistDeadline = 0;
+  let lastActionFeedback = '';
 
   const setActionFeedback = (message, level) => {
     if (!actionFeedbackNode) {
       return;
     }
+    if (lastActionFeedback === `${level || ''}:${message}`) {
+      return;
+    }
+    lastActionFeedback = `${level || ''}:${message}`;
     actionFeedbackNode.textContent = message;
     actionFeedbackNode.className = `action-feedback${level ? ` ${level}` : ''}`;
   };
@@ -291,64 +316,47 @@ function bindControlButtons() {
     window.fishbotStore.setPoints(points || []);
   };
 
-  const stopUndockAssist = () => {
-    if (undockAssistTimer) {
-      window.clearInterval(undockAssistTimer);
-      undockAssistTimer = null;
+  const setManualControlState = (result) => {
+    if (!window.fishbotStore || !result) {
+      return (result && (result.phase || result.status)) || 'idle';
     }
-    undockAssistDeadline = 0;
+
+    const currentSystem = window.fishbotStore.getState().system || {};
+    const nextPhase = result.phase || result.status || 'idle';
+    window.fishbotStore.setSystemSnapshot({
+      ...currentSystem,
+      manual_control: {
+        ...(currentSystem.manual_control || {}),
+        phase: nextPhase,
+        desired_linear: Number(result.desired_linear || 0),
+        desired_angular: Number(result.desired_angular || 0),
+        session_active: Boolean(result.session_active),
+        pending_motion: Boolean(result.pending_motion),
+      },
+    });
+    return nextPhase;
   };
 
-  const requestUndockAssist = async (source) => {
-    const performAttempt = async (silent) => {
-      const system = window.fishbotStore ? window.fishbotStore.getState().system : {};
-      if (!chargingBlocksManualControl(system)) {
-        stopUndockAssist();
-        if (!silent) {
-          setActionFeedback('已检测到脱离充电态，可直接遥控。', 'success');
-        }
-        return true;
-      }
-
-      await window.fishbotApi.outOfCharge();
-      if (!silent) {
-        setActionFeedback(
-          source === 'joystick'
-            ? '正在请求脱离充电态，请保持摇杆，脱桩后会自动接管移动。'
-            : '正在持续请求脱离充电态，解除后可直接遥控。',
-          'success'
-        );
-      }
-      return true;
-    };
-
-    undockAssistDeadline = Math.max(undockAssistDeadline, Date.now() + 8000);
-    await performAttempt(false);
-
-    if (undockAssistTimer) {
-      return;
+  const describeManualControlPhase = (phase, source) => {
+    if (phase === 'undocking_requested') {
+      return source === 'joystick'
+        ? '正在脱离充电态，请保持摇杆，解除后会自动接管移动。'
+        : '已发送脱离充电请求，解除后可直接遥控。';
     }
-
-    undockAssistTimer = window.setInterval(() => {
-      if (Date.now() > undockAssistDeadline) {
-        stopUndockAssist();
-        return;
-      }
-
-      performAttempt(true).catch((error) => {
-        stopUndockAssist();
-        setActionFeedback(`脱离充电失败：${formatError(error)}`, 'error');
-      });
-    }, 300);
+    if (phase === 'ready_for_drive') {
+      return source === 'navigation'
+        ? '已发送退出导航模式指令，请观察导航状态码是否退出占用态。'
+        : '底盘正在释放导航占用，保持摇杆即可在接管后开始移动。';
+    }
+    if (phase === 'driving') {
+      return `摇杆控制：线速度 ${currentLinearSpeed.toFixed(2)}，角速度 ${currentAngularSpeed.toFixed(2)}。`;
+    }
+    return '控制会话空闲。';
   };
 
-  const stopDriving = async () => {
-    if (moveTimer) {
-      window.clearInterval(moveTimer);
-      moveTimer = null;
-    }
-    activeDrivePointerId = null;
-    activeDriveRequiresStop = false;
+  const resetJoystickVisuals = () => {
+    activePointerId = null;
+    joystickDragging = false;
     currentLinearSpeed = 0;
     currentAngularSpeed = 0;
     if (joystickBase) {
@@ -357,41 +365,32 @@ function bindControlButtons() {
     if (joystickKnob) {
       joystickKnob.style.transform = 'translate3d(0px, 0px, 0)';
     }
-    try {
-      await window.fishbotApi.stopManualMove();
-      setActionFeedback('已发送停止导航并释放控制权，同时下发停止速度。', 'success');
-    } catch (error) {
-      setActionFeedback(`停止失败：${formatError(error)}`, 'error');
-      throw error;
+  };
+
+  const stopDriveLoop = () => {
+    if (commandLoopTimer) {
+      window.clearInterval(commandLoopTimer);
+      commandLoopTimer = null;
     }
   };
 
-  const startDriving = async (linear, angular, pointerId) => {
-    if (moveTimer) {
-      window.clearInterval(moveTimer);
-      moveTimer = null;
+  const stopDriving = async () => {
+    stopDriveLoop();
+    resetJoystickVisuals();
+    if (stopRequestInFlight) {
+      return;
     }
-    activeDrivePointerId = pointerId;
-    activeDriveRequiresStop = true;
-    currentLinearSpeed = linear;
-    currentAngularSpeed = angular;
-    await window.fishbotApi.manualMove(linear, angular);
-    setActionFeedback(`摇杆控制：线速度 ${linear.toFixed(2)}，角速度 ${angular.toFixed(2)}。`, 'success');
-    moveTimer = window.setInterval(() => {
-      window.fishbotApi.manualMove(currentLinearSpeed, currentAngularSpeed).catch(async (error) => {
-        window.clearInterval(moveTimer);
-        moveTimer = null;
-        activeDrivePointerId = null;
-        activeDriveRequiresStop = false;
-        currentLinearSpeed = 0;
-        currentAngularSpeed = 0;
-        setActionFeedback(`移动失败：${formatError(error)}`, 'error');
-        try {
-          await window.fishbotApi.stopManualMove();
-        } catch (stopError) {
-        }
-      });
-    }, 100);
+    stopRequestInFlight = true;
+    try {
+      const result = await window.fishbotApi.stopManualMove();
+      setManualControlState(result);
+      setActionFeedback('已发送停止指令，摇杆会话已复位。', 'success');
+    } catch (error) {
+      setActionFeedback(`停止失败：${formatError(error)}`, 'error');
+      throw error;
+    } finally {
+      stopRequestInFlight = false;
+    }
   };
 
   const updateJoystickPosition = (clientX, clientY) => {
@@ -421,27 +420,52 @@ function bindControlButtons() {
     };
   };
 
-  const handleJoystickMove = async (clientX, clientY, pointerId) => {
+  const sendCurrentDriveIntent = async () => {
+    if (!joystickDragging || moveRequestInFlight) {
+      return;
+    }
+
+    moveRequestInFlight = true;
+    try {
+      const result = await window.fishbotApi.manualMove(currentLinearSpeed, currentAngularSpeed);
+      const phase = setManualControlState(result);
+      setActionFeedback(describeManualControlPhase(phase, 'joystick'), 'success');
+    } catch (error) {
+      stopDriveLoop();
+      resetJoystickVisuals();
+      setActionFeedback(`移动失败：${formatError(error)}`, 'error');
+      try {
+        const result = await window.fishbotApi.stopManualMove();
+        setManualControlState(result);
+      } catch (stopError) {
+      }
+    } finally {
+      moveRequestInFlight = false;
+    }
+  };
+
+  const ensureDriveLoop = () => {
+    if (commandLoopTimer) {
+      return;
+    }
+    void sendCurrentDriveIntent();
+    commandLoopTimer = window.setInterval(() => {
+      void sendCurrentDriveIntent();
+    }, 100);
+  };
+
+  const handleJoystickMove = (clientX, clientY, pointerId) => {
     if (!joystickBase) {
       return;
     }
 
     const { linear, angular } = updateJoystickPosition(clientX, clientY);
     joystickBase.classList.add('is-active');
-
-    if (window.fishbotStore && chargingBlocksManualControl(window.fishbotStore.getState().system || {})) {
-      await requestUndockAssist('joystick');
-    }
-
-    if (!activeDriveRequiresStop) {
-      await startDriving(linear, angular, pointerId);
-      return;
-    }
-
-    activeDrivePointerId = pointerId;
+    activePointerId = pointerId;
+    joystickDragging = true;
     currentLinearSpeed = linear;
     currentAngularSpeed = angular;
-    setActionFeedback(`摇杆控制：线速度 ${linear.toFixed(2)}，角速度 ${angular.toFixed(2)}。`, 'success');
+    ensureDriveLoop();
   };
 
   if (startMappingButton) {
@@ -505,7 +529,9 @@ function bindControlButtons() {
   if (outOfChargeButton) {
     outOfChargeButton.addEventListener('click', async () => {
       try {
-        await requestUndockAssist('button');
+        const result = await window.fishbotApi.outOfCharge();
+        const phase = setManualControlState(result);
+        setActionFeedback(describeManualControlPhase(phase, 'button'), 'success');
       } catch (error) {
         setActionFeedback(`脱离充电失败：${formatError(error)}`, 'error');
       }
@@ -515,8 +541,9 @@ function bindControlButtons() {
   if (exitNavigationModeButton) {
     exitNavigationModeButton.addEventListener('click', async () => {
       try {
-        await window.fishbotApi.exitNavigationMode();
-        setActionFeedback('已发送退出导航模式指令，请观察导航状态码是否退出占用态。', 'success');
+        const result = await window.fishbotApi.exitNavigationMode();
+        const phase = setManualControlState(result);
+        setActionFeedback(describeManualControlPhase(phase, 'navigation'), 'success');
       } catch (error) {
         setActionFeedback(`退出导航模式失败：${formatError(error)}`, 'error');
       }
@@ -532,13 +559,13 @@ function bindControlButtons() {
       return;
     }
 
-    target.addEventListener('pointerdown', async (event) => {
+    target.addEventListener('pointerdown', (event) => {
       event.preventDefault();
       if (joystickBase && joystickBase.setPointerCapture && event.pointerId !== undefined) {
         joystickBase.setPointerCapture(event.pointerId);
       }
       try {
-        await handleJoystickMove(event.clientX, event.clientY, event.pointerId);
+        handleJoystickMove(event.clientX, event.clientY, event.pointerId);
       } catch (error) {
         setActionFeedback(`移动失败：${formatError(error)}`, 'error');
       }
@@ -548,11 +575,12 @@ function bindControlButtons() {
   bindJoystickStart(joystickBase);
   bindJoystickStart(joystickKnob);
 
-  window.addEventListener('pointermove', async (event) => {
-    if (activeDriveRequiresStop &&
-        (activeDrivePointerId === null || activeDrivePointerId === event.pointerId)) {
+  window.addEventListener('pointermove', (event) => {
+    if (joystickDragging &&
+        activePointerId !== null &&
+        activePointerId === event.pointerId) {
       try {
-        await handleJoystickMove(event.clientX, event.clientY, event.pointerId);
+        handleJoystickMove(event.clientX, event.clientY, event.pointerId);
       } catch (error) {
         setActionFeedback(`移动失败：${formatError(error)}`, 'error');
       }
@@ -560,28 +588,30 @@ function bindControlButtons() {
   });
 
   window.addEventListener('pointerup', async (event) => {
-    if (activeDriveRequiresStop &&
-        (activeDrivePointerId === null || activeDrivePointerId === event.pointerId)) {
+    if (joystickDragging &&
+        activePointerId !== null &&
+        activePointerId === event.pointerId) {
       await stopDriving();
     }
   });
 
   window.addEventListener('pointercancel', async (event) => {
-    if (activeDriveRequiresStop &&
-        (activeDrivePointerId === null || activeDrivePointerId === event.pointerId)) {
+    if (joystickDragging &&
+        activePointerId !== null &&
+        activePointerId === event.pointerId) {
       await stopDriving();
     }
   });
 
   window.addEventListener('blur', () => {
-    if (moveTimer) {
-      stopDriving();
+    if (joystickDragging || commandLoopTimer) {
+      void stopDriving();
     }
   });
 
   document.addEventListener('visibilitychange', () => {
-    if (document.hidden && moveTimer) {
-      stopDriving();
+    if (document.hidden && (joystickDragging || commandLoopTimer)) {
+      void stopDriving();
     }
   });
 

@@ -29,4 +29,14 @@ assert(
   dashboardJs.includes('manual-joystick-knob'),
   'expected dashboard controller to bind joystick knob events'
 );
-
+assert(
+  dashboardJs.includes('manual_control') &&
+    dashboardJs.includes('undocking_requested') &&
+    dashboardJs.includes('ready_for_drive') &&
+    dashboardJs.includes('driving'),
+  'expected dashboard joystick flow to react to backend manual control phases'
+);
+assert(
+  !dashboardJs.includes('activeDriveRequiresStop'),
+  'expected dashboard joystick flow to replace the old single-flag drive state'
+);

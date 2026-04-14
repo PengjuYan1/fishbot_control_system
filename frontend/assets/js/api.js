@@ -50,6 +50,13 @@ window.fishbotApi = {
         localized: true,
         task: { status: 'idle', current_target: '' },
         connection: { healthy: true, last_error: '', reconnect_attempts: 0, adapter_mode: 'rosbridge' },
+        manual_control: {
+          phase: 'idle',
+          desired_linear: 0,
+          desired_angular: 0,
+          session_active: false,
+          pending_motion: false,
+        },
       };
     }
   },

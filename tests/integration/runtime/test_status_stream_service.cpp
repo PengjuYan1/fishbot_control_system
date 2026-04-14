@@ -7,6 +7,7 @@
 
 #include "backend/runtime/StatusStreamService.h"
 #include "backend/services/MapService.h"
+#include "backend/services/ManualControlService.h"
 #include "backend/services/SystemService.h"
 #include "ros_adapter/IRobotAdapter.h"
 
@@ -34,8 +35,11 @@ class FakeStreamAdapter : public IRobotAdapter {
 
 int main() {
     FakeStreamAdapter adapter;
+    ManualControlService control_service(adapter);
     SystemService system_service(adapter, []() {
         return TaskSummary{"running", "F1"};
+    }, [&control_service]() {
+        return control_service.get_state();
     });
     MapService map_service(adapter);
     StatusHub hub;
@@ -67,6 +71,11 @@ int main() {
         published[1].find("\"type\":\"map_snapshot\"") == std::string::npos ||
         published[2].find("\"type\":\"robot_pose\"") == std::string::npos) {
         std::cerr << "expected system/map/pose push order\n";
+        return EXIT_FAILURE;
+    }
+
+    if (published[0].find("\"manual_control\":{") == std::string::npos) {
+        std::cerr << "expected status stream snapshot to include manual control state\n";
         return EXIT_FAILURE;
     }
 

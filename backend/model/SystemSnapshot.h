@@ -3,6 +3,7 @@
 
 #include <string>
 
+#include "backend/model/ManualControlState.h"
 #include "ros_adapter/model/Pose.h"
 
 struct TaskSummary {
@@ -41,6 +42,7 @@ struct SystemSnapshot {
     TaskSummary task;
     ConnectionDiagnostics connection;
     ControlDiagnostics control;
+    ManualControlState manual_control;
 };
 
 inline std::string to_json(const SystemSnapshot& snapshot) {
@@ -69,7 +71,7 @@ inline std::string to_json(const SystemSnapshot& snapshot) {
         ",\"out_of_charge_status_code\":" + std::to_string(snapshot.control.out_of_charge_status_code) +
         ",\"out_machine_signal\":" + (snapshot.control.out_machine_signal ? "true" : "false") +
         ",\"out_of_charge_result_code\":" + std::to_string(snapshot.control.out_of_charge_result_code) +
-        "}}";
+        "},\"manual_control\":" + to_json(snapshot.manual_control) + "}";
 }
 
 #endif

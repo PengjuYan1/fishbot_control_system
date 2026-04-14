@@ -53,12 +53,14 @@ int main(int argc, char** argv) {
     }
 
     TaskService task_service(*context.adapter, point_repository, &task_run_repository);
+    ManualControlService control_service(*context.adapter);
     SystemService system_service(*context.adapter, [&task_service]() {
         const auto task = task_service.current_task();
         return TaskSummary{task.status, task.current_target_name};
+    }, [&control_service]() {
+        return control_service.get_state();
     });
     MapService map_service(*context.adapter);
-    ManualControlService control_service(*context.adapter);
     PointService point_service(point_repository, *context.adapter);
     ScheduleService schedule_service(schedule_repository);
     AlertService alert_service(event_log_repository);
