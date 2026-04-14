@@ -423,6 +423,54 @@ int main() {
         return EXIT_FAILURE;
     }
 
+    transport.set_service_response("point_set", "{\"result\":0}");
+    transport.set_service_response("pointmanu_set", "{\"result\":123}");
+    PointRecord fallback_point;
+    if (!adapter.create_current_pose_point("C3", 1, &fallback_point)) {
+        std::cerr << "expected create_current_pose_point to fall back to pointmanu_set\n";
+        return EXIT_FAILURE;
+    }
+
+    if (fallback_point.point_id != 123) {
+        std::cerr << "expected fallback point creation to use pointmanu_set result\n";
+        return EXIT_FAILURE;
+    }
+
+    if (transport.called_services().size() < 3 ||
+        transport.called_services()[transport.called_services().size() - 3] != "point_set" ||
+        transport.called_services()[transport.called_services().size() - 2] != "pointmanu_set" ||
+        transport.called_services().back() != "get_maps") {
+        std::cerr << "expected fallback creation to call point_set, pointmanu_set, then get_maps\n";
+        return EXIT_FAILURE;
+    }
+
+    if (transport.called_payloads()[transport.called_payloads().size() - 2].find("\"point\":") == std::string::npos) {
+        std::cerr << "expected fallback pointmanu_set payload to include explicit pose body\n";
+        return EXIT_FAILURE;
+    }
+
+    transport.set_service_response(
+        "get_maps",
+        "{\"success\":true,\"message\":\"{\\\"defaultFloor\\\":56,\\\"floors\\\":[{\\\"floorId\\\":56,\\\"defaultmap\\\":34,\\\"maps\\\":[{\\\"mapId\\\":34,\\\"chargeId\\\":99,\\\"initialId\\\":100}]}]}\"}");
+    transport.set_service_response(
+        "list_navi_points",
+        "{\"list_system_points\":[{\"point_id\":\"99\",\"point_name\":\"C1\",\"x\":1.0,\"y\":2.0,\"z\":0.1},"
+        "{\"point_id\":\"100\",\"point_name\":\"I1\",\"x\":1.1,\"y\":2.1,\"z\":0.2}],"
+        "\"list_navi_points\":[{\"point_id\":\"101\",\"point_name\":\"P1\",\"x\":3.0,\"y\":4.0,\"z\":0.3}]}");
+    std::vector<PointRecord> native_points;
+    if (!adapter.list_native_points(&native_points)) {
+        std::cerr << "expected list_native_points to succeed\n";
+        return EXIT_FAILURE;
+    }
+
+    if (native_points.size() != 3 ||
+        native_points[0].point_kind != "charge" ||
+        native_points[1].point_kind != "initial" ||
+        native_points[2].point_kind != "navigation") {
+        std::cerr << "expected native point sync to classify charge, initial, and navigation points\n";
+        return EXIT_FAILURE;
+    }
+
     if (!adapter.delete_saved_point(created_point)) {
         std::cerr << "expected delete_saved_point to succeed\n";
         return EXIT_FAILURE;

@@ -16,6 +16,7 @@ constexpr const char* kGetMapsServiceType = "std_srvs/Trigger";
 constexpr const char* kPointSetServiceType = "map_msgs/PointSet";
 constexpr const char* kPointManuSetServiceType = "map_msgs/PointManuSet";
 constexpr const char* kDeleteTestPointServiceType = "map_msgs/DeleteTestPoint";
+constexpr const char* kListNaviPointsService = "list_navi_points";
 
 bool charging_blocks_manual_control(const RobotStatus& status) {
     if (status.charging) {
@@ -85,6 +86,19 @@ long extract_long_value(const std::string& payload, const std::string& key, long
     const auto start = find_value_start(payload, key);
     if (start == std::string::npos) {
         return default_value;
+    }
+
+    if (start < payload.size() && payload[start] == '"') {
+        auto end_quote = payload.find('"', start + 1);
+        if (end_quote == std::string::npos || end_quote <= start + 1) {
+            return default_value;
+        }
+        const auto value = payload.substr(start + 1, end_quote - start - 1);
+        try {
+            return std::stol(value);
+        } catch (const std::exception&) {
+            return default_value;
+        }
     }
 
     auto end = start;
@@ -379,6 +393,112 @@ bool parse_default_map_context(const std::string& payload, long* floor_id, long*
 
     return false;
 }
+
+bool parse_current_map_metadata(const std::string& payload, long* floor_id, long* map_id,
+                                long* charge_id, long* initial_id) {
+    if (floor_id == nullptr || map_id == nullptr || charge_id == nullptr || initial_id == nullptr) {
+        return false;
+    }
+
+    *charge_id = 0;
+    *initial_id = 0;
+
+    std::string maps_json = extract_string_value(payload, "message");
+    if (maps_json.empty()) {
+        maps_json = payload;
+    }
+
+    const long default_floor = extract_long_value(maps_json, "defaultFloor", 0);
+    const auto floors = extract_object_array(maps_json, "floors");
+    if (floors.empty()) {
+        return false;
+    }
+
+    for (const auto& floor_payload : floors) {
+        const long candidate_floor = extract_long_value(floor_payload, "floorId", 0);
+        if (default_floor > 0 && candidate_floor != default_floor) {
+            continue;
+        }
+
+        const long default_map = extract_long_value(floor_payload, "defaultmap", 0);
+        const auto maps = extract_object_array(floor_payload, "maps");
+        if (!maps.empty()) {
+            for (const auto& map_payload : maps) {
+                const long candidate_map = extract_long_value(map_payload, "mapId", 0);
+                if (default_map > 0 && candidate_map != default_map) {
+                    continue;
+                }
+
+                if (candidate_floor > 0 && candidate_map > 0) {
+                    *floor_id = candidate_floor;
+                    *map_id = candidate_map;
+                    *charge_id = extract_long_value(map_payload, "chargeId", 0);
+                    *initial_id = extract_long_value(map_payload, "initialId", 0);
+                    return true;
+                }
+            }
+        }
+
+        if (candidate_floor > 0 && default_map > 0) {
+            *floor_id = candidate_floor;
+            *map_id = default_map;
+            return true;
+        }
+    }
+
+    return parse_default_map_context(payload, floor_id, map_id);
+}
+
+PointRecord build_native_point_record(const std::string& payload, long floor_id, long map_id,
+                                      long charge_id, long initial_id) {
+    PointRecord point;
+    point.name = extract_string_value(payload, "point_name");
+    point.x = extract_double_value(payload, "x");
+    point.y = extract_double_value(payload, "y");
+    point.theta = extract_double_value(payload, "z");
+    point.floor_id = floor_id;
+    point.map_id = map_id;
+    point.point_id = extract_long_value(payload, "point_id", 0);
+
+    if (point.point_id == charge_id) {
+        point.point_kind = "charge";
+        point.type = "charge";
+    } else if (point.point_id == initial_id) {
+        point.point_kind = "initial";
+        point.type = "initial";
+    } else {
+        point.point_kind = "navigation";
+        point.type = "navigation";
+    }
+
+    return point;
+}
+
+long create_manual_pose_point(IRosbridgeTransport* transport, const Pose& pose,
+                              const std::string& name, long point_mode) {
+    if (transport == nullptr) {
+        return 0;
+    }
+
+    const double half_theta = pose.theta / 2.0;
+    const double orientation_z = std::sin(half_theta);
+    const double orientation_w = std::cos(half_theta);
+
+    std::ostringstream request;
+    request << "{\"point_name\":\"" << json_escape(name)
+            << "\",\"point_mode\":" << point_mode
+            << ",\"point\":{\"header\":{\"frame_id\":\"map\"},\"pose\":{\"pose\":{\"position\":{\"x\":"
+            << pose.x << ",\"y\":" << pose.y << ",\"z\":0},\"orientation\":{\"x\":0,\"y\":0,\"z\":"
+            << orientation_z << ",\"w\":" << orientation_w
+            << "}},\"covariance\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]}}}";
+
+    std::string point_response;
+    if (!transport->call_service("pointmanu_set", kPointManuSetServiceType, request.str(), &point_response)) {
+        return 0;
+    }
+
+    return extract_long_value(point_response, "result", 0);
+}
 }  // namespace
 
 RosbridgeAdapter::RosbridgeAdapter(IRosbridgeTransport* transport) : transport_(transport) {}
@@ -531,16 +651,20 @@ bool RosbridgeAdapter::create_current_pose_point(const std::string& name, long p
         return false;
     }
 
+    const Pose pose = get_robot_pose();
     std::ostringstream request;
     request << "{\"point_name\":\"" << json_escape(name)
             << "\",\"point_mode\":" << point_mode << "}";
 
     std::string point_response;
-    if (!call_service("point_set", kPointSetServiceType, request.str(), &point_response)) {
-        return false;
+    long point_id = 0;
+    if (call_service("point_set", kPointSetServiceType, request.str(), &point_response)) {
+        point_id = extract_long_value(point_response, "result", 0);
     }
 
-    const long point_id = extract_long_value(point_response, "result", 0);
+    if (point_id <= 0) {
+        point_id = create_manual_pose_point(transport_, pose, name, point_mode);
+    }
     if (point_id <= 0) {
         return false;
     }
@@ -553,7 +677,6 @@ bool RosbridgeAdapter::create_current_pose_point(const std::string& name, long p
         return false;
     }
 
-    const Pose pose = get_robot_pose();
     point->name = name;
     point->x = pose.x;
     point->y = pose.y;
@@ -561,6 +684,37 @@ bool RosbridgeAdapter::create_current_pose_point(const std::string& name, long p
     point->floor_id = floor_id;
     point->map_id = map_id;
     point->point_id = point_id;
+    return true;
+}
+
+bool RosbridgeAdapter::list_native_points(std::vector<PointRecord>* points) {
+    if (!is_connected() || points == nullptr) {
+        return false;
+    }
+
+    std::string maps_response;
+    long floor_id = 0;
+    long map_id = 0;
+    long charge_id = 0;
+    long initial_id = 0;
+    if (!call_service("get_maps", kGetMapsServiceType, "{}", &maps_response) ||
+        !parse_current_map_metadata(maps_response, &floor_id, &map_id, &charge_id, &initial_id)) {
+        return false;
+    }
+
+    std::string points_response;
+    if (!call_service(kListNaviPointsService, "", "{}", &points_response)) {
+        return false;
+    }
+
+    points->clear();
+    for (const auto& payload : extract_object_array(points_response, "list_system_points")) {
+        points->push_back(build_native_point_record(payload, floor_id, map_id, charge_id, initial_id));
+    }
+    for (const auto& payload : extract_object_array(points_response, "list_navi_points")) {
+        points->push_back(build_native_point_record(payload, floor_id, map_id, charge_id, initial_id));
+    }
+
     return true;
 }
 

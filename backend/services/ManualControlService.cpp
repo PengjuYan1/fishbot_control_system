@@ -50,6 +50,7 @@ ManualControlCommandResult ManualControlService::out_of_charge() {
             0.0,
             true,
             false);
+        manual_ready_latched_ = !charging_still_blocks_manual_control(robot_status);
         sync_session_from_status_locked(robot_status);
     }
 
@@ -70,9 +71,11 @@ ManualControlCommandResult ManualControlService::undock() {
         std::lock_guard<std::mutex> lock(mutex_);
         if (ok) {
             undock_grace_deadline_ = std::chrono::steady_clock::now() + kUndockGraceDuration;
+            manual_ready_latched_ = true;
             update_state_locked(ManualControlPhase::kReadyForDrive, 0.0, 0.0, true, false);
         } else {
             undock_grace_deadline_ = std::chrono::steady_clock::time_point{};
+            manual_ready_latched_ = false;
             update_state_locked(ManualControlPhase::kUndockingRequested, 0.0, 0.0, true, false);
         }
         sync_session_from_status_locked(adapter_.get_robot_status());
@@ -87,10 +90,13 @@ ManualControlCommandResult ManualControlService::exit_navigation_mode() {
     {
         std::lock_guard<std::mutex> lock(mutex_);
         if (acquire.state == ManualControlAcquireState::kReady) {
+            manual_ready_latched_ = true;
             update_state_locked(ManualControlPhase::kReadyForDrive, 0.0, 0.0, true, false);
         } else if (acquire.state == ManualControlAcquireState::kUndockingRequested) {
+            manual_ready_latched_ = false;
             update_state_locked(ManualControlPhase::kUndockingRequested, 0.0, 0.0, true, false);
         } else {
+            manual_ready_latched_ = false;
             drive_command_active_ = false;
         }
         sync_session_from_status_locked(adapter_.get_robot_status());
@@ -115,6 +121,21 @@ ManualControlCommandResult ManualControlService::move(double linear_speed, doubl
         }
 
         std::lock_guard<std::mutex> lock(mutex_);
+        manual_ready_latched_ = true;
+        update_state_locked(ManualControlPhase::kDriving, linear_speed, angular_speed, true, true);
+        sync_session_from_status_locked(adapter_.get_robot_status());
+        return ManualControlCommandResult{true, snapshot_state_locked()};
+    }
+
+    if (manual_ready_latched_) {
+        if (!adapter_.manual_move(linear_speed, angular_speed)) {
+            std::lock_guard<std::mutex> lock(mutex_);
+            update_state_locked(ManualControlPhase::kReadyForDrive, linear_speed, angular_speed, true, true);
+            sync_session_from_status_locked(adapter_.get_robot_status());
+            return ManualControlCommandResult{false, snapshot_state_locked()};
+        }
+
+        std::lock_guard<std::mutex> lock(mutex_);
         update_state_locked(ManualControlPhase::kDriving, linear_speed, angular_speed, true, true);
         sync_session_from_status_locked(adapter_.get_robot_status());
         return ManualControlCommandResult{true, snapshot_state_locked()};
@@ -130,6 +151,7 @@ ManualControlCommandResult ManualControlService::move(double linear_speed, doubl
 
     if (acquire.state == ManualControlAcquireState::kUndockingRequested) {
         std::lock_guard<std::mutex> lock(mutex_);
+        manual_ready_latched_ = false;
         update_state_locked(
             ManualControlPhase::kUndockingRequested, linear_speed, angular_speed, true, true);
         sync_session_from_status_locked(adapter_.get_robot_status());
@@ -144,6 +166,7 @@ ManualControlCommandResult ManualControlService::move(double linear_speed, doubl
     }
 
     std::lock_guard<std::mutex> lock(mutex_);
+    manual_ready_latched_ = true;
     update_state_locked(ManualControlPhase::kDriving, linear_speed, angular_speed, true, true);
     sync_session_from_status_locked(adapter_.get_robot_status());
     return ManualControlCommandResult{true, snapshot_state_locked()};
@@ -156,6 +179,7 @@ ManualControlCommandResult ManualControlService::stop() {
         std::lock_guard<std::mutex> lock(mutex_);
         session_state_ = ManualControlState{};
         drive_command_active_ = false;
+        manual_ready_latched_ = false;
         undock_grace_deadline_ = std::chrono::steady_clock::time_point{};
     }
 
@@ -188,6 +212,7 @@ void ManualControlService::sync_session_from_status_locked(const RobotStatus& st
     if (!session_state_.session_active) {
         session_state_ = ManualControlState{};
         drive_command_active_ = false;
+        manual_ready_latched_ = false;
         undock_grace_deadline_ = std::chrono::steady_clock::time_point{};
         return;
     }
@@ -195,7 +220,9 @@ void ManualControlService::sync_session_from_status_locked(const RobotStatus& st
     session_state_.pending_motion =
         wants_motion(session_state_.desired_linear, session_state_.desired_angular);
 
-    if (charging_still_blocks_manual_control(status) && !undock_grace_active(undock_grace_deadline_)) {
+    if (!manual_ready_latched_ &&
+        charging_still_blocks_manual_control(status) &&
+        !undock_grace_active(undock_grace_deadline_)) {
         session_state_.phase = ManualControlPhase::kUndockingRequested;
         drive_command_active_ = false;
         return;

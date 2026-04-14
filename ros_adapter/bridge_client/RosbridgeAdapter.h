@@ -31,6 +31,7 @@ class RosbridgeAdapter : public IRobotAdapter {
     MapSnapshot get_map_snapshot() const override;
     bool is_charging() const override;
     bool create_current_pose_point(const std::string& name, long point_mode, PointRecord* point) override;
+    bool list_native_points(std::vector<PointRecord>* points) override;
     bool delete_saved_point(const PointRecord& point) override;
 
   private:

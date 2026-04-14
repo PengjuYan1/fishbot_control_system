@@ -54,7 +54,7 @@ class FakeCurrentPointAdapter : public IRobotAdapter {
         point->theta = 1.57;
         point->floor_id = 101;
         point->map_id = 202;
-        point->point_id = point_mode == 1 ? 301 : 302;
+        point->point_id = point_mode == 1 ? 301 : (point_mode == 2 ? 303 : 302);
         return true;
     }
 

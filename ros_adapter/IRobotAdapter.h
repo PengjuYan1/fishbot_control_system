@@ -50,6 +50,10 @@ class IRobotAdapter {
         (void) point;
         return false;
     }
+    virtual bool list_native_points(std::vector<PointRecord>* points) {
+        (void) points;
+        return false;
+    }
     virtual bool delete_saved_point(const PointRecord& point) {
         (void) point;
         return false;
