@@ -1,6 +1,7 @@
 #ifndef FISHBOT_BACKEND_SERVICES_MANUALCONTROLSERVICE_H_
 #define FISHBOT_BACKEND_SERVICES_MANUALCONTROLSERVICE_H_
 
+#include <chrono>
 #include <condition_variable>
 #include <cstdint>
 #include <mutex>
@@ -38,8 +39,10 @@ class ManualControlService {
     std::thread control_thread_;
     ManualControlState session_state_;
     bool drive_command_active_ = false;
+    bool zero_command_pending_ = false;
     bool shutting_down_ = false;
     std::uint64_t command_revision_ = 0;
+    std::chrono::steady_clock::time_point motion_deadline_{};
 };
 
 #endif

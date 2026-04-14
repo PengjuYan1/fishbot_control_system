@@ -275,11 +275,13 @@ function bindControlButtons() {
   const actionFeedbackNode = document.getElementById('action-feedback');
   const maxLinearSpeed = 0.30;
   const maxAngularSpeed = 0.45;
+  const joystickHeartbeatMs = 60;
   let commandLoopTimer = null;
   let activePointerId = null;
   let joystickDragging = false;
   let moveRequestInFlight = false;
   let stopRequestInFlight = false;
+  let controlRequestGeneration = 0;
   let currentLinearSpeed = 0;
   let currentAngularSpeed = 0;
   let lastActionFeedback = '';
@@ -380,6 +382,7 @@ function bindControlButtons() {
       return;
     }
     stopRequestInFlight = true;
+    controlRequestGeneration += 1;
     try {
       const result = await window.fishbotApi.stopManualMove();
       setManualControlState(result);
@@ -424,12 +427,19 @@ function bindControlButtons() {
       return;
     }
 
+    const requestGeneration = controlRequestGeneration;
     moveRequestInFlight = true;
     try {
       const result = await window.fishbotApi.manualMove(currentLinearSpeed, currentAngularSpeed);
+      if (requestGeneration !== controlRequestGeneration) {
+        return;
+      }
       const phase = setManualControlState(result);
       setActionFeedback(describeManualControlPhase(phase, 'joystick'), 'success');
     } catch (error) {
+      if (requestGeneration !== controlRequestGeneration) {
+        return;
+      }
       stopDriveLoop();
       resetJoystickVisuals();
       setActionFeedback(`移动失败：${formatError(error)}`, 'error');
@@ -450,7 +460,7 @@ function bindControlButtons() {
     void sendCurrentDriveIntent();
     commandLoopTimer = window.setInterval(() => {
       void sendCurrentDriveIntent();
-    }, 100);
+    }, joystickHeartbeatMs);
   };
 
   const handleJoystickMove = (clientX, clientY, pointerId) => {
@@ -460,6 +470,9 @@ function bindControlButtons() {
 
     const { linear, angular } = updateJoystickPosition(clientX, clientY);
     joystickBase.classList.add('is-active');
+    if (!joystickDragging) {
+      controlRequestGeneration += 1;
+    }
     activePointerId = pointerId;
     joystickDragging = true;
     currentLinearSpeed = linear;

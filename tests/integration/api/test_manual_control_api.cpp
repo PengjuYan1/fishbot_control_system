@@ -206,6 +206,28 @@ int main() {
         return EXIT_FAILURE;
     }
 
+    adapter.move_requested = false;
+    adapter.move_count = 0;
+    adapter.last_linear = 0.0;
+    adapter.last_angular = 0.0;
+    adapter.navigation_status_code = 83;
+    const auto leased_move = service.move(0.22, 0.01);
+    if (!leased_move.ok || leased_move.state.phase == ManualControlPhase::kIdle) {
+        std::cerr << "expected leased joystick move to start a manual-drive session\n";
+        return EXIT_FAILURE;
+    }
+
+    std::this_thread::sleep_for(std::chrono::milliseconds(350));
+    const auto expired_state = service.get_state();
+    if (expired_state.phase != ManualControlPhase::kIdle ||
+        expired_state.session_active ||
+        expired_state.pending_motion ||
+        adapter.last_linear != 0.0 ||
+        adapter.last_angular != 0.0) {
+        std::cerr << "expected joystick session to self-expire and send zero velocity when heartbeats stop\n";
+        return EXIT_FAILURE;
+    }
+
     adapter.charging = true;
     adapter.charge_status_code = 47;
     adapter.out_of_charge_succeeds = false;
