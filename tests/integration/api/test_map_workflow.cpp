@@ -61,12 +61,13 @@ class FakeMapAdapter : public IRobotAdapter {
         return true;
     }
     bool list_maps(std::vector<MapDescriptor>* maps) override {
-        if (maps == nullptr) {
+        if (maps == nullptr || fail_list_maps) {
             return false;
         }
-        *maps = {
-            MapDescriptor{1, "F1", 11, "default_map", 1, 11, 101, 102, true, true},
-        };
+        maps->clear();
+        if (return_stale_deleted_map || deleted_map == 0) {
+            maps->push_back(MapDescriptor{1, "F1", 11, "default_map", 1, 11, 101, 102, true, true});
+        }
         return true;
     }
     bool delete_map(long floor_id, long map_id) override {
@@ -85,11 +86,19 @@ class FakeMapAdapter : public IRobotAdapter {
     long last_point_mode = -1;
     std::string last_created_name;
     std::vector<PointRecord> native_points;
+    bool fail_list_maps = false;
+    bool return_stale_deleted_map = false;
 };
 
 int main() {
     FakeMapAdapter adapter;
-    MapService service(adapter);
+    auto point_db = open_test_database();
+    run_migrations(point_db);
+    PointRepository point_repository(point_db);
+    point_repository.insert_point(PointRecord{0, "C1", "charge", 1.0, 2.0, 0.0, 1, 11, 101});
+    point_repository.insert_point(PointRecord{0, "N1", "nav", 2.0, 3.0, 0.0, 1, 11, 201});
+
+    MapService service(adapter, &point_repository);
     AppServer server;
     register_map_routes(server, service);
 
@@ -138,6 +147,16 @@ int main() {
         return EXIT_FAILURE;
     }
 
+    adapter.fail_list_maps = true;
+    const auto cached_maps_response = server.handle_get("/api/maps");
+    if (cached_maps_response.status != 200 ||
+        cached_maps_response.body.find("\"map_name\":\"default_map\"") == std::string::npos) {
+        std::cerr << "expected cached map list payload when native map query temporarily fails\n";
+        return EXIT_FAILURE;
+    }
+    adapter.fail_list_maps = false;
+    adapter.return_stale_deleted_map = true;
+
     const auto delete_map_response = server.handle_post("/api/maps/delete", "floor_id=1&map_id=11");
     if (delete_map_response.status != 200 ||
         adapter.deleted_floor != 1 ||
@@ -146,10 +165,17 @@ int main() {
         std::cerr << "expected successful delete-map response\n";
         return EXIT_FAILURE;
     }
+    if (!point_repository.list_points().empty()) {
+        std::cerr << "expected deleting a map to purge saved points on that map\n";
+        return EXIT_FAILURE;
+    }
+    const auto post_delete_maps_response = server.handle_get("/api/maps");
+    if (post_delete_maps_response.status != 200 ||
+        post_delete_maps_response.body.find("\"map_name\":\"default_map\"") != std::string::npos) {
+        std::cerr << "expected deleted map to stay hidden even if native map listing is briefly stale\n";
+        return EXIT_FAILURE;
+    }
 
-    auto point_db = open_test_database();
-    run_migrations(point_db);
-    PointRepository point_repository(point_db);
     MapService seeded_service(adapter, &point_repository);
 
     if (!seeded_service.start_mapping()) {

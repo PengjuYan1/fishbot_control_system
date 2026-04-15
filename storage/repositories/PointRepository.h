@@ -16,6 +16,7 @@ class PointRepository {
     std::optional<PointRecord> find_point(int id) const;
     std::optional<PointRecord> find_by_native_identity(long floor_id, long map_id, long point_id) const;
     bool delete_point(int id);
+    int delete_points_by_map(long floor_id, long map_id);
     std::vector<PointRecord> list_points() const;
     void merge_native_points(const std::vector<PointRecord>& points);
 

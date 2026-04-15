@@ -1,5 +1,6 @@
 #include "backend/services/PointService.h"
 
+#include <algorithm>
 #include <chrono>
 #include <cctype>
 #include <sstream>
@@ -13,6 +14,7 @@
 
 namespace {
 constexpr long long kNativeSyncCooldownMs = 3000;
+constexpr long long kDeletedNativeSuppressionMs = 10000;
 
 long long steady_clock_millis() {
     return std::chrono::duration_cast<std::chrono::milliseconds>(
@@ -54,12 +56,20 @@ int PointService::create_charge_point(const std::string& body) {
     return repository_.insert_point(parse_point(body, "charge"));
 }
 
+int PointService::create_nav_point(const std::string& body) {
+    return repository_.insert_point(parse_point(body, "nav"));
+}
+
 int PointService::create_feed_point(const std::string& body) {
     return repository_.insert_point(parse_point(body, "feed"));
 }
 
 PointRecord PointService::create_current_charge_point() {
     return create_current_point("charge", "C", 1);
+}
+
+PointRecord PointService::create_current_nav_point() {
+    return create_current_point("nav", "N", 0);
 }
 
 PointRecord PointService::create_current_feed_point() {
@@ -80,6 +90,7 @@ PointRecord PointService::delete_point(int id) {
         if (!adapter_->delete_saved_point(*point)) {
             throw std::runtime_error("delete_saved_point_failed");
         }
+        remember_deleted_native_identity(*point);
     }
 
     if (!repository_.delete_point(id)) {
@@ -179,11 +190,21 @@ void PointService::run_native_sync_once() const {
         if (adapter_ != nullptr) {
             std::vector<PointRecord> native_points;
             if (adapter_->list_native_points(&native_points)) {
-                repository_.merge_native_points(native_points);
+                const auto now_ms = steady_clock_millis();
+                prune_suppressed_native_identities(now_ms);
+                std::vector<PointRecord> filtered_native_points;
+                filtered_native_points.reserve(native_points.size());
+                for (const auto& point : native_points) {
+                    if (!native_identity_suppressed(point)) {
+                        filtered_native_points.push_back(point);
+                    }
+                }
+
+                repository_.merge_native_points(filtered_native_points);
 
                 bool native_has_charge = false;
                 bool native_has_initial = false;
-                for (const auto& point : native_points) {
+                for (const auto& point : filtered_native_points) {
                     if (point.type == "charge" && point.point_id > 0) {
                         native_has_charge = true;
                     } else if (point.type == "initial" && point.point_id > 0) {
@@ -208,4 +229,54 @@ void PointService::run_native_sync_once() const {
     } catch (const std::exception&) {
     }
     native_sync_inflight_.store(false);
+}
+
+void PointService::remember_deleted_native_identity(const PointRecord& point) {
+    if (point.floor_id <= 0 || point.map_id <= 0 || point.point_id <= 0) {
+        return;
+    }
+
+    std::lock_guard<std::mutex> lock(suppressed_native_identities_mutex_);
+    const auto expires_ms = steady_clock_millis() + kDeletedNativeSuppressionMs;
+    for (auto& item : suppressed_native_identities_) {
+        if (item.floor_id == point.floor_id &&
+            item.map_id == point.map_id &&
+            item.point_id == point.point_id) {
+            item.expires_ms = expires_ms;
+            return;
+        }
+    }
+
+    suppressed_native_identities_.push_back(
+        SuppressedNativeIdentity{point.floor_id, point.map_id, point.point_id, expires_ms});
+}
+
+bool PointService::native_identity_suppressed(const PointRecord& point) const {
+    if (point.floor_id <= 0 || point.map_id <= 0 || point.point_id <= 0) {
+        return false;
+    }
+
+    const auto now_ms = steady_clock_millis();
+    std::lock_guard<std::mutex> lock(suppressed_native_identities_mutex_);
+    for (const auto& item : suppressed_native_identities_) {
+        if (item.expires_ms < now_ms) {
+            continue;
+        }
+        if (item.floor_id == point.floor_id &&
+            item.map_id == point.map_id &&
+            item.point_id == point.point_id) {
+            return true;
+        }
+    }
+    return false;
+}
+
+void PointService::prune_suppressed_native_identities(long long now_ms) const {
+    std::lock_guard<std::mutex> lock(suppressed_native_identities_mutex_);
+    suppressed_native_identities_.erase(
+        std::remove_if(
+            suppressed_native_identities_.begin(),
+            suppressed_native_identities_.end(),
+            [now_ms](const SuppressedNativeIdentity& item) { return item.expires_ms < now_ms; }),
+        suppressed_native_identities_.end());
 }

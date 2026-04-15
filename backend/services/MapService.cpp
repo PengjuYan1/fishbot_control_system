@@ -11,6 +11,14 @@
 #include "storage/repositories/PointRepository.h"
 
 namespace {
+constexpr long long kMapCacheFallbackMs = 5000;
+constexpr long long kDeletedMapSuppressionMs = 15000;
+
+long long steady_clock_millis() {
+    return std::chrono::duration_cast<std::chrono::milliseconds>(
+        std::chrono::steady_clock::now().time_since_epoch()).count();
+}
+
 std::string next_point_name(const std::vector<PointRecord>& points, const std::string& prefix,
                             const std::string& type) {
     int max_index = 0;
@@ -159,14 +167,61 @@ bool MapService::load_map(long floor_id, long map_id) const {
 
 std::vector<MapDescriptor> MapService::list_maps() const {
     std::vector<MapDescriptor> maps;
-    if (!adapter_.list_maps(&maps)) {
-        return {};
+    const bool ok = adapter_.list_maps(&maps);
+    const auto now_ms = steady_clock_millis();
+
+    std::lock_guard<std::mutex> lock(state_mutex_);
+    prune_suppressed_maps(now_ms);
+
+    auto filter_maps = [this](const std::vector<MapDescriptor>& input) {
+        std::vector<MapDescriptor> filtered;
+        filtered.reserve(input.size());
+        for (const auto& map : input) {
+            if (!map_suppressed(map.floor_id, map.map_id)) {
+                filtered.push_back(map);
+            }
+        }
+        return filtered;
+    };
+
+    if (!ok) {
+        return cached_maps_;
     }
-    return maps;
+
+    const auto filtered_maps = filter_maps(maps);
+    if (filtered_maps.empty() && maps.empty() && !cached_maps_.empty() &&
+        (now_ms - last_maps_success_ms_) <= kMapCacheFallbackMs) {
+        return cached_maps_;
+    }
+
+    cached_maps_ = filtered_maps;
+    last_maps_success_ms_ = now_ms;
+    return cached_maps_;
 }
 
 bool MapService::delete_map(long floor_id, long map_id) const {
-    return adapter_.delete_map(floor_id, map_id);
+    if (!adapter_.delete_map(floor_id, map_id)) {
+        return false;
+    }
+
+    std::lock_guard<std::mutex> lock(state_mutex_);
+    suppressed_maps_.push_back(SuppressedMapIdentity{
+        floor_id,
+        map_id,
+        steady_clock_millis() + kDeletedMapSuppressionMs,
+    });
+    cached_maps_.erase(
+        std::remove_if(
+            cached_maps_.begin(),
+            cached_maps_.end(),
+            [floor_id, map_id](const MapDescriptor& map) {
+                return map.floor_id == floor_id && map.map_id == map_id;
+            }),
+        cached_maps_.end());
+    if (point_repository_ != nullptr) {
+        (void) point_repository_->delete_points_by_map(floor_id, map_id);
+    }
+    return true;
 }
 
 MapSnapshot MapService::get_snapshot() const {
@@ -308,4 +363,26 @@ bool MapService::try_seed_mapping_points_once() {
     initial_point.point_id = 0;
     point_repository_->insert_point(initial_point);
     return true;
+}
+
+void MapService::prune_suppressed_maps(long long now_ms) const {
+    suppressed_maps_.erase(
+        std::remove_if(
+            suppressed_maps_.begin(),
+            suppressed_maps_.end(),
+            [now_ms](const SuppressedMapIdentity& item) { return item.expires_ms < now_ms; }),
+        suppressed_maps_.end());
+}
+
+bool MapService::map_suppressed(long floor_id, long map_id) const {
+    const auto now_ms = steady_clock_millis();
+    for (const auto& item : suppressed_maps_) {
+        if (item.expires_ms < now_ms) {
+            continue;
+        }
+        if (item.floor_id == floor_id && item.map_id == map_id) {
+            return true;
+        }
+    }
+    return false;
 }

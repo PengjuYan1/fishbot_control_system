@@ -132,6 +132,27 @@ bool PointRepository::delete_point(int id) {
     return deleted;
 }
 
+int PointRepository::delete_points_by_map(long floor_id, long map_id) {
+    sqlite3_stmt* statement = nullptr;
+    const char* sql = "DELETE FROM points WHERE floor_id = ? AND map_id = ?";
+    if (sqlite3_prepare_v2(db_, sql, -1, &statement, nullptr) != SQLITE_OK) {
+        throw std::runtime_error(sqlite3_errmsg(db_));
+    }
+
+    sqlite3_bind_int64(statement, 1, floor_id);
+    sqlite3_bind_int64(statement, 2, map_id);
+
+    if (sqlite3_step(statement) != SQLITE_DONE) {
+        const std::string message = sqlite3_errmsg(db_);
+        sqlite3_finalize(statement);
+        throw std::runtime_error(message);
+    }
+
+    const int deleted = sqlite3_changes(db_);
+    sqlite3_finalize(statement);
+    return deleted;
+}
+
 void PointRepository::merge_native_points(const std::vector<PointRecord>& points) {
     for (const auto& point : points) {
         upsert_point(point);

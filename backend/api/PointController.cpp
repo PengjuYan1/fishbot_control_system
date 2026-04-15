@@ -47,6 +47,11 @@ void register_point_routes(AppServer& server, PointService& point_service) {
         return HttpResponse{200, std::string("{\"id\":") + std::to_string(id) + ",\"type\":\"charge\"}", "application/json"};
     });
 
+    server.register_post("/api/points/nav", [&point_service](const std::string& body) {
+        const auto id = point_service.create_nav_point(body);
+        return HttpResponse{200, std::string("{\"id\":") + std::to_string(id) + ",\"type\":\"nav\"}", "application/json"};
+    });
+
     server.register_post("/api/points/feed", [&point_service](const std::string& body) {
         const auto id = point_service.create_feed_point(body);
         return HttpResponse{200, std::string("{\"id\":") + std::to_string(id) + ",\"type\":\"feed\"}", "application/json"};
@@ -76,6 +81,14 @@ void register_point_routes(AppServer& server, PointService& point_service) {
     server.register_post("/api/points/feed/current", [&point_service](const std::string&) {
         try {
             return HttpResponse{200, point_json(point_service.create_current_feed_point()), "application/json"};
+        } catch (const std::exception& error) {
+            return HttpResponse{500, std::string("{\"error\":\"") + error.what() + "\"}", "application/json"};
+        }
+    });
+
+    server.register_post("/api/points/nav/current", [&point_service](const std::string&) {
+        try {
+            return HttpResponse{200, point_json(point_service.create_current_nav_point()), "application/json"};
         } catch (const std::exception& error) {
             return HttpResponse{500, std::string("{\"error\":\"") + error.what() + "\"}", "application/json"};
         }

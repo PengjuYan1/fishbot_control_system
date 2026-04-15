@@ -279,14 +279,27 @@ function renderPointListPanel() {
     return;
   }
 
+  const pointTypeLabel = (point) => {
+    if (point.type === 'charge') {
+      return '充电点';
+    }
+    if (point.type === 'initial') {
+      return '初始点';
+    }
+    if (point.type === 'nav') {
+      return '导航点';
+    }
+    return '投喂点';
+  };
+
   panel.innerHTML = points.map((point) => `
     <div class="point-list-item">
       <div class="point-list-copy">
         <strong>${point.name}</strong>
-        <span>${point.type === 'charge' ? '充电点' : point.type === 'initial' ? '初始点' : '投喂点'} · floor ${point.floor_id || 0} · map ${point.map_id || 0} · point ${point.point_id || 0}</span>
+        <span>${pointTypeLabel(point)} · floor ${point.floor_id || 0} · map ${point.map_id || 0} · point ${point.point_id || 0}</span>
       </div>
       <div class="map-item-actions">
-        <button type="button" class="map-enter-button" data-point-navigate-id="${point.id}" data-point-name="${point.name}">导航到此点</button>
+        ${point.type === 'initial' ? '' : `<button type="button" class="map-enter-button" data-point-navigate-id="${point.id}" data-point-name="${point.name}">导航到此点</button>`}
         <button type="button" class="point-delete-button" data-point-delete-id="${point.id}">删除</button>
       </div>
     </div>
@@ -330,6 +343,7 @@ function bindControlButtons() {
   const joystickKnob = document.getElementById('manual-joystick-knob');
   const driveStopCenterButton = document.getElementById('drive-stop-center');
   const mapEditorButton = document.getElementById('goto-map-editor-button');
+  const navEditorButton = document.getElementById('goto-map-editor-nav-button');
   const feedEditorButton = document.getElementById('goto-map-editor-feed-button');
   const pointListPanel = document.getElementById('point-list-panel');
   const mapListPanel = document.getElementById('map-list-panel');
@@ -724,6 +738,18 @@ function bindControlButtons() {
         setActionFeedback(`已按当前位置创建投喂点 ${point.name || 'F?'}。`, 'success');
       } catch (error) {
         setActionFeedback(`创建投喂点失败：${formatError(error)}`, 'error');
+      }
+    });
+  }
+
+  if (navEditorButton) {
+    navEditorButton.addEventListener('click', async () => {
+      try {
+        const point = await window.fishbotApi.createCurrentNavPoint();
+        await refreshMapAndPoints();
+        setActionFeedback(`已按当前位置创建导航点 ${point.name || 'N?'}。`, 'success');
+      } catch (error) {
+        setActionFeedback(`创建导航点失败：${formatError(error)}`, 'error');
       }
     });
   }

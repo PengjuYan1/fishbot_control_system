@@ -190,7 +190,9 @@ function renderPoints(stage, map, points) {
       ? 'map-point charge-point'
       : point.type === 'initial'
         ? 'map-point initial-point'
-        : 'map-point feed-point';
+        : point.type === 'nav'
+          ? 'map-point nav-point'
+          : 'map-point feed-point';
     node.textContent = point.name;
     node.style.cssText = positionStyle(position);
     stage.appendChild(node);

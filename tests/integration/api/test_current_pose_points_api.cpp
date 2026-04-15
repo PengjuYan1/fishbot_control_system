@@ -54,7 +54,7 @@ class FakeCurrentPointAdapter : public IRobotAdapter {
         point->theta = 1.57;
         point->floor_id = 101;
         point->map_id = 202;
-        point->point_id = point_mode == 1 ? 301 : 302;
+        point->point_id = point_mode == 1 ? 301 : requested_name == "N1" ? 303 : 302;
         return true;
     }
 
@@ -92,9 +92,19 @@ int main() {
         return EXIT_FAILURE;
     }
 
+    const auto nav = server.handle_post("/api/points/nav/current", "");
+    if (nav.status != 200) {
+        std::cerr << "expected successful current nav point creation\n";
+        return EXIT_FAILURE;
+    }
+    if (adapter.requested_name != "N1" || adapter.requested_mode != 0) {
+        std::cerr << "expected nav point to use automatic naming and navigation mode\n";
+        return EXIT_FAILURE;
+    }
+
     const auto points = repository.list_points();
-    if (points.size() != 2) {
-        std::cerr << "expected current pose routes to persist two points\n";
+    if (points.size() != 3) {
+        std::cerr << "expected current pose routes to persist three points\n";
         return EXIT_FAILURE;
     }
     if (points[0].floor_id != 101 || points[0].map_id != 202 || points[0].point_id != 301) {
@@ -105,6 +115,10 @@ int main() {
         std::cerr << "expected feed point to persist adapter returned ids\n";
         return EXIT_FAILURE;
     }
+    if (points[2].type != "nav" || points[2].point_id != 303) {
+        std::cerr << "expected nav point to persist as dedicated nav type\n";
+        return EXIT_FAILURE;
+    }
 
     adapter.allow_create = false;
     const auto failure = server.handle_post("/api/points/feed/current", "");
@@ -112,7 +126,7 @@ int main() {
         std::cerr << "expected failed current pose point creation to return 500\n";
         return EXIT_FAILURE;
     }
-    if (repository.list_points().size() != 2) {
+    if (repository.list_points().size() != 3) {
         std::cerr << "expected failed current pose creation to avoid persisting partial point data\n";
         return EXIT_FAILURE;
     }

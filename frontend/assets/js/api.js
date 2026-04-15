@@ -1,41 +1,8 @@
-const mockState = {
-  points: [
-    { id: 1, name: 'C1', type: 'charge', x: 1.2, y: 2.8, theta: 0.0, floor_id: 1, map_id: 11, point_id: 101 },
-    { id: 2, name: 'F1', type: 'feed', x: 6.5, y: 9.1, theta: 1.57, floor_id: 1, map_id: 11, point_id: 201 },
-  ],
-  map: {
-    width: 12,
-    height: 10,
-    resolution: 0.5,
-    origin_x: 0,
-    origin_y: 0,
-    occupancy_data: [
-      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-      0, 100, 100, 100, 0, 0, 0, 0, 50, 50, 0, 0,
-      0, 0, 0, 100, 0, 0, 0, 0, 50, 50, 0, 0,
-      0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 0,
-      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    ],
-  },
-  maps: [
-    {
-      floor_id: 1,
-      floor_name: 'F1',
-      map_id: 11,
-      map_name: 'default_map',
-      default_floor_id: 1,
-      default_map_id: 11,
-      charge_id: 101,
-      initial_id: 102,
-      is_default_floor: true,
-      is_default_map: true,
-    },
-  ],
+const apiCache = {
+  systemStatus: null,
+  mapSnapshot: null,
+  maps: [],
+  points: [],
 };
 
 async function requestJson(path, options) {
@@ -54,9 +21,11 @@ async function requestJson(path, options) {
 window.fishbotApi = {
   async getSystemStatus() {
     try {
-      return await requestJson('/api/system/status');
+      const payload = await requestJson('/api/system/status');
+      apiCache.systemStatus = payload;
+      return payload;
     } catch (error) {
-      return {
+      return apiCache.systemStatus || {
         battery: 78,
         pose: { x: 1.0, y: 2.0, theta: 0.5 },
         charging: false,
@@ -76,9 +45,18 @@ window.fishbotApi = {
   },
   async getMapSnapshot() {
     try {
-      return await requestJson('/api/map/snapshot');
+      const payload = await requestJson('/api/map/snapshot');
+      apiCache.mapSnapshot = payload;
+      return payload;
     } catch (error) {
-      return { ...mockState.map };
+      return apiCache.mapSnapshot || {
+        width: 0,
+        height: 0,
+        resolution: 0,
+        origin_x: 0,
+        origin_y: 0,
+        occupancy_data: [],
+      };
     }
   },
   async startMapping() {
@@ -101,9 +79,10 @@ window.fishbotApi = {
   async getMaps() {
     try {
       const payload = await requestJson('/api/maps');
-      return Array.isArray(payload.maps) ? payload.maps : [];
+      apiCache.maps = Array.isArray(payload.maps) ? payload.maps : [];
+      return apiCache.maps.slice();
     } catch (error) {
-      return mockState.maps.slice();
+      return apiCache.maps.slice();
     }
   },
   async deleteMap(floorId, mapId) {
@@ -119,57 +98,37 @@ window.fishbotApi = {
   },
   async getPoints() {
     try {
-      return await requestJson('/api/points');
+      const payload = await requestJson('/api/points');
+      apiCache.points = Array.isArray(payload) ? payload : [];
+      return apiCache.points.slice();
     } catch (error) {
-      return mockState.points.slice();
+      return apiCache.points.slice();
     }
   },
   async createPoint(type, payload) {
     const body = new URLSearchParams(payload).toString();
-    try {
-      const response = await requestJson(`/api/points/${type}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body,
-      });
-      return response;
-    } catch (error) {
-      const id = mockState.points.length + 1;
-      mockState.points.push({
-        id,
-        name: payload.name,
-        type,
-        x: Number(payload.x),
-        y: Number(payload.y),
-        theta: Number(payload.theta),
-        floor_id: Number(payload.floor_id || 0),
-        map_id: Number(payload.map_id || 0),
-        point_id: Number(payload.point_id || 0),
-      });
-      return { id, type };
-    }
+    return requestJson(`/api/points/${type}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body,
+    });
   },
   async createCurrentChargePoint() {
     return requestJson('/api/points/charge/current', { method: 'POST', body: '' });
+  },
+  async createCurrentNavPoint() {
+    return requestJson('/api/points/nav/current', { method: 'POST', body: '' });
   },
   async createCurrentFeedPoint() {
     return requestJson('/api/points/feed/current', { method: 'POST', body: '' });
   },
   async deletePoint(id) {
     const body = new URLSearchParams({ id: String(id) }).toString();
-    try {
-      return await requestJson('/api/points/delete', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body,
-      });
-    } catch (error) {
-      const index = mockState.points.findIndex((point) => point.id === Number(id));
-      if (index >= 0) {
-        return mockState.points.splice(index, 1)[0];
-      }
-      throw error;
-    }
+    return requestJson('/api/points/delete', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body,
+    });
   },
   async getSchedules() {
     return [

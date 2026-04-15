@@ -18,6 +18,10 @@ assert(
   'expected frontend api to expose current feed point creation endpoint'
 );
 assert(
+  apiJs.includes("'/api/points/nav/current'"),
+  'expected frontend api to expose current nav point creation endpoint'
+);
+assert(
   dashboardJs.includes('createCurrentChargePoint'),
   'expected dashboard to call current charge point creation'
 );
@@ -26,7 +30,10 @@ assert(
   'expected dashboard to call current feed point creation'
 );
 assert(
+  dashboardJs.includes('createCurrentNavPoint'),
+  'expected dashboard to call current nav point creation'
+);
+assert(
   !dashboardJs.includes("window.location.href = 'map.html'"),
   'expected dashboard buttons to stop redirecting to map editor'
 );
-

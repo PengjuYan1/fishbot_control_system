@@ -1,6 +1,8 @@
 #include <cstdlib>
+#include <chrono>
 #include <iostream>
 #include <string>
+#include <thread>
 
 #include "backend/api/PointController.h"
 #include "backend/app/AppServer.h"
@@ -32,6 +34,13 @@ class FakeDeletePointAdapter : public IRobotAdapter {
     RobotStatus get_robot_status() const override { return RobotStatus{100, false, true, true}; }
     MapSnapshot get_map_snapshot() const override { return {}; }
     bool is_charging() const override { return false; }
+    bool list_native_points(std::vector<PointRecord>* points) override {
+        if (points == nullptr) {
+            return false;
+        }
+        *points = native_points;
+        return true;
+    }
 
     bool delete_saved_point(const PointRecord& point) override {
         delete_calls += 1;
@@ -46,6 +55,7 @@ class FakeDeletePointAdapter : public IRobotAdapter {
     long last_floor_id = 0;
     long last_map_id = 0;
     long last_point_id = 0;
+    std::vector<PointRecord> native_points;
 };
 
 int main() {
@@ -67,6 +77,7 @@ int main() {
     charge.map_id = 22;
     charge.point_id = 33;
     const int native_point_id = repository.insert_point(charge);
+    adapter.native_points.push_back(charge);
 
     PointRecord local_only;
     local_only.name = "legacy_local";
@@ -84,6 +95,25 @@ int main() {
     }
     if (repository.list_points().size() != 1) {
         std::cerr << "expected native point deletion to remove local record\n";
+        return EXIT_FAILURE;
+    }
+
+    bool stale_reintroduced = false;
+    for (int retry = 0; retry < 40; ++retry) {
+        const auto points = service.list_points();
+        for (const auto& point : points) {
+            if (point.floor_id == 11 && point.map_id == 22 && point.point_id == 33) {
+                stale_reintroduced = true;
+                break;
+            }
+        }
+        if (stale_reintroduced) {
+            break;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(20));
+    }
+    if (stale_reintroduced) {
+        std::cerr << "expected deleted native point to stay deleted even if robot list is briefly stale\n";
         return EXIT_FAILURE;
     }
 
