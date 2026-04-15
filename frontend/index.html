@@ -141,24 +141,33 @@
             <button type="button" id="undock-button">脱离充电桩</button>
             <button type="button" id="exit-navigation-mode-button">退出导航模式</button>
           </div>
-          <div class="joystick-panel">
-            <div class="joystick-shell">
-              <div class="joystick-axis joystick-axis-vertical">
-                <span>前进</span>
-                <span>后退</span>
-              </div>
-              <div class="joystick-axis joystick-axis-horizontal">
-                <span>左转</span>
-                <span>右转</span>
-              </div>
-              <div class="manual-joystick-base" id="manual-joystick-base">
-                <div class="manual-joystick-ring"></div>
-                <button type="button" class="manual-joystick-knob" id="manual-joystick-knob" aria-label="拖动摇杆控制机器人"></button>
-              </div>
+          <div class="manual-drive-panel">
+            <div class="dpad-grid" aria-label="手动方向控制">
+              <div class="dpad-spacer"></div>
+              <button type="button" class="dpad-button" data-drive-direction="f" aria-label="前进">▲</button>
+              <div class="dpad-spacer"></div>
+              <button type="button" class="dpad-button" data-drive-direction="l" aria-label="左转">◄</button>
+              <button type="button" class="dpad-button stop" data-drive-direction="s" id="drive-stop-center" aria-label="停止">STOP</button>
+              <button type="button" class="dpad-button" data-drive-direction="r" aria-label="右转">►</button>
+              <div class="dpad-spacer"></div>
+              <button type="button" class="dpad-button" data-drive-direction="b" aria-label="后退">▼</button>
+              <div class="dpad-spacer"></div>
             </div>
-            <button type="button" class="drive-stop-button" id="drive-stop-center">停止</button>
+            <div class="manual-speed-panel">
+              <label class="manual-slider-row" for="manual-linear-speed">
+                <span>线速度</span>
+                <input type="range" id="manual-linear-speed" min="0.10" max="0.60" step="0.05" value="0.30">
+                <strong id="manual-linear-speed-value">0.30 m/s</strong>
+              </label>
+              <label class="manual-slider-row" for="manual-angular-speed">
+                <span>角速度</span>
+                <input type="range" id="manual-angular-speed" min="0.10" max="1.20" step="0.10" value="0.60">
+                <strong id="manual-angular-speed-value">0.60 rad/s</strong>
+              </label>
+              <p class="control-note keyboard-note">键盘支持：↑↓←→ 控制，空格停止。</p>
+            </div>
           </div>
-          <p class="control-note">充电态下请先点“脱离充电桩”，待底盘前移脱桩后再拖动摇杆。松手后自动回中并停止。</p>
+          <p class="control-note">充电态下先点“脱离充电桩”，脱桩完成后用方向键区持续控制；松手会立即发送停止。</p>
           <p class="control-note" id="control-blocker-value">等待底盘诊断状态...</p>
           <p class="action-feedback" id="action-feedback">控制台已就绪。</p>
           <dl class="control-diagnostics">
@@ -205,5 +214,6 @@
   <script src="assets/js/store.js"></script>
   <script src="assets/js/map-canvas.js"></script>
   <script src="assets/js/dashboard.js"></script>
+  <script src="assets/js/manual-control.js"></script>
 </body>
 </html>

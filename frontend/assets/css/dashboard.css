@@ -127,124 +127,99 @@
   transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
 }
 
-.joystick-panel {
+.manual-drive-panel {
   display: grid;
-  justify-items: center;
-  gap: 14px;
+  grid-template-columns: minmax(180px, 220px) minmax(0, 1fr);
+  gap: 18px;
+  align-items: center;
 }
 
-.joystick-shell {
-  position: relative;
+.dpad-grid {
   display: grid;
-  place-items: center;
-  width: min(100%, 280px);
-  aspect-ratio: 1;
+  grid-template-columns: repeat(3, 58px);
+  gap: 8px;
+  justify-content: center;
 }
 
-.joystick-axis {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  color: var(--muted);
-  font-size: 12px;
-  letter-spacing: 0.08em;
-  pointer-events: none;
+.dpad-spacer {
+  width: 58px;
+  height: 58px;
 }
 
-.joystick-axis-vertical {
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px 0;
-}
-
-.joystick-axis-horizontal {
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 8px;
-}
-
-.manual-joystick-base {
-  position: relative;
-  width: min(100%, 240px);
-  aspect-ratio: 1;
-  border-radius: 50%;
+.dpad-button {
+  width: 58px;
+  height: 58px;
   border: 1px solid rgba(16, 37, 66, 0.12);
-  background:
-    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.92) 0%, rgba(232, 242, 239, 0.95) 58%, rgba(214, 232, 228, 0.98) 100%);
-  box-shadow:
-    inset 0 16px 28px rgba(255, 255, 255, 0.75),
-    inset 0 -18px 28px rgba(16, 37, 66, 0.08);
-  cursor: grab;
-  touch-action: none;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.82);
+  color: var(--sea);
+  font-size: 22px;
+  font-weight: 700;
+  cursor: pointer;
   user-select: none;
+  touch-action: manipulation;
+  transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease, color 120ms ease;
 }
 
-.manual-joystick-base.is-active {
-  box-shadow:
-    inset 0 16px 28px rgba(255, 255, 255, 0.82),
-    inset 0 -18px 28px rgba(16, 37, 66, 0.12),
-    0 12px 28px rgba(16, 37, 66, 0.12);
+.dpad-button.active,
+.dpad-button:active {
+  background: var(--sea);
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(31, 122, 140, 0.22);
 }
 
-.manual-joystick-ring {
-  position: absolute;
-  inset: 22%;
-  border-radius: 50%;
-  border: 1px dashed rgba(16, 37, 66, 0.14);
-}
-
-.manual-joystick-knob {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 78px;
-  height: 78px;
-  margin-left: -39px;
-  margin-top: -39px;
-  border: none;
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.9) 28%, rgba(31, 122, 140, 0.22) 100%);
-  box-shadow:
-    0 14px 24px rgba(16, 37, 66, 0.18),
-    inset 0 2px 6px rgba(255, 255, 255, 0.9);
-  cursor: grab;
-  transition: box-shadow 120ms ease, transform 90ms linear;
-  touch-action: none;
-}
-
-.manual-joystick-base.is-active .manual-joystick-knob,
-.manual-joystick-knob:active {
-  cursor: grabbing;
-  box-shadow:
-    0 18px 30px rgba(16, 37, 66, 0.24),
-    inset 0 2px 6px rgba(255, 255, 255, 0.95);
-}
-
-.drive-stop-button {
-  border: 1px solid rgba(16, 37, 66, 0.1);
-  border-radius: 18px;
-  min-height: 52px;
-  min-width: 132px;
+.dpad-button.stop {
   background: rgba(217, 93, 57, 0.12);
   color: var(--accent);
-  font-size: 15px;
-  cursor: pointer;
-  transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
+  font-size: 13px;
+}
+
+.dpad-button.stop.active,
+.dpad-button.stop:active {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(217, 93, 57, 0.22);
+}
+
+.manual-speed-panel {
+  display: grid;
+  gap: 12px;
+}
+
+.manual-slider-row {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr) 92px;
+  gap: 10px;
+  align-items: center;
+}
+
+.manual-slider-row span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.manual-slider-row strong {
+  text-align: right;
+  color: var(--sea);
+  font-size: 14px;
+}
+
+.manual-slider-row input[type="range"] {
+  width: 100%;
+  accent-color: var(--sea);
 }
 
 .panel-actions button:hover,
 .task-buttons button:hover,
 .control-actions button:hover,
-.drive-stop-button:hover {
+.dpad-button:hover {
   box-shadow: 0 10px 24px rgba(16, 37, 66, 0.12);
 }
 
 .panel-actions button:active,
 .task-buttons button:active,
 .control-actions button:active,
-.drive-stop-button:active {
+.dpad-button:active {
   transform: translateY(1px) scale(0.98);
 }
 
@@ -492,15 +467,12 @@
     grid-template-columns: 1fr;
   }
 
-  .joystick-shell {
-    width: min(100%, 240px);
+  .manual-drive-panel {
+    grid-template-columns: 1fr;
   }
 
-  .manual-joystick-knob {
-    width: 70px;
-    height: 70px;
-    margin-left: -35px;
-    margin-top: -35px;
+  .manual-slider-row {
+    grid-template-columns: 48px minmax(0, 1fr) 84px;
   }
 }
 
