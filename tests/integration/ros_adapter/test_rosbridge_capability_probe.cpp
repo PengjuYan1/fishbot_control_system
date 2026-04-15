@@ -3,8 +3,10 @@
 #include <cstdlib>
 #include <fstream>
 #include <iostream>
+#include <mutex>
 #include <string>
 #include <thread>
+#include <vector>
 
 #include <boost/asio.hpp>
 #include <boost/beast/core.hpp>
@@ -29,6 +31,20 @@ std::string extract_id(const std::string& message) {
     return message.substr(id_start, id_end - id_start);
 }
 
+std::string extract_string_field(const std::string& message, const std::string& field) {
+    const auto token = std::string("\"") + field + "\":\"";
+    const auto start = message.find(token);
+    if (start == std::string::npos) {
+        return "";
+    }
+    const auto value_start = start + token.size();
+    const auto value_end = message.find('"', value_start);
+    if (value_end == std::string::npos) {
+        return "";
+    }
+    return message.substr(value_start, value_end - value_start);
+}
+
 class FakeCapabilityRosbridgeServer {
   public:
     explicit FakeCapabilityRosbridgeServer(unsigned short port)
@@ -39,9 +55,19 @@ class FakeCapabilityRosbridgeServer {
     void stop() {
         stop_requested_ = true;
         boost::system::error_code ignored;
+        acceptor_.cancel(ignored);
         acceptor_.close(ignored);
+        {
+            std::lock_guard<std::mutex> lock(sessions_mutex_);
+            for (auto& session : sessions_) {
+                if (session.joinable()) {
+                    session.detach();
+                }
+            }
+            sessions_.clear();
+        }
         if (thread_.joinable()) {
-            thread_.join();
+            thread_.detach();
         }
     }
 
@@ -60,38 +86,68 @@ class FakeCapabilityRosbridgeServer {
                           ",\"result\":true,\"id\":\"" + id + "\"}");
     }
 
-    void publish_live_snapshot(websocket::stream<tcp::socket>& ws) {
-        write_message(ws, "{\"op\":\"publish\",\"topic\":\"power_report\",\"msg\":{\"data\":88}}");
-        write_message(ws, "{\"op\":\"publish\",\"topic\":\"/androidmsg_emergencystatus\",\"msg\":{\"data\":32}}");
-        write_message(ws, "{\"op\":\"publish\",\"topic\":\"/androidmsg_motorenabledstatus\",\"msg\":{\"data\":34}}");
-        write_message(ws, "{\"op\":\"publish\",\"topic\":\"androidmsg_locationstatus\",\"msg\":{\"data\":10}}");
-        write_message(ws, "{\"op\":\"publish\",\"topic\":\"androidmsg_chargestatus\",\"msg\":{\"data\":41}}");
-        write_message(ws, "{\"op\":\"publish\",\"topic\":\"androidmsg_navigationstatus\",\"msg\":{\"data\":83}}");
-        write_message(ws, "{\"op\":\"publish\",\"topic\":\"/androidmsg_stm32status\",\"msg\":{\"data\":18}}");
-        write_message(ws, "{\"op\":\"publish\",\"topic\":\"/androidmsg_odomstatus\",\"msg\":{\"data\":20}}");
-        write_message(ws, "{\"op\":\"publish\",\"topic\":\"motion_mode\",\"msg\":{\"data\":2}}");
-        write_message(ws, "{\"op\":\"publish\",\"topic\":\"/outofcharge_status\",\"msg\":{\"data\":1}}");
-        write_message(ws, "{\"op\":\"publish\",\"topic\":\"/reviceOutMachineSignal\",\"msg\":{\"data\":1}}");
-        write_message(ws, "{\"op\":\"publish\",\"topic\":\"/androidmsg_outofchargepoint\",\"msg\":{\"data\":50}}");
-        write_message(ws, "{\"op\":\"publish\",\"topic\":\"/androidmsg_mapstatus\",\"msg\":{\"data\":6}}");
-        write_message(ws, "{\"op\":\"publish\",\"topic\":\"/map_status\",\"msg\":{\"data\":7}}");
-        write_message(ws, "{\"op\":\"publish\",\"topic\":\"/odom\",\"msg\":{\"header\":{\"frame_id\":\"odom\"},\"child_frame_id\":\"base_link\",\"pose\":{\"pose\":{\"position\":{\"x\":1.0,\"y\":2.0,\"z\":0.0},\"orientation\":{\"x\":0.0,\"y\":0.0,\"z\":0.0,\"w\":1.0}}},\"twist\":{\"twist\":{\"linear\":{\"x\":0.1,\"y\":0.0,\"z\":0.0},\"angular\":{\"x\":0.0,\"y\":0.0,\"z\":0.0}}}}");
-        write_message(ws, "{\"op\":\"publish\",\"topic\":\"/tf\",\"msg\":{\"transforms\":[{\"header\":{\"frame_id\":\"map\"},\"child_frame_id\":\"odom\",\"transform\":{\"translation\":{\"x\":0.0,\"y\":0.0,\"z\":0.0},\"rotation\":{\"x\":0.0,\"y\":0.0,\"z\":0.0,\"w\":1.0}}}]}}");
-        write_message(ws, "{\"op\":\"publish\",\"topic\":\"/tf_static\",\"msg\":{\"transforms\":[{\"header\":{\"frame_id\":\"base_link\"},\"child_frame_id\":\"laser\",\"transform\":{\"translation\":{\"x\":0.0,\"y\":0.0,\"z\":0.1},\"rotation\":{\"x\":0.0,\"y\":0.0,\"z\":0.0,\"w\":1.0}}}]}}");
-        write_message(ws, "{\"op\":\"publish\",\"topic\":\"/scan\",\"msg\":{\"header\":{\"frame_id\":\"laser\"},\"angle_min\":-1.57,\"angle_max\":1.57,\"angle_increment\":0.01,\"ranges\":[1.0,1.1,1.2]}}");
-        write_message(ws, "{\"op\":\"publish\",\"topic\":\"/velodyne_points\",\"msg\":{\"header\":{\"frame_id\":\"velodyne\"},\"height\":1,\"width\":1,\"fields\":[],\"is_bigendian\":false,\"point_step\":16,\"row_step\":16,\"data\":[0,0,0,0],\"is_dense\":true}}");
-        write_message(ws, "{\"op\":\"publish\",\"topic\":\"/camera/depth/image_raw\",\"msg\":{\"header\":{\"frame_id\":\"depth\"},\"height\":1,\"width\":1,\"encoding\":\"16UC1\",\"is_bigendian\":0,\"step\":2,\"data\":[0,1]}}");
-        write_message(ws, "{\"op\":\"publish\",\"topic\":\"/camera/depth/camera_info\",\"msg\":{\"header\":{\"frame_id\":\"depth\"},\"height\":1,\"width\":1,\"distortion_model\":\"plumb_bob\",\"D\":[0.0],\"K\":[1,0,0,0,1,0,0,0,1],\"R\":[1,0,0,0,1,0,0,0,1],\"P\":[1,0,0,0,0,1,0,0,0,0,1,0]}}");
-        write_message(ws,
-                      "{\"op\":\"publish\",\"topic\":\"tracked_pose\",\"msg\":{\"pose\":{\"position\":{\"x\":1.2,\"y\":-0.4,\"z\":0.0},\"orientation\":{\"x\":0.0,\"y\":0.0,\"z\":0.0,\"w\":1.0}}}}");
-        write_message(ws,
-                      "{\"op\":\"publish\",\"topic\":\"/map\",\"msg\":{\"info\":{\"width\":5,\"height\":4,\"resolution\":0.05,\"origin\":{\"position\":{\"x\":-2.0,\"y\":-1.0}}},\"data\":[0,0,0,0]}}");
+    void publish_topic_snapshot(websocket::stream<tcp::socket>& ws, const std::string& topic) {
+        if (topic == "power_report" || topic == "/power_report") {
+            write_message(ws, "{\"op\":\"publish\",\"topic\":\"power_report\",\"msg\":{\"data\":88}}");
+        } else if (topic == "androidmsg_initstatus" || topic == "/androidmsg_initstatus") {
+            write_message(ws, "{\"op\":\"publish\",\"topic\":\"androidmsg_initstatus\",\"msg\":{\"data\":12}}");
+        } else if (topic == "androidmsg_emergencystatus" || topic == "/androidmsg_emergencystatus") {
+            write_message(ws, "{\"op\":\"publish\",\"topic\":\"/androidmsg_emergencystatus\",\"msg\":{\"data\":32}}");
+        } else if (topic == "androidmsg_motorenabledstatus" || topic == "/androidmsg_motorenabledstatus") {
+            write_message(ws, "{\"op\":\"publish\",\"topic\":\"/androidmsg_motorenabledstatus\",\"msg\":{\"data\":34}}");
+        } else if (topic == "androidmsg_locationstatus" || topic == "/androidmsg_locationstatus") {
+            write_message(ws, "{\"op\":\"publish\",\"topic\":\"androidmsg_locationstatus\",\"msg\":{\"data\":10}}");
+        } else if (topic == "androidmsg_chargestatus" || topic == "/androidmsg_chargestatus") {
+            write_message(ws, "{\"op\":\"publish\",\"topic\":\"androidmsg_chargestatus\",\"msg\":{\"data\":41}}");
+        } else if (topic == "wall_update" || topic == "/wall_update") {
+            write_message(ws, "{\"op\":\"publish\",\"topic\":\"wall_update\",\"msg\":{\"data\":1}}");
+        } else if (topic == "androidmsg_navigationstatus" || topic == "/androidmsg_navigationstatus") {
+            write_message(ws, "{\"op\":\"publish\",\"topic\":\"androidmsg_navigationstatus\",\"msg\":{\"data\":83}}");
+        } else if (topic == "androidmsg_virtualmapstatus" || topic == "/androidmsg_virtualmapstatus") {
+            write_message(ws, "{\"op\":\"publish\",\"topic\":\"androidmsg_virtualmapstatus\",\"msg\":{\"data\":61}}");
+        } else if (topic == "androidmsg_stm32status" || topic == "/androidmsg_stm32status") {
+            write_message(ws, "{\"op\":\"publish\",\"topic\":\"/androidmsg_stm32status\",\"msg\":{\"data\":18}}");
+        } else if (topic == "androidmsg_odomstatus" || topic == "/androidmsg_odomstatus") {
+            write_message(ws, "{\"op\":\"publish\",\"topic\":\"/androidmsg_odomstatus\",\"msg\":{\"data\":20}}");
+        } else if (topic == "motion_mode" || topic == "/motion_mode") {
+            write_message(ws, "{\"op\":\"publish\",\"topic\":\"motion_mode\",\"msg\":{\"data\":2}}");
+        } else if (topic == "outofcharge_status" || topic == "/outofcharge_status") {
+            write_message(ws, "{\"op\":\"publish\",\"topic\":\"/outofcharge_status\",\"msg\":{\"data\":1}}");
+        } else if (topic == "reviceOutMachineSignal" || topic == "/reviceOutMachineSignal") {
+            write_message(ws, "{\"op\":\"publish\",\"topic\":\"/reviceOutMachineSignal\",\"msg\":{\"data\":1}}");
+        } else if (topic == "androidmsg_outofchargepoint" || topic == "/androidmsg_outofchargepoint") {
+            write_message(ws, "{\"op\":\"publish\",\"topic\":\"/androidmsg_outofchargepoint\",\"msg\":{\"data\":50}}");
+        } else if (topic == "androidmsg_mapstatus" || topic == "/androidmsg_mapstatus") {
+            write_message(ws, "{\"op\":\"publish\",\"topic\":\"/androidmsg_mapstatus\",\"msg\":{\"data\":6}}");
+        } else if (topic == "map_status" || topic == "/map_status") {
+            write_message(ws, "{\"op\":\"publish\",\"topic\":\"/map_status\",\"msg\":{\"data\":7}}");
+        } else if (topic == "raw_odom" || topic == "/raw_odom" || topic == "odom" || topic == "/odom") {
+            write_message(ws, "{\"op\":\"publish\",\"topic\":\"raw_odom\",\"msg\":{\"header\":{\"frame_id\":\"odom\"},\"child_frame_id\":\"base_link\",\"pose\":{\"pose\":{\"position\":{\"x\":1.0,\"y\":2.0,\"z\":0.0},\"orientation\":{\"x\":0.0,\"y\":0.0,\"z\":0.0,\"w\":1.0}}},\"twist\":{\"twist\":{\"linear\":{\"x\":0.1,\"y\":0.0,\"z\":0.0},\"angular\":{\"x\":0.0,\"y\":0.0,\"z\":0.0}}}}");
+        } else if (topic == "tf" || topic == "/tf") {
+            write_message(ws, "{\"op\":\"publish\",\"topic\":\"/tf\",\"msg\":{\"transforms\":[{\"header\":{\"frame_id\":\"map\"},\"child_frame_id\":\"odom\",\"transform\":{\"translation\":{\"x\":0.0,\"y\":0.0,\"z\":0.0},\"rotation\":{\"x\":0.0,\"y\":0.0,\"z\":0.0,\"w\":1.0}}}]}}");
+        } else if (topic == "tf_static" || topic == "/tf_static") {
+            write_message(ws, "{\"op\":\"publish\",\"topic\":\"/tf_static\",\"msg\":{\"transforms\":[{\"header\":{\"frame_id\":\"base_link\"},\"child_frame_id\":\"laser\",\"transform\":{\"translation\":{\"x\":0.0,\"y\":0.0,\"z\":0.1},\"rotation\":{\"x\":0.0,\"y\":0.0,\"z\":0.0,\"w\":1.0}}}]}}");
+        } else if (topic == "scan" || topic == "/scan") {
+            write_message(ws, "{\"op\":\"publish\",\"topic\":\"/scan\",\"msg\":{\"header\":{\"frame_id\":\"laser\"},\"angle_min\":-1.57,\"angle_max\":1.57,\"angle_increment\":0.01,\"ranges\":[1.0,1.1,1.2]}}");
+        } else if (topic == "scan_pose" || topic == "/scan_pose") {
+            write_message(ws, "{\"op\":\"publish\",\"topic\":\"/scan_pose\",\"msg\":{\"position\":{\"x\":0.3,\"y\":-0.2,\"z\":0.0},\"orientation\":{\"x\":0.0,\"y\":0.0,\"z\":0.0,\"w\":1.0}}}");
+        } else if (topic == "velodyne_points" || topic == "/velodyne_points") {
+            write_message(ws, "{\"op\":\"publish\",\"topic\":\"/velodyne_points\",\"msg\":{\"header\":{\"frame_id\":\"velodyne\"},\"height\":1,\"width\":1,\"fields\":[],\"is_bigendian\":false,\"point_step\":16,\"row_step\":16,\"data\":[0,0,0,0],\"is_dense\":true}}");
+        } else if (topic == "camera/depth/image_raw" || topic == "/camera/depth/image_raw") {
+            write_message(ws, "{\"op\":\"publish\",\"topic\":\"/camera/depth/image_raw\",\"msg\":{\"header\":{\"frame_id\":\"depth\"},\"height\":1,\"width\":1,\"encoding\":\"16UC1\",\"is_bigendian\":0,\"step\":2,\"data\":[0,1]}}");
+        } else if (topic == "camera/depth/camera_info" || topic == "/camera/depth/camera_info") {
+            write_message(ws, "{\"op\":\"publish\",\"topic\":\"/camera/depth/camera_info\",\"msg\":{\"header\":{\"frame_id\":\"depth\"},\"height\":1,\"width\":1,\"distortion_model\":\"plumb_bob\",\"D\":[0.0],\"K\":[1,0,0,0,1,0,0,0,1],\"R\":[1,0,0,0,1,0,0,0,1],\"P\":[1,0,0,0,0,1,0,0,0,0,1,0]}}");
+        } else if (topic == "tracked_pose" || topic == "/tracked_pose") {
+            write_message(ws, "{\"op\":\"publish\",\"topic\":\"tracked_pose\",\"msg\":{\"pose\":{\"position\":{\"x\":1.2,\"y\":-0.4,\"z\":0.0},\"orientation\":{\"x\":0.0,\"y\":0.0,\"z\":0.0,\"w\":1.0}}}}");
+        } else if (topic == "visualization_marker" || topic == "/visualization_marker") {
+            write_message(ws, "{\"op\":\"publish\",\"topic\":\"visualization_marker\",\"msg\":{\"header\":{\"frame_id\":\"map\"},\"ns\":\"path\",\"id\":1,\"type\":4,\"action\":0,\"pose\":{\"position\":{\"x\":0.0,\"y\":0.0,\"z\":0.0},\"orientation\":{\"x\":0.0,\"y\":0.0,\"z\":0.0,\"w\":1.0}},\"scale\":{\"x\":0.05,\"y\":0.0,\"z\":0.0},\"color\":{\"a\":1.0,\"r\":0.0,\"g\":1.0,\"b\":0.0},\"points\":[{\"x\":0.0,\"y\":0.0,\"z\":0.0},{\"x\":1.0,\"y\":0.0,\"z\":0.0}]}}");
+        } else if (topic == "map" || topic == "/map") {
+            write_message(ws, "{\"op\":\"publish\",\"topic\":\"/map\",\"msg\":{\"info\":{\"width\":5,\"height\":4,\"resolution\":0.05,\"origin\":{\"position\":{\"x\":-2.0,\"y\":-1.0}}},\"data\":[0,0,0,0]}}");
+        }
     }
 
-    void run() {
+    void handle_session(tcp::socket socket) {
         try {
-            tcp::socket socket(ioc_);
-            acceptor_.accept(socket);
             websocket::stream<tcp::socket> ws(std::move(socket));
             ws.accept();
             while (!stop_requested_) {
@@ -107,7 +163,9 @@ class FakeCapabilityRosbridgeServer {
                             ws,
                             "/rosapi/services",
                             "{\"services\":[\"/set_mode\",\"set_relocation\",\"get_maps\",\"/publish_map\","
-                            "\"navi_targegoalplan\",\"point_set\",\"pointmanu_set\",\"list_navi_points\"]}",
+                            "\"navi_targegoalplan\",\"point_set\",\"pointmanu_set\",\"list_navi_points\","
+                            "\"move_calibration\",\"/set_navi_cmd\",\"/get_position\",\"clear_map\","
+                            "\"delete_map\",\"delete_allmap\",\"set_shape\",\"set_region\",\"robot_ssh\"]}",
                             id);
                         continue;
                     }
@@ -117,12 +175,14 @@ class FakeCapabilityRosbridgeServer {
                             ws,
                             "/rosapi/topics",
                             "{\"topics\":[\"/cmd_vel\",\"/navi_stop\",\"autocharge\",\"outofcharge\",\"/initialpose\","
+                            "\"androidmsg_initstatus\",\"wall_update\",\"androidmsg_virtualmapstatus\","
                             "\"power_report\",\"/androidmsg_emergencystatus\",\"/androidmsg_motorenabledstatus\","
                             "\"androidmsg_locationstatus\",\"androidmsg_navigationstatus\",\"androidmsg_chargestatus\","
                             "\"/androidmsg_stm32status\",\"/androidmsg_odomstatus\",\"motion_mode\","
                             "\"/outofcharge_status\",\"/reviceOutMachineSignal\",\"/androidmsg_outofchargepoint\","
                             "\"/androidmsg_mapstatus\",\"/map_status\","
-                            "\"tracked_pose\",\"/map\",\"/odom\",\"/tf\",\"/tf_static\",\"/scan\","
+                            "\"tracked_pose\",\"/map\",\"raw_odom\",\"/tf\",\"/tf_static\",\"/scan\","
+                            "\"/scan_pose\",\"visualization_marker\","
                             "\"/velodyne_points\",\"/camera/depth/image_raw\",\"/camera/depth/camera_info\"]}",
                             id);
                         continue;
@@ -132,23 +192,30 @@ class FakeCapabilityRosbridgeServer {
                         std::string values = "{\"type\":\"\"}";
                         if (message.find("\"topic\":\"/scan\"") != std::string::npos) {
                             values = "{\"type\":\"sensor_msgs/LaserScan\"}";
+                        } else if (message.find("\"topic\":\"/scan_pose\"") != std::string::npos) {
+                            values = "{\"type\":\"geometry_msgs/Pose\"}";
                         } else if (message.find("\"topic\":\"/velodyne_points\"") != std::string::npos) {
                             values = "{\"type\":\"sensor_msgs/PointCloud2\"}";
                         } else if (message.find("\"topic\":\"/camera/depth/image_raw\"") != std::string::npos) {
                             values = "{\"type\":\"sensor_msgs/Image\"}";
                         } else if (message.find("\"topic\":\"/camera/depth/camera_info\"") != std::string::npos) {
                             values = "{\"type\":\"sensor_msgs/CameraInfo\"}";
+                        } else if (message.find("\"topic\":\"visualization_marker\"") != std::string::npos) {
+                            values = "{\"type\":\"visualization_msgs/Marker\"}";
                         } else if (message.find("\"topic\":\"tracked_pose\"") != std::string::npos) {
                             values = "{\"type\":\"geometry_msgs/PoseStamped\"}";
                         } else if (message.find("\"topic\":\"/map\"") != std::string::npos) {
                             values = "{\"type\":\"nav_msgs/OccupancyGrid\"}";
-                        } else if (message.find("\"topic\":\"/odom\"") != std::string::npos) {
+                        } else if (message.find("\"topic\":\"raw_odom\"") != std::string::npos) {
                             values = "{\"type\":\"nav_msgs/Odometry\"}";
                         } else if (message.find("\"topic\":\"/tf_static\"") != std::string::npos) {
                             values = "{\"type\":\"tf2_msgs/TFMessage\"}";
                         } else if (message.find("\"topic\":\"/tf\"") != std::string::npos) {
                             values = "{\"type\":\"tf2_msgs/TFMessage\"}";
                         } else if (message.find("\"topic\":\"power_report\"") != std::string::npos ||
+                                   message.find("\"topic\":\"androidmsg_initstatus\"") != std::string::npos ||
+                                   message.find("\"topic\":\"wall_update\"") != std::string::npos ||
+                                   message.find("\"topic\":\"androidmsg_virtualmapstatus\"") != std::string::npos ||
                                    message.find("\"topic\":\"/androidmsg_") != std::string::npos ||
                                    message.find("\"topic\":\"motion_mode\"") != std::string::npos ||
                                    message.find("\"topic\":\"/outofcharge_status\"") != std::string::npos ||
@@ -168,9 +235,23 @@ class FakeCapabilityRosbridgeServer {
                 }
 
                 if (message.find("\"op\":\"subscribe\"") != std::string::npos) {
-                    publish_live_snapshot(ws);
+                    publish_topic_snapshot(ws, extract_string_field(message, "topic"));
                     continue;
                 }
+            }
+        } catch (const std::exception&) {
+        }
+    }
+
+    void run() {
+        try {
+            while (!stop_requested_) {
+                tcp::socket socket(ioc_);
+                acceptor_.accept(socket);
+                std::lock_guard<std::mutex> lock(sessions_mutex_);
+                sessions_.emplace_back([this, socket = std::move(socket)]() mutable {
+                    handle_session(std::move(socket));
+                });
             }
         } catch (const std::exception&) {
         }
@@ -179,6 +260,8 @@ class FakeCapabilityRosbridgeServer {
     asio::io_context ioc_;
     tcp::acceptor acceptor_;
     std::thread thread_;
+    std::mutex sessions_mutex_;
+    std::vector<std::thread> sessions_;
     std::atomic<bool> stop_requested_{false};
 };
 }  // namespace
@@ -224,6 +307,21 @@ int main() {
         output.find("\"name\":\"charge_status\",\"topic_present\":true") == std::string::npos ||
         output.find("\"status_types_matched\":14") == std::string::npos ||
         output.find("\"status_streams_live\":14") == std::string::npos ||
+        output.find("\"name\":\"move_calibration\",\"available\":true") == std::string::npos ||
+        output.find("\"name\":\"set_navi_cmd\",\"available\":true") == std::string::npos ||
+        output.find("\"name\":\"robot_ssh\",\"available\":true") == std::string::npos ||
+        output.find("\"vendor_services_available\":9") == std::string::npos ||
+        output.find("\"name\":\"init_status\",\"topic_present\":true") == std::string::npos ||
+        output.find("\"name\":\"wall_update\",\"topic_present\":true") == std::string::npos ||
+        output.find("\"name\":\"virtual_map_status\",\"topic_present\":true") == std::string::npos ||
+        output.find("\"name\":\"raw_odom\",\"topic_present\":true") == std::string::npos ||
+        output.find("\"name\":\"scan_pose\",\"topic_present\":true") == std::string::npos ||
+        output.find("\"name\":\"visualization_marker\",\"topic_present\":true") == std::string::npos ||
+        output.find("\"vendor_topics_present\":6") == std::string::npos ||
+        output.find("\"vendor_topics_type_matched\":6") == std::string::npos ||
+        output.find("\"vendor_topics_live\":6") == std::string::npos ||
+        output.find("\"sample_data\":12") == std::string::npos ||
+        output.find("\"sample_data\":61") == std::string::npos ||
         output.find("\"sample_data\":88") == std::string::npos ||
         output.find("\"sample_data\":83") == std::string::npos ||
         output.find("\"battery\":88") == std::string::npos ||

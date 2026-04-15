@@ -428,12 +428,6 @@ int main(int argc, char** argv) {
         return EXIT_FAILURE;
     }
 
-    RosbridgeWebsocketTransport adapter_transport(host, port);
-    if (!adapter_transport.connect()) {
-        std::cerr << "failed to connect rosbridge at " << host << ":" << port << "\n";
-        return EXIT_FAILURE;
-    }
-
     std::set<std::string> services;
     std::set<std::string> topics;
 
@@ -486,7 +480,7 @@ int main(int argc, char** argv) {
     };
 
     const std::vector<StreamRequirement> navigation_requirements = {
-        {"odom", {"/odom", "odom"}, {"nav_msgs/Odometry"}},
+        {"odom", {"/raw_odom", "raw_odom", "/odom", "odom"}, {"nav_msgs/Odometry"}},
         {"tf", {"/tf", "tf"}, {"tf2_msgs/TFMessage"}},
         {"tf_static", {"/tf_static", "tf_static"}, {"tf2_msgs/TFMessage"}},
         {"tracked_pose", {"/tracked_pose", "tracked_pose"}, {"geometry_msgs/PoseStamped"}},
@@ -510,6 +504,16 @@ int main(int argc, char** argv) {
         {"map_status", {"/map_status", "map_status"}, {"std_msgs/Int16"}},
     };
 
+    const std::vector<StreamRequirement> vendor_topic_requirements = {
+        {"init_status", {"/androidmsg_initstatus", "androidmsg_initstatus"}, {"std_msgs/Int16"}},
+        {"wall_update", {"/wall_update", "wall_update"}, {"std_msgs/Int16"}},
+        {"virtual_map_status", {"/androidmsg_virtualmapstatus", "androidmsg_virtualmapstatus"}, {"std_msgs/Int16"}},
+        {"raw_odom", {"/raw_odom", "raw_odom"}, {"nav_msgs/Odometry"}},
+        {"scan_pose", {"/scan_pose", "scan_pose"}, {"geometry_msgs/Pose", "geometry_msgs/PoseStamped"}},
+        {"visualization_marker", {"/visualization_marker", "visualization_marker"},
+         {"visualization_msgs/Marker", "visualization_msgs/MarkerArray"}},
+    };
+
     const std::vector<RequiredInterface> required_services = {
         {"set_mode", {"/set_mode", "set_mode"}},
         {"set_relocation", {"set_relocation", "/set_relocation"}},
@@ -519,6 +523,18 @@ int main(int argc, char** argv) {
         {"point_set", {"point_set", "/point_set"}},
         {"pointmanu_set", {"pointmanu_set", "/pointmanu_set"}},
         {"list_navi_points", {"list_navi_points", "/list_navi_points"}},
+    };
+
+    const std::vector<RequiredInterface> vendor_services = {
+        {"move_calibration", {"move_calibration", "/move_calibration"}},
+        {"set_navi_cmd", {"/set_navi_cmd", "set_navi_cmd"}},
+        {"get_position", {"/get_position", "get_position"}},
+        {"clear_map", {"clear_map", "/clear_map"}},
+        {"delete_map", {"delete_map", "/delete_map"}},
+        {"delete_allmap", {"delete_allmap", "/delete_allmap"}},
+        {"set_shape", {"set_shape", "/set_shape"}},
+        {"set_region", {"set_region", "/set_region"}},
+        {"robot_ssh", {"robot_ssh", "/robot_ssh"}},
     };
 
     const std::vector<RequiredInterface> required_topics = {
@@ -535,6 +551,7 @@ int main(int argc, char** argv) {
     };
 
     const auto service_checks = evaluate_interfaces(services, required_services);
+    const auto vendor_service_checks = evaluate_interfaces(services, vendor_services);
     const auto topic_checks = evaluate_interfaces(topics, required_topics);
 
     std::vector<StreamCheck> perception_checks;
@@ -543,8 +560,11 @@ int main(int argc, char** argv) {
     navigation_checks.reserve(navigation_requirements.size());
     std::vector<StreamCheck> status_checks;
     status_checks.reserve(status_requirements.size());
+    std::vector<StreamCheck> vendor_topic_checks;
+    vendor_topic_checks.reserve(vendor_topic_requirements.size());
 
     std::unordered_map<std::string, std::shared_ptr<StreamTracker>> topic_trackers;
+    std::unordered_map<std::string, std::shared_ptr<StreamTracker>> subscribed_topic_trackers;
     for (const auto& requirement : perception_requirements) {
         StreamCheck check;
         check.name = requirement.name;
@@ -553,17 +573,6 @@ int main(int argc, char** argv) {
         if (check.topic_present) {
             check.topic_type = lookup_topic_type(probe_transport, check.matched_topic);
             check.type_matches = contains_string(requirement.accepted_types, check.topic_type);
-            if (check.type_matches) {
-                auto tracker = std::make_shared<StreamTracker>();
-                if (probe_transport.subscribe(check.matched_topic, check.topic_type,
-                                              [tracker](const std::string& payload) {
-                                                  ++tracker->count;
-                                                  std::lock_guard<std::mutex> lock(tracker->mutex);
-                                                  tracker->last_payload = payload;
-                                              })) {
-                    topic_trackers[check.name] = tracker;
-                }
-            }
         }
         perception_checks.push_back(check);
     }
@@ -576,17 +585,6 @@ int main(int argc, char** argv) {
         if (check.topic_present) {
             check.topic_type = lookup_topic_type(probe_transport, check.matched_topic);
             check.type_matches = contains_string(requirement.accepted_types, check.topic_type);
-            if (check.type_matches) {
-                auto tracker = std::make_shared<StreamTracker>();
-                if (probe_transport.subscribe(check.matched_topic, check.topic_type,
-                                              [tracker](const std::string& payload) {
-                                                  ++tracker->count;
-                                                  std::lock_guard<std::mutex> lock(tracker->mutex);
-                                                  tracker->last_payload = payload;
-                                              })) {
-                    topic_trackers[check.name] = tracker;
-                }
-            }
         }
         navigation_checks.push_back(check);
     }
@@ -613,7 +611,50 @@ int main(int argc, char** argv) {
         status_checks.push_back(check);
     }
 
-    RosbridgeAdapter adapter(&adapter_transport);
+    for (const auto& requirement : vendor_topic_requirements) {
+        StreamCheck check;
+        check.name = requirement.name;
+        check.matched_topic = resolve_topic_alias(topics, requirement.aliases);
+        check.topic_present = !check.matched_topic.empty();
+        if (check.topic_present) {
+            check.topic_type = lookup_topic_type(probe_transport, check.matched_topic);
+            check.type_matches = contains_string(requirement.accepted_types, check.topic_type);
+        }
+        vendor_topic_checks.push_back(check);
+    }
+
+    const auto subscribe_stream_checks =
+        [&probe_transport, &topic_trackers, &subscribed_topic_trackers](std::vector<StreamCheck>* checks) {
+        if (checks == nullptr) {
+            return;
+        }
+        for (auto& check : *checks) {
+            if (!check.type_matches) {
+                continue;
+            }
+            const auto existing = subscribed_topic_trackers.find(check.matched_topic);
+            if (existing != subscribed_topic_trackers.end()) {
+                topic_trackers[check.name] = existing->second;
+                continue;
+            }
+            auto tracker = std::make_shared<StreamTracker>();
+            if (probe_transport.subscribe(check.matched_topic, check.topic_type,
+                                          [tracker](const std::string& payload) {
+                                              ++tracker->count;
+                                              std::lock_guard<std::mutex> lock(tracker->mutex);
+                                              tracker->last_payload = payload;
+                                          })) {
+                topic_trackers[check.name] = tracker;
+                subscribed_topic_trackers[check.matched_topic] = tracker;
+            }
+        }
+    };
+
+    subscribe_stream_checks(&perception_checks);
+    subscribe_stream_checks(&navigation_checks);
+    subscribe_stream_checks(&vendor_topic_checks);
+
+    RosbridgeAdapter adapter(&probe_transport);
     const bool adapter_connected = adapter.connect();
     std::this_thread::sleep_for(std::chrono::milliseconds(wait_ms));
 
@@ -662,6 +703,27 @@ int main(int argc, char** argv) {
         }
     }
 
+    for (auto& check : vendor_topic_checks) {
+        const auto tracker_it = topic_trackers.find(check.name);
+        if (tracker_it == topic_trackers.end()) {
+            continue;
+        }
+        check.message_count = tracker_it->second->count.load();
+        check.message_seen = check.message_count > 0;
+        std::string payload;
+        {
+            std::lock_guard<std::mutex> lock(tracker_it->second->mutex);
+            payload = tracker_it->second->last_payload;
+        }
+        if (!payload.empty()) {
+            int sample_data = 0;
+            if (extract_int_field(payload, "data", &sample_data)) {
+                check.has_sample_data = true;
+                check.sample_data = sample_data;
+            }
+        }
+    }
+
     std::cout << "{"
               << "\"host\":\"" << json_escape(host) << "\","
               << "\"port\":" << port << ","
@@ -673,6 +735,9 @@ int main(int argc, char** argv) {
               << "},"
               << "\"service_checks\":[";
     print_check_array(service_checks);
+    std::cout << "],"
+              << "\"vendor_service_checks\":[";
+    print_check_array(vendor_service_checks);
     std::cout << "],"
               << "\"topic_checks\":[";
     print_check_array(topic_checks);
@@ -686,9 +751,14 @@ int main(int argc, char** argv) {
               << "\"status_checks\":[";
     print_stream_array(status_checks);
     std::cout << "],"
+              << "\"vendor_topic_checks\":[";
+    print_stream_array(vendor_topic_checks);
+    std::cout << "],"
               << "\"summary\":{"
               << "\"required_services_available\":" << count_available(service_checks) << ","
               << "\"required_services_total\":" << static_cast<int>(service_checks.size()) << ","
+              << "\"vendor_services_available\":" << count_available(vendor_service_checks) << ","
+              << "\"vendor_services_total\":" << static_cast<int>(vendor_service_checks.size()) << ","
               << "\"required_topics_available\":" << count_available(topic_checks) << ","
               << "\"required_topics_total\":" << static_cast<int>(topic_checks.size()) << ","
               << "\"perception_topics_present\":" << count_topic_present(perception_checks) << ","
@@ -699,7 +769,10 @@ int main(int argc, char** argv) {
               << "\"navigation_streams_live\":" << count_message_seen(navigation_checks) << ","
               << "\"status_topics_present\":" << count_topic_present(status_checks) << ","
               << "\"status_types_matched\":" << count_type_matches(status_checks) << ","
-              << "\"status_streams_live\":" << count_message_seen(status_checks)
+              << "\"status_streams_live\":" << count_message_seen(status_checks) << ","
+              << "\"vendor_topics_present\":" << count_topic_present(vendor_topic_checks) << ","
+              << "\"vendor_topics_type_matched\":" << count_type_matches(vendor_topic_checks) << ","
+              << "\"vendor_topics_live\":" << count_message_seen(vendor_topic_checks)
               << "},"
               << "\"live_snapshot\":{"
               << "\"connected\":" << bool_json(adapter_connected && adapter.is_connected()) << ","
