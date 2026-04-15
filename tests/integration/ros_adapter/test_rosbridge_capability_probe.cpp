@@ -66,6 +66,9 @@ class FakeCapabilityRosbridgeServer {
         write_message(ws, "{\"op\":\"publish\",\"topic\":\"androidmsg_chargestatus\",\"msg\":{\"data\":41}}");
         write_message(ws, "{\"op\":\"publish\",\"topic\":\"androidmsg_navigationstatus\",\"msg\":{\"data\":83}}");
         write_message(ws, "{\"op\":\"publish\",\"topic\":\"motion_mode\",\"msg\":{\"data\":2}}");
+        write_message(ws, "{\"op\":\"publish\",\"topic\":\"/odom\",\"msg\":{\"header\":{\"frame_id\":\"odom\"},\"child_frame_id\":\"base_link\",\"pose\":{\"pose\":{\"position\":{\"x\":1.0,\"y\":2.0,\"z\":0.0},\"orientation\":{\"x\":0.0,\"y\":0.0,\"z\":0.0,\"w\":1.0}}},\"twist\":{\"twist\":{\"linear\":{\"x\":0.1,\"y\":0.0,\"z\":0.0},\"angular\":{\"x\":0.0,\"y\":0.0,\"z\":0.0}}}}");
+        write_message(ws, "{\"op\":\"publish\",\"topic\":\"/tf\",\"msg\":{\"transforms\":[{\"header\":{\"frame_id\":\"map\"},\"child_frame_id\":\"odom\",\"transform\":{\"translation\":{\"x\":0.0,\"y\":0.0,\"z\":0.0},\"rotation\":{\"x\":0.0,\"y\":0.0,\"z\":0.0,\"w\":1.0}}}]}}");
+        write_message(ws, "{\"op\":\"publish\",\"topic\":\"/tf_static\",\"msg\":{\"transforms\":[{\"header\":{\"frame_id\":\"base_link\"},\"child_frame_id\":\"laser\",\"transform\":{\"translation\":{\"x\":0.0,\"y\":0.0,\"z\":0.1},\"rotation\":{\"x\":0.0,\"y\":0.0,\"z\":0.0,\"w\":1.0}}}]}}");
         write_message(ws, "{\"op\":\"publish\",\"topic\":\"/scan\",\"msg\":{\"header\":{\"frame_id\":\"laser\"},\"angle_min\":-1.57,\"angle_max\":1.57,\"angle_increment\":0.01,\"ranges\":[1.0,1.1,1.2]}}");
         write_message(ws, "{\"op\":\"publish\",\"topic\":\"/velodyne_points\",\"msg\":{\"header\":{\"frame_id\":\"velodyne\"},\"height\":1,\"width\":1,\"fields\":[],\"is_bigendian\":false,\"point_step\":16,\"row_step\":16,\"data\":[0,0,0,0],\"is_dense\":true}}");
         write_message(ws, "{\"op\":\"publish\",\"topic\":\"/camera/depth/image_raw\",\"msg\":{\"header\":{\"frame_id\":\"depth\"},\"height\":1,\"width\":1,\"encoding\":\"16UC1\",\"is_bigendian\":0,\"step\":2,\"data\":[0,1]}}");
@@ -106,8 +109,8 @@ class FakeCapabilityRosbridgeServer {
                             "/rosapi/topics",
                             "{\"topics\":[\"/cmd_vel\",\"/navi_stop\",\"autocharge\",\"outofcharge\",\"/initialpose\","
                             "\"androidmsg_locationstatus\",\"androidmsg_navigationstatus\",\"androidmsg_chargestatus\","
-                            "\"tracked_pose\",\"/map\",\"/scan\",\"/velodyne_points\",\"/camera/depth/image_raw\","
-                            "\"/camera/depth/camera_info\"]}",
+                            "\"tracked_pose\",\"/map\",\"/odom\",\"/tf\",\"/tf_static\",\"/scan\","
+                            "\"/velodyne_points\",\"/camera/depth/image_raw\",\"/camera/depth/camera_info\"]}",
                             id);
                         continue;
                     }
@@ -126,6 +129,12 @@ class FakeCapabilityRosbridgeServer {
                             values = "{\"type\":\"geometry_msgs/PoseStamped\"}";
                         } else if (message.find("\"topic\":\"/map\"") != std::string::npos) {
                             values = "{\"type\":\"nav_msgs/OccupancyGrid\"}";
+                        } else if (message.find("\"topic\":\"/odom\"") != std::string::npos) {
+                            values = "{\"type\":\"nav_msgs/Odometry\"}";
+                        } else if (message.find("\"topic\":\"/tf_static\"") != std::string::npos) {
+                            values = "{\"type\":\"tf2_msgs/TFMessage\"}";
+                        } else if (message.find("\"topic\":\"/tf\"") != std::string::npos) {
+                            values = "{\"type\":\"tf2_msgs/TFMessage\"}";
                         }
                         write_service_response(
                             ws,
@@ -183,6 +192,12 @@ int main() {
         output.find("\"name\":\"depth_image\",\"topic_present\":true") == std::string::npos ||
         output.find("\"name\":\"depth_camera_info\",\"topic_present\":true") == std::string::npos ||
         output.find("\"perception_streams_live\":4") == std::string::npos ||
+        output.find("\"name\":\"odom\",\"topic_present\":true") == std::string::npos ||
+        output.find("\"name\":\"tf\",\"topic_present\":true") == std::string::npos ||
+        output.find("\"name\":\"tf_static\",\"topic_present\":true") == std::string::npos ||
+        output.find("\"name\":\"tracked_pose\",\"topic_present\":true") == std::string::npos ||
+        output.find("\"name\":\"map\",\"topic_present\":true") == std::string::npos ||
+        output.find("\"navigation_streams_live\":5") == std::string::npos ||
         output.find("\"battery\":88") == std::string::npos ||
         output.find("\"location_status_code\":10") == std::string::npos ||
         output.find("\"navigation_status_code\":83") == std::string::npos) {
