@@ -113,7 +113,7 @@ int main() {
         "\"/androidmsg_chargestatus\",\"/androidmsg_stm32status\",\"/androidmsg_odomstatus\","
         "\"/motion_mode\",\"/outofcharge_status\",\"/reviceOutMachineSignal\","
         "\"/androidmsg_outofchargepoint\",\"/androidmsg_locationstatus\","
-        "\"/androidmsg_navigationstatus\",\"/tracked_pose\",\"/map\",\"/androidmsg_mapstatus\","
+        "\"/androidmsg_navigationstatus\",\"/tracked_pose\",\"/map\",\"/scan\",\"/androidmsg_mapstatus\","
         "\"/map_status\"]}");
     RosbridgeAdapter adapter(&transport);
 
@@ -137,6 +137,7 @@ int main() {
         "/androidmsg_navigationstatus",
         "/tracked_pose",
         "/map",
+        "/scan",
         "/androidmsg_mapstatus",
         "/map_status",
     };
@@ -162,6 +163,7 @@ int main() {
     transport.emit("/androidmsg_navigationstatus", "{\"data\":1}");
     transport.emit("/tracked_pose", "{\"pose\":{\"position\":{\"x\":1.5,\"y\":2.5,\"z\":0.0},\"orientation\":{\"x\":0.0,\"y\":0.0,\"z\":0.247404,\"w\":0.968912}}}");
     transport.emit("/map", "{\"info\":{\"width\":3,\"height\":2,\"resolution\":0.05,\"origin\":{\"position\":{\"x\":-1.5,\"y\":-2.5}}},\"data\":[0,100,-1,0,0,100]}");
+    transport.emit("/scan", "{\"angle_min\":-0.4,\"angle_increment\":0.2,\"range_min\":0.05,\"range_max\":8.0,\"ranges\":[0.6,0.5,0.4,0.7,0.8]}");
 
     if (adapter.get_battery() != 67) {
         std::cerr << "expected battery cache to update from power_report\n";
@@ -197,6 +199,16 @@ int main() {
     const auto pose = adapter.get_robot_pose();
     if (std::abs(pose.x - 1.5) > 1e-6 || std::abs(pose.y - 2.5) > 1e-6) {
         std::cerr << "expected tracked_pose to update cached robot pose\n";
+        return EXIT_FAILURE;
+    }
+
+    LaserScanSnapshot scan;
+    if (!adapter.get_latest_laser_scan(&scan) ||
+        scan.ranges.size() != 5 ||
+        std::abs(scan.angle_min + 0.4) > 1e-6 ||
+        std::abs(scan.angle_increment - 0.2) > 1e-6 ||
+        std::abs(scan.ranges[2] - 0.4) > 1e-6) {
+        std::cerr << "expected /scan subscription to populate latest laser snapshot\n";
         return EXIT_FAILURE;
     }
 
