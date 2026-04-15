@@ -1,8 +1,12 @@
 #include <chrono>
+#include <atomic>
 #include <cctype>
 #include <cstdlib>
 #include <iostream>
+#include <memory>
+#include <mutex>
 #include <set>
+#include <unordered_map>
 #include <string>
 #include <thread>
 #include <vector>
@@ -20,6 +24,22 @@ struct CheckResult {
     std::string name;
     bool available = false;
     std::string matched;
+};
+
+struct PerceptionRequirement {
+    std::string name;
+    std::vector<std::string> aliases;
+    std::vector<std::string> accepted_types;
+};
+
+struct PerceptionCheck {
+    std::string name;
+    bool topic_present = false;
+    bool type_matches = false;
+    bool message_seen = false;
+    std::string matched_topic;
+    std::string topic_type;
+    int message_count = 0;
 };
 
 void print_usage() {
@@ -124,6 +144,33 @@ std::vector<std::string> extract_string_array(const std::string& payload, const 
     return values;
 }
 
+std::string extract_string_value(const std::string& payload, const std::string& key) {
+    const auto start = find_value_start(payload, key);
+    if (start == std::string::npos || start >= payload.size() || payload[start] != '"') {
+        return "";
+    }
+
+    std::string value;
+    bool escaped = false;
+    for (std::size_t pos = start + 1; pos < payload.size(); ++pos) {
+        const char ch = payload[pos];
+        if (escaped) {
+            value += ch;
+            escaped = false;
+            continue;
+        }
+        if (ch == '\\') {
+            escaped = true;
+            continue;
+        }
+        if (ch == '"') {
+            return value;
+        }
+        value += ch;
+    }
+    return "";
+}
+
 bool call_service_with_aliases(RosbridgeWebsocketTransport& transport,
                                const std::vector<std::string>& aliases,
                                const std::string& type,
@@ -213,6 +260,61 @@ void print_check_array(const std::vector<CheckResult>& checks) {
                   << "}";
     }
 }
+
+std::string resolve_topic_alias(const std::set<std::string>& topics, const std::vector<std::string>& aliases) {
+    std::string matched;
+    if (contains_any_alias(topics, aliases, &matched)) {
+        return matched;
+    }
+    return "";
+}
+
+bool contains_string(const std::vector<std::string>& values, const std::string& target) {
+    for (const auto& value : values) {
+        if (value == target) {
+            return true;
+        }
+    }
+    return false;
+}
+
+std::string lookup_topic_type(RosbridgeWebsocketTransport& transport, const std::string& topic) {
+    if (topic.empty()) {
+        return "";
+    }
+
+    std::string response;
+    std::string matched_alias;
+    const bool ok = call_service_with_aliases(
+        transport,
+        {"/rosapi/topic_type", "rosapi/topic_type"},
+        "rosapi/Topic",
+        std::string("{\"topic\":\"") + json_escape(topic) + "\"}",
+        &response,
+        &matched_alias);
+    if (!ok) {
+        return "";
+    }
+    return extract_string_value(response, "type");
+}
+
+void print_perception_array(const std::vector<PerceptionCheck>& checks) {
+    for (std::size_t i = 0; i < checks.size(); ++i) {
+        const auto& check = checks[i];
+        if (i > 0) {
+            std::cout << ",";
+        }
+        std::cout << "{"
+                  << "\"name\":\"" << json_escape(check.name) << "\","
+                  << "\"topic_present\":" << bool_json(check.topic_present) << ","
+                  << "\"type_matches\":" << bool_json(check.type_matches) << ","
+                  << "\"message_seen\":" << bool_json(check.message_seen) << ","
+                  << "\"matched_topic\":\"" << json_escape(check.matched_topic) << "\","
+                  << "\"topic_type\":\"" << json_escape(check.topic_type) << "\","
+                  << "\"message_count\":" << check.message_count
+                  << "}";
+    }
+}
 }  // namespace
 
 int main(int argc, char** argv) {
@@ -268,6 +370,24 @@ int main(int argc, char** argv) {
         }
     }
 
+    const std::vector<PerceptionRequirement> perception_requirements = {
+        {"laser_scan", {"/scan", "scan", "/laser_scan", "laser_scan"}, {"sensor_msgs/LaserScan"}},
+        {"point_cloud", {"/points", "points", "/point_cloud", "point_cloud", "/cloud", "cloud",
+                         "/velodyne_points", "velodyne_points", "/camera/depth/points",
+                         "camera/depth/points"},
+         {"sensor_msgs/PointCloud2"}},
+        {"depth_image", {"/camera/depth/image_raw", "camera/depth/image_raw",
+                         "/camera/aligned_depth_to_color/image_raw",
+                         "camera/aligned_depth_to_color/image_raw",
+                         "/depth/image_raw", "depth/image_raw"},
+         {"sensor_msgs/Image"}},
+        {"depth_camera_info", {"/camera/depth/camera_info", "camera/depth/camera_info",
+                               "/camera/aligned_depth_to_color/camera_info",
+                               "camera/aligned_depth_to_color/camera_info",
+                               "/depth/camera_info", "depth/camera_info"},
+         {"sensor_msgs/CameraInfo"}},
+    };
+
     const std::vector<RequiredInterface> required_services = {
         {"set_mode", {"/set_mode", "set_mode"}},
         {"set_relocation", {"set_relocation", "/set_relocation"}},
@@ -295,15 +415,45 @@ int main(int argc, char** argv) {
     const auto service_checks = evaluate_interfaces(services, required_services);
     const auto topic_checks = evaluate_interfaces(topics, required_topics);
 
+    std::vector<PerceptionCheck> perception_checks;
+    perception_checks.reserve(perception_requirements.size());
+
+    std::unordered_map<std::string, std::shared_ptr<std::atomic<int>>> topic_message_counters;
+    for (const auto& requirement : perception_requirements) {
+        PerceptionCheck check;
+        check.name = requirement.name;
+        check.matched_topic = resolve_topic_alias(topics, requirement.aliases);
+        check.topic_present = !check.matched_topic.empty();
+        if (check.topic_present) {
+            check.topic_type = lookup_topic_type(transport, check.matched_topic);
+            check.type_matches = contains_string(requirement.accepted_types, check.topic_type);
+            if (check.type_matches) {
+                auto counter = std::make_shared<std::atomic<int>>(0);
+                if (transport.subscribe(check.matched_topic, check.topic_type,
+                                        [counter](const std::string&) { ++(*counter); })) {
+                    topic_message_counters[check.name] = counter;
+                }
+            }
+        }
+        perception_checks.push_back(check);
+    }
+
     RosbridgeAdapter adapter(&transport);
     const bool adapter_connected = adapter.connect();
-    if (adapter_connected) {
-        std::this_thread::sleep_for(std::chrono::milliseconds(wait_ms));
-    }
+    std::this_thread::sleep_for(std::chrono::milliseconds(wait_ms));
 
     const auto status = adapter.get_robot_status();
     const auto pose = adapter.get_robot_pose();
     const auto map = adapter.get_map_snapshot();
+
+    for (auto& check : perception_checks) {
+        const auto counter_it = topic_message_counters.find(check.name);
+        if (counter_it == topic_message_counters.end()) {
+            continue;
+        }
+        check.message_count = counter_it->second->load();
+        check.message_seen = check.message_count > 0;
+    }
 
     std::cout << "{"
               << "\"host\":\"" << json_escape(host) << "\","
@@ -320,11 +470,30 @@ int main(int argc, char** argv) {
               << "\"topic_checks\":[";
     print_check_array(topic_checks);
     std::cout << "],"
+              << "\"perception_checks\":[";
+    print_perception_array(perception_checks);
+    std::cout << "],"
               << "\"summary\":{"
               << "\"required_services_available\":" << count_available(service_checks) << ","
               << "\"required_services_total\":" << static_cast<int>(service_checks.size()) << ","
               << "\"required_topics_available\":" << count_available(topic_checks) << ","
-              << "\"required_topics_total\":" << static_cast<int>(topic_checks.size())
+              << "\"required_topics_total\":" << static_cast<int>(topic_checks.size()) << ","
+              << "\"perception_topics_present\":" << count_available(std::vector<CheckResult>{
+                    CheckResult{"laser_scan", perception_checks[0].topic_present, perception_checks[0].matched_topic},
+                    CheckResult{"point_cloud", perception_checks[1].topic_present, perception_checks[1].matched_topic},
+                    CheckResult{"depth_image", perception_checks[2].topic_present, perception_checks[2].matched_topic},
+                    CheckResult{"depth_camera_info", perception_checks[3].topic_present, perception_checks[3].matched_topic}
+                 }) << ","
+              << "\"perception_types_matched\":"
+              << (static_cast<int>(perception_checks[0].type_matches) +
+                  static_cast<int>(perception_checks[1].type_matches) +
+                  static_cast<int>(perception_checks[2].type_matches) +
+                  static_cast<int>(perception_checks[3].type_matches)) << ","
+              << "\"perception_streams_live\":"
+              << (static_cast<int>(perception_checks[0].message_seen) +
+                  static_cast<int>(perception_checks[1].message_seen) +
+                  static_cast<int>(perception_checks[2].message_seen) +
+                  static_cast<int>(perception_checks[3].message_seen))
               << "},"
               << "\"live_snapshot\":{"
               << "\"connected\":" << bool_json(adapter_connected && adapter.is_connected()) << ","

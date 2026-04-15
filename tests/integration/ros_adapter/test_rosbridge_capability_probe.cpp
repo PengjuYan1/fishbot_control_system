@@ -66,6 +66,10 @@ class FakeCapabilityRosbridgeServer {
         write_message(ws, "{\"op\":\"publish\",\"topic\":\"androidmsg_chargestatus\",\"msg\":{\"data\":41}}");
         write_message(ws, "{\"op\":\"publish\",\"topic\":\"androidmsg_navigationstatus\",\"msg\":{\"data\":83}}");
         write_message(ws, "{\"op\":\"publish\",\"topic\":\"motion_mode\",\"msg\":{\"data\":2}}");
+        write_message(ws, "{\"op\":\"publish\",\"topic\":\"/scan\",\"msg\":{\"header\":{\"frame_id\":\"laser\"},\"angle_min\":-1.57,\"angle_max\":1.57,\"angle_increment\":0.01,\"ranges\":[1.0,1.1,1.2]}}");
+        write_message(ws, "{\"op\":\"publish\",\"topic\":\"/velodyne_points\",\"msg\":{\"header\":{\"frame_id\":\"velodyne\"},\"height\":1,\"width\":1,\"fields\":[],\"is_bigendian\":false,\"point_step\":16,\"row_step\":16,\"data\":[0,0,0,0],\"is_dense\":true}}");
+        write_message(ws, "{\"op\":\"publish\",\"topic\":\"/camera/depth/image_raw\",\"msg\":{\"header\":{\"frame_id\":\"depth\"},\"height\":1,\"width\":1,\"encoding\":\"16UC1\",\"is_bigendian\":0,\"step\":2,\"data\":[0,1]}}");
+        write_message(ws, "{\"op\":\"publish\",\"topic\":\"/camera/depth/camera_info\",\"msg\":{\"header\":{\"frame_id\":\"depth\"},\"height\":1,\"width\":1,\"distortion_model\":\"plumb_bob\",\"D\":[0.0],\"K\":[1,0,0,0,1,0,0,0,1],\"R\":[1,0,0,0,1,0,0,0,1],\"P\":[1,0,0,0,0,1,0,0,0,0,1,0]}}");
         write_message(ws,
                       "{\"op\":\"publish\",\"topic\":\"tracked_pose\",\"msg\":{\"pose\":{\"position\":{\"x\":1.2,\"y\":-0.4,\"z\":0.0},\"orientation\":{\"x\":0.0,\"y\":0.0,\"z\":0.0,\"w\":1.0}}}}");
         write_message(ws,
@@ -102,7 +106,31 @@ class FakeCapabilityRosbridgeServer {
                             "/rosapi/topics",
                             "{\"topics\":[\"/cmd_vel\",\"/navi_stop\",\"autocharge\",\"outofcharge\",\"/initialpose\","
                             "\"androidmsg_locationstatus\",\"androidmsg_navigationstatus\",\"androidmsg_chargestatus\","
-                            "\"tracked_pose\",\"/map\"]}",
+                            "\"tracked_pose\",\"/map\",\"/scan\",\"/velodyne_points\",\"/camera/depth/image_raw\","
+                            "\"/camera/depth/camera_info\"]}",
+                            id);
+                        continue;
+                    }
+                    if (message.find("\"service\":\"/rosapi/topic_type\"") != std::string::npos ||
+                        message.find("\"service\":\"rosapi/topic_type\"") != std::string::npos) {
+                        std::string values = "{\"type\":\"\"}";
+                        if (message.find("\"topic\":\"/scan\"") != std::string::npos) {
+                            values = "{\"type\":\"sensor_msgs/LaserScan\"}";
+                        } else if (message.find("\"topic\":\"/velodyne_points\"") != std::string::npos) {
+                            values = "{\"type\":\"sensor_msgs/PointCloud2\"}";
+                        } else if (message.find("\"topic\":\"/camera/depth/image_raw\"") != std::string::npos) {
+                            values = "{\"type\":\"sensor_msgs/Image\"}";
+                        } else if (message.find("\"topic\":\"/camera/depth/camera_info\"") != std::string::npos) {
+                            values = "{\"type\":\"sensor_msgs/CameraInfo\"}";
+                        } else if (message.find("\"topic\":\"tracked_pose\"") != std::string::npos) {
+                            values = "{\"type\":\"geometry_msgs/PoseStamped\"}";
+                        } else if (message.find("\"topic\":\"/map\"") != std::string::npos) {
+                            values = "{\"type\":\"nav_msgs/OccupancyGrid\"}";
+                        }
+                        write_service_response(
+                            ws,
+                            "/rosapi/topic_type",
+                            values,
                             id);
                         continue;
                     }
@@ -150,6 +178,11 @@ int main() {
         output.find("\"name\":\"cmd_vel\",\"available\":true") == std::string::npos ||
         output.find("\"required_services_available\":8") == std::string::npos ||
         output.find("\"required_topics_available\":10") == std::string::npos ||
+        output.find("\"name\":\"laser_scan\",\"topic_present\":true") == std::string::npos ||
+        output.find("\"name\":\"point_cloud\",\"topic_present\":true") == std::string::npos ||
+        output.find("\"name\":\"depth_image\",\"topic_present\":true") == std::string::npos ||
+        output.find("\"name\":\"depth_camera_info\",\"topic_present\":true") == std::string::npos ||
+        output.find("\"perception_streams_live\":4") == std::string::npos ||
         output.find("\"battery\":88") == std::string::npos ||
         output.find("\"location_status_code\":10") == std::string::npos ||
         output.find("\"navigation_status_code\":83") == std::string::npos) {
