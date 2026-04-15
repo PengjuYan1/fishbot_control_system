@@ -38,6 +38,9 @@ class FakeSelfChargeDockingAdapter : public IRobotAdapter {
     bool out_of_charge() override { return true; }
     bool manual_move(double linear, double angular) override {
         ++manual_move_count;
+        if (charging_pending_settle && linear < -0.001) {
+            reversed_after_pending_charge = true;
+        }
         if (std::abs(angular) > 0.01) {
             saw_scan_guided_turn = true;
         }
@@ -47,7 +50,9 @@ class FakeSelfChargeDockingAdapter : public IRobotAdapter {
             left_distance = 0.34;
             right_distance = 0.35;
         }
-        if (manual_move_count >= 3) {
+        if (manual_move_count >= 40 && !charging_pending_settle) {
+            charging_pending_settle = true;
+        } else if (charging_pending_settle && !charging && linear >= -0.001) {
             charging = true;
             charge_status_code = 45;
         }
@@ -95,6 +100,8 @@ class FakeSelfChargeDockingAdapter : public IRobotAdapter {
     int manual_move_count = 0;
     int stop_navigation_count = 0;
     bool saw_scan_guided_turn = false;
+    bool charging_pending_settle = false;
+    bool reversed_after_pending_charge = false;
     double left_distance = 0.16;
     double right_distance = 0.42;
     std::vector<PointRecord> native_points;
@@ -115,7 +122,7 @@ int main() {
         return EXIT_FAILURE;
     }
 
-    for (int retry = 0; retry < 40; ++retry) {
+    for (int retry = 0; retry < 80; ++retry) {
         if (service.current_task().status == "charging") {
             break;
         }
@@ -134,6 +141,11 @@ int main() {
 
     if (!adapter.saw_scan_guided_turn) {
         std::cerr << "expected docking to use laser asymmetry to issue a centering turn\n";
+        return EXIT_FAILURE;
+    }
+
+    if (adapter.reversed_after_pending_charge) {
+        std::cerr << "expected docking loop to wait for charging settle instead of reversing away from the dock\n";
         return EXIT_FAILURE;
     }
 

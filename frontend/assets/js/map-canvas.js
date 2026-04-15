@@ -9,6 +9,17 @@ const mapViewportState = {
   initialized: false,
 };
 
+const mapRenderState = {
+  stageReady: false,
+  rasterSignature: '',
+  pointsSignature: '',
+  stage: null,
+  canvas: null,
+  pointsLayer: null,
+  robotMarker: null,
+  robotHeading: null,
+};
+
 function fallbackPosition(x, y) {
   return {
     left: clampPercent(18 + x * 8),
@@ -101,21 +112,48 @@ function bindMapZoomControls() {
   applyMapScale();
 }
 
-function ensureCanvas(stage) {
-  let canvas = document.getElementById('map-grid-canvas');
-  if (!canvas) {
-    canvas = document.createElement('canvas');
-    canvas.id = 'map-grid-canvas';
-    canvas.className = 'map-grid-canvas';
-    canvas.width = 800;
-    canvas.height = 800;
-    stage.appendChild(canvas);
+function ensureStageStructure(stage) {
+  if (mapRenderState.stageReady && mapRenderState.stage === stage) {
+    return;
   }
-  return canvas;
+
+  stage.innerHTML = '';
+
+  const canvas = document.createElement('canvas');
+  canvas.id = 'map-grid-canvas';
+  canvas.className = 'map-grid-canvas';
+  canvas.width = 800;
+  canvas.height = 800;
+  stage.appendChild(canvas);
+
+  const pointsLayer = document.createElement('div');
+  pointsLayer.className = 'map-points-layer';
+  stage.appendChild(pointsLayer);
+
+  const robotMarker = document.createElement('div');
+  robotMarker.className = 'robot-marker';
+  stage.appendChild(robotMarker);
+
+  const robotHeading = document.createElement('div');
+  robotHeading.className = 'robot-heading';
+  stage.appendChild(robotHeading);
+
+  mapRenderState.stageReady = true;
+  mapRenderState.rasterSignature = '';
+  mapRenderState.pointsSignature = '';
+  mapRenderState.stage = stage;
+  mapRenderState.canvas = canvas;
+  mapRenderState.pointsLayer = pointsLayer;
+  mapRenderState.robotMarker = robotMarker;
+  mapRenderState.robotHeading = robotHeading;
 }
 
-function drawMapRaster(stage, map) {
-  const canvas = ensureCanvas(stage);
+function drawMapRaster(map) {
+  const canvas = mapRenderState.canvas;
+  if (!canvas) {
+    return;
+  }
+
   const context = canvas.getContext('2d');
   context.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -168,22 +206,38 @@ function drawMapRaster(stage, map) {
   context.drawImage(offscreen, 0, 0, canvas.width, canvas.height);
 }
 
-function renderRobot(stage, map, pose) {
-  const position = worldToPercent(map, Number(pose.x || 0), Number(pose.y || 0));
-
-  const robot = document.createElement('div');
-  robot.className = 'robot-marker';
-  robot.style.cssText = positionStyle(position);
-  stage.appendChild(robot);
-
-  const heading = document.createElement('div');
-  heading.className = 'robot-heading';
-  heading.style.cssText = `${positionStyle(position)}transform: rotate(${Number(pose.theta || 0)}rad);`;
-  stage.appendChild(heading);
+function mapSignature(map) {
+  return [
+    Number(map.width || 0),
+    Number(map.height || 0),
+    Number(map.resolution || 0),
+    Number(map.origin_x || 0),
+    Number(map.origin_y || 0),
+    Array.isArray(map.occupancy_data) ? map.occupancy_data.length : 0,
+  ].join('|');
 }
 
-function renderPoints(stage, map, points) {
-  points.forEach((point) => {
+function pointsSignature(points) {
+  return (Array.isArray(points) ? points : []).map((point) => [
+    point.id,
+    point.name,
+    point.type,
+    point.x,
+    point.y,
+    point.theta,
+    point.floor_id,
+    point.map_id,
+    point.point_id,
+  ].join(':')).join('|');
+}
+
+function renderPoints(map, points) {
+  if (!mapRenderState.pointsLayer) {
+    return;
+  }
+
+  mapRenderState.pointsLayer.innerHTML = '';
+  (points || []).forEach((point) => {
     const position = worldToPercent(map, Number(point.x || 0), Number(point.y || 0));
     const node = document.createElement('div');
     node.className = point.type === 'charge'
@@ -195,8 +249,18 @@ function renderPoints(stage, map, points) {
           : 'map-point feed-point';
     node.textContent = point.name;
     node.style.cssText = positionStyle(position);
-    stage.appendChild(node);
+    mapRenderState.pointsLayer.appendChild(node);
   });
+}
+
+function updateRobotPose(map, pose) {
+  if (!mapRenderState.robotMarker || !mapRenderState.robotHeading) {
+    return;
+  }
+
+  const position = worldToPercent(map, Number(pose.x || 0), Number(pose.y || 0));
+  mapRenderState.robotMarker.style.cssText = positionStyle(position);
+  mapRenderState.robotHeading.style.cssText = `${positionStyle(position)}transform: rotate(${Number(pose.theta || 0)}rad);`;
 }
 
 function updateMapNote(map) {
@@ -220,13 +284,26 @@ window.renderMapOverlay = function renderMapOverlay() {
   }
 
   bindMapZoomControls();
+  ensureStageStructure(stage);
 
   const state = window.fishbotStore.getState();
   const map = state.map || {};
-  stage.innerHTML = '';
-  drawMapRaster(stage, map);
-  renderRobot(stage, map, state.robot.pose);
-  renderPoints(stage, map, state.points);
+  const points = state.points || [];
+  const pose = (state.robot && state.robot.pose) || {};
+
+  const nextMapSignature = mapSignature(map);
+  if (nextMapSignature !== mapRenderState.rasterSignature) {
+    drawMapRaster(map);
+    mapRenderState.rasterSignature = nextMapSignature;
+  }
+
+  const nextPointsSignature = pointsSignature(points);
+  if (nextPointsSignature !== mapRenderState.pointsSignature) {
+    renderPoints(map, points);
+    mapRenderState.pointsSignature = nextPointsSignature;
+  }
+
+  updateRobotPose(map, pose);
   updateMapNote(map);
   applyMapScale();
 };

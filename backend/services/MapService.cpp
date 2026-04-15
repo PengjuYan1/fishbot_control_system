@@ -19,6 +19,22 @@ long long steady_clock_millis() {
         std::chrono::steady_clock::now().time_since_epoch()).count();
 }
 
+bool charging_detected_from_robot_status(bool charging, const RobotStatus& status) {
+    if (charging) {
+        return true;
+    }
+
+    switch (status.charge_status_code) {
+        case 45:
+        case 46:
+        case 47:
+        case 48:
+            return true;
+        default:
+            return false;
+    }
+}
+
 std::string next_point_name(const std::vector<PointRecord>& points, const std::string& prefix,
                             const std::string& type) {
     int max_index = 0;
@@ -149,6 +165,21 @@ bool MapService::save_map(const std::string& map_name) {
     const bool ok = adapter_.save_map(map_name);
     if (!ok) {
         return false;
+    }
+
+    if (point_repository_ != nullptr) {
+        bool should_backfill = false;
+        {
+            std::lock_guard<std::mutex> lock(state_mutex_);
+            should_backfill = mapping_active_ && !mapping_seed_done_;
+        }
+
+        if (should_backfill) {
+            const auto status = adapter_.get_robot_status();
+            if (charging_detected_from_robot_status(adapter_.is_charging(), status)) {
+                (void) try_seed_mapping_points_once();
+            }
+        }
     }
 
     std::lock_guard<std::mutex> lock(state_mutex_);

@@ -148,6 +148,24 @@ DockingScanAssist analyze_docking_scan(const LaserScanSnapshot& scan) {
     }
     return assist;
 }
+
+bool wait_for_charge_settle(IRobotAdapter& adapter, std::uint64_t generation,
+                            const std::atomic<std::uint64_t>& current_generation,
+                            std::chrono::milliseconds timeout) {
+    const auto deadline = std::chrono::steady_clock::now() + timeout;
+    while (std::chrono::steady_clock::now() < deadline) {
+        if (current_generation.load() != generation) {
+            return false;
+        }
+
+        const auto status = adapter.get_robot_status();
+        if (charge_detected(status)) {
+            return true;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(80));
+    }
+    return false;
+}
 }  // namespace
 
 TaskService::TaskService(IRobotAdapter& adapter, PointRepository& point_repository)
@@ -488,6 +506,7 @@ void TaskService::run_self_charge_loop(PointRecord charge_point, std::uint64_t g
     constexpr double kAngularLimit = 0.25;
     constexpr double kAngleOnlyThreshold = 0.14;
     constexpr long long kScanFreshnessMs = 1200;
+    constexpr auto kChargeSettleTimeout = std::chrono::milliseconds(700);
 
     for (;;) {
         if (self_charge_generation_.load() != generation) {
@@ -560,6 +579,14 @@ void TaskService::run_self_charge_loop(PointRecord charge_point, std::uint64_t g
             }
             (void) adapter_.manual_move(linear_speed, angular_speed);
             std::this_thread::sleep_for(std::chrono::milliseconds(kDockingStepMs));
+        }
+
+        (void) adapter_.manual_move(0.0, 0.0);
+        if (wait_for_charge_settle(adapter_, generation, self_charge_generation_, kChargeSettleTimeout)) {
+            self_charge_phase_ = SelfChargePhase::kCharging;
+            update_current_task("charging", charge_point.name);
+            (void) adapter_.manual_move(0.0, 0.0);
+            return;
         }
 
         for (int reverse_step = 0; reverse_step < 6; ++reverse_step) {

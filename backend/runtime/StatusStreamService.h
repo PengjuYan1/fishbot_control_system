@@ -31,6 +31,7 @@ class StatusStreamService {
     StatusHub& status_hub_;
     std::atomic<bool> running_{false};
     std::thread worker_thread_;
+    std::chrono::steady_clock::time_point last_map_publish_time_{};
 };
 
 #endif

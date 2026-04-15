@@ -1,5 +1,9 @@
 #include "backend/runtime/StatusStreamService.h"
 
+namespace {
+constexpr auto kMapPublishInterval = std::chrono::milliseconds(1000);
+}
+
 StatusStreamService::StatusStreamService(SystemService& system_service, MapService& map_service, StatusHub& status_hub)
     : system_service_(system_service),
       map_service_(map_service),
@@ -45,8 +49,13 @@ void StatusStreamService::stop() {
 void StatusStreamService::poll_once() {
     const auto snapshot = system_service_.capture_snapshot();
     map_service_.observe_system_snapshot(snapshot);
-    const auto map_snapshot = map_service_.get_snapshot();
     status_hub_.publish_system_snapshot(snapshot);
-    status_hub_.publish_map_snapshot(map_snapshot);
     status_hub_.publish_robot_pose(snapshot.pose);
+
+    const auto now = std::chrono::steady_clock::now();
+    if (last_map_publish_time_ == std::chrono::steady_clock::time_point{} ||
+        (now - last_map_publish_time_) >= kMapPublishInterval) {
+        status_hub_.publish_map_snapshot(map_service_.get_snapshot());
+        last_map_publish_time_ = now;
+    }
 }

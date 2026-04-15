@@ -87,7 +87,7 @@ int main(int argc, char** argv) {
         };
     });
 
-    status_stream_service.start(std::chrono::milliseconds(1000));
+    status_stream_service.start(std::chrono::milliseconds(100));
     (void) task_scheduler;
     (void) battery_watcher;
 

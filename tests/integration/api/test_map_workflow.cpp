@@ -35,9 +35,9 @@ class FakeMapAdapter : public IRobotAdapter {
     bool manual_move(double, double) override { return true; }
     Pose get_robot_pose() const override { return Pose{1.5, 2.5, 0.4}; }
     int get_battery() const override { return 80; }
-    RobotStatus get_robot_status() const override { return RobotStatus{80, false, true, true}; }
+    RobotStatus get_robot_status() const override { return RobotStatus{80, save_charge_state, true, true}; }
     MapSnapshot get_map_snapshot() const override { return MapSnapshot{4, 3, 0.05, {0, 100, -1, 0}, -1.0, -2.0}; }
-    bool is_charging() const override { return false; }
+    bool is_charging() const override { return save_charge_state; }
     bool create_current_pose_point(const std::string& name, long point_mode, PointRecord* point) override {
         ++create_current_pose_point_count;
         last_created_name = name;
@@ -88,6 +88,7 @@ class FakeMapAdapter : public IRobotAdapter {
     std::vector<PointRecord> native_points;
     bool fail_list_maps = false;
     bool return_stale_deleted_map = false;
+    bool save_charge_state = false;
 };
 
 int main() {
@@ -213,6 +214,36 @@ int main() {
     }
     if (!saw_charge || !saw_initial) {
         std::cerr << "expected auto-seed to create charge and initial points\n";
+        return EXIT_FAILURE;
+    }
+
+    auto save_seed_db = open_test_database();
+    run_migrations(save_seed_db);
+    PointRepository save_seed_repository(save_seed_db);
+    FakeMapAdapter save_seed_adapter;
+    save_seed_adapter.save_charge_state = true;
+    MapService save_seed_service(save_seed_adapter, &save_seed_repository);
+
+    if (!save_seed_service.start_mapping()) {
+        std::cerr << "expected mapping to start for save-seed test\n";
+        return EXIT_FAILURE;
+    }
+    if (!save_seed_service.save_map("charged_map")) {
+        std::cerr << "expected save_map to succeed for save-seed test\n";
+        return EXIT_FAILURE;
+    }
+
+    bool save_seed_has_charge = false;
+    bool save_seed_has_initial = false;
+    for (const auto& point : save_seed_repository.list_points()) {
+        if (point.type == "charge") {
+            save_seed_has_charge = true;
+        } else if (point.type == "initial") {
+            save_seed_has_initial = true;
+        }
+    }
+    if (!save_seed_has_charge || !save_seed_has_initial) {
+        std::cerr << "expected save_map while charging to backfill charge and initial points\n";
         return EXIT_FAILURE;
     }
 

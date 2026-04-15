@@ -71,9 +71,20 @@ int main() {
     }
 
     if (published[0].find("\"type\":\"system_snapshot\"") == std::string::npos ||
-        published[1].find("\"type\":\"map_snapshot\"") == std::string::npos ||
-        published[2].find("\"type\":\"robot_pose\"") == std::string::npos) {
-        std::cerr << "expected system/map/pose push order\n";
+        published[1].find("\"type\":\"robot_pose\"") == std::string::npos) {
+        std::cerr << "expected system and pose updates to publish immediately\n";
+        return EXIT_FAILURE;
+    }
+
+    bool saw_map_snapshot = false;
+    for (const auto& message : published) {
+        if (message.find("\"type\":\"map_snapshot\"") != std::string::npos) {
+            saw_map_snapshot = true;
+            break;
+        }
+    }
+    if (!saw_map_snapshot) {
+        std::cerr << "expected throttled map snapshot updates to still be published\n";
         return EXIT_FAILURE;
     }
 

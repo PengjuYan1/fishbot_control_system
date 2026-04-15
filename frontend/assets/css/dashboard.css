@@ -520,6 +520,11 @@
   opacity: 0.92;
 }
 
+.map-points-layer {
+  position: absolute;
+  inset: 0;
+}
+
 .robot-marker {
   position: absolute;
   width: 18px;
