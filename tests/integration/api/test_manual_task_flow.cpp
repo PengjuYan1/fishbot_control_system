@@ -29,6 +29,10 @@ class FakeTaskAdapter : public IRobotAdapter {
         return ManualControlAcquireResult{true, ManualControlAcquireState::kReady};
     }
     bool out_of_charge() override { return true; }
+    bool go_charge() override {
+        ++go_charge_count;
+        return true;
+    }
     bool manual_move(double, double) override { return true; }
     Pose get_robot_pose() const override { return {}; }
     int get_battery() const override { return 80; }
@@ -45,6 +49,7 @@ class FakeTaskAdapter : public IRobotAdapter {
 
     Pose last_goal;
     bool navigation_requested = false;
+    int go_charge_count = 0;
     std::vector<PointRecord> native_points;
 };
 
@@ -52,7 +57,8 @@ int main() {
     auto db = open_test_database();
     run_migrations(db);
     PointRepository point_repository(db);
-    point_repository.insert_point(PointRecord{0, "F1", "feed", 3.0, 4.0, 1.0, 2, 12, 22});
+    const int feed_id =
+        point_repository.insert_point(PointRecord{0, "F1", "feed", 3.0, 4.0, 1.0, 2, 12, 22});
 
     FakeTaskAdapter adapter;
     adapter.native_points.push_back(PointRecord{0, "C1", "charge", 1.0, 2.0, 0.0, 1, 11, 21});
@@ -86,21 +92,39 @@ int main() {
         return EXIT_FAILURE;
     }
 
-    const auto charge_response = server.handle_post("/api/tasks/go-charge", "");
-    if (charge_response.status != 200) {
-        std::cerr << "expected successful go-charge response\n";
+    const auto navigate_point_response = server.handle_post(
+        "/api/tasks/navigate-point", std::string("id=") + std::to_string(feed_id));
+    if (navigate_point_response.status != 200) {
+        std::cerr << "expected successful navigate-point response\n";
         return EXIT_FAILURE;
     }
 
-    if (charge_response.body.find("\"status\":\"charging\"") == std::string::npos ||
+    if (navigate_point_response.body.find("\"status\":\"navigating\"") == std::string::npos ||
+        navigate_point_response.body.find("\"current_target_name\":\"F1\"") == std::string::npos) {
+        std::cerr << "expected selected saved point to become current target\n";
+        return EXIT_FAILURE;
+    }
+
+    const auto charge_response = server.handle_post("/api/tasks/self-charge", "");
+    if (charge_response.status != 200) {
+        std::cerr << "expected successful self-charge response\n";
+        return EXIT_FAILURE;
+    }
+
+    if (charge_response.body.find("\"status\":\"self_charging_nav\"") == std::string::npos ||
         charge_response.body.find("\"current_target_name\":\"C1\"") == std::string::npos) {
-        std::cerr << "expected charge point to become current target\n";
+        std::cerr << "expected self-charge to target the configured charge point\n";
         return EXIT_FAILURE;
     }
 
     if (adapter.last_goal.x != 1.0 || adapter.last_goal.y != 2.0 ||
         adapter.last_goal.floor_id != 1 || adapter.last_goal.map_id != 11 || adapter.last_goal.point_id != 21) {
-        std::cerr << "expected go-charge to navigate to configured charge point\n";
+        std::cerr << "expected self-charge to navigate to configured charge point\n";
+        return EXIT_FAILURE;
+    }
+
+    if (adapter.go_charge_count != 0) {
+        std::cerr << "expected self-charge flow to avoid vendor autocharge publish\n";
         return EXIT_FAILURE;
     }
 

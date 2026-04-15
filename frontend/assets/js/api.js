@@ -187,6 +187,17 @@ window.fishbotApi = {
   async startTask() {
     return requestJson('/api/tasks/start', { method: 'POST', body: '' });
   },
+  async navigateToPoint(id) {
+    const body = new URLSearchParams({ id: String(id) }).toString();
+    return requestJson('/api/tasks/navigate-point', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body,
+    });
+  },
+  async startSelfCharge() {
+    return requestJson('/api/tasks/self-charge', { method: 'POST', body: '' });
+  },
   async goCharge() {
     return requestJson('/api/tasks/go-charge', { method: 'POST', body: '' });
   },

@@ -1,11 +1,16 @@
 #include <cstdlib>
+#include <chrono>
 #include <iostream>
 #include <string>
+#include <thread>
 
 #include "backend/api/MapController.h"
 #include "backend/app/AppServer.h"
+#include "backend/model/SystemSnapshot.h"
 #include "backend/services/MapService.h"
 #include "ros_adapter/IRobotAdapter.h"
+#include "storage/Database.h"
+#include "storage/repositories/PointRepository.h"
 
 class FakeMapAdapter : public IRobotAdapter {
   public:
@@ -28,11 +33,33 @@ class FakeMapAdapter : public IRobotAdapter {
     }
     bool out_of_charge() override { return true; }
     bool manual_move(double, double) override { return true; }
-    Pose get_robot_pose() const override { return {}; }
+    Pose get_robot_pose() const override { return Pose{1.5, 2.5, 0.4}; }
     int get_battery() const override { return 80; }
     RobotStatus get_robot_status() const override { return RobotStatus{80, false, true, true}; }
     MapSnapshot get_map_snapshot() const override { return MapSnapshot{4, 3, 0.05, {0, 100, -1, 0}, -1.0, -2.0}; }
     bool is_charging() const override { return false; }
+    bool create_current_pose_point(const std::string& name, long point_mode, PointRecord* point) override {
+        ++create_current_pose_point_count;
+        last_created_name = name;
+        last_point_mode = point_mode;
+        if (point != nullptr) {
+            point->name = name;
+            point->x = 1.5;
+            point->y = 2.5;
+            point->theta = 0.4;
+            point->floor_id = 1;
+            point->map_id = 11;
+            point->point_id = point_mode == 1 ? 101 : 0;
+        }
+        return true;
+    }
+    bool list_native_points(std::vector<PointRecord>* points) override {
+        if (points == nullptr) {
+            return false;
+        }
+        *points = native_points;
+        return true;
+    }
     bool list_maps(std::vector<MapDescriptor>* maps) override {
         if (maps == nullptr) {
             return false;
@@ -54,6 +81,10 @@ class FakeMapAdapter : public IRobotAdapter {
     long deleted_floor = 0;
     long deleted_map = 0;
     std::string loaded_selector;
+    int create_current_pose_point_count = 0;
+    long last_point_mode = -1;
+    std::string last_created_name;
+    std::vector<PointRecord> native_points;
 };
 
 int main() {
@@ -113,6 +144,49 @@ int main() {
         adapter.deleted_map != 11 ||
         delete_map_response.body.find("\"status\":\"deleted\"") == std::string::npos) {
         std::cerr << "expected successful delete-map response\n";
+        return EXIT_FAILURE;
+    }
+
+    auto point_db = open_test_database();
+    run_migrations(point_db);
+    PointRepository point_repository(point_db);
+    MapService seeded_service(adapter, &point_repository);
+
+    if (!seeded_service.start_mapping()) {
+        std::cerr << "expected mapping to start for auto-seed test\n";
+        return EXIT_FAILURE;
+    }
+
+    SystemSnapshot snapshot;
+    snapshot.charging = true;
+    snapshot.control.charge_status_code = 47;
+    seeded_service.observe_system_snapshot(snapshot);
+
+    std::vector<PointRecord> points;
+    for (int retry = 0; retry < 50; ++retry) {
+        points = point_repository.list_points();
+        if (points.size() >= 2) {
+            break;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(20));
+    }
+
+    if (adapter.create_current_pose_point_count != 1 || adapter.last_point_mode != 1) {
+        std::cerr << "expected charging during mapping to auto-create one charge point\n";
+        return EXIT_FAILURE;
+    }
+
+    bool saw_charge = false;
+    bool saw_initial = false;
+    for (const auto& point : points) {
+        if (point.type == "charge") {
+            saw_charge = true;
+        } else if (point.type == "initial") {
+            saw_initial = true;
+        }
+    }
+    if (!saw_charge || !saw_initial) {
+        std::cerr << "expected auto-seed to create charge and initial points\n";
         return EXIT_FAILURE;
     }
 

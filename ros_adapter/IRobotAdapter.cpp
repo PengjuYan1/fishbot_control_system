@@ -22,6 +22,7 @@ std::vector<std::string> describe_adapter_contract() {
         "get_robot_status",
         "get_map_snapshot",
         "is_charging",
+        "get_latest_laser_scan",
         "create_current_pose_point",
         "list_native_points",
         "list_maps",

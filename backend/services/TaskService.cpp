@@ -1,6 +1,7 @@
 #include "backend/services/TaskService.h"
 
 #include <chrono>
+#include <cmath>
 #include <optional>
 #include <sstream>
 #include <stdexcept>
@@ -42,6 +43,111 @@ std::optional<PointRecord> find_point_by_type(const std::vector<PointRecord>& po
     }
     return fallback;
 }
+
+double normalize_angle(double value) {
+    constexpr double kPi = 3.14159265358979323846;
+    while (value > kPi) {
+        value -= 2.0 * kPi;
+    }
+    while (value < -kPi) {
+        value += 2.0 * kPi;
+    }
+    return value;
+}
+
+double clamp(double value, double minimum, double maximum) {
+    if (value < minimum) {
+        return minimum;
+    }
+    if (value > maximum) {
+        return maximum;
+    }
+    return value;
+}
+
+bool charge_detected(const RobotStatus& status) {
+    if (status.charging) {
+        return true;
+    }
+
+    switch (status.charge_status_code) {
+        case 45:
+        case 46:
+        case 47:
+        case 48:
+            return true;
+        default:
+            return false;
+    }
+}
+
+long long steady_clock_millis() {
+    return std::chrono::duration_cast<std::chrono::milliseconds>(
+        std::chrono::steady_clock::now().time_since_epoch()).count();
+}
+
+bool scan_range_is_valid(const LaserScanSnapshot& scan, double value) {
+    if (!(value > 0.0) || !std::isfinite(value)) {
+        return false;
+    }
+    if (scan.range_min > 0.0 && value < scan.range_min) {
+        return false;
+    }
+    if (scan.range_max > 0.0 && value > scan.range_max) {
+        return false;
+    }
+    return true;
+}
+
+double average_scan_window(const LaserScanSnapshot& scan, double min_angle, double max_angle) {
+    if (scan.ranges.empty() || scan.angle_increment == 0.0) {
+        return -1.0;
+    }
+
+    double sum = 0.0;
+    int count = 0;
+    for (std::size_t index = 0; index < scan.ranges.size(); ++index) {
+        const double angle = scan.angle_min + scan.angle_increment * static_cast<double>(index);
+        if (angle < min_angle || angle > max_angle) {
+            continue;
+        }
+
+        const double range = scan.ranges[index];
+        if (!scan_range_is_valid(scan, range)) {
+            continue;
+        }
+
+        sum += range;
+        ++count;
+    }
+
+    if (count == 0) {
+        return -1.0;
+    }
+    return sum / static_cast<double>(count);
+}
+
+struct DockingScanAssist {
+    bool valid = false;
+    double front_distance = -1.0;
+    double left_distance = -1.0;
+    double right_distance = -1.0;
+    double balance_error = 0.0;
+};
+
+DockingScanAssist analyze_docking_scan(const LaserScanSnapshot& scan) {
+    DockingScanAssist assist;
+    assist.front_distance = average_scan_window(scan, -0.10, 0.10);
+    assist.right_distance = average_scan_window(scan, -0.45, -0.10);
+    assist.left_distance = average_scan_window(scan, 0.10, 0.45);
+    assist.valid = assist.front_distance > 0.0 &&
+        assist.left_distance > 0.0 &&
+        assist.right_distance > 0.0;
+    if (assist.valid) {
+        assist.balance_error = assist.left_distance - assist.right_distance;
+    }
+    return assist;
+}
 }  // namespace
 
 TaskService::TaskService(IRobotAdapter& adapter, PointRepository& point_repository)
@@ -52,6 +158,10 @@ TaskService::TaskService(IRobotAdapter& adapter, PointRepository& point_reposito
     : adapter_(adapter),
       point_repository_(point_repository),
       task_run_repository_(task_run_repository) {}
+
+TaskService::~TaskService() {
+    stop_self_charge_worker();
+}
 
 TaskStartResult TaskService::start_manual_run() {
     return start_run("manual");
@@ -141,7 +251,95 @@ TaskStartResult TaskService::start_charge_return() {
     throw std::runtime_error("charge_return_failed");
 }
 
+TaskStartResult TaskService::start_navigation_to_point(int point_id) {
+    stop_self_charge_worker();
+    sync_native_points_if_supported(adapter_, point_repository_);
+
+    const auto point = point_repository_.find_point(point_id);
+    if (!point.has_value()) {
+        throw std::runtime_error("point_not_found");
+    }
+
+    navigate_to_point(*point);
+    update_current_task("navigating", point->name);
+    last_trigger_type_ = "navigate_point";
+    return current_task_;
+}
+
+TaskStartResult TaskService::start_self_charge() {
+    stop_self_charge_worker();
+    const auto generation = self_charge_generation_.fetch_add(1) + 1;
+    sync_native_points_if_supported(adapter_, point_repository_);
+
+    const auto all_points = point_repository_.list_points();
+    std::optional<PointRecord> charge_point;
+    try { charge_point = find_charge_point(); } catch (const std::runtime_error&) {}
+
+    const auto initial_point = find_point_by_type(all_points, "initial");
+    auto status_before_return = adapter_.get_robot_status();
+
+    if (!status_before_return.localized) {
+        std::optional<PointRecord> relocalization_point;
+        if (status_before_return.charging && charge_point.has_value()) {
+            relocalization_point = charge_point;
+        } else if (initial_point.has_value()) {
+            relocalization_point = initial_point;
+        } else if (charge_point.has_value()) {
+            relocalization_point = charge_point;
+        }
+
+        if (relocalization_point.has_value()) {
+            try_load_map_for_point(adapter_, relocalization_point, true);
+            Pose initial_pose;
+            initial_pose.x = relocalization_point->x;
+            initial_pose.y = relocalization_point->y;
+            initial_pose.theta = relocalization_point->theta;
+            initial_pose.floor_id = relocalization_point->floor_id;
+            initial_pose.map_id = relocalization_point->map_id;
+            initial_pose.point_id = relocalization_point->point_id;
+
+            bool relocation_sent = adapter_.set_relocation(initial_pose);
+            if (!relocation_sent) {
+                relocation_sent = adapter_.set_initial_pose(initial_pose);
+            }
+
+            if (relocation_sent) {
+                for (int attempt = 0; attempt < 8; ++attempt) {
+                    std::this_thread::sleep_for(std::chrono::milliseconds(80));
+                    status_before_return = adapter_.get_robot_status();
+                    if (status_before_return.localized) {
+                        break;
+                    }
+                }
+            } else {
+                status_before_return = adapter_.get_robot_status();
+            }
+        }
+
+        if (!status_before_return.localized) {
+            throw std::runtime_error("not_localized_for_charge_return");
+        }
+    }
+
+    if (!charge_point.has_value()) {
+        throw std::runtime_error("no_charge_point_configured");
+    }
+
+    try_load_map_for_point(adapter_, charge_point, !status_before_return.localized);
+    navigate_to_point(*charge_point);
+    update_current_task("self_charging_nav", charge_point->name);
+    last_trigger_type_ = "self_charge";
+    self_charge_phase_ = SelfChargePhase::kNavigating;
+    self_charge_thread_ = std::thread([this, charge_point = *charge_point, generation]() {
+        run_self_charge_loop(charge_point, generation);
+    });
+    return current_task_;
+}
+
+void TaskService::observe_system_snapshot(const SystemSnapshot&) {}
+
 TaskStartResult TaskService::current_task() const {
+    std::lock_guard<std::mutex> lock(current_task_mutex_);
     return current_task_;
 }
 
@@ -163,8 +361,7 @@ TaskStartResult TaskService::start_run(const std::string& trigger_type) {
         throw std::runtime_error("task_transition_failed");
     }
 
-    current_task_.status = "running";
-    current_task_.current_target_name = target_point.name;
+    update_current_task("running", target_point.name);
     last_trigger_type_ = trigger_type;
     if (task_run_repository_ != nullptr) {
         active_run_id_ = task_run_repository_->insert_run(trigger_type, "running");
@@ -178,8 +375,7 @@ void TaskService::complete_current_feed_point() {
     }
 
     if (current_feed_index_ + 1 >= feed_points_.size()) {
-        current_task_.status = "completed";
-        current_task_.current_target_name.clear();
+        update_current_task("completed", "");
         if (task_run_repository_ != nullptr && active_run_id_ != 0) {
             task_run_repository_->update_status(active_run_id_, "completed");
             task_run_repository_->update_resume_context(active_run_id_, "");
@@ -189,12 +385,11 @@ void TaskService::complete_current_feed_point() {
 
     ++current_feed_index_;
     navigate_to_point(feed_points_.at(current_feed_index_));
-    current_task_.status = "running";
-    current_task_.current_target_name = feed_points_.at(current_feed_index_).name;
+    update_current_task("running", feed_points_.at(current_feed_index_).name);
 }
 
 void TaskService::interrupt_for_low_battery() {
-    current_task_.status = "charging";
+    update_current_task("charging", current_task().current_target_name);
     adapter_.stop_navigation();
 
     if (task_run_repository_ != nullptr && active_run_id_ != 0) {
@@ -205,23 +400,20 @@ void TaskService::interrupt_for_low_battery() {
 
 void TaskService::on_charge_completed(bool resume_after_charge) {
     if (!resume_after_charge || task_run_repository_ == nullptr || active_run_id_ == 0) {
-        current_task_.status = "waiting_manual_start";
-        current_task_.current_target_name.clear();
+        update_current_task("waiting_manual_start", "");
         return;
     }
 
     const auto latest_run = task_run_repository_->latest_run();
     const auto remaining_names = parse_remaining_point_names(latest_run.resume_context_json);
     if (remaining_names.empty()) {
-        current_task_.status = "waiting_manual_start";
-        current_task_.current_target_name.clear();
+        update_current_task("waiting_manual_start", "");
         return;
     }
 
     current_feed_index_ = static_cast<std::size_t>(index_of_point_name(remaining_names.front()));
     navigate_to_point(feed_points_.at(current_feed_index_));
-    current_task_.status = "running";
-    current_task_.current_target_name = feed_points_.at(current_feed_index_).name;
+    update_current_task("running", feed_points_.at(current_feed_index_).name);
     task_run_repository_->update_status(active_run_id_, "running");
 }
 
@@ -276,6 +468,119 @@ void TaskService::navigate_to_point(const PointRecord& point) {
 
     if (!adapter_.navigate_to_pose(target_pose)) {
         throw std::runtime_error("navigation_start_failed");
+    }
+}
+
+void TaskService::update_current_task(const std::string& status, const std::string& target_name) {
+    std::lock_guard<std::mutex> lock(current_task_mutex_);
+    current_task_.status = status;
+    current_task_.current_target_name = target_name;
+}
+
+void TaskService::run_self_charge_loop(PointRecord charge_point, std::uint64_t generation) {
+    constexpr int kNavigationPollMs = 150;
+    constexpr int kDockingStepMs = 120;
+    constexpr int kDockingStepsPerAttempt = 40;
+    constexpr int kDockingAttempts = 2;
+    constexpr double kLinearSpeed = 0.05;
+    constexpr double kAngularGain = 0.8;
+    constexpr double kScanAngularGain = 1.1;
+    constexpr double kAngularLimit = 0.25;
+    constexpr double kAngleOnlyThreshold = 0.14;
+    constexpr long long kScanFreshnessMs = 1200;
+
+    for (;;) {
+        if (self_charge_generation_.load() != generation) {
+            return;
+        }
+
+        const auto status = adapter_.get_robot_status();
+        if (charge_detected(status)) {
+            adapter_.stop_navigation();
+            self_charge_phase_ = SelfChargePhase::kCharging;
+            update_current_task("charging", charge_point.name);
+            return;
+        }
+
+        if (status.navigation_status_code == 8 || status.navigation_status_code == 51 ||
+            status.navigation_status_code == 84 || status.navigation_status_code == 87) {
+            self_charge_phase_ = SelfChargePhase::kFailed;
+            update_current_task("self_charge_failed", charge_point.name);
+            return;
+        }
+
+        if (status.navigation_status_code == 2) {
+            break;
+        }
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(kNavigationPollMs));
+    }
+
+    adapter_.stop_navigation();
+    self_charge_phase_ = SelfChargePhase::kDocking;
+    update_current_task("self_charging_docking", charge_point.name);
+
+    for (int attempt = 0; attempt < kDockingAttempts; ++attempt) {
+        for (int step = 0; step < kDockingStepsPerAttempt; ++step) {
+            if (self_charge_generation_.load() != generation) {
+                return;
+            }
+
+            const auto status = adapter_.get_robot_status();
+            if (charge_detected(status)) {
+                self_charge_phase_ = SelfChargePhase::kCharging;
+                update_current_task("charging", charge_point.name);
+                (void) adapter_.manual_move(0.0, 0.0);
+                return;
+            }
+
+            const auto pose = adapter_.get_robot_pose();
+            double angle_error = normalize_angle(charge_point.theta - pose.theta);
+            double angular_speed = clamp(angle_error * kAngularGain, -kAngularLimit, kAngularLimit);
+            double linear_speed = std::abs(angle_error) > kAngleOnlyThreshold ? 0.0 : kLinearSpeed;
+
+            LaserScanSnapshot scan;
+            if (adapter_.get_latest_laser_scan(&scan) &&
+                scan.received_steady_time_ms > 0 &&
+                steady_clock_millis() - scan.received_steady_time_ms <= kScanFreshnessMs) {
+                const auto assist = analyze_docking_scan(scan);
+                if (assist.valid) {
+                    angular_speed = clamp(
+                        angle_error * kAngularGain + assist.balance_error * kScanAngularGain,
+                        -kAngularLimit,
+                        kAngularLimit);
+                    if (assist.front_distance < 0.18) {
+                        linear_speed = std::abs(angular_speed) > 0.08 ? 0.0 : 0.02;
+                    } else if (assist.front_distance < 0.28) {
+                        linear_speed = std::abs(angular_speed) > 0.10 ? 0.0 : 0.03;
+                    } else {
+                        linear_speed = std::abs(angular_speed) > kAngleOnlyThreshold ? 0.0 : 0.05;
+                    }
+                }
+            }
+            (void) adapter_.manual_move(linear_speed, angular_speed);
+            std::this_thread::sleep_for(std::chrono::milliseconds(kDockingStepMs));
+        }
+
+        for (int reverse_step = 0; reverse_step < 6; ++reverse_step) {
+            if (self_charge_generation_.load() != generation) {
+                return;
+            }
+            (void) adapter_.manual_move(-0.04, 0.0);
+            std::this_thread::sleep_for(std::chrono::milliseconds(kDockingStepMs));
+        }
+    }
+
+    self_charge_phase_ = SelfChargePhase::kFailed;
+    update_current_task("self_charge_failed", charge_point.name);
+    (void) adapter_.manual_move(0.0, 0.0);
+}
+
+void TaskService::stop_self_charge_worker() {
+    self_charge_generation_.fetch_add(1);
+    self_charge_phase_ = SelfChargePhase::kIdle;
+    if (self_charge_thread_.joinable()) {
+        self_charge_thread_.join();
     }
 }
 

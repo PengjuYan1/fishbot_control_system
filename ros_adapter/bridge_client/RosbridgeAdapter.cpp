@@ -203,6 +203,40 @@ std::string extract_string_value(const std::string& payload, const std::string& 
     return "";
 }
 
+std::vector<double> extract_double_array(const std::string& payload, const std::string& key) {
+    const auto start = find_value_start(payload, key);
+    if (start == std::string::npos) {
+        return {};
+    }
+
+    const auto open = payload.find('[', start);
+    if (open == std::string::npos) {
+        return {};
+    }
+
+    const auto close = payload.find(']', open + 1);
+    if (close == std::string::npos || close <= open + 1) {
+        return {};
+    }
+
+    std::vector<double> values;
+    std::stringstream stream(payload.substr(open + 1, close - open - 1));
+    std::string item;
+    while (std::getline(stream, item, ',')) {
+        auto first = item.find_first_not_of(" \t\r\n");
+        if (first == std::string::npos) {
+            continue;
+        }
+        auto last = item.find_last_not_of(" \t\r\n");
+        item = item.substr(first, last - first + 1);
+        try {
+            values.push_back(std::stod(item));
+        } catch (const std::exception&) {
+        }
+    }
+    return values;
+}
+
 long extract_long_value_any(const std::string& payload, std::initializer_list<const char*> keys,
                             long default_value = 0) {
     for (const auto* key : keys) {
@@ -1101,6 +1135,14 @@ MapSnapshot RosbridgeAdapter::get_map_snapshot() const { return map_snapshot_; }
 
 bool RosbridgeAdapter::is_charging() const { return charging_; }
 
+bool RosbridgeAdapter::get_latest_laser_scan(LaserScanSnapshot* scan) const {
+    if (scan == nullptr || !has_laser_scan_) {
+        return false;
+    }
+    *scan = latest_laser_scan_;
+    return true;
+}
+
 bool RosbridgeAdapter::subscribe_status_topics() {
     if (transport_ == nullptr) {
         return false;
@@ -1108,7 +1150,7 @@ bool RosbridgeAdapter::subscribe_status_topics() {
 
     const auto available_topics = list_topics(transport_);
 
-    return subscribe_topic_with_aliases(
+    const bool required_subscriptions = subscribe_topic_with_aliases(
                transport_, available_topics, {"power_report", "/power_report"}, "std_msgs/Int16",
                [this](const std::string& payload) { handle_battery_message(payload); }) &&
         subscribe_topic_with_aliases(
@@ -1167,6 +1209,16 @@ bool RosbridgeAdapter::subscribe_status_topics() {
         subscribe_topic_with_aliases(
                transport_, available_topics, {"map_status", "/map_status"}, "std_msgs/Int16",
                [this](const std::string& payload) { handle_map_status_message(payload); });
+
+    if (!required_subscriptions) {
+        return false;
+    }
+
+    (void) subscribe_topic_with_aliases(
+        transport_, available_topics, {"scan", "/scan"}, "sensor_msgs/LaserScan",
+        [this](const std::string& payload) { handle_scan_message(payload); });
+
+    return true;
 }
 
 bool RosbridgeAdapter::publish_topic(const std::string& topic, const std::string& type,
@@ -1258,6 +1310,16 @@ void RosbridgeAdapter::handle_pose_message(const std::string& payload) {
     if (std::regex_search(payload, match, orientation_pattern)) {
         pose_.theta = quaternion_to_theta(std::stod(match[1].str()), std::stod(match[2].str()));
     }
+}
+
+void RosbridgeAdapter::handle_scan_message(const std::string& payload) {
+    latest_laser_scan_.angle_min = extract_double_value(payload, "angle_min");
+    latest_laser_scan_.angle_increment = extract_double_value(payload, "angle_increment");
+    latest_laser_scan_.range_min = extract_double_value(payload, "range_min", 0.0);
+    latest_laser_scan_.range_max = extract_double_value(payload, "range_max", 0.0);
+    latest_laser_scan_.ranges = extract_double_array(payload, "ranges");
+    latest_laser_scan_.received_steady_time_ms = steady_clock_millis();
+    has_laser_scan_ = !latest_laser_scan_.ranges.empty();
 }
 
 void RosbridgeAdapter::handle_map_message(const std::string& payload) {

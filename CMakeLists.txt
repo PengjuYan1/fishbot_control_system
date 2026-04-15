@@ -271,6 +271,14 @@ target_link_libraries(test_manual_task_flow PRIVATE fishbot_backend)
 add_test(NAME ManualTaskFlowTest COMMAND test_manual_task_flow)
 set_tests_properties(ManualTaskFlowTest PROPERTIES WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
 
+add_executable(test_self_charge_docking
+    tests/integration/api/test_self_charge_docking.cpp
+)
+target_link_libraries(test_self_charge_docking PRIVATE fishbot_backend)
+
+add_test(NAME SelfChargeDockingTest COMMAND test_self_charge_docking)
+set_tests_properties(SelfChargeDockingTest PROPERTIES WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+
 add_executable(test_schedule_trigger
     tests/integration/api/test_schedule_trigger.cpp
 )

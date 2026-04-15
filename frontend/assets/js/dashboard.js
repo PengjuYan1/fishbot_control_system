@@ -285,7 +285,10 @@ function renderPointListPanel() {
         <strong>${point.name}</strong>
         <span>${point.type === 'charge' ? '充电点' : point.type === 'initial' ? '初始点' : '投喂点'} · floor ${point.floor_id || 0} · map ${point.map_id || 0} · point ${point.point_id || 0}</span>
       </div>
-      <button type="button" class="point-delete-button" data-point-delete-id="${point.id}">删除</button>
+      <div class="map-item-actions">
+        <button type="button" class="map-enter-button" data-point-navigate-id="${point.id}" data-point-name="${point.name}">导航到此点</button>
+        <button type="button" class="point-delete-button" data-point-delete-id="${point.id}">删除</button>
+      </div>
     </div>
   `).join('');
 }
@@ -594,13 +597,13 @@ function bindControlButtons() {
   if (goChargeButton) {
     goChargeButton.addEventListener('click', async () => {
       try {
-        const result = await window.fishbotApi.goCharge();
-        const nextSnapshot = { ...window.fishbotStore.getState().system, charging: true, task: {
-          status: result.status || 'charging',
+        const result = await window.fishbotApi.startSelfCharge();
+        const nextSnapshot = { ...window.fishbotStore.getState().system, task: {
+          status: result.status || 'self_charging_nav',
           current_target: result.current_target_name || '',
         } };
         window.fishbotStore.setSystemSnapshot(nextSnapshot);
-        setActionFeedback('已发送回充指令。', 'success');
+        setActionFeedback('已启动自研回充：先导航到充电点，再低速靠桩。', 'success');
       } catch (error) {
         setActionFeedback(`回充失败：${formatError(error)}`, 'error');
       }
@@ -727,6 +730,28 @@ function bindControlButtons() {
 
   if (pointListPanel) {
     pointListPanel.addEventListener('click', async (event) => {
+      const navigateTarget = event.target instanceof Element ? event.target.closest('[data-point-navigate-id]') : null;
+      if (navigateTarget) {
+        const pointId = Number(navigateTarget.getAttribute('data-point-navigate-id') || 0);
+        const pointName = navigateTarget.getAttribute('data-point-name') || '';
+        if (!pointId) {
+          return;
+        }
+
+        try {
+          const result = await window.fishbotApi.navigateToPoint(pointId);
+          const nextSnapshot = { ...window.fishbotStore.getState().system, task: {
+            status: result.status || 'navigating',
+            current_target: result.current_target_name || pointName,
+          } };
+          window.fishbotStore.setSystemSnapshot(nextSnapshot);
+          setActionFeedback(`已开始导航到点位 ${result.current_target_name || pointName || pointId}。`, 'success');
+        } catch (error) {
+          setActionFeedback(`导航到点位失败：${formatError(error)}`, 'error');
+        }
+        return;
+      }
+
       const target = event.target instanceof Element ? event.target.closest('[data-point-delete-id]') : null;
       if (!target) {
         return;

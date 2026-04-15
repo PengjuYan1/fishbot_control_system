@@ -5,6 +5,7 @@
 #include <vector>
 
 #include "backend/model/PointRecord.h"
+#include "ros_adapter/model/LaserScanSnapshot.h"
 #include "ros_adapter/model/MapDescriptor.h"
 #include "ros_adapter/model/MapSnapshot.h"
 #include "ros_adapter/model/Pose.h"
@@ -49,6 +50,10 @@ class IRobotAdapter {
     virtual RobotStatus get_robot_status() const = 0;
     virtual MapSnapshot get_map_snapshot() const = 0;
     virtual bool is_charging() const = 0;
+    virtual bool get_latest_laser_scan(LaserScanSnapshot* scan) const {
+        (void) scan;
+        return false;
+    }
     virtual bool create_current_pose_point(const std::string& name, long point_mode, PointRecord* point) {
         (void) name;
         (void) point_mode;

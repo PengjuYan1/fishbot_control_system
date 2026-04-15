@@ -31,6 +31,7 @@ class RosbridgeAdapter : public IRobotAdapter {
     RobotStatus get_robot_status() const override;
     MapSnapshot get_map_snapshot() const override;
     bool is_charging() const override;
+    bool get_latest_laser_scan(LaserScanSnapshot* scan) const override;
     bool create_current_pose_point(const std::string& name, long point_mode, PointRecord* point) override;
     bool list_native_points(std::vector<PointRecord>* points) override;
     bool list_maps(std::vector<MapDescriptor>* maps) override;
@@ -56,6 +57,7 @@ class RosbridgeAdapter : public IRobotAdapter {
     void handle_out_of_charge_result_message(const std::string& payload);
     void handle_pose_message(const std::string& payload);
     void handle_map_message(const std::string& payload);
+    void handle_scan_message(const std::string& payload);
     void handle_map_status_message(const std::string& payload);
     void handle_android_map_status_message(const std::string& payload);
 
@@ -82,6 +84,8 @@ class RosbridgeAdapter : public IRobotAdapter {
     long long last_manual_takeover_command_ms_ = 0;
     Pose pose_;
     MapSnapshot map_snapshot_;
+    bool has_laser_scan_ = false;
+    LaserScanSnapshot latest_laser_scan_;
 };
 
 #endif
