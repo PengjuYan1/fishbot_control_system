@@ -62,10 +62,19 @@ class FakeCapabilityRosbridgeServer {
 
     void publish_live_snapshot(websocket::stream<tcp::socket>& ws) {
         write_message(ws, "{\"op\":\"publish\",\"topic\":\"power_report\",\"msg\":{\"data\":88}}");
+        write_message(ws, "{\"op\":\"publish\",\"topic\":\"/androidmsg_emergencystatus\",\"msg\":{\"data\":32}}");
+        write_message(ws, "{\"op\":\"publish\",\"topic\":\"/androidmsg_motorenabledstatus\",\"msg\":{\"data\":34}}");
         write_message(ws, "{\"op\":\"publish\",\"topic\":\"androidmsg_locationstatus\",\"msg\":{\"data\":10}}");
         write_message(ws, "{\"op\":\"publish\",\"topic\":\"androidmsg_chargestatus\",\"msg\":{\"data\":41}}");
         write_message(ws, "{\"op\":\"publish\",\"topic\":\"androidmsg_navigationstatus\",\"msg\":{\"data\":83}}");
+        write_message(ws, "{\"op\":\"publish\",\"topic\":\"/androidmsg_stm32status\",\"msg\":{\"data\":18}}");
+        write_message(ws, "{\"op\":\"publish\",\"topic\":\"/androidmsg_odomstatus\",\"msg\":{\"data\":20}}");
         write_message(ws, "{\"op\":\"publish\",\"topic\":\"motion_mode\",\"msg\":{\"data\":2}}");
+        write_message(ws, "{\"op\":\"publish\",\"topic\":\"/outofcharge_status\",\"msg\":{\"data\":1}}");
+        write_message(ws, "{\"op\":\"publish\",\"topic\":\"/reviceOutMachineSignal\",\"msg\":{\"data\":1}}");
+        write_message(ws, "{\"op\":\"publish\",\"topic\":\"/androidmsg_outofchargepoint\",\"msg\":{\"data\":50}}");
+        write_message(ws, "{\"op\":\"publish\",\"topic\":\"/androidmsg_mapstatus\",\"msg\":{\"data\":6}}");
+        write_message(ws, "{\"op\":\"publish\",\"topic\":\"/map_status\",\"msg\":{\"data\":7}}");
         write_message(ws, "{\"op\":\"publish\",\"topic\":\"/odom\",\"msg\":{\"header\":{\"frame_id\":\"odom\"},\"child_frame_id\":\"base_link\",\"pose\":{\"pose\":{\"position\":{\"x\":1.0,\"y\":2.0,\"z\":0.0},\"orientation\":{\"x\":0.0,\"y\":0.0,\"z\":0.0,\"w\":1.0}}},\"twist\":{\"twist\":{\"linear\":{\"x\":0.1,\"y\":0.0,\"z\":0.0},\"angular\":{\"x\":0.0,\"y\":0.0,\"z\":0.0}}}}");
         write_message(ws, "{\"op\":\"publish\",\"topic\":\"/tf\",\"msg\":{\"transforms\":[{\"header\":{\"frame_id\":\"map\"},\"child_frame_id\":\"odom\",\"transform\":{\"translation\":{\"x\":0.0,\"y\":0.0,\"z\":0.0},\"rotation\":{\"x\":0.0,\"y\":0.0,\"z\":0.0,\"w\":1.0}}}]}}");
         write_message(ws, "{\"op\":\"publish\",\"topic\":\"/tf_static\",\"msg\":{\"transforms\":[{\"header\":{\"frame_id\":\"base_link\"},\"child_frame_id\":\"laser\",\"transform\":{\"translation\":{\"x\":0.0,\"y\":0.0,\"z\":0.1},\"rotation\":{\"x\":0.0,\"y\":0.0,\"z\":0.0,\"w\":1.0}}}]}}");
@@ -108,7 +117,11 @@ class FakeCapabilityRosbridgeServer {
                             ws,
                             "/rosapi/topics",
                             "{\"topics\":[\"/cmd_vel\",\"/navi_stop\",\"autocharge\",\"outofcharge\",\"/initialpose\","
+                            "\"power_report\",\"/androidmsg_emergencystatus\",\"/androidmsg_motorenabledstatus\","
                             "\"androidmsg_locationstatus\",\"androidmsg_navigationstatus\",\"androidmsg_chargestatus\","
+                            "\"/androidmsg_stm32status\",\"/androidmsg_odomstatus\",\"motion_mode\","
+                            "\"/outofcharge_status\",\"/reviceOutMachineSignal\",\"/androidmsg_outofchargepoint\","
+                            "\"/androidmsg_mapstatus\",\"/map_status\","
                             "\"tracked_pose\",\"/map\",\"/odom\",\"/tf\",\"/tf_static\",\"/scan\","
                             "\"/velodyne_points\",\"/camera/depth/image_raw\",\"/camera/depth/camera_info\"]}",
                             id);
@@ -135,6 +148,13 @@ class FakeCapabilityRosbridgeServer {
                             values = "{\"type\":\"tf2_msgs/TFMessage\"}";
                         } else if (message.find("\"topic\":\"/tf\"") != std::string::npos) {
                             values = "{\"type\":\"tf2_msgs/TFMessage\"}";
+                        } else if (message.find("\"topic\":\"power_report\"") != std::string::npos ||
+                                   message.find("\"topic\":\"/androidmsg_") != std::string::npos ||
+                                   message.find("\"topic\":\"motion_mode\"") != std::string::npos ||
+                                   message.find("\"topic\":\"/outofcharge_status\"") != std::string::npos ||
+                                   message.find("\"topic\":\"/reviceOutMachineSignal\"") != std::string::npos ||
+                                   message.find("\"topic\":\"/map_status\"") != std::string::npos) {
+                            values = "{\"type\":\"std_msgs/Int16\"}";
                         }
                         write_service_response(
                             ws,
@@ -198,6 +218,13 @@ int main() {
         output.find("\"name\":\"tracked_pose\",\"topic_present\":true") == std::string::npos ||
         output.find("\"name\":\"map\",\"topic_present\":true") == std::string::npos ||
         output.find("\"navigation_streams_live\":5") == std::string::npos ||
+        output.find("\"name\":\"power_report\",\"topic_present\":true") == std::string::npos ||
+        output.find("\"name\":\"location_status\",\"topic_present\":true") == std::string::npos ||
+        output.find("\"name\":\"navigation_status\",\"topic_present\":true") == std::string::npos ||
+        output.find("\"name\":\"charge_status\",\"topic_present\":true") == std::string::npos ||
+        output.find("\"status_streams_live\":14") == std::string::npos ||
+        output.find("\"sample_data\":88") == std::string::npos ||
+        output.find("\"sample_data\":83") == std::string::npos ||
         output.find("\"battery\":88") == std::string::npos ||
         output.find("\"location_status_code\":10") == std::string::npos ||
         output.find("\"navigation_status_code\":83") == std::string::npos) {
