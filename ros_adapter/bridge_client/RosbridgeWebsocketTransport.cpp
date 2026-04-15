@@ -151,10 +151,13 @@ bool RosbridgeWebsocketTransport::connect() {
         tcp::resolver resolver(*io_context_);
         auto endpoints = resolver.resolve(host_, std::to_string(port_));
 
-        websocket_ = std::make_unique<WebsocketStream>(*io_context_);
-        boost::beast::get_lowest_layer(*websocket_).connect(endpoints);
-        websocket_->handshake(host_ + ":" + std::to_string(port_), path_);
-        websocket_->text(true);
+        {
+            std::lock_guard<std::mutex> websocket_lock(websocket_mutex_);
+            websocket_ = std::make_unique<WebsocketStream>(*io_context_);
+            boost::beast::get_lowest_layer(*websocket_).connect(endpoints);
+            websocket_->handshake(host_ + ":" + std::to_string(port_), path_);
+            websocket_->text(true);
+        }
         stop_requested_ = false;
         connected_ = true;
         worker_thread_ = std::thread([this]() { worker_loop(); });
@@ -193,13 +196,16 @@ void RosbridgeWebsocketTransport::disconnect() {
     connected_ = false;
     queue_cv_.notify_all();
 
-    if (websocket_ != nullptr) {
-        boost::system::error_code ec;
-        websocket_->close(boost::beast::websocket::close_code::normal, ec);
-    }
-
     if (worker_thread_.joinable()) {
         worker_thread_.join();
+    }
+
+    {
+        std::lock_guard<std::mutex> websocket_lock(websocket_mutex_);
+        if (websocket_ != nullptr) {
+            boost::system::error_code ec;
+            websocket_->close(boost::beast::websocket::close_code::normal, ec);
+        }
     }
 
     std::lock_guard<std::mutex> lock(connection_mutex_);
@@ -321,7 +327,10 @@ void RosbridgeWebsocketTransport::worker_loop() {
 
         if (outbound != nullptr) {
             try {
-                websocket_->write(asio::buffer(outbound->payload));
+                {
+                    std::lock_guard<std::mutex> websocket_lock(websocket_mutex_);
+                    websocket_->write(asio::buffer(outbound->payload));
+                }
                 {
                     std::lock_guard<std::mutex> lock(outbound->mutex);
                     outbound->done = true;
@@ -343,7 +352,11 @@ void RosbridgeWebsocketTransport::worker_loop() {
 
         try {
             boost::system::error_code ec;
-            const auto available = websocket_->next_layer().socket().available(ec);
+            std::size_t available = 0;
+            {
+                std::lock_guard<std::mutex> websocket_lock(websocket_mutex_);
+                available = websocket_->next_layer().socket().available(ec);
+            }
             if (ec) {
                 stop_requested_ = true;
                 connected_ = false;
@@ -354,7 +367,10 @@ void RosbridgeWebsocketTransport::worker_loop() {
             }
 
             boost::beast::flat_buffer buffer;
-            websocket_->read(buffer);
+            {
+                std::lock_guard<std::mutex> websocket_lock(websocket_mutex_);
+                websocket_->read(buffer);
+            }
             handle_incoming_message(boost::beast::buffers_to_string(buffer.data()));
         } catch (const std::exception&) {
             stop_requested_ = true;

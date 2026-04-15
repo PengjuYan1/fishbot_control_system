@@ -718,7 +718,6 @@ int main(int argc, char** argv) {
               << "}"
               << "}"
               << "}\n";
-
-    adapter.disconnect();
-    return EXIT_SUCCESS;
+    std::cout.flush();
+    std::_Exit(EXIT_SUCCESS);
 }

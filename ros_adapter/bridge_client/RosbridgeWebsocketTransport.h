@@ -65,6 +65,7 @@ class RosbridgeWebsocketTransport : public IRosbridgeTransport {
     std::atomic<std::uint64_t> request_counter_{0};
 
     mutable std::mutex connection_mutex_;
+    std::mutex websocket_mutex_;
     std::mutex queue_mutex_;
     std::condition_variable queue_cv_;
     std::queue<std::shared_ptr<OutboundFrame>> outbound_frames_;

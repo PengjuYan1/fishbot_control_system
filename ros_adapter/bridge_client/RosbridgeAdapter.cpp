@@ -523,16 +523,35 @@ bool subscribe_topic_with_aliases(IRosbridgeTransport* transport, const std::set
     }
 
     const auto resolved = resolve_topic_alias(available_topics, aliases);
+    std::set<std::string> subscribe_targets;
     if (!resolved.empty()) {
-        return transport->subscribe(resolved, type, std::move(callback));
+        subscribe_targets.insert(resolved);
+        if (!resolved.empty() && resolved.front() == '/') {
+            subscribe_targets.insert(resolved.substr(1));
+        } else if (!resolved.empty()) {
+            subscribe_targets.insert(std::string("/") + resolved);
+        }
     }
 
-    bool subscribed = false;
     for (const auto* alias : aliases) {
         if (alias == nullptr) {
             continue;
         }
-        if (transport->subscribe(alias, type, callback)) {
+        subscribe_targets.insert(alias);
+        const std::string name(alias);
+        if (!name.empty() && name.front() == '/') {
+            subscribe_targets.insert(name.substr(1));
+        } else if (!name.empty()) {
+            subscribe_targets.insert(std::string("/") + name);
+        }
+    }
+
+    bool subscribed = false;
+    for (const auto& target : subscribe_targets) {
+        if (target.empty()) {
+            continue;
+        }
+        if (transport->subscribe(target, type, callback)) {
             subscribed = true;
         }
     }
