@@ -3,8 +3,10 @@
 #include <chrono>
 #include <cctype>
 #include <cmath>
+#include <functional>
 #include <initializer_list>
 #include <regex>
+#include <set>
 #include <sstream>
 #include <utility>
 #include <string>
@@ -343,6 +345,53 @@ std::vector<std::string> extract_object_array_any(const std::string& payload,
     return {};
 }
 
+std::vector<std::string> extract_string_array(const std::string& payload, const std::string& key) {
+    auto pos = find_value_start(payload, key);
+    if (pos == std::string::npos || pos >= payload.size() || payload[pos] != '[') {
+        return {};
+    }
+    ++pos;
+
+    std::vector<std::string> values;
+    while (pos < payload.size()) {
+        while (pos < payload.size() &&
+               (std::isspace(static_cast<unsigned char>(payload[pos])) != 0 || payload[pos] == ',')) {
+            ++pos;
+        }
+        if (pos >= payload.size() || payload[pos] == ']') {
+            break;
+        }
+        if (payload[pos] != '"') {
+            while (pos < payload.size() && payload[pos] != ',' && payload[pos] != ']') {
+                ++pos;
+            }
+            continue;
+        }
+
+        ++pos;
+        std::string value;
+        bool escaped = false;
+        while (pos < payload.size()) {
+            const char ch = payload[pos++];
+            if (escaped) {
+                value += ch;
+                escaped = false;
+                continue;
+            }
+            if (ch == '\\') {
+                escaped = true;
+                continue;
+            }
+            if (ch == '"') {
+                break;
+            }
+            value += ch;
+        }
+        values.push_back(value);
+    }
+    return values;
+}
+
 double quaternion_to_theta(double z, double w) {
     return std::atan2(2.0 * w * z, 1.0 - 2.0 * z * z);
 }
@@ -421,6 +470,73 @@ std::string unwrap_maps_payload(const std::string& payload) {
         maps_json = payload;
     }
     return maps_json;
+}
+
+std::set<std::string> list_topics(IRosbridgeTransport* transport) {
+    if (transport == nullptr) {
+        return {};
+    }
+
+    std::string response;
+    if (!transport->call_service("/rosapi/topics", "rosapi/Topics", "{}", &response) &&
+        !transport->call_service("rosapi/topics", "rosapi/Topics", "{}", &response)) {
+        return {};
+    }
+
+    std::set<std::string> topics;
+    for (const auto& topic : extract_string_array(response, "topics")) {
+        topics.insert(topic);
+    }
+    return topics;
+}
+
+std::string resolve_topic_alias(const std::set<std::string>& available_topics,
+                                std::initializer_list<const char*> aliases) {
+    for (const auto* alias : aliases) {
+        if (alias == nullptr) {
+            continue;
+        }
+        const std::string name(alias);
+        if (available_topics.find(name) != available_topics.end()) {
+            return name;
+        }
+        if (!name.empty() && name.front() == '/') {
+            const auto stripped = name.substr(1);
+            if (available_topics.find(stripped) != available_topics.end()) {
+                return stripped;
+            }
+        } else {
+            const auto with_slash = std::string("/") + name;
+            if (available_topics.find(with_slash) != available_topics.end()) {
+                return with_slash;
+            }
+        }
+    }
+    return "";
+}
+
+bool subscribe_topic_with_aliases(IRosbridgeTransport* transport, const std::set<std::string>& available_topics,
+                                  std::initializer_list<const char*> aliases, const std::string& type,
+                                  IRosbridgeTransport::MessageCallback callback) {
+    if (transport == nullptr) {
+        return false;
+    }
+
+    const auto resolved = resolve_topic_alias(available_topics, aliases);
+    if (!resolved.empty()) {
+        return transport->subscribe(resolved, type, std::move(callback));
+    }
+
+    bool subscribed = false;
+    for (const auto* alias : aliases) {
+        if (alias == nullptr) {
+            continue;
+        }
+        if (transport->subscribe(alias, type, callback)) {
+            subscribed = true;
+        }
+    }
+    return subscribed;
 }
 
 std::vector<MapDescriptor> parse_map_descriptors(const std::string& payload) {
@@ -971,37 +1087,66 @@ bool RosbridgeAdapter::subscribe_status_topics() {
         return false;
     }
 
-    return transport_->subscribe("power_report", "std_msgs/Int16",
+    const auto available_topics = list_topics(transport_);
+
+    return subscribe_topic_with_aliases(
+               transport_, available_topics, {"power_report", "/power_report"}, "std_msgs/Int16",
                [this](const std::string& payload) { handle_battery_message(payload); }) &&
-        transport_->subscribe("androidmsg_emergencystatus", "std_msgs/Int16",
+        subscribe_topic_with_aliases(
+               transport_, available_topics,
+               {"androidmsg_emergencystatus", "/androidmsg_emergencystatus"}, "std_msgs/Int16",
                [this](const std::string& payload) { handle_emergency_message(payload); }) &&
-        transport_->subscribe("androidmsg_motorenabledstatus", "std_msgs/Int16",
+        subscribe_topic_with_aliases(
+               transport_, available_topics,
+               {"androidmsg_motorenabledstatus", "/androidmsg_motorenabledstatus"}, "std_msgs/Int16",
                [this](const std::string& payload) { handle_motor_lock_message(payload); }) &&
-        transport_->subscribe("androidmsg_chargestatus", "std_msgs/Int16",
+        subscribe_topic_with_aliases(
+               transport_, available_topics,
+               {"androidmsg_chargestatus", "/androidmsg_chargestatus"}, "std_msgs/Int16",
                [this](const std::string& payload) { handle_charge_message(payload); }) &&
-        transport_->subscribe("androidmsg_stm32status", "std_msgs/Int16",
+        subscribe_topic_with_aliases(
+               transport_, available_topics,
+               {"androidmsg_stm32status", "/androidmsg_stm32status"}, "std_msgs/Int16",
                [this](const std::string& payload) { handle_stm32_message(payload); }) &&
-        transport_->subscribe("androidmsg_odomstatus", "std_msgs/Int16",
+        subscribe_topic_with_aliases(
+               transport_, available_topics,
+               {"androidmsg_odomstatus", "/androidmsg_odomstatus"}, "std_msgs/Int16",
                [this](const std::string& payload) { handle_odom_message(payload); }) &&
-        transport_->subscribe("motion_mode", "std_msgs/Int16",
+        subscribe_topic_with_aliases(
+               transport_, available_topics, {"motion_mode", "/motion_mode"}, "std_msgs/Int16",
                [this](const std::string& payload) { handle_motion_mode_message(payload); }) &&
-        transport_->subscribe("outofcharge_status", "std_msgs/Int16",
+        subscribe_topic_with_aliases(
+               transport_, available_topics, {"outofcharge_status", "/outofcharge_status"}, "std_msgs/Int16",
                [this](const std::string& payload) { handle_out_of_charge_status_message(payload); }) &&
-        transport_->subscribe("reviceOutMachineSignal", "std_msgs/Int16",
+        subscribe_topic_with_aliases(
+               transport_, available_topics,
+               {"reviceOutMachineSignal", "/reviceOutMachineSignal"}, "std_msgs/Int16",
                [this](const std::string& payload) { handle_out_machine_signal_message(payload); }) &&
-        transport_->subscribe("androidmsg_outofchargepoint", "std_msgs/Int16",
+        subscribe_topic_with_aliases(
+               transport_, available_topics,
+               {"androidmsg_outofchargepoint", "/androidmsg_outofchargepoint"}, "std_msgs/Int16",
                [this](const std::string& payload) { handle_out_of_charge_result_message(payload); }) &&
-        transport_->subscribe("androidmsg_locationstatus", "std_msgs/Int16",
+        subscribe_topic_with_aliases(
+               transport_, available_topics,
+               {"androidmsg_locationstatus", "/androidmsg_locationstatus"}, "std_msgs/Int16",
                [this](const std::string& payload) { handle_location_message(payload); }) &&
-        transport_->subscribe("androidmsg_navigationstatus", "std_msgs/Int16",
+        subscribe_topic_with_aliases(
+               transport_, available_topics,
+               {"androidmsg_navigationstatus", "/androidmsg_navigationstatus"}, "std_msgs/Int16",
                [this](const std::string& payload) { handle_navigation_message(payload); }) &&
-        transport_->subscribe("tracked_pose", "geometry_msgs/PoseStamped",
+        subscribe_topic_with_aliases(
+               transport_, available_topics, {"tracked_pose", "/tracked_pose"},
+               "geometry_msgs/PoseStamped",
                [this](const std::string& payload) { handle_pose_message(payload); }) &&
-        transport_->subscribe("/map", "nav_msgs/OccupancyGrid",
+        subscribe_topic_with_aliases(
+               transport_, available_topics, {"/map", "map"}, "nav_msgs/OccupancyGrid",
                [this](const std::string& payload) { handle_map_message(payload); }) &&
-        transport_->subscribe("androidmsg_mapstatus", "std_msgs/Int16",
+        subscribe_topic_with_aliases(
+               transport_, available_topics, {"androidmsg_mapstatus", "/androidmsg_mapstatus"},
+               "std_msgs/Int16",
                [this](const std::string& payload) { handle_android_map_status_message(payload); }) &&
-        transport_->subscribe("map_status", "std_msgs/Int16",
+        subscribe_topic_with_aliases(
+               transport_, available_topics, {"map_status", "/map_status"}, "std_msgs/Int16",
                [this](const std::string& payload) { handle_map_status_message(payload); });
 }
 

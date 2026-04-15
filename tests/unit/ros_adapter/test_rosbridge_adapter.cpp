@@ -107,6 +107,14 @@ class FakeRosbridgeTransport : public IRosbridgeTransport {
 
 int main() {
     FakeRosbridgeTransport transport;
+    transport.set_service_response(
+        "/rosapi/topics",
+        "{\"topics\":[\"/power_report\",\"/androidmsg_emergencystatus\",\"/androidmsg_motorenabledstatus\","
+        "\"/androidmsg_chargestatus\",\"/androidmsg_stm32status\",\"/androidmsg_odomstatus\","
+        "\"/motion_mode\",\"/outofcharge_status\",\"/reviceOutMachineSignal\","
+        "\"/androidmsg_outofchargepoint\",\"/androidmsg_locationstatus\","
+        "\"/androidmsg_navigationstatus\",\"/tracked_pose\",\"/map\",\"/androidmsg_mapstatus\","
+        "\"/map_status\"]}");
     RosbridgeAdapter adapter(&transport);
 
     if (!adapter.connect()) {
@@ -115,22 +123,22 @@ int main() {
     }
 
     const std::vector<std::string> expected_topics = {
-        "power_report",
-        "androidmsg_emergencystatus",
-        "androidmsg_motorenabledstatus",
-        "androidmsg_chargestatus",
-        "androidmsg_stm32status",
-        "androidmsg_odomstatus",
-        "motion_mode",
-        "outofcharge_status",
-        "reviceOutMachineSignal",
-        "androidmsg_outofchargepoint",
-        "androidmsg_locationstatus",
-        "androidmsg_navigationstatus",
-        "tracked_pose",
+        "/power_report",
+        "/androidmsg_emergencystatus",
+        "/androidmsg_motorenabledstatus",
+        "/androidmsg_chargestatus",
+        "/androidmsg_stm32status",
+        "/androidmsg_odomstatus",
+        "/motion_mode",
+        "/outofcharge_status",
+        "/reviceOutMachineSignal",
+        "/androidmsg_outofchargepoint",
+        "/androidmsg_locationstatus",
+        "/androidmsg_navigationstatus",
+        "/tracked_pose",
         "/map",
-        "androidmsg_mapstatus",
-        "map_status",
+        "/androidmsg_mapstatus",
+        "/map_status",
     };
 
     for (const auto& topic : expected_topics) {
@@ -140,19 +148,19 @@ int main() {
         }
     }
 
-    transport.emit("power_report", "{\"data\":67}");
-    transport.emit("androidmsg_emergencystatus", "{\"data\":31}");
-    transport.emit("androidmsg_motorenabledstatus", "{\"data\":33}");
-    transport.emit("androidmsg_locationstatus", "{\"data\":10}");
-    transport.emit("androidmsg_chargestatus", "{\"data\":45}");
-    transport.emit("androidmsg_stm32status", "{\"data\":17}");
-    transport.emit("androidmsg_odomstatus", "{\"data\":19}");
-    transport.emit("motion_mode", "{\"data\":1}");
-    transport.emit("outofcharge_status", "{\"data\":1}");
-    transport.emit("reviceOutMachineSignal", "{\"data\":1}");
-    transport.emit("androidmsg_outofchargepoint", "{\"data\":49}");
-    transport.emit("androidmsg_navigationstatus", "{\"data\":1}");
-    transport.emit("tracked_pose", "{\"pose\":{\"position\":{\"x\":1.5,\"y\":2.5,\"z\":0.0},\"orientation\":{\"x\":0.0,\"y\":0.0,\"z\":0.247404,\"w\":0.968912}}}");
+    transport.emit("/power_report", "{\"data\":67}");
+    transport.emit("/androidmsg_emergencystatus", "{\"data\":31}");
+    transport.emit("/androidmsg_motorenabledstatus", "{\"data\":33}");
+    transport.emit("/androidmsg_locationstatus", "{\"data\":10}");
+    transport.emit("/androidmsg_chargestatus", "{\"data\":45}");
+    transport.emit("/androidmsg_stm32status", "{\"data\":17}");
+    transport.emit("/androidmsg_odomstatus", "{\"data\":19}");
+    transport.emit("/motion_mode", "{\"data\":1}");
+    transport.emit("/outofcharge_status", "{\"data\":1}");
+    transport.emit("/reviceOutMachineSignal", "{\"data\":1}");
+    transport.emit("/androidmsg_outofchargepoint", "{\"data\":49}");
+    transport.emit("/androidmsg_navigationstatus", "{\"data\":1}");
+    transport.emit("/tracked_pose", "{\"pose\":{\"position\":{\"x\":1.5,\"y\":2.5,\"z\":0.0},\"orientation\":{\"x\":0.0,\"y\":0.0,\"z\":0.247404,\"w\":0.968912}}}");
     transport.emit("/map", "{\"info\":{\"width\":3,\"height\":2,\"resolution\":0.05,\"origin\":{\"position\":{\"x\":-1.5,\"y\":-2.5}}},\"data\":[0,100,-1,0,0,100]}");
 
     if (adapter.get_battery() != 67) {
