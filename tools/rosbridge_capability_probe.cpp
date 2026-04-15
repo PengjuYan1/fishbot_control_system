@@ -203,6 +203,33 @@ int extract_int_value(const std::string& payload, const std::string& key, int de
     }
 }
 
+bool extract_int_field(const std::string& payload, const std::string& key, int* value) {
+    const auto start = find_value_start(payload, key);
+    if (start == std::string::npos) {
+        return false;
+    }
+
+    auto end = start;
+    if (end < payload.size() && (payload[end] == '-' || payload[end] == '+')) {
+        ++end;
+    }
+    while (end < payload.size() && std::isdigit(static_cast<unsigned char>(payload[end])) != 0) {
+        ++end;
+    }
+    if (end == start || (end == start + 1 && (payload[start] == '-' || payload[start] == '+'))) {
+        return false;
+    }
+
+    try {
+        if (value != nullptr) {
+            *value = std::stoi(payload.substr(start, end - start));
+        }
+        return true;
+    } catch (const std::exception&) {
+        return false;
+    }
+}
+
 bool call_service_with_aliases(RosbridgeWebsocketTransport& transport,
                                const std::vector<std::string>& aliases,
                                const std::string& type,
@@ -564,17 +591,16 @@ int main(int argc, char** argv) {
         check.matched_topic = resolve_topic_alias(topics, requirement.aliases);
         check.topic_present = !check.matched_topic.empty();
         if (check.topic_present) {
-            check.topic_type = lookup_topic_type(transport, check.matched_topic);
-            check.type_matches = contains_string(requirement.accepted_types, check.topic_type);
-            if (check.type_matches) {
-                auto tracker = std::make_shared<StreamTracker>();
-                if (transport.subscribe(check.matched_topic, check.topic_type,
-                                        [tracker](const std::string& payload) {
-                                            ++tracker->count;
-                                            std::lock_guard<std::mutex> lock(tracker->mutex);
-                                            tracker->last_payload = payload;
-                                        })) {
-                    topic_trackers[check.name] = tracker;
+            auto tracker = std::make_shared<StreamTracker>();
+            if (transport.subscribe(check.matched_topic, "",
+                                    [tracker](const std::string& payload) {
+                                        ++tracker->count;
+                                        std::lock_guard<std::mutex> lock(tracker->mutex);
+                                        tracker->last_payload = payload;
+                                    })) {
+                topic_trackers[check.name] = tracker;
+                if (requirement.accepted_types.size() == 1) {
+                    check.topic_type = requirement.accepted_types.front();
                 }
             }
         }
@@ -620,8 +646,13 @@ int main(int argc, char** argv) {
             payload = tracker_it->second->last_payload;
         }
         if (!payload.empty()) {
-            check.has_sample_data = true;
-            check.sample_data = extract_int_value(payload, "data", 0);
+            int sample_data = 0;
+            if (extract_int_field(payload, "data", &sample_data)) {
+                check.has_sample_data = true;
+                check.sample_data = sample_data;
+                check.type_matches = contains_string(
+                    std::vector<std::string>{"std_msgs/Int16"}, check.topic_type);
+            }
         }
     }
 

@@ -222,6 +222,7 @@ int main() {
         output.find("\"name\":\"location_status\",\"topic_present\":true") == std::string::npos ||
         output.find("\"name\":\"navigation_status\",\"topic_present\":true") == std::string::npos ||
         output.find("\"name\":\"charge_status\",\"topic_present\":true") == std::string::npos ||
+        output.find("\"status_types_matched\":14") == std::string::npos ||
         output.find("\"status_streams_live\":14") == std::string::npos ||
         output.find("\"sample_data\":88") == std::string::npos ||
         output.find("\"sample_data\":83") == std::string::npos ||
