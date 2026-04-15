@@ -422,8 +422,14 @@ int main(int argc, char** argv) {
         return EXIT_FAILURE;
     }
 
-    RosbridgeWebsocketTransport transport(host, port);
-    if (!transport.connect()) {
+    RosbridgeWebsocketTransport probe_transport(host, port);
+    if (!probe_transport.connect()) {
+        std::cerr << "failed to connect rosbridge at " << host << ":" << port << "\n";
+        return EXIT_FAILURE;
+    }
+
+    RosbridgeWebsocketTransport adapter_transport(host, port);
+    if (!adapter_transport.connect()) {
         std::cerr << "failed to connect rosbridge at " << host << ":" << port << "\n";
         return EXIT_FAILURE;
     }
@@ -436,14 +442,14 @@ int main(int argc, char** argv) {
     std::string services_endpoint;
     std::string topics_endpoint;
     const bool services_query_ok = call_service_with_aliases(
-        transport,
+        probe_transport,
         {"/rosapi/services", "rosapi/services"},
         "rosapi/Services",
         "{}",
         &services_response,
         &services_endpoint);
     const bool topics_query_ok = call_service_with_aliases(
-        transport,
+        probe_transport,
         {"/rosapi/topics", "rosapi/topics"},
         "rosapi/Topics",
         "{}",
@@ -545,16 +551,16 @@ int main(int argc, char** argv) {
         check.matched_topic = resolve_topic_alias(topics, requirement.aliases);
         check.topic_present = !check.matched_topic.empty();
         if (check.topic_present) {
-            check.topic_type = lookup_topic_type(transport, check.matched_topic);
+            check.topic_type = lookup_topic_type(probe_transport, check.matched_topic);
             check.type_matches = contains_string(requirement.accepted_types, check.topic_type);
             if (check.type_matches) {
                 auto tracker = std::make_shared<StreamTracker>();
-                if (transport.subscribe(check.matched_topic, check.topic_type,
-                                        [tracker](const std::string& payload) {
-                                            ++tracker->count;
-                                            std::lock_guard<std::mutex> lock(tracker->mutex);
-                                            tracker->last_payload = payload;
-                                        })) {
+                if (probe_transport.subscribe(check.matched_topic, check.topic_type,
+                                              [tracker](const std::string& payload) {
+                                                  ++tracker->count;
+                                                  std::lock_guard<std::mutex> lock(tracker->mutex);
+                                                  tracker->last_payload = payload;
+                                              })) {
                     topic_trackers[check.name] = tracker;
                 }
             }
@@ -568,16 +574,16 @@ int main(int argc, char** argv) {
         check.matched_topic = resolve_topic_alias(topics, requirement.aliases);
         check.topic_present = !check.matched_topic.empty();
         if (check.topic_present) {
-            check.topic_type = lookup_topic_type(transport, check.matched_topic);
+            check.topic_type = lookup_topic_type(probe_transport, check.matched_topic);
             check.type_matches = contains_string(requirement.accepted_types, check.topic_type);
             if (check.type_matches) {
                 auto tracker = std::make_shared<StreamTracker>();
-                if (transport.subscribe(check.matched_topic, check.topic_type,
-                                        [tracker](const std::string& payload) {
-                                            ++tracker->count;
-                                            std::lock_guard<std::mutex> lock(tracker->mutex);
-                                            tracker->last_payload = payload;
-                                        })) {
+                if (probe_transport.subscribe(check.matched_topic, check.topic_type,
+                                              [tracker](const std::string& payload) {
+                                                  ++tracker->count;
+                                                  std::lock_guard<std::mutex> lock(tracker->mutex);
+                                                  tracker->last_payload = payload;
+                                              })) {
                     topic_trackers[check.name] = tracker;
                 }
             }
@@ -592,12 +598,12 @@ int main(int argc, char** argv) {
         check.topic_present = !check.matched_topic.empty();
         if (check.topic_present) {
             auto tracker = std::make_shared<StreamTracker>();
-            if (transport.subscribe(check.matched_topic, "",
-                                    [tracker](const std::string& payload) {
-                                        ++tracker->count;
-                                        std::lock_guard<std::mutex> lock(tracker->mutex);
-                                        tracker->last_payload = payload;
-                                    })) {
+            if (probe_transport.subscribe(check.matched_topic, "",
+                                          [tracker](const std::string& payload) {
+                                              ++tracker->count;
+                                              std::lock_guard<std::mutex> lock(tracker->mutex);
+                                              tracker->last_payload = payload;
+                                          })) {
                 topic_trackers[check.name] = tracker;
                 if (requirement.accepted_types.size() == 1) {
                     check.topic_type = requirement.accepted_types.front();
@@ -607,7 +613,7 @@ int main(int argc, char** argv) {
         status_checks.push_back(check);
     }
 
-    RosbridgeAdapter adapter(&transport);
+    RosbridgeAdapter adapter(&adapter_transport);
     const bool adapter_connected = adapter.connect();
     std::this_thread::sleep_for(std::chrono::milliseconds(wait_ms));
 
