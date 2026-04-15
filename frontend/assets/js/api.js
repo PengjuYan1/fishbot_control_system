@@ -63,7 +63,8 @@ window.fishbotApi = {
     return requestJson('/api/map/start-mapping', { method: 'POST', body: '' });
   },
   async saveMap(name) {
-    return requestJson('/api/map/save', { method: 'POST', body: name || 'web_map' });
+    const response = await requestJson('/api/map/save', { method: 'POST', body: name || 'web_map' });
+    return response;
   },
   async loadMap(floorId, mapId) {
     const body = new URLSearchParams({
@@ -90,11 +91,16 @@ window.fishbotApi = {
       floor_id: String(floorId),
       map_id: String(mapId),
     }).toString();
-    return requestJson('/api/maps/delete', {
+    const response = await requestJson('/api/maps/delete', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body,
     });
+    apiCache.maps = apiCache.maps.filter((map) =>
+      !(Number(map.floor_id) === Number(floorId) && Number(map.map_id) === Number(mapId)));
+    apiCache.points = apiCache.points.filter((point) =>
+      !(Number(point.floor_id) === Number(floorId) && Number(point.map_id) === Number(mapId)));
+    return response;
   },
   async getPoints() {
     try {
@@ -114,21 +120,31 @@ window.fishbotApi = {
     });
   },
   async createCurrentChargePoint() {
-    return requestJson('/api/points/charge/current', { method: 'POST', body: '' });
+    const point = await requestJson('/api/points/charge/current', { method: 'POST', body: '' });
+    apiCache.points = apiCache.points
+      .filter((item) => !(item.type === 'charge' && Number(item.id) === Number(point.id)))
+      .concat([point]);
+    return point;
   },
   async createCurrentNavPoint() {
-    return requestJson('/api/points/nav/current', { method: 'POST', body: '' });
+    const point = await requestJson('/api/points/nav/current', { method: 'POST', body: '' });
+    apiCache.points = apiCache.points.concat([point]);
+    return point;
   },
   async createCurrentFeedPoint() {
-    return requestJson('/api/points/feed/current', { method: 'POST', body: '' });
+    const point = await requestJson('/api/points/feed/current', { method: 'POST', body: '' });
+    apiCache.points = apiCache.points.concat([point]);
+    return point;
   },
   async deletePoint(id) {
     const body = new URLSearchParams({ id: String(id) }).toString();
-    return requestJson('/api/points/delete', {
+    const point = await requestJson('/api/points/delete', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body,
     });
+    apiCache.points = apiCache.points.filter((item) => Number(item.id) !== Number(id));
+    return point;
   },
   async getSchedules() {
     return [

@@ -851,13 +851,41 @@ document.addEventListener('DOMContentLoaded', async () => {
     return;
   }
 
+  let previousSystem = null;
+  let previousPoints = null;
+  let previousMaps = null;
+  let previousMap = null;
+  let previousRobotPose = null;
+
   window.fishbotStore.subscribe(() => {
-    updateDashboardStatus();
-    renderPointListPanel();
-    renderMapListPanel();
-    if (typeof window.renderMapOverlay === 'function') {
+    const state = window.fishbotStore.getState();
+    const nextSystem = state.system;
+    const nextPoints = state.points;
+    const nextMaps = state.maps;
+    const nextMap = state.map;
+    const nextRobotPose = state.robot ? state.robot.pose : null;
+
+    if (previousSystem !== nextSystem) {
+      updateDashboardStatus();
+    }
+    if (previousPoints !== nextPoints) {
+      renderPointListPanel();
+    }
+    if (previousMaps !== nextMaps) {
+      renderMapListPanel();
+    }
+    if (
+      typeof window.renderMapOverlay === 'function' &&
+      (previousMap !== nextMap || previousPoints !== nextPoints || previousRobotPose !== nextRobotPose)
+    ) {
       window.renderMapOverlay();
     }
+
+    previousSystem = nextSystem;
+    previousPoints = nextPoints;
+    previousMaps = nextMaps;
+    previousMap = nextMap;
+    previousRobotPose = nextRobotPose;
   });
   updateDashboardStatus();
   renderPointListPanel();
